@@ -1,9 +1,120 @@
 ParentClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/BaseCamperItem.BaseCamperItem_C
-SimpleConstructionScript: 
-ComponentTemplates: [  ]
-InheritableComponentHandler: 
+SimpleConstructionScript: ItemMesh: {	
+	SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/ToolBox/Models/SK_Toolbox01_REF.SK_Toolbox01_REF
+	CastShadow: True
+	bCastCinematicShadow: True
+	BodyInstance: {
+		CollisionResponses: {
+			ResponseArray: [ {
+				Channel: WorldStatic
+				Response: ECR_Ignore
+				}, {
+				Channel: WorldDynamic
+				Response: ECR_Ignore
+				}, {
+				Channel: Pawn
+				Response: ECR_Ignore
+				}, {
+				Channel: Visibility
+				Response: ECR_Ignore
+				}, {
+				Channel: Camera
+				Response: ECR_Ignore
+				}, {
+				Channel: PhysicsBody
+				Response: ECR_Ignore
+				}, {
+				Channel: Vehicle
+				Response: ECR_Ignore
+				}, {
+				Channel: Destructible
+				Response: ECR_Ignore
+				}, {
+				Channel: EngineTraceChannel1
+				Response: ECR_Ignore
+				}, {
+				Channel: EngineTraceChannel2
+				Response: ECR_Ignore
+				}, {
+				Channel: EngineTraceChannel3
+				Response: ECR_Ignore
+				}, {
+				Channel: EngineTraceChannel4
+				Response: ECR_Ignore
+				}, {
+				Channel: EngineTraceChannel5
+				Response: ECR_Ignore
+				}, {
+				Channel: EngineTraceChannel6
+				Response: ECR_Ignore
+				}, {
+				Channel: Interactable
+				Response: ECR_Ignore
+				}, {
+				Channel: Audio
+				Response: ECR_Ignore
+				}, {
+				Channel: Slasher
+				Response: ECR_Ignore
+				}, {
+				Channel: Spider
+				Response: ECR_Ignore
+				}, {
+				Channel: Traps
+				Response: ECR_Ignore
+				} ]
+			}
+		MassInKgOverride: 23.03355f
+		}
+	}
+ComponentTemplates: [ AttachParent: 42
+RelativeLocation: { Vector [X=0, Y=0, Z=-20] }
+ ]
+InheritableComponentHandler: ItemModifier: {	
+	ModifierData: {
+		Modifiers: [ {
+			Type: {
+				TagName: GameplayModifierType.IncreaseItemCharge
+				}
+			ModifierValue: 90f
+			}, {
+			Type: {
+				TagName: GameplayModifierType.ModifyItemMaxCharge
+				}
+			ModifierValue: 90f
+			} ]
+		}
+	}
 BlueprintSystemVersion: 2
-GeneratedClass: 
+GeneratedClass: Default__ToolBox_C: {	
+	UberGraphFrame: {
+		}
+	HandPosition: EItemHandPosition::HandleItem
+	HasUseInteraction: True
+	Draft: False
+	ItemID: Item_Camper_Toolbox
+	BaseItemModifier: ItemModifier1: {	
+		}
+	ItemModifier1: ItemModifier2: {	
+		ModifierData: {
+			Conditions: [ BlueprintGeneratedClass /Game/Blueprints/Perks/PerkConditions/PlayerIsSabotagingWithToolbox.PlayerIsSabotagingWithToolbox_C ]
+			Modifiers: [ {
+				Type: {
+					TagName: GameplayModifierType.ModifyItemEfficiency
+					}
+				ModifierValue: -0.66667f
+				} ]
+			}
+		}
+	ItemModifier2: Particle System Component: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/P_DustRing.P_DustRing
+		RelativeLocation: { Vector [X=0, Y=0, Z=-10] }
+		}
+	_mesh: 42
+	_placementOrigin: DefaultSceneRootA7BF0E2E4AAD4DBE301B978C20B5396A: {	
+		}
+	RootComponent: 42
+	}
 bLegacyNeedToPurgeSkelRefs: False
 bLegacyGeneratedClassIsAuthoritative: True
 BlueprintGuid: { 22cfb123-9cad-4f69-94fc-21f938da0fff }
