@@ -1,0 +1,431 @@
+Emitters: [ {{ 
+EmitterName: Rocks
+LODLevels: [ {{ 
+Acceleration: {
+	MinValue: -600f
+	Distribution: RequiredDistributionSpawnRate: {	
+		}
+	Table: { [Skipped] }
+	}
+bAlwaysInWorldSpace: True
+LODValidity: 3
+ }}
+, {{ 
+RequiredModule: ParticleModuleRotation: {	
+	StartRotation: {
+		MinValue: -1f
+		MaxValue: 1f
+		Distribution: 
+		Table: { [Skipped] }
+		}
+	LODValidity: 3
+	}
+Modules: [ {{ 
+StartRadius: {
+	MinValue: 10f
+	MaxValue: 10f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+StartHeight: {
+	MinValue: 50f
+	MaxValue: 50f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+Velocity: True
+VelocityScale: {
+	MinValue: 10f
+	MaxValue: 20f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+StartLocation: {
+	Distribution: 
+	Table: { [Skipped] }
+	}
+LODValidity: 3
+ }}
+, {{ 
+LifeMultiplier: {
+	MaxValue: 1f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+LODValidity: 3
+ }}
+, {{ 
+VelOverLife: {
+	MinValue: 0.1f
+	MaxValue: 1f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+bInWorldSpace: True
+LODValidity: 3
+ }}
+, {{ 
+Animation: SubUVAnimation /Game/Effects/Textures/T_SmokeSubUV_8X8_SubUV.T_SmokeSubUV_8X8_SubUV
+SubImageIndex: {
+	MaxValue: 64f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+LODValidity: 3
+ }}
+, {{ 
+ColorOverLife: {
+	MaxValue: 0.015f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+AlphaOverLife: {
+	MaxValue: 0.15f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+bClampAlpha: False
+LODValidity: 3
+ }}
+, {{ 
+StartRadius: {
+	MinValue: 4f
+	MaxValue: 4f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+Velocity: True
+VelocityScale: {
+	MinValue: 50f
+	MaxValue: 60f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+StartLocation: {
+	MinValue: -30f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+LODValidity: 3
+ }}
+, {{ 
+Acceleration: {
+	MinValue: -300f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+bAlwaysInWorldSpace: True
+LODValidity: 3
+ }}
+, {{ 
+StartRotationRate: {
+	MinValue: -3f
+	MaxValue: 3f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+LODValidity: 3
+ }}
+, {{ 
+StartSize: {
+	MinValue: 1f
+	MaxValue: 25f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+LODValidity: 3
+ }}
+, {{ 
+LifeMultiplier: {
+	MinValue: 1f
+	MaxValue: 3f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+LODValidity: 3
+ }}
+, {{ 
+Rate: {
+	Distribution: 
+	Table: { [Skipped] }
+	}
+RateScale: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+BurstList: [ {
+	Count: 20
+	CountLow: -1
+	Time: 0f
+	} ]
+BurstScale: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+LODValidity: 1
+ }}
+ ]
+SpawnModule: ParticleModuleSubUV: {	
+	Animation: SubUVAnimation /Game/Effects/Textures/T_Rocks_SubUV.T_Rocks_SubUV
+	SubImageIndex: {
+		Distribution: ParticleLODLevel: {	
+			RequiredModule: ParticleModuleRequired: {	
+				Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Rocks.MI_Rocks
+				bKillOnDeactivate: True
+				bKillOnCompleted: True
+				bUseLegacyEmitterTime: False
+				EmitterLoops: 1
+				SpawnRate: {
+					Distribution: DistributionFloatConstantCurve: {	
+						ConstantCurve: {
+							Points: [ {
+								InVal: 0f
+								OutVal: 0f
+								ArriveTangent: 0f
+								LeaveTangent: 0f
+								InterpMode: CIM_Linear
+								}, {
+								InVal: 1f
+								OutVal: 0f
+								ArriveTangent: 0f
+								LeaveTangent: 0f
+								InterpMode: CIM_Linear
+								} ]
+							}
+						}
+					}
+				InterpolationMethod: PSUVIM_Random
+				SubImages_Horizontal: 2
+				SubImages_Vertical: 2
+				RandomImageTime: 1f
+				LODValidity: 3
+				}
+			Modules: [ {{ 
+			Lifetime: {
+				MinValue: 0.7f
+				MaxValue: 2f
+				Distribution: 
+				Table: { [Skipped] }
+				}
+			LODValidity: 3
+			 }}
+			, {{ 
+			Material: Material /Game/Effects/Materials/M_cloud_lit.M_cloud_lit
+			bKillOnDeactivate: True
+			bKillOnCompleted: True
+			SortMode: PSORTMODE_Age_OldestFirst
+			bUseLegacyEmitterTime: False
+			EmitterDuration: 3f
+			EmitterLoops: 1
+			SpawnRate: {
+				Distribution: RequiredDistributionSpawnRate: {	
+					}
+				}
+			InterpolationMethod: PSUVIM_Linear_Blend
+			SubImages_Horizontal: 8
+			SubImages_Vertical: 8
+			RandomImageTime: 1f
+			MacroUVRadius: 1000f
+			LODValidity: 3
+			 }}
+			, {{ 
+			StartSize: {
+				MaxValue: 7f
+				Distribution: 
+				Table: { [Skipped] }
+				}
+			LODValidity: 3
+			 }}
+			, {{ 
+			Lifetime: {
+				MinValue: 0.8f
+				MaxValue: 1f
+				Distribution: 
+				Table: { [Skipped] }
+				}
+			LODValidity: 3
+			 }}
+			, {{ 
+			StartVelocity: {
+				MaxValue: 300f
+				Distribution: 
+				Table: { [Skipped] }
+				}
+			StartVelocityRadial: {
+				MaxValue: 10f
+				Distribution: 
+				Table: { [Skipped] }
+				}
+			bInWorldSpace: True
+			LODValidity: 3
+			 }}
+			, {{ 
+			StartRotation: {
+				MaxValue: 1f
+				Distribution: 
+				Table: { [Skipped] }
+				}
+			LODValidity: 3
+			 }}
+			, {{ 
+			SizeScale: {
+				MinValue: 0.5f
+				MaxValue: 0.5f
+				Distribution: 
+				Table: { [Skipped] }
+				}
+			LODValidity: 3
+			 }}
+			, {{ 
+			StartVelocity: {
+				MaxValue: 100f
+				Distribution: 
+				Table: { [Skipped] }
+				}
+			StartVelocityRadial: {
+				Distribution: 
+				Table: { [Skipped] }
+				}
+			LODValidity: 3
+			 }}
+			, {{ 
+			StartColor: {
+				MinValue: 0.025f
+				MaxValue: 0.067f
+				Distribution: 
+				Table: { [Skipped] }
+				}
+			StartAlpha: {
+				MinValue: 1f
+				MaxValue: 1f
+				Distribution: 
+				Table: { [Skipped] }
+				}
+			LODValidity: 3
+			 }}
+			, {{ 
+			EmitterName: Smoke
+			LODLevels: [ {{ 
+			Level: 1
+			RequiredModule: 
+			Modules: [ , , , , , , , , , , {{ 
+			DragCoefficientRaw: {
+				MinValue: 0.5f
+				MaxValue: 0.5f
+				Distribution: 
+				Table: { [Skipped] }
+				}
+			bAlwaysInWorldSpace: True
+			LODValidity: 3
+			 }}
+			 ]
+			SpawnModule: ParticleModuleSpawn: {	
+				Rate: {
+					Distribution: 
+					Table: { [Skipped] }
+					}
+				RateScale: {
+					MinValue: 1f
+					MaxValue: 1f
+					Distribution: 
+					Table: { [Skipped] }
+					}
+				BurstList: [ {
+					Count: 0
+					CountLow: -1
+					Time: 0f
+					} ]
+				BurstScale: {
+					MinValue: 1f
+					MaxValue: 1f
+					Distribution: 
+					Table: { [Skipped] }
+					}
+				LODValidity: 2
+				}
+			PeakActiveParticles: 1
+			 }}
+			, {{ 
+			Level: 1
+			RequiredModule: 
+			Modules: [ , , , , , , , , , ,  ]
+			SpawnModule: ParticleModuleSpawn: {	
+				Rate: {
+					Distribution: 
+					Table: { [Skipped] }
+					}
+				RateScale: {
+					MinValue: 1f
+					MaxValue: 1f
+					Distribution: 
+					Table: { [Skipped] }
+					}
+				BurstList: [ {
+					Count: 10
+					CountLow: -1
+					Time: 0f
+					} ]
+				BurstScale: {
+					MinValue: 1f
+					MaxValue: 1f
+					Distribution: 
+					Table: { [Skipped] }
+					}
+				LODValidity: 1
+				}
+			PeakActiveParticles: 1
+			 }}
+			 ]
+			 }}
+			,  ]
+			SpawnModule: ParticleModuleSpawn: {	
+				Rate: {
+					Distribution: 
+					Table: { [Skipped] }
+					}
+				RateScale: {
+					MinValue: 1f
+					MaxValue: 1f
+					Distribution: 
+					Table: { [Skipped] }
+					}
+				BurstList: [ {
+					Count: 0
+					CountLow: -1
+					Time: 0f
+					} ]
+				BurstScale: {
+					MinValue: 1f
+					MaxValue: 1f
+					Distribution: 
+					Table: { [Skipped] }
+					}
+				LODValidity: 2
+				}
+			PeakActiveParticles: 23
+			}
+		}
+	LODValidity: 3
+	}
+PeakActiveParticles: 12
+ }}
+ ]
+ }}
+, this ]
+CurveEdSetup: 
+LODDistances: [ 0, 2000 ]
+LODSettings: [ {
+	}, {
+	} ]
+bUseFixedRelativeBoundingBox: True
+FixedRelativeBoundingBox: { {{ 
+	Min: Vector [X=-400, Y=-400, Z=-400]
+	Max: Vector [X=400, Y=400, Z=400]
+	IsValid: 1
+	 }}
+	 }
+bShouldResetPeakCounts: True
