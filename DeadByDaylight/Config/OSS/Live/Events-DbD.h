@@ -48,6 +48,9 @@ EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDDLC7Slasher
 EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDDLC8CamperStat1_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
 EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDDLC8SlasherStat1_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
 EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDDLC8SlasherStat2_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
+EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDDLC9CamperStat1_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
+EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDDLC9SlasherStat1_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
+EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDDLC9SlasherStat2_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
 EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDEscape_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
 EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDEscapeKO_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
 EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDEscapeNoBloodMapAsyAsylum_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
@@ -58,6 +61,7 @@ EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDEvent1Stat2
 EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDEvent1Stat3_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
 EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDFinishWithPerksIdx0_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
 EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDFinishWithPerksIdx1_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
+EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDFinishWithPerksIdx10_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
 EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDFinishWithPerksIdx11_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
 EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDFinishWithPerksIdx12_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
 EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDFinishWithPerksIdx2_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
@@ -72,6 +76,7 @@ EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDFinishWithP
 EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDFinishWithPerksIdx268435464_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
 EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDFinishWithPerksIdx268435465_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
 EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDFinishWithPerksIdx268435466_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
+EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDFinishWithPerksIdx268435467_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
 EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDFinishWithPerksIdx3_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
 EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDFinishWithPerksIdx4_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
 EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDFinishWithPerksIdx5_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
@@ -79,6 +84,7 @@ EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDFinishWithP
 EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDFinishWithPerksIdx8_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
 EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDFinishWithPerksIdx9_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
 EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDFixSecondFloorGeneratorMapAsyAsylum_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
+EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDFixSecondFloorGeneratorMapAsyChapel_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
 EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDFixSecondFloorGeneratorMapBrlMaHouse_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
 EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDFixSecondFloorGeneratorMapFinHideout_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
 EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_DBDFixSecondFloorGeneratorMapSubStreet_Fields[4] = {{EtxFieldType_UnicodeString,0},{EtxFieldType_UnicodeString,0},{EtxFieldType_GUID,0},{EtxFieldType_Int32,0}};
@@ -162,88 +168,94 @@ EXTERN_C __declspec(selectany) ETX_FIELD_DESCRIPTOR STBR_061AE4E7_ViewOffer_Fiel
 #define DBDDLC8CamperStat1_value 31
 #define DBDDLC8SlasherStat1_value 32
 #define DBDDLC8SlasherStat2_value 33
-#define DBDEscape_value 34
-#define DBDEscapeKO_value 35
-#define DBDEscapeNoBloodMapAsyAsylum_value 36
-#define DBDEscapeNoBloodObsession_value 37
-#define DBDEscapeThroughHatch_value 38
-#define DBDEvent1Stat1_value 39
-#define DBDEvent1Stat2_value 40
-#define DBDEvent1Stat3_value 41
-#define DBDFinishWithPerksIdx0_value 42
-#define DBDFinishWithPerksIdx1_value 43
-#define DBDFinishWithPerksIdx11_value 44
-#define DBDFinishWithPerksIdx12_value 45
-#define DBDFinishWithPerksIdx2_value 46
-#define DBDFinishWithPerksIdx268435456_value 47
-#define DBDFinishWithPerksIdx268435457_value 48
-#define DBDFinishWithPerksIdx268435458_value 49
-#define DBDFinishWithPerksIdx268435459_value 50
-#define DBDFinishWithPerksIdx268435460_value 51
-#define DBDFinishWithPerksIdx268435461_value 52
-#define DBDFinishWithPerksIdx268435462_value 53
-#define DBDFinishWithPerksIdx268435463_value 54
-#define DBDFinishWithPerksIdx268435464_value 55
-#define DBDFinishWithPerksIdx268435465_value 56
-#define DBDFinishWithPerksIdx268435466_value 57
-#define DBDFinishWithPerksIdx3_value 58
-#define DBDFinishWithPerksIdx4_value 59
-#define DBDFinishWithPerksIdx5_value 60
-#define DBDFinishWithPerksIdx6_value 61
-#define DBDFinishWithPerksIdx8_value 62
-#define DBDFinishWithPerksIdx9_value 63
-#define DBDFixSecondFloorGeneratorMapAsyAsylum_value 64
-#define DBDFixSecondFloorGeneratorMapBrlMaHouse_value 65
-#define DBDFixSecondFloorGeneratorMapFinHideout_value 66
-#define DBDFixSecondFloorGeneratorMapSubStreet_value 67
-#define DBDFixSecondFloorGeneratorMapSwpPaleRose_value 68
-#define DBDGeneratorPctfloat_value 69
-#define DBDHealPctfloat_value 70
-#define DBDHookedAndEscape_value 71
-#define DBDKilledCampers_value 72
-#define DBDKilledCampersiam_value 73
-#define DBDKillerSkulls_value 74
-#define DBDMaxBloodwebPointsOneCategory_value 75
-#define DBDPerksCountIdx0_value 76
-#define DBDPerksCountIdx1_value 77
-#define DBDPerksCountIdx2_value 78
-#define DBDPerksCountIdx268435456_value 79
-#define DBDPerksCountIdx268435457_value 80
-#define DBDPerksCountIdx268435458_value 81
-#define DBDPerksCountIdx3_value 82
-#define DBDSacrificedCampers_value 83
-#define DBDSacrificedCampersiam_value 84
-#define DBDSkillCheckSuccess_value 85
-#define DBDSlasherChainAttack_value 86
-#define DBDSlasherChainInterruptAfter3_value 87
-#define DBDSlasherFullLoadout_value 88
-#define DBDSlasherMaxScoreByCategory_value 89
-#define DBDSlasherPowerKillAllCampers_value 90
-#define DBDSlasherTierIncrement_value 91
-#define DBDTrapPickup_value 92
-#define DBDUncloakAttack_value 93
-#define DBDUnhookOrHeal_value 94
-#define DBDUnhookOrHealPostExit_value 95
-#define DBDUnlockRanking_value 96
-#define GameProgress_value 97
-#define MediaUsage_value 98
-#define MultiplayerRoundEnd_value 99
-#define MultiplayerRoundStart_value 100
-#define ObjectiveEnd_value 101
-#define ObjectiveStart_value 102
-#define PageAction_value 103
-#define PageView_value 104
-#define PlayerSessionEnd_value 105
-#define PlayerSessionPause_value 106
-#define PlayerSessionResume_value 107
-#define PlayerSessionStart_value 108
-#define SectionEnd_value 109
-#define SectionStart_value 110
-#define ViewOffer_value 111
+#define DBDDLC9CamperStat1_value 34
+#define DBDDLC9SlasherStat1_value 35
+#define DBDDLC9SlasherStat2_value 36
+#define DBDEscape_value 37
+#define DBDEscapeKO_value 38
+#define DBDEscapeNoBloodMapAsyAsylum_value 39
+#define DBDEscapeNoBloodObsession_value 40
+#define DBDEscapeThroughHatch_value 41
+#define DBDEvent1Stat1_value 42
+#define DBDEvent1Stat2_value 43
+#define DBDEvent1Stat3_value 44
+#define DBDFinishWithPerksIdx0_value 45
+#define DBDFinishWithPerksIdx1_value 46
+#define DBDFinishWithPerksIdx10_value 47
+#define DBDFinishWithPerksIdx11_value 48
+#define DBDFinishWithPerksIdx12_value 49
+#define DBDFinishWithPerksIdx2_value 50
+#define DBDFinishWithPerksIdx268435456_value 51
+#define DBDFinishWithPerksIdx268435457_value 52
+#define DBDFinishWithPerksIdx268435458_value 53
+#define DBDFinishWithPerksIdx268435459_value 54
+#define DBDFinishWithPerksIdx268435460_value 55
+#define DBDFinishWithPerksIdx268435461_value 56
+#define DBDFinishWithPerksIdx268435462_value 57
+#define DBDFinishWithPerksIdx268435463_value 58
+#define DBDFinishWithPerksIdx268435464_value 59
+#define DBDFinishWithPerksIdx268435465_value 60
+#define DBDFinishWithPerksIdx268435466_value 61
+#define DBDFinishWithPerksIdx268435467_value 62
+#define DBDFinishWithPerksIdx3_value 63
+#define DBDFinishWithPerksIdx4_value 64
+#define DBDFinishWithPerksIdx5_value 65
+#define DBDFinishWithPerksIdx6_value 66
+#define DBDFinishWithPerksIdx8_value 67
+#define DBDFinishWithPerksIdx9_value 68
+#define DBDFixSecondFloorGeneratorMapAsyAsylum_value 69
+#define DBDFixSecondFloorGeneratorMapAsyChapel_value 70
+#define DBDFixSecondFloorGeneratorMapBrlMaHouse_value 71
+#define DBDFixSecondFloorGeneratorMapFinHideout_value 72
+#define DBDFixSecondFloorGeneratorMapSubStreet_value 73
+#define DBDFixSecondFloorGeneratorMapSwpPaleRose_value 74
+#define DBDGeneratorPctfloat_value 75
+#define DBDHealPctfloat_value 76
+#define DBDHookedAndEscape_value 77
+#define DBDKilledCampers_value 78
+#define DBDKilledCampersiam_value 79
+#define DBDKillerSkulls_value 80
+#define DBDMaxBloodwebPointsOneCategory_value 81
+#define DBDPerksCountIdx0_value 82
+#define DBDPerksCountIdx1_value 83
+#define DBDPerksCountIdx2_value 84
+#define DBDPerksCountIdx268435456_value 85
+#define DBDPerksCountIdx268435457_value 86
+#define DBDPerksCountIdx268435458_value 87
+#define DBDPerksCountIdx3_value 88
+#define DBDSacrificedCampers_value 89
+#define DBDSacrificedCampersiam_value 90
+#define DBDSkillCheckSuccess_value 91
+#define DBDSlasherChainAttack_value 92
+#define DBDSlasherChainInterruptAfter3_value 93
+#define DBDSlasherFullLoadout_value 94
+#define DBDSlasherMaxScoreByCategory_value 95
+#define DBDSlasherPowerKillAllCampers_value 96
+#define DBDSlasherTierIncrement_value 97
+#define DBDTrapPickup_value 98
+#define DBDUncloakAttack_value 99
+#define DBDUnhookOrHeal_value 100
+#define DBDUnhookOrHealPostExit_value 101
+#define DBDUnlockRanking_value 102
+#define GameProgress_value 103
+#define MediaUsage_value 104
+#define MultiplayerRoundEnd_value 105
+#define MultiplayerRoundStart_value 106
+#define ObjectiveEnd_value 107
+#define ObjectiveStart_value 108
+#define PageAction_value 109
+#define PageView_value 110
+#define PlayerSessionEnd_value 111
+#define PlayerSessionPause_value 112
+#define PlayerSessionResume_value 113
+#define PlayerSessionStart_value 114
+#define SectionEnd_value 115
+#define SectionStart_value 116
+#define ViewOffer_value 117
 
 // Event Descriptor array
 //
-EXTERN_C __declspec(selectany) ETX_EVENT_DESCRIPTOR STBR_061AE4E7Events[111] =  {
+EXTERN_C __declspec(selectany) ETX_EVENT_DESCRIPTOR STBR_061AE4E7Events[117] =  {
     {{ 1, 1, 0, 0, 0, 0, 0x0 }, "DBDAllEscapeThroughHatch", "0.7.IGB-2.1", STBR_061AE4E7_DBDAllEscapeThroughHatch_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
     {{ 2, 1, 0, 0, 0, 0, 0x0 }, "DBDBloodwebMaxLevel", "0.7.IGB-2.1", STBR_061AE4E7_DBDBloodwebMaxLevel_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
     {{ 3, 1, 0, 0, 0, 0, 0x0 }, "DBDBloodwebMaxPrestigeLevel", "0.7.IGB-2.1", STBR_061AE4E7_DBDBloodwebMaxPrestigeLevel_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
@@ -277,88 +289,94 @@ EXTERN_C __declspec(selectany) ETX_EVENT_DESCRIPTOR STBR_061AE4E7Events[111] =  
     {{ 31, 1, 0, 0, 0, 0, 0x0 }, "DBDDLC8CamperStat1", "0.7.IGB-2.1", STBR_061AE4E7_DBDDLC8CamperStat1_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
     {{ 32, 1, 0, 0, 0, 0, 0x0 }, "DBDDLC8SlasherStat1", "0.7.IGB-2.1", STBR_061AE4E7_DBDDLC8SlasherStat1_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
     {{ 33, 1, 0, 0, 0, 0, 0x0 }, "DBDDLC8SlasherStat2", "0.7.IGB-2.1", STBR_061AE4E7_DBDDLC8SlasherStat2_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 34, 1, 0, 0, 0, 0, 0x0 }, "DBDEscape", "0.7.IGB-2.1", STBR_061AE4E7_DBDEscape_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 35, 1, 0, 0, 0, 0, 0x0 }, "DBDEscapeKO", "0.7.IGB-2.1", STBR_061AE4E7_DBDEscapeKO_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 36, 1, 0, 0, 0, 0, 0x0 }, "DBDEscapeNoBloodMapAsyAsylum", "0.7.IGB-2.1", STBR_061AE4E7_DBDEscapeNoBloodMapAsyAsylum_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 37, 1, 0, 0, 0, 0, 0x0 }, "DBDEscapeNoBloodObsession", "0.7.IGB-2.1", STBR_061AE4E7_DBDEscapeNoBloodObsession_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 38, 1, 0, 0, 0, 0, 0x0 }, "DBDEscapeThroughHatch", "0.7.IGB-2.1", STBR_061AE4E7_DBDEscapeThroughHatch_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 39, 1, 0, 0, 0, 0, 0x0 }, "DBDEvent1Stat1", "0.7.IGB-2.1", STBR_061AE4E7_DBDEvent1Stat1_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 40, 1, 0, 0, 0, 0, 0x0 }, "DBDEvent1Stat2", "0.7.IGB-2.1", STBR_061AE4E7_DBDEvent1Stat2_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 41, 1, 0, 0, 0, 0, 0x0 }, "DBDEvent1Stat3", "0.7.IGB-2.1", STBR_061AE4E7_DBDEvent1Stat3_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 42, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx0", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx0_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 43, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx1", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx1_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 44, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx11", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx11_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 45, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx12", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx12_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 46, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx2", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx2_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 47, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx268435456", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx268435456_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 48, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx268435457", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx268435457_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 49, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx268435458", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx268435458_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 50, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx268435459", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx268435459_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 51, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx268435460", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx268435460_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 52, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx268435461", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx268435461_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 53, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx268435462", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx268435462_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 54, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx268435463", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx268435463_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 55, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx268435464", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx268435464_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 56, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx268435465", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx268435465_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 57, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx268435466", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx268435466_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 58, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx3", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx3_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 59, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx4", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx4_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 60, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx5", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx5_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 61, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx6", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx6_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 62, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx8", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx8_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 63, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx9", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx9_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 64, 1, 0, 0, 0, 0, 0x0 }, "DBDFixSecondFloorGeneratorMapAsyAsylum", "0.7.IGB-2.1", STBR_061AE4E7_DBDFixSecondFloorGeneratorMapAsyAsylum_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 65, 1, 0, 0, 0, 0, 0x0 }, "DBDFixSecondFloorGeneratorMapBrlMaHouse", "0.7.IGB-2.1", STBR_061AE4E7_DBDFixSecondFloorGeneratorMapBrlMaHouse_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 66, 1, 0, 0, 0, 0, 0x0 }, "DBDFixSecondFloorGeneratorMapFinHideout", "0.7.IGB-2.1", STBR_061AE4E7_DBDFixSecondFloorGeneratorMapFinHideout_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 67, 1, 0, 0, 0, 0, 0x0 }, "DBDFixSecondFloorGeneratorMapSubStreet", "0.7.IGB-2.1", STBR_061AE4E7_DBDFixSecondFloorGeneratorMapSubStreet_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 68, 1, 0, 0, 0, 0, 0x0 }, "DBDFixSecondFloorGeneratorMapSwpPaleRose", "0.7.IGB-2.1", STBR_061AE4E7_DBDFixSecondFloorGeneratorMapSwpPaleRose_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 69, 1, 0, 0, 0, 0, 0x0 }, "DBDGeneratorPctfloat", "0.7.IGB-2.1", STBR_061AE4E7_DBDGeneratorPctfloat_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 70, 1, 0, 0, 0, 0, 0x0 }, "DBDHealPctfloat", "0.7.IGB-2.1", STBR_061AE4E7_DBDHealPctfloat_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 71, 1, 0, 0, 0, 0, 0x0 }, "DBDHookedAndEscape", "0.7.IGB-2.1", STBR_061AE4E7_DBDHookedAndEscape_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 72, 1, 0, 0, 0, 0, 0x0 }, "DBDKilledCampers", "0.7.IGB-2.1", STBR_061AE4E7_DBDKilledCampers_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 73, 1, 0, 0, 0, 0, 0x0 }, "DBDKilledCampersiam", "0.7.IGB-2.1", STBR_061AE4E7_DBDKilledCampersiam_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 74, 1, 0, 0, 0, 0, 0x0 }, "DBDKillerSkulls", "0.7.IGB-2.1", STBR_061AE4E7_DBDKillerSkulls_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 75, 1, 0, 0, 0, 0, 0x0 }, "DBDMaxBloodwebPointsOneCategory", "0.7.IGB-2.1", STBR_061AE4E7_DBDMaxBloodwebPointsOneCategory_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 76, 1, 0, 0, 0, 0, 0x0 }, "DBDPerksCountIdx0", "0.7.IGB-2.1", STBR_061AE4E7_DBDPerksCountIdx0_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 77, 1, 0, 0, 0, 0, 0x0 }, "DBDPerksCountIdx1", "0.7.IGB-2.1", STBR_061AE4E7_DBDPerksCountIdx1_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 78, 1, 0, 0, 0, 0, 0x0 }, "DBDPerksCountIdx2", "0.7.IGB-2.1", STBR_061AE4E7_DBDPerksCountIdx2_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 79, 1, 0, 0, 0, 0, 0x0 }, "DBDPerksCountIdx268435456", "0.7.IGB-2.1", STBR_061AE4E7_DBDPerksCountIdx268435456_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 80, 1, 0, 0, 0, 0, 0x0 }, "DBDPerksCountIdx268435457", "0.7.IGB-2.1", STBR_061AE4E7_DBDPerksCountIdx268435457_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 81, 1, 0, 0, 0, 0, 0x0 }, "DBDPerksCountIdx268435458", "0.7.IGB-2.1", STBR_061AE4E7_DBDPerksCountIdx268435458_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 82, 1, 0, 0, 0, 0, 0x0 }, "DBDPerksCountIdx3", "0.7.IGB-2.1", STBR_061AE4E7_DBDPerksCountIdx3_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 83, 1, 0, 0, 0, 0, 0x0 }, "DBDSacrificedCampers", "0.7.IGB-2.1", STBR_061AE4E7_DBDSacrificedCampers_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 84, 1, 0, 0, 0, 0, 0x0 }, "DBDSacrificedCampersiam", "0.7.IGB-2.1", STBR_061AE4E7_DBDSacrificedCampersiam_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 85, 1, 0, 0, 0, 0, 0x0 }, "DBDSkillCheckSuccess", "0.7.IGB-2.1", STBR_061AE4E7_DBDSkillCheckSuccess_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 86, 1, 0, 0, 0, 0, 0x0 }, "DBDSlasherChainAttack", "0.7.IGB-2.1", STBR_061AE4E7_DBDSlasherChainAttack_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 87, 1, 0, 0, 0, 0, 0x0 }, "DBDSlasherChainInterruptAfter3", "0.7.IGB-2.1", STBR_061AE4E7_DBDSlasherChainInterruptAfter3_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 88, 1, 0, 0, 0, 0, 0x0 }, "DBDSlasherFullLoadout", "0.7.IGB-2.1", STBR_061AE4E7_DBDSlasherFullLoadout_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 89, 1, 0, 0, 0, 0, 0x0 }, "DBDSlasherMaxScoreByCategory", "0.7.IGB-2.1", STBR_061AE4E7_DBDSlasherMaxScoreByCategory_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 90, 1, 0, 0, 0, 0, 0x0 }, "DBDSlasherPowerKillAllCampers", "0.7.IGB-2.1", STBR_061AE4E7_DBDSlasherPowerKillAllCampers_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 91, 1, 0, 0, 0, 0, 0x0 }, "DBDSlasherTierIncrement", "0.7.IGB-2.1", STBR_061AE4E7_DBDSlasherTierIncrement_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 92, 1, 0, 0, 0, 0, 0x0 }, "DBDTrapPickup", "0.7.IGB-2.1", STBR_061AE4E7_DBDTrapPickup_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 93, 1, 0, 0, 0, 0, 0x0 }, "DBDUncloakAttack", "0.7.IGB-2.1", STBR_061AE4E7_DBDUncloakAttack_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 94, 1, 0, 0, 0, 0, 0x0 }, "DBDUnhookOrHeal", "0.7.IGB-2.1", STBR_061AE4E7_DBDUnhookOrHeal_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 95, 1, 0, 0, 0, 0, 0x0 }, "DBDUnhookOrHealPostExit", "0.7.IGB-2.1", STBR_061AE4E7_DBDUnhookOrHealPostExit_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 96, 1, 0, 0, 0, 0, 0x0 }, "DBDUnlockRanking", "0.7.IGB-2.1", STBR_061AE4E7_DBDUnlockRanking_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 97, 0, 0, 0, 0, 0, 0x0 }, "GameProgress", "0.7.IGGP-2.0", STBR_061AE4E7_GameProgress_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 98, 0, 0, 0, 0, 0, 0x0 }, "MediaUsage", "0.7.MAUMU-2.0", STBR_061AE4E7_MediaUsage_Fields, 27, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 99, 0, 0, 0, 0, 0, 0x0 }, "MultiplayerRoundEnd", "0.7.IGMRE-2.0", STBR_061AE4E7_MultiplayerRoundEnd_Fields, 11, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 100, 0, 0, 0, 0, 0, 0x0 }, "MultiplayerRoundStart", "0.7.IGMRS-2.0", STBR_061AE4E7_MultiplayerRoundStart_Fields, 9, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 101, 0, 0, 0, 0, 0, 0x0 }, "ObjectiveEnd", "0.7.IGOE-3.0", STBR_061AE4E7_ObjectiveEnd_Fields, 9, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 102, 0, 0, 0, 0, 0, 0x0 }, "ObjectiveStart", "0.7.IGOS-2.0", STBR_061AE4E7_ObjectiveStart_Fields, 8, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 103, 0, 0, 0, 0, 0, 0x0 }, "PageAction", "0.7.IGPA-1.0", STBR_061AE4E7_PageAction_Fields, 9, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 104, 0, 0, 0, 0, 0, 0x0 }, "PageView", "0.7.IGPV-1.0", STBR_061AE4E7_PageView_Fields, 9, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 105, 0, 0, 0, 0, 0, 0x0 }, "PlayerSessionEnd", "0.7.IGPSE-2.0", STBR_061AE4E7_PlayerSessionEnd_Fields, 7, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 106, 0, 0, 0, 0, 0, 0x0 }, "PlayerSessionPause", "0.7.IGPSPA-2.0", STBR_061AE4E7_PlayerSessionPause_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 107, 0, 0, 0, 0, 0, 0x0 }, "PlayerSessionResume", "0.7.IGPSR-2.0", STBR_061AE4E7_PlayerSessionResume_Fields, 6, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 108, 0, 0, 0, 0, 0, 0x0 }, "PlayerSessionStart", "0.7.IGPSS-2.0", STBR_061AE4E7_PlayerSessionStart_Fields, 6, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 109, 0, 0, 0, 0, 0, 0x0 }, "SectionEnd", "0.7.IGSE-2.0", STBR_061AE4E7_SectionEnd_Fields, 8, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 110, 0, 0, 0, 0, 0, 0x0 }, "SectionStart", "0.7.IGSS-2.0", STBR_061AE4E7_SectionStart_Fields, 7, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
-    {{ 111, 0, 0, 0, 0, 0, 0x0 }, "ViewOffer", "0.7.IGVO-1.0", STBR_061AE4E7_ViewOffer_Fields, 5, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault }};
+    {{ 34, 1, 0, 0, 0, 0, 0x0 }, "DBDDLC9CamperStat1", "0.7.IGB-2.1", STBR_061AE4E7_DBDDLC9CamperStat1_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 35, 1, 0, 0, 0, 0, 0x0 }, "DBDDLC9SlasherStat1", "0.7.IGB-2.1", STBR_061AE4E7_DBDDLC9SlasherStat1_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 36, 1, 0, 0, 0, 0, 0x0 }, "DBDDLC9SlasherStat2", "0.7.IGB-2.1", STBR_061AE4E7_DBDDLC9SlasherStat2_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 37, 1, 0, 0, 0, 0, 0x0 }, "DBDEscape", "0.7.IGB-2.1", STBR_061AE4E7_DBDEscape_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 38, 1, 0, 0, 0, 0, 0x0 }, "DBDEscapeKO", "0.7.IGB-2.1", STBR_061AE4E7_DBDEscapeKO_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 39, 1, 0, 0, 0, 0, 0x0 }, "DBDEscapeNoBloodMapAsyAsylum", "0.7.IGB-2.1", STBR_061AE4E7_DBDEscapeNoBloodMapAsyAsylum_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 40, 1, 0, 0, 0, 0, 0x0 }, "DBDEscapeNoBloodObsession", "0.7.IGB-2.1", STBR_061AE4E7_DBDEscapeNoBloodObsession_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 41, 1, 0, 0, 0, 0, 0x0 }, "DBDEscapeThroughHatch", "0.7.IGB-2.1", STBR_061AE4E7_DBDEscapeThroughHatch_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 42, 1, 0, 0, 0, 0, 0x0 }, "DBDEvent1Stat1", "0.7.IGB-2.1", STBR_061AE4E7_DBDEvent1Stat1_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 43, 1, 0, 0, 0, 0, 0x0 }, "DBDEvent1Stat2", "0.7.IGB-2.1", STBR_061AE4E7_DBDEvent1Stat2_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 44, 1, 0, 0, 0, 0, 0x0 }, "DBDEvent1Stat3", "0.7.IGB-2.1", STBR_061AE4E7_DBDEvent1Stat3_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 45, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx0", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx0_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 46, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx1", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx1_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 47, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx10", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx10_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 48, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx11", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx11_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 49, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx12", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx12_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 50, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx2", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx2_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 51, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx268435456", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx268435456_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 52, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx268435457", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx268435457_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 53, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx268435458", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx268435458_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 54, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx268435459", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx268435459_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 55, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx268435460", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx268435460_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 56, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx268435461", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx268435461_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 57, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx268435462", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx268435462_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 58, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx268435463", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx268435463_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 59, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx268435464", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx268435464_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 60, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx268435465", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx268435465_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 61, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx268435466", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx268435466_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 62, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx268435467", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx268435467_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 63, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx3", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx3_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 64, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx4", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx4_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 65, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx5", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx5_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 66, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx6", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx6_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 67, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx8", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx8_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 68, 1, 0, 0, 0, 0, 0x0 }, "DBDFinishWithPerksIdx9", "0.7.IGB-2.1", STBR_061AE4E7_DBDFinishWithPerksIdx9_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 69, 1, 0, 0, 0, 0, 0x0 }, "DBDFixSecondFloorGeneratorMapAsyAsylum", "0.7.IGB-2.1", STBR_061AE4E7_DBDFixSecondFloorGeneratorMapAsyAsylum_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 70, 1, 0, 0, 0, 0, 0x0 }, "DBDFixSecondFloorGeneratorMapAsyChapel", "0.7.IGB-2.1", STBR_061AE4E7_DBDFixSecondFloorGeneratorMapAsyChapel_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 71, 1, 0, 0, 0, 0, 0x0 }, "DBDFixSecondFloorGeneratorMapBrlMaHouse", "0.7.IGB-2.1", STBR_061AE4E7_DBDFixSecondFloorGeneratorMapBrlMaHouse_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 72, 1, 0, 0, 0, 0, 0x0 }, "DBDFixSecondFloorGeneratorMapFinHideout", "0.7.IGB-2.1", STBR_061AE4E7_DBDFixSecondFloorGeneratorMapFinHideout_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 73, 1, 0, 0, 0, 0, 0x0 }, "DBDFixSecondFloorGeneratorMapSubStreet", "0.7.IGB-2.1", STBR_061AE4E7_DBDFixSecondFloorGeneratorMapSubStreet_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 74, 1, 0, 0, 0, 0, 0x0 }, "DBDFixSecondFloorGeneratorMapSwpPaleRose", "0.7.IGB-2.1", STBR_061AE4E7_DBDFixSecondFloorGeneratorMapSwpPaleRose_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 75, 1, 0, 0, 0, 0, 0x0 }, "DBDGeneratorPctfloat", "0.7.IGB-2.1", STBR_061AE4E7_DBDGeneratorPctfloat_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 76, 1, 0, 0, 0, 0, 0x0 }, "DBDHealPctfloat", "0.7.IGB-2.1", STBR_061AE4E7_DBDHealPctfloat_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 77, 1, 0, 0, 0, 0, 0x0 }, "DBDHookedAndEscape", "0.7.IGB-2.1", STBR_061AE4E7_DBDHookedAndEscape_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 78, 1, 0, 0, 0, 0, 0x0 }, "DBDKilledCampers", "0.7.IGB-2.1", STBR_061AE4E7_DBDKilledCampers_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 79, 1, 0, 0, 0, 0, 0x0 }, "DBDKilledCampersiam", "0.7.IGB-2.1", STBR_061AE4E7_DBDKilledCampersiam_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 80, 1, 0, 0, 0, 0, 0x0 }, "DBDKillerSkulls", "0.7.IGB-2.1", STBR_061AE4E7_DBDKillerSkulls_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 81, 1, 0, 0, 0, 0, 0x0 }, "DBDMaxBloodwebPointsOneCategory", "0.7.IGB-2.1", STBR_061AE4E7_DBDMaxBloodwebPointsOneCategory_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 82, 1, 0, 0, 0, 0, 0x0 }, "DBDPerksCountIdx0", "0.7.IGB-2.1", STBR_061AE4E7_DBDPerksCountIdx0_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 83, 1, 0, 0, 0, 0, 0x0 }, "DBDPerksCountIdx1", "0.7.IGB-2.1", STBR_061AE4E7_DBDPerksCountIdx1_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 84, 1, 0, 0, 0, 0, 0x0 }, "DBDPerksCountIdx2", "0.7.IGB-2.1", STBR_061AE4E7_DBDPerksCountIdx2_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 85, 1, 0, 0, 0, 0, 0x0 }, "DBDPerksCountIdx268435456", "0.7.IGB-2.1", STBR_061AE4E7_DBDPerksCountIdx268435456_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 86, 1, 0, 0, 0, 0, 0x0 }, "DBDPerksCountIdx268435457", "0.7.IGB-2.1", STBR_061AE4E7_DBDPerksCountIdx268435457_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 87, 1, 0, 0, 0, 0, 0x0 }, "DBDPerksCountIdx268435458", "0.7.IGB-2.1", STBR_061AE4E7_DBDPerksCountIdx268435458_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 88, 1, 0, 0, 0, 0, 0x0 }, "DBDPerksCountIdx3", "0.7.IGB-2.1", STBR_061AE4E7_DBDPerksCountIdx3_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 89, 1, 0, 0, 0, 0, 0x0 }, "DBDSacrificedCampers", "0.7.IGB-2.1", STBR_061AE4E7_DBDSacrificedCampers_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 90, 1, 0, 0, 0, 0, 0x0 }, "DBDSacrificedCampersiam", "0.7.IGB-2.1", STBR_061AE4E7_DBDSacrificedCampersiam_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 91, 1, 0, 0, 0, 0, 0x0 }, "DBDSkillCheckSuccess", "0.7.IGB-2.1", STBR_061AE4E7_DBDSkillCheckSuccess_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 92, 1, 0, 0, 0, 0, 0x0 }, "DBDSlasherChainAttack", "0.7.IGB-2.1", STBR_061AE4E7_DBDSlasherChainAttack_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 93, 1, 0, 0, 0, 0, 0x0 }, "DBDSlasherChainInterruptAfter3", "0.7.IGB-2.1", STBR_061AE4E7_DBDSlasherChainInterruptAfter3_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 94, 1, 0, 0, 0, 0, 0x0 }, "DBDSlasherFullLoadout", "0.7.IGB-2.1", STBR_061AE4E7_DBDSlasherFullLoadout_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 95, 1, 0, 0, 0, 0, 0x0 }, "DBDSlasherMaxScoreByCategory", "0.7.IGB-2.1", STBR_061AE4E7_DBDSlasherMaxScoreByCategory_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 96, 1, 0, 0, 0, 0, 0x0 }, "DBDSlasherPowerKillAllCampers", "0.7.IGB-2.1", STBR_061AE4E7_DBDSlasherPowerKillAllCampers_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 97, 1, 0, 0, 0, 0, 0x0 }, "DBDSlasherTierIncrement", "0.7.IGB-2.1", STBR_061AE4E7_DBDSlasherTierIncrement_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 98, 1, 0, 0, 0, 0, 0x0 }, "DBDTrapPickup", "0.7.IGB-2.1", STBR_061AE4E7_DBDTrapPickup_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 99, 1, 0, 0, 0, 0, 0x0 }, "DBDUncloakAttack", "0.7.IGB-2.1", STBR_061AE4E7_DBDUncloakAttack_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 100, 1, 0, 0, 0, 0, 0x0 }, "DBDUnhookOrHeal", "0.7.IGB-2.1", STBR_061AE4E7_DBDUnhookOrHeal_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 101, 1, 0, 0, 0, 0, 0x0 }, "DBDUnhookOrHealPostExit", "0.7.IGB-2.1", STBR_061AE4E7_DBDUnhookOrHealPostExit_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 102, 1, 0, 0, 0, 0, 0x0 }, "DBDUnlockRanking", "0.7.IGB-2.1", STBR_061AE4E7_DBDUnlockRanking_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 103, 0, 0, 0, 0, 0, 0x0 }, "GameProgress", "0.7.IGGP-2.0", STBR_061AE4E7_GameProgress_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 104, 0, 0, 0, 0, 0, 0x0 }, "MediaUsage", "0.7.MAUMU-2.0", STBR_061AE4E7_MediaUsage_Fields, 27, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 105, 0, 0, 0, 0, 0, 0x0 }, "MultiplayerRoundEnd", "0.7.IGMRE-2.0", STBR_061AE4E7_MultiplayerRoundEnd_Fields, 11, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 106, 0, 0, 0, 0, 0, 0x0 }, "MultiplayerRoundStart", "0.7.IGMRS-2.0", STBR_061AE4E7_MultiplayerRoundStart_Fields, 9, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 107, 0, 0, 0, 0, 0, 0x0 }, "ObjectiveEnd", "0.7.IGOE-3.0", STBR_061AE4E7_ObjectiveEnd_Fields, 9, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 108, 0, 0, 0, 0, 0, 0x0 }, "ObjectiveStart", "0.7.IGOS-2.0", STBR_061AE4E7_ObjectiveStart_Fields, 8, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 109, 0, 0, 0, 0, 0, 0x0 }, "PageAction", "0.7.IGPA-1.0", STBR_061AE4E7_PageAction_Fields, 9, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 110, 0, 0, 0, 0, 0, 0x0 }, "PageView", "0.7.IGPV-1.0", STBR_061AE4E7_PageView_Fields, 9, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 111, 0, 0, 0, 0, 0, 0x0 }, "PlayerSessionEnd", "0.7.IGPSE-2.0", STBR_061AE4E7_PlayerSessionEnd_Fields, 7, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 112, 0, 0, 0, 0, 0, 0x0 }, "PlayerSessionPause", "0.7.IGPSPA-2.0", STBR_061AE4E7_PlayerSessionPause_Fields, 4, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 113, 0, 0, 0, 0, 0, 0x0 }, "PlayerSessionResume", "0.7.IGPSR-2.0", STBR_061AE4E7_PlayerSessionResume_Fields, 6, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 114, 0, 0, 0, 0, 0, 0x0 }, "PlayerSessionStart", "0.7.IGPSS-2.0", STBR_061AE4E7_PlayerSessionStart_Fields, 6, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 115, 0, 0, 0, 0, 0, 0x0 }, "SectionEnd", "0.7.IGSE-2.0", STBR_061AE4E7_SectionEnd_Fields, 8, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 116, 0, 0, 0, 0, 0, 0x0 }, "SectionStart", "0.7.IGSS-2.0", STBR_061AE4E7_SectionStart_Fields, 7, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault },
+    {{ 117, 0, 0, 0, 0, 0, 0x0 }, "ViewOffer", "0.7.IGVO-1.0", STBR_061AE4E7_ViewOffer_Fields, 5, 0, EtxEventEnabledState_Undefined, EtxEventEnabledState_ProviderDefault, EtxPopulationSample_Undefined, EtxPopulationSample_UseProviderPopulationSample, EtxEventLatency_Undefined, EtxEventLatency_ProviderDefault, EtxEventPriority_Undefined, EtxEventPriority_ProviderDefault }};
 
 // Provider Descriptor for STBR_061AE4E7
 //
-EXTERN_C __declspec(selectany) ETX_PROVIDER_DESCRIPTOR STBR_061AE4E7Provider = {"STBR_061AE4E7", {0x79d166ee,0x0d4b,0x4241,{0x96,0xe8,0x0c,0x9e,0xb0,0xb5,0x64,0x9e}}, 111, (ETX_EVENT_DESCRIPTOR*)&STBR_061AE4E7Events, 0, EtxProviderEnabledState_Undefined, EtxProviderEnabledState_OnByDefault, 0, 100, EtxProviderLatency_Undefined, EtxProviderLatency_RealTime, EtxProviderPriority_Undefined, EtxProviderPriority_Critical};
+EXTERN_C __declspec(selectany) ETX_PROVIDER_DESCRIPTOR STBR_061AE4E7Provider = {"STBR_061AE4E7", {0x79d166ee,0x0d4b,0x4241,{0x96,0xe8,0x0c,0x9e,0xb0,0xb5,0x64,0x9e}}, 117, (ETX_EVENT_DESCRIPTOR*)&STBR_061AE4E7Events, 0, EtxProviderEnabledState_Undefined, EtxProviderEnabledState_OnByDefault, 0, 100, EtxProviderLatency_Undefined, EtxProviderLatency_RealTime, EtxProviderPriority_Undefined, EtxProviderPriority_Critical};
 
 // ETW handle for STBR_061AE4E7
 //
@@ -1089,6 +1107,69 @@ EventWriteDBDDLC8SlasherStat2(__in_opt PCWSTR UserId, __in LPCGUID PlayerSession
 
     return EtxEventWrite(&STBR_061AE4E7Events[32], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDDLC8SlasherStat2, EventData);
 }
+#define EventEnabledDBDDLC9CamperStat1() (TRUE)
+
+// Entry point to log the event DBDDLC9CamperStat1
+//
+__inline
+ULONG
+EventWriteDBDDLC9CamperStat1(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId, __in const signed int DBDDLC9CamperStat1)
+{
+#define ARGUMENT_COUNT_STBR_061AE4E7_DBDDLC9CamperStat1 4
+
+    EVENT_DATA_DESCRIPTOR EventData[ARGUMENT_COUNT_STBR_061AE4E7_DBDDLC9CamperStat1];
+    UINT8 scratch[64];
+
+    EtxFillCommonFields_v7(&EventData[0], scratch, 64);
+
+    EventDataDescCreate(&EventData[1], (UserId != NULL) ? UserId : L"", (UserId != NULL) ? (ULONG)((wcslen(UserId) + 1) * sizeof(WCHAR)) : (ULONG)sizeof(L""));
+    EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
+    EventDataDescCreate(&EventData[3], &DBDDLC9CamperStat1, sizeof(DBDDLC9CamperStat1));
+
+    return EtxEventWrite(&STBR_061AE4E7Events[33], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDDLC9CamperStat1, EventData);
+}
+#define EventEnabledDBDDLC9SlasherStat1() (TRUE)
+
+// Entry point to log the event DBDDLC9SlasherStat1
+//
+__inline
+ULONG
+EventWriteDBDDLC9SlasherStat1(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId, __in const signed int DBDDLC9SlasherStat1)
+{
+#define ARGUMENT_COUNT_STBR_061AE4E7_DBDDLC9SlasherStat1 4
+
+    EVENT_DATA_DESCRIPTOR EventData[ARGUMENT_COUNT_STBR_061AE4E7_DBDDLC9SlasherStat1];
+    UINT8 scratch[64];
+
+    EtxFillCommonFields_v7(&EventData[0], scratch, 64);
+
+    EventDataDescCreate(&EventData[1], (UserId != NULL) ? UserId : L"", (UserId != NULL) ? (ULONG)((wcslen(UserId) + 1) * sizeof(WCHAR)) : (ULONG)sizeof(L""));
+    EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
+    EventDataDescCreate(&EventData[3], &DBDDLC9SlasherStat1, sizeof(DBDDLC9SlasherStat1));
+
+    return EtxEventWrite(&STBR_061AE4E7Events[34], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDDLC9SlasherStat1, EventData);
+}
+#define EventEnabledDBDDLC9SlasherStat2() (TRUE)
+
+// Entry point to log the event DBDDLC9SlasherStat2
+//
+__inline
+ULONG
+EventWriteDBDDLC9SlasherStat2(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId, __in const signed int DBDDLC9SlasherStat2)
+{
+#define ARGUMENT_COUNT_STBR_061AE4E7_DBDDLC9SlasherStat2 4
+
+    EVENT_DATA_DESCRIPTOR EventData[ARGUMENT_COUNT_STBR_061AE4E7_DBDDLC9SlasherStat2];
+    UINT8 scratch[64];
+
+    EtxFillCommonFields_v7(&EventData[0], scratch, 64);
+
+    EventDataDescCreate(&EventData[1], (UserId != NULL) ? UserId : L"", (UserId != NULL) ? (ULONG)((wcslen(UserId) + 1) * sizeof(WCHAR)) : (ULONG)sizeof(L""));
+    EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
+    EventDataDescCreate(&EventData[3], &DBDDLC9SlasherStat2, sizeof(DBDDLC9SlasherStat2));
+
+    return EtxEventWrite(&STBR_061AE4E7Events[35], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDDLC9SlasherStat2, EventData);
+}
 #define EventEnabledDBDEscape() (TRUE)
 
 // Entry point to log the event DBDEscape
@@ -1108,7 +1189,7 @@ EventWriteDBDEscape(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId, __in c
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDEscape, sizeof(DBDEscape));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[33], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDEscape, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[36], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDEscape, EventData);
 }
 #define EventEnabledDBDEscapeKO() (TRUE)
 
@@ -1129,7 +1210,7 @@ EventWriteDBDEscapeKO(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId, __in
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDEscapeKO, sizeof(DBDEscapeKO));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[34], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDEscapeKO, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[37], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDEscapeKO, EventData);
 }
 #define EventEnabledDBDEscapeNoBloodMapAsyAsylum() (TRUE)
 
@@ -1150,7 +1231,7 @@ EventWriteDBDEscapeNoBloodMapAsyAsylum(__in_opt PCWSTR UserId, __in LPCGUID Play
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDEscapeNoBloodMapAsyAsylum, sizeof(DBDEscapeNoBloodMapAsyAsylum));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[35], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDEscapeNoBloodMapAsyAsylum, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[38], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDEscapeNoBloodMapAsyAsylum, EventData);
 }
 #define EventEnabledDBDEscapeNoBloodObsession() (TRUE)
 
@@ -1171,7 +1252,7 @@ EventWriteDBDEscapeNoBloodObsession(__in_opt PCWSTR UserId, __in LPCGUID PlayerS
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDEscapeNoBloodObsession, sizeof(DBDEscapeNoBloodObsession));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[36], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDEscapeNoBloodObsession, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[39], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDEscapeNoBloodObsession, EventData);
 }
 #define EventEnabledDBDEscapeThroughHatch() (TRUE)
 
@@ -1192,7 +1273,7 @@ EventWriteDBDEscapeThroughHatch(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessi
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDEscapeThroughHatch, sizeof(DBDEscapeThroughHatch));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[37], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDEscapeThroughHatch, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[40], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDEscapeThroughHatch, EventData);
 }
 #define EventEnabledDBDEvent1Stat1() (TRUE)
 
@@ -1213,7 +1294,7 @@ EventWriteDBDEvent1Stat1(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId, _
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDEvent1Stat1, sizeof(DBDEvent1Stat1));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[38], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDEvent1Stat1, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[41], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDEvent1Stat1, EventData);
 }
 #define EventEnabledDBDEvent1Stat2() (TRUE)
 
@@ -1234,7 +1315,7 @@ EventWriteDBDEvent1Stat2(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId, _
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDEvent1Stat2, sizeof(DBDEvent1Stat2));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[39], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDEvent1Stat2, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[42], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDEvent1Stat2, EventData);
 }
 #define EventEnabledDBDEvent1Stat3() (TRUE)
 
@@ -1255,7 +1336,7 @@ EventWriteDBDEvent1Stat3(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId, _
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDEvent1Stat3, sizeof(DBDEvent1Stat3));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[40], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDEvent1Stat3, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[43], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDEvent1Stat3, EventData);
 }
 #define EventEnabledDBDFinishWithPerksIdx0() (TRUE)
 
@@ -1276,7 +1357,7 @@ EventWriteDBDFinishWithPerksIdx0(__in_opt PCWSTR UserId, __in LPCGUID PlayerSess
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFinishWithPerksIdx0, sizeof(DBDFinishWithPerksIdx0));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[41], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx0, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[44], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx0, EventData);
 }
 #define EventEnabledDBDFinishWithPerksIdx1() (TRUE)
 
@@ -1297,7 +1378,28 @@ EventWriteDBDFinishWithPerksIdx1(__in_opt PCWSTR UserId, __in LPCGUID PlayerSess
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFinishWithPerksIdx1, sizeof(DBDFinishWithPerksIdx1));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[42], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx1, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[45], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx1, EventData);
+}
+#define EventEnabledDBDFinishWithPerksIdx10() (TRUE)
+
+// Entry point to log the event DBDFinishWithPerksIdx10
+//
+__inline
+ULONG
+EventWriteDBDFinishWithPerksIdx10(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId, __in const signed int DBDFinishWithPerksIdx10)
+{
+#define ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx10 4
+
+    EVENT_DATA_DESCRIPTOR EventData[ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx10];
+    UINT8 scratch[64];
+
+    EtxFillCommonFields_v7(&EventData[0], scratch, 64);
+
+    EventDataDescCreate(&EventData[1], (UserId != NULL) ? UserId : L"", (UserId != NULL) ? (ULONG)((wcslen(UserId) + 1) * sizeof(WCHAR)) : (ULONG)sizeof(L""));
+    EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
+    EventDataDescCreate(&EventData[3], &DBDFinishWithPerksIdx10, sizeof(DBDFinishWithPerksIdx10));
+
+    return EtxEventWrite(&STBR_061AE4E7Events[46], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx10, EventData);
 }
 #define EventEnabledDBDFinishWithPerksIdx11() (TRUE)
 
@@ -1318,7 +1420,7 @@ EventWriteDBDFinishWithPerksIdx11(__in_opt PCWSTR UserId, __in LPCGUID PlayerSes
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFinishWithPerksIdx11, sizeof(DBDFinishWithPerksIdx11));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[43], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx11, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[47], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx11, EventData);
 }
 #define EventEnabledDBDFinishWithPerksIdx12() (TRUE)
 
@@ -1339,7 +1441,7 @@ EventWriteDBDFinishWithPerksIdx12(__in_opt PCWSTR UserId, __in LPCGUID PlayerSes
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFinishWithPerksIdx12, sizeof(DBDFinishWithPerksIdx12));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[44], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx12, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[48], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx12, EventData);
 }
 #define EventEnabledDBDFinishWithPerksIdx2() (TRUE)
 
@@ -1360,7 +1462,7 @@ EventWriteDBDFinishWithPerksIdx2(__in_opt PCWSTR UserId, __in LPCGUID PlayerSess
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFinishWithPerksIdx2, sizeof(DBDFinishWithPerksIdx2));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[45], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx2, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[49], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx2, EventData);
 }
 #define EventEnabledDBDFinishWithPerksIdx268435456() (TRUE)
 
@@ -1381,7 +1483,7 @@ EventWriteDBDFinishWithPerksIdx268435456(__in_opt PCWSTR UserId, __in LPCGUID Pl
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFinishWithPerksIdx268435456, sizeof(DBDFinishWithPerksIdx268435456));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[46], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx268435456, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[50], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx268435456, EventData);
 }
 #define EventEnabledDBDFinishWithPerksIdx268435457() (TRUE)
 
@@ -1402,7 +1504,7 @@ EventWriteDBDFinishWithPerksIdx268435457(__in_opt PCWSTR UserId, __in LPCGUID Pl
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFinishWithPerksIdx268435457, sizeof(DBDFinishWithPerksIdx268435457));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[47], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx268435457, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[51], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx268435457, EventData);
 }
 #define EventEnabledDBDFinishWithPerksIdx268435458() (TRUE)
 
@@ -1423,7 +1525,7 @@ EventWriteDBDFinishWithPerksIdx268435458(__in_opt PCWSTR UserId, __in LPCGUID Pl
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFinishWithPerksIdx268435458, sizeof(DBDFinishWithPerksIdx268435458));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[48], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx268435458, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[52], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx268435458, EventData);
 }
 #define EventEnabledDBDFinishWithPerksIdx268435459() (TRUE)
 
@@ -1444,7 +1546,7 @@ EventWriteDBDFinishWithPerksIdx268435459(__in_opt PCWSTR UserId, __in LPCGUID Pl
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFinishWithPerksIdx268435459, sizeof(DBDFinishWithPerksIdx268435459));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[49], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx268435459, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[53], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx268435459, EventData);
 }
 #define EventEnabledDBDFinishWithPerksIdx268435460() (TRUE)
 
@@ -1465,7 +1567,7 @@ EventWriteDBDFinishWithPerksIdx268435460(__in_opt PCWSTR UserId, __in LPCGUID Pl
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFinishWithPerksIdx268435460, sizeof(DBDFinishWithPerksIdx268435460));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[50], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx268435460, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[54], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx268435460, EventData);
 }
 #define EventEnabledDBDFinishWithPerksIdx268435461() (TRUE)
 
@@ -1486,7 +1588,7 @@ EventWriteDBDFinishWithPerksIdx268435461(__in_opt PCWSTR UserId, __in LPCGUID Pl
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFinishWithPerksIdx268435461, sizeof(DBDFinishWithPerksIdx268435461));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[51], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx268435461, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[55], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx268435461, EventData);
 }
 #define EventEnabledDBDFinishWithPerksIdx268435462() (TRUE)
 
@@ -1507,7 +1609,7 @@ EventWriteDBDFinishWithPerksIdx268435462(__in_opt PCWSTR UserId, __in LPCGUID Pl
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFinishWithPerksIdx268435462, sizeof(DBDFinishWithPerksIdx268435462));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[52], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx268435462, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[56], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx268435462, EventData);
 }
 #define EventEnabledDBDFinishWithPerksIdx268435463() (TRUE)
 
@@ -1528,7 +1630,7 @@ EventWriteDBDFinishWithPerksIdx268435463(__in_opt PCWSTR UserId, __in LPCGUID Pl
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFinishWithPerksIdx268435463, sizeof(DBDFinishWithPerksIdx268435463));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[53], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx268435463, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[57], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx268435463, EventData);
 }
 #define EventEnabledDBDFinishWithPerksIdx268435464() (TRUE)
 
@@ -1549,7 +1651,7 @@ EventWriteDBDFinishWithPerksIdx268435464(__in_opt PCWSTR UserId, __in LPCGUID Pl
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFinishWithPerksIdx268435464, sizeof(DBDFinishWithPerksIdx268435464));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[54], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx268435464, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[58], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx268435464, EventData);
 }
 #define EventEnabledDBDFinishWithPerksIdx268435465() (TRUE)
 
@@ -1570,7 +1672,7 @@ EventWriteDBDFinishWithPerksIdx268435465(__in_opt PCWSTR UserId, __in LPCGUID Pl
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFinishWithPerksIdx268435465, sizeof(DBDFinishWithPerksIdx268435465));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[55], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx268435465, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[59], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx268435465, EventData);
 }
 #define EventEnabledDBDFinishWithPerksIdx268435466() (TRUE)
 
@@ -1591,7 +1693,28 @@ EventWriteDBDFinishWithPerksIdx268435466(__in_opt PCWSTR UserId, __in LPCGUID Pl
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFinishWithPerksIdx268435466, sizeof(DBDFinishWithPerksIdx268435466));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[56], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx268435466, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[60], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx268435466, EventData);
+}
+#define EventEnabledDBDFinishWithPerksIdx268435467() (TRUE)
+
+// Entry point to log the event DBDFinishWithPerksIdx268435467
+//
+__inline
+ULONG
+EventWriteDBDFinishWithPerksIdx268435467(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId, __in const signed int DBDFinishWithPerksIdx268435467)
+{
+#define ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx268435467 4
+
+    EVENT_DATA_DESCRIPTOR EventData[ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx268435467];
+    UINT8 scratch[64];
+
+    EtxFillCommonFields_v7(&EventData[0], scratch, 64);
+
+    EventDataDescCreate(&EventData[1], (UserId != NULL) ? UserId : L"", (UserId != NULL) ? (ULONG)((wcslen(UserId) + 1) * sizeof(WCHAR)) : (ULONG)sizeof(L""));
+    EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
+    EventDataDescCreate(&EventData[3], &DBDFinishWithPerksIdx268435467, sizeof(DBDFinishWithPerksIdx268435467));
+
+    return EtxEventWrite(&STBR_061AE4E7Events[61], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx268435467, EventData);
 }
 #define EventEnabledDBDFinishWithPerksIdx3() (TRUE)
 
@@ -1612,7 +1735,7 @@ EventWriteDBDFinishWithPerksIdx3(__in_opt PCWSTR UserId, __in LPCGUID PlayerSess
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFinishWithPerksIdx3, sizeof(DBDFinishWithPerksIdx3));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[57], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx3, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[62], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx3, EventData);
 }
 #define EventEnabledDBDFinishWithPerksIdx4() (TRUE)
 
@@ -1633,7 +1756,7 @@ EventWriteDBDFinishWithPerksIdx4(__in_opt PCWSTR UserId, __in LPCGUID PlayerSess
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFinishWithPerksIdx4, sizeof(DBDFinishWithPerksIdx4));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[58], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx4, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[63], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx4, EventData);
 }
 #define EventEnabledDBDFinishWithPerksIdx5() (TRUE)
 
@@ -1654,7 +1777,7 @@ EventWriteDBDFinishWithPerksIdx5(__in_opt PCWSTR UserId, __in LPCGUID PlayerSess
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFinishWithPerksIdx5, sizeof(DBDFinishWithPerksIdx5));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[59], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx5, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[64], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx5, EventData);
 }
 #define EventEnabledDBDFinishWithPerksIdx6() (TRUE)
 
@@ -1675,7 +1798,7 @@ EventWriteDBDFinishWithPerksIdx6(__in_opt PCWSTR UserId, __in LPCGUID PlayerSess
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFinishWithPerksIdx6, sizeof(DBDFinishWithPerksIdx6));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[60], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx6, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[65], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx6, EventData);
 }
 #define EventEnabledDBDFinishWithPerksIdx8() (TRUE)
 
@@ -1696,7 +1819,7 @@ EventWriteDBDFinishWithPerksIdx8(__in_opt PCWSTR UserId, __in LPCGUID PlayerSess
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFinishWithPerksIdx8, sizeof(DBDFinishWithPerksIdx8));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[61], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx8, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[66], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx8, EventData);
 }
 #define EventEnabledDBDFinishWithPerksIdx9() (TRUE)
 
@@ -1717,7 +1840,7 @@ EventWriteDBDFinishWithPerksIdx9(__in_opt PCWSTR UserId, __in LPCGUID PlayerSess
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFinishWithPerksIdx9, sizeof(DBDFinishWithPerksIdx9));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[62], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx9, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[67], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFinishWithPerksIdx9, EventData);
 }
 #define EventEnabledDBDFixSecondFloorGeneratorMapAsyAsylum() (TRUE)
 
@@ -1738,7 +1861,28 @@ EventWriteDBDFixSecondFloorGeneratorMapAsyAsylum(__in_opt PCWSTR UserId, __in LP
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFixSecondFloorGeneratorMapAsyAsylum, sizeof(DBDFixSecondFloorGeneratorMapAsyAsylum));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[63], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFixSecondFloorGeneratorMapAsyAsylum, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[68], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFixSecondFloorGeneratorMapAsyAsylum, EventData);
+}
+#define EventEnabledDBDFixSecondFloorGeneratorMapAsyChapel() (TRUE)
+
+// Entry point to log the event DBDFixSecondFloorGeneratorMapAsyChapel
+//
+__inline
+ULONG
+EventWriteDBDFixSecondFloorGeneratorMapAsyChapel(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId, __in const signed int DBDFixSecondFloorGeneratorMapAsyChapel)
+{
+#define ARGUMENT_COUNT_STBR_061AE4E7_DBDFixSecondFloorGeneratorMapAsyChapel 4
+
+    EVENT_DATA_DESCRIPTOR EventData[ARGUMENT_COUNT_STBR_061AE4E7_DBDFixSecondFloorGeneratorMapAsyChapel];
+    UINT8 scratch[64];
+
+    EtxFillCommonFields_v7(&EventData[0], scratch, 64);
+
+    EventDataDescCreate(&EventData[1], (UserId != NULL) ? UserId : L"", (UserId != NULL) ? (ULONG)((wcslen(UserId) + 1) * sizeof(WCHAR)) : (ULONG)sizeof(L""));
+    EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
+    EventDataDescCreate(&EventData[3], &DBDFixSecondFloorGeneratorMapAsyChapel, sizeof(DBDFixSecondFloorGeneratorMapAsyChapel));
+
+    return EtxEventWrite(&STBR_061AE4E7Events[69], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFixSecondFloorGeneratorMapAsyChapel, EventData);
 }
 #define EventEnabledDBDFixSecondFloorGeneratorMapBrlMaHouse() (TRUE)
 
@@ -1759,7 +1903,7 @@ EventWriteDBDFixSecondFloorGeneratorMapBrlMaHouse(__in_opt PCWSTR UserId, __in L
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFixSecondFloorGeneratorMapBrlMaHouse, sizeof(DBDFixSecondFloorGeneratorMapBrlMaHouse));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[64], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFixSecondFloorGeneratorMapBrlMaHouse, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[70], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFixSecondFloorGeneratorMapBrlMaHouse, EventData);
 }
 #define EventEnabledDBDFixSecondFloorGeneratorMapFinHideout() (TRUE)
 
@@ -1780,7 +1924,7 @@ EventWriteDBDFixSecondFloorGeneratorMapFinHideout(__in_opt PCWSTR UserId, __in L
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFixSecondFloorGeneratorMapFinHideout, sizeof(DBDFixSecondFloorGeneratorMapFinHideout));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[65], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFixSecondFloorGeneratorMapFinHideout, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[71], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFixSecondFloorGeneratorMapFinHideout, EventData);
 }
 #define EventEnabledDBDFixSecondFloorGeneratorMapSubStreet() (TRUE)
 
@@ -1801,7 +1945,7 @@ EventWriteDBDFixSecondFloorGeneratorMapSubStreet(__in_opt PCWSTR UserId, __in LP
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFixSecondFloorGeneratorMapSubStreet, sizeof(DBDFixSecondFloorGeneratorMapSubStreet));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[66], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFixSecondFloorGeneratorMapSubStreet, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[72], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFixSecondFloorGeneratorMapSubStreet, EventData);
 }
 #define EventEnabledDBDFixSecondFloorGeneratorMapSwpPaleRose() (TRUE)
 
@@ -1822,7 +1966,7 @@ EventWriteDBDFixSecondFloorGeneratorMapSwpPaleRose(__in_opt PCWSTR UserId, __in 
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDFixSecondFloorGeneratorMapSwpPaleRose, sizeof(DBDFixSecondFloorGeneratorMapSwpPaleRose));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[67], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFixSecondFloorGeneratorMapSwpPaleRose, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[73], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDFixSecondFloorGeneratorMapSwpPaleRose, EventData);
 }
 #define EventEnabledDBDGeneratorPctfloat() (TRUE)
 
@@ -1843,7 +1987,7 @@ EventWriteDBDGeneratorPctfloat(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessio
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDGeneratorPctfloat, sizeof(DBDGeneratorPctfloat));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[68], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDGeneratorPctfloat, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[74], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDGeneratorPctfloat, EventData);
 }
 #define EventEnabledDBDHealPctfloat() (TRUE)
 
@@ -1864,7 +2008,7 @@ EventWriteDBDHealPctfloat(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId, 
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDHealPctfloat, sizeof(DBDHealPctfloat));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[69], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDHealPctfloat, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[75], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDHealPctfloat, EventData);
 }
 #define EventEnabledDBDHookedAndEscape() (TRUE)
 
@@ -1885,7 +2029,7 @@ EventWriteDBDHookedAndEscape(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionI
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDHookedAndEscape, sizeof(DBDHookedAndEscape));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[70], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDHookedAndEscape, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[76], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDHookedAndEscape, EventData);
 }
 #define EventEnabledDBDKilledCampers() (TRUE)
 
@@ -1906,7 +2050,7 @@ EventWriteDBDKilledCampers(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId,
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDKilledCampers, sizeof(DBDKilledCampers));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[71], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDKilledCampers, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[77], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDKilledCampers, EventData);
 }
 #define EventEnabledDBDKilledCampersiam() (TRUE)
 
@@ -1927,7 +2071,7 @@ EventWriteDBDKilledCampersiam(__in_opt PCWSTR UserId, __in LPCGUID PlayerSession
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDKilledCampersiam, sizeof(DBDKilledCampersiam));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[72], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDKilledCampersiam, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[78], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDKilledCampersiam, EventData);
 }
 #define EventEnabledDBDKillerSkulls() (TRUE)
 
@@ -1948,7 +2092,7 @@ EventWriteDBDKillerSkulls(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId, 
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDKillerSkulls, sizeof(DBDKillerSkulls));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[73], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDKillerSkulls, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[79], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDKillerSkulls, EventData);
 }
 #define EventEnabledDBDMaxBloodwebPointsOneCategory() (TRUE)
 
@@ -1969,7 +2113,7 @@ EventWriteDBDMaxBloodwebPointsOneCategory(__in_opt PCWSTR UserId, __in LPCGUID P
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDMaxBloodwebPointsOneCategory, sizeof(DBDMaxBloodwebPointsOneCategory));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[74], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDMaxBloodwebPointsOneCategory, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[80], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDMaxBloodwebPointsOneCategory, EventData);
 }
 #define EventEnabledDBDPerksCountIdx0() (TRUE)
 
@@ -1990,7 +2134,7 @@ EventWriteDBDPerksCountIdx0(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDPerksCountIdx0, sizeof(DBDPerksCountIdx0));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[75], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDPerksCountIdx0, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[81], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDPerksCountIdx0, EventData);
 }
 #define EventEnabledDBDPerksCountIdx1() (TRUE)
 
@@ -2011,7 +2155,7 @@ EventWriteDBDPerksCountIdx1(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDPerksCountIdx1, sizeof(DBDPerksCountIdx1));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[76], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDPerksCountIdx1, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[82], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDPerksCountIdx1, EventData);
 }
 #define EventEnabledDBDPerksCountIdx2() (TRUE)
 
@@ -2032,7 +2176,7 @@ EventWriteDBDPerksCountIdx2(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDPerksCountIdx2, sizeof(DBDPerksCountIdx2));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[77], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDPerksCountIdx2, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[83], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDPerksCountIdx2, EventData);
 }
 #define EventEnabledDBDPerksCountIdx268435456() (TRUE)
 
@@ -2053,7 +2197,7 @@ EventWriteDBDPerksCountIdx268435456(__in_opt PCWSTR UserId, __in LPCGUID PlayerS
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDPerksCountIdx268435456, sizeof(DBDPerksCountIdx268435456));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[78], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDPerksCountIdx268435456, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[84], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDPerksCountIdx268435456, EventData);
 }
 #define EventEnabledDBDPerksCountIdx268435457() (TRUE)
 
@@ -2074,7 +2218,7 @@ EventWriteDBDPerksCountIdx268435457(__in_opt PCWSTR UserId, __in LPCGUID PlayerS
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDPerksCountIdx268435457, sizeof(DBDPerksCountIdx268435457));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[79], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDPerksCountIdx268435457, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[85], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDPerksCountIdx268435457, EventData);
 }
 #define EventEnabledDBDPerksCountIdx268435458() (TRUE)
 
@@ -2095,7 +2239,7 @@ EventWriteDBDPerksCountIdx268435458(__in_opt PCWSTR UserId, __in LPCGUID PlayerS
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDPerksCountIdx268435458, sizeof(DBDPerksCountIdx268435458));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[80], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDPerksCountIdx268435458, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[86], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDPerksCountIdx268435458, EventData);
 }
 #define EventEnabledDBDPerksCountIdx3() (TRUE)
 
@@ -2116,7 +2260,7 @@ EventWriteDBDPerksCountIdx3(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDPerksCountIdx3, sizeof(DBDPerksCountIdx3));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[81], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDPerksCountIdx3, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[87], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDPerksCountIdx3, EventData);
 }
 #define EventEnabledDBDSacrificedCampers() (TRUE)
 
@@ -2137,7 +2281,7 @@ EventWriteDBDSacrificedCampers(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessio
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDSacrificedCampers, sizeof(DBDSacrificedCampers));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[82], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDSacrificedCampers, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[88], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDSacrificedCampers, EventData);
 }
 #define EventEnabledDBDSacrificedCampersiam() (TRUE)
 
@@ -2158,7 +2302,7 @@ EventWriteDBDSacrificedCampersiam(__in_opt PCWSTR UserId, __in LPCGUID PlayerSes
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDSacrificedCampersiam, sizeof(DBDSacrificedCampersiam));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[83], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDSacrificedCampersiam, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[89], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDSacrificedCampersiam, EventData);
 }
 #define EventEnabledDBDSkillCheckSuccess() (TRUE)
 
@@ -2179,7 +2323,7 @@ EventWriteDBDSkillCheckSuccess(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessio
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDSkillCheckSuccess, sizeof(DBDSkillCheckSuccess));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[84], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDSkillCheckSuccess, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[90], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDSkillCheckSuccess, EventData);
 }
 #define EventEnabledDBDSlasherChainAttack() (TRUE)
 
@@ -2200,7 +2344,7 @@ EventWriteDBDSlasherChainAttack(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessi
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDSlasherChainAttack, sizeof(DBDSlasherChainAttack));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[85], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDSlasherChainAttack, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[91], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDSlasherChainAttack, EventData);
 }
 #define EventEnabledDBDSlasherChainInterruptAfter3() (TRUE)
 
@@ -2221,7 +2365,7 @@ EventWriteDBDSlasherChainInterruptAfter3(__in_opt PCWSTR UserId, __in LPCGUID Pl
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDSlasherChainInterruptAfter3, sizeof(DBDSlasherChainInterruptAfter3));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[86], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDSlasherChainInterruptAfter3, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[92], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDSlasherChainInterruptAfter3, EventData);
 }
 #define EventEnabledDBDSlasherFullLoadout() (TRUE)
 
@@ -2242,7 +2386,7 @@ EventWriteDBDSlasherFullLoadout(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessi
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDSlasherFullLoadout, sizeof(DBDSlasherFullLoadout));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[87], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDSlasherFullLoadout, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[93], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDSlasherFullLoadout, EventData);
 }
 #define EventEnabledDBDSlasherMaxScoreByCategory() (TRUE)
 
@@ -2263,7 +2407,7 @@ EventWriteDBDSlasherMaxScoreByCategory(__in_opt PCWSTR UserId, __in LPCGUID Play
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDSlasherMaxScoreByCategory, sizeof(DBDSlasherMaxScoreByCategory));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[88], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDSlasherMaxScoreByCategory, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[94], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDSlasherMaxScoreByCategory, EventData);
 }
 #define EventEnabledDBDSlasherPowerKillAllCampers() (TRUE)
 
@@ -2284,7 +2428,7 @@ EventWriteDBDSlasherPowerKillAllCampers(__in_opt PCWSTR UserId, __in LPCGUID Pla
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDSlasherPowerKillAllCampers, sizeof(DBDSlasherPowerKillAllCampers));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[89], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDSlasherPowerKillAllCampers, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[95], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDSlasherPowerKillAllCampers, EventData);
 }
 #define EventEnabledDBDSlasherTierIncrement() (TRUE)
 
@@ -2305,7 +2449,7 @@ EventWriteDBDSlasherTierIncrement(__in_opt PCWSTR UserId, __in LPCGUID PlayerSes
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDSlasherTierIncrement, sizeof(DBDSlasherTierIncrement));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[90], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDSlasherTierIncrement, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[96], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDSlasherTierIncrement, EventData);
 }
 #define EventEnabledDBDTrapPickup() (TRUE)
 
@@ -2326,7 +2470,7 @@ EventWriteDBDTrapPickup(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId, __
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDTrapPickup, sizeof(DBDTrapPickup));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[91], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDTrapPickup, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[97], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDTrapPickup, EventData);
 }
 #define EventEnabledDBDUncloakAttack() (TRUE)
 
@@ -2347,7 +2491,7 @@ EventWriteDBDUncloakAttack(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId,
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDUncloakAttack, sizeof(DBDUncloakAttack));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[92], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDUncloakAttack, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[98], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDUncloakAttack, EventData);
 }
 #define EventEnabledDBDUnhookOrHeal() (TRUE)
 
@@ -2368,7 +2512,7 @@ EventWriteDBDUnhookOrHeal(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId, 
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDUnhookOrHeal, sizeof(DBDUnhookOrHeal));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[93], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDUnhookOrHeal, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[99], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDUnhookOrHeal, EventData);
 }
 #define EventEnabledDBDUnhookOrHealPostExit() (TRUE)
 
@@ -2389,7 +2533,7 @@ EventWriteDBDUnhookOrHealPostExit(__in_opt PCWSTR UserId, __in LPCGUID PlayerSes
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDUnhookOrHealPostExit, sizeof(DBDUnhookOrHealPostExit));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[94], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDUnhookOrHealPostExit, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[100], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDUnhookOrHealPostExit, EventData);
 }
 #define EventEnabledDBDUnlockRanking() (TRUE)
 
@@ -2410,7 +2554,7 @@ EventWriteDBDUnlockRanking(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId,
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &DBDUnlockRanking, sizeof(DBDUnlockRanking));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[95], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDUnlockRanking, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[101], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_DBDUnlockRanking, EventData);
 }
 #define EventEnabledGameProgress() (TRUE)
 
@@ -2431,7 +2575,7 @@ EventWriteGameProgress(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId, __i
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], &CompletionPercent, sizeof(CompletionPercent));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[96], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_GameProgress, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[102], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_GameProgress, EventData);
 }
 #define EventEnabledMediaUsage() (TRUE)
 
@@ -2475,7 +2619,7 @@ EventWriteMediaUsage(__in_opt PCWSTR AppSessionId, __in_opt PCWSTR AppSessionSta
     EventDataDescCreate(&EventData[25], &TimeZoneOffset, sizeof(TimeZoneOffset));
     EventDataDescCreate(&EventData[26], &ScreenState, sizeof(ScreenState));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[97], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_MediaUsage, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[103], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_MediaUsage, EventData);
 }
 #define EventEnabledMultiplayerRoundEnd() (TRUE)
 
@@ -2503,7 +2647,7 @@ EventWriteMultiplayerRoundEnd(__in_opt PCWSTR UserId, __in LPCGUID RoundId, __in
     EventDataDescCreate(&EventData[9], &TimeInSeconds, sizeof(TimeInSeconds));
     EventDataDescCreate(&EventData[10], &ExitStatusId, sizeof(ExitStatusId));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[98], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_MultiplayerRoundEnd, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[104], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_MultiplayerRoundEnd, EventData);
 }
 #define EventEnabledMultiplayerRoundStart() (TRUE)
 
@@ -2529,7 +2673,7 @@ EventWriteMultiplayerRoundStart(__in_opt PCWSTR UserId, __in LPCGUID RoundId, __
     EventDataDescCreate(&EventData[7], &MatchTypeId, sizeof(MatchTypeId));
     EventDataDescCreate(&EventData[8], &DifficultyLevelId, sizeof(DifficultyLevelId));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[99], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_MultiplayerRoundStart, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[105], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_MultiplayerRoundStart, EventData);
 }
 #define EventEnabledObjectiveEnd() (TRUE)
 
@@ -2555,7 +2699,7 @@ EventWriteObjectiveEnd(__in_opt PCWSTR UserId, __in const signed int SectionId, 
     EventDataDescCreate(&EventData[7], &ObjectiveId, sizeof(ObjectiveId));
     EventDataDescCreate(&EventData[8], &ExitStatusId, sizeof(ExitStatusId));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[100], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_ObjectiveEnd, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[106], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_ObjectiveEnd, EventData);
 }
 #define EventEnabledObjectiveStart() (TRUE)
 
@@ -2580,7 +2724,7 @@ EventWriteObjectiveStart(__in_opt PCWSTR UserId, __in const signed int SectionId
     EventDataDescCreate(&EventData[6], &DifficultyLevelId, sizeof(DifficultyLevelId));
     EventDataDescCreate(&EventData[7], &ObjectiveId, sizeof(ObjectiveId));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[101], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_ObjectiveStart, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[107], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_ObjectiveStart, EventData);
 }
 #define EventEnabledPageAction() (TRUE)
 
@@ -2606,7 +2750,7 @@ EventWritePageAction(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId, __in 
     EventDataDescCreate(&EventData[7], (DestinationPage != NULL) ? DestinationPage : L"", (DestinationPage != NULL) ? (ULONG)((wcslen(DestinationPage) + 1) * sizeof(WCHAR)) : (ULONG)sizeof(L""));
     EventDataDescCreate(&EventData[8], (Content != NULL) ? Content : L"", (Content != NULL) ? (ULONG)((wcslen(Content) + 1) * sizeof(WCHAR)) : (ULONG)sizeof(L""));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[102], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_PageAction, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[108], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_PageAction, EventData);
 }
 #define EventEnabledPageView() (TRUE)
 
@@ -2632,7 +2776,7 @@ EventWritePageView(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId, __in_op
     EventDataDescCreate(&EventData[7], (TemplateId != NULL) ? TemplateId : L"", (TemplateId != NULL) ? (ULONG)((wcslen(TemplateId) + 1) * sizeof(WCHAR)) : (ULONG)sizeof(L""));
     EventDataDescCreate(&EventData[8], (Content != NULL) ? Content : L"", (Content != NULL) ? (ULONG)((wcslen(Content) + 1) * sizeof(WCHAR)) : (ULONG)sizeof(L""));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[103], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_PageView, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[109], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_PageView, EventData);
 }
 #define EventEnabledPlayerSessionEnd() (TRUE)
 
@@ -2656,7 +2800,7 @@ EventWritePlayerSessionEnd(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId,
     EventDataDescCreate(&EventData[5], &DifficultyLevelId, sizeof(DifficultyLevelId));
     EventDataDescCreate(&EventData[6], &ExitStatusId, sizeof(ExitStatusId));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[104], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_PlayerSessionEnd, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[110], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_PlayerSessionEnd, EventData);
 }
 #define EventEnabledPlayerSessionPause() (TRUE)
 
@@ -2677,7 +2821,7 @@ EventWritePlayerSessionPause(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionI
     EventDataDescCreate(&EventData[2], PlayerSessionId, sizeof(GUID));
     EventDataDescCreate(&EventData[3], (MultiplayerCorrelationId != NULL) ? MultiplayerCorrelationId : L"", (MultiplayerCorrelationId != NULL) ? (ULONG)((wcslen(MultiplayerCorrelationId) + 1) * sizeof(WCHAR)) : (ULONG)sizeof(L""));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[105], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_PlayerSessionPause, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[111], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_PlayerSessionPause, EventData);
 }
 #define EventEnabledPlayerSessionResume() (TRUE)
 
@@ -2700,7 +2844,7 @@ EventWritePlayerSessionResume(__in_opt PCWSTR UserId, __in LPCGUID PlayerSession
     EventDataDescCreate(&EventData[4], &GameplayModeId, sizeof(GameplayModeId));
     EventDataDescCreate(&EventData[5], &DifficultyLevelId, sizeof(DifficultyLevelId));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[106], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_PlayerSessionResume, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[112], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_PlayerSessionResume, EventData);
 }
 #define EventEnabledPlayerSessionStart() (TRUE)
 
@@ -2723,7 +2867,7 @@ EventWritePlayerSessionStart(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionI
     EventDataDescCreate(&EventData[4], &GameplayModeId, sizeof(GameplayModeId));
     EventDataDescCreate(&EventData[5], &DifficultyLevelId, sizeof(DifficultyLevelId));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[107], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_PlayerSessionStart, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[113], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_PlayerSessionStart, EventData);
 }
 #define EventEnabledSectionEnd() (TRUE)
 
@@ -2748,7 +2892,7 @@ EventWriteSectionEnd(__in_opt PCWSTR UserId, __in const signed int SectionId, __
     EventDataDescCreate(&EventData[6], &DifficultyLevelId, sizeof(DifficultyLevelId));
     EventDataDescCreate(&EventData[7], &ExitStatusId, sizeof(ExitStatusId));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[108], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_SectionEnd, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[114], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_SectionEnd, EventData);
 }
 #define EventEnabledSectionStart() (TRUE)
 
@@ -2772,7 +2916,7 @@ EventWriteSectionStart(__in_opt PCWSTR UserId, __in const signed int SectionId, 
     EventDataDescCreate(&EventData[5], &GameplayModeId, sizeof(GameplayModeId));
     EventDataDescCreate(&EventData[6], &DifficultyLevelId, sizeof(DifficultyLevelId));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[109], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_SectionStart, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[115], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_SectionStart, EventData);
 }
 #define EventEnabledViewOffer() (TRUE)
 
@@ -2794,7 +2938,7 @@ EventWriteViewOffer(__in_opt PCWSTR UserId, __in LPCGUID PlayerSessionId, __in L
     EventDataDescCreate(&EventData[3], OfferGuid, sizeof(GUID));
     EventDataDescCreate(&EventData[4], ProductGuid, sizeof(GUID));
 
-    return EtxEventWrite(&STBR_061AE4E7Events[110], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_ViewOffer, EventData);
+    return EtxEventWrite(&STBR_061AE4E7Events[116], &STBR_061AE4E7Provider, STBR_061AE4E7Handle, ARGUMENT_COUNT_STBR_061AE4E7_ViewOffer, EventData);
 }
 #if defined(__cplusplus)
 };
