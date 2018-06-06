@@ -3,7 +3,7 @@ Metallic: /Engine/EngineMaterials/FlatNormal
 Specular: /Engine/EngineMaterials/FlatNormal
 Roughness: /Engine/EngineMaterials/FlatNormal
 Normal: /Engine/EngineMaterials/FlatNormal
-EmissiveColor: /Engine/EngineMaterials/FlatNormal
+EmissiveColor: /Engine/Functions/Engine_MaterialFunctions02/Math/Transform3x3Matrix
 Opacity: /Engine/EngineMaterials/FlatNormal
 OpacityMask: /Engine/EngineMaterials/FlatNormal
 CustomColour: /Engine/EngineMaterials/FlatNormal
@@ -26,18 +26,15 @@ DefaultValue: 1f
 ParameterName: CustomRoughness
 ExpressionGUID: 433fa572-7e62-4041-af22-df8ba34cea4b
 Material: MaterialExpressionMaterialFunctionCall: {	
-	MaterialFunction: MaterialFunction /Engine/Functions/Engine_MaterialFunctions02/Math/TransformNormals_Tangent_to_Vertex.TransformNormals_Tangent_to_Vertex
+	MaterialFunction: MaterialFunction /Game/Characters/Campers/Materials/MF_MeyersOutline.MF_MeyersOutline
 	FunctionInputs: [ { 
-	ExpressionInputId: 5f35a7c5-23e5-4046-b585-c641ae73db26
-	Input: [Skipped]
-	 }, { 
-	ExpressionInputId: 9119ecdf-2beb-4d2b-90af-0cf25b6e13d7
+	ExpressionInputId: 07ddc975-8cc9-4b4f-a8ea-5f1ec8d33600
 	Input: [Skipped]
 	 } ]
 	FunctionOutputs: [ { 
-	ExpressionOutputId: 5290539d-1886-46e4-8450-a2aadc81bc58
+	ExpressionOutputId: 93cad5fc-1e33-439b-9adb-b0c4a79ffc4b
 	Output: {
-		OutputName: Result
+		OutputName: Emissive
 		Mask: 0
 		MaskR: 0
 		MaskG: 0
@@ -47,7 +44,7 @@ Material: MaterialExpressionMaterialFunctionCall: {
 	 } ]
 	Material: 1
 	Outputs: [ { 
-	OutputName: Result
+	OutputName: Emissive
 	Mask: 0
 	MaskR: 0
 	MaskG: 0
@@ -259,7 +256,7 @@ ExpressionGUID: 5a7ca043-bec2-4154-9958-25cb67e63c1b
 Texture: Texture2D /Game/Textures/Environment/Tiles/White_Linear.White_Linear
 SamplerType: SAMPLERTYPE_LinearColor
 Material: 1
- }, 0, 0, 0, { 
+ }, 0, 0, 0, 0, { 
 MaterialFunction: MaterialFunction /Game/Characters/Campers/Materials/MF_Outline.MF_Outline
 FunctionInputs: [ { 
 ExpressionInputId: e65f1239-590d-44a9-a8c3-3a9f9b154c3a
@@ -321,7 +318,7 @@ DefaultValue: 1f
 ParameterName: HairPower
 ExpressionGUID: f2037c8e-b524-44f1-8cf8-f1f58dbb59e1
 Material: 1
- }, 0, { 
+ }, { 
 ParameterName: Alpha_Mask
 ExpressionGUID: 64f6f2b1-5bc7-417a-acbe-b6bc41780a62
 Texture: Texture2D /Game/Characters/Campers/Textures/WIP/T_camper_Hair_M.T_camper_Hair_M
@@ -415,7 +412,36 @@ Material: 1
 ParameterName: CustomMetallic
 ExpressionGUID: bad48c30-6fda-4c0c-b0bf-c977a7969e48
 Material: 1
- }, 0, 27 ]
+ }, 28, { 
+MaterialFunction: MaterialFunction /Engine/Functions/Engine_MaterialFunctions02/Math/TransformNormals_Tangent_to_Vertex.TransformNormals_Tangent_to_Vertex
+FunctionInputs: [ { 
+ExpressionInputId: 5f35a7c5-23e5-4046-b585-c641ae73db26
+Input: [Skipped]
+ }, { 
+ExpressionInputId: 9119ecdf-2beb-4d2b-90af-0cf25b6e13d7
+Input: [Skipped]
+ } ]
+FunctionOutputs: [ { 
+ExpressionOutputId: 5290539d-1886-46e4-8450-a2aadc81bc58
+Output: {
+	OutputName: Result
+	Mask: 0
+	MaskR: 0
+	MaskG: 0
+	MaskB: 0
+	MaskA: 0
+	}
+ } ]
+Material: 1
+Outputs: [ { 
+OutputName: Result
+Mask: 0
+MaskR: 0
+MaskG: 0
+MaskB: 0
+MaskA: 0
+ } ]
+ }, 0, 0 ]
 MaterialFunctionInfos: [ { 
 StateId: 56d092ed-eba2-4453-8681-ddb1c4170f81
 Function: MaterialFunction /Game/Materials/MaterialFunctions/MFN_IntoTheFogWeGo_Character.MFN_IntoTheFogWeGo_Character
@@ -503,6 +529,12 @@ Function: MaterialFunction /Engine/Functions/Engine_MaterialFunctions02/Math/Tra
  }, { 
 StateId: e6a85460-7dd6-4e70-b457-f4eb430ae8a3
 Function: MaterialFunction /Engine/Functions/Engine_MaterialFunctions02/Utility/MakeFloat3.MakeFloat3
+ }, { 
+StateId: f3437bed-22a7-4854-8c60-ba3852ec0af0
+Function: MaterialFunction /Game/Characters/Campers/Materials/MF_MeyersOutline.MF_MeyersOutline
+ }, { 
+StateId: 50ebf8c6-f3ef-4ff5-920a-52e98fa716c4
+Function: MaterialFunction /Engine/Functions/Engine_MaterialFunctions02/Utility/CameraDirectionVector.CameraDirectionVector
  } ]
 MaterialParameterCollectionInfos: [ { 
 StateId: 6887e11d-8bdd-4785-8fa8-323cce66a82e
@@ -511,4 +543,4 @@ ParameterCollection: MaterialParameterCollection /Game/Materials/PostProcess/MPC
 StateId: d5f4c72c-0cf2-42e8-b48b-ae6c37b7f33c
 ParameterCollection: MaterialParameterCollection /Game/Materials/MPC_WorldSettings.MPC_WorldSettings
  } ]
-StateId: 73f7ba31-8384-4d2d-8b58-64689f014ba3
+StateId: dddf1886-3b66-4746-ab3f-9f9648b11b52
