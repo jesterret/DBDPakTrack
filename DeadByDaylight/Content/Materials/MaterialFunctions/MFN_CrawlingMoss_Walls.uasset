@@ -3,10 +3,10 @@ FunctionExpressions: [ {
 MaterialFunction: MaterialFunction /Game/Materials/MaterialFunctions/MFN_FadeToColour.MFN_FadeToColour
 FunctionInputs: [ { 
 ExpressionInputId: ee93592b-f8c1-4658-bf3d-528e10bce41a
-Input: InDiffuse
+Input: MaterialExpressionStaticSwitchParameter
  }, { 
 ExpressionInputId: 6f7d5760-a2ec-4305-9e7b-7dfb55f292ef
-Input: FadeTo
+Input: MaterialExpressionConstant
  } ]
 FunctionOutputs: [ { 
 ExpressionOutputId: dd2b889f-e9f5-4846-8b77-774c4ff34fef
@@ -29,8 +29,8 @@ MaskB: 0
 MaskA: 0
  } ]
  }, 0, { 
-A: 
-B: 
+A: MaterialExpressionScalarParameter
+B: MaterialExpressionConstant
 DefaultValue: True
 ParameterName: CustomMossRoughness_On
 ExpressionGUID: f8cb224a-64e3-4b89-9f6f-9f292ed12789
@@ -48,7 +48,7 @@ Function: 37
  }, 0, { 
 ParameterName: MossNormalMap Texture
 ExpressionGUID: 04203fe2-e21f-4352-ae05-1f996af05f32
-Coordinates: 
+Coordinates: MaterialExpressionMultiply
 Texture: Texture2D /Engine/EngineMaterials/FlatNormal.FlatNormal
 SamplerType: SAMPLERTYPE_Normal
 Function: 37
@@ -66,10 +66,10 @@ Function: 37
 MaterialFunction: MaterialFunction /Game/Materials/MaterialFunctions/MFN_FadeToColour.MFN_FadeToColour
 FunctionInputs: [ { 
 ExpressionInputId: ee93592b-f8c1-4658-bf3d-528e10bce41a
-Input: InDiffuse
+Input: MaterialExpressionStaticSwitchParameter
  }, { 
 ExpressionInputId: 6f7d5760-a2ec-4305-9e7b-7dfb55f292ef
-Input: FadeTo
+Input: MaterialExpressionConstant
  } ]
 FunctionOutputs: [ { 
 ExpressionOutputId: dd2b889f-e9f5-4846-8b77-774c4ff34fef
@@ -92,13 +92,13 @@ MaskB: 0
 MaskA: 0
  } ]
  }, 0, { 
-Default: 
-Inputs: 
-Inputs: 
+Default: MaterialExpressionComponentMask
+Inputs: MaterialExpressionFunctionInput
+Inputs: MaterialExpressionStaticSwitchParameter
 Function: 37
  }, { 
-A: 
-B: 
+A: MaterialExpressionScalarParameter
+B: MaterialExpressionFunctionInput
 DefaultValue: True
 ParameterName: CustomMossMetallic_On
 ExpressionGUID: 1223ab9a-0f81-4070-a4e7-86f9bbc3c2e6
@@ -107,7 +107,7 @@ Function: 37
 ParameterName: Moss Texture
 ExpressionGUID: bea60393-4aa3-493a-abca-91997e80ca1e
 Group: Moss
-Coordinates: 
+Coordinates: MaterialExpressionMultiply
 Texture: Texture2D /Game/Materials/Substance/Textures/T_Swamp_Mud_basecolor.T_Swamp_Mud_basecolor
 Function: 37
  }, { 
@@ -116,24 +116,24 @@ ParameterName: CustomMossRoughness
 ExpressionGUID: 1e5bba0e-4adc-4305-a9af-76846d22e1b1
 Function: 37
  }, 0, { 
-Default: 
-Inputs: 
-Inputs: 
+Default: MaterialExpressionComponentMask
+Inputs: MaterialExpressionConstant
+Inputs: MaterialExpressionComponentMask
 Function: 37
  }, 0, 0, { 
-A: 
-B: 
+A: MaterialExpressionScalarParameter
+B: MaterialExpressionFunctionInput
 DefaultValue: True
 ParameterName: CustomMossNormal_On
 ExpressionGUID: 29268a75-88d6-4a6c-8d67-8caec451cf0a
 Function: 37
  }, { 
-Default: 
-Inputs: 
-Inputs: 
+Default: MaterialExpressionComponentMask
+Inputs: MaterialExpressionConstant
+Inputs: MaterialExpressionStaticSwitchParameter
 Function: 37
  }, { 
-B: 
+B: None
 ParameterName: MetallicR_SpecG_RoughnessB
 ExpressionGUID: d931016a-74d4-47b6-a53a-82bce0c8f70a
 Function: 37
@@ -186,14 +186,14 @@ MaskB: 0
 MaskA: 0
  } ]
  }, 0, 0, { 
-A: 
-B: 
+A: MaterialExpressionLinearInterpolate
+B: MaterialExpressionStaticSwitchParameter
 ParameterName: TextureMossMetallic
 ExpressionGUID: 19822d08-5dc4-49a3-94dc-85d17230c2c2
 Function: 37
  }, 0, { 
-A: 
-B: 
+A: MaterialExpressionLinearInterpolate
+B: MaterialExpressionFunctionInput
 ParameterName: Moss On Ground
 ExpressionGUID: 38dc155e-70e9-40fe-88af-b4f0dc3dacc8
 Group: Moss
@@ -201,12 +201,12 @@ Function: 37
  }, { 
 ParameterName: MossMetallic Texture
 ExpressionGUID: 32957d85-9e00-475d-9a7a-17684d8158c2
-Coordinates: 
+Coordinates: MaterialExpressionMultiply
 Texture: Texture2D /Engine/EngineResources/Black.Black
 Function: 37
  }, 0, 0, 0, 0, 0, 0, 0, 0, 0, { 
-A: 
-B: 
+A: MaterialExpressionLinearInterpolate
+B: MaterialExpressionStaticSwitchParameter
 ParameterName: TextureMossAO
 ExpressionGUID: 0354aedc-3f35-423f-8fff-fb27a2029677
 Function: 37
@@ -221,8 +221,8 @@ ExpressionGUID: 680b1e5b-f6a6-4d38-8e97-0de90f3e0ed5
 Group: Moss
 Function: 37
  }, 0, 0, { 
-A: 
-B: 
+A: MaterialExpressionLinearInterpolate
+B: MaterialExpressionStaticSwitchParameter
 ParameterName: TextureMossNormal
 ExpressionGUID: e06a0b7c-db19-474e-a9c8-3250bfe0f47b
 Function: 37
@@ -230,10 +230,10 @@ Function: 37
 MaterialFunction: MaterialFunction /Game/Materials/MaterialFunctions/MFN_FadeToColour.MFN_FadeToColour
 FunctionInputs: [ { 
 ExpressionInputId: ee93592b-f8c1-4658-bf3d-528e10bce41a
-Input: InDiffuse
+Input: MaterialExpressionStaticSwitchParameter
  }, { 
 ExpressionInputId: 6f7d5760-a2ec-4305-9e7b-7dfb55f292ef
-Input: FadeTo
+Input: MaterialExpressionConstant
  } ]
 FunctionOutputs: [ { 
 ExpressionOutputId: dd2b889f-e9f5-4846-8b77-774c4ff34fef
@@ -262,21 +262,21 @@ Function: 37
  }, { 
 ParameterName: MossAO Texture
 ExpressionGUID: 6b37cadc-0ad0-436a-98a6-3e5208ef89d1
-Coordinates: 
+Coordinates: MaterialExpressionMultiply
 Texture: Texture2D /Game/Materials/Substance/Textures/T_Swamp_Mud_metallic.T_Swamp_Mud_metallic
 SamplerType: SAMPLERTYPE_LinearColor
 Function: 37
  }, { 
-A: 
-B: 
+A: MaterialExpressionScalarParameter
+B: MaterialExpressionFunctionInput
 DefaultValue: True
 ParameterName: CustomMossAO_On
 ExpressionGUID: 58dc8583-4f42-4c60-b24d-06db9f7401b3
 Function: 37
  }, { 
-Default: 
-Inputs: 
-Inputs: 
+Default: MaterialExpressionComponentMask
+Inputs: MaterialExpressionConstant
+Inputs: MaterialExpressionStaticSwitchParameter
 Function: 37
  }, 0, 0, { 
 DefaultValue: 1f
@@ -285,8 +285,8 @@ ExpressionGUID: 23268630-86cf-46c4-9be0-a8602735e821
 Group: Moss
 Function: 37
  }, { 
-A: 
-B: 
+A: MaterialExpressionLinearInterpolate
+B: MaterialExpressionFunctionInput
 ParameterName: TextureMossRoughness
 ExpressionGUID: f4053e32-bc13-4747-81a4-a884bad4c8be
 Function: 37
@@ -299,10 +299,10 @@ Function: 37
 MaterialFunction: MaterialFunction /Game/Materials/MaterialFunctions/MFN_FadeToColour.MFN_FadeToColour
 FunctionInputs: [ { 
 ExpressionInputId: ee93592b-f8c1-4658-bf3d-528e10bce41a
-Input: InDiffuse
+Input: MaterialExpressionStaticSwitchParameter
  }, { 
 ExpressionInputId: 6f7d5760-a2ec-4305-9e7b-7dfb55f292ef
-Input: FadeTo
+Input: MaterialExpressionConstant
  } ]
 FunctionOutputs: [ { 
 ExpressionOutputId: dd2b889f-e9f5-4846-8b77-774c4ff34fef
@@ -327,7 +327,7 @@ MaskA: 0
  }, 0, 0, { 
 ParameterName: MossRoughness Texture
 ExpressionGUID: 6109caa0-adc6-485f-b445-7a36d917bf98
-Coordinates: 
+Coordinates: MaterialExpressionMultiply
 Texture: Texture2D /Game/Textures/Environment/Tiles/White.White
 Function: 37
  }, 0, 0 ]
