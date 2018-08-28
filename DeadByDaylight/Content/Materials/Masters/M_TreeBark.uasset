@@ -1,5 +1,6 @@
 PhysMaterial: PhysicalMaterial /Game/Materials/PhysicalMaterials/PM_Wood.PM_Wood
 BaseColor: /Engine/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat3Components
+Metallic: /Engine/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat3Components
 Specular: /Engine/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat3Components
 Roughness: /Engine/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat3Components
 Normal: /Engine/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat3Components
@@ -12,7 +13,7 @@ CustomizedUVs: /Game/AdvancedDissolveFX/MaterialFunctions/Components/MF_PanningT
 CustomizedUVs: /Game/AdvancedDissolveFX/MaterialFunctions/Components/MF_PanningTexture
 NumCustomizedUVs: 3
 bUsedWithInstancedStaticMeshes: True
-EditorX: 784
+EditorX: 960
 EditorY: -240
 Expressions: [ { 
 A: [Skipped]
@@ -30,6 +31,10 @@ A: [Skipped]
 B: [Skipped]
 ParameterName: EnableDissolve
 ExpressionGUID: ddee29c2-7e68-43de-b2f5-1ef2ce1e0fbe
+Material: 1
+ }, { 
+Default: [Skipped]
+Inputs: [Skipped]
 Material: 1
  }, { 
 MaterialFunction: MaterialFunction /Game/Materials/MaterialFunctions/MFN_CrawlingMoss.MFN_CrawlingMoss
@@ -137,15 +142,15 @@ ExpressionGUID: e0c73a87-9208-4b99-9f60-429157bb12b9
 Coordinates: [Skipped]
 Texture: Texture2D /Game/Textures/Environment/Tiles/Black.Black
 Material: 1
- }, 21, 0, 0, 0, { 
+ }, 25, 0, 0, 0, { 
 DefaultValue: 1f
 ParameterName: contrast
 ExpressionGUID: 0cf31907-30d8-4531-95ab-301aafef7a95
 Group: AO blend
 Material: 1
  }, 0, { 
-ParameterName: procedural mix
-ExpressionGUID: dd6c38f4-0fb5-44c4-ace1-3001ee71fc1d
+ParameterName: CustomSpecular
+ExpressionGUID: 8588c49b-593a-4296-90eb-ff22a738f43c
 Material: 1
  }, { 
 Collection: MaterialParameterCollection /Game/Materials/MPC_WorldSettings.MPC_WorldSettings
@@ -336,16 +341,15 @@ ParameterName: SacrificePosition
 ParameterId: cf5299e4-8e88-4ca8-87e4-ed38459fe995
 Material: 1
  }, { 
-DefaultValue: 1000f
-ParameterName: pixelfade
-ExpressionGUID: d903d5f1-9321-4791-95f5-55986a2caaab
-Group: AO blend
+ParameterName: CustomMetallic
+ExpressionGUID: ad3464e3-6c30-4dc4-9572-0d9f39dfe88c
 Material: 1
  }, 0, { 
-ParameterName: AO_Texture
-ExpressionGUID: 90fbf108-531d-4e19-9243-e80c89d1a929
+ParameterName: NormalMap Texture
+ExpressionGUID: 8dfe4e8a-ee4d-4fd9-93f5-d0317350da7d
 Coordinates: [Skipped]
-Texture: Texture2D /Game/Textures/Environment/Tiles/Black.Black
+Texture: Texture2D /Game/Effects/Textures/T_FlatNormal_01.T_FlatNormal_01
+SamplerType: SAMPLERTYPE_Normal
 Material: 1
  }, 0, 0, 0, 0, 0, 0, { 
 DefaultValue: 1f
@@ -386,11 +390,31 @@ MaskB: 0
 MaskA: 0
  } ]
  }, { 
-Default: [Skipped]
-Inputs: [Skipped]
+ParameterName: AO_Texture
+ExpressionGUID: 90fbf108-531d-4e19-9243-e80c89d1a929
+Coordinates: [Skipped]
+Texture: Texture2D /Game/Textures/Environment/Tiles/Black.Black
+Material: 1
+ }, { 
+ParameterName: procedural mix
+ExpressionGUID: dd6c38f4-0fb5-44c4-ace1-3001ee71fc1d
+Material: 1
+ }, { 
+DefaultValue: 1f
+ParameterName: CustomRoughness
+ExpressionGUID: 80ab6950-6e96-49a1-b685-43e4ab71f7b0
+Material: 1
+ }, { 
+DefaultValue: 1000f
+ParameterName: pixelfade
+ExpressionGUID: d903d5f1-9321-4791-95f5-55986a2caaab
+Group: AO blend
 Material: 1
  } ]
 MaterialFunctionInfos: [ { 
+StateId: 0f77d038-beab-41e3-91a2-b2e183b79a18
+Function: MaterialFunction /Game/Materials/MaterialFunctions/MFN_FadeRadius.MFN_FadeRadius
+ }, { 
 StateId: 831346f6-7dff-4ed0-8496-b48a3ec0aab4
 Function: MaterialFunction /Game/Materials/MaterialFunctions/MFN_CubeClipper.MFN_CubeClipper
  }, { 
@@ -444,12 +468,9 @@ Function: MaterialFunction /Engine/Functions/Engine_MaterialFunctions02/Utility/
  }, { 
 StateId: 64689fc4-bd6d-42df-947c-a2e68249947e
 Function: MaterialFunction /Engine/Functions/Engine_MaterialFunctions02/WorldPositionOffset/LocalPosition.LocalPosition
- }, { 
-StateId: 0f77d038-beab-41e3-91a2-b2e183b79a18
-Function: MaterialFunction /Game/Materials/MaterialFunctions/MFN_FadeRadius.MFN_FadeRadius
  } ]
 MaterialParameterCollectionInfos: [ { 
 StateId: d5f4c72c-0cf2-42e8-b48b-ae6c37b7f33c
 ParameterCollection: MaterialParameterCollection /Game/Materials/MPC_WorldSettings.MPC_WorldSettings
  } ]
-StateId: 424323ff-36b7-4ccb-94b1-b490cca626da
+StateId: 5bef73aa-30be-402b-ae2e-9e2b6e47624e

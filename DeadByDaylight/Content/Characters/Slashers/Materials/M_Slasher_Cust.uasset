@@ -4,7 +4,7 @@ Specular: /Engine/Functions/Engine_MaterialFunctions02/ScreenResolution
 Roughness: /Engine/Functions/Engine_MaterialFunctions02/ScreenResolution
 Normal: /Engine/Functions/Engine_MaterialFunctions02/ScreenResolution
 EmissiveColor: /Engine/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat3Components
-OpacityMask: /Engine/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat4Components
+OpacityMask: /Engine/Functions/Engine_MaterialFunctions02/ScreenResolution
 CustomColour: /Engine/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat3Components
 BlendMode: BLEND_Masked
 WorldPositionOffset: /Engine/Functions/Engine_MaterialFunctions02/Texturing/ScreenAlignedPixelToPixelUVs
@@ -12,8 +12,8 @@ AmbientOcclusion: /Engine/Functions/Engine_MaterialFunctions02/ScreenResolution
 TranslucencyLightingMode: TLM_Surface
 bUsedWithSkeletalMesh: True
 bUsedWithClothing: True
-EditorX: 2176
-EditorY: 256
+EditorX: 2544
+EditorY: 272
 Expressions: [ { 
 MaterialFunction: MaterialFunction /Game/Materials/MaterialFunctions/MFN_IntoTheFogWeGo_Character.MFN_IntoTheFogWeGo_Character
 FunctionInputs: [ { 
@@ -152,41 +152,23 @@ MaskG: 0
 MaskB: 0
 MaskA: 0
  } ]
- }, { 
-DefaultValue: 35f
-ParameterName: Emissive_Tile
-ExpressionGUID: 9042947d-c0c8-4c0e-b617-777389c9af02
+ }, 0, { 
+ParameterName: ActivateDitherTemporalAA
+ExpressionGUID: 89b7adad-bea1-44d7-ba67-d8a34360a5fb
 Material: 1
  }, 0, { 
-MaterialFunction: MaterialFunction /Game/Characters/Campers/Materials/MF_OverlayOverlayEmissive.MF_OverlayOverlayEmissive
+MaterialFunction: MaterialFunction /Engine/Functions/Engine_MaterialFunctions02/Utility/DitherTemporalAA.DitherTemporalAA
 FunctionInputs: [ { 
-ExpressionInputId: e290d733-10fb-4c5c-8eed-0feccb2e8b21
+ExpressionInputId: 982bcae7-814c-401f-95e2-0adcf346ee5d
+Input: [Skipped]
+ }, { 
+ExpressionInputId: e8a932af-b0d6-4299-8bdb-6ec19627911e
 Input: [Skipped]
  } ]
 FunctionOutputs: [ { 
-ExpressionOutputId: 330aa891-4260-4077-8bbe-da88506c5d5b
+ExpressionOutputId: 9bc32b08-f3d2-4665-aa90-9ad59f8aca45
 Output: {
-	OutputName: Overlay A
-	Mask: 0
-	MaskR: 0
-	MaskG: 0
-	MaskB: 0
-	MaskA: 0
-	}
- }, { 
-ExpressionOutputId: c51b724a-8871-413c-849e-d2e94b0ae4c1
-Output: {
-	OutputName: Overlay B
-	Mask: 0
-	MaskR: 0
-	MaskG: 0
-	MaskB: 0
-	MaskA: 0
-	}
- }, { 
-ExpressionOutputId: f2c32592-f4ed-441f-920f-e5539e3a79fe
-Output: {
-	OutputName: Emissive
+	OutputName: Result
 	Mask: 0
 	MaskR: 0
 	MaskG: 0
@@ -196,21 +178,7 @@ Output: {
  } ]
 Material: 1
 Outputs: [ { 
-OutputName: Overlay A
-Mask: 0
-MaskR: 0
-MaskG: 0
-MaskB: 0
-MaskA: 0
- }, { 
-OutputName: Overlay B
-Mask: 0
-MaskR: 0
-MaskG: 0
-MaskB: 0
-MaskA: 0
- }, { 
-OutputName: Emissive
+OutputName: Result
 Mask: 0
 MaskR: 0
 MaskG: 0
@@ -404,7 +372,7 @@ MaskG: 0
 MaskB: 0
 MaskA: 0
  } ]
- }, 27, 0, { 
+ }, 30, 0, { 
 DefaultValue: 0.2f
 ParameterName: SpecularValue
 ExpressionGUID: 4e2142ce-86b4-464f-8e2b-5ca5c8043138
@@ -489,10 +457,10 @@ SamplerSource: SSM_Wrap_WorldGroupSettings
 Texture: Texture2D /Game/Textures/Environment/Tiles/Black.Black
 Material: 1
  }, 0, 0, 0, 0, 0, 0, { 
-SliderMin: -0.01f
+DefaultValue: 1f
 SliderMax: 1f
-ParameterName: Speed X
-ExpressionGUID: 55c34737-36ff-4459-85cc-1b280a2937d2
+ParameterName: OpacityController
+ExpressionGUID: 4bb1a873-8194-4e6c-91bf-e95e1cce6a70
 Material: 1
  }, { 
 ParameterName: Diffuse
@@ -500,7 +468,78 @@ ExpressionGUID: 2a7d5f0c-06cf-44c9-9d83-33338aee911d
 SamplerSource: SSM_Wrap_WorldGroupSettings
 Texture: Texture2D /Game/Textures/Environment/Tiles/Black.Black
 Material: 1
- }, 0, 0 ]
+ }, 0, 0, { 
+MaterialFunction: MaterialFunction /Game/Characters/Campers/Materials/MF_OverlayOverlayEmissive.MF_OverlayOverlayEmissive
+FunctionInputs: [ { 
+ExpressionInputId: e290d733-10fb-4c5c-8eed-0feccb2e8b21
+Input: [Skipped]
+ } ]
+FunctionOutputs: [ { 
+ExpressionOutputId: 330aa891-4260-4077-8bbe-da88506c5d5b
+Output: {
+	OutputName: Overlay A
+	Mask: 0
+	MaskR: 0
+	MaskG: 0
+	MaskB: 0
+	MaskA: 0
+	}
+ }, { 
+ExpressionOutputId: c51b724a-8871-413c-849e-d2e94b0ae4c1
+Output: {
+	OutputName: Overlay B
+	Mask: 0
+	MaskR: 0
+	MaskG: 0
+	MaskB: 0
+	MaskA: 0
+	}
+ }, { 
+ExpressionOutputId: f2c32592-f4ed-441f-920f-e5539e3a79fe
+Output: {
+	OutputName: Emissive
+	Mask: 0
+	MaskR: 0
+	MaskG: 0
+	MaskB: 0
+	MaskA: 0
+	}
+ } ]
+Material: 1
+Outputs: [ { 
+OutputName: Overlay A
+Mask: 0
+MaskR: 0
+MaskG: 0
+MaskB: 0
+MaskA: 0
+ }, { 
+OutputName: Overlay B
+Mask: 0
+MaskR: 0
+MaskG: 0
+MaskB: 0
+MaskA: 0
+ }, { 
+OutputName: Emissive
+Mask: 0
+MaskR: 0
+MaskG: 0
+MaskB: 0
+MaskA: 0
+ } ]
+ }, { 
+SliderMin: -0.01f
+SliderMax: 1f
+ParameterName: Speed X
+ExpressionGUID: 55c34737-36ff-4459-85cc-1b280a2937d2
+Material: 1
+ }, 0, { 
+DefaultValue: 35f
+ParameterName: Emissive_Tile
+ExpressionGUID: 9042947d-c0c8-4c0e-b617-777389c9af02
+Material: 1
+ } ]
 MaterialFunctionInfos: [ { 
 StateId: 7ee821ea-3427-4265-976e-6cbad42879ef
 Function: MaterialFunction /Game/Characters/Campers/Materials/MF_SwitchedDissolve.MF_SwitchedDissolve
@@ -645,6 +684,12 @@ Function: MaterialFunction /Game/Characters/Campers/Materials/MF_SurvivorEmissiv
  }, { 
 StateId: 94b7e46e-7fdb-442e-b5a6-db7dc27b7b91
 Function: MaterialFunction /Game/Materials/MaterialFunctions/MFN_DynamicMask.MFN_DynamicMask
+ }, { 
+StateId: 51f97f8c-3907-4f1c-98a1-b8bfa305ade3
+Function: MaterialFunction /Engine/Functions/Engine_MaterialFunctions02/Utility/DitherTemporalAA.DitherTemporalAA
+ }, { 
+StateId: 2b56db80-246a-4f48-a2b9-2d217aa58323
+Function: MaterialFunction /Engine/Functions/Engine_MaterialFunctions02/Texturing/ScreenAlignedPixelToPixelUVs.ScreenAlignedPixelToPixelUVs
  } ]
 MaterialParameterCollectionInfos: [ { 
 StateId: d5f4c72c-0cf2-42e8-b48b-ae6c37b7f33c
@@ -653,4 +698,4 @@ ParameterCollection: MaterialParameterCollection /Game/Materials/MPC_WorldSettin
 StateId: 6887e11d-8bdd-4785-8fa8-323cce66a82e
 ParameterCollection: MaterialParameterCollection /Game/Materials/PostProcess/MPC_OutlineFade.MPC_OutlineFade
  } ]
-StateId: 926554be-771c-431b-8801-395a3cb5ce83
+StateId: a792c5d2-9c2d-4c6e-951e-6956fe038063
