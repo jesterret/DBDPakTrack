@@ -1,6 +1,141 @@
-Emitters: [ 13 ]
-CurveEdSetup: RequiredDistributionSpawnRate: {	
+Emitters: [ { 
+EmitterName: Trail
+LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_BlinkTrail.MI_BlinkTrail
+	bKillOnDeactivate: True
+	bKillOnCompleted: True
+	bUseLegacyEmitterTime: False
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		}
+	RandomImageTime: 1f
+	bEnabled: False
+	LODValidity: 3
 	}
+Modules: [ { 
+Lifetime: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1 ]
+		}
+	}
+LODValidity: 3
+ }, { 
+StartSize: {
+	MaxValue: 80f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 16, 80, 0 ]
+		}
+	}
+LODValidity: 3
+ }, { 
+ColorOverLife: {
+	MinValue: 0.08f
+	MaxValue: 0.08f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0.08, 0.08, 0.08 ]
+		}
+	}
+AlphaOverLife: {
+	MaxValue: 0.2f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 8
+		EntryStride: 1
+		TimeScale: 7f
+		Values: [ 0, 0.05714286, 0.1142857, 0.1714286, 0.1714286, 0.1142857, 0.05714282, 0 ]
+		}
+	}
+LODValidity: 3
+ } ]
+TypeDataModule: ParticleModuleTypeDataAnimTrail: {	
+	DistanceTessellationStepSize: 1f
+	LODValidity: 3
+	}
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstScale: {
+		Distribution: BurstScaleDistribution: {	
+			Constant: 1f
+			}
+		}
+	LODValidity: 1
+	}
+PeakActiveParticles: 3
+ }, { 
+Level: 1
+RequiredModule: 8
+Modules: [ 7, 9, 6 ]
+TypeDataModule: 12
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 0 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstScale: {
+		Distribution: BurstScaleDistribution: {	
+			Constant: 1f
+			}
+		}
+	LODValidity: 2
+	}
+PeakActiveParticles: 2
+ } ]
+ } ]
+CurveEdSetup: 0
 LODDistances: [ 0, 5000 ]
 LODSettings: [ { 
  }, { 

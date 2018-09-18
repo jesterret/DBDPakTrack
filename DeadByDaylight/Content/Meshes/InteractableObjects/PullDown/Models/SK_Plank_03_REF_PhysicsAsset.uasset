@@ -2,18 +2,6 @@ BoundsBodies: [ 0, 1 ]
 SkeletalBodySetups: [ { 
 AggGeom: {
 	SphylElems: [ { 
-	Center: Vector [X=0.1267612, Y=-106.0074, Z=-8.943722]
-	Orientation: Quat [X=0.6970102, Y=-0.03705582, Z=-0.03801718, W=0.7150932]
-	Radius: 76.69397f
-	Length: 113.3732f
-	 } ]
-	}
-BoneName: joint_Pelvis
-CollisionTraceFlag: CTF_UseSimpleAsComplex
- }, 4 ]
-ConstraintSetup: [ { 
-AggGeom: {
-	SphylElems: [ { 
 	Center: Vector [X=0, Y=0, Z=0]
 	Orientation: Quat [X=0, Y=0, Z=-0.7071066, W=0.7071068]
 	Radius: 0.505f
@@ -22,4 +10,32 @@ AggGeom: {
 	}
 BoneName: joint_Char
 CollisionTraceFlag: CTF_UseSimpleAsComplex
+ }, { 
+AggGeom: {
+	SphylElems: [ { 
+	Center: Vector [X=0.1267612, Y=-106.0074, Z=-8.943722]
+	Orientation: Quat [X=0.6970102, Y=-0.03705582, Z=-0.03801718, W=0.7150932]
+	Radius: 76.69397f
+	Length: 113.3732f
+	 } ]
+	}
+BoneName: joint_Pelvis
+CollisionTraceFlag: CTF_UseSimpleAsComplex
+ } ]
+ConstraintSetup: [ { 
+DefaultInstance: {
+	JointName: joint_Pelvis
+	ConstraintBone1: joint_Pelvis
+	ConstraintBone2: joint_Char
+	Pos2: Vector [X=0, Y=0, Z=11.83186]
+	ProfileInstance: {
+		ConeLimit: {
+			Swing1Motion: ACM_Limited
+			Swing2Motion: ACM_Limited
+			}
+		TwistLimit: {
+			TwistMotion: ACM_Limited
+			}
+		}
+	}
  } ]

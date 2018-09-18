@@ -1,19 +1,157 @@
 ParentClass: Class /Script/DeadByDaylight.ReverseBearTrap
-SimpleConstructionScript: SkeletalMesh_GEN_VARIABLE: {	
-	AnimClass: AnimBlueprintGeneratedClass /Game/Meshes/InteractableObjects/ReverseBearTrap/AB_RBT01.AB_RBT01_C
-	SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/ReverseBearTrap/RBT_REF.RBT_REF
-	OverrideMaterials: [ MaterialInstanceConstant /Game/Materials/Instances/Finland/MI_ReverseBearTrap_Dissolve.MI_ReverseBearTrap_Dissolve ]
-	}
-Timelines: [ 205 ]
-BlueprintSystemVersion: 2
-GeneratedClass: Default__BP_ReverseBearTrap_C: {	
-	UberGraphFrame: 309
-	WarningLevels: [ 0, 0.25, 0.5, 0.75, 0.9999 ]
-	Audio Beep Lvl: AkAudioEvent /Game/Audio/AudioEvents/Powers/AudioEvent_RBT_Beep_Lvl_01.AudioEvent_RBT_Beep_Lvl_01
-	PrimaryActorTick: {
-		bCanEverTick: True
+SimpleConstructionScript: SimpleConstructionScript: {	
+	RootNodes: [ { 
+	ComponentTemplate: DefaultSceneRoot_GEN_VARIABLE: {	
 		}
-	bReplicateMovement: True
+	VariableName: DefaultSceneRoot
+	ChildNodes: [ { 
+	ComponentTemplate: Interactor_GEN_VARIABLE: {	
+		}
+	VariableName: Interactor
+	ChildNodes: [ { 
+	ComponentTemplate: ReverseBearTrapExecute_GEN_VARIABLE: {	
+		}
+	VariableName: ReverseBearTrapExecute
+	VariableGuid: 4a522d34-f3a4-42d9-8dfe-56892224474e
+	 }, { 
+	ComponentTemplate: ReverseBearTrapExecuteAtExit_GEN_VARIABLE: {	
+		IsFromExecutionZone: True
+		InteractionInputType: EInputInteractionType::VE_ExternalRequestRBTExecuteAtExit
+		}
+	VariableName: ReverseBearTrapExecuteAtExit
+	VariableGuid: 963d370a-e197-41ba-86cf-f5050bfba9d8
+	 } ]
+	VariableGuid: 1da6be84-d1d5-44f7-a503-f68481af7538
+	 }, { 
+	ComponentTemplate: SkeletalMesh_GEN_VARIABLE: {	
+		AnimClass: AnimBlueprintGeneratedClass /Game/Meshes/InteractableObjects/ReverseBearTrap/AB_RBT01.AB_RBT01_C
+		SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/ReverseBearTrap/RBT_REF.RBT_REF
+		OverrideMaterials: [ MaterialInstanceConstant /Game/Materials/Instances/Finland/MI_ReverseBearTrap_Dissolve.MI_ReverseBearTrap_Dissolve ]
+		}
+	VariableName: SkeletalMesh
+	ChildNodes: [ { 
+	ComponentTemplate: P_RBT_WarningLight_GEN_VARIABLE: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/Killer11/RBT/P_RBT_WarningLight.P_RBT_WarningLight
+		SecondsBeforeInactive: 0f
+		bAutoActivate: False
+		}
+	VariableName: P_RBT_WarningLight
+	AttachToName: FX_WarningLight
+	VariableGuid: 59315373-b26b-4d1e-9981-d25c103300d6
+	 } ]
+	VariableGuid: e362574e-6c3d-4088-852c-929b290b94a1
+	 }, { 
+	ComponentTemplate: RBTOverlapZone_GEN_VARIABLE: {	
+		BodyInstance: {
+			CollisionProfileName: Custom
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: Pawn
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Interactable
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: WorldStatic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: WorldDynamic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PhysicsBody
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Destructible
+				Response: ECR_Ignore
+				 }, { 
+				Channel: BlinkBlocker
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Ground
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PawnDetector
+				Response: ECR_Overlap
+				 } ]
+				}
+			CollisionEnabled: ECollisionEnabled::QueryAndPhysics
+			ObjectType: ECC_GameTraceChannel10
+			}
+		}
+	VariableName: RBTOverlapZone
+	VariableGuid: b87203b3-6318-4e44-b6bf-ae2315a68a33
+	 }, { 
+	ComponentTemplate: Ak_Audio_RBT_GEN_VARIABLE: {	
+		OcclusionRefreshInterval: 1f
+		OcclusionAffect: 0f
+		MaxOcclusionDistance: 1600f
+		}
+	VariableName: Ak_Audio_RBT
+	VariableGuid: 73f74bf3-a450-4feb-b99e-ebae2f58b0f6
+	 } ]
+	VariableGuid: a906dee9-167f-4a8e-b925-a2565f44d5eb
+	 }, { 
+	ComponentTemplate: AnimationMontageSlave_GEN_VARIABLE: {	
+		}
+	VariableName: AnimationMontageSlave
+	VariableGuid: ffa0cfb3-4db7-48f0-9ee7-654fd7e44383
+	 }, { 
+	ComponentTemplate: MontagePlayer_GEN_VARIABLE: {	
+		_animationMappingsTable: DataTable /Game/Blueprints/GameplayElements/Item/ReverseBearTrap/RBTAnimMappings.RBTAnimMappings
+		}
+	VariableName: MontagePlayer
+	VariableGuid: 35d3bc78-5949-4e39-8997-d95926be3809
+	 } ]
+	AllNodes: [ 192, 194, 196, 195, 197, 198, 193, 199, 200, 201 ]
+	DefaultSceneRootNode: 192
+	}
+Timelines: [ { 
+TimelineLength: 2f
+bValidatedAsWired: True
+FloatTracks: [ { 
+CurveFloat: CurveFloat: {	
+	FloatCurve: {
+		Keys: [ RichCurveKey [InterpMode=2, TangentMode=0, TangentWeightMode=0, Time=0, Value=0, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=1, TangentWeightMode=0, Time=2, Value=1, ArriveTangent=0.6542947, ArriveTangentWeight=0, LeaveTangent=0.6542943, LeaveTangentWeight=0] ]
+		}
+	}
+TrackName: Dissolve
+bIsExternalCurve: False
+ } ]
+TimelineGuid: f3382558-06e3-4dca-8907-b846ed432f53
+ } ]
+BlueprintSystemVersion: 2
+GeneratedClass: BP_ReverseBearTrap_C: {	
+	NumReplicatedProperties: 2
+	Timelines: [ 205 ]
+	SimpleConstructionScript: 202
+	UberGraphFramePointerProperty: UberGraphFrame: {	
+		}
+	UberGraphFunction: ExecuteUbergraph_BP_ReverseBearTrap: {	
+		}
 	}
 bLegacyNeedToPurgeSkelRefs: False
 bLegacyGeneratedClassIsAuthoritative: True

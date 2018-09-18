@@ -2,6 +2,22 @@ BoundsBodies: [ 0, 1, 2, 3, 4 ]
 SkeletalBodySetups: [ { 
 AggGeom: {
 	SphereElems: [ { 
+	Center: Vector [X=1.359247, Y=-0.2927909, Z=-0.2807117]
+	Radius: 1f
+	 } ]
+	}
+BoneName: joint_Hair01
+PhysicsType: PhysType_Kinematic
+CollisionTraceFlag: CTF_UseSimpleAsComplex
+DefaultInstance: {
+	bUseCCD: True
+	PhysMaterialOverride: PhysicalMaterial /Game/Materials/PhysicalMaterials/PM_Hair.PM_Hair
+	PositionSolverIterationCount: 16
+	VelocitySolverIterationCount: 16
+	}
+ }, { 
+AggGeom: {
+	SphereElems: [ { 
 	Center: Vector [X=-0.01491082, Y=-0.03904348, Z=-0.1978057]
 	Radius: 1f
 	 } ]
@@ -53,24 +69,51 @@ DefaultInstance: {
 	AngularDamping: 10f
 	PhysMaterialOverride: PhysicalMaterial /Game/Materials/PhysicalMaterials/PM_Hair.PM_Hair
 	}
- }, 10, { 
+ }, { 
 AggGeom: {
 	SphereElems: [ { 
-	Center: Vector [X=1.359247, Y=-0.2927909, Z=-0.2807117]
+	Center: Vector [X=0.9689784, Y=0.05787226, Z=-0.009943157]
 	Radius: 1f
 	 } ]
 	}
-BoneName: joint_Hair01
-PhysicsType: PhysType_Kinematic
+BoneName: joint_Hair05
+PhysicsType: PhysType_Simulated
+PhysMaterial: PhysicalMaterial /Game/Materials/PhysicalMaterials/PM_Hair.PM_Hair
 CollisionTraceFlag: CTF_UseSimpleAsComplex
 DefaultInstance: {
-	bUseCCD: True
+	bNotifyRigidBodyCollision: True
+	bOverrideMass: True
+	MassInKgOverride: 0.01f
+	LinearDamping: 1f
+	AngularDamping: 10f
 	PhysMaterialOverride: PhysicalMaterial /Game/Materials/PhysicalMaterials/PM_Hair.PM_Hair
-	PositionSolverIterationCount: 16
-	VelocitySolverIterationCount: 16
 	}
  } ]
 ConstraintSetup: [ { 
+DefaultInstance: {
+	JointName: joint_Hair02
+	ConstraintBone1: joint_Hair02
+	ConstraintBone2: joint_Hair01
+	Pos2: Vector [X=4.533535, Y=0, Z=1.272047E-07]
+	PriAxis2: Vector [X=0.9928313, Y=-0.1195242, Z=2.358189E-07]
+	SecAxis2: Vector [X=0.1195242, Y=0.9928313, Z=1.354222E-08]
+	ProfileInstance: {
+		ProjectionLinearTolerance: 0f
+		ConeLimit: {
+			Swing1Motion: ACM_Limited
+			Swing2Motion: ACM_Limited
+			Damping: 100f
+			}
+		TwistLimit: {
+			TwistMotion: ACM_Limited
+			Damping: 100f
+			}
+		AngularDrive: {
+			AngularDriveMode: EAngularDriveMode::TwistAndSwing
+			}
+		}
+	}
+ }, { 
 DefaultInstance: {
 	JointName: joint_Hair03
 	ConstraintBone1: joint_Hair03
@@ -119,45 +162,21 @@ DefaultInstance: {
 		}
 	}
  }, { 
-AggGeom: {
-	SphereElems: [ { 
-	Center: Vector [X=0.9689784, Y=0.05787226, Z=-0.009943157]
-	Radius: 1f
-	 } ]
-	}
-BoneName: joint_Hair05
-PhysicsType: PhysType_Simulated
-PhysMaterial: PhysicalMaterial /Game/Materials/PhysicalMaterials/PM_Hair.PM_Hair
-CollisionTraceFlag: CTF_UseSimpleAsComplex
 DefaultInstance: {
-	bNotifyRigidBodyCollision: True
-	bOverrideMass: True
-	MassInKgOverride: 0.01f
-	LinearDamping: 1f
-	AngularDamping: 10f
-	PhysMaterialOverride: PhysicalMaterial /Game/Materials/PhysicalMaterials/PM_Hair.PM_Hair
-	}
- }, { 
-DefaultInstance: {
-	JointName: joint_Hair02
-	ConstraintBone1: joint_Hair02
-	ConstraintBone2: joint_Hair01
-	Pos2: Vector [X=4.533535, Y=0, Z=1.272047E-07]
-	PriAxis2: Vector [X=0.9928313, Y=-0.1195242, Z=2.358189E-07]
-	SecAxis2: Vector [X=0.1195242, Y=0.9928313, Z=1.354222E-08]
+	JointName: joint_Hair05
+	ConstraintBone1: joint_Hair05
+	ConstraintBone2: joint_Hair04
+	Pos2: Vector [X=6.528845, Y=0, Z=-1.753756E-07]
+	PriAxis2: Vector [X=0.9996197, Y=-0.02757573, Z=-1.200764E-07]
+	SecAxis2: Vector [X=0.02757573, Y=0.9996197, Z=3.27595E-09]
 	ProfileInstance: {
-		ProjectionLinearTolerance: 0f
 		ConeLimit: {
-			Swing1Motion: ACM_Limited
-			Swing2Motion: ACM_Limited
-			Damping: 100f
+			Swing1Motion: ACM_Locked
+			Swing2Motion: ACM_Locked
 			}
 		TwistLimit: {
-			TwistMotion: ACM_Limited
+			TwistMotion: ACM_Locked
 			Damping: 100f
-			}
-		AngularDrive: {
-			AngularDriveMode: EAngularDriveMode::TwistAndSwing
 			}
 		}
 	}

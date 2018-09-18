@@ -1,102 +1,342 @@
 ParentClass: Class /Script/DeadByDaylight.BaseProjectile
-SimpleConstructionScript: Collision_GEN_VARIABLE: {	
-	SphereRadius: 10f
-	bTraceComplexOnMove: True
-	bReturnMaterialOnMove: True
-	BodyInstance: {
-		CollisionProfileName: Projectile
-		CollisionResponses: {
-			ResponseArray: [ { 
-			Channel: Pawn
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Visibility
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Camera
-			Response: ECR_Ignore
-			 }, { 
-			Channel: PhysicsBody
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Vehicle
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Destructible
-			Response: ECR_Ignore
-			 }, { 
-			Channel: EngineTraceChannel2
-			Response: ECR_Ignore
-			 }, { 
-			Channel: EngineTraceChannel3
-			Response: ECR_Ignore
-			 }, { 
-			Channel: EngineTraceChannel4
-			Response: ECR_Ignore
-			 }, { 
-			Channel: EngineTraceChannel5
-			Response: ECR_Ignore
-			 }, { 
-			Channel: EngineTraceChannel6
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Interactable
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Audio
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Slasher
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Spider
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Traps
-			Response: ECR_Ignore
-			 }, { 
-			Channel: InteractionDetector
-			Response: ECR_Ignore
-			 }, { 
-			Channel: BlinkBlocker
-			Response: ECR_Ignore
-			 } ]
-			}
-		bUseCCD: True
-		bNotifyRigidBodyCollision: True
-		bEnableGravity: False
-		CollisionEnabled: ECollisionEnabled::QueryAndPhysics
+SimpleConstructionScript: SimpleConstructionScript: {	
+	RootNodes: [ { 
+	ComponentTemplate: ProjectileMovement_GEN_VARIABLE: {	
+		MaxSpeed: 5000f
+		bInitialVelocityInLocalSpace: False
+		Velocity: Vector [X=1000, Y=0, Z=0]
 		}
-	CanCharacterStepUpOn: ECB_No
-	bCanEverAffectNavigation: False
+	VariableName: ProjectileMovement
+	VariableGuid: 837dd7d5-168b-4204-adec-5d324bc7875f
+	 }, { 
+	ComponentTemplate: Collision_GEN_VARIABLE: {	
+		SphereRadius: 10f
+		bTraceComplexOnMove: True
+		bReturnMaterialOnMove: True
+		BodyInstance: {
+			CollisionProfileName: Projectile
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: Pawn
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PhysicsBody
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Destructible
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel2
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel3
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel4
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel5
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel6
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Interactable
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: BlinkBlocker
+				Response: ECR_Ignore
+				 } ]
+				}
+			bUseCCD: True
+			bNotifyRigidBodyCollision: True
+			bEnableGravity: False
+			CollisionEnabled: ECollisionEnabled::QueryAndPhysics
+			}
+		CanCharacterStepUpOn: ECB_No
+		bCanEverAffectNavigation: False
+		}
+	VariableName: Collision
+	ChildNodes: [ { 
+	ComponentTemplate: Ak_Audio_Hatchet_GEN_VARIABLE: {	
+		ShouldTransmitRelativeAngle: True
+		OcclusionAffect: 10f
+		}
+	VariableName: Ak_Audio_Hatchet
+	VariableGuid: bf21a2d8-6b97-47ef-b08e-d84b8a2c0e30
+	 }, { 
+	ComponentTemplate: P_Hatchet_Trail_GEN_VARIABLE: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/Killer08/P_Hatchet_Trail.P_Hatchet_Trail
+		bAutoManageAttachment: True
+		RelativeLocation: Vector [X=5.960466E-07, Y=-2.384186E-06, Z=0]
+		}
+	VariableName: P_Hatchet_Trail
+	VariableGuid: ac65dbc6-ce37-40a5-83c5-9a34e1faff65
+	 }, { 
+	ComponentTemplate: Root_GEN_VARIABLE: {	
+		}
+	VariableName: Root
+	VariableGuid: 9e3f617e-f9a3-44d9-9267-6345ce1df188
+	 }, { 
+	ComponentTemplate: MeshCenterOfMass_GEN_VARIABLE: {	
+		}
+	VariableName: MeshCenterOfMass
+	ChildNodes: [ { 
+	ComponentTemplate: StaticMesh_GEN_VARIABLE: {	
+		StaticMesh: StaticMesh /Game/Characters/Slashers/Bear/Weapons/Models/BE_SW01_Projectile_REF.BE_SW01_Projectile_REF
+		bUseDefaultCollision: False
+		OverrideMaterials: [ MaterialInstanceConstant /Game/Characters/Slashers/Bear/Materials/MI_BESW01.MI_BESW01 ]
+		BodyInstance: {
+			CollisionProfileName: NoCollision
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: WorldStatic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: WorldDynamic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Pawn
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PhysicsBody
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Destructible
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel2
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel3
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel4
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel5
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel6
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Interactable
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: BlinkBlocker
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Ground
+				Response: ECR_Ignore
+				 } ]
+				}
+			CollisionEnabled: ECollisionEnabled::NoCollision
+			}
+		RelativeLocation: Vector [X=0, Y=0, Z=-50]
+		RelativeScale3D: Vector [X=1.5, Y=1.5, Z=1.5]
+		}
+	VariableName: StaticMesh
+	VariableGuid: c0986e3e-9f93-4287-a7e1-01b05b322be7
+	 }, { 
+	ComponentTemplate: TargetDetector_GEN_VARIABLE: {	
+		BoxExtent: Vector [X=20, Y=8, Z=47]
+		BodyInstance: {
+			CollisionProfileName: AttackDetector
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: WorldStatic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: WorldDynamic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Pawn
+				Response: ECR_Overlap
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PhysicsBody
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Destructible
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel2
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel3
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel4
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel5
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel6
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Interactable
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: BlinkBlocker
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Ground
+				Response: ECR_Ignore
+				 } ]
+				}
+			bUseCCD: True
+			ObjectType: ECC_GameTraceChannel3
+			}
+		RelativeLocation: Vector [X=8, Y=0, Z=-3]
+		bCanEverAffectNavigation: False
+		}
+	VariableName: TargetDetector
+	VariableGuid: 118754a3-30ff-4298-8f30-49f88dc0509b
+	 } ]
+	VariableGuid: 225502ff-6788-4b5d-9bba-fb9d733e8120
+	 } ]
+	VariableGuid: 39dea64e-8077-492e-b5b2-653def62ae85
+	 } ]
+	AllNodes: [ 339, 335, 337, 336, 338, 334, 340, 341 ]
+	DefaultSceneRootNode: SCS_Node: {	
+		ComponentTemplate: DefaultSceneRoot_REMOVED_F4A88F46443ABA8E4B6CB8ABECA59A5C: {	
+			}
+		VariableName: DefaultSceneRoot
+		VariableGuid: 3b3a5a48-71ba-44ea-b582-2ac8e7699e28
+		}
 	}
 ComponentTemplates: [ { 
-MaxSpeed: 5000f
-bInitialVelocityInLocalSpace: False
-Velocity: Vector [X=1000, Y=0, Z=0]
- }, 320, { 
 Template: ParticleSystem /Game/Effects/ParticleSystems/Killer08/P_Hatchet_Trail.P_Hatchet_Trail
+ }, { 
+ }, { 
+Template: ParticleSystem /Game/Effects/ParticleSystems/Killer08/P_Hatchet_TrailOP.P_Hatchet_TrailOP
  } ]
-Timelines: [ 345 ]
-BlueprintSystemVersion: 2
-GeneratedClass: Default__HatchetProjectile_C: {	
-	UberGraphFrame: 430
-	WeaponGlow_Curve_Normal_Glow_73FC0E4541D18FBF1770809A5CB77BC4: LinearColor [R=0, G=0, B=0, A=0]
-	WeaponGlow_Curve_OP_Glow_73FC0E4541D18FBF1770809A5CB77BC4: LinearColor [R=0, G=0, B=0, A=0]
-	RotationSpeed: -1000f
-	ExplosionHitClass: BlueprintGeneratedClass /Game/Effects/Blueprints/Killer08/BP_Effect_BloodImpact.BP_Effect_BloodImpact_C
-	ExplosionMissClass: BlueprintGeneratedClass /Game/Effects/Blueprints/Killer08/BP_Effect_DustImpact.BP_Effect_DustImpact_C
-	ExplosionHitOPClass: BlueprintGeneratedClass /Game/Effects/Blueprints/Killer08/BP_Effect_BloodImpactOP.BP_Effect_BloodImpactOP_C
-	ExplosionMissOPClass: BlueprintGeneratedClass /Game/Effects/Blueprints/Killer08/BP_Effect_DustImpactOP.BP_Effect_DustImpactOP_C
-	HatchetImpactClass: BlueprintGeneratedClass /Game/Effects/Blueprints/Killer08/BP_Effect_HatchetImpact.BP_Effect_HatchetImpact_C
-	EarlyHitDetectionBackwardDistance: 75f
-	ActorLocationInPreviousTick: Vector [X=0, Y=0, Z=0]
-	PrimaryActorTick: {
-		bCanEverTick: True
+Timelines: [ { 
+TimelineLength: 1f
+bValidatedAsWired: True
+LinearColorTracks: [ { 
+CurveLinearColor: CurveLinearColor: {	
+	FloatCurves: {
+		Keys: [ RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=-0.006193973, Value=0, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=1.000987, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0] ]
 		}
-	bAlwaysRelevant: True
-	bReplicateMovement: True
-	bCanBeDamaged: False
+	FloatCurves: {
+		Keys: [ RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=-0.006193973, Value=0, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=1.000987, Value=0.1620002, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0] ]
+		}
+	FloatCurves: {
+		Keys: [ RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=-0.006193973, Value=0, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=1.000987, Value=0.02468997, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0] ]
+		}
+	}
+TrackName: Curve OP Glow
+bIsExternalCurve: False
+ }, { 
+CurveLinearColor: CurveLinearColor: {	
+	FloatCurves: {
+		Keys: [ RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=-0.002244249, Value=0, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0.9970374, Value=0.125, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0] ]
+		}
+	FloatCurves: {
+		Keys: [ RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=-0.002244249, Value=0, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0.9970374, Value=0.01255186, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0] ]
+		}
+	FloatCurves: {
+		Keys: [ RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=-0.002244249, Value=0, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0.9970374, Value=0.006331749, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0] ]
+		}
+	}
+TrackName: Curve Normal Glow
+bIsExternalCurve: False
+ } ]
+TimelineGuid: 73fc0e45-8fbf-41d1-9a80-7017c47bb75c
+ } ]
+BlueprintSystemVersion: 2
+GeneratedClass: HatchetProjectile_C: {	
+	DynamicBindingObjects: [ { 
+	ComponentDelegateBindings: [ { 
+	ComponentPropertyName: TargetDetector
+	DelegatePropertyName: OnComponentBeginOverlap
+	FunctionNameToBind: BndEvt__TargetDetector2_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature
+	 }, { 
+	ComponentPropertyName: Collision
+	DelegatePropertyName: OnComponentHit
+	FunctionNameToBind: BndEvt__Collision_K2Node_ComponentBoundEvent_0_ComponentHitSignature__DelegateSignature
+	 } ]
+	 } ]
+	ComponentTemplates: [ 328, 320, 327 ]
+	Timelines: [ 345 ]
+	SimpleConstructionScript: 342
+	UberGraphFramePointerProperty: UberGraphFrame: {	
+		}
+	UberGraphFunction: ExecuteUbergraph_HatchetProjectile: {	
+		}
 	}
 bLegacyNeedToPurgeSkelRefs: False
 bLegacyGeneratedClassIsAuthoritative: True

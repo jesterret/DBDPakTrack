@@ -1,13 +1,58 @@
 Emitters: [ { 
-EmitterName: Hatchet Trail FPS
+EmitterName: Hatchet Trail
 LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_TrailAxe.MI_TrailAxe
+	ScreenAlignment: PSA_Rectangle
+	bUseLocalSpace: True
+	bKillOnDeactivate: True
+	bKillOnCompleted: True
+	bUseLegacyEmitterTime: False
+	EmitterDuration: 5f
+	EmitterLoops: 1
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		}
+	RandomImageTime: 1f
+	UVFlippingMode: EParticleUVFlipMode::FlipVOnly
+	LODValidity: 1
+	}
+Modules: [ { 
+Lifetime: {
+	MinValue: 0.3f
+	MaxValue: 0.3f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 0.3 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartSize: {
+	MinValue: 20f
+	MaxValue: 20f
+	MinValueVec: Vector [X=20, Y=20, Z=20]
+	MaxValueVec: Vector [X=20, Y=20, Z=20]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 20, 20, 20 ]
+		}
+	}
+LODValidity: 1
+ }, { 
 ColorOverLife: {
 	MinValue: 0.2f
 	MaxValue: 0.2f
 	MinValueVec: Vector [X=0.2, Y=0.2, Z=0.2]
 	MaxValueVec: Vector [X=0.2, Y=0.2, Z=0.2]
-	Distribution: RequiredDistributionSpawnRate: {	
-		}
+	Distribution: 0
 	Table: {
 		Op: 1
 		EntryCount: 1
@@ -26,8 +71,223 @@ AlphaOverLife: {
 		}
 	}
 LODValidity: 1
+ }, { 
+SourceMethod: PET2SRCM_Particle
+SourceName: HatchetTrail
+SourceStrength: {
+	Distribution: DistributionSourceStrength: {	
+		Constant: 100f
+		}
+	}
+bInheritRotation: True
+LODValidity: 1
  } ]
- }, 26 ]
+TypeDataModule: ParticleModuleTypeDataRibbon: {	
+	MaxTrailCount: 5
+	bDeadTrailsOnDeactivate: False
+	bTangentRecalculationEveryFrame: True
+	bSpawnInitialParticle: True
+	RenderAxis: Trails_WorldUp
+	bRenderTessellation: True
+	LODValidity: 1
+	}
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		MinValue: 20f
+		MaxValue: 20f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 20 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstList: [ { 
+	Count: 0
+	CountLow: -1
+	Time: 0f
+	 } ]
+	BurstScale: {
+		Distribution: BurstScaleDistribution: {	
+			Constant: 1f
+			}
+		}
+	LODValidity: 1
+	}
+PeakActiveParticles: 523
+ } ]
+ }, { 
+EmitterName: Hatchet Trail FPS
+LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_TrailAxe.MI_TrailAxe
+	ScreenAlignment: PSA_FacingCameraPosition
+	bUseLocalSpace: True
+	bKillOnDeactivate: True
+	bKillOnCompleted: True
+	bUseLegacyEmitterTime: False
+	EmitterDuration: 5f
+	EmitterLoops: 1
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		}
+	EmitterDelay: 0.05f
+	RandomImageTime: 1f
+	UVFlippingMode: EParticleUVFlipMode::FlipVOnly
+	LODValidity: 1
+	}
+Modules: [ { 
+Lifetime: {
+	MinValue: 0.6f
+	MaxValue: 0.6f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 0.6 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartSize: {
+	MinValue: 15f
+	MaxValue: 15f
+	MinValueVec: Vector [X=15, Y=15, Z=15]
+	MaxValueVec: Vector [X=15, Y=15, Z=15]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 15, 15, 15 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+SourceMethod: PET2SRCM_Particle
+SourceName: HatchetTrail
+SourceStrength: {
+	Distribution: DistributionSourceStrength: {	
+		Constant: 100f
+		}
+	}
+LODValidity: 1
+ }, { 
+StartLocation: {
+	MaxValue: 20f
+	MinValueVec: Vector [X=0, Y=0, Z=20]
+	MaxValueVec: Vector [X=0, Y=0, Z=20]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0, 0, 20 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+LifeMultiplier: {
+	MaxValue: 1f
+	MaxValueVec: Vector [X=1, Y=1, Z=1]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1f
+		Values: [ 1, 1, 1, 0, 0, 0 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+ColorOverLife: {
+	MinValue: 0.4f
+	MaxValue: 0.4f
+	MinValueVec: Vector [X=0.4, Y=0.4, Z=0.4]
+	MaxValueVec: Vector [X=0.4, Y=0.4, Z=0.4]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0.4, 0.4, 0.4 ]
+		}
+	}
+AlphaOverLife: {
+	MaxValue: 0.15f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 1
+		TimeScale: 1f
+		Values: [ 0.15, 0 ]
+		}
+	}
+LODValidity: 1
+ } ]
+TypeDataModule: ParticleModuleTypeDataRibbon: {	
+	MaxTrailCount: 50
+	bTangentRecalculationEveryFrame: True
+	bSpawnInitialParticle: True
+	TangentSpawningScalar: 0.25f
+	bRenderTessellation: True
+	TangentTessellationScalar: 0.5f
+	LODValidity: 1
+	}
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		MinValue: 20f
+		MaxValue: 20f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 20 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstList: [ { 
+	Count: 0
+	CountLow: -1
+	Time: 0f
+	 } ]
+	BurstScale: {
+		Distribution: BurstScaleDistribution: {	
+			Constant: 1f
+			}
+		}
+	LODValidity: 1
+	}
+PeakActiveParticles: 523
+ } ]
+ } ]
 CurveEdSetup: 0
 LODDistances: [ 0 ]
 LODSettings: [ 67 ]

@@ -2,6 +2,17 @@ BoundsBodies: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18
 SkeletalBodySetups: [ { 
 AggGeom: {
 	SphylElems: [ { 
+	Center: Vector [X=0, Y=0, Z=0]
+	Orientation: Quat [X=0.7071066, Y=0, Z=0, W=0.7071068]
+	Radius: 0.505f
+	Length: 0.505f
+	 } ]
+	}
+BoneName: joint_Char
+CollisionTraceFlag: CTF_UseSimpleAsComplex
+ }, { 
+AggGeom: {
+	SphylElems: [ { 
 	Center: Vector [X=-2.183493, Y=-197.102, Z=-50.16315]
 	Orientation: Quat [X=0.003124201, Y=0.6451651, Z=0.7640277, W=0.003699792]
 	Radius: 90.20034f
@@ -13,24 +24,24 @@ CollisionTraceFlag: CTF_UseSimpleAsComplex
  }, { 
 AggGeom: {
 	SphylElems: [ { 
-	Center: Vector [X=-5.003907E-05, Y=11.47069, Z=-3.71933E-05]
-	Orientation: Quat [X=0.7028541, Y=-8.853605E-08, Z=-8.960424E-08, W=0.711334]
-	Radius: 5.33716f
-	Length: 12.55509f
+	Center: Vector [X=-5.773704, Y=-28.58801, Z=2.23858]
+	Orientation: Quat [X=0.1288041, Y=-0.1316761, Z=-0.6947383, W=0.6952766]
+	Radius: 58.31155f
+	Length: 61.89524f
 	 } ]
 	}
-BoneName: joint_piston01RT_02
+BoneName: joint_EngBlock01_01
 CollisionTraceFlag: CTF_UseSimpleAsComplex
  }, { 
 AggGeom: {
 	SphylElems: [ { 
-	Center: Vector [X=-0.7237962, Y=-8.610796, Z=-0.4710698]
-	Orientation: Quat [X=0.7071066, Y=1.353573E-15, Z=1.353573E-15, W=0.7071068]
-	Radius: 1.938437f
-	Length: 8.539186f
+	Center: Vector [X=-0.05657746, Y=2.086512, Z=-0.01550698]
+	Orientation: Quat [X=0.3219664, Y=0.3218263, Z=0.6294523, W=0.6297263]
+	Radius: 11.28665f
+	Length: 11.28686f
 	 } ]
 	}
-BoneName: joint_tube03RT_01
+BoneName: joint_pulley01LT_01
 CollisionTraceFlag: CTF_UseSimpleAsComplex
  }, { 
 AggGeom: {
@@ -98,7 +109,18 @@ AggGeom: {
 	}
 BoneName: joint_piston01RT_01
 CollisionTraceFlag: CTF_UseSimpleAsComplex
- }, 48, { 
+ }, { 
+AggGeom: {
+	SphylElems: [ { 
+	Center: Vector [X=-5.003907E-05, Y=11.47069, Z=-3.71933E-05]
+	Orientation: Quat [X=0.7028541, Y=-8.853605E-08, Z=-8.960424E-08, W=0.711334]
+	Radius: 5.33716f
+	Length: 12.55509f
+	 } ]
+	}
+BoneName: joint_piston01RT_02
+CollisionTraceFlag: CTF_UseSimpleAsComplex
+ }, { 
 AggGeom: {
 	SphylElems: [ { 
 	Center: Vector [X=-4.270448E-05, Y=11.47067, Z=-3.814697E-05]
@@ -200,13 +222,13 @@ CollisionTraceFlag: CTF_UseSimpleAsComplex
  }, { 
 AggGeom: {
 	SphylElems: [ { 
-	Center: Vector [X=-5.773704, Y=-28.58801, Z=2.23858]
-	Orientation: Quat [X=0.1288041, Y=-0.1316761, Z=-0.6947383, W=0.6952766]
-	Radius: 58.31155f
-	Length: 61.89524f
+	Center: Vector [X=-0.7237962, Y=-8.610796, Z=-0.4710698]
+	Orientation: Quat [X=0.7071066, Y=1.353573E-15, Z=1.353573E-15, W=0.7071068]
+	Radius: 1.938437f
+	Length: 8.539186f
 	 } ]
 	}
-BoneName: joint_EngBlock01_01
+BoneName: joint_tube03RT_01
 CollisionTraceFlag: CTF_UseSimpleAsComplex
  }, { 
 AggGeom: {
@@ -241,19 +263,24 @@ AggGeom: {
 	}
 BoneName: joint_tube06RT_01
 CollisionTraceFlag: CTF_UseSimpleAsComplex
- }, { 
-AggGeom: {
-	SphylElems: [ { 
-	Center: Vector [X=-0.05657746, Y=2.086512, Z=-0.01550698]
-	Orientation: Quat [X=0.3219664, Y=0.3218263, Z=0.6294523, W=0.6297263]
-	Radius: 11.28665f
-	Length: 11.28686f
-	 } ]
-	}
-BoneName: joint_pulley01LT_01
-CollisionTraceFlag: CTF_UseSimpleAsComplex
  } ]
 ConstraintSetup: [ { 
+DefaultInstance: {
+	JointName: joint_Pelvis_01
+	ConstraintBone1: joint_Pelvis_01
+	ConstraintBone2: joint_Char
+	Pos2: Vector [X=0, Y=-48.81014, Z=0]
+	ProfileInstance: {
+		ConeLimit: {
+			Swing1Motion: ACM_Limited
+			Swing2Motion: ACM_Limited
+			}
+		TwistLimit: {
+			TwistMotion: ACM_Limited
+			}
+		}
+	}
+ }, { 
 DefaultInstance: {
 	JointName: joint_EngBlock01_01
 	ConstraintBone1: joint_EngBlock01_01
@@ -272,11 +299,12 @@ DefaultInstance: {
 	}
  }, { 
 DefaultInstance: {
-	JointName: joint_piston01RT_03
-	ConstraintBone1: joint_piston01RT_03
+	JointName: joint_pulley01LT_01
+	ConstraintBone1: joint_pulley01LT_01
 	ConstraintBone2: joint_EngBlock01_01
-	Pos2: Vector [X=15.7755, Y=-85.52947, Z=47.29032]
-	SecAxis2: Vector [X=0, Y=0.7071068, Z=-0.7071068]
+	Pos2: Vector [X=-36.17738, Y=-41.73987, Z=-15.03571]
+	PriAxis2: Vector [X=5.960464E-08, Y=-0.9999999, Z=0]
+	SecAxis2: Vector [X=0.9999999, Y=5.960464E-08, Z=0]
 	ProfileInstance: {
 		ConeLimit: {
 			Swing1Motion: ACM_Limited
@@ -289,12 +317,12 @@ DefaultInstance: {
 	}
  }, { 
 DefaultInstance: {
-	JointName: joint_tube04RT_01
-	ConstraintBone1: joint_tube04RT_01
-	ConstraintBone2: joint_tube03RT_01
-	Pos2: Vector [X=6.394885E-14, Y=-16.70344, Z=6.394885E-14]
-	PriAxis2: Vector [X=0.8519805, Y=0.5235735, Z=7.632783E-17]
-	SecAxis2: Vector [X=-0.5235735, Y=0.8519805, Z=1.734723E-17]
+	JointName: joint_pulley01RT_01
+	ConstraintBone1: joint_pulley01RT_01
+	ConstraintBone2: joint_EngBlock01_01
+	Pos2: Vector [X=-36.2709, Y=-41.71758, Z=13.62967]
+	PriAxis2: Vector [X=5.960464E-08, Y=-0.9999999, Z=0]
+	SecAxis2: Vector [X=0.9999999, Y=5.960464E-08, Z=0]
 	ProfileInstance: {
 		ConeLimit: {
 			Swing1Motion: ACM_Limited
@@ -408,16 +436,22 @@ DefaultInstance: {
 		}
 	}
  }, { 
-AggGeom: {
-	SphylElems: [ { 
-	Center: Vector [X=0, Y=0, Z=0]
-	Orientation: Quat [X=0.7071066, Y=0, Z=0, W=0.7071068]
-	Radius: 0.505f
-	Length: 0.505f
-	 } ]
+DefaultInstance: {
+	JointName: joint_piston01RT_03
+	ConstraintBone1: joint_piston01RT_03
+	ConstraintBone2: joint_EngBlock01_01
+	Pos2: Vector [X=15.7755, Y=-85.52947, Z=47.29032]
+	SecAxis2: Vector [X=0, Y=0.7071068, Z=-0.7071068]
+	ProfileInstance: {
+		ConeLimit: {
+			Swing1Motion: ACM_Limited
+			Swing2Motion: ACM_Limited
+			}
+		TwistLimit: {
+			TwistMotion: ACM_Limited
+			}
+		}
 	}
-BoneName: joint_Char
-CollisionTraceFlag: CTF_UseSimpleAsComplex
  }, { 
 DefaultInstance: {
 	JointName: joint_piston01RT_04
@@ -581,12 +615,12 @@ DefaultInstance: {
 	}
  }, { 
 DefaultInstance: {
-	JointName: joint_pulley01LT_01
-	ConstraintBone1: joint_pulley01LT_01
-	ConstraintBone2: joint_EngBlock01_01
-	Pos2: Vector [X=-36.17738, Y=-41.73987, Z=-15.03571]
-	PriAxis2: Vector [X=5.960464E-08, Y=-0.9999999, Z=0]
-	SecAxis2: Vector [X=0.9999999, Y=5.960464E-08, Z=0]
+	JointName: joint_tube04RT_01
+	ConstraintBone1: joint_tube04RT_01
+	ConstraintBone2: joint_tube03RT_01
+	Pos2: Vector [X=6.394885E-14, Y=-16.70344, Z=6.394885E-14]
+	PriAxis2: Vector [X=0.8519805, Y=0.5235735, Z=7.632783E-17]
+	SecAxis2: Vector [X=-0.5235735, Y=0.8519805, Z=1.734723E-17]
 	ProfileInstance: {
 		ConeLimit: {
 			Swing1Motion: ACM_Limited
@@ -623,24 +657,6 @@ DefaultInstance: {
 	Pos2: Vector [X=6.394885E-14, Y=-14.69181, Z=-8.526513E-14]
 	PriAxis2: Vector [X=0.9760493, Y=0.2175494, Z=2.255141E-17]
 	SecAxis2: Vector [X=-0.2175494, Y=0.9760493, Z=0]
-	ProfileInstance: {
-		ConeLimit: {
-			Swing1Motion: ACM_Limited
-			Swing2Motion: ACM_Limited
-			}
-		TwistLimit: {
-			TwistMotion: ACM_Limited
-			}
-		}
-	}
- }, { 
-DefaultInstance: {
-	JointName: joint_pulley01RT_01
-	ConstraintBone1: joint_pulley01RT_01
-	ConstraintBone2: joint_EngBlock01_01
-	Pos2: Vector [X=-36.2709, Y=-41.71758, Z=13.62967]
-	PriAxis2: Vector [X=5.960464E-08, Y=-0.9999999, Z=0]
-	SecAxis2: Vector [X=0.9999999, Y=5.960464E-08, Z=0]
 	ProfileInstance: {
 		ConeLimit: {
 			Swing1Motion: ACM_Limited

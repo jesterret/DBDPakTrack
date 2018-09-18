@@ -1,8 +1,306 @@
 WarmupTime: 15f
-Emitters: [ 19 ]
-CurveEdSetup: DistributionVelocityScale: {	
-	Constant: 1f
+Emitters: [ { 
+EmitterName: Mist
+LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: Material /Game/Effects/Materials/M_BlackSmoke.M_BlackSmoke
+	SortMode: PSORTMODE_ViewProjDepth
+	bUseLegacyEmitterTime: False
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		}
+	InterpolationMethod: PSUVIM_Linear_Blend
+	SubImages_Horizontal: 8
+	SubImages_Vertical: 8
+	RandomImageTime: 1f
+	LODValidity: 3
 	}
+Modules: [ { 
+Lifetime: {
+	MinValue: 15f
+	MaxValue: 20f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 15, 20 ]
+		}
+	}
+LODValidity: 3
+ }, { 
+StartRadius: {
+	MinValue: 400f
+	MaxValue: 400f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 400 ]
+		}
+	}
+StartHeight: {
+	MinValue: 1000f
+	MaxValue: 1000f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1000 ]
+		}
+	}
+VelocityScale: {
+	Distribution: DistributionVelocityScale: {	
+		Constant: 1f
+		}
+	}
+StartLocation: {
+	MaxValue: 200f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0, 0, 200 ]
+		}
+	}
+LODValidity: 3
+ }, { 
+StartSize: {
+	MinValue: 1f
+	MaxValue: 300f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 200, 1, 1, 300, 1, 1 ]
+		}
+	}
+LODValidity: 3
+ }, { 
+SizeScale: {
+	MinValue: 4f
+	MaxValue: 4f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 4, 4, 4 ]
+		}
+	}
+LODValidity: 3
+ }, { 
+StartVelocity: {
+	MaxValue: 50f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 0, 0, 30, 0, 0, 50 ]
+		}
+	}
+StartVelocityRadial: {
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 0 ]
+		}
+	}
+LODValidity: 3
+ }, { 
+StartRotation: {
+	MinValue: -1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ -1, 1 ]
+		}
+	}
+LODValidity: 3
+ }, { 
+StartRotationRate: {
+	MinValue: -0.01f
+	MaxValue: 0.01f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ -0.01, 0.01 ]
+		}
+	}
+LODValidity: 3
+ }, { 
+Animation: SubUVAnimation /Game/Effects/Textures/T_SmokeSubUV_8X8_02_SubUV.T_SmokeSubUV_8X8_02_SubUV
+SubImageIndex: {
+	MaxValue: 63f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 32
+		EntryStride: 1
+		TimeScale: 31f
+		Values: [ 0, 2.282884, 4.659578, 7.11866, 9.648705, 12.23829, 14.876, 17.5504, 20.25006, 22.96358, 25.67952, 28.38639, 31.07268, 33.72701, 36.33793, 38.89404, 41.3839, 43.79609, 46.11919, 48.34179, 50.45242, 52.43946, 54.2911, 55.99641, 57.54396, 58.92233, 60.12009, 61.12582, 61.9281, 62.51552, 62.87661, 63 ]
+		}
+	}
+LODValidity: 3
+ }, { 
+LifeMultiplier: {
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1f
+		Values: [ 0, 0, 0, 1, 1, 1 ]
+		}
+	}
+LODValidity: 3
+ }, { 
+ColorOverLife: {
+	MinValue: 0.143478f
+	MaxValue: 0.15f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0.143478, 0.143478, 0.15 ]
+		}
+	}
+AlphaOverLife: {
+	MaxValue: 3f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 64
+		EntryStride: 1
+		TimeScale: 63f
+		Values: [ 0, 0.0952381, 0.1904762, 0.2857143, 0.3809524, 0.4761905, 0.5714286, 0.6666667, 0.7619048, 0.8571429, 0.952381, 1.047619, 1.142857, 1.238095, 1.333333, 1.428572, 1.52381, 1.619048, 1.714286, 1.809524, 1.904762, 2, 2.095238, 2.190476, 2.285714, 2.380953, 2.476191, 2.571429, 2.666667, 2.761905, 2.857143, 2.952381, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2.9945, 2.857142, 2.698412, 2.539682, 2.380951, 2.222222, 2.063491, 1.904761, 1.746031, 1.587301, 1.42857, 1.269841, 1.11111, 0.9523804, 0.79365, 0.6349204, 0.4761893, 0.3174596, 0.1587298, 0 ]
+		}
+	}
+LODValidity: 3
+ }, { 
+ColorScaleOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 1, 1, 1 ]
+		}
+	}
+AlphaScaleOverLife: {
+	MinValue: 0.15f
+	MaxValue: 0.15f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 0.15 ]
+		}
+	}
+LODValidity: 3
+ } ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	LODValidity: 1
+	}
+PeakActiveParticles: 23
+ }, { 
+Level: 1
+RequiredModule: 9
+Modules: [ 7, 8, 12, 14, 18, 10, 11, 17, 13, 5, 6 ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 0 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	LODValidity: 2
+	}
+PeakActiveParticles: 2
+ } ]
+ } ]
+CurveEdSetup: 0
 LODDistances: [ 0, 7000 ]
 LODSettings: [ { 
  }, { 

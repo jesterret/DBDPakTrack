@@ -2,6 +2,17 @@ BoundsBodies: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ]
 SkeletalBodySetups: [ { 
 AggGeom: {
 	SphylElems: [ { 
+	Center: Vector [X=0.008879781, Y=2.376327, Z=-0.001209646]
+	Orientation: Quat [X=0.4545193, Y=-0.4545193, Z=-0.5416754, W=0.5416756]
+	Radius: 13.29984f
+	Length: 15.15f
+	 } ]
+	}
+BoneName: joint_Pelvis_01
+CollisionTraceFlag: CTF_UseSimpleAsComplex
+ }, { 
+AggGeom: {
+	SphylElems: [ { 
 	Center: Vector [X=0.6450002, Y=24.59966, Z=-0.3288157]
 	Orientation: Quat [X=0.7257959, Y=0.03315473, Z=0.01699218, W=0.6869005]
 	Radius: 7.65642f
@@ -13,13 +24,13 @@ CollisionTraceFlag: CTF_UseSimpleAsComplex
  }, { 
 AggGeom: {
 	SphylElems: [ { 
-	Center: Vector [X=-0.5277151, Y=-14.89241, Z=-0.7472701]
-	Orientation: Quat [X=0.6984993, Y=-0.0004824919, Z=-0.0004939846, W=0.7156103]
-	Radius: 5.663237f
-	Length: 7.307378f
+	Center: Vector [X=-1.114256, Y=-25.58413, Z=0.1733961]
+	Orientation: Quat [X=0.7260223, Y=0.006578828, Z=-0.008325411, W=0.6875892]
+	Radius: 7.290251f
+	Length: 17.94529f
 	 } ]
 	}
-BoneName: joint_ShoulderLT_01
+BoneName: joint_HipLT_01
 CollisionTraceFlag: CTF_UseSimpleAsComplex
  }, { 
 AggGeom: {
@@ -101,7 +112,18 @@ AggGeom: {
 	}
 BoneName: joint_Head_01
 CollisionTraceFlag: CTF_UseSimpleAsComplex
- }, 32, { 
+ }, { 
+AggGeom: {
+	SphylElems: [ { 
+	Center: Vector [X=-0.5277151, Y=-14.89241, Z=-0.7472701]
+	Orientation: Quat [X=0.6984993, Y=-0.0004824919, Z=-0.0004939846, W=0.7156103]
+	Radius: 5.663237f
+	Length: 7.307378f
+	 } ]
+	}
+BoneName: joint_ShoulderLT_01
+CollisionTraceFlag: CTF_UseSimpleAsComplex
+ }, { 
 AggGeom: {
 	SphylElems: [ { 
 	Center: Vector [X=0.7543783, Y=13.17593, Z=0.6576998]
@@ -158,19 +180,28 @@ AggGeom: {
 	}
 BoneName: joint_HandRT_01
 CollisionTraceFlag: CTF_UseSimpleAsComplex
- }, { 
-AggGeom: {
-	SphylElems: [ { 
-	Center: Vector [X=-1.114256, Y=-25.58413, Z=0.1733961]
-	Orientation: Quat [X=0.7260223, Y=0.006578828, Z=-0.008325411, W=0.6875892]
-	Radius: 7.290251f
-	Length: 17.94529f
-	 } ]
-	}
-BoneName: joint_HipLT_01
-CollisionTraceFlag: CTF_UseSimpleAsComplex
  } ]
 ConstraintSetup: [ { 
+DefaultInstance: {
+	JointName: joint_HipRT_01
+	ConstraintBone1: joint_HipRT_01
+	ConstraintBone2: joint_Pelvis_01
+	Pos2: Vector [X=-9.481729, Y=10.52795, Z=-0.1000004]
+	PriAxis2: Vector [X=0.1167688, Y=0.0141063, Z=-0.9930588]
+	SecAxis2: Vector [X=-0.06577367, Y=0.9978138, Z=0.006439865]
+	ProfileInstance: {
+		ConeLimit: {
+			Swing1Motion: ACM_Limited
+			Swing2Motion: ACM_Locked
+			Stiffness: 25f
+			}
+		TwistLimit: {
+			TwistMotion: ACM_Limited
+			Stiffness: 25f
+			}
+		}
+	}
+ }, { 
 DefaultInstance: {
 	JointName: joint_HipLT_01
 	ConstraintBone1: joint_HipLT_01
@@ -192,19 +223,20 @@ DefaultInstance: {
 	}
  }, { 
 DefaultInstance: {
-	JointName: joint_FootLT_01
-	ConstraintBone1: joint_FootLT_01
-	ConstraintBone2: joint_KneeLT_01
-	Pos2: Vector [X=-5.266376, Y=-45.76682, Z=-1.907349E-06]
-	PriAxis2: Vector [X=0.4513587, Y=0.8895485, Z=0.07055934]
-	SecAxis2: Vector [X=-0.8918532, Y=0.4523175, Z=0.002654349]
+	JointName: joint_KneeRT_01
+	ConstraintBone1: joint_KneeRT_01
+	ConstraintBone2: joint_HipRT_01
+	Pos2: Vector [X=3.576279E-06, Y=36.05771, Z=3.814697E-05]
+	PriAxis2: Vector [X=1, Y=0, Z=-2.211891E-09]
+	SecAxis2: Vector [X=9.313226E-10, Y=1, Z=7.450581E-09]
 	ProfileInstance: {
 		ConeLimit: {
+			Swing2LimitDegrees: 5f
 			Swing1Motion: ACM_Limited
 			Swing2Motion: ACM_Limited
 			}
 		TwistLimit: {
-			TwistMotion: ACM_Limited
+			TwistMotion: ACM_Locked
 			}
 		}
 	}
@@ -229,6 +261,65 @@ DefaultInstance: {
 	}
  }, { 
 DefaultInstance: {
+	JointName: joint_FootRT_01
+	ConstraintBone1: joint_FootRT_01
+	ConstraintBone2: joint_KneeRT_01
+	Pos2: Vector [X=5.266372, Y=45.7668, Z=-5.149841E-05]
+	PriAxis2: Vector [X=0.4513599, Y=0.8895485, Z=0.07055184]
+	SecAxis2: Vector [X=-0.8918532, Y=0.4523173, Z=0.00267124]
+	ProfileInstance: {
+		ConeLimit: {
+			Swing1Motion: ACM_Limited
+			Swing2Motion: ACM_Limited
+			}
+		TwistLimit: {
+			TwistMotion: ACM_Limited
+			}
+		}
+	}
+ }, { 
+DefaultInstance: {
+	JointName: joint_FootLT_01
+	ConstraintBone1: joint_FootLT_01
+	ConstraintBone2: joint_KneeLT_01
+	Pos2: Vector [X=-5.266376, Y=-45.76682, Z=-1.907349E-06]
+	PriAxis2: Vector [X=0.4513587, Y=0.8895485, Z=0.07055934]
+	SecAxis2: Vector [X=-0.8918532, Y=0.4523175, Z=0.002654349]
+	ProfileInstance: {
+		ConeLimit: {
+			Swing1Motion: ACM_Limited
+			Swing2Motion: ACM_Limited
+			}
+		TwistLimit: {
+			TwistMotion: ACM_Limited
+			}
+		}
+	}
+ }, { 
+DefaultInstance: {
+	JointName: joint_TorsoB_01
+	ConstraintBone1: joint_TorsoB_01
+	ConstraintBone2: joint_Pelvis_01
+	Pos2: Vector [X=0, Y=-15.31519, Z=0.9317595]
+	PriAxis2: Vector [X=1.192093E-07, Y=0.07196752, Z=-0.997407]
+	SecAxis2: Vector [X=0, Y=0.9974069, Z=0.0719676]
+	ProfileInstance: {
+		ConeLimit: {
+			Swing1LimitDegrees: 15f
+			Swing2LimitDegrees: 15f
+			Swing1Motion: ACM_Limited
+			Swing2Motion: ACM_Limited
+			Stiffness: 15f
+			}
+		TwistLimit: {
+			TwistLimitDegrees: 15f
+			TwistMotion: ACM_Limited
+			Stiffness: 15f
+			}
+		}
+	}
+ }, { 
+DefaultInstance: {
 	JointName: joint_TorsoC_01
 	ConstraintBone1: joint_TorsoC_01
 	ConstraintBone2: joint_TorsoB_01
@@ -247,45 +338,6 @@ DefaultInstance: {
 			TwistLimitDegrees: 15f
 			TwistMotion: ACM_Limited
 			Stiffness: 15f
-			}
-		}
-	}
- }, { 
-AggGeom: {
-	SphylElems: [ { 
-	Center: Vector [X=0.008879781, Y=2.376327, Z=-0.001209646]
-	Orientation: Quat [X=0.4545193, Y=-0.4545193, Z=-0.5416754, W=0.5416756]
-	Radius: 13.29984f
-	Length: 15.15f
-	 } ]
-	}
-BoneName: joint_Pelvis_01
-CollisionTraceFlag: CTF_UseSimpleAsComplex
- }, { 
-DefaultInstance: {
-	JointName: joint_ShoulderRT_01
-	ConstraintBone1: joint_ShoulderRT_01
-	ConstraintBone2: joint_TorsoC_01
-	Pos2: Vector [X=2.579933, Y=-14.80484, Z=-18.57579]
-	PriAxis2: Vector [X=0.9980039, Y=-0.05941452, Z=-0.02139771]
-	SecAxis2: Vector [X=0.004754467, Y=0.4085686, Z=-0.9127151]
-	}
- }, { 
-DefaultInstance: {
-	JointName: joint_KneeRT_01
-	ConstraintBone1: joint_KneeRT_01
-	ConstraintBone2: joint_HipRT_01
-	Pos2: Vector [X=3.576279E-06, Y=36.05771, Z=3.814697E-05]
-	PriAxis2: Vector [X=1, Y=0, Z=-2.211891E-09]
-	SecAxis2: Vector [X=9.313226E-10, Y=1, Z=7.450581E-09]
-	ProfileInstance: {
-		ConeLimit: {
-			Swing2LimitDegrees: 5f
-			Swing1Motion: ACM_Limited
-			Swing2Motion: ACM_Limited
-			}
-		TwistLimit: {
-			TwistMotion: ACM_Locked
 			}
 		}
 	}
@@ -323,21 +375,12 @@ DefaultInstance: {
 	}
  }, { 
 DefaultInstance: {
-	JointName: joint_FootRT_01
-	ConstraintBone1: joint_FootRT_01
-	ConstraintBone2: joint_KneeRT_01
-	Pos2: Vector [X=5.266372, Y=45.7668, Z=-5.149841E-05]
-	PriAxis2: Vector [X=0.4513599, Y=0.8895485, Z=0.07055184]
-	SecAxis2: Vector [X=-0.8918532, Y=0.4523173, Z=0.00267124]
-	ProfileInstance: {
-		ConeLimit: {
-			Swing1Motion: ACM_Limited
-			Swing2Motion: ACM_Limited
-			}
-		TwistLimit: {
-			TwistMotion: ACM_Limited
-			}
-		}
+	JointName: joint_ShoulderRT_01
+	ConstraintBone1: joint_ShoulderRT_01
+	ConstraintBone2: joint_TorsoC_01
+	Pos2: Vector [X=2.579933, Y=-14.80484, Z=-18.57579]
+	PriAxis2: Vector [X=0.9980039, Y=-0.05941452, Z=-0.02139771]
+	SecAxis2: Vector [X=0.004754467, Y=0.4085686, Z=-0.9127151]
 	}
  }, { 
 DefaultInstance: {
@@ -374,28 +417,5 @@ DefaultInstance: {
 	Pos2: Vector [X=2.527237E-05, Y=24.31247, Z=0.0001525879]
 	PriAxis2: Vector [X=0.9941037, Y=-0.1083466, Z=0.004356414]
 	SecAxis2: Vector [X=0.1076461, Y=0.9909182, Z=0.08058172]
-	}
- }, { 
-DefaultInstance: {
-	JointName: joint_TorsoB_01
-	ConstraintBone1: joint_TorsoB_01
-	ConstraintBone2: joint_Pelvis_01
-	Pos2: Vector [X=0, Y=-15.31519, Z=0.9317595]
-	PriAxis2: Vector [X=1.192093E-07, Y=0.07196752, Z=-0.997407]
-	SecAxis2: Vector [X=0, Y=0.9974069, Z=0.0719676]
-	ProfileInstance: {
-		ConeLimit: {
-			Swing1LimitDegrees: 15f
-			Swing2LimitDegrees: 15f
-			Swing1Motion: ACM_Limited
-			Swing2Motion: ACM_Limited
-			Stiffness: 15f
-			}
-		TwistLimit: {
-			TwistLimitDegrees: 15f
-			TwistMotion: ACM_Limited
-			Stiffness: 15f
-			}
-		}
 	}
  } ]

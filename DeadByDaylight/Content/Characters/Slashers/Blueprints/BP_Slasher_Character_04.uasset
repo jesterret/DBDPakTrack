@@ -1,37 +1,175 @@
 ParentClass: BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/BP_Slasher_Character.BP_Slasher_Character_C
-SimpleConstructionScript: CharacterMesh0: {	
-	AnimBlueprintGeneratedClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Animations/SlasherFemale01/AB_SlasherFemale01.AB_SlasherFemale01_C
-	AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Animations/SlasherFemale01/AB_SlasherFemale01.AB_SlasherFemale01_C
-	SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Nurse/Models/TN_DSkeleton_REF.TN_DSkeleton_REF
-	OverrideMaterials: [ MaterialInstanceConstant /Game/Characters/Slashers/Nurse/Materials/MI_TNHead01.MI_TNHead01, MaterialInstanceConstant /Game/Characters/Slashers/Nurse/Materials/MI_TNAcc01.MI_TNAcc01, MaterialInstanceConstant /Game/Characters/Slashers/Nurse/Materials/MI_TNTorso01.MI_TNTorso01, MaterialInstanceConstant /Game/Characters/Slashers/Nurse/Materials/MI_TNHead01.MI_TNHead01 ]
-	BodyInstance: {
-		CollisionResponses: {
-			ResponseArray: [ { 
-			Channel: Pawn
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Vehicle
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Camera
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Audio
-			Response: ECR_Ignore
-			 } ]
-			}
-		MassInKgOverride: 8.423242f
+SimpleConstructionScript: SimpleConstructionScript: {	
+	RootNodes: [ { 
+	ComponentTemplate: P_CharacterFloat48F3537C45699844444F94963122D41B: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/Nurse/P_Nurse_Float.P_Nurse_Float
+		WarmupTime: 5f
+		RelativeLocation: Vector [X=0, Y=-40, Z=0]
 		}
-	AttachParent: DreamworldComponent: {	
+	VariableName: P_Nurse_Float
+	ParentComponentOrVariableName: CharacterMesh0
+	bIsParentComponentNative: True
+	VariableGuid: ce3a636e-adc0-422f-8b5a-9e9422ce5566
+	 }, { 
+	ComponentTemplate: P_CharacterBlinkIn556833974EB10B82D086DAA578BB2584: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/Nurse/P_Nurse_BlinkIn.P_Nurse_BlinkIn
+		WarmupTime: 5f
+		bAutoActivate: False
+		}
+	VariableName: P_Nurse_BlinkIn
+	ParentComponentOrVariableName: CharacterMesh0
+	bIsParentComponentNative: True
+	VariableGuid: cd4832fa-a3d7-4206-ba38-cd86a423b65f
+	 }, { 
+	ComponentTemplate: P_CharacterBlinkE70FFE774C8CD2A3F8D32EB12C592737: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/Nurse/P_Nurse_BlinkOut.P_Nurse_BlinkOut
+		RelativeLocation: Vector [X=0, Y=-300, Z=0]
+		RelativeRotation: Rotator [Pitch=0, Roll=180, Yaw=0]
+		bAutoActivate: False
+		}
+	VariableName: P_Nurse_BlinkOut
+	ParentComponentOrVariableName: CharacterMesh0
+	bIsParentComponentNative: True
+	VariableGuid: 93849771-3ec6-44f1-825f-f74d8c1e44a9
+	 }, { 
+	ComponentTemplate: P_CharacterBlinkReadyCB3E3CA1421C8EBE9C7218B374E54936: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/Nurse/P_Nurse_ReadySmoke.P_Nurse_ReadySmoke
+		WarmupTime: 5f
+		bAutoActivate: False
+		}
+	VariableName: P_Nurse_ReadySmoke1
+	AttachToName: P_Nurse_ReadySmoke1
+	ParentComponentOrVariableName: CharacterMesh0
+	bIsParentComponentNative: True
+	VariableGuid: 3b863f6c-1954-4cc6-bf24-2080f20ca212
+	 }, { 
+	ComponentTemplate: ParticleSystem3B34B13E411F20A1193017B8FCC8D8DC: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/Nurse/P_Nurse_ReadySmoke.P_Nurse_ReadySmoke
+		WarmupTime: 5f
+		bAutoActivate: False
+		}
+	VariableName: P_Nurse_ReadySmoke2
+	AttachToName: P_Nurse_ReadySmoke2
+	ParentComponentOrVariableName: CharacterMesh0
+	bIsParentComponentNative: True
+	VariableGuid: f3ce06d8-f875-4d78-bb64-772d7b70995e
+	 }, { 
+	ComponentTemplate: PostProcess17EF2EFA64A6E8FF4DBE4F5921345F644: {	
+		Settings: {
+			bOverride_VignetteIntensity: True
+			VignetteIntensity: 1.5f
+			}
+		Priority: 1f
+		BlendWeight: 0f
+		}
+	VariableName: CooldownVignette
+	ParentComponentOrVariableName: Camera1
+	ParentComponentOwnerClassName: BP_Slasher_Character_C
+	VariableGuid: 17f47a22-92c9-43c4-96a2-2af7cbaaebd8
+	 }, { 
+	ComponentTemplate: P_Nurse_Telekinesis85F4A5CC446DEA038BD7AAAFC397D5E2: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/Nurse/P_Nurse_Telekinesis.P_Nurse_Telekinesis
+		WarmupTime: 5f
+		bAbsoluteRotation: True
+		bAutoActivate: False
+		}
+	VariableName: P_Nurse_Charging
+	AttachToName: P_Nurse_Charging
+	ParentComponentOrVariableName: CharacterMesh0
+	bIsParentComponentNative: True
+	VariableGuid: c72d19a2-bbab-4394-aa3e-f90272d79efd
+	 }, { 
+	ComponentTemplate: ParticleSystemDA3FF24948A954A1204BB0ACD37D3EF8: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/Nurse/P_Nurse_Telekinesis.P_Nurse_Telekinesis
+		WarmupTime: 5f
+		bAutoActivate: False
+		}
+	VariableName: P_Nurse_Telekinesis
+	AttachToName: P_Nurse_Telekinesis
+	ParentComponentOrVariableName: CharacterMesh0
+	bIsParentComponentNative: True
+	VariableGuid: 7d685ba7-a013-4ead-bcca-6fec6b306410
+	 }, { 
+	ComponentTemplate: ParticleSystemE0D76F334D4DA80AAFF4969755B69A57: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/Nurse/P_Nurse_BlinkAshes.P_Nurse_BlinkAshes
+		WarmupTime: 5f
+		bAutoActivate: False
+		}
+	VariableName: P_Nurse_BlinkAshes
+	AttachToName: P_Nurse_BlinkAshes
+	ParentComponentOrVariableName: CharacterMesh0
+	bIsParentComponentNative: True
+	VariableGuid: d2f54c80-2d66-4468-9264-72c92e978d33
+	 }, { 
+	ComponentTemplate: P_Vignette_Cooldown67E4F8994168EF2ACFCDA1B936BC95F1: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/P_Vignette_Cooldown.P_Vignette_Cooldown
+		RelativeLocation: Vector [X=0, Y=0, Z=1]
+		bAutoActivate: False
+		}
+	VariableName: P_Vignette_Cooldown_RightB
+	ParentComponentOrVariableName: ScreenSpaceLocation_RightB
+	ParentComponentOwnerClassName: BP_Slasher_Character_C
+	VariableGuid: cc7f9ede-1910-46e4-97d8-89655eb6084d
+	 }, { 
+	ComponentTemplate: ParticleSystem77CF0A494108864D17ADB1886A52F999: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/P_Vignette_Cooldown.P_Vignette_Cooldown
+		RelativeLocation: Vector [X=0, Y=0, Z=1]
+		RelativeRotation: Rotator [Pitch=0, Roll=180, Yaw=0]
+		bAutoActivate: False
+		}
+	VariableName: P_Vignette_Cooldown_LeftB
+	ParentComponentOrVariableName: ScreenSpaceLocation_LeftB
+	ParentComponentOwnerClassName: BP_Slasher_Character_C
+	VariableGuid: c30ad0ae-a90d-48dd-8f59-82d7e8736ec8
+	 }, { 
+	ComponentTemplate: P_Nurse_Trail06B0768943C44C0C6D246991E234A3D4: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/Nurse/P_Nurse_Trail.P_Nurse_Trail
+		bAutoActivate: False
+		}
+	VariableName: P_Nurse_Trail
+	ParentComponentOrVariableName: CharacterMesh0
+	bIsParentComponentNative: True
+	VariableGuid: cf7b233a-a0a4-4e94-8fb0-ee2e440b707d
+	 }, { 
+	ComponentTemplate: ParticleSystem0DA6055F42102437356F34A1A5AAF3D4: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/Nurse/P_Nurse_TelekinesisLight.P_Nurse_TelekinesisLight
+		WarmupTime: 5f
+		bAutoActivate: False
+		}
+	VariableName: P_Nurse_TelekinesisLight
+	AttachToName: P_Nurse_TelekinesisLight
+	ParentComponentOrVariableName: CharacterMesh0
+	bIsParentComponentNative: True
+	VariableGuid: 91b7eeb2-8d39-4515-b57a-a67f46b2cb8b
+	 } ]
+	AllNodes: [ 265, 267, 266, 269, 270, 259, 262, 268, 260, 271, 261, 263, 264 ]
+	DefaultSceneRootNode: SCS_Node: {	
+		ComponentTemplate: DefaultSceneRoot578264FE466503DE5EF9FD9F80B580EF: {	
+			}
+		VariableName: DefaultSceneRoot
+		VariableGuid: 7273cd76-aa2c-4738-9027-76547e7f896a
 		}
 	}
 Timelines: [ { 
+TimelineLength: 0.25f
+bValidatedAsWired: True
+FloatTracks: [ { 
+CurveFloat: CurveFloat_1_2__F8FE0E88_0__695A75DA_0__256B4035_0__93CBDD9C_0_1__8B7580B4_0__AAFCAE8B_0_1_2__21C56E02_0__9046C5A2__030EF46A_0__319BE955: {	
+	FloatCurve: {
+		Keys: [ RichCurveKey [InterpMode=2, TangentMode=0, TangentWeightMode=0, Time=0, Value=1, ArriveTangent=-22.33383, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=0, TangentWeightMode=0, Time=0.25, Value=-0.2, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=-21.13243, LeaveTangentWeight=0] ]
+		}
+	}
+TrackName: Dissolve
+bIsExternalCurve: False
+ } ]
+TimelineGuid: 86ec447e-5be9-4add-b10e-25d259473451
+ }, { 
 TimelineLength: 1f
 bValidatedAsWired: True
 FloatTracks: [ { 
 CurveFloat: CurveFloat: {	
 	FloatCurve: {
-		Keys: [ RichCurveKey [InterpMode=2, TangentMode=0, TangentWeightMode=0, Time=0, Value=0, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=0, TangentWeightMode=0, Time=0.5, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0] ]
+		Keys: [ RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0, Value=0, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0.5, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0] ]
 		}
 	}
 TrackName: PitchFactor
@@ -42,7 +180,7 @@ TimelineGuid: 9d6a30d2-f79a-404a-b870-7f6d1b8832d9
 TimelineLength: 0.5f
 bValidatedAsWired: True
 FloatTracks: [ { 
-CurveFloat: CurveFloat_1_2__F8FE0E88: {	
+CurveFloat: CurveFloat: {	
 	FloatCurve: {
 		Keys: [ RichCurveKey [InterpMode=2, TangentMode=0, TangentWeightMode=0, Time=0, Value=0, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=0, TangentWeightMode=0, Time=0.5, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0] ]
 		}
@@ -55,6 +193,19 @@ TimelineGuid: 81916ce8-4ac3-46ec-ac90-38f96962ceea
 TimelineLength: 0.5f
 bValidatedAsWired: True
 FloatTracks: [ { 
+CurveFloat: CurveFloat_1_2__F8FE0E88: {	
+	FloatCurve: {
+		Keys: [ RichCurveKey [InterpMode=2, TangentMode=0, TangentWeightMode=0, Time=0, Value=0, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=0, TangentWeightMode=0, Time=0.5, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0] ]
+		}
+	}
+TrackName: Fade
+bIsExternalCurve: False
+ } ]
+TimelineGuid: 2bcdf23c-6d17-4dde-9879-6b09277ef2b5
+ }, { 
+TimelineLength: 0.3f
+bValidatedAsWired: True
+FloatTracks: [ { 
 CurveFloat: CurveFloat_1_2__F8FE0E88_0__695A75DA: {	
 	FloatCurve: {
 		Keys: [ RichCurveKey [InterpMode=2, TangentMode=0, TangentWeightMode=0, Time=0, Value=0, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=0, TangentWeightMode=0, Time=0.3, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0] ]
@@ -63,19 +214,7 @@ CurveFloat: CurveFloat_1_2__F8FE0E88_0__695A75DA: {
 TrackName: Fade
 bIsExternalCurve: False
  } ]
-TimelineGuid: 2bcdf23c-6d17-4dde-9879-6b09277ef2b5
- }, { 
- }, { 
-TimelineLength: 0.25f
-bValidatedAsWired: True
-FloatTracks: [ { 
-CurveFloat: CustomizedSkeletalMeshB61AA9BA457C1A7B84E6EEA183DC7931: {	
-	SlaveAnimInstanceClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Animations/SlasherAnimSlaveFemale.SlasherAnimSlaveFemale_C
-	}
-TrackName: Dissolve
-bIsExternalCurve: False
- } ]
-TimelineGuid: 97331feb-ed19-4ffe-aa2c-72ed4f58ec3b
+TimelineGuid: 0a404a30-efbf-463d-ae80-5f8623d52583
  }, { 
 TimelineLength: 0.25f
 bValidatedAsWired: True
@@ -88,138 +227,48 @@ CurveFloat: CurveFloat_1_2__F8FE0E88_0__695A75DA_0__256B4035_0__93CBDD9C_0_1__8B
 TrackName: Dissolve
 bIsExternalCurve: False
  } ]
-TimelineGuid: 86ec447e-5be9-4add-b10e-25d259473451
+TimelineGuid: 97331feb-ed19-4ffe-aa2c-72ed4f58ec3b
  } ]
-InheritableComponentHandler: MontagePlayer: {	
-	_playerSpecificMappingsTable: DataTable /Game/Characters/Slashers/Animations/MontageMappings/Slasher004_AnimMappings.Slasher004_AnimMappings
+InheritableComponentHandler: InheritableComponentHandler: {	
+	Records: [ { 
+	ComponentTemplate: BoxF1942F2B47A3392B57B0D381F4800C25: {	
+		BodyInstance: {
+			MassInKgOverride: 60.97593f
+			}
+		}
+	ComponentKey: {
+		OwnerClass: BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/BP_Slasher_Character.BP_Slasher_Character_C
+		SCSVariableName: ChainsawObstruction
+		AssociatedGuid: 12bfa645-2044-4ad1-a93f-7c007a1afb6f
+		}
+	CookedComponentInstancingData: {
+		bIsValid: False
+		ChangedPropertyList: [  ]
+		}
+	 }, { 
+	ComponentTemplate: CustomizedSkeletalMeshB61AA9BA457C1A7B84E6EEA183DC7931: {	
+		SlaveAnimInstanceClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Animations/SlasherAnimSlaveFemale.SlasherAnimSlaveFemale_C
+		}
+	ComponentKey: {
+		OwnerClass: BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/BP_Slasher_Character.BP_Slasher_Character_C
+		SCSVariableName: CustomizedSkeletalMesh
+		AssociatedGuid: cf991574-2433-4082-a040-f8f04be88a2d
+		}
+	CookedComponentInstancingData: {
+		bIsValid: False
+		ChangedPropertyList: [  ]
+		}
+	 } ]
 	}
 BlueprintSystemVersion: 2
-GeneratedClass: Default__BP_Slasher_Character_04_C: {	
-	UberGraphFrame: 399
-	Blink Interaction IDs: [ Blink, ChainBlink, TriggeredChainBlink ]
-	CooldownVignetteCurve: CurveFloat /Game/Blueprints/GameplayElements/Item/Blinker/CooldownVignetteCurve.CooldownVignetteCurve
-	CooldownFlashVignetteCurve: CurveFloat /Game/Blueprints/GameplayElements/Item/Blinker/CooldownFlashVignetteCurve.CooldownFlashVignetteCurve
-	CooldownWarningThreshold: 0.75f
-	BlinkVignetteCurve: CurveFloat /Game/Blueprints/GameplayElements/Item/Blinker/BlinkVignetteCurve.BlinkVignetteCurve
-	BlinkWindowVignetteCurve: CurveFloat /Game/Blueprints/GameplayElements/Item/Blinker/BlinkWindowVignetteCurve.BlinkWindowVignetteCurve
-	BlinkChargeUpHandBurnCurve: CurveFloat /Game/Blueprints/GameplayElements/Item/Blinker/BlinkChargeUpHandBurnCurve.BlinkChargeUpHandBurnCurve
-	ShouldDecayHandBurn: True
-	HandBurnInterpSpeed: 2.75f
-	OriginalControlRotation: Rotator [Pitch=0, Roll=0, Yaw=0]
-	PitchAdjustmentTime: 0.25f
-	DissolveAmount: 1f
-	RootMeshIsHeadOnly: True
-	DefaultSlasherPower: Item_Slasher_Blinker
-	KillerMoodInfluence: EKillerMoodInfluence::VE_Nurse
-	KillerAbilities: [ EKillerAbilities::VE_Blink, EKillerAbilities::VE_Kill04 ]
-	_camperSensor: PlayerData: {	
+GeneratedClass: BP_Slasher_Character_04_C: {	
+	Timelines: [ 279, 280, 281, 282, 277, 278 ]
+	SimpleConstructionScript: 272
+	InheritableComponentHandler: 238
+	UberGraphFramePointerProperty: UberGraphFrame: {	
 		}
-	_stillnessTracker: ChargingOn_Template: {	
-		TimelineLength: 0.3f
-		bValidatedAsWired: True
-		FloatTracks: [ { 
-		CurveFloat: CurveFloat_1_2__F8FE0E88_0__695A75DA_0__256B4035_0__93CBDD9C_0_1__8B7580B4_0__AAFCAE8B_0_1_2__21C56E02_0__9046C5A2__030EF46A_0__319BE955: {	
-			FloatCurve: {
-				Keys: [ RichCurveKey [InterpMode=2, TangentMode=0, TangentWeightMode=0, Time=0, Value=1, ArriveTangent=-22.33383, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=0, TangentWeightMode=0, Time=0.25, Value=-0.2, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=-21.13243, LeaveTangentWeight=0] ]
-				}
-			}
-		TrackName: Fade
-		bIsExternalCurve: False
-		 } ]
-		TimelineGuid: 0a404a30-efbf-463d-ae80-5f8623d52583
+	UberGraphFunction: ExecuteUbergraph_BP_Slasher_Character_04: {	
 		}
-	_fullBodyFlashLightReceiver: InheritableComponentHandler: {	
-		Records: [ { 
-		ComponentTemplate: PixelCounter: {	
-			}
-		ComponentKey: {
-			OwnerClass: BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/BP_Slasher_Character.BP_Slasher_Character_C
-			SCSVariableName: ChainsawObstruction
-			AssociatedGuid: 12bfa645-2044-4ad1-a93f-7c007a1afb6f
-			}
-		CookedComponentInstancingData: {
-			bIsValid: False
-			ChangedPropertyList: [  ]
-			}
-		 }, { 
-		ComponentTemplate: CamperSensor: {	
-			OnSeePawn: OnChaseTargetFound
-			}
-		ComponentKey: {
-			OwnerClass: BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/BP_Slasher_Character.BP_Slasher_Character_C
-			SCSVariableName: CustomizedSkeletalMesh
-			AssociatedGuid: cf991574-2433-4082-a040-f8f04be88a2d
-			}
-		CookedComponentInstancingData: {
-			bIsValid: False
-			ChangedPropertyList: [  ]
-			}
-		 } ]
-		}
-	_invisibilityBurnoutChargeableComponent: CurveFloat: {	
-		FloatCurve: {
-			Keys: [ RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0, Value=0, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0.5, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0] ]
-			}
-		}
-	AudioCharacterName: Nurse
-	CharacterClothes: Killer_Tissu
-	CharacterShoes: Barefoot_Nurse
-	CharacterWeapon: BoneSaw
-	BlindingChargeableComponent: InvisibilityBurnoutChargeableComponent: {	
-		OnInteractionEmptiedEvent: OnInvisibilityChargeEmptied
-		ChargeAppliedAuthorityDelegate: Authority_OnInvisibilityBurnoutChargeApplied
-		}
-	AttackPounceCurves: [ CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/NursePounceOpenMaxSpeed.NursePounceOpenMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/NursePounceHittingMaxSpeed.NursePounceHittingMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceSucceedMaxSpeed.PounceSucceedMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceMissMaxSpeed.PounceMissMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceObstructedMaxSpeed.PounceObstructedMaxSpeed ]
-	_pixelCounter: CameraHandlerComponent: {	
-		}
-	_SM: StillnessTracker: {	
-		}
-	_interactionHandler: EventListener: {	
-		}
-	_montagePlayer: P_CharacterBlinkE70FFE774C8CD2A3F8D32EB12C592737: {	
-		Template: ParticleSystem /Game/Effects/ParticleSystems/Nurse/P_Nurse_BlinkOut.P_Nurse_BlinkOut
-		RelativeLocation: Vector [X=0, Y=-300, Z=0]
-		RelativeRotation: Rotator [Pitch=0, Roll=180, Yaw=0]
-		bAutoActivate: False
-		}
-	_perkManager: InteractionHandler: {	
-		}
-	_playerData: FullBodyFlashLightReceiver: {	
-		}
-	_characterSnappingComponent: BlindnessChargeableComponent: {	
-		OnInteractionEmptiedEvent: OnBlindChargeEmptied
-		ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
-		}
-	_dreamworldComponent: SnappingComponent: {	
-		}
-	_cameraHandlerComponent: CollisionCylinder: {	
-		}
-	_itemDropOffPosition: SCS_Node: {	
-		ComponentTemplate: ItemDropOffPosition: {	
-			AttachParent: 223
-			}
-		VariableName: DefaultSceneRoot
-		VariableGuid: 7273cd76-aa2c-4738-9027-76547e7f896a
-		}
-	_eventListener: PostProcess17EF2EFA64A6E8FF4DBE4F5921345F644: {	
-		Settings: {
-			bOverride_VignetteIntensity: True
-			VignetteIntensity: 1.5f
-			}
-		Priority: 1f
-		BlendWeight: 0f
-		}
-	_meatHookZoneDetector: 283
-	_authoritativeMovementComponent: 218
-	_characterIndex: 268435459
-	Mesh: CharMoveComp: {	
-		MaxAcceleration: 1000f
-		BrakingDecelerationWalking: 2048f
-		}
-	CharacterMovement: SlasherStateMachine: {	
-		}
-	CapsuleComponent: 223
-	RootComponent: 223
 	}
 bLegacyNeedToPurgeSkelRefs: False
 bLegacyGeneratedClassIsAuthoritative: True

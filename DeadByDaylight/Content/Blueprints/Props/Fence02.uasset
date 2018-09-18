@@ -1,22 +1,93 @@
 ParentClass: Class /Script/Engine.Actor
-SimpleConstructionScript: StaticMeshComponent: {	
-	StaticMesh: StaticMesh /Game/Meshes/Props/Fences/Models/SM_Bd_Fence01.SM_Bd_Fence01
-	bUseDefaultCollision: False
-	LDMaxDrawDistance: 7500f
-	CachedMaxDrawDistance: 7500f
-	BodyInstance: {
-		MassInKgOverride: 1775.307f
+SimpleConstructionScript: SimpleConstructionScript: {	
+	RootNodes: [ { 
+	ComponentTemplate: StaticMeshComponent: {	
+		StaticMesh: StaticMesh /Game/Meshes/Props/Fences/Models/SM_Bd_Fence01.SM_Bd_Fence01
+		bUseDefaultCollision: False
+		LDMaxDrawDistance: 7500f
+		CachedMaxDrawDistance: 7500f
+		BodyInstance: {
+			MassInKgOverride: 1775.307f
+			}
+		Mobility: EComponentMobility::Static
 		}
-	Mobility: EComponentMobility::Static
+	VariableName: SM_Bd_Fence01
+	ChildNodes: [ { 
+	ComponentTemplate: Box15DF249742BDF9B893DD8C9D8EE477D6: {	
+		BoxExtent: Vector [X=420, Y=32, Z=400]
+		BodyInstance: {
+			CollisionProfileName: BlinkBlocker
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: WorldStatic
+				Response: ECR_Overlap
+				 }, { 
+				Channel: WorldDynamic
+				Response: ECR_Overlap
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PhysicsBody
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Destructible
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Interactable
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Block
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Blink
+				Response: ECR_Block
+				 }, { 
+				Channel: Unused
+				Response: ECR_Block
+				 } ]
+				}
+			CollisionEnabled: ECollisionEnabled::QueryAndPhysics
+			ObjectType: ECC_GameTraceChannel14
+			}
+		RelativeLocation: Vector [X=-370, Y=0.0002441406, Z=297.877]
+		RelativeScale3D: Vector [X=1, Y=1, Z=1.953125]
+		Mobility: EComponentMobility::Static
+		}
+	VariableName: BlinkBlocker
+	VariableGuid: c0147688-7941-462c-802d-483f89736856
+	 } ]
+	VariableGuid: 9aec561a-bb84-4914-b739-595c1478be58
+	 } ]
+	AllNodes: [ 11, 10 ]
+	DefaultSceneRootNode: SCS_Node: {	
+		ComponentTemplate: SceneComponent: {	
+			}
+		VariableName: DefaultSceneRoot
+		VariableGuid: 4b447bbd-6830-471f-a6dd-15d43281e6f2
+		}
 	}
 BlueprintSystemVersion: 2
-GeneratedClass: Default__Fence02_C: {	
-	PrimaryActorTick: {
-		bStartWithTickEnabled: False
-		}
-	bReplicates: True
-	NetUpdateFrequency: 0.1f
-	NetPriority: 0.01f
+GeneratedClass: Fence02_C: {	
+	SimpleConstructionScript: 12
 	}
 bLegacyNeedToPurgeSkelRefs: False
 bLegacyGeneratedClassIsAuthoritative: True

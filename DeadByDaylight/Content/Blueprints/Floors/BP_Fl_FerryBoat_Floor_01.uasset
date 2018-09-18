@@ -1,15 +1,79 @@
 ParentClass: Class /Script/Engine.Actor
-SimpleConstructionScript: StaticMesh20CB39154C640282D9FABFA1D284CDAC: {	
-	StaticMesh: StaticMesh /Game/Meshes/Environment/Swamp/Structures/SM_SwpFerryBasementFloor01.SM_SwpFerryBasementFloor01
-	bUseDefaultCollision: False
-	Mobility: EComponentMobility::Static
+SimpleConstructionScript: SimpleConstructionScript: {	
+	RootNodes: [ { 
+	ComponentTemplate: StaticMeshComponent: {	
+		StaticMesh: StaticMesh /Game/Meshes/Environment/Structures/SM_ST_ShackFloor02.SM_ST_ShackFloor02
+		bUseDefaultCollision: False
+		BodyInstance: {
+			CollisionProfileName: Ground
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: Interactable
+				Response: ECR_Block
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Block
+				 }, { 
+				Channel: Blood
+				Response: ECR_Block
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: World
+				Response: ECR_Overlap
+				 }, { 
+				Channel: Walkable
+				Response: ECR_Block
+				 } ]
+				}
+			MassInKgOverride: 2335.035f
+			ObjectType: ECC_GameTraceChannel15
+			}
+		bVisible: False
+		Mobility: EComponentMobility::Static
+		}
+	VariableName: root
+	ChildNodes: [ { 
+	ComponentTemplate: StaticMesh20CB39154C640282D9FABFA1D284CDAC: {	
+		StaticMesh: StaticMesh /Game/Meshes/Environment/Swamp/Structures/SM_SwpFerryBasementFloor01.SM_SwpFerryBasementFloor01
+		bUseDefaultCollision: False
+		Mobility: EComponentMobility::Static
+		}
+	VariableName: StaticMesh
+	VariableGuid: ad065ca4-47e0-4fa7-bfaa-e23440946bf6
+	 }, { 
+	ComponentTemplate: ChildActorE1651F9F4DA2C8704318F497A4AE65E3: {	
+		ChildActorClass: BlueprintGeneratedClass /Game/Blueprints/Props/06-Swamp/BP_Swp_Barrels_02_NoCrow.BP_Swp_Barrels_02_NoCrow_C
+		RelativeLocation: Vector [X=-258.646, Y=593.2738, Z=100]
+		RelativeRotation: Rotator [Pitch=0, Roll=89.99995, Yaw=0]
+		Mobility: EComponentMobility::Static
+		}
+	VariableName: ChildActor
+	VariableGuid: 0b9d5ad9-1134-4255-a3b6-26b23bb1a470
+	 }, { 
+	ComponentTemplate: ChildActor19500F1A441EF955029250EACF5927E1C: {	
+		ChildActorClass: BlueprintGeneratedClass /Game/Blueprints/Props/06-Swamp/BP_Swp_Barrels_01_NoCrow.BP_Swp_Barrels_01_NoCrow_C
+		RelativeLocation: Vector [X=-258.6452, Y=301.3846, Z=100.0002]
+		RelativeRotation: Rotator [Pitch=0, Roll=89.99995, Yaw=0]
+		Mobility: EComponentMobility::Static
+		}
+	VariableName: ChildActor1
+	VariableGuid: d58207ec-c59c-4587-ad9a-354a4de57ef4
+	 } ]
+	VariableGuid: fc915226-efc0-4927-aa5f-0321901e515a
+	 } ]
+	AllNodes: [ 16, 13, 14, 15 ]
+	DefaultSceneRootNode: SCS_Node: {	
+		ComponentTemplate: SceneComponent: {	
+			}
+		VariableName: DefaultSceneRoot
+		VariableGuid: e17613d8-8777-46b1-b6b9-e13e94f3bd2c
+		}
 	}
 BlueprintSystemVersion: 2
-GeneratedClass: Default__BP_Fl_FerryBoat_Floor_01_C: {	
-	PrimaryActorTick: {
-		bStartWithTickEnabled: False
-		}
-	bReplicates: True
+GeneratedClass: BP_Fl_FerryBoat_Floor_01_C: {	
+	SimpleConstructionScript: 17
 	}
 bLegacyNeedToPurgeSkelRefs: False
 bLegacyGeneratedClassIsAuthoritative: True

@@ -1,23 +1,78 @@
 ParentClass: Class /Script/Engine.Actor
-SimpleConstructionScript: SpotLightF6693B0648AC962454496CA685266DB5: {	
-	OuterConeAngle: 40f
-	AttenuationRadius: 2158.137f
-	bCastShadowsFromCinematicObjectsOnly: True
-	LightGuid: db4a7d92-c9a9-44d0-84be-57a1e4ca99ab
-	Intensity: 15335.11f
-	LightColor: Color [B=220, G=255, R=255, A=0]
-	CastShadows: False
-	bAffectTranslucentLighting: False
-	bPrecomputedLightingIsValid: False
-	RelativeLocation: Vector [X=-0.000817541, Y=4.701253, Z=502.9797]
-	RelativeRotation: Rotator [Pitch=-84.99945, Roll=89.99964, Yaw=-89.9996]
-	Mobility: EComponentMobility::Stationary
+SimpleConstructionScript: SimpleConstructionScript: {	
+	RootNodes: [ { 
+	ComponentTemplate: SceneComponent: {	
+		Mobility: EComponentMobility::Static
+		}
+	VariableName: root
+	ChildNodes: [ { 
+	ComponentTemplate: SpotLightF6693B0648AC962454496CA685266DB5: {	
+		OuterConeAngle: 40f
+		AttenuationRadius: 2158.137f
+		bCastShadowsFromCinematicObjectsOnly: True
+		LightGuid: db4a7d92-c9a9-44d0-84be-57a1e4ca99ab
+		Intensity: 15335.11f
+		LightColor: Color [B=220, G=255, R=255, A=0]
+		CastShadows: False
+		bAffectTranslucentLighting: False
+		bPrecomputedLightingIsValid: False
+		RelativeLocation: Vector [X=-0.000817541, Y=4.701253, Z=502.9797]
+		RelativeRotation: Rotator [Pitch=-84.99945, Roll=89.99964, Yaw=-89.9996]
+		Mobility: EComponentMobility::Stationary
+		}
+	VariableName: SpotLight
+	VariableGuid: 9b853b02-da6d-4a77-a003-864c4da2462d
+	 }, { 
+	ComponentTemplate: SM_ParkLight01C789699044C15BDA020A299E7CA48A25: {	
+		StaticMesh: StaticMesh /Game/Meshes/Props/Light/SM_ParkLight01.SM_ParkLight01
+		bUseDefaultCollision: False
+		OverrideMaterials: [ MaterialInstanceConstant /Game/Materials/Instances/MI_StreetLight01.MI_StreetLight01 ]
+		BodyInstance: {
+			MassInKgOverride: 351.2112f
+			}
+		Mobility: EComponentMobility::Static
+		}
+	VariableName: SM_ParkLight01
+	VariableGuid: 4e181067-a021-456e-9991-c0d6d286e4e2
+	 }, { 
+	ComponentTemplate: P_Flies3A81474940412F2D1216AE97A9C6085E: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/P_Flies.P_Flies
+		WarmupTime: 5f
+		RelativeLocation: Vector [X=0, Y=0, Z=462]
+		}
+	VariableName: P_Flies
+	VariableGuid: ea3eb7e8-7178-425d-8097-505e41986896
+	 }, { 
+	ComponentTemplate: P_LightSourceFx21FDB98440146FCBFC89319947C9F42A: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/P_LightSourceFx.P_LightSourceFx
+		RelativeLocation: Vector [X=0, Y=-1.275539E-05, Z=471]
+		RelativeRotation: Rotator [Pitch=0, Roll=0, Yaw=89.99995]
+		}
+	VariableName: P_LightSourceFx
+	VariableGuid: 249fc8a6-31cc-47a2-96ef-a19740eb36bf
+	 }, { 
+	ComponentTemplate: MaterialHelperAAA07E614FAA9FC2351E28871A7741E3: {	
+		Mobility: EComponentMobility::Static
+		}
+	VariableName: MaterialHelper
+	VariableGuid: 97dddd01-ca3e-4f9f-aed8-484963c97356
+	 } ]
+	VariableGuid: 4eb57e9f-de8d-4dc2-b217-cedcb17108a1
+	 } ]
+	AllNodes: [ 25, 29, 26, 24, 28, 27 ]
+	DefaultSceneRootNode: SCS_Node: {	
+		ComponentTemplate: SceneComponent: {	
+			}
+		VariableName: DefaultSceneRoot
+		VariableGuid: 30aebcff-5153-42be-9d11-cfa2251a5101
+		}
 	}
 BlueprintSystemVersion: 2
-GeneratedClass: Default__BP_ParkLight_C: {	
-	UberGraphFrame: 71
-	PrimaryActorTick: {
-		bStartWithTickEnabled: False
+GeneratedClass: BP_ParkLight_C: {	
+	SimpleConstructionScript: 31
+	UberGraphFramePointerProperty: UberGraphFrame: {	
+		}
+	UberGraphFunction: ExecuteUbergraph_BP_ParkLight: {	
 		}
 	}
 bLegacyNeedToPurgeSkelRefs: False

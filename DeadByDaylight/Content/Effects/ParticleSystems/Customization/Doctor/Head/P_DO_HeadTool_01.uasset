@@ -1,5 +1,5 @@
 Emitters: [ { 
-EmitterName: Burst_Out
+EmitterName: Sparks Small
 LODLevels: [ { 
 RequiredModule: ParticleModuleRequired: {	
 	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Lightning_Head.MI_Lightning_Head
@@ -18,14 +18,539 @@ RequiredModule: ParticleModuleRequired: {
 	LODValidity: 1
 	}
 Modules: [ { 
+Lifetime: {
+	MinValue: 0.1f
+	MaxValue: 0.2f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0.1, 0.2 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartSize: {
+	MinValue: 2f
+	MaxValue: 5f
+	MinValueVec: Vector [X=2, Y=2, Z=2]
+	MaxValueVec: Vector [X=5, Y=5, Z=5]
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 2, 2, 2, 5, 5, 5 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+ColorOverLife: {
+	MinValue: 0.03f
+	MaxValue: 0.03f
+	MinValueVec: Vector [X=0.03, Y=0.03, Z=0.03]
+	MaxValueVec: Vector [X=0.03, Y=0.03, Z=0.03]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0.03, 0.03, 0.03 ]
+		}
+	}
+AlphaOverLife: {
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 16
+		EntryStride: 1
+		TimeScale: 15f
+		Values: [ 1, 0.6666667, 0.3333333, 0.01889766, 0.3333333, 0.6666667, 0.9874017, 0.6666666, 0.3333333, 0.01259856, 0.3333333, 0.6666669, 0.9811025, 0.6666664, 0.3333332, 0 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartRotation: {
+	MinValue: -1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ -1, 1 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+DynamicParams: [ { 
+ParamName: None
+bUseEmitterTime: False
+bSpawnTimeOnly: True
+ValueMethod: EDPV_UserSet
+bScaleVelocityByParamValue: False
+ParamValue: {
+	MinValue: 0f
+	MaxValue: 50f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		TimeScale: 0f
+		TimeBias: 0f
+		Values: [ 0, 50 ]
+		LockFlag: 0
+		}
+	}
+ }, { 
+ParamName: None
+bUseEmitterTime: False
+bSpawnTimeOnly: True
+ValueMethod: EDPV_UserSet
+bScaleVelocityByParamValue: False
+ParamValue: {
+	MinValue: 0f
+	MaxValue: 50f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		TimeScale: 0f
+		TimeBias: 0f
+		Values: [ 0, 50 ]
+		LockFlag: 0
+		}
+	}
+ }, { 
+ParamName: None
+bUseEmitterTime: False
+bSpawnTimeOnly: True
+ValueMethod: EDPV_UserSet
+bScaleVelocityByParamValue: False
+ParamValue: {
+	MinValue: 0f
+	MaxValue: 50f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		TimeScale: 0f
+		TimeBias: 0f
+		Values: [ 0, 50 ]
+		LockFlag: 0
+		}
+	}
+ }, { 
+ParamName: None
+bUseEmitterTime: False
+bSpawnTimeOnly: False
+ValueMethod: EDPV_UserSet
+bScaleVelocityByParamValue: False
+ParamValue: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		SubEntryStride: 0
+		TimeScale: 0f
+		TimeBias: 0f
+		Values: [ 1 ]
+		LockFlag: 0
+		}
+	}
+ } ]
+UpdateFlags: 8
+LODValidity: 1
+ }, { 
 ColorScaleOverLife: {
 	MinValue: 1f
 	MaxValue: 1f
 	MinValueVec: Vector [X=1, Y=1, Z=1]
 	MaxValueVec: Vector [X=1, Y=1, Z=1]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 1, 1, 1 ]
+		}
+	}
+AlphaScaleOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: DistributionFloatParticleParameter: {	
+		ParameterName: Sparks_Intensity
+		MaxInput: 10f
+		MaxOutput: 10f
+		Constant: 1f
+		}
+	Table: {
+		Values: [ 1 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+LifeMultiplier: {
+	MinValue: 0.5f
+	MaxValue: 1f
+	MinValueVec: Vector [X=0.5, Y=0.5, Z=0.5]
+	MaxValueVec: Vector [X=1, Y=1, Z=1]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1f
+		Values: [ 0.5, 0.5, 0.5, 1, 1, 1 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartRadius: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1 ]
+		}
+	}
+StartHeight: {
+	MinValue: 5f
+	MaxValue: 5f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 5 ]
+		}
+	}
+VelocityScale: {
 	Distribution: DistributionVelocityScale: {	
 		Constant: 1f
 		}
+	}
+StartLocation: {
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0, 0, 0 ]
+		}
+	}
+LODValidity: 1
+ } ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 0 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstList: [ { 
+	Count: 5
+	CountLow: -1
+	Time: 0f
+	 }, { 
+	Count: 2
+	CountLow: -1
+	Time: 0.1f
+	 } ]
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	LODValidity: 1
+	}
+PeakActiveParticles: 9
+ } ]
+ }, { 
+EmitterName: Burst_Out
+LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Sparks_Head.MI_Sparks_Head
+	ScreenAlignment: PSA_Velocity
+	SortMode: PSORTMODE_Age_OldestFirst
+	bUseLegacyEmitterTime: False
+	EmitterDurationLow: 1f
+	EmitterLoops: 1
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		}
+	RandomImageTime: 1f
+	LODValidity: 1
+	}
+Modules: [ { 
+Lifetime: {
+	MinValue: 0.3f
+	MaxValue: 0.5f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0.3, 0.5 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartSize: {
+	MinValue: 1f
+	MaxValue: 2f
+	MinValueVec: Vector [X=1, Y=1, Z=1]
+	MaxValueVec: Vector [X=2, Y=2, Z=2]
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 1, 1, 1, 2, 2, 2 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartColor: {
+	MinValue: 8.683075f
+	MaxValue: 20f
+	MinValueVec: Vector [X=8.683075, Y=12.61513, Z=20]
+	MaxValueVec: Vector [X=8.683075, Y=12.61513, Z=20]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 8.683075, 12.61513, 20 ]
+		}
+	}
+StartAlpha: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartRadius: {
+	MinValue: 2f
+	MaxValue: 2f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 2 ]
+		}
+	}
+Velocity: True
+VelocityScale: {
+	MinValue: 5f
+	MaxValue: 25f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 5, 25 ]
+		}
+	}
+StartLocation: {
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0, 0, 0 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+LifeMultiplier: {
+	MinValue: 0.2f
+	MaxValue: 1f
+	MinValueVec: Vector [X=1, Y=0.2, Z=1]
+	MaxValueVec: Vector [X=1, Y=1, Z=1]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 2f
+		TimeBias: 0.3f
+		Values: [ 1, 1, 1, 1, 0.2, 1 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+SpeedScale: Vector2D [X=1, Y=1]
+MaxScale: Vector2D [X=0.5, Y=1]
+LODValidity: 1
+ }, { 
+Acceleration: Vector [X=0, Y=0, Z=-200]
+bAlwaysInWorldSpace: True
+LODValidity: 1
+ } ]
+TypeDataModule: ParticleModuleTypeDataGpu: {	
+	EmitterInfo: {
+		RequiredModule: 25
+		SpawnModule: ParticleModuleSpawn: {	
+			Rate: {
+				Distribution: 0
+				Table: {
+					Op: 1
+					EntryCount: 1
+					EntryStride: 1
+					Values: [ 0 ]
+					}
+				}
+			RateScale: {
+				MinValue: 1f
+				MaxValue: 1f
+				Distribution: 0
+				Table: {
+					Op: 1
+					EntryCount: 1
+					EntryStride: 1
+					Values: [ 1 ]
+					}
+				}
+			BurstList: [ { 
+			Count: 25
+			CountLow: 3
+			Time: 0f
+			 }, { 
+			Count: 5
+			CountLow: 3
+			Time: 0.2f
+			 } ]
+			BurstScale: {
+				MinValue: 1f
+				MaxValue: 1f
+				Distribution: DistributionFloatParticleParameter: {	
+					ParameterName: Burst_Spawn
+					MaxInput: 10f
+					MaxOutput: 10f
+					Constant: 1f
+					}
+				Table: {
+					Values: [ 1 ]
+					}
+				}
+			LODValidity: 1
+			}
+		SpawnModules: [ 25, 16, 28, 21 ]
+		ConstantAcceleration: Vector [X=0, Y=0, Z=-200]
+		InvMaxSize: Vector2D [X=0.5, Y=0.5]
+		InvRotationRateScale: 2f
+		MaxLifetime: 0.5f
+		MaxParticleCount: 31
+		ScreenAlignment: PSA_Velocity
+		CollisionMode: None
+		}
+	ResourceData: {
+		QuantizedMiscSamples: [ Color [B=0, G=255, R=255, A=0], Color [B=0, G=0, R=0, A=0] ]
+		ColorBias: Vector4 [X=8.683075, Y=12.61513, Z=20, W=1]
+		MiscScale: Vector4 [X=2, Y=2, Z=0, W=0]
+		SimulationAttrCurveBias: Vector4 [X=1, Y=1, Z=0, W=1]
+		SubImageSize: Vector4 [X=1, Y=1, Z=1, W=1]
+		SizeBySpeed: Vector4 [X=1, Y=1, Z=0.5, W=1]
+		ConstantAcceleration: Vector [X=0, Y=0, Z=-200]
+		PerParticleVectorFieldBias: 1f
+		CollisionRadiusScale: 0.5f
+		OneMinusFriction: 1f
+		RotationRateScale: 0.5f
+		ScreenAlignment: PSA_Velocity
+		}
+	LODValidity: 1
+	}
+SpawnModule: 34
+PeakActiveParticles: 31
+ } ]
+ }, { 
+EmitterName: Burst_Out
+LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Invisible.MI_Invisible
+	bUseLocalSpace: True
+	SortMode: PSORTMODE_Age_OldestFirst
+	bUseLegacyEmitterTime: False
+	EmitterDurationLow: 1f
+	EmitterLoops: 1
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		}
+	RandomImageTime: 1f
+	bEnabled: False
+	LODValidity: 1
+	}
+Modules: [ { 
+Lifetime: {
+	MinValue: 0.1f
+	MaxValue: 0.1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 0.1 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+ColorScaleOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	MinValueVec: Vector [X=1, Y=1, Z=1]
+	MaxValueVec: Vector [X=1, Y=1, Z=1]
+	Distribution: 0
 	Table: {
 		Op: 1
 		EntryCount: 1
@@ -68,7 +593,36 @@ LightExponent: {
 	}
 LODValidity: 1
  }, { 
-StartRadius: {
+StartSize: {
+	MinValue: 1f
+	MaxValue: 2f
+	MinValueVec: Vector [X=1, Y=1, Z=1]
+	MaxValueVec: Vector [X=2, Y=2, Z=2]
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 1, 1, 1, 2, 2, 2 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartColor: {
+	MinValue: 2f
+	MaxValue: 2.5f
+	MinValueVec: Vector [X=2, Y=2, Z=2.5]
+	MaxValueVec: Vector [X=2, Y=2, Z=2.5]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 2, 2, 2.5 ]
+		}
+	}
+StartAlpha: {
 	MinValue: 1f
 	MaxValue: 1f
 	Distribution: 0
@@ -77,72 +631,6 @@ StartRadius: {
 		EntryCount: 1
 		EntryStride: 1
 		Values: [ 1 ]
-		}
-	}
-StartHeight: {
-	MinValue: 5f
-	MaxValue: 5f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 5 ]
-		}
-	}
-VelocityScale: {
-	Distribution: RequiredDistributionSpawnRate: {	
-		}
-	}
-StartLocation: {
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 0, 0, 0 ]
-		}
-	}
-LODValidity: 1
- }, { 
-LifeMultiplier: {
-	MinValue: 0.5f
-	MaxValue: 1f
-	MinValueVec: Vector [X=0.5, Y=0.5, Z=0.5]
-	MaxValueVec: Vector [X=1, Y=1, Z=1]
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 2
-		EntryStride: 3
-		TimeScale: 1f
-		Values: [ 0.5, 0.5, 0.5, 1, 1, 1 ]
-		}
-	}
-LODValidity: 1
- }, { 
-ColorOverLife: {
-	MinValue: 0.03f
-	MaxValue: 0.03f
-	MinValueVec: Vector [X=0.03, Y=0.03, Z=0.03]
-	MaxValueVec: Vector [X=0.03, Y=0.03, Z=0.03]
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 0.03, 0.03, 0.03 ]
-		}
-	}
-AlphaOverLife: {
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 16
-		EntryStride: 1
-		TimeScale: 15f
-		Values: [ 1, 0.6666667, 0.3333333, 0.01889766, 0.3333333, 0.6666667, 0.9874017, 0.6666666, 0.3333333, 0.01259856, 0.3333333, 0.6666669, 0.9811025, 0.6666664, 0.3333332, 0 ]
 		}
 	}
 LODValidity: 1
@@ -169,394 +657,18 @@ SpawnModule: ParticleModuleSpawn: {
 			}
 		}
 	BurstList: [ { 
-	Count: 25
-	CountLow: 3
+	Count: 1
+	CountLow: 1
 	Time: 0f
-	 }, { 
-	Count: 5
-	CountLow: 3
-	Time: 0.2f
 	 } ]
 	BurstScale: {
 		MinValue: 1f
 		MaxValue: 1f
-		Distribution: ParticleLODLevel: {	
-			RequiredModule: ParticleModuleRequired: {	
-				Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Sparks_Head.MI_Sparks_Head
-				ScreenAlignment: PSA_Velocity
-				SortMode: PSORTMODE_Age_OldestFirst
-				bUseLegacyEmitterTime: False
-				EmitterDurationLow: 1f
-				EmitterLoops: 1
-				SpawnRate: {
-					Distribution: DistributionFloatParticleParameter: {	
-						ParameterName: Sparks_Intensity
-						MaxInput: 10f
-						MaxOutput: 10f
-						Constant: 1f
-						}
-					}
-				RandomImageTime: 1f
-				LODValidity: 1
-				}
-			Modules: [ { 
-			Lifetime: {
-				MinValue: 0.1f
-				MaxValue: 0.1f
-				Distribution: 0
-				Table: {
-					Op: 1
-					EntryCount: 1
-					EntryStride: 1
-					Values: [ 0.1 ]
-					}
-				}
-			LODValidity: 1
-			 }, { 
-			StartSize: {
-				MinValue: 1f
-				MaxValue: 2f
-				MinValueVec: Vector [X=1, Y=1, Z=1]
-				MaxValueVec: Vector [X=2, Y=2, Z=2]
-				Distribution: 0
-				Table: {
-					Op: 2
-					EntryCount: 1
-					EntryStride: 6
-					SubEntryStride: 3
-					Values: [ 1, 1, 1, 2, 2, 2 ]
-					}
-				}
-			LODValidity: 1
-			 }, { 
-			ColorScaleOverLife: {
-				MinValue: 1f
-				MaxValue: 1f
-				MinValueVec: Vector [X=1, Y=1, Z=1]
-				MaxValueVec: Vector [X=1, Y=1, Z=1]
-				Distribution: 0
-				Table: {
-					Op: 1
-					EntryCount: 1
-					EntryStride: 3
-					Values: [ 1, 1, 1 ]
-					}
-				}
-			AlphaScaleOverLife: {
-				MinValue: 1f
-				MaxValue: 1f
-				Distribution: DistributionFloatParticleParameter: {	
-					ParameterName: Burst_Spawn
-					MaxInput: 10f
-					MaxOutput: 10f
-					Constant: 1f
-					}
-				Table: {
-					Values: [ 1 ]
-					}
-				}
-			LODValidity: 1
-			 }, { 
-			StartSize: {
-				MinValue: 2f
-				MaxValue: 5f
-				MinValueVec: Vector [X=2, Y=2, Z=2]
-				MaxValueVec: Vector [X=5, Y=5, Z=5]
-				Distribution: 0
-				Table: {
-					Op: 2
-					EntryCount: 1
-					EntryStride: 6
-					SubEntryStride: 3
-					Values: [ 2, 2, 2, 5, 5, 5 ]
-					}
-				}
-			LODValidity: 1
-			 }, { 
-			Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Invisible.MI_Invisible
-			bUseLocalSpace: True
-			SortMode: PSORTMODE_Age_OldestFirst
-			bUseLegacyEmitterTime: False
-			EmitterDurationLow: 1f
-			EmitterLoops: 1
-			SpawnRate: {
-				Distribution: RequiredDistributionSpawnRate: {	
-					}
-				}
-			RandomImageTime: 1f
-			bEnabled: False
-			LODValidity: 1
-			 }, { 
-			Lifetime: {
-				MinValue: 0.3f
-				MaxValue: 0.5f
-				Distribution: 0
-				Table: {
-					Op: 2
-					EntryCount: 1
-					EntryStride: 2
-					SubEntryStride: 1
-					Values: [ 0.3, 0.5 ]
-					}
-				}
-			LODValidity: 1
-			 }, { 
-			LifeMultiplier: {
-				MinValue: 0.2f
-				MaxValue: 1f
-				MinValueVec: Vector [X=1, Y=0.2, Z=1]
-				MaxValueVec: Vector [X=1, Y=1, Z=1]
-				Distribution: 0
-				Table: {
-					Op: 1
-					EntryCount: 2
-					EntryStride: 3
-					TimeScale: 2f
-					TimeBias: 0.3f
-					Values: [ 1, 1, 1, 1, 0.2, 1 ]
-					}
-				}
-			LODValidity: 1
-			 }, { 
-			StartRadius: {
-				MinValue: 2f
-				MaxValue: 2f
-				Distribution: 0
-				Table: {
-					Op: 1
-					EntryCount: 1
-					EntryStride: 1
-					Values: [ 2 ]
-					}
-				}
-			Velocity: True
-			VelocityScale: {
-				MinValue: 5f
-				MaxValue: 25f
-				Distribution: 0
-				Table: {
-					Op: 2
-					EntryCount: 1
-					EntryStride: 2
-					SubEntryStride: 1
-					Values: [ 5, 25 ]
-					}
-				}
-			StartLocation: {
-				Distribution: 0
-				Table: {
-					Op: 1
-					EntryCount: 1
-					EntryStride: 3
-					Values: [ 0, 0, 0 ]
-					}
-				}
-			LODValidity: 1
-			 } ]
-			SpawnModule: ParticleModuleTypeDataGpu: {	
-				EmitterInfo: {
-					RequiredModule: ParticleModuleRotation: {	
-						StartRotation: {
-							MinValue: -1f
-							MaxValue: 1f
-							Distribution: 0
-							Table: {
-								Op: 2
-								EntryCount: 1
-								EntryStride: 2
-								SubEntryStride: 1
-								Values: [ -1, 1 ]
-								}
-							}
-						LODValidity: 1
-						}
-					SpawnModule: ParticleModuleSpawn: {	
-						Rate: {
-							Distribution: 0
-							Table: {
-								Op: 1
-								EntryCount: 1
-								EntryStride: 1
-								Values: [ 0 ]
-								}
-							}
-						RateScale: {
-							MinValue: 1f
-							MaxValue: 1f
-							Distribution: 0
-							Table: {
-								Op: 1
-								EntryCount: 1
-								EntryStride: 1
-								Values: [ 1 ]
-								}
-							}
-						BurstList: [ { 
-						Count: 5
-						CountLow: -1
-						Time: 0f
-						 }, { 
-						Count: 2
-						CountLow: -1
-						Time: 0.1f
-						 } ]
-						BurstScale: {
-							MinValue: 1f
-							MaxValue: 1f
-							Distribution: 0
-							Table: {
-								Op: 1
-								EntryCount: 1
-								EntryStride: 1
-								Values: [ 1 ]
-								}
-							}
-						LODValidity: 1
-						}
-					SpawnModules: [ 25, { 
-					Lifetime: {
-						MinValue: 0.1f
-						MaxValue: 0.2f
-						Distribution: 0
-						Table: {
-							Op: 2
-							EntryCount: 1
-							EntryStride: 2
-							SubEntryStride: 1
-							Values: [ 0.1, 0.2 ]
-							}
-						}
-					LODValidity: 1
-					 }, { 
-					StartSize: {
-						MinValue: 1f
-						MaxValue: 2f
-						MinValueVec: Vector [X=1, Y=1, Z=1]
-						MaxValueVec: Vector [X=2, Y=2, Z=2]
-						Distribution: 0
-						Table: {
-							Op: 2
-							EntryCount: 1
-							EntryStride: 6
-							SubEntryStride: 3
-							Values: [ 1, 1, 1, 2, 2, 2 ]
-							}
-						}
-					LODValidity: 1
-					 }, { 
-					DynamicParams: [ { 
-					ParamName: None
-					bUseEmitterTime: False
-					bSpawnTimeOnly: True
-					ValueMethod: EDPV_UserSet
-					bScaleVelocityByParamValue: False
-					ParamValue: {
-						MinValue: 0f
-						MaxValue: 50f
-						Distribution: 0
-						Table: {
-							Op: 2
-							EntryCount: 1
-							EntryStride: 2
-							SubEntryStride: 1
-							TimeScale: 0f
-							TimeBias: 0f
-							Values: [ 0, 50 ]
-							LockFlag: 0
-							}
-						}
-					 }, { 
-					ParamName: None
-					bUseEmitterTime: False
-					bSpawnTimeOnly: True
-					ValueMethod: EDPV_UserSet
-					bScaleVelocityByParamValue: False
-					ParamValue: {
-						MinValue: 0f
-						MaxValue: 50f
-						Distribution: 0
-						Table: {
-							Op: 2
-							EntryCount: 1
-							EntryStride: 2
-							SubEntryStride: 1
-							TimeScale: 0f
-							TimeBias: 0f
-							Values: [ 0, 50 ]
-							LockFlag: 0
-							}
-						}
-					 }, { 
-					ParamName: None
-					bUseEmitterTime: False
-					bSpawnTimeOnly: True
-					ValueMethod: EDPV_UserSet
-					bScaleVelocityByParamValue: False
-					ParamValue: {
-						MinValue: 0f
-						MaxValue: 50f
-						Distribution: 0
-						Table: {
-							Op: 2
-							EntryCount: 1
-							EntryStride: 2
-							SubEntryStride: 1
-							TimeScale: 0f
-							TimeBias: 0f
-							Values: [ 0, 50 ]
-							LockFlag: 0
-							}
-						}
-					 }, { 
-					ParamName: None
-					bUseEmitterTime: False
-					bSpawnTimeOnly: False
-					ValueMethod: EDPV_UserSet
-					bScaleVelocityByParamValue: False
-					ParamValue: {
-						MinValue: 1f
-						MaxValue: 1f
-						Distribution: 0
-						Table: {
-							Op: 1
-							EntryCount: 1
-							EntryStride: 1
-							SubEntryStride: 0
-							TimeScale: 0f
-							TimeBias: 0f
-							Values: [ 1 ]
-							LockFlag: 0
-							}
-						}
-					 } ]
-					UpdateFlags: 8
-					LODValidity: 1
-					 } ]
-					ConstantAcceleration: Vector [X=0, Y=0, Z=-200]
-					InvMaxSize: Vector2D [X=0.5, Y=0.5]
-					InvRotationRateScale: 2f
-					MaxLifetime: 0.5f
-					MaxParticleCount: 31
-					ScreenAlignment: PSA_Velocity
-					CollisionMode: None
-					}
-				ResourceData: {
-					QuantizedMiscSamples: [ Color [B=0, G=255, R=255, A=0], Color [B=0, G=0, R=0, A=0] ]
-					ColorBias: Vector4 [X=8.683075, Y=12.61513, Z=20, W=1]
-					MiscScale: Vector4 [X=2, Y=2, Z=0, W=0]
-					SimulationAttrCurveBias: Vector4 [X=1, Y=1, Z=0, W=1]
-					SubImageSize: Vector4 [X=1, Y=1, Z=1, W=1]
-					SizeBySpeed: Vector4 [X=1, Y=1, Z=0.5, W=1]
-					ConstantAcceleration: Vector [X=0, Y=0, Z=-200]
-					PerParticleVectorFieldBias: 1f
-					CollisionRadiusScale: 0.5f
-					OneMinusFriction: 1f
-					RotationRateScale: 0.5f
-					ScreenAlignment: PSA_Velocity
-					}
-				LODValidity: 1
-				}
-			PeakActiveParticles: 9
+		Distribution: DistributionFloatParticleParameter: {	
+			ParameterName: Burst_Spawn
+			MaxInput: 10f
+			MaxOutput: 10f
+			Constant: 1f
 			}
 		Table: {
 			Values: [ 1 ]
@@ -566,14 +678,7 @@ SpawnModule: ParticleModuleSpawn: {
 	}
 PeakActiveParticles: 3
  } ]
- }, { 
-EmitterName: Burst_Out
-LODLevels: [ { 
-Acceleration: Vector [X=0, Y=0, Z=-200]
-bAlwaysInWorldSpace: True
-LODValidity: 1
  } ]
- }, 39 ]
 CurveEdSetup: 0
 LODDistances: [ 0 ]
 LODSettings: [ 94 ]

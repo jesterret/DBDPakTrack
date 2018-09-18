@@ -8,6 +8,17 @@ AggGeom: {
 	Length: 0.505f
 	 } ]
 	}
+BoneName: joint_Char
+CollisionTraceFlag: CTF_UseSimpleAsComplex
+ }, { 
+AggGeom: {
+	SphylElems: [ { 
+	Center: Vector [X=0, Y=0, Z=0]
+	Orientation: Quat [X=0, Y=0, Z=-0.7071066, W=0.7071068]
+	Radius: 0.505f
+	Length: 0.505f
+	 } ]
+	}
 BoneName: joint_Pelvis_01
 CollisionTraceFlag: CTF_UseSimpleAsComplex
  }, { 
@@ -76,8 +87,24 @@ AggGeom: {
 	}
 BoneName: joint_Jaw_01
 CollisionTraceFlag: CTF_UseSimpleAsComplex
- }, 16 ]
+ } ]
 ConstraintSetup: [ { 
+DefaultInstance: {
+	JointName: joint_Pelvis_01
+	ConstraintBone1: joint_Pelvis_01
+	ConstraintBone2: joint_Char
+	Pos2: Vector [X=0, Y=-100.8259, Z=0]
+	ProfileInstance: {
+		ConeLimit: {
+			Swing1Motion: ACM_Limited
+			Swing2Motion: ACM_Limited
+			}
+		TwistLimit: {
+			TwistMotion: ACM_Limited
+			}
+		}
+	}
+ }, { 
 DefaultInstance: {
 	JointName: joint_TorsoA_01
 	ConstraintBone1: joint_TorsoA_01
@@ -114,16 +141,23 @@ DefaultInstance: {
 		}
 	}
  }, { 
-AggGeom: {
-	SphylElems: [ { 
-	Center: Vector [X=0, Y=0, Z=0]
-	Orientation: Quat [X=0, Y=0, Z=-0.7071066, W=0.7071068]
-	Radius: 0.505f
-	Length: 0.505f
-	 } ]
+DefaultInstance: {
+	JointName: joint_TorsoC_01
+	ConstraintBone1: joint_TorsoC_01
+	ConstraintBone2: joint_TorsoB_01
+	Pos2: Vector [X=-8.881784E-15, Y=-14.38552, Z=-4.605297E-16]
+	PriAxis2: Vector [X=0.9999955, Y=-0.00300079, Z=-1.323114E-31]
+	SecAxis2: Vector [X=0.00300079, Y=0.9999955, Z=-2.002967E-32]
+	ProfileInstance: {
+		ConeLimit: {
+			Swing1Motion: ACM_Limited
+			Swing2Motion: ACM_Limited
+			}
+		TwistLimit: {
+			TwistMotion: ACM_Limited
+			}
+		}
 	}
-BoneName: joint_Char
-CollisionTraceFlag: CTF_UseSimpleAsComplex
  }, { 
 DefaultInstance: {
 	JointName: joint_NeckA_01
@@ -167,22 +201,6 @@ DefaultInstance: {
 	ConstraintBone2: joint_Head_01
 	Pos2: Vector [X=-0.7994343, Y=-2.105569, Z=1.775101E-16]
 	PriAxis2: Vector [X=5.960464E-08, Y=0, Z=0.9999999]
-	ProfileInstance: {
-		ConeLimit: {
-			Swing1Motion: ACM_Limited
-			Swing2Motion: ACM_Limited
-			}
-		TwistLimit: {
-			TwistMotion: ACM_Limited
-			}
-		}
-	}
- }, { 
-DefaultInstance: {
-	JointName: joint_Pelvis_01
-	ConstraintBone1: joint_Pelvis_01
-	ConstraintBone2: joint_Char
-	Pos2: Vector [X=0, Y=-100.8259, Z=0]
 	ProfileInstance: {
 		ConeLimit: {
 			Swing1Motion: ACM_Limited

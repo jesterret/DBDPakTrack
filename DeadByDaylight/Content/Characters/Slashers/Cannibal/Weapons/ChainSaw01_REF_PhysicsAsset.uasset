@@ -2,6 +2,17 @@ BoundsBodies: [ 0, 1, 2, 3, 4 ]
 SkeletalBodySetups: [ { 
 AggGeom: {
 	SphylElems: [ { 
+	Center: Vector [X=2.625698, Y=0.5069894, Z=20.87442]
+	Orientation: Quat [X=-0.0733842, Y=-0.01538119, Z=-0.7069394, W=0.7032885]
+	Radius: 13.24137f
+	Length: 23.68538f
+	 } ]
+	}
+BoneName: joint_char
+CollisionTraceFlag: CTF_UseSimpleAsComplex
+ }, { 
+AggGeom: {
+	SphylElems: [ { 
 	Center: Vector [X=-0.9158716, Y=-2.206875, Z=15.38157]
 	Orientation: Quat [X=0.0615882, Y=0.07243187, Z=-0.7033872, W=0.7044195]
 	Radius: 0.505f
@@ -43,8 +54,24 @@ AggGeom: {
 	}
 BoneName: joint_piston01
 CollisionTraceFlag: CTF_UseSimpleAsComplex
- }, 10 ]
+ } ]
 ConstraintSetup: [ { 
+DefaultInstance: {
+	JointName: joint_blade
+	ConstraintBone1: joint_blade
+	ConstraintBone2: joint_char
+	Pos2: Vector [X=0.9391093, Y=1.794683, Z=43.61108]
+	ProfileInstance: {
+		ConeLimit: {
+			Swing1Motion: ACM_Limited
+			Swing2Motion: ACM_Limited
+			}
+		TwistLimit: {
+			TwistMotion: ACM_Limited
+			}
+		}
+	}
+ }, { 
 DefaultInstance: {
 	JointName: joint_chain02
 	ConstraintBone1: joint_chain02
@@ -95,15 +122,4 @@ DefaultInstance: {
 			}
 		}
 	}
- }, { 
-AggGeom: {
-	SphylElems: [ { 
-	Center: Vector [X=2.625698, Y=0.5069894, Z=20.87442]
-	Orientation: Quat [X=-0.0733842, Y=-0.01538119, Z=-0.7069394, W=0.7032885]
-	Radius: 13.24137f
-	Length: 23.68538f
-	 } ]
-	}
-BoneName: joint_char
-CollisionTraceFlag: CTF_UseSimpleAsComplex
  } ]

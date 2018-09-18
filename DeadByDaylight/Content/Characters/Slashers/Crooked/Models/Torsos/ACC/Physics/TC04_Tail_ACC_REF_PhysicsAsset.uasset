@@ -2,6 +2,23 @@ BoundsBodies: [ 0, 1, 2 ]
 SkeletalBodySetups: [ { 
 AggGeom: {
 	SphylElems: [ { 
+	Center: Vector [X=4.683939, Y=0.5415287, Z=-0.4334869]
+	Orientation: Quat [X=0.5, Y=0.5, Z=0.5, W=0.5]
+	Radius: 4.350008f
+	Length: 4.680809f
+	 } ]
+	}
+BoneName: joint_tail01
+PhysicsType: PhysType_Simulated
+CollisionTraceFlag: CTF_UseSimpleAsComplex
+DefaultInstance: {
+	bNotifyRigidBodyCollision: True
+	LinearDamping: 1f
+	AngularDamping: 1f
+	}
+ }, { 
+AggGeom: {
+	SphylElems: [ { 
 	Center: Vector [X=11.36337, Y=0.1886925, Z=-0.02145398]
 	Orientation: Quat [X=0.4973899, Y=0.4943195, Z=0.5025458, W=0.5056672]
 	Radius: 5.048816f
@@ -35,8 +52,28 @@ DefaultInstance: {
 	bOverrideMass: True
 	PhysMaterialOverride: PhysicalMaterial /Game/Characters/Campers/Materials/Physics_Mat/Jacket.Jacket
 	}
- }, 6 ]
+ } ]
 ConstraintSetup: [ { 
+DefaultInstance: {
+	JointName: joint_tail02
+	ConstraintBone1: joint_tail02
+	ConstraintBone2: joint_tail01
+	Pos2: Vector [X=9.183356, Y=1.865175E-14, Z=-4.078229E-15]
+	PriAxis2: Vector [X=0.9994782, Y=0.03230156, Z=2.218671E-31]
+	SecAxis2: Vector [X=-0.03230156, Y=0.9994782, Z=-1.972152E-31]
+	ProfileInstance: {
+		ConeLimit: {
+			Swing1LimitDegrees: 15f
+			Swing2LimitDegrees: 15f
+			Swing1Motion: ACM_Limited
+			Swing2Motion: ACM_Limited
+			}
+		TwistLimit: {
+			TwistMotion: ACM_Locked
+			}
+		}
+	}
+ }, { 
 DefaultInstance: {
 	JointName: joint_tail01
 	ConstraintBone1: joint_tail01
@@ -44,22 +81,5 @@ DefaultInstance: {
 	Pos2: Vector [X=0, Y=2.358334, Z=-6.707448]
 	PriAxis2: Vector [X=0, Y=0.4114472, Z=-0.9114336]
 	SecAxis2: Vector [X=0, Y=0.9114336, Z=0.4114472]
-	}
- }, { 
-AggGeom: {
-	SphylElems: [ { 
-	Center: Vector [X=4.683939, Y=0.5415287, Z=-0.4334869]
-	Orientation: Quat [X=0.5, Y=0.5, Z=0.5, W=0.5]
-	Radius: 4.350008f
-	Length: 4.680809f
-	 } ]
-	}
-BoneName: joint_tail01
-PhysicsType: PhysType_Simulated
-CollisionTraceFlag: CTF_UseSimpleAsComplex
-DefaultInstance: {
-	bNotifyRigidBodyCollision: True
-	LinearDamping: 1f
-	AngularDamping: 1f
 	}
  } ]

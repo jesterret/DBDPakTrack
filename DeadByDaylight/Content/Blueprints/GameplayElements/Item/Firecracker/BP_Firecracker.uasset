@@ -1,84 +1,135 @@
 ParentClass: Class /Script/DeadByDaylight.Firecracker
-SimpleConstructionScript: EffectAreaSphere_GEN_VARIABLE: {	
-	SphereRadius: 500f
-	BodyInstance: {
-		CollisionProfileName: PawnDetector
-		CollisionResponses: {
-			ResponseArray: [ { 
-			Channel: WorldStatic
-			Response: ECR_Ignore
-			 }, { 
-			Channel: WorldDynamic
-			Response: ECR_Overlap
-			 }, { 
-			Channel: Pawn
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Visibility
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Camera
-			Response: ECR_Ignore
-			 }, { 
-			Channel: PhysicsBody
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Vehicle
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Destructible
-			Response: ECR_Ignore
-			 }, { 
-			Channel: EngineTraceChannel2
-			Response: ECR_Ignore
-			 }, { 
-			Channel: EngineTraceChannel3
-			Response: ECR_Ignore
-			 }, { 
-			Channel: EngineTraceChannel4
-			Response: ECR_Ignore
-			 }, { 
-			Channel: EngineTraceChannel5
-			Response: ECR_Ignore
-			 }, { 
-			Channel: EngineTraceChannel6
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Interactable
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Audio
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Slasher
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Spider
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Traps
-			Response: ECR_Ignore
-			 }, { 
-			Channel: InteractionDetector
-			Response: ECR_Ignore
-			 }, { 
-			Channel: PawnDetector
-			Response: ECR_Overlap
-			 }, { 
-			Channel: BlinkBlocker
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Ground
-			Response: ECR_Ignore
-			 } ]
-			}
-		ObjectType: ECC_GameTraceChannel10
+SimpleConstructionScript: SimpleConstructionScript: {	
+	RootNodes: [ { 
+	ComponentTemplate: Mesh_GEN_VARIABLE: {	
+		StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/FireCracker/FireCraker.FireCraker
+		bUseDefaultCollision: False
 		}
-	CanCharacterStepUpOn: ECB_No
+	VariableName: Mesh
+	ChildNodes: [ { 
+	ComponentTemplate: EffectAreaSphere_GEN_VARIABLE: {	
+		SphereRadius: 500f
+		BodyInstance: {
+			CollisionProfileName: PawnDetector
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: WorldStatic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: WorldDynamic
+				Response: ECR_Overlap
+				 }, { 
+				Channel: Pawn
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PhysicsBody
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Destructible
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel2
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel3
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel4
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel5
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel6
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Interactable
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PawnDetector
+				Response: ECR_Overlap
+				 }, { 
+				Channel: BlinkBlocker
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Ground
+				Response: ECR_Ignore
+				 } ]
+				}
+			ObjectType: ECC_GameTraceChannel10
+			}
+		CanCharacterStepUpOn: ECB_No
+		}
+	VariableName: EffectAreaSphere
+	VariableGuid: 6ddcd112-ece1-462c-8ff3-ccf8b16ccec3
+	 }, { 
+	ComponentTemplate: P_Firecrackers_GEN_VARIABLE: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/P_Firecrackers.P_Firecrackers
+		RelativeLocation: Vector [X=0, Y=14, Z=4]
+		bAutoActivate: False
+		}
+	VariableName: P_Firecrackers
+	ChildNodes: [ { 
+	ComponentTemplate: P_Firecrackers_Sparks_GEN_VARIABLE: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/P_Firecrackers_Sparks.P_Firecrackers_Sparks
+		bAutoActivate: False
+		}
+	VariableName: P_Firecrackers_Sparks
+	VariableGuid: 9230bef8-8e03-4716-9476-9b6a4f4539e4
+	 } ]
+	VariableGuid: 1d90107f-15f8-44e3-8cb2-ea3d5537d29e
+	 }, { 
+	ComponentTemplate: Ak_Audio_Firecracker_GEN_VARIABLE: {	
+		}
+	VariableName: Ak_Audio_Firecracker
+	VariableGuid: 0a0ecd69-9270-4c3d-a293-ed6c4ad827ca
+	 } ]
+	VariableGuid: 24188fa3-5a05-42ff-b91b-bc9fe8e1c909
+	 }, { 
+	ComponentTemplate: FirecrackerStateMachine_GEN_VARIABLE: {	
+		}
+	VariableName: FirecrackerStateMachine
+	VariableGuid: 81f1b910-81b1-4fdc-97fc-3c5d82e4b0d6
+	 } ]
+	AllNodes: [ 84, 85, 86, 88, 87, 82 ]
+	DefaultSceneRootNode: SCS_Node: {	
+		ComponentTemplate: DefaultSceneRoot_REMOVED_034F23474493D1930F8317AA28DA9734: {	
+			}
+		VariableName: DefaultSceneRoot
+		VariableGuid: 5721e160-677e-411c-889d-a384046a4d0c
+		}
 	}
 BlueprintSystemVersion: 2
-GeneratedClass: Default__BP_Firecracker_C: {	
-	UberGraphFrame: 186
+GeneratedClass: BP_Firecracker_C: {	
+	SimpleConstructionScript: 89
+	UberGraphFramePointerProperty: UberGraphFrame: {	
+		}
+	UberGraphFunction: ExecuteUbergraph_BP_Firecracker: {	
+		}
 	}
 bLegacyNeedToPurgeSkelRefs: False
 bLegacyGeneratedClassIsAuthoritative: True

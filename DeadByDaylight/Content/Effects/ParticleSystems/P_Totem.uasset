@@ -1,13 +1,16 @@
 WarmupTime: 5f
-Emitters: [ 189, { 
-EmitterName: Smoke1
+Emitters: [ { 
+EmitterName: Embers
 LODLevels: [ { 
-Level: 3
 RequiredModule: ParticleModuleRequired: {	
-	Material: Material /Game/Effects/Materials/M_BlackSmokeSwirl.M_BlackSmokeSwirl
+	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_RadialGradient.MI_RadialGradient
+	ScreenAlignment: PSA_Velocity
 	bUseLocalSpace: True
-	SortMode: PSORTMODE_Age_NewestFirst
 	bUseLegacyEmitterTime: False
+	EmitterDuration: 6f
+	EmitterDurationLow: 3f
+	bEmitterDurationUseRange: True
+	bDurationRecalcEachLoop: True
 	SpawnRate: {
 		Distribution: RequiredDistributionSpawnRate: {	
 			}
@@ -18,16 +21,14 @@ RequiredModule: ParticleModuleRequired: {
 Modules: [ { 
 Lifetime: {
 	MinValue: 1f
-	MaxValue: 4f
-	Distribution: DistributionVelocityScale: {	
-		Constant: 1f
-		}
+	MaxValue: 1.5f
+	Distribution: 0
 	Table: {
 		Op: 2
 		EntryCount: 1
 		EntryStride: 2
 		SubEntryStride: 1
-		Values: [ 1, 4 ]
+		Values: [ 1, 1.5 ]
 		}
 	}
 LODValidity: 15
@@ -44,6 +45,311 @@ StartRadius: {
 		}
 	}
 StartHeight: {
+	MinValue: 10f
+	MaxValue: 10f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 10 ]
+		}
+	}
+SurfaceOnly: True
+VelocityScale: {
+	Distribution: DistributionVelocityScale: {	
+		Constant: 1f
+		}
+	}
+StartLocation: {
+	MinValue: -5f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0, 0, -5 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+StartSize: {
+	MaxValue: 3f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 0.5, 0.5, 0, 1.5, 3, 0 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+SizeScale: {
+	MaxValue: 0.7f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0.7, 0.7, 0 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+StartVelocity: {
+	MinValue: -5f
+	MaxValue: 75f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ -5, -5, 25, 5, 5, 75 ]
+		}
+	}
+StartVelocityRadial: {
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 0 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+ColorOverLife: {
+	MaxValue: 10f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1.111111f
+		Values: [ 10, 2.500002, 0.125, 1, 0, 0 ]
+		}
+	}
+AlphaOverLife: {
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 1
+		TimeScale: 3.333333f
+		TimeBias: 0.7f
+		Values: [ 1, 0 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+OffsetAmount: {
+	MinValue: -5f
+	MaxValue: 5f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 1, -5, 0, 5, 5, 0 ]
+		}
+	}
+RotationAmount: {
+	MaxValue: 5f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 1, 0, 0, 5, 5, 5 ]
+		}
+	}
+RotationRateAmount: {
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 0, 0, 0, 1, 1, 1 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+VelOverLife: {
+	MinValue: 0.1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1.428571f
+		TimeBias: 0.3f
+		Values: [ 1, 1, 1, 0.1, 0.1, 0.1 ]
+		}
+	}
+LODValidity: 15
+ } ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		MaxValue: 30f
+		Distribution: 0
+		Table: {
+			Op: 2
+			EntryCount: 1
+			EntryStride: 2
+			SubEntryStride: 1
+			Values: [ 0, 30 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstList: [ { 
+	Count: 20
+	CountLow: -1
+	Time: 0f
+	 }, { 
+	Count: 10
+	CountLow: -1
+	Time: 0.1f
+	 } ]
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	LODValidity: 1
+	}
+PeakActiveParticles: 82
+ }, { 
+Level: 1
+RequiredModule: 108
+Modules: [ 86, 95, 136, 148, 173, 73, 99, 175 ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 0 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstList: [ { 
+	Count: 20
+	CountLow: -1
+	Time: 0f
+	 }, { 
+	Count: 10
+	CountLow: -1
+	Time: 0.1f
+	 } ]
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	LODValidity: 14
+	}
+PeakActiveParticles: 32
+ }, { 
+Level: 2
+RequiredModule: 108
+Modules: [ 86, 95, 136, 148, 173, 73, 99, 175 ]
+SpawnModule: 153
+PeakActiveParticles: 32
+ }, { 
+Level: 3
+RequiredModule: 108
+Modules: [ 86, 95, 136, 148, 173, 73, 99, 175 ]
+SpawnModule: 153
+PeakActiveParticles: 32
+ } ]
+ }, { 
+EmitterName: Smoke3
+LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: Material /Game/Effects/Materials/M_PuffySmoke.M_PuffySmoke
+	bUseLocalSpace: True
+	SortMode: PSORTMODE_Age_OldestFirst
+	bUseLegacyEmitterTime: False
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		}
+	InterpolationMethod: PSUVIM_Linear_Blend
+	SubImages_Horizontal: 8
+	SubImages_Vertical: 8
+	RandomImageTime: 1f
+	LODValidity: 15
+	}
+Modules: [ { 
+Lifetime: {
+	MinValue: 3f
+	MaxValue: 5f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 3, 5 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+StartRadius: {
+	MinValue: 5f
+	MaxValue: 10f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 5, 10 ]
+		}
+	}
+StartHeight: {
 	MinValue: 5f
 	MaxValue: 5f
 	Distribution: 0
@@ -54,47 +360,42 @@ StartHeight: {
 		Values: [ 5 ]
 		}
 	}
+Positive_Z: False
 SurfaceOnly: True
+Velocity: True
 VelocityScale: {
-	Distribution: DistributionVelocityScale: {	
-		Constant: 1f
+	MinValue: 1f
+	MaxValue: 1.5f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 1, 1.5 ]
 		}
 	}
 StartLocation: {
+	MinValue: -3f
 	Distribution: 0
 	Table: {
 		Op: 1
 		EntryCount: 1
 		EntryStride: 3
-		Values: [ 0, 0, 0 ]
-		}
-	}
-LODValidity: 15
- }, { 
-StartLocation: {
-	MaxValue: 15f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 0, 0, 15 ]
+		Values: [ 0, 0, -3 ]
 		}
 	}
 LODValidity: 15
  }, { 
 StartSize: {
-	MinValue: 0.8f
-	MaxValue: 4f
-	MinValueVec: Vector [X=0.8, Y=2, Z=0.8]
-	MaxValueVec: Vector [X=1, Y=4, Z=1]
+	MaxValue: 30f
 	Distribution: 0
 	Table: {
 		Op: 2
 		EntryCount: 1
 		EntryStride: 6
 		SubEntryStride: 3
-		Values: [ 0.8, 2, 0.8, 1, 4, 1 ]
+		Values: [ 15, 0, 0, 30, 0, 0 ]
 		}
 	}
 LODValidity: 15
@@ -111,6 +412,953 @@ SizeScale: {
 	}
 LODValidity: 15
  }, { 
+ColorOverLife: {
+	MinValue: 0.001f
+	MaxValue: 0.001f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0.001, 0.001, 0.001 ]
+		}
+	}
+AlphaOverLife: {
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 8
+		EntryStride: 1
+		TimeScale: 7f
+		Values: [ 1, 0.8705252, 0.5848393, 0.2968494, 0.1364648, 0.05132572, 0.01050126, 0 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+StartRotation: {
+	MinValue: -1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ -1, 1 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+LifeMultiplier: {
+	MaxValue: 3f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 16
+		EntryStride: 3
+		TimeScale: 15f
+		Values: [ 0, 0, 0, 0.4681222, 0.03834254, 0.03834254, 0.8872626, 0.1458034, 0.1458034, 1.259649, 0.3120802, 0.3120802, 1.587989, 0.5262526, 0.5262526, 1.874618, 0.777819, 0.777819, 2.122147, 1.056018, 1.056018, 2.332999, 1.350229, 1.350229, 2.509705, 1.649771, 1.649771, 2.65476, 1.943982, 1.943982, 2.770632, 2.222181, 2.222181, 2.859868, 2.473747, 2.473747, 2.924894, 2.68792, 2.68792, 2.968292, 2.854197, 2.854197, 2.992462, 2.961658, 2.961658, 3, 3, 3 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+StartRotationRate: {
+	MinValue: -0.05f
+	MaxValue: 0.05f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ -0.05, 0.05 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+DynamicParams: [ { 
+ParamName: None
+bUseEmitterTime: False
+bSpawnTimeOnly: False
+ValueMethod: EDPV_UserSet
+bScaleVelocityByParamValue: False
+ParamValue: {
+	MinValue: 100f
+	MaxValue: 100f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		SubEntryStride: 0
+		TimeScale: 0f
+		TimeBias: 0f
+		Values: [ 100 ]
+		LockFlag: 0
+		}
+	}
+ }, { 
+ParamName: None
+bUseEmitterTime: False
+bSpawnTimeOnly: False
+ValueMethod: EDPV_UserSet
+bScaleVelocityByParamValue: False
+ParamValue: {
+	MinValue: 0f
+	MaxValue: 0f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		SubEntryStride: 0
+		TimeScale: 0f
+		TimeBias: 0f
+		Values: [ 0 ]
+		LockFlag: 0
+		}
+	}
+ }, { 
+ParamName: None
+bUseEmitterTime: False
+bSpawnTimeOnly: False
+ValueMethod: EDPV_UserSet
+bScaleVelocityByParamValue: False
+ParamValue: {
+	MinValue: 0f
+	MaxValue: 0f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		SubEntryStride: 0
+		TimeScale: 0f
+		TimeBias: 0f
+		Values: [ 0 ]
+		LockFlag: 0
+		}
+	}
+ }, { 
+ParamName: None
+bUseEmitterTime: False
+bSpawnTimeOnly: False
+ValueMethod: EDPV_UserSet
+bScaleVelocityByParamValue: False
+ParamValue: {
+	MinValue: 0f
+	MaxValue: 0f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		SubEntryStride: 0
+		TimeScale: 0f
+		TimeBias: 0f
+		Values: [ 0 ]
+		LockFlag: 0
+		}
+	}
+ } ]
+UpdateFlags: 15
+LODValidity: 15
+ }, { 
+ColorScaleOverLife: {
+	MaxValue: 0.6f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1f
+		Values: [ 0.6, 0.6, 0.6, 0, 0, 0 ]
+		}
+	}
+AlphaScaleOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+Animation: SubUVAnimation /Game/Effects/Textures/T_SmokeBall_01_8_8_SubUV.T_SmokeBall_01_8_8_SubUV
+SubImageIndex: {
+	MaxValue: 64f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 1
+		TimeScale: 1f
+		Values: [ 0, 64 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+DragCoefficientRaw: {
+	MaxValue: 0.3f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0, 0.3 ]
+		}
+	}
+bAlwaysInWorldSpace: True
+LODValidity: 15
+ }, { 
+VelOverLife: {
+	MinValue: 0.1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 3.333333f
+		TimeBias: 0.2f
+		Values: [ 1, 1, 1, 0.1, 0.1, 0.1 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+Acceleration: {
+	MaxValue: 5f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0, 0, 5 ]
+		}
+	}
+bAlwaysInWorldSpace: True
+LODValidity: 15
+ } ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		MinValue: 12f
+		MaxValue: 12f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 12 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	LODValidity: 1
+	}
+PeakActiveParticles: 62
+ }, { 
+Level: 1
+RequiredModule: 112
+Modules: [ 82, 93, 127, 147, 69, 115, 138, 123, 100, 77, 169, 63, 176, 61 ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 0 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	LODValidity: 14
+	}
+PeakActiveParticles: 2
+ }, { 
+Level: 2
+RequiredModule: 112
+Modules: [ 82, 93, 127, 147, 69, 115, 138, 123, 100, 77, 169, 63, 176, 61 ]
+SpawnModule: 158
+PeakActiveParticles: 2
+ }, { 
+Level: 3
+RequiredModule: 112
+Modules: [ 82, 93, 127, 147, 69, 115, 138, 123, 100, 77, 169, 63, 176, 61 ]
+SpawnModule: 158
+PeakActiveParticles: 2
+ } ]
+ }, { 
+EmitterName: Mist3
+LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: Material /Game/Effects/Materials/M_BlackSmoke.M_BlackSmoke
+	bUseLocalSpace: True
+	SortMode: PSORTMODE_Age_OldestFirst
+	bUseLegacyEmitterTime: False
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		}
+	InterpolationMethod: PSUVIM_Linear_Blend
+	SubImages_Horizontal: 8
+	SubImages_Vertical: 8
+	RandomImageTime: 1f
+	LODValidity: 15
+	}
+Modules: [ 82, 93, { 
+StartSize: {
+	MaxValue: 25f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 15, 0, 0, 25, 0, 0 ]
+		}
+	}
+LODValidity: 15
+ }, 147, { 
+ColorOverLife: {
+	MinValue: 0.01f
+	MaxValue: 0.01f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		TimeBias: 0.5f
+		Values: [ 0.01, 0.01, 0.01 ]
+		}
+	}
+AlphaOverLife: {
+	MaxValue: 4f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 64
+		EntryStride: 1
+		TimeScale: 63f
+		Values: [ 0, 0.3174604, 0.6349207, 0.952381, 1.269841, 1.587302, 1.904762, 2.222222, 2.539683, 2.857143, 3.174603, 3.492064, 3.809524, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3.992667, 3.809523, 3.597883, 3.386243, 3.174602, 2.962962, 2.751322, 2.539682, 2.328041, 2.116401, 1.90476, 1.693121, 1.48148, 1.269841, 1.0582, 0.8465605, 0.6349191, 0.4232795, 0.2116396, 0 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+ColorScaleOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 1, 1, 1 ]
+		}
+	}
+AlphaScaleOverLife: {
+	MinValue: 0.25f
+	MaxValue: 0.25f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 0.25 ]
+		}
+	}
+LODValidity: 15
+ }, 115, 138, 123, { 
+Animation: SubUVAnimation /Game/Effects/Textures/T_SmokeSubUV_8X8_02_SubUV.T_SmokeSubUV_8X8_02_SubUV
+SubImageIndex: {
+	MaxValue: 63f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 32
+		EntryStride: 1
+		TimeScale: 31f
+		Values: [ 0, 2.282884, 4.659578, 7.11866, 9.648705, 12.23829, 14.876, 17.5504, 20.25006, 22.96358, 25.67952, 28.38639, 31.07268, 33.72701, 36.33793, 38.89404, 41.3839, 43.79609, 46.11919, 48.34179, 50.45242, 52.43946, 54.2911, 55.99641, 57.54396, 58.92233, 60.12009, 61.12582, 61.9281, 62.51552, 62.87661, 63 ]
+		}
+	}
+LODValidity: 15
+ }, 63, 176, 61 ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		MinValue: 12f
+		MaxValue: 12f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 12 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	LODValidity: 3
+	}
+PeakActiveParticles: 62
+ }, { 
+Level: 1
+RequiredModule: 105
+Modules: [ 82, 93, 133, 147, 71, 79, 115, 138, 123, 172, 63, 176, 61 ]
+SpawnModule: 165
+PeakActiveParticles: 62
+ }, { 
+Level: 2
+RequiredModule: 105
+Modules: [ 82, 93, 133, 147, 71, 79, 115, 138, 123, 172, 63, 176, 61 ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		MinValue: 5f
+		MaxValue: 5f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 5 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	LODValidity: 12
+	}
+PeakActiveParticles: 27
+ }, { 
+Level: 3
+RequiredModule: 105
+Modules: [ 82, 93, 133, 147, 71, 79, 115, 138, 123, 172, 63, 176, 61 ]
+SpawnModule: 163
+PeakActiveParticles: 27
+ } ]
+ }, { 
+EmitterName: Smoke1
+LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: Material /Game/Effects/Materials/M_BlackSmokeSwirlTest02.M_BlackSmokeSwirlTest02
+	bUseLocalSpace: True
+	SortMode: PSORTMODE_Age_NewestFirst
+	bUseLegacyEmitterTime: False
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		}
+	InterpolationMethod: PSUVIM_Random
+	SubImages_Horizontal: 2
+	SubImages_Vertical: 2
+	RandomImageTime: 1f
+	LODValidity: 15
+	}
+Modules: [ 82, 93, { 
+StartLocation: {
+	MaxValue: 10f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0, 0, 10 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+StartSize: {
+	MaxValue: 35f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 30, 0, 0, 35, 0, 0 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+SizeScale: {
+	MaxValue: 0.3f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0.3, 0, 0 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+StartRotation: {
+	MinValue: -1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ -1, 1 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+StartRotationRate: {
+	MinValue: -0.02f
+	MaxValue: 0.02f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ -0.02, 0.02 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+LifeMultiplier: {
+	MaxValue: 3f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1f
+		Values: [ 0, 0, 0, 3, 3, 3 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+DynamicParams: [ { 
+ParamName: None
+bUseEmitterTime: False
+bSpawnTimeOnly: False
+ValueMethod: EDPV_UserSet
+bScaleVelocityByParamValue: False
+ParamValue: {
+	MinValue: 0.1f
+	MaxValue: 0.1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		SubEntryStride: 0
+		TimeScale: 0f
+		TimeBias: 0f
+		Values: [ 0.1 ]
+		LockFlag: 0
+		}
+	}
+ }, { 
+ParamName: None
+bUseEmitterTime: False
+bSpawnTimeOnly: False
+ValueMethod: EDPV_UserSet
+bScaleVelocityByParamValue: False
+ParamValue: {
+	MinValue: 0.5f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 16
+		EntryStride: 1
+		SubEntryStride: 0
+		TimeScale: 15f
+		TimeBias: 0f
+		Values: [ 1, 0.9333333, 0.8666667, 0.8, 0.7333333, 0.6666667, 0.6, 0.5333333, 0.5333334, 0.6, 0.6666667, 0.7333334, 0.8, 0.8666667, 0.9333333, 1 ]
+		LockFlag: 0
+		}
+	}
+ }, { 
+ParamName: None
+bUseEmitterTime: False
+bSpawnTimeOnly: False
+ValueMethod: EDPV_UserSet
+bScaleVelocityByParamValue: False
+ParamValue: {
+	MinValue: 2f
+	MaxValue: 5f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 64
+		EntryStride: 1
+		SubEntryStride: 0
+		TimeScale: 63f
+		TimeBias: 0f
+		Values: [ 5, 4.904762, 4.809524, 4.714286, 4.619048, 4.52381, 4.428572, 4.333333, 4.238095, 4.142857, 4.047619, 3.952381, 3.857143, 3.761905, 3.666667, 3.571428, 3.47619, 3.380952, 3.285714, 3.190476, 3.095238, 3, 2.904762, 2.809524, 2.714286, 2.619047, 2.523809, 2.428571, 2.333333, 2.238095, 2.142857, 2.047619, 2.047619, 2.142857, 2.238095, 2.333333, 2.428572, 2.52381, 2.619048, 2.714286, 2.809524, 2.904762, 3, 3.095238, 3.190477, 3.285714, 3.380953, 3.476191, 3.571429, 3.666667, 3.761905, 3.857143, 3.952382, 4.047619, 4.142858, 4.238095, 4.333334, 4.428572, 4.52381, 4.619048, 4.714286, 4.809524, 4.904762, 5 ]
+		LockFlag: 0
+		}
+	}
+ }, { 
+ParamName: None
+bUseEmitterTime: False
+bSpawnTimeOnly: False
+ValueMethod: EDPV_UserSet
+bScaleVelocityByParamValue: False
+ParamValue: {
+	MinValue: 0f
+	MaxValue: 0f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		SubEntryStride: 0
+		TimeScale: 0f
+		TimeBias: 0f
+		Values: [ 0 ]
+		LockFlag: 0
+		}
+	}
+ } ]
+UpdateFlags: 15
+LODValidity: 15
+ }, { 
+DragCoefficientRaw: {
+	MinValue: 0.1f
+	MaxValue: 0.2f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0.1, 0.2 ]
+		}
+	}
+bAlwaysInWorldSpace: True
+LODValidity: 15
+ }, { 
+StartColor: {
+	MaxValue: 0.05f
+	Distribution: 0
+	Table: {
+		Op: 3
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 0, 0, 0, 0.05, 0.05, 0.05 ]
+		}
+	}
+StartAlpha: {
+	MinValue: 0.5f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0.5, 1 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+OffsetAmount: {
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 0, 0, 0, 1, 1, 1 ]
+		}
+	}
+RotationAmount: {
+	MaxValue: 0.1f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 0, 0, 0, 0.1, 0.1, 0.1 ]
+		}
+	}
+RotationRateAmount: {
+	MaxValue: 0.1f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 0, 0, 0, 0.1, 0.1, 0.1 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+ColorScaleOverLife: {
+	MaxValue: 0.03f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1f
+		Values: [ 0.03, 0.03, 0.03, 0, 0, 0 ]
+		}
+	}
+AlphaScaleOverLife: {
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 16
+		EntryStride: 1
+		TimeScale: 15f
+		Values: [ 0, 0.1666667, 0.3333333, 0.5, 0.6666667, 0.8333334, 0.9947507, 0.8888888, 0.7777778, 0.6666666, 0.5555556, 0.4444444, 0.3333333, 0.2222222, 0.1111112, 0 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+VelOverLife: {
+	MinValue: 0.1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 5f
+		TimeBias: 0.3f
+		Values: [ 1, 1, 1, 0.1, 0.1, 0.1 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+Animation: SubUVAnimation /Game/Effects/Textures/T_WispSmoke014x4_SubUV.T_WispSmoke014x4_SubUV
+SubImageIndex: {
+	Distribution: DistributionFloatConstantCurve: {	
+		ConstantCurve: {
+			Points: [ { 
+			InVal: 0f
+			OutVal: 0f
+			ArriveTangent: 0f
+			LeaveTangent: 0f
+			InterpMode: CIM_Linear
+			 }, { 
+			InVal: 1f
+			OutVal: 0f
+			ArriveTangent: 0f
+			LeaveTangent: 0f
+			InterpMode: CIM_Linear
+			 } ]
+			}
+		}
+	}
+LODValidity: 15
+ }, 61 ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		MinValue: 6f
+		MaxValue: 6f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 6 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	LODValidity: 1
+	}
+PeakActiveParticles: 32
+ }, { 
+Level: 1
+RequiredModule: 106
+Modules: [ 82, 93, 91, 128, 146, 116, 124, 139, 101, 64, 66, 96, 78, 177, 170, 61 ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 0 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	LODValidity: 14
+	}
+PeakActiveParticles: 2
+ }, { 
+Level: 2
+RequiredModule: 106
+Modules: [ 82, 93, 91, 128, 146, 116, 124, 139, 101, 64, 66, 96, 78, 177, 170, 61 ]
+SpawnModule: 156
+PeakActiveParticles: 2
+ }, { 
+Level: 3
+RequiredModule: 106
+Modules: [ 82, 93, 91, 128, 146, 116, 124, 139, 101, 64, 66, 96, 78, 177, 170, 61 ]
+SpawnModule: 156
+PeakActiveParticles: 2
+ } ]
+ }, { 
+EmitterName: Smoke2
+LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: Material /Game/Effects/Materials/M_BlackSmokeSwirl.M_BlackSmokeSwirl
+	bUseLocalSpace: True
+	SortMode: PSORTMODE_Age_NewestFirst
+	bUseLegacyEmitterTime: False
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		}
+	RandomImageTime: 1f
+	LODValidity: 15
+	}
+Modules: [ 82, 93, 91, { 
+StartSize: {
+	MaxValue: 25f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 20, 0, 0, 25, 0, 0 ]
+		}
+	}
+LODValidity: 15
+ }, 146, { 
 StartRotation: {
 	MinValue: -1f
 	MaxValue: 1f
@@ -316,25 +1564,25 @@ RotationRateAmount: {
 LODValidity: 15
  }, { 
 ColorScaleOverLife: {
-	MinValue: 1f
+	MaxValue: 0.035f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1f
+		Values: [ 0.035, 0.035, 0.035, 0, 0, 0 ]
+		}
+	}
+AlphaScaleOverLife: {
 	MaxValue: 1f
 	Distribution: 0
 	Table: {
 		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 1, 1, 1 ]
-		}
-	}
-AlphaScaleOverLife: {
-	MinValue: 0.25f
-	MaxValue: 0.25f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
+		EntryCount: 16
 		EntryStride: 1
-		Values: [ 0.25 ]
+		TimeScale: 15f
+		Values: [ 0, 0.1666667, 0.3333333, 0.5, 0.6666667, 0.8333334, 0.9947507, 0.8888888, 0.7777778, 0.6666666, 0.5555556, 0.4444444, 0.3333333, 0.2222222, 0.1111112, 0 ]
 		}
 	}
 LODValidity: 15
@@ -356,40 +1604,36 @@ LODValidity: 15
  }, { 
 Animation: SubUVAnimation /Game/Effects/Textures/T_WispySmoke_SubUV.T_WispySmoke_SubUV
 SubImageIndex: {
-	Distribution: DistributionVectorParticleParameter: {	
-		ParameterName: TotemColorEmbers
-		ParamModes: DPM_Direct
-		ParamModes: DPM_Direct
-		ParamModes: DPM_Direct
-		Constant: Vector [X=1, Y=1, Z=1]
-		bIsDirty: False
+	Distribution: DistributionFloatConstantCurve: {	
+		ConstantCurve: {
+			Points: [ { 
+			InVal: 0f
+			OutVal: 0f
+			ArriveTangent: 0f
+			LeaveTangent: 0f
+			InterpMode: CIM_Linear
+			 }, { 
+			InVal: 1f
+			OutVal: 0f
+			ArriveTangent: 0f
+			LeaveTangent: 0f
+			InterpMode: CIM_Linear
+			 } ]
+			}
 		}
 	}
 LODValidity: 15
- }, { 
-Acceleration: {
-	MaxValue: 20f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 0, 0, 20 ]
-		}
-	}
-bAlwaysInWorldSpace: True
-LODValidity: 15
- } ]
+ }, 61 ]
 SpawnModule: ParticleModuleSpawn: {	
 	Rate: {
-		MinValue: 12f
-		MaxValue: 12f
+		MinValue: 10f
+		MaxValue: 10f
 		Distribution: 0
 		Table: {
 			Op: 1
 			EntryCount: 1
 			EntryStride: 1
-			Values: [ 12 ]
+			Values: [ 10 ]
 			}
 		}
 	RateScale: {
@@ -416,115 +1660,19 @@ SpawnModule: ParticleModuleSpawn: {
 		}
 	LODValidity: 1
 	}
-PeakActiveParticles: 2
+PeakActiveParticles: 52
  }, { 
-Level: 2
-RequiredModule: 106
-Modules: [ 82, 93, 91, 128, 146, 116, 124, 139, 101, 64, 66, 96, 78, 177, 170, 61 ]
-SpawnModule: 156
-PeakActiveParticles: 2
- }, { 
-RequiredModule: ParticleModuleRequired: {	
-	Material: Material /Game/Effects/Materials/M_Heat_Distortion.M_Heat_Distortion
-	bUseLocalSpace: True
-	bUseLegacyEmitterTime: False
-	SpawnRate: {
-		Distribution: RequiredDistributionSpawnRate: {	
-			}
-		}
-	RandomImageTime: 1f
-	LODValidity: 15
-	}
-Modules: [ { 
-Lifetime: {
-	MinValue: 1f
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 1 ]
-		}
-	}
-LODValidity: 15
- }, { 
-LifeMultiplier: {
-	MaxValue: 3f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 16
-		EntryStride: 3
-		TimeScale: 15f
-		Values: [ 0, 0, 0, 0.4681222, 0.03834254, 0.03834254, 0.8872626, 0.1458034, 0.1458034, 1.259649, 0.3120802, 0.3120802, 1.587989, 0.5262526, 0.5262526, 1.874618, 0.777819, 0.777819, 2.122147, 1.056018, 1.056018, 2.332999, 1.350229, 1.350229, 2.509705, 1.649771, 1.649771, 2.65476, 1.943982, 1.943982, 2.770632, 2.222181, 2.222181, 2.859868, 2.473747, 2.473747, 2.924894, 2.68792, 2.68792, 2.968292, 2.854197, 2.854197, 2.992462, 2.961658, 2.961658, 3, 3, 3 ]
-		}
-	}
-LODValidity: 15
- }, { 
-ColorOverLife: {
-	MaxValue: 10f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 2
-		EntryStride: 3
-		TimeScale: 1.111111f
-		Values: [ 10, 2.500002, 0.125, 1, 0, 0 ]
-		}
-	}
-AlphaOverLife: {
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 2
-		EntryStride: 1
-		TimeScale: 3.333333f
-		TimeBias: 0.7f
-		Values: [ 1, 0 ]
-		}
-	}
-LODValidity: 15
- }, { 
-LifeMultiplier: {
-	MinValue: 0.7f
-	MaxValue: 1.880471f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 16
-		EntryStride: 3
-		TimeScale: 15f
-		Values: [ 0.7, 1, 1, 1.133614, 1, 1, 1.45604, 1, 1, 1.678777, 1, 1, 1.814361, 1, 1, 1.874581, 1, 1, 1.87173, 1, 1, 1.817793, 1, 1, 1.724911, 1, 1, 1.605176, 1, 1, 1.470668, 1, 1, 1.333495, 1, 1, 1.205766, 1, 1, 1.099515, 1, 1, 1.026971, 1, 1, 1, 1, 1 ]
-		}
-	}
-LODValidity: 15
- }, { 
-StartRotation: {
-	MinValue: 0.01f
-	MaxValue: -0.01f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 2
-		SubEntryStride: 1
-		Values: [ 0.01, -0.01 ]
-		}
-	}
-LODValidity: 15
- } ]
+Level: 1
+RequiredModule: 107
+Modules: [ 82, 93, 91, 131, 146, 117, 125, 140, 102, 65, 67, 97, 80, 178, 171, 61 ]
 SpawnModule: ParticleModuleSpawn: {	
 	Rate: {
-		MinValue: 12f
-		MaxValue: 12f
 		Distribution: 0
 		Table: {
 			Op: 1
 			EntryCount: 1
 			EntryStride: 1
-			Values: [ 12 ]
+			Values: [ 0 ]
 			}
 		}
 	RateScale: {
@@ -549,23 +1697,210 @@ SpawnModule: ParticleModuleSpawn: {
 			Values: [ 1 ]
 			}
 		}
-	LODValidity: 3
+	LODValidity: 14
 	}
-PeakActiveParticles: 10
+PeakActiveParticles: 2
  }, { 
-Level: 1
-RequiredModule: 106
-Modules: [ 82, 93, 91, 128, 146, 116, 124, 139, 101, 64, 66, 96, 78, 177, 170, 61 ]
-SpawnModule: 156
+Level: 2
+RequiredModule: 107
+Modules: [ 82, 93, 91, 131, 146, 117, 125, 140, 102, 65, 67, 97, 80, 178, 171, 61 ]
+SpawnModule: 154
+PeakActiveParticles: 2
+ }, { 
+Level: 3
+RequiredModule: 107
+Modules: [ 82, 93, 91, 131, 146, 117, 125, 140, 102, 65, 67, 97, 80, 178, 171, 61 ]
+SpawnModule: 154
 PeakActiveParticles: 2
  } ]
  }, { 
-EmitterName: Smoke2
+EmitterName: Glow
 LODLevels: [ { 
-Level: 3
 RequiredModule: ParticleModuleRequired: {	
-	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_RadialGradient.MI_RadialGradient
-	ScreenAlignment: PSA_Velocity
+	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Invisible.MI_Invisible
+	ScreenAlignment: PSA_Rectangle
+	bUseLocalSpace: True
+	bUseLegacyEmitterTime: False
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		}
+	RandomImageTime: 0.495f
+	RandomImageChanges: 1
+	LODValidity: 15
+	}
+Modules: [ { 
+Lifetime: {
+	MinValue: 2f
+	MaxValue: 2f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 2 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+StartLocation: {
+	MaxValue: 15f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0, 0, 15 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+StartSize: {
+	MaxValue: 10f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 10, 10, 0 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+ColorOverLife: {
+	MinValue: 0.29412f
+	MaxValue: 5f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 5, 1.607845, 0.29412 ]
+		}
+	}
+AlphaOverLife: {
+	MaxValue: 5f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 64
+		EntryStride: 1
+		TimeScale: 63f
+		Values: [ 0, 0.1587302, 0.3174604, 0.4761905, 0.6349207, 0.7936508, 0.9523811, 1.111111, 1.269841, 1.428571, 1.587302, 1.746032, 1.904762, 2.063492, 2.222222, 2.380953, 2.539683, 2.698413, 2.857143, 3.015873, 3.174603, 3.333333, 3.492064, 3.650794, 3.809524, 3.968255, 4.126985, 4.285715, 4.444445, 4.603175, 4.761905, 4.920635, 4.920635, 4.761905, 4.603174, 4.444445, 4.285714, 4.126984, 3.968254, 3.809524, 3.650793, 3.492064, 3.333333, 3.174603, 3.015872, 2.857143, 2.698412, 2.539682, 2.380951, 2.222222, 2.063491, 1.904762, 1.746031, 1.587301, 1.42857, 1.26984, 1.11111, 0.9523804, 0.79365, 0.6349202, 0.4761893, 0.3174596, 0.1587298, 0 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+bUseInverseSquaredFalloff: False
+bAffectsTranslucency: True
+ColorScaleOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 1, 1, 1 ]
+		}
+	}
+BrightnessOverLife: {
+	MinValue: 5f
+	MaxValue: 5f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 5 ]
+		}
+	}
+RadiusScale: {
+	MinValue: 10f
+	MaxValue: 10f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 10 ]
+		}
+	}
+LightExponent: {
+	MinValue: 300f
+	MaxValue: 300f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 300 ]
+		}
+	}
+LODValidity: 15
+ } ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	bApplyGlobalSpawnRateScale: False
+	LODValidity: 15
+	}
+PeakActiveParticles: 5
+ }, { 
+Level: 1
+RequiredModule: 104
+Modules: [ 85, 92, 134, 74, 90 ]
+SpawnModule: 150
+PeakActiveParticles: 4
+ }, { 
+Level: 2
+RequiredModule: 104
+Modules: [ 85, 92, 134, 74, 90 ]
+SpawnModule: 150
+PeakActiveParticles: 4
+ }, { 
+Level: 3
+RequiredModule: 104
+Modules: [ 85, 92, 134, 74, 90 ]
+SpawnModule: 150
+PeakActiveParticles: 4
+ } ]
+ }, { 
+EmitterName: Embers1
+LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Ashes.MI_Ashes
 	bUseLocalSpace: True
 	bUseLegacyEmitterTime: False
 	EmitterDuration: 6f
@@ -579,7 +1914,21 @@ RequiredModule: ParticleModuleRequired: {
 	RandomImageTime: 1f
 	LODValidity: 15
 	}
-Modules: [ 82, 93, 91, { 
+Modules: [ { 
+Lifetime: {
+	MinValue: 1f
+	MaxValue: 4f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 1, 4 ]
+		}
+	}
+LODValidity: 15
+ }, 95, { 
 StartSize: {
 	MinValue: 0.1f
 	MaxValue: 5f
@@ -593,7 +1942,47 @@ StartSize: {
 		}
 	}
 LODValidity: 15
- }, 146, { 
+ }, { 
+SizeScale: {
+	MinValue: 0.2f
+	MaxValue: 0.2f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0.2, 0.2, 0.2 ]
+		}
+	}
+LODValidity: 15
+ }, 173, { 
+ColorOverLife: {
+	MinValue: 0.05992f
+	MaxValue: 10f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1.460629f
+		TimeBias: 0.05863516f
+		Values: [ 10, 7.435999, 4.09238, 0.07098, 0.05992, 0.05992 ]
+		}
+	}
+AlphaOverLife: {
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 1
+		TimeScale: 1.315789f
+		TimeBias: 0.24f
+		Values: [ 1, 0 ]
+		}
+	}
+LODValidity: 15
+ }, { 
 StartRotation: {
 	MaxValue: 1f
 	Distribution: 0
@@ -621,18 +2010,305 @@ StartRotationRate: {
 	}
 LODValidity: 15
  }, { 
-LifeMultiplier: {
+OffsetAmount: {
+	MinValue: -5f
+	MaxValue: 5f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 1, -5, 0, 5, 5, 0 ]
+		}
+	}
+RotationAmount: {
+	MaxValue: 5f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 1, 0, 0, 5, 5, 5 ]
+		}
+	}
+RotationRateAmount: {
+	MaxValue: 0.5f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 0, 0, 0, 0.5, 0.5, 0.5 ]
+		}
+	}
+LODValidity: 15
+ }, 175, { 
+ColorScaleOverLife: {
 	MinValue: 1f
-	MaxValue: 1.5f
-	MinValueVec: Vector [X=1, Y=1, Z=1]
-	MaxValueVec: Vector [X=1.5, Y=1.5, Z=1.5]
+	MaxValue: 1f
+	Distribution: DistributionVectorParticleParameter: {	
+		ParameterName: TotemColorEmbers
+		ParamModes: DPM_Direct
+		ParamModes: DPM_Direct
+		ParamModes: DPM_Direct
+		Constant: Vector [X=1, Y=1, Z=1]
+		bIsDirty: False
+		}
+	Table: {
+		Values: [ 1, 1, 1 ]
+		}
+	}
+AlphaScaleOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
 	Distribution: 0
 	Table: {
 		Op: 1
-		EntryCount: 32
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1 ]
+		}
+	}
+LODValidity: 15
+ } ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		MaxValue: 40f
+		Distribution: 0
+		Table: {
+			Op: 2
+			EntryCount: 1
+			EntryStride: 2
+			SubEntryStride: 1
+			Values: [ 0, 40 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstList: [ { 
+	Count: 20
+	CountLow: -1
+	Time: 0f
+	 }, { 
+	Count: 10
+	CountLow: -1
+	Time: 0.1f
+	 } ]
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	LODValidity: 1
+	}
+PeakActiveParticles: 192
+ }, { 
+Level: 1
+RequiredModule: 109
+Modules: [ 83, 95, 132, 145, 173, 70, 118, 126, 98, 175, 81 ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 0 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstList: [ { 
+	Count: 20
+	CountLow: -1
+	Time: 0f
+	 }, { 
+	Count: 10
+	CountLow: -1
+	Time: 0.1f
+	 } ]
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	LODValidity: 14
+	}
+PeakActiveParticles: 32
+ }, { 
+Level: 2
+RequiredModule: 109
+Modules: [ 83, 95, 132, 145, 173, 70, 118, 126, 98, 175, 81 ]
+SpawnModule: 152
+PeakActiveParticles: 32
+ }, { 
+Level: 3
+RequiredModule: 109
+Modules: [ 83, 95, 132, 145, 173, 70, 118, 126, 98, 175, 81 ]
+SpawnModule: 152
+PeakActiveParticles: 32
+ } ]
+ }, { 
+EmitterName: Distortion
+LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: Material /Game/Effects/Materials/M_Heat_Distortion.M_Heat_Distortion
+	bUseLocalSpace: True
+	bUseLegacyEmitterTime: False
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		}
+	RandomImageTime: 1f
+	LODValidity: 15
+	}
+Modules: [ { 
+Lifetime: {
+	MinValue: 1f
+	MaxValue: 1.5f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 1, 1.5 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+StartRadius: {
+	MinValue: 15f
+	MaxValue: 15f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 15 ]
+		}
+	}
+StartHeight: {
+	MinValue: 5f
+	MaxValue: 5f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 5 ]
+		}
+	}
+SurfaceOnly: True
+VelocityScale: {
+	Distribution: DistributionVelocityScale: {	
+		Constant: 1f
+		}
+	}
+StartLocation: {
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
 		EntryStride: 3
-		TimeScale: 31f
-		Values: [ 1, 1, 1, 1.032258, 1.032258, 1.032258, 1.064516, 1.064516, 1.064516, 1.096774, 1.096774, 1.096774, 1.129032, 1.129032, 1.129032, 1.16129, 1.16129, 1.16129, 1.193548, 1.193548, 1.193548, 1.225806, 1.225806, 1.225806, 1.258065, 1.258065, 1.258065, 1.290323, 1.290323, 1.290323, 1.322581, 1.322581, 1.322581, 1.354839, 1.354839, 1.354839, 1.387097, 1.387097, 1.387097, 1.419355, 1.419355, 1.419355, 1.451613, 1.451613, 1.451613, 1.483871, 1.483871, 1.483871, 1.483871, 1.483871, 1.483871, 1.451613, 1.451613, 1.451613, 1.419355, 1.419355, 1.419355, 1.387097, 1.387097, 1.387097, 1.354839, 1.354839, 1.354839, 1.322581, 1.322581, 1.322581, 1.290323, 1.290323, 1.290323, 1.258065, 1.258065, 1.258065, 1.225806, 1.225806, 1.225806, 1.193548, 1.193548, 1.193548, 1.16129, 1.16129, 1.16129, 1.129032, 1.129032, 1.129032, 1.096774, 1.096774, 1.096774, 1.064516, 1.064516, 1.064516, 1.032258, 1.032258, 1.032258, 1, 1, 1 ]
+		Values: [ 0, 0, 0 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+StartSize: {
+	MaxValue: 70f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 60, 0, 0, 70, 0, 0 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+SizeScale: {
+	MinValue: 0.35f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0.35, 0.35, 1 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+LifeMultiplier: {
+	MinValue: 0.7f
+	MaxValue: 1.880471f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 16
+		EntryStride: 3
+		TimeScale: 15f
+		Values: [ 0.7, 1, 1, 1.133614, 1, 1, 1.45604, 1, 1, 1.678777, 1, 1, 1.814361, 1, 1, 1.874581, 1, 1, 1.87173, 1, 1, 1.817793, 1, 1, 1.724911, 1, 1, 1.605176, 1, 1, 1.470668, 1, 1, 1.333495, 1, 1, 1.205766, 1, 1, 1.099515, 1, 1, 1.026971, 1, 1, 1, 1, 1 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+StartColor: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 1, 1, 1 ]
+		}
+	}
+StartAlpha: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1 ]
 		}
 	}
 LODValidity: 15
@@ -725,664 +2401,16 @@ ParamValue: {
 UpdateFlags: 15
 LODValidity: 15
  }, { 
-StartColor: {
-	MaxValue: 0.05f
-	Distribution: 0
-	Table: {
-		Op: 3
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ 0, 0, 0, 0.05, 0.05, 0.05 ]
-		}
-	}
-StartAlpha: {
-	MinValue: 0.5f
-	MaxValue: 1f
+StartRotation: {
+	MinValue: 0.8f
+	MaxValue: 1.2f
 	Distribution: 0
 	Table: {
 		Op: 2
 		EntryCount: 1
 		EntryStride: 2
 		SubEntryStride: 1
-		Values: [ 0.5, 1 ]
-		}
-	}
-LODValidity: 15
- }, { 
-StartColor: {
-	MinValue: 1f
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 1, 1, 1 ]
-		}
-	}
-StartAlpha: {
-	MinValue: 1f
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 1 ]
-		}
-	}
-LODValidity: 15
- }, { 
-OffsetAmount: {
-	MinValue: -5f
-	MaxValue: 5f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ 1, -5, 0, 5, 5, 0 ]
-		}
-	}
-RotationAmount: {
-	MaxValue: 5f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ 1, 0, 0, 5, 5, 5 ]
-		}
-	}
-RotationRateAmount: {
-	MaxValue: 0.5f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ 0, 0, 0, 0.5, 0.5, 0.5 ]
-		}
-	}
-LODValidity: 15
- }, { 
-ColorScaleOverLife: {
-	MinValue: 1f
-	MaxValue: 1f
-	Distribution: ParticleLODLevel: {	
-		Level: 3
-		RequiredModule: ParticleModuleRequired: {	
-			Material: MaterialInstanceConstant /Game/Effects/Materials/MI_FireCandle.MI_FireCandle
-			EmitterOrigin: Vector [X=1, Y=3, Z=11]
-			ScreenAlignment: PSA_Rectangle
-			bUseLegacyEmitterTime: False
-			SpawnRate: {
-				Distribution: RequiredDistributionSpawnRate: {	
-					}
-				}
-			RandomImageTime: 1f
-			LODValidity: 15
-			}
-		Modules: [ 82, 93, { 
-		StartSize: {
-			MaxValue: 35f
-			Distribution: 0
-			Table: {
-				Op: 2
-				EntryCount: 1
-				EntryStride: 6
-				SubEntryStride: 3
-				Values: [ 30, 0, 0, 35, 0, 0 ]
-				}
-			}
-		LODValidity: 15
-		 }, { 
-		SizeScale: {
-			MaxValue: 0.7f
-			Distribution: 0
-			Table: {
-				Op: 1
-				EntryCount: 1
-				EntryStride: 3
-				Values: [ 0.7, 0.7, 0 ]
-				}
-			}
-		LODValidity: 15
-		 }, { 
-		ColorOverLife: {
-			MinValue: 0.05992f
-			MaxValue: 10f
-			Distribution: 0
-			Table: {
-				Op: 1
-				EntryCount: 2
-				EntryStride: 3
-				TimeScale: 1.460629f
-				TimeBias: 0.05863516f
-				Values: [ 10, 7.435999, 4.09238, 0.07098, 0.05992, 0.05992 ]
-				}
-			}
-		AlphaOverLife: {
-			MaxValue: 1f
-			Distribution: 0
-			Table: {
-				Op: 1
-				EntryCount: 2
-				EntryStride: 1
-				TimeScale: 1.315789f
-				TimeBias: 0.24f
-				Values: [ 1, 0 ]
-				}
-			}
-		LODValidity: 15
-		 }, { 
-		StartRotation: {
-			MinValue: -1f
-			MaxValue: 1f
-			Distribution: 0
-			Table: {
-				Op: 2
-				EntryCount: 1
-				EntryStride: 2
-				SubEntryStride: 1
-				Values: [ -1, 1 ]
-				}
-			}
-		LODValidity: 15
-		 }, { 
-		LifeMultiplier: {
-			MaxValue: 3f
-			Distribution: 0
-			Table: {
-				Op: 1
-				EntryCount: 2
-				EntryStride: 3
-				TimeScale: 1f
-				Values: [ 0, 0, 0, 3, 3, 3 ]
-				}
-			}
-		LODValidity: 15
-		 }, { 
-		StartRotationRate: {
-			MinValue: -0.02f
-			MaxValue: 0.02f
-			Distribution: 0
-			Table: {
-				Op: 2
-				EntryCount: 1
-				EntryStride: 2
-				SubEntryStride: 1
-				Values: [ -0.02, 0.02 ]
-				}
-			}
-		LODValidity: 15
-		 }, { 
-		DynamicParams: [ { 
-		ParamName: None
-		bUseEmitterTime: False
-		bSpawnTimeOnly: False
-		ValueMethod: EDPV_UserSet
-		bScaleVelocityByParamValue: False
-		ParamValue: {
-			MinValue: 0.1f
-			MaxValue: 0.1f
-			Distribution: 0
-			Table: {
-				Op: 1
-				EntryCount: 1
-				EntryStride: 1
-				SubEntryStride: 0
-				TimeScale: 0f
-				TimeBias: 0f
-				Values: [ 0.1 ]
-				LockFlag: 0
-				}
-			}
-		 }, { 
-		ParamName: None
-		bUseEmitterTime: False
-		bSpawnTimeOnly: False
-		ValueMethod: EDPV_UserSet
-		bScaleVelocityByParamValue: False
-		ParamValue: {
-			MinValue: 0.5f
-			MaxValue: 1f
-			Distribution: 0
-			Table: {
-				Op: 1
-				EntryCount: 16
-				EntryStride: 1
-				SubEntryStride: 0
-				TimeScale: 15f
-				TimeBias: 0f
-				Values: [ 1, 0.9333333, 0.8666667, 0.8, 0.7333333, 0.6666667, 0.6, 0.5333333, 0.5333334, 0.6, 0.6666667, 0.7333334, 0.8, 0.8666667, 0.9333333, 1 ]
-				LockFlag: 0
-				}
-			}
-		 }, { 
-		ParamName: None
-		bUseEmitterTime: False
-		bSpawnTimeOnly: False
-		ValueMethod: EDPV_UserSet
-		bScaleVelocityByParamValue: False
-		ParamValue: {
-			MinValue: 2f
-			MaxValue: 5f
-			Distribution: 0
-			Table: {
-				Op: 1
-				EntryCount: 64
-				EntryStride: 1
-				SubEntryStride: 0
-				TimeScale: 63f
-				TimeBias: 0f
-				Values: [ 5, 4.904762, 4.809524, 4.714286, 4.619048, 4.52381, 4.428572, 4.333333, 4.238095, 4.142857, 4.047619, 3.952381, 3.857143, 3.761905, 3.666667, 3.571428, 3.47619, 3.380952, 3.285714, 3.190476, 3.095238, 3, 2.904762, 2.809524, 2.714286, 2.619047, 2.523809, 2.428571, 2.333333, 2.238095, 2.142857, 2.047619, 2.047619, 2.142857, 2.238095, 2.333333, 2.428572, 2.52381, 2.619048, 2.714286, 2.809524, 2.904762, 3, 3.095238, 3.190477, 3.285714, 3.380953, 3.476191, 3.571429, 3.666667, 3.761905, 3.857143, 3.952382, 4.047619, 4.142858, 4.238095, 4.333334, 4.428572, 4.52381, 4.619048, 4.714286, 4.809524, 4.904762, 5 ]
-				LockFlag: 0
-				}
-			}
-		 }, { 
-		ParamName: None
-		bUseEmitterTime: False
-		bSpawnTimeOnly: False
-		ValueMethod: EDPV_UserSet
-		bScaleVelocityByParamValue: False
-		ParamValue: {
-			MinValue: 0f
-			MaxValue: 0f
-			Distribution: 0
-			Table: {
-				Op: 1
-				EntryCount: 1
-				EntryStride: 1
-				SubEntryStride: 0
-				TimeScale: 0f
-				TimeBias: 0f
-				Values: [ 0 ]
-				LockFlag: 0
-				}
-			}
-		 } ]
-		UpdateFlags: 15
-		LODValidity: 15
-		 }, { 
-		ColorScaleOverLife: {
-			MaxValue: 0.03f
-			Distribution: 0
-			Table: {
-				Op: 1
-				EntryCount: 2
-				EntryStride: 3
-				TimeScale: 1f
-				Values: [ 0.03, 0.03, 0.03, 0, 0, 0 ]
-				}
-			}
-		AlphaScaleOverLife: {
-			MaxValue: 1f
-			Distribution: 0
-			Table: {
-				Op: 1
-				EntryCount: 16
-				EntryStride: 1
-				TimeScale: 15f
-				Values: [ 0, 0.1666667, 0.3333333, 0.5, 0.6666667, 0.8333334, 0.9947507, 0.8888888, 0.7777778, 0.6666666, 0.5555556, 0.4444444, 0.3333333, 0.2222222, 0.1111112, 0 ]
-				}
-			}
-		LODValidity: 15
-		 }, { 
-		Animation: SubUVAnimation /Game/Effects/Textures/T_WispSmoke014x4_SubUV.T_WispSmoke014x4_SubUV
-		SubImageIndex: {
-			Distribution: DistributionFloatConstantCurve: {	
-				ConstantCurve: {
-					Points: [ { 
-					InVal: 0f
-					OutVal: 0f
-					ArriveTangent: 0f
-					LeaveTangent: 0f
-					InterpMode: CIM_Linear
-					 }, { 
-					InVal: 1f
-					OutVal: 0f
-					ArriveTangent: 0f
-					LeaveTangent: 0f
-					InterpMode: CIM_Linear
-					 } ]
-					}
-				}
-			}
-		LODValidity: 15
-		 }, { 
-		DragCoefficientRaw: {
-			MinValue: 0.1f
-			MaxValue: 0.2f
-			Distribution: 0
-			Table: {
-				Op: 2
-				EntryCount: 1
-				EntryStride: 2
-				SubEntryStride: 1
-				Values: [ 0.1, 0.2 ]
-				}
-			}
-		bAlwaysInWorldSpace: True
-		LODValidity: 15
-		 }, { 
-		VelOverLife: {
-			MinValue: 0.1f
-			MaxValue: 1f
-			Distribution: 0
-			Table: {
-				Op: 1
-				EntryCount: 2
-				EntryStride: 3
-				TimeScale: 5f
-				TimeBias: 0.3f
-				Values: [ 1, 1, 1, 0.1, 0.1, 0.1 ]
-				}
-			}
-		LODValidity: 15
-		 }, 61 ]
-		SpawnModule: ParticleModuleSpawn: {	
-			Rate: {
-				MinValue: 6f
-				MaxValue: 6f
-				Distribution: 0
-				Table: {
-					Op: 1
-					EntryCount: 1
-					EntryStride: 1
-					Values: [ 6 ]
-					}
-				}
-			RateScale: {
-				MinValue: 1f
-				MaxValue: 1f
-				Distribution: 0
-				Table: {
-					Op: 1
-					EntryCount: 1
-					EntryStride: 1
-					Values: [ 1 ]
-					}
-				}
-			BurstScale: {
-				MinValue: 1f
-				MaxValue: 1f
-				Distribution: 0
-				Table: {
-					Op: 1
-					EntryCount: 1
-					EntryStride: 1
-					Values: [ 1 ]
-					}
-				}
-			LODValidity: 2
-			}
-		PeakActiveParticles: 2
-		}
-	Table: {
-		Values: [ 1, 1, 1 ]
-		}
-	}
-AlphaScaleOverLife: {
-	MinValue: 1f
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 1 ]
-		}
-	}
-LODValidity: 15
- }, { 
-EmitterName: Smoke3
-LODLevels: [ { 
-Level: 1
-RequiredModule: 112
-Modules: [ 82, 93, 127, 147, 69, 115, 138, 123, 100, 77, 169, 63, 176, 61 ]
-SpawnModule: 158
-PeakActiveParticles: 2
- }, { 
-Level: 2
-RequiredModule: 112
-Modules: [ 82, 93, 127, 147, 69, 115, 138, 123, 100, 77, 169, 63, 176, 61 ]
-SpawnModule: 158
-PeakActiveParticles: 2
- }, { 
-RequiredModule: 106
-Modules: [ 82, 93, 91, 128, 146, 116, 124, 139, 101, 64, 66, 96, 78, 177, 170, 61 ]
-SpawnModule: ParticleModuleSpawn: {	
-	Rate: {
-		MinValue: 2f
-		MaxValue: 2f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 2 ]
-			}
-		}
-	RateScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	BurstList: [ { 
-	Count: 1
-	CountLow: 1
-	Time: 0f
-	 }, { 
-	Count: 1
-	CountLow: -1
-	Time: 0f
-	 } ]
-	BurstScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	LODValidity: 15
-	}
-PeakActiveParticles: 32
- }, { 
-RequiredModule: 112
-Modules: [ 82, 93, 127, 147, 69, 115, 138, 123, 100, 77, 169, 63, 176, 61 ]
-SpawnModule: ParticleModuleSpawn: {	
-	Rate: {
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 0 ]
-			}
-		}
-	RateScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	BurstScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	LODValidity: 14
-	}
-PeakActiveParticles: 62
- } ]
- }, { 
-Animation: SubUVAnimation /Game/Effects/Textures/T_SmokeSubUV_8X8_02_SubUV.T_SmokeSubUV_8X8_02_SubUV
-SubImageIndex: {
-	MaxValue: 63f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 32
-		EntryStride: 1
-		TimeScale: 31f
-		Values: [ 0, 2.282884, 4.659578, 7.11866, 9.648705, 12.23829, 14.876, 17.5504, 20.25006, 22.96358, 25.67952, 28.38639, 31.07268, 33.72701, 36.33793, 38.89404, 41.3839, 43.79609, 46.11919, 48.34179, 50.45242, 52.43946, 54.2911, 55.99641, 57.54396, 58.92233, 60.12009, 61.12582, 61.9281, 62.51552, 62.87661, 63 ]
-		}
-	}
-LODValidity: 15
- }, 61 ]
-SpawnModule: ParticleModuleSpawn: {	
-	Rate: {
-		MinValue: 10f
-		MaxValue: 10f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 10 ]
-			}
-		}
-	RateScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	BurstScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	LODValidity: 1
-	}
-PeakActiveParticles: 2
- }, { 
-Level: 2
-RequiredModule: 107
-Modules: [ 82, 93, 91, 131, 146, 117, 125, 140, 102, 65, 67, 97, 80, 178, 171, 61 ]
-SpawnModule: 154
-PeakActiveParticles: 2
- }, { 
-RequiredModule: ParticleModuleRequired: {	
-	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_FireCandle.MI_FireCandle
-	EmitterOrigin: Vector [X=-1, Y=-2, Z=14]
-	ScreenAlignment: PSA_Rectangle
-	bUseLegacyEmitterTime: False
-	SpawnRate: {
-		Distribution: RequiredDistributionSpawnRate: {	
-			}
-		}
-	RandomImageTime: 1f
-	LODValidity: 15
-	}
-Modules: [ { 
-Lifetime: {
-	MinValue: 1f
-	MaxValue: 1.5f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 2
-		SubEntryStride: 1
-		Values: [ 1, 1.5 ]
-		}
-	}
-LODValidity: 15
- }, { 
-OffsetAmount: {
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ 0, 0, 0, 1, 1, 1 ]
-		}
-	}
-RotationAmount: {
-	MaxValue: 0.1f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ 0, 0, 0, 0.1, 0.1, 0.1 ]
-		}
-	}
-RotationRateAmount: {
-	MaxValue: 0.1f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ 0, 0, 0, 0.1, 0.1, 0.1 ]
-		}
-	}
-LODValidity: 15
- }, { 
-StartSize: {
-	MaxValue: 25f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ 15, 0, 0, 25, 0, 0 ]
-		}
-	}
-LODValidity: 15
- }, { 
-SizeScale: {
-	MaxValue: 0.3f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 0.3, 0, 0 ]
+		Values: [ 0.8, 1.2 ]
 		}
 	}
 LODValidity: 15
@@ -1409,626 +2437,14 @@ StartVelocityRadial: {
 	}
 LODValidity: 15
  }, { 
-ColorOverLife: {
-	MinValue: 0.01f
-	MaxValue: 0.01f
+Acceleration: {
+	MaxValue: 20f
 	Distribution: 0
 	Table: {
 		Op: 1
 		EntryCount: 1
 		EntryStride: 3
-		TimeBias: 0.5f
-		Values: [ 0.01, 0.01, 0.01 ]
-		}
-	}
-AlphaOverLife: {
-	MaxValue: 4f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 64
-		EntryStride: 1
-		TimeScale: 63f
-		Values: [ 0, 0.3174604, 0.6349207, 0.952381, 1.269841, 1.587302, 1.904762, 2.222222, 2.539683, 2.857143, 3.174603, 3.492064, 3.809524, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3.992667, 3.809523, 3.597883, 3.386243, 3.174602, 2.962962, 2.751322, 2.539682, 2.328041, 2.116401, 1.90476, 1.693121, 1.48148, 1.269841, 1.0582, 0.8465605, 0.6349191, 0.4232795, 0.2116396, 0 ]
-		}
-	}
-LODValidity: 15
- }, { 
-StartRotation: {
-	MinValue: 0.8f
-	MaxValue: 1.2f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 2
-		SubEntryStride: 1
-		Values: [ 0.8, 1.2 ]
-		}
-	}
-LODValidity: 15
- }, { 
-StartSize: {
-	MaxValue: 30f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ 15, 0, 0, 30, 0, 0 ]
-		}
-	}
-LODValidity: 15
- }, { 
-OffsetAmount: {
-	MinValue: -5f
-	MaxValue: 5f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ 1, -5, 0, 5, 5, 0 ]
-		}
-	}
-RotationAmount: {
-	MaxValue: 5f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ 1, 0, 0, 5, 5, 5 ]
-		}
-	}
-RotationRateAmount: {
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ 0, 0, 0, 1, 1, 1 ]
-		}
-	}
-LODValidity: 15
- }, { 
-VelOverLife: {
-	MinValue: 0.1f
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 2
-		EntryStride: 3
-		TimeScale: 3.333333f
-		TimeBias: 0.2f
-		Values: [ 1, 1, 1, 0.1, 0.1, 0.1 ]
-		}
-	}
-LODValidity: 15
- }, { 
-Lifetime: {
-	MinValue: 3f
-	MaxValue: 5f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 2
-		SubEntryStride: 1
-		Values: [ 3, 5 ]
-		}
-	}
-LODValidity: 15
- } ]
-SpawnModule: ParticleModuleSpawn: {	
-	Rate: {
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 0 ]
-			}
-		}
-	RateScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	BurstList: [ { 
-	Count: 20
-	CountLow: -1
-	Time: 0f
-	 }, { 
-	Count: 10
-	CountLow: -1
-	Time: 0.1f
-	 } ]
-	BurstScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	LODValidity: 14
-	}
-PeakActiveParticles: 192
- }, { 
-Level: 1
-RequiredModule: 107
-Modules: [ 82, 93, 91, 131, 146, 117, 125, 140, 102, 65, 67, 97, 80, 178, 171, 61 ]
-SpawnModule: 154
-PeakActiveParticles: 2
- } ]
- }, { 
-EmitterName: Flame
-LODLevels: [ { 
-Level: 1
-RequiredModule: 110
-Modules: [ 87, 137, 72, 141, 120 ]
-SpawnModule: 164
-PeakActiveParticles: 6
- }, { 
-Level: 2
-RequiredModule: 110
-Modules: [ 87, 137, 72, 141, 120 ]
-SpawnModule: 164
-PeakActiveParticles: 6
- }, { 
-Level: 3
-RequiredModule: 110
-Modules: [ 87, 137, 72, 141, 120 ]
-SpawnModule: 164
-PeakActiveParticles: 6
- }, { 
-RequiredModule: ParticleModuleRequired: {	
-	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_FireCandle.MI_FireCandle
-	EmitterOrigin: Vector [X=-3, Y=3, Z=8]
-	ScreenAlignment: PSA_Rectangle
-	bUseLegacyEmitterTime: False
-	SpawnRate: {
-		Distribution: DistributionFloatConstantCurve: {	
-			ConstantCurve: {
-				Points: [ { 
-				InVal: 0f
-				OutVal: 0f
-				ArriveTangent: 0f
-				LeaveTangent: 0f
-				InterpMode: CIM_Linear
-				 }, { 
-				InVal: 1f
-				OutVal: 0f
-				ArriveTangent: 0f
-				LeaveTangent: 0f
-				InterpMode: CIM_Linear
-				 } ]
-				}
-			}
-		}
-	RandomImageTime: 1f
-	LODValidity: 15
-	}
-Modules: [ { 
-Lifetime: {
-	MinValue: 1f
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 1 ]
-		}
-	}
-LODValidity: 15
- }, { 
-StartSize: {
-	MinValue: 0.8f
-	MaxValue: 4f
-	MinValueVec: Vector [X=0.8, Y=2, Z=0.8]
-	MaxValueVec: Vector [X=1, Y=4, Z=1]
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ 0.8, 2, 0.8, 1, 4, 1 ]
-		}
-	}
-LODValidity: 15
- }, { 
-ColorOverLife: {
-	MinValue: 0.7f
-	MaxValue: 10f
-	MinValueVec: Vector [X=10, Y=3, Z=0.7]
-	MaxValueVec: Vector [X=10, Y=3, Z=0.7]
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 10, 3, 0.7 ]
-		}
-	}
-AlphaOverLife: {
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 32
-		EntryStride: 1
-		TimeScale: 31f
-		Values: [ 0, 0.06451613, 0.1290323, 0.1935484, 0.2580645, 0.3225806, 0.3870968, 0.4516129, 0.516129, 0.5806452, 0.6451612, 0.7096774, 0.7741935, 0.8387097, 0.9032257, 0.9677419, 0.967742, 0.9032259, 0.8387097, 0.7741935, 0.7096775, 0.6451614, 0.5806452, 0.516129, 0.4516129, 0.3870969, 0.3225806, 0.2580644, 0.1935485, 0.1290325, 0.06451617, 0 ]
-		}
-	}
-LODValidity: 15
- }, { 
-LifeMultiplier: {
-	MinValue: 1f
-	MaxValue: 1.5f
-	MinValueVec: Vector [X=1, Y=1, Z=1]
-	MaxValueVec: Vector [X=1.5, Y=1.5, Z=1.5]
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 32
-		EntryStride: 3
-		TimeScale: 31f
-		Values: [ 1, 1, 1, 1.032258, 1.032258, 1.032258, 1.064516, 1.064516, 1.064516, 1.096774, 1.096774, 1.096774, 1.129032, 1.129032, 1.129032, 1.16129, 1.16129, 1.16129, 1.193548, 1.193548, 1.193548, 1.225806, 1.225806, 1.225806, 1.258065, 1.258065, 1.258065, 1.290323, 1.290323, 1.290323, 1.322581, 1.322581, 1.322581, 1.354839, 1.354839, 1.354839, 1.387097, 1.387097, 1.387097, 1.419355, 1.419355, 1.419355, 1.451613, 1.451613, 1.451613, 1.483871, 1.483871, 1.483871, 1.483871, 1.483871, 1.483871, 1.451613, 1.451613, 1.451613, 1.419355, 1.419355, 1.419355, 1.387097, 1.387097, 1.387097, 1.354839, 1.354839, 1.354839, 1.322581, 1.322581, 1.322581, 1.290323, 1.290323, 1.290323, 1.258065, 1.258065, 1.258065, 1.225806, 1.225806, 1.225806, 1.193548, 1.193548, 1.193548, 1.16129, 1.16129, 1.16129, 1.129032, 1.129032, 1.129032, 1.096774, 1.096774, 1.096774, 1.064516, 1.064516, 1.064516, 1.032258, 1.032258, 1.032258, 1, 1, 1 ]
-		}
-	}
-LODValidity: 15
- }, { 
-StartRotation: {
-	MinValue: 0.01f
-	MaxValue: -0.01f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 2
-		SubEntryStride: 1
-		Values: [ 0.01, -0.01 ]
-		}
-	}
-LODValidity: 15
- } ]
-SpawnModule: ParticleModuleSpawn: {	
-	Rate: {
-		MinValue: 2f
-		MaxValue: 2f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 2 ]
-			}
-		}
-	RateScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	BurstList: [ { 
-	Count: 1
-	CountLow: 1
-	Time: 0f
-	 }, { 
-	Count: 1
-	CountLow: -1
-	Time: 0f
-	 } ]
-	BurstScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	LODValidity: 15
-	}
-PeakActiveParticles: 10
- } ]
- }, { 
-EmitterName: Embers1
-LODLevels: [ { 
-Level: 1
-RequiredModule: 109
-Modules: [ 83, 95, 132, 145, 173, 70, 118, 126, 98, 175, 81 ]
-SpawnModule: ParticleModuleSpawn: {	
-	Rate: {
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 0 ]
-			}
-		}
-	RateScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	BurstList: [ { 
-	Count: 20
-	CountLow: -1
-	Time: 0f
-	 }, { 
-	Count: 10
-	CountLow: -1
-	Time: 0.1f
-	 } ]
-	BurstScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	LODValidity: 14
-	}
-PeakActiveParticles: 32
- }, { 
-Level: 2
-RequiredModule: 109
-Modules: [ 83, 95, 132, 145, 173, 70, 118, 126, 98, 175, 81 ]
-SpawnModule: 152
-PeakActiveParticles: 32
- }, { 
-Level: 3
-RequiredModule: 109
-Modules: [ 83, 95, 132, 145, 173, 70, 118, 126, 98, 175, 81 ]
-SpawnModule: 152
-PeakActiveParticles: 32
- }, { 
-Level: 3
-RequiredModule: ParticleModuleRequired: {	
-	Material: Material /Game/Effects/Materials/M_PuffySmoke.M_PuffySmoke
-	bUseLocalSpace: True
-	SortMode: PSORTMODE_Age_OldestFirst
-	bUseLegacyEmitterTime: False
-	SpawnRate: {
-		Distribution: RequiredDistributionSpawnRate: {	
-			}
-		}
-	InterpolationMethod: PSUVIM_Linear_Blend
-	SubImages_Horizontal: 8
-	SubImages_Vertical: 8
-	RandomImageTime: 1f
-	LODValidity: 15
-	}
-Modules: [ { 
-Lifetime: {
-	MinValue: 2f
-	MaxValue: 2f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 2 ]
-		}
-	}
-LODValidity: 15
- }, { 
-StartRadius: {
-	MinValue: 15f
-	MaxValue: 15f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 15 ]
-		}
-	}
-StartHeight: {
-	MinValue: 10f
-	MaxValue: 10f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 10 ]
-		}
-	}
-SurfaceOnly: True
-VelocityScale: {
-	Distribution: RequiredDistributionSpawnRate: {	
-		}
-	}
-StartLocation: {
-	MinValue: -5f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 0, 0, -5 ]
-		}
-	}
-LODValidity: 15
- }, { 
-StartSize: {
-	MaxValue: 3f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ 0.5, 0.5, 0, 1.5, 3, 0 ]
-		}
-	}
-LODValidity: 15
- }, { 
-Rate: {
-	MinValue: 1f
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 1 ]
-		}
-	}
-RateScale: {
-	MinValue: 1f
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 1 ]
-		}
-	}
-BurstScale: {
-	MinValue: 1f
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 1 ]
-		}
-	}
-bApplyGlobalSpawnRateScale: False
-LODValidity: 15
- }, { 
-LifeMultiplier: {
-	MinValue: 1f
-	MaxValue: 1.5f
-	MinValueVec: Vector [X=1, Y=1, Z=1]
-	MaxValueVec: Vector [X=1.5, Y=1.5, Z=1.5]
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 32
-		EntryStride: 3
-		TimeScale: 31f
-		Values: [ 1, 1, 1, 1.032258, 1.032258, 1.032258, 1.064516, 1.064516, 1.064516, 1.096774, 1.096774, 1.096774, 1.129032, 1.129032, 1.129032, 1.16129, 1.16129, 1.16129, 1.193548, 1.193548, 1.193548, 1.225806, 1.225806, 1.225806, 1.258065, 1.258065, 1.258065, 1.290323, 1.290323, 1.290323, 1.322581, 1.322581, 1.322581, 1.354839, 1.354839, 1.354839, 1.387097, 1.387097, 1.387097, 1.419355, 1.419355, 1.419355, 1.451613, 1.451613, 1.451613, 1.483871, 1.483871, 1.483871, 1.483871, 1.483871, 1.483871, 1.451613, 1.451613, 1.451613, 1.419355, 1.419355, 1.419355, 1.387097, 1.387097, 1.387097, 1.354839, 1.354839, 1.354839, 1.322581, 1.322581, 1.322581, 1.290323, 1.290323, 1.290323, 1.258065, 1.258065, 1.258065, 1.225806, 1.225806, 1.225806, 1.193548, 1.193548, 1.193548, 1.16129, 1.16129, 1.16129, 1.129032, 1.129032, 1.129032, 1.096774, 1.096774, 1.096774, 1.064516, 1.064516, 1.064516, 1.032258, 1.032258, 1.032258, 1, 1, 1 ]
-		}
-	}
-LODValidity: 15
- }, { 
-ColorOverLife: {
-	MinValue: 0.001f
-	MaxValue: 0.001f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 0.001, 0.001, 0.001 ]
-		}
-	}
-AlphaOverLife: {
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 8
-		EntryStride: 1
-		TimeScale: 7f
-		Values: [ 1, 0.8705252, 0.5848393, 0.2968494, 0.1364648, 0.05132572, 0.01050126, 0 ]
-		}
-	}
-LODValidity: 15
- }, { 
-Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Invisible.MI_Invisible
-ScreenAlignment: PSA_Rectangle
-bUseLocalSpace: True
-bUseLegacyEmitterTime: False
-SpawnRate: {
-	Distribution: RequiredDistributionSpawnRate: {	
-		}
-	}
-RandomImageTime: 0.495f
-RandomImageChanges: 1
-LODValidity: 15
- }, { 
-StartRotation: {
-	MinValue: 0.01f
-	MaxValue: -0.01f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 2
-		SubEntryStride: 1
-		Values: [ 0.01, -0.01 ]
-		}
-	}
-LODValidity: 15
- }, { 
-VelOverLife: {
-	MinValue: 0.1f
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 2
-		EntryStride: 3
-		TimeScale: 1.428571f
-		TimeBias: 0.3f
-		Values: [ 1, 1, 1, 0.1, 0.1, 0.1 ]
-		}
-	}
-LODValidity: 15
- }, { 
-DragCoefficientRaw: {
-	MaxValue: 0.3f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 2
-		SubEntryStride: 1
-		Values: [ 0, 0.3 ]
+		Values: [ 0, 0, 20 ]
 		}
 	}
 bAlwaysInWorldSpace: True
@@ -2070,20 +2486,102 @@ SpawnModule: ParticleModuleSpawn: {
 		}
 	LODValidity: 1
 	}
+PeakActiveParticles: 26
+ }, { 
+Level: 1
+RequiredModule: 111
+Modules: [ 84, 94, 135, 149, 142, 68, 103, 119, 174, 62 ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		MinValue: 6f
+		MaxValue: 6f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 6 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	LODValidity: 2
+	}
+PeakActiveParticles: 11
+ }, { 
+Level: 2
+RequiredModule: 111
+Modules: [ 84, 94, 135, 149, 142, 68, 103, 119, 174, 62 ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 0 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	LODValidity: 12
+	}
+PeakActiveParticles: 2
+ }, { 
+Level: 3
+RequiredModule: 111
+Modules: [ 84, 94, 135, 149, 142, 68, 103, 119, 174, 62 ]
+SpawnModule: 161
 PeakActiveParticles: 2
  } ]
  }, { 
-EmitterName: Embers
+EmitterName: Flame
 LODLevels: [ { 
-Level: 1
 RequiredModule: ParticleModuleRequired: {	
-	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Ashes.MI_Ashes
-	bUseLocalSpace: True
+	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_FireCandle.MI_FireCandle
+	EmitterOrigin: Vector [X=-1, Y=-2, Z=14]
+	ScreenAlignment: PSA_Rectangle
 	bUseLegacyEmitterTime: False
-	EmitterDuration: 6f
-	EmitterDurationLow: 3f
-	bEmitterDurationUseRange: True
-	bDurationRecalcEachLoop: True
 	SpawnRate: {
 		Distribution: RequiredDistributionSpawnRate: {	
 			}
@@ -2104,7 +2602,7 @@ Lifetime: {
 		}
 	}
 LODValidity: 15
- }, 95, { 
+ }, { 
 StartSize: {
 	MinValue: 0.8f
 	MaxValue: 4f
@@ -2121,376 +2619,6 @@ StartSize: {
 	}
 LODValidity: 15
  }, { 
-SizeScale: {
-	MinValue: 0.35f
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 0.35, 0.35, 1 ]
-		}
-	}
-LODValidity: 15
- }, 173, { 
-ColorOverLife: {
-	MinValue: 0.29412f
-	MaxValue: 5f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 5, 1.607845, 0.29412 ]
-		}
-	}
-AlphaOverLife: {
-	MaxValue: 5f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 64
-		EntryStride: 1
-		TimeScale: 63f
-		Values: [ 0, 0.1587302, 0.3174604, 0.4761905, 0.6349207, 0.7936508, 0.9523811, 1.111111, 1.269841, 1.428571, 1.587302, 1.746032, 1.904762, 2.063492, 2.222222, 2.380953, 2.539683, 2.698413, 2.857143, 3.015873, 3.174603, 3.333333, 3.492064, 3.650794, 3.809524, 3.968255, 4.126985, 4.285715, 4.444445, 4.603175, 4.761905, 4.920635, 4.920635, 4.761905, 4.603174, 4.444445, 4.285714, 4.126984, 3.968254, 3.809524, 3.650793, 3.492064, 3.333333, 3.174603, 3.015872, 2.857143, 2.698412, 2.539682, 2.380951, 2.222222, 2.063491, 1.904762, 1.746031, 1.587301, 1.42857, 1.26984, 1.11111, 0.9523804, 0.79365, 0.6349202, 0.4761893, 0.3174596, 0.1587298, 0 ]
-		}
-	}
-LODValidity: 15
- }, { 
-DynamicParams: [ { 
-ParamName: None
-bUseEmitterTime: False
-bSpawnTimeOnly: False
-ValueMethod: EDPV_UserSet
-bScaleVelocityByParamValue: False
-ParamValue: {
-	MinValue: 100f
-	MaxValue: 100f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		SubEntryStride: 0
-		TimeScale: 0f
-		TimeBias: 0f
-		Values: [ 100 ]
-		LockFlag: 0
-		}
-	}
- }, { 
-ParamName: None
-bUseEmitterTime: False
-bSpawnTimeOnly: False
-ValueMethod: EDPV_UserSet
-bScaleVelocityByParamValue: False
-ParamValue: {
-	MinValue: 0f
-	MaxValue: 0f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		SubEntryStride: 0
-		TimeScale: 0f
-		TimeBias: 0f
-		Values: [ 0 ]
-		LockFlag: 0
-		}
-	}
- }, { 
-ParamName: None
-bUseEmitterTime: False
-bSpawnTimeOnly: False
-ValueMethod: EDPV_UserSet
-bScaleVelocityByParamValue: False
-ParamValue: {
-	MinValue: 0f
-	MaxValue: 0f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		SubEntryStride: 0
-		TimeScale: 0f
-		TimeBias: 0f
-		Values: [ 0 ]
-		LockFlag: 0
-		}
-	}
- }, { 
-ParamName: None
-bUseEmitterTime: False
-bSpawnTimeOnly: False
-ValueMethod: EDPV_UserSet
-bScaleVelocityByParamValue: False
-ParamValue: {
-	MinValue: 0f
-	MaxValue: 0f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		SubEntryStride: 0
-		TimeScale: 0f
-		TimeBias: 0f
-		Values: [ 0 ]
-		LockFlag: 0
-		}
-	}
- } ]
-UpdateFlags: 15
-LODValidity: 15
- }, 175 ]
-SpawnModule: ParticleModuleSpawn: {	
-	Rate: {
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 0 ]
-			}
-		}
-	RateScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	BurstScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	LODValidity: 14
-	}
-PeakActiveParticles: 32
- }, { 
-Level: 2
-RequiredModule: 108
-Modules: [ 86, 95, 136, 148, 173, 73, 99, 175 ]
-SpawnModule: 153
-PeakActiveParticles: 32
- }, { 
-Acceleration: {
-	MaxValue: 5f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 0, 0, 5 ]
-		}
-	}
-bAlwaysInWorldSpace: True
-LODValidity: 15
- }, { 
-RequiredModule: 108
-Modules: [ 86, 95, 136, 148, 173, 73, 99, 175 ]
-SpawnModule: ParticleModuleSpawn: {	
-	Rate: {
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 0 ]
-			}
-		}
-	RateScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	BurstScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	LODValidity: 12
-	}
-PeakActiveParticles: 82
- } ]
- }, { 
-EmitterName: Distortion
-LODLevels: [ { 
-Level: 1
-RequiredModule: 111
-Modules: [ 84, 94, 135, 149, 142, 68, 103, 119, 174, 62 ]
-SpawnModule: ParticleModuleSpawn: {	
-	Rate: {
-		MaxValue: 30f
-		Distribution: 0
-		Table: {
-			Op: 2
-			EntryCount: 1
-			EntryStride: 2
-			SubEntryStride: 1
-			Values: [ 0, 30 ]
-			}
-		}
-	RateScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	BurstList: [ { 
-	Count: 20
-	CountLow: -1
-	Time: 0f
-	 }, { 
-	Count: 10
-	CountLow: -1
-	Time: 0.1f
-	 } ]
-	BurstScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	LODValidity: 1
-	}
-PeakActiveParticles: 11
- }, { 
-Level: 2
-RequiredModule: 111
-Modules: [ 84, 94, 135, 149, 142, 68, 103, 119, 174, 62 ]
-SpawnModule: 161
-PeakActiveParticles: 2
- }, { 
-RequiredModule: ParticleModuleRequired: {	
-	Material: Material /Game/Effects/Materials/M_BlackSmoke.M_BlackSmoke
-	bUseLocalSpace: True
-	SortMode: PSORTMODE_Age_OldestFirst
-	bUseLegacyEmitterTime: False
-	SpawnRate: {
-		Distribution: RequiredDistributionSpawnRate: {	
-			}
-		}
-	InterpolationMethod: PSUVIM_Linear_Blend
-	SubImages_Horizontal: 8
-	SubImages_Vertical: 8
-	RandomImageTime: 1f
-	LODValidity: 15
-	}
-Modules: [ { 
-Lifetime: {
-	MinValue: 1f
-	MaxValue: 1.5f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 2
-		SubEntryStride: 1
-		Values: [ 1, 1.5 ]
-		}
-	}
-LODValidity: 15
- }, { 
-StartRadius: {
-	MinValue: 5f
-	MaxValue: 10f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 2
-		SubEntryStride: 1
-		Values: [ 5, 10 ]
-		}
-	}
-StartHeight: {
-	MinValue: 5f
-	MaxValue: 5f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 5 ]
-		}
-	}
-Positive_Z: False
-SurfaceOnly: True
-Velocity: True
-VelocityScale: {
-	MinValue: 1f
-	MaxValue: 1.5f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 2
-		SubEntryStride: 1
-		Values: [ 1, 1.5 ]
-		}
-	}
-StartLocation: {
-	MinValue: -3f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 0, 0, -3 ]
-		}
-	}
-LODValidity: 15
- }, { 
-StartSize: {
-	MaxValue: 70f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ 60, 0, 0, 70, 0, 0 ]
-		}
-	}
-LODValidity: 15
- }, { 
 ColorOverLife: {
 	MinValue: 0.7f
 	MaxValue: 10f
@@ -2517,421 +2645,36 @@ AlphaOverLife: {
 	}
 LODValidity: 15
  }, { 
-StartLocation: {
-	MaxValue: 10f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 0, 0, 10 ]
-		}
-	}
-LODValidity: 15
- } ]
-SpawnModule: ParticleModuleSpawn: {	
-	Rate: {
-		MaxValue: 40f
-		Distribution: 0
-		Table: {
-			Op: 2
-			EntryCount: 1
-			EntryStride: 2
-			SubEntryStride: 1
-			Values: [ 0, 40 ]
-			}
-		}
-	RateScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	BurstList: [ { 
-	Count: 20
-	CountLow: -1
-	Time: 0f
-	 }, { 
-	Count: 10
-	CountLow: -1
-	Time: 0.1f
-	 } ]
-	BurstScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	LODValidity: 1
-	}
-PeakActiveParticles: 5
- }, { 
-RequiredModule: 111
-Modules: [ 84, 94, 135, 149, 142, 68, 103, 119, 174, 62 ]
-SpawnModule: ParticleModuleSpawn: {	
-	Rate: {
-		MinValue: 5f
-		MaxValue: 5f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 5 ]
-			}
-		}
-	RateScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	BurstScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	LODValidity: 12
-	}
-PeakActiveParticles: 26
- } ]
- }, { 
-EmitterName: Glow
-LODLevels: [ { 
-Level: 3
-RequiredModule: 104
-Modules: [ 85, 92, 134, 74, 90 ]
-SpawnModule: 150
-PeakActiveParticles: 4
- }, { 
-Level: 2
-RequiredModule: 104
-Modules: [ 85, 92, 134, 74, 90 ]
-SpawnModule: 150
-PeakActiveParticles: 4
- }, { 
-Level: 3
-RequiredModule: 108
-Modules: [ 86, 95, 136, 148, 173, 73, 99, 175 ]
-SpawnModule: 153
-PeakActiveParticles: 32
- }, { 
-Level: 1
-RequiredModule: 104
-Modules: [ 85, 92, 134, 74, 90 ]
-SpawnModule: 150
-PeakActiveParticles: 4
- } ]
- }, { 
-EmitterName: Flame
-LODLevels: [ { 
-Level: 1
-RequiredModule: 113
-Modules: [ 88, 129, 75, 143, 121 ]
-SpawnModule: 167
-PeakActiveParticles: 6
- }, { 
-Level: 2
-RequiredModule: 113
-Modules: [ 88, 129, 75, 143, 121 ]
-SpawnModule: 167
-PeakActiveParticles: 6
- }, { 
-Level: 3
-RequiredModule: 113
-Modules: [ 88, 129, 75, 143, 121 ]
-SpawnModule: 167
-PeakActiveParticles: 6
- }, { 
-RequiredModule: ParticleModuleRotation: {	
-	StartRotation: {
-		MinValue: -1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 2
-			EntryCount: 1
-			EntryStride: 2
-			SubEntryStride: 1
-			Values: [ -1, 1 ]
-			}
-		}
-	LODValidity: 15
-	}
-Modules: [ { 
-bUseInverseSquaredFalloff: False
-bAffectsTranslucency: True
-ColorScaleOverLife: {
+LifeMultiplier: {
 	MinValue: 1f
-	MaxValue: 1f
+	MaxValue: 1.5f
+	MinValueVec: Vector [X=1, Y=1, Z=1]
+	MaxValueVec: Vector [X=1.5, Y=1.5, Z=1.5]
 	Distribution: 0
 	Table: {
 		Op: 1
-		EntryCount: 1
+		EntryCount: 32
 		EntryStride: 3
-		Values: [ 1, 1, 1 ]
-		}
-	}
-BrightnessOverLife: {
-	MinValue: 5f
-	MaxValue: 5f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 5 ]
-		}
-	}
-RadiusScale: {
-	MinValue: 10f
-	MaxValue: 10f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 10 ]
-		}
-	}
-LightExponent: {
-	MinValue: 300f
-	MaxValue: 300f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 300 ]
+		TimeScale: 31f
+		Values: [ 1, 1, 1, 1.032258, 1.032258, 1.032258, 1.064516, 1.064516, 1.064516, 1.096774, 1.096774, 1.096774, 1.129032, 1.129032, 1.129032, 1.16129, 1.16129, 1.16129, 1.193548, 1.193548, 1.193548, 1.225806, 1.225806, 1.225806, 1.258065, 1.258065, 1.258065, 1.290323, 1.290323, 1.290323, 1.322581, 1.322581, 1.322581, 1.354839, 1.354839, 1.354839, 1.387097, 1.387097, 1.387097, 1.419355, 1.419355, 1.419355, 1.451613, 1.451613, 1.451613, 1.483871, 1.483871, 1.483871, 1.483871, 1.483871, 1.483871, 1.451613, 1.451613, 1.451613, 1.419355, 1.419355, 1.419355, 1.387097, 1.387097, 1.387097, 1.354839, 1.354839, 1.354839, 1.322581, 1.322581, 1.322581, 1.290323, 1.290323, 1.290323, 1.258065, 1.258065, 1.258065, 1.225806, 1.225806, 1.225806, 1.193548, 1.193548, 1.193548, 1.16129, 1.16129, 1.16129, 1.129032, 1.129032, 1.129032, 1.096774, 1.096774, 1.096774, 1.064516, 1.064516, 1.064516, 1.032258, 1.032258, 1.032258, 1, 1, 1 ]
 		}
 	}
 LODValidity: 15
  }, { 
-StartSize: {
-	MaxValue: 25f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ 20, 0, 0, 25, 0, 0 ]
-		}
-	}
-LODValidity: 15
- }, { 
-ColorScaleOverLife: {
-	MaxValue: 0.6f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 2
-		EntryStride: 3
-		TimeScale: 1f
-		Values: [ 0.6, 0.6, 0.6, 0, 0, 0 ]
-		}
-	}
-AlphaScaleOverLife: {
-	MinValue: 1f
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 1 ]
-		}
-	}
-LODValidity: 15
- }, { 
-SizeScale: {
-	MinValue: 0.2f
-	MaxValue: 0.2f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 0.2, 0.2, 0.2 ]
-		}
-	}
-LODValidity: 15
- }, { 
-StartRotationRate: {
-	MinValue: -0.05f
-	MaxValue: 0.05f
+StartRotation: {
+	MinValue: 0.01f
+	MaxValue: -0.01f
 	Distribution: 0
 	Table: {
 		Op: 2
 		EntryCount: 1
 		EntryStride: 2
 		SubEntryStride: 1
-		Values: [ -0.05, 0.05 ]
+		Values: [ 0.01, -0.01 ]
 		}
 	}
 LODValidity: 15
  } ]
-SpawnModule: ParticleModuleSubUV: {	
-	Animation: SubUVAnimation /Game/Effects/Textures/T_SmokeBall_01_8_8_SubUV.T_SmokeBall_01_8_8_SubUV
-	SubImageIndex: {
-		MaxValue: 64f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 2
-			EntryStride: 1
-			TimeScale: 1f
-			Values: [ 0, 64 ]
-			}
-		}
-	LODValidity: 15
-	}
-PeakActiveParticles: 10
- } ]
- }, { 
-EmitterName: Flame
-LODLevels: [ { 
-Level: 1
-RequiredModule: 114
-Modules: [ 89, 130, 76, 144, 122 ]
-SpawnModule: 168
-PeakActiveParticles: 6
- }, { 
-Level: 2
-RequiredModule: 114
-Modules: [ 89, 130, 76, 144, 122 ]
-SpawnModule: 168
-PeakActiveParticles: 6
- }, { 
-Level: 3
-RequiredModule: 114
-Modules: [ 89, 130, 76, 144, 122 ]
-SpawnModule: 168
-PeakActiveParticles: 6
- }, { 
-Level: 3
-RequiredModule: ParticleModuleRequired: {	
-	Material: Material /Game/Effects/Materials/M_BlackSmokeSwirlTest02.M_BlackSmokeSwirlTest02
-	bUseLocalSpace: True
-	SortMode: PSORTMODE_Age_NewestFirst
-	bUseLegacyEmitterTime: False
-	SpawnRate: {
-		Distribution: RequiredDistributionSpawnRate: {	
-			}
-		}
-	InterpolationMethod: PSUVIM_Random
-	SubImages_Horizontal: 2
-	SubImages_Vertical: 2
-	RandomImageTime: 1f
-	LODValidity: 15
-	}
-Modules: [ 82, 93, { 
-StartSize: {
-	MaxValue: 10f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 10, 10, 0 ]
-		}
-	}
-LODValidity: 15
- }, 147, { 
-ColorOverLife: {
-	MinValue: 0.7f
-	MaxValue: 10f
-	MinValueVec: Vector [X=10, Y=3, Z=0.7]
-	MaxValueVec: Vector [X=10, Y=3, Z=0.7]
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 10, 3, 0.7 ]
-		}
-	}
-AlphaOverLife: {
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 32
-		EntryStride: 1
-		TimeScale: 31f
-		Values: [ 0, 0.06451613, 0.1290323, 0.1935484, 0.2580645, 0.3225806, 0.3870968, 0.4516129, 0.516129, 0.5806452, 0.6451612, 0.7096774, 0.7741935, 0.8387097, 0.9032257, 0.9677419, 0.967742, 0.9032259, 0.8387097, 0.7741935, 0.7096775, 0.6451614, 0.5806452, 0.516129, 0.4516129, 0.3870969, 0.3225806, 0.2580644, 0.1935485, 0.1290325, 0.06451617, 0 ]
-		}
-	}
-LODValidity: 15
- }, { 
-ColorScaleOverLife: {
-	MaxValue: 0.035f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 2
-		EntryStride: 3
-		TimeScale: 1f
-		Values: [ 0.035, 0.035, 0.035, 0, 0, 0 ]
-		}
-	}
-AlphaScaleOverLife: {
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 16
-		EntryStride: 1
-		TimeScale: 15f
-		Values: [ 0, 0.1666667, 0.3333333, 0.5, 0.6666667, 0.8333334, 0.9947507, 0.8888888, 0.7777778, 0.6666666, 0.5555556, 0.4444444, 0.3333333, 0.2222222, 0.1111112, 0 ]
-		}
-	}
-LODValidity: 15
- }, 115, 138, 123, { 
-StartVelocity: {
-	MinValue: -5f
-	MaxValue: 75f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ -5, -5, 25, 5, 5, 75 ]
-		}
-	}
-StartVelocityRadial: {
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 0 ]
-		}
-	}
-LODValidity: 15
- }, 63, 176, 61 ]
 SpawnModule: ParticleModuleSpawn: {	
 	Rate: {
 		MinValue: 2f
@@ -2977,68 +2720,137 @@ SpawnModule: ParticleModuleSpawn: {
 		}
 	LODValidity: 15
 	}
-PeakActiveParticles: 27
- } ]
+PeakActiveParticles: 10
  }, { 
-EmitterName: Mist3
-LODLevels: [ { 
 Level: 1
-RequiredModule: 105
-Modules: [ 82, 93, 133, 147, 71, 79, 115, 138, 123, 172, 63, 176, 61 ]
-SpawnModule: ParticleModuleSpawn: {	
-	Rate: {
-		MinValue: 6f
-		MaxValue: 6f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 6 ]
-			}
-		}
-	RateScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	BurstScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	LODValidity: 1
-	}
-PeakActiveParticles: 62
+RequiredModule: 110
+Modules: [ 87, 137, 72, 141, 120 ]
+SpawnModule: 164
+PeakActiveParticles: 6
  }, { 
 Level: 2
-RequiredModule: 105
-Modules: [ 82, 93, 133, 147, 71, 79, 115, 138, 123, 172, 63, 176, 61 ]
-SpawnModule: 163
-PeakActiveParticles: 27
+RequiredModule: 110
+Modules: [ 87, 137, 72, 141, 120 ]
+SpawnModule: 164
+PeakActiveParticles: 6
  }, { 
-RequiredModule: 107
-Modules: [ 82, 93, 91, 131, 146, 117, 125, 140, 102, 65, 67, 97, 80, 178, 171, 61 ]
+Level: 3
+RequiredModule: 110
+Modules: [ 87, 137, 72, 141, 120 ]
+SpawnModule: 164
+PeakActiveParticles: 6
+ } ]
+ }, { 
+EmitterName: Flame
+LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_FireCandle.MI_FireCandle
+	EmitterOrigin: Vector [X=1, Y=3, Z=11]
+	ScreenAlignment: PSA_Rectangle
+	bUseLegacyEmitterTime: False
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		}
+	RandomImageTime: 1f
+	LODValidity: 15
+	}
+Modules: [ { 
+Lifetime: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+StartSize: {
+	MinValue: 0.8f
+	MaxValue: 4f
+	MinValueVec: Vector [X=0.8, Y=2, Z=0.8]
+	MaxValueVec: Vector [X=1, Y=4, Z=1]
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 0.8, 2, 0.8, 1, 4, 1 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+ColorOverLife: {
+	MinValue: 0.7f
+	MaxValue: 10f
+	MinValueVec: Vector [X=10, Y=3, Z=0.7]
+	MaxValueVec: Vector [X=10, Y=3, Z=0.7]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 10, 3, 0.7 ]
+		}
+	}
+AlphaOverLife: {
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 32
+		EntryStride: 1
+		TimeScale: 31f
+		Values: [ 0, 0.06451613, 0.1290323, 0.1935484, 0.2580645, 0.3225806, 0.3870968, 0.4516129, 0.516129, 0.5806452, 0.6451612, 0.7096774, 0.7741935, 0.8387097, 0.9032257, 0.9677419, 0.967742, 0.9032259, 0.8387097, 0.7741935, 0.7096775, 0.6451614, 0.5806452, 0.516129, 0.4516129, 0.3870969, 0.3225806, 0.2580644, 0.1935485, 0.1290325, 0.06451617, 0 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+LifeMultiplier: {
+	MinValue: 1f
+	MaxValue: 1.5f
+	MinValueVec: Vector [X=1, Y=1, Z=1]
+	MaxValueVec: Vector [X=1.5, Y=1.5, Z=1.5]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 32
+		EntryStride: 3
+		TimeScale: 31f
+		Values: [ 1, 1, 1, 1.032258, 1.032258, 1.032258, 1.064516, 1.064516, 1.064516, 1.096774, 1.096774, 1.096774, 1.129032, 1.129032, 1.129032, 1.16129, 1.16129, 1.16129, 1.193548, 1.193548, 1.193548, 1.225806, 1.225806, 1.225806, 1.258065, 1.258065, 1.258065, 1.290323, 1.290323, 1.290323, 1.322581, 1.322581, 1.322581, 1.354839, 1.354839, 1.354839, 1.387097, 1.387097, 1.387097, 1.419355, 1.419355, 1.419355, 1.451613, 1.451613, 1.451613, 1.483871, 1.483871, 1.483871, 1.483871, 1.483871, 1.483871, 1.451613, 1.451613, 1.451613, 1.419355, 1.419355, 1.419355, 1.387097, 1.387097, 1.387097, 1.354839, 1.354839, 1.354839, 1.322581, 1.322581, 1.322581, 1.290323, 1.290323, 1.290323, 1.258065, 1.258065, 1.258065, 1.225806, 1.225806, 1.225806, 1.193548, 1.193548, 1.193548, 1.16129, 1.16129, 1.16129, 1.129032, 1.129032, 1.129032, 1.096774, 1.096774, 1.096774, 1.064516, 1.064516, 1.064516, 1.032258, 1.032258, 1.032258, 1, 1, 1 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+StartRotation: {
+	MinValue: 0.01f
+	MaxValue: -0.01f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0.01, -0.01 ]
+		}
+	}
+LODValidity: 15
+ } ]
 SpawnModule: ParticleModuleSpawn: {	
 	Rate: {
+		MinValue: 2f
+		MaxValue: 2f
 		Distribution: 0
 		Table: {
 			Op: 1
 			EntryCount: 1
 			EntryStride: 1
-			Values: [ 0 ]
+			Values: [ 2 ]
 			}
 		}
 	RateScale: {
@@ -3052,6 +2864,15 @@ SpawnModule: ParticleModuleSpawn: {
 			Values: [ 1 ]
 			}
 		}
+	BurstList: [ { 
+	Count: 1
+	CountLow: 1
+	Time: 0f
+	 }, { 
+	Count: 1
+	CountLow: -1
+	Time: 0f
+	 } ]
 	BurstScale: {
 		MinValue: 1f
 		MaxValue: 1f
@@ -3063,14 +2884,193 @@ SpawnModule: ParticleModuleSpawn: {
 			Values: [ 1 ]
 			}
 		}
-	LODValidity: 14
+	LODValidity: 15
 	}
-PeakActiveParticles: 52
+PeakActiveParticles: 10
  }, { 
-RequiredModule: 105
-Modules: [ 82, 93, 133, 147, 71, 79, 115, 138, 123, 172, 63, 176, 61 ]
-SpawnModule: 165
-PeakActiveParticles: 62
+Level: 1
+RequiredModule: 113
+Modules: [ 88, 129, 75, 143, 121 ]
+SpawnModule: 167
+PeakActiveParticles: 6
+ }, { 
+Level: 2
+RequiredModule: 113
+Modules: [ 88, 129, 75, 143, 121 ]
+SpawnModule: 167
+PeakActiveParticles: 6
+ }, { 
+Level: 3
+RequiredModule: 113
+Modules: [ 88, 129, 75, 143, 121 ]
+SpawnModule: 167
+PeakActiveParticles: 6
+ } ]
+ }, { 
+EmitterName: Flame
+LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_FireCandle.MI_FireCandle
+	EmitterOrigin: Vector [X=-3, Y=3, Z=8]
+	ScreenAlignment: PSA_Rectangle
+	bUseLegacyEmitterTime: False
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		}
+	RandomImageTime: 1f
+	LODValidity: 15
+	}
+Modules: [ { 
+Lifetime: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+StartSize: {
+	MinValue: 0.8f
+	MaxValue: 4f
+	MinValueVec: Vector [X=0.8, Y=2, Z=0.8]
+	MaxValueVec: Vector [X=1, Y=4, Z=1]
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 0.8, 2, 0.8, 1, 4, 1 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+ColorOverLife: {
+	MinValue: 0.7f
+	MaxValue: 10f
+	MinValueVec: Vector [X=10, Y=3, Z=0.7]
+	MaxValueVec: Vector [X=10, Y=3, Z=0.7]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 10, 3, 0.7 ]
+		}
+	}
+AlphaOverLife: {
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 32
+		EntryStride: 1
+		TimeScale: 31f
+		Values: [ 0, 0.06451613, 0.1290323, 0.1935484, 0.2580645, 0.3225806, 0.3870968, 0.4516129, 0.516129, 0.5806452, 0.6451612, 0.7096774, 0.7741935, 0.8387097, 0.9032257, 0.9677419, 0.967742, 0.9032259, 0.8387097, 0.7741935, 0.7096775, 0.6451614, 0.5806452, 0.516129, 0.4516129, 0.3870969, 0.3225806, 0.2580644, 0.1935485, 0.1290325, 0.06451617, 0 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+LifeMultiplier: {
+	MinValue: 1f
+	MaxValue: 1.5f
+	MinValueVec: Vector [X=1, Y=1, Z=1]
+	MaxValueVec: Vector [X=1.5, Y=1.5, Z=1.5]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 32
+		EntryStride: 3
+		TimeScale: 31f
+		Values: [ 1, 1, 1, 1.032258, 1.032258, 1.032258, 1.064516, 1.064516, 1.064516, 1.096774, 1.096774, 1.096774, 1.129032, 1.129032, 1.129032, 1.16129, 1.16129, 1.16129, 1.193548, 1.193548, 1.193548, 1.225806, 1.225806, 1.225806, 1.258065, 1.258065, 1.258065, 1.290323, 1.290323, 1.290323, 1.322581, 1.322581, 1.322581, 1.354839, 1.354839, 1.354839, 1.387097, 1.387097, 1.387097, 1.419355, 1.419355, 1.419355, 1.451613, 1.451613, 1.451613, 1.483871, 1.483871, 1.483871, 1.483871, 1.483871, 1.483871, 1.451613, 1.451613, 1.451613, 1.419355, 1.419355, 1.419355, 1.387097, 1.387097, 1.387097, 1.354839, 1.354839, 1.354839, 1.322581, 1.322581, 1.322581, 1.290323, 1.290323, 1.290323, 1.258065, 1.258065, 1.258065, 1.225806, 1.225806, 1.225806, 1.193548, 1.193548, 1.193548, 1.16129, 1.16129, 1.16129, 1.129032, 1.129032, 1.129032, 1.096774, 1.096774, 1.096774, 1.064516, 1.064516, 1.064516, 1.032258, 1.032258, 1.032258, 1, 1, 1 ]
+		}
+	}
+LODValidity: 15
+ }, { 
+StartRotation: {
+	MinValue: 0.01f
+	MaxValue: -0.01f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0.01, -0.01 ]
+		}
+	}
+LODValidity: 15
+ } ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		MinValue: 2f
+		MaxValue: 2f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 2 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstList: [ { 
+	Count: 1
+	CountLow: 1
+	Time: 0f
+	 }, { 
+	Count: 1
+	CountLow: -1
+	Time: 0f
+	 } ]
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	LODValidity: 15
+	}
+PeakActiveParticles: 10
+ }, { 
+Level: 1
+RequiredModule: 114
+Modules: [ 89, 130, 76, 144, 122 ]
+SpawnModule: 168
+PeakActiveParticles: 6
+ }, { 
+Level: 2
+RequiredModule: 114
+Modules: [ 89, 130, 76, 144, 122 ]
+SpawnModule: 168
+PeakActiveParticles: 6
+ }, { 
+Level: 3
+RequiredModule: 114
+Modules: [ 89, 130, 76, 144, 122 ]
+SpawnModule: 168
+PeakActiveParticles: 6
  } ]
  } ]
 CurveEdSetup: 0

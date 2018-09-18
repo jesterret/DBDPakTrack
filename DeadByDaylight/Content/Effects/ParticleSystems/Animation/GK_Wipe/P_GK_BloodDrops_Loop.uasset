@@ -1,7 +1,266 @@
-Emitters: [ 20 ]
-CurveEdSetup: DistributionDragCoefficient: {	
-	Constant: 1f
+Emitters: [ { 
+EmitterName: CPU_particles
+LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: MaterialInstanceConstant /Game/Effects/Materials/Liquid/MI_BloodLitDrops.MI_BloodLitDrops
+	ScreenAlignment: PSA_Velocity
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		}
+	RandomImageTime: 1f
+	MaxDrawCount: 1000
+	LODValidity: 1
 	}
+Modules: [ { 
+UnitScalar: 1f
+SpawnPerUnit: {
+	MinValue: 0.5f
+	MaxValue: 1.5f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0.5, 1.5 ]
+		}
+	}
+bProcessSpawnRate: False
+LODValidity: 1
+ }, { 
+Lifetime: {
+	MinValue: 0.75f
+	MaxValue: 0.25f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0.75, 0.25 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartSize: {
+	MaxValue: 2.5f
+	MinValueVec: Vector [X=0.5, Y=0.5, Z=0]
+	MaxValueVec: Vector [X=2.5, Y=2.5, Z=2.5]
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 0.5, 0.5, 0, 2.5, 2.5, 2.5 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartLocation: {
+	MinValue: -20f
+	MinValueVec: Vector [X=-20, Y=-5, Z=-10]
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ -20, -5, -10, 0, 0, 0 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+Angle: {
+	MaxValue: 0.01f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0, 0.01 ]
+		}
+	}
+Velocity: {
+	MaxValue: 150f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0, 150 ]
+		}
+	}
+bEnabled: False
+LODValidity: 1
+ }, { 
+Scale: {
+	MaxValue: 0.2f
+	MaxValueVec: Vector [X=0.2, Y=0.2, Z=0.2]
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 0, 0, 0, 0.2, 0.2, 0.2 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+Acceleration: Vector [X=0, Y=0, Z=-500]
+bAlwaysInWorldSpace: True
+LODValidity: 1
+ }, { 
+ColorOverLife: {
+	MaxValue: 0.695f
+	MinValueVec: Vector [X=0.695, Y=0, Z=0]
+	MaxValueVec: Vector [X=0.695, Y=0, Z=0]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0.695, 0, 0 ]
+		}
+	}
+AlphaOverLife: {
+	MaxValue: 2f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 2
+		EntryStride: 2
+		SubEntryStride: 1
+		TimeScale: 1f
+		Values: [ 2, 2, 0, 0 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+LifeMultiplier: {
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 10f
+		Values: [ 0, 0, 0, 1, 1, 1 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+DragCoefficientRaw: {
+	Distribution: DistributionDragCoefficient: {	
+		Constant: 1f
+		}
+	}
+bAlwaysInWorldSpace: True
+LODValidity: 1
+ }, { 
+MaxScale: Vector2D [X=0.5, Y=1]
+LODValidity: 1
+ }, { 
+StartVelocity: {
+	MinValue: -50f
+	MaxValue: 50f
+	MinValueVec: Vector [X=-50, Y=-50, Z=-50]
+	MaxValueVec: Vector [X=50, Y=50, Z=0]
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ -50, -50, -50, 50, 50, 0 ]
+		}
+	}
+StartVelocityRadial: {
+	Distribution: DistributionStartVelocityRadial: {	
+		bCanBeBaked: False
+		}
+	Table: {
+		Values: [ 0 ]
+		}
+	}
+bInWorldSpace: True
+bEnabled: False
+LODValidity: 1
+ } ]
+TypeDataModule: ParticleModuleTypeDataGpu: {	
+	EmitterInfo: {
+		RequiredModule: 10
+		SpawnModule: ParticleModuleSpawn: {	
+			Rate: {
+				Distribution: 0
+				Table: {
+					Op: 1
+					EntryCount: 1
+					EntryStride: 1
+					Values: [ 0 ]
+					}
+				}
+			RateScale: {
+				MinValue: 1f
+				MaxValue: 1f
+				Distribution: 0
+				Table: {
+					Op: 1
+					EntryCount: 1
+					EntryStride: 1
+					Values: [ 1 ]
+					}
+				}
+			BurstScale: {
+				MinValue: 1f
+				MaxValue: 1f
+				Distribution: 0
+				Table: {
+					Op: 1
+					EntryCount: 1
+					EntryStride: 1
+					Values: [ 1 ]
+					}
+				}
+			LODValidity: 1
+			}
+		SpawnPerUnitModule: 15
+		SpawnModules: [ 10, 8, 11, 9, 19 ]
+		ConstantAcceleration: Vector [X=0, Y=0, Z=-500]
+		InvMaxSize: Vector2D [X=0.4, Y=0.4]
+		InvRotationRateScale: 4f
+		MaxLifetime: 0.25f
+		MaxParticleCount: 2
+		ScreenAlignment: PSA_Velocity
+		}
+	ResourceData: {
+		QuantizedColorSamples: [ Color [B=0, G=0, R=0, A=255], Color [B=0, G=0, R=0, A=0] ]
+		QuantizedMiscSamples: [ Color [B=0, G=0, R=0, A=0], Color [B=0, G=20, R=20, A=0], Color [B=0, G=40, R=40, A=0], Color [B=0, G=60, R=60, A=0], Color [B=0, G=80, R=80, A=0], Color [B=0, G=100, R=100, A=0], Color [B=0, G=120, R=120, A=0], Color [B=0, G=140, R=140, A=0], Color [B=0, G=160, R=160, A=0], Color [B=0, G=180, R=180, A=0], Color [B=0, G=200, R=200, A=0], Color [B=0, G=220, R=220, A=0], Color [B=0, G=240, R=240, A=0], Color [B=0, G=254, R=254, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=255, R=255, A=0] ]
+		ColorScale: Vector4 [X=0, Y=0, Z=0, W=2]
+		ColorBias: Vector4 [X=1, Y=1, Z=1, W=0]
+		MiscScale: Vector4 [X=2.5, Y=2.5, Z=0, W=0]
+		SimulationAttrCurveBias: Vector4 [X=1, Y=1, Z=0, W=1]
+		SubImageSize: Vector4 [X=1, Y=1, Z=1, W=1]
+		SizeBySpeed: Vector4 [X=0, Y=0, Z=0.5, W=1]
+		ConstantAcceleration: Vector [X=0, Y=0, Z=-500]
+		PerParticleVectorFieldBias: 1f
+		DragCoefficientBias: 1f
+		CollisionRadiusScale: 0.5f
+		OneMinusFriction: 1f
+		RotationRateScale: 0.25f
+		ScreenAlignment: PSA_Velocity
+		}
+	LODValidity: 1
+	}
+SpawnModule: 14
+PeakActiveParticles: 2
+ } ]
+ } ]
+CurveEdSetup: 0
 LODDistances: [ 0 ]
 LODSettings: [ 71 ]
 bUseFixedRelativeBoundingBox: True

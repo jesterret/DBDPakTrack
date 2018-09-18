@@ -1,22 +1,43 @@
 ParentClass: Class /Script/DeadByDaylight.ProjectedUserInterface
-SimpleConstructionScript: StaticMeshComponent: {	
-	StaticMesh: StaticMesh /Engine/BasicShapes/Cube.Cube
-	bUseDefaultCollision: False
-	OverrideMaterials: [ Material /Game/Materials/M_ProjectedUI.M_ProjectedUI ]
-	bGenerateOverlapEvents: False
-	BodyInstance: {
-		bNotifyRigidBodyCollision: True
+SimpleConstructionScript: SimpleConstructionScript: {	
+	RootNodes: [ { 
+	ComponentTemplate: StaticMeshComponent: {	
+		StaticMesh: StaticMesh /Engine/BasicShapes/Cube.Cube
+		bUseDefaultCollision: False
+		OverrideMaterials: [ Material /Game/Materials/M_ProjectedUI.M_ProjectedUI ]
+		bGenerateOverlapEvents: False
+		BodyInstance: {
+			bNotifyRigidBodyCollision: True
+			}
+		RelativeScale3D: Vector [X=0.001, Y=4, Z=4]
+		ComponentTags: [ ProjectionPanel ]
 		}
-	RelativeScale3D: Vector [X=0.001, Y=4, Z=4]
-	ComponentTags: [ ProjectionPanel ]
+	VariableName: ProjectionPanel
+	ChildNodes: [ { 
+	ComponentTemplate: BoxComponent: {	
+		BoxExtent: Vector [X=50, Y=50, Z=50]
+		ComponentTags: [ ProjectionPanel ]
+		}
+	VariableName: CollisionBox
+	VariableGuid: 0556a906-fa3a-4de4-9ad4-8666e8f1b7ad
+	 } ]
+	VariableGuid: 25842d25-1112-4981-8b45-351b0478e73c
+	 } ]
+	AllNodes: [ 17, 18 ]
+	DefaultSceneRootNode: SCS_Node: {	
+		ComponentTemplate: SceneComponent: {	
+			}
+		VariableName: DefaultSceneRoot
+		VariableGuid: 26750837-a48d-4fb9-94dd-f419f3ae904a
+		}
 	}
 BlueprintSystemVersion: 2
-GeneratedClass: Default__BP_ProjectedUserInterface_C: {	
-	UberGraphFrame: 50
-	PrimaryActorTick: {
-		bCanEverTick: True
+GeneratedClass: BP_ProjectedUserInterface_C: {	
+	SimpleConstructionScript: 19
+	UberGraphFramePointerProperty: UberGraphFrame: {	
 		}
-	Tags: [ ProjectionPanel ]
+	UberGraphFunction: ExecuteUbergraph_BP_ProjectedUserInterface: {	
+		}
 	}
 bLegacyNeedToPurgeSkelRefs: False
 bLegacyGeneratedClassIsAuthoritative: True

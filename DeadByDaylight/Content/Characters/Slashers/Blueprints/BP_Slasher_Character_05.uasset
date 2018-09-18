@@ -1,53 +1,101 @@
 ParentClass: BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/BP_Slasher_Character.BP_Slasher_Character_C
-SimpleConstructionScript: CharacterMesh0: {	
-	AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Animations/SlasherFemale01/AB_SlasherFemale02.AB_SlasherFemale02_C
-	SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Witch/Models/WI_DSkeleton_REF.WI_DSkeleton_REF
-	BodyInstance: {
-		CollisionProfileName: Ragdoll
-		CollisionResponses: {
-			ResponseArray: [ { 
-			Channel: Pawn
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Visibility
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Camera
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Interactable
-			Response: ECR_Block
-			 }, { 
-			Channel: Audio
-			Response: ECR_Block
-			 }, { 
-			Channel: Slasher
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Spider
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Traps
-			Response: ECR_Ignore
-			 }, { 
-			Channel: InteractionDetector
-			Response: ECR_Ignore
-			 } ]
-			}
-		bNotifyRigidBodyCollision: True
-		bSimulatePhysics: True
-		ObjectType: ECC_PhysicsBody
+SimpleConstructionScript: SimpleConstructionScript: {	
+	RootNodes: [ { 
+	ComponentTemplate: P_TrapImpact_GEN_VARIABLE: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_TrapImpact.P_TrapImpact
+		RelativeLocation: Vector [X=0, Y=0, Z=103]
+		RelativeRotation: Rotator [Pitch=0, Roll=89.99999, Yaw=0]
+		bAutoActivate: False
 		}
-	AttachParent: DreamworldComponent: {	
+	VariableName: P_TrapImpact
+	AttachToName: FX_TrapImpact
+	ParentComponentOrVariableName: CharacterMesh0
+	bIsParentComponentNative: True
+	VariableGuid: 14a72bb2-1b00-47fd-93a9-807e0d4eb8a8
+	 }, { 
+	ComponentTemplate: TrapPlacer_GEN_VARIABLE: {	
+		_indicatorOffset: 40f
+		_trapPlacementRaycastStart: Vector [X=0, Y=0, Z=25]
+		_trapPlacementRaycastEnd: Vector [X=0, Y=0, Z=-50]
+		_itemTrapId: Item_Slasher_PhantomTrap
+		RelativeLocation: Vector [X=0, Y=0, Z=103]
+		RelativeRotation: Rotator [Pitch=0, Roll=89.99999, Yaw=0]
+		}
+	VariableName: TrapPlacer
+	ParentComponentOrVariableName: CharacterMesh0
+	bIsParentComponentNative: True
+	VariableGuid: 32c6ef19-6875-44d2-adc8-059fa0101143
+	 }, { 
+	ComponentTemplate: P_Vignette_Mud_RightB_GEN_VARIABLE: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/P_Vignette_Mud.P_Vignette_Mud
+		RelativeLocation: Vector [X=0, Y=0, Z=-1]
+		bAutoActivate: False
+		}
+	VariableName: P_Vignette_Mud_RightB
+	ParentComponentOrVariableName: ScreenSpaceLocation_RightB
+	ParentComponentOwnerClassName: BP_Slasher_Character_C
+	VariableGuid: 1ad43c81-d476-4f42-bd1f-3d1523efe032
+	 }, { 
+	ComponentTemplate: P_Vignette_Mud_LeftB_GEN_VARIABLE: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/P_Vignette_Mud.P_Vignette_Mud
+		RelativeLocation: Vector [X=0, Y=0, Z=-1]
+		RelativeRotation: Rotator [Pitch=0, Roll=180, Yaw=0]
+		bAutoActivate: False
+		}
+	VariableName: P_Vignette_Mud_LeftB
+	ParentComponentOrVariableName: ScreenSpaceLocation_LeftB
+	ParentComponentOwnerClassName: BP_Slasher_Character_C
+	VariableGuid: 062d342f-0ab8-4065-b246-52d819b09d0a
+	 }, { 
+	ComponentTemplate: TeleportAttackTimer_GEN_VARIABLE: {	
+		}
+	VariableName: TeleportAttackTimer
+	VariableGuid: 0850cdd4-276f-4132-aec3-15186be4323c
+	 } ]
+	AllNodes: [ 175, 176, 177, 178, 179 ]
+	DefaultSceneRootNode: SCS_Node: {	
+		ComponentTemplate: DefaultSceneRoot_GEN_VARIABLE: {	
+			}
+		VariableName: DefaultSceneRoot
+		VariableGuid: c7399586-2d9b-47d1-8f1b-ae517b07fe96
 		}
 	}
 Timelines: [ { 
-TimelineLength: 0.5f
+TimelineLength: 1f
 bValidatedAsWired: True
 FloatTracks: [ { 
+CurveFloat: CurveFloat_0_1__71EEED09__79CD0ECA_0__045D5749: {	
+	FloatCurve: {
+		Keys: [ RichCurveKey [InterpMode=2, TangentMode=1, TangentWeightMode=0, Time=0.15, Value=0, ArriveTangent=4.779079, ArriveTangentWeight=0, LeaveTangent=4.779079, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=1, TangentWeightMode=0, Time=0.3, Value=1, ArriveTangent=4.210451, ArriveTangentWeight=0, LeaveTangent=4.210451, LeaveTangentWeight=0] ]
+		}
+	}
+TrackName: 01
+bIsExternalCurve: False
+ }, { 
 CurveFloat: CurveFloat_1_2__F8FE0E88__CCEA5539_0__4DEB1848: {	
 	FloatCurve: {
 		Keys: [ RichCurveKey [InterpMode=2, TangentMode=1, TangentWeightMode=0, Time=0.3, Value=-0.01356113, ArriveTangent=2.174124, ArriveTangentWeight=0, LeaveTangent=2.174124, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=1, TangentWeightMode=0, Time=0.55, Value=1, ArriveTangent=5.627564, ArriveTangentWeight=0, LeaveTangent=5.627564, LeaveTangentWeight=0] ]
+		}
+	}
+TrackName: 02
+bIsExternalCurve: False
+ }, { 
+CurveFloat: CurveFloat_2_3__37DCBB1D__C80F4FC8_0__E9DA5DE5: {	
+	FloatCurve: {
+		Keys: [ RichCurveKey [InterpMode=2, TangentMode=1, TangentWeightMode=0, Time=0.85, Value=0, ArriveTangent=8.987078, ArriveTangentWeight=0, LeaveTangent=8.987078, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=1, TangentWeightMode=0, Time=1, Value=1, ArriveTangent=5.225539, ArriveTangentWeight=0, LeaveTangent=5.225539, LeaveTangentWeight=0] ]
+		}
+	}
+TrackName: 03
+bIsExternalCurve: False
+ } ]
+TimelineGuid: 8fec2cd8-ba72-42b6-8529-c32730d7ecc2
+ }, { 
+TimelineLength: 0.5f
+bValidatedAsWired: True
+FloatTracks: [ { 
+CurveFloat: CurveFloat_0_1__71EEED09__79CD0ECA_0__045D5749_0__4AAB80A0: {	
+	FloatCurve: {
+		Keys: [ RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0, Value=1.1, ArriveTangent=4.779079, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0.5, Value=0, ArriveTangent=4.210451, ArriveTangentWeight=0, LeaveTangent=4.210451, LeaveTangentWeight=0] ]
 		}
 	}
 TrackName: 01
@@ -58,159 +106,49 @@ TimelineGuid: c9211c17-91fe-4702-a21f-8206449729e4
 TimelineLength: 2f
 bValidatedAsWired: True
 FloatTracks: [ { 
-CurveFloat: CurveFloat_2_3__37DCBB1D__C80F4FC8_0__E9DA5DE5: {	
+CurveFloat: CurveFloat_2_3__37DCBB1D: {	
 	FloatCurve: {
-		Keys: [ RichCurveKey [InterpMode=2, TangentMode=1, TangentWeightMode=0, Time=0.85, Value=0, ArriveTangent=8.987078, ArriveTangentWeight=0, LeaveTangent=8.987078, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=1, TangentWeightMode=0, Time=1, Value=1, ArriveTangent=5.225539, ArriveTangentWeight=0, LeaveTangent=5.225539, LeaveTangentWeight=0] ]
+		Keys: [ RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0.1, Value=0, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=1.2, Value=0, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=2, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0] ]
 		}
 	}
 TrackName: Anim
 bIsExternalCurve: False
  }, { 
-CurveFloat: CustomizedSkeletalMeshB61AA9BA457C1A7B84E6EEA183DC7931: {	
-	SlaveAnimInstanceClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Animations/SlasherAnimSlaveFemale.SlasherAnimSlaveFemale_C
+CurveFloat: CurveFloat: {	
+	FloatCurve: {
+		Keys: [ RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0, Value=0.0002390146, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0.1, Value=1.01, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=1, TangentWeightMode=0, Time=0.5, Value=1.01, ArriveTangent=-1.665249, ArriveTangentWeight=0, LeaveTangent=-1.665249, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=0, TangentWeightMode=0, Time=1.5, Value=0, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=-0.3909595, LeaveTangentWeight=0] ]
+		}
 	}
 TrackName: Mud
 bIsExternalCurve: False
  } ]
 TimelineGuid: ef3920d8-c6ba-45c2-963a-62d6a2083445
- }, { 
-_indicatorOffset: 40f
-_trapPlacementRaycastStart: Vector [X=0, Y=0, Z=25]
-_trapPlacementRaycastEnd: Vector [X=0, Y=0, Z=-50]
-_itemTrapId: Item_Slasher_PhantomTrap
-RelativeLocation: Vector [X=0, Y=0, Z=103]
-RelativeRotation: Rotator [Pitch=0, Roll=89.99999, Yaw=0]
  } ]
-InheritableComponentHandler: MontagePlayer: {	
-	_playerSpecificMappingsTable: DataTable /Game/Characters/Slashers/Animations/MontageMappings/Slasher005_AnimMappings.Slasher005_AnimMappings
+InheritableComponentHandler: InheritableComponentHandler: {	
+	Records: [ { 
+	ComponentTemplate: CustomizedSkeletalMeshB61AA9BA457C1A7B84E6EEA183DC7931: {	
+		SlaveAnimInstanceClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Animations/SlasherAnimSlaveFemale.SlasherAnimSlaveFemale_C
+		}
+	ComponentKey: {
+		OwnerClass: BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/BP_Slasher_Character.BP_Slasher_Character_C
+		SCSVariableName: CustomizedSkeletalMesh
+		AssociatedGuid: cf991574-2433-4082-a040-f8f04be88a2d
+		}
+	CookedComponentInstancingData: {
+		bIsValid: False
+		ChangedPropertyList: [  ]
+		}
+	 } ]
 	}
 BlueprintSystemVersion: 2
-GeneratedClass: Default__BP_Slasher_Character_05_C: {	
-	UberGraphFrame: 365
-	TeleportCooldown: {
-		_startTime: 0f
-		_startTimeDirty: True
-		_timeLeft: {
-			_value: 0f
-			}
-		_replicateTimeLeft: False
-		_interpSpeed: 1f
+GeneratedClass: BP_Slasher_Character_05_C: {	
+	Timelines: [ 185, 186, 187 ]
+	SimpleConstructionScript: 180
+	InheritableComponentHandler: 164
+	UberGraphFramePointerProperty: UberGraphFrame: {	
 		}
-	TrapTransform: {
-		Rotation: Quat [X=0, Y=0, Z=0, W=1]
-		Translation: Vector [X=0, Y=0, Z=0]
-		Scale3D: Vector [X=1, Y=1, Z=1]
+	UberGraphFunction: ExecuteUbergraph_BP_Slasher_Character_05: {	
 		}
-	SetTrapAnimMontageName: BearTrapSet_Middle
-	DefaultSlasherPower: Item_Slasher_PhantomTrap
-	KillerMoodInfluence: EKillerMoodInfluence::VE_Chuckles
-	KillerAbilities: [ EKillerAbilities::VE_PhantomTrap, EKillerAbilities::VE_Kill05 ]
-	_camperSensor: PlayerData: {	
-		}
-	_stillnessTracker: Timeline_2_Template: {	
-		TimelineLength: 1f
-		bValidatedAsWired: True
-		FloatTracks: [ { 
-		CurveFloat: CurveFloat_0_1__71EEED09__79CD0ECA_0__045D5749_0__4AAB80A0: {	
-			FloatCurve: {
-				Keys: [ RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0, Value=1.1, ArriveTangent=4.779079, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0.5, Value=0, ArriveTangent=4.210451, ArriveTangentWeight=0, LeaveTangent=4.210451, LeaveTangentWeight=0] ]
-				}
-			}
-		TrackName: 01
-		bIsExternalCurve: False
-		 }, { 
-		CurveFloat: CurveFloat_2_3__37DCBB1D: {	
-			FloatCurve: {
-				Keys: [ RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0.1, Value=0, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=1.2, Value=0, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=2, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0] ]
-				}
-			}
-		TrackName: 02
-		bIsExternalCurve: False
-		 }, { 
-		CurveFloat: CurveFloat: {	
-			FloatCurve: {
-				Keys: [ RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0, Value=0.0002390146, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0.1, Value=1.01, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=1, TangentWeightMode=0, Time=0.5, Value=1.01, ArriveTangent=-1.665249, ArriveTangentWeight=0, LeaveTangent=-1.665249, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=0, TangentWeightMode=0, Time=1.5, Value=0, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=-0.3909595, LeaveTangentWeight=0] ]
-				}
-			}
-		TrackName: 03
-		bIsExternalCurve: False
-		 } ]
-		TimelineGuid: 8fec2cd8-ba72-42b6-8529-c32730d7ecc2
-		}
-	_fullBodyFlashLightReceiver: InheritableComponentHandler: {	
-		Records: [ { 
-		ComponentTemplate: CamperSensor: {	
-			OnSeePawn: OnChaseTargetFound
-			}
-		ComponentKey: {
-			OwnerClass: BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/BP_Slasher_Character.BP_Slasher_Character_C
-			SCSVariableName: CustomizedSkeletalMesh
-			AssociatedGuid: cf991574-2433-4082-a040-f8f04be88a2d
-			}
-		CookedComponentInstancingData: {
-			bIsValid: False
-			ChangedPropertyList: [  ]
-			}
-		 } ]
-		}
-	_invisibilityBurnoutChargeableComponent: CurveFloat_0_1__71EEED09__79CD0ECA_0__045D5749: {	
-		FloatCurve: {
-			Keys: [ RichCurveKey [InterpMode=2, TangentMode=1, TangentWeightMode=0, Time=0.15, Value=0, ArriveTangent=4.779079, ArriveTangentWeight=0, LeaveTangent=4.779079, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=1, TangentWeightMode=0, Time=0.3, Value=1, ArriveTangent=4.210451, ArriveTangentWeight=0, LeaveTangent=4.210451, LeaveTangentWeight=0] ]
-			}
-		}
-	AudioCharacterName: Witch
-	CharacterClothes: Killer_Witch
-	CharacterShoes: Barefoot
-	CharacterWeapon: Claw
-	BlindingChargeableComponent: InvisibilityBurnoutChargeableComponent: {	
-		OnInteractionEmptiedEvent: OnInvisibilityChargeEmptied
-		ChargeAppliedAuthorityDelegate: Authority_OnInvisibilityBurnoutChargeApplied
-		}
-	_pixelCounter: CameraHandlerComponent: {	
-		}
-	_SM: StillnessTracker: {	
-		}
-	_interactionHandler: EventListener: {	
-		}
-	_montagePlayer: P_TrapImpact_GEN_VARIABLE: {	
-		Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_TrapImpact.P_TrapImpact
-		RelativeLocation: Vector [X=0, Y=0, Z=103]
-		RelativeRotation: Rotator [Pitch=0, Roll=89.99999, Yaw=0]
-		bAutoActivate: False
-		}
-	_perkManager: InteractionHandler: {	
-		}
-	_playerData: TeleportAttackTimer_GEN_VARIABLE: {	
-		}
-	_characterSnappingComponent: BlindnessChargeableComponent: {	
-		OnInteractionEmptiedEvent: OnBlindChargeEmptied
-		ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
-		}
-	_dreamworldComponent: SnappingComponent: {	
-		}
-	_cameraHandlerComponent: CollisionCylinder: {	
-		}
-	_itemDropOffPosition: SCS_Node: {	
-		ComponentTemplate: ItemDropOffPosition: {	
-			AttachParent: 148
-			}
-		VariableName: DefaultSceneRoot
-		VariableGuid: c7399586-2d9b-47d1-8f1b-ae517b07fe96
-		}
-	TunableDB: {
-		AssetPtr: /Game/Data/WitchTunableDB.WitchTunableDB
-		}
-	_eventListener: DefaultSceneRoot_GEN_VARIABLE: {	
-		}
-	_meatHookZoneDetector: 189
-	_authoritativeMovementComponent: 144
-	_characterIndex: 268435460
-	Mesh: CharMoveComp: {	
-		}
-	CharacterMovement: SlasherStateMachine: {	
-		}
-	CapsuleComponent: 148
-	RootComponent: 148
 	}
 bLegacyNeedToPurgeSkelRefs: False
 bLegacyGeneratedClassIsAuthoritative: True

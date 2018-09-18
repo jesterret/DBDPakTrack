@@ -1,6 +1,183 @@
-Emitters: [ 14 ]
-CurveEdSetup: RequiredDistributionSpawnRate: {	
+Emitters: [ { 
+EmitterName: Glow
+LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Glow.MI_Glow
+	bUseLocalSpace: True
+	bUseLegacyEmitterTime: False
+	EmitterDuration: 5f
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		}
+	RandomImageTime: 1f
+	LODValidity: 1
 	}
+Modules: [ { 
+Events: [ { 
+Type: EPET_Spawn
+Frequency: 0
+ParticleFrequency: 0
+FirstTimeOnly: False
+LastTimeOnly: False
+UseReflectedImpactVector: False
+bUseOrbitOffset: False
+CustomName: ParticleBirth
+ParticleModuleEventsToSendToGame: [  ]
+ } ]
+LODValidity: 1
+ }, { 
+Lifetime: {
+	MinValue: 0.2f
+	MaxValue: 0.2f
+	Distribution: DistributionFloatParticleParameter: {	
+		ParameterName: Lifetime
+		ParamMode: DPM_Direct
+		Constant: 1f
+		}
+	Table: {
+		Values: [ 0.2 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartSize: {
+	MinValue: 2f
+	MaxValue: 2f
+	MinValueVec: Vector [X=2, Y=2, Z=2]
+	MaxValueVec: Vector [X=2, Y=2, Z=2]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 2, 2, 2 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+ColorOverLife: {
+	MinValue: 5f
+	MaxValue: 50f
+	MinValueVec: Vector [X=50, Y=10, Z=5]
+	MaxValueVec: Vector [X=50, Y=10, Z=5]
+	Distribution: DistributionVectorParticleParameter: {	
+		ParameterName: LightColor
+		MaxInput: Vector [X=500, Y=500, Z=500]
+		MaxOutput: Vector [X=500, Y=500, Z=500]
+		ParamModes: DPM_Direct
+		ParamModes: DPM_Direct
+		ParamModes: DPM_Direct
+		Constant: Vector [X=5, Y=5, Z=5]
+		bIsDirty: False
+		}
+	Table: {
+		Values: [ 50, 10, 5 ]
+		}
+	}
+AlphaOverLife: {
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 32
+		EntryStride: 1
+		TimeScale: 31f
+		Values: [ 0, 0.06451613, 0.1290323, 0.1935484, 0.2580645, 0.3225806, 0.3870968, 0.4516129, 0.516129, 0.5806452, 0.6451612, 0.7096774, 0.7741935, 0.8387097, 0.9032257, 0.9677419, 0.967742, 0.9032259, 0.8387097, 0.7741935, 0.7096775, 0.6451614, 0.5806452, 0.516129, 0.4516129, 0.3870969, 0.3225806, 0.2580644, 0.1935485, 0.1290325, 0.06451617, 0 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+ColorScaleOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	MinValueVec: Vector [X=1, Y=1, Z=1]
+	MaxValueVec: Vector [X=1, Y=1, Z=1]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 1, 1, 1 ]
+		}
+	}
+BrightnessOverLife: {
+	MinValue: 200f
+	MaxValue: 200f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 200 ]
+		}
+	}
+RadiusScale: {
+	MinValue: 12f
+	MaxValue: 12f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 12 ]
+		}
+	}
+LightExponent: {
+	MinValue: 20f
+	MaxValue: 20f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 20 ]
+		}
+	}
+LODValidity: 1
+ } ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: DistributionFloatParticleParameter: {	
+			ParameterName: SpawnRate
+			MaxInput: 5f
+			MaxOutput: 5f
+			ParamMode: DPM_Direct
+			Constant: 0.5f
+			}
+		Table: {
+			Values: [ 1 ]
+			}
+		}
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: DistributionFloatConstant: {	
+			}
+		Table: {
+			Values: [ 1 ]
+			}
+		}
+	LODValidity: 1
+	}
+EventGenerator: 8
+PeakActiveParticles: 3
+ } ]
+ } ]
+CurveEdSetup: 0
 LODDistances: [ 0 ]
 LODSettings: [ 64 ]
 FixedRelativeBoundingBox: Box [Min={ 

@@ -2,6 +2,19 @@ BoundsBodies: [ 0, 1, 2, 3 ]
 SkeletalBodySetups: [ { 
 AggGeom: {
 	SphylElems: [ { 
+	Center: Vector [X=0.8404009, Y=-1.414739, Z=0.06641293]
+	Orientation: Quat [X=0.5, Y=0.5, Z=0.5, W=0.5]
+	Radius: 3.230924f
+	Length: 3.148733f
+	 } ]
+	}
+BoneName: joint_char
+PhysicsType: PhysType_Kinematic
+CollisionReponse: EBodyCollisionResponse::BodyCollision_Disabled
+CollisionTraceFlag: CTF_UseSimpleAsComplex
+ }, { 
+AggGeom: {
+	SphylElems: [ { 
 	Center: Vector [X=3.09688, Y=-0.07143664, Z=0.1133678]
 	Orientation: Quat [X=0.5, Y=0.5, Z=0.5, W=0.5]
 	Radius: 2.258396f
@@ -62,8 +75,29 @@ DefaultInstance: {
 	VelocitySolverIterationCount: 100
 	SleepFamily: ESleepFamily::Custom
 	}
- }, 8 ]
+ } ]
 ConstraintSetup: [ { 
+DefaultInstance: {
+	JointName: joint_B01
+	ConstraintBone1: joint_B01
+	ConstraintBone2: joint_char
+	Pos2: Vector [X=6.287111, Y=9.714451E-17, Z=6.980096E-16]
+	PriAxis2: Vector [X=0.8521202, Y=0.5233461, Z=2.280301E-31]
+	SecAxis2: Vector [X=-0.5233461, Y=0.8521202, Z=-2.958228E-31]
+	ProfileInstance: {
+		ConeLimit: {
+			Swing1LimitDegrees: 25f
+			Swing2LimitDegrees: 5f
+			Swing1Motion: ACM_Limited
+			Swing2Motion: ACM_Limited
+			}
+		TwistLimit: {
+			TwistLimitDegrees: 5f
+			TwistMotion: ACM_Limited
+			}
+		}
+	}
+ }, { 
 DefaultInstance: {
 	JointName: joint_B02
 	ConstraintBone1: joint_B02
@@ -104,17 +138,4 @@ DefaultInstance: {
 			}
 		}
 	}
- }, { 
-AggGeom: {
-	SphylElems: [ { 
-	Center: Vector [X=0.8404009, Y=-1.414739, Z=0.06641293]
-	Orientation: Quat [X=0.5, Y=0.5, Z=0.5, W=0.5]
-	Radius: 3.230924f
-	Length: 3.148733f
-	 } ]
-	}
-BoneName: joint_char
-PhysicsType: PhysType_Kinematic
-CollisionReponse: EBodyCollisionResponse::BodyCollision_Disabled
-CollisionTraceFlag: CTF_UseSimpleAsComplex
  } ]

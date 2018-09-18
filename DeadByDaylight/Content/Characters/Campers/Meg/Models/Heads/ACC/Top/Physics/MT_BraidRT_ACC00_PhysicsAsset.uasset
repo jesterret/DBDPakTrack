@@ -2,6 +2,16 @@ BoundsBodies: [ 0, 1, 2, 3 ]
 SkeletalBodySetups: [ { 
 AggGeom: {
 	SphereElems: [ { 
+	Center: Vector [X=0.09066775, Y=-0.08388373, Z=0.1600006]
+	Radius: 0.5f
+	 } ]
+	}
+BoneName: joint_charRT
+PhysicsType: PhysType_Kinematic
+CollisionTraceFlag: CTF_UseSimpleAsComplex
+ }, { 
+AggGeom: {
+	SphereElems: [ { 
 	Center: Vector [X=-0.00397196, Y=0.01502473, Z=0.008200005]
 	Radius: 0.5f
 	 } ]
@@ -50,8 +60,22 @@ DefaultInstance: {
 	PositionSolverIterationCount: 100
 	VelocitySolverIterationCount: 100
 	}
- }, 8 ]
+ } ]
 ConstraintSetup: [ { 
+DefaultInstance: {
+	JointName: joint_BraidRT_01
+	ConstraintBone1: joint_BraidRT_01
+	ConstraintBone2: joint_charRT
+	Pos2: Vector [X=7.401722, Y=4.768372E-07, Z=-3.566015E-08]
+	PriAxis2: Vector [X=0.9968521, Y=0.07928327, Z=4.538023E-09]
+	SecAxis2: Vector [X=-0.07928324, Y=0.9968521, Z=-6.451793E-08]
+	ProfileInstance: {
+		TwistLimit: {
+			TwistMotion: ACM_Locked
+			}
+		}
+	}
+ }, { 
 DefaultInstance: {
 	JointName: joint_BraidRT_02
 	ConstraintBone1: joint_BraidRT_02
@@ -83,14 +107,4 @@ DefaultInstance: {
 			}
 		}
 	}
- }, { 
-AggGeom: {
-	SphereElems: [ { 
-	Center: Vector [X=0.09066775, Y=-0.08388373, Z=0.1600006]
-	Radius: 0.5f
-	 } ]
-	}
-BoneName: joint_charRT
-PhysicsType: PhysType_Kinematic
-CollisionTraceFlag: CTF_UseSimpleAsComplex
  } ]

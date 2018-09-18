@@ -1,158 +1,208 @@
 ParentClass: Class /Script/DeadByDaylight.SlasherPlayer
-SimpleConstructionScript: CharacterMesh0: {	
-	bAlwaysMarkRenderStateAsDirty: True
-	bEnableUpdateRateOptimizations: True
-	OverrideMaterials: [ { 
-	 }, 0, MaterialInstanceConstant /Game/Characters/Slashers/Trapper/Materials/MI_TRLegs01.MI_TRLegs01 ]
-	bCastCinematicShadow: True
-	BodyInstance: {
-		CollisionResponses: {
-			ResponseArray: [ { 
-			Channel: Pawn
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Vehicle
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Camera
-			Response: ECR_Ignore
-			 } ]
+SimpleConstructionScript: SimpleConstructionScript: {	
+	RootNodes: [ { 
+	ComponentTemplate: TransformFollower: {	
+		FollowSpeed: Vector [X=1000, Y=1000, Z=1000]
+		}
+	VariableName: TransformFollower
+	ParentComponentOrVariableName: CollisionCylinder
+	bIsParentComponentNative: True
+	ChildNodes: [ { 
+	ComponentTemplate: CameraComponent: {	
+		FieldOfView: 87f
+		}
+	VariableName: Camera1
+	ChildNodes: [ { 
+	ComponentTemplate: PostProcessComponent: {	
+		Settings: {
+			FilmWhitePoint: LinearColor [R=0.97, G=0.867116, B=0.558464, A=393]
+			FilmSaturation: 0.99115f
+			FilmContrast: 0.061947f
+			SceneFringeIntensity: 0.929204f
+			VignetteIntensity: 0.743362f
+			IndirectLightingColor: LinearColor [R=0.815, G=0.065122, B=0, A=0]
+			ColorGradingIntensity: 0.371681f
+			ColorGradingLUT: Texture2D /Game/Effects/Textures/color_swatch.color_swatch
+			DepthOfFieldMethod: DOFM_Gaussian
+			DepthOfFieldFarBlurSize: 18.68142f
 			}
-		MassInKgOverride: 0f
+		bUnbound: False
+		bVisible: False
+		RelativeLocation: Vector [X=201.9999, Y=0, Z=14.00005]
 		}
-	BoundsScale: 2f
-	AttachParent: DreamworldComponent: {	
+	VariableName: PostProcess
+	VariableGuid: 9a11860e-9e3c-4783-8a46-e6ae12d1d37e
+	 }, { 
+	ComponentTemplate: ParticleSystem19A2C95CD49D002146DF21EA0F73A269F: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/P_FullscreenBlood.P_FullscreenBlood
+		RelativeLocation: Vector [X=16.99999, Y=0, Z=0]
+		bAutoActivate: False
 		}
-	RelativeLocation: Vector [X=0, Y=0, Z=-103]
-	RelativeRotation: Rotator [Pitch=0, Roll=-90, Yaw=0]
-	}
-Timelines: [ { 
-TimelineLength: 0.7f
-bValidatedAsWired: True
-FloatTracks: [ { 
-CurveFloat: CurveFloat_3_4__31AECFCB: {	
-	FloatCurve: {
-		Keys: [ RichCurveKey [InterpMode=2, TangentMode=1, TangentWeightMode=0, Time=0, Value=0, ArriveTangent=0.007033875, ArriveTangentWeight=0, LeaveTangent=0.007033875, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=1, TangentWeightMode=0, Time=2, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0] ]
-		}
-	}
-TrackName: Dissolve
-bIsExternalCurve: False
- } ]
-TimelineGuid: 99584b45-abde-4ecd-8c6e-be86001b24d0
- }, { 
-FollowSpeed: Vector [X=1000, Y=1000, Z=1000]
- }, { 
-TimelineLength: 2f
-bValidatedAsWired: True
-FloatTracks: [ { 
-CurveFloat: CustomizedSkeletalMeshB61AA9BA457C1A7B84E6EEA183DC7931: {	
-	SlaveAnimInstanceClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Animations/SlasherAnimSlaveMale.SlasherAnimSlaveMale_C
-	}
-TrackName: Fade
-bIsExternalCurve: False
- }, { 
-CurveFloat: CurveFloat_0_1__71EEED09: {	
-	FloatCurve: {
-		Keys: [ RichCurveKey [InterpMode=2, TangentMode=0, TangentWeightMode=0, Time=0, Value=0, ArriveTangent=11.20006, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=0, TangentWeightMode=0, Time=0.1, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=0, TangentWeightMode=0, Time=1, Value=0, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=-9.534247, LeaveTangentWeight=0] ]
-		}
-	}
-TrackName: Distortion
-bIsExternalCurve: False
- } ]
-TimelineGuid: b6144bae-61d5-4040-bceb-06f8a3a57da4
- } ]
-BlueprintSystemVersion: 2
-GeneratedClass: Default__BP_Slasher_Character_C: {	
-	UberGraphFrame: 885
-	CenterOfWorld: {
-		Rotation: Quat [X=0, Y=0, Z=0, W=1]
-		Translation: Vector [X=0, Y=0, Z=0]
-		Scale3D: Vector [X=1, Y=1, Z=1]
-		}
-	InitialSpotLightColor: LinearColor [R=0.76, G=0, B=0, A=0]
-	RightFootSocket: RightFootIKSocket
-	LeftFootSocket: LeftFootIKSocket
-	StartingMeshOffset: Vector [X=0, Y=0, Z=0]
-	Trap Indicator Offset: -40f
-	FirstPersonCarryOffset: Vector [X=0, Y=0, Z=0]
-	FirstPersonCarryOffsetLookingDown: Vector [X=0, Y=0, Z=0]
-	RevealedColour: LinearColor [R=1, G=0.023783, B=0.129048, A=0.914]
-	UnrevealedColour: LinearColor [R=0, G=0, B=0, A=0]
-	DissolveMaterialGroupName: Dissolve
-	FirstPersonMaterialGroupName: FirstPerson
-	DissolveGroupName: Dissolve
-	FirstPersonDissolve: FirstPerson_Dissolve
-	FirstPersonGroupName: FirstPerson
-	Weapon: Weapon
-	DeafenTimer: {
-		_startTime: 0f
-		_startTimeDirty: True
-		_timeLeft: {
-			_value: 0f
-			}
-		_replicateTimeLeft: False
-		_interpSpeed: 1f
-		}
-	TrapPlacementRaycastStart: Vector [X=0, Y=0, Z=25]
-	TrapPlacementRaycastEnd: Vector [X=0, Y=0, Z=-50]
-	BlindnessCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/BlindnessCurve.BlindnessCurve
-	PutDownTraceLocation: Vector [X=1, Y=-50, Z=0]
-	DefaultSlasherPower: Item_Slasher_Beartrap
-	LoudNoiseDisplayTime: 10f
-	CamperExposer: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Entity/CamperTrackers/BP_ExposerCrow.BP_ExposerCrow_C
-	KillerAbilities: [ EKillerAbilities::VE_SpawnTraps, EKillerAbilities::VE_Kill01 ]
-	AttackForwardInputSmoothingCurve: CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/ForwardInputSmoothingCurve.ForwardInputSmoothingCurve
-	_camperSensor: PlayerData: {	
-		SoundDisplayLifetime: 5f
-		}
-	_stillnessTracker: Bloodlust Timeline_Template: {	
-		TimelineLength: 1f
-		bValidatedAsWired: True
-		FloatTracks: [ { 
-		CurveFloat: CurveFloat_1_2__F8FE0E88_0__695A75DA_0__256B4035_0__93CBDD9C_0_1__8B7580B4_0__AAFCAE8B_0__3B92D941: {	
-			FloatCurve: {
-				Keys: [ RichCurveKey [InterpMode=2, TangentMode=1, TangentWeightMode=0, Time=0, Value=0, ArriveTangent=-0.02971441, ArriveTangentWeight=0, LeaveTangent=-0.02971441, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=1, TangentWeightMode=0, Time=0.7, Value=1, ArriveTangent=-0.03030855, ArriveTangentWeight=0, LeaveTangent=-0.03030855, LeaveTangentWeight=0] ]
-				}
-			}
-		TrackName: Blend
-		bIsExternalCurve: False
-		 } ]
-		TimelineGuid: 7510578b-070d-48e7-92b9-84993f25943f
-		}
-	_fullBodyFlashLightReceiver: LoudNoiseHUDIndicator7C90E1D2468056CDB31015A780409DE1: {	
+	VariableName: Fx_FSbloodfx
+	VariableGuid: 77e7c5b5-fc4c-4b18-b358-534cca10cbc4
+	 }, { 
+	ComponentTemplate: LoudNoiseHUDIndicator7C90E1D2468056CDB31015A780409DE1: {	
 		MaskMesh: StaticMesh /Game/Effects/Mesh/IndicatorMeshCircle2.IndicatorMeshCircle2
 		ScreenFadeOutDistance: 500f
 		RelativeLocation: Vector [X=25, Y=0, Z=0]
 		}
-	_invisibilityBurnoutChargeableComponent: CurveFloat_0_1__71EEED09: {	
-		FloatCurve: {
-			Keys: [ RichCurveKey [InterpMode=2, TangentMode=0, TangentWeightMode=0, Time=0, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=0, TangentWeightMode=0, Time=2, Value=0.7, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0] ]
+	VariableName: LoudNoiseHUDIndicator
+	VariableGuid: 631d8ae9-75bb-4bf5-b75f-8462025884c0
+	 }, { 
+	ComponentTemplate: ScreenSpaceLocationBC72336E45AFE78403571AB7EA3AAD84: {	
+		ScreenSpaceX: 1f
+		ScreenSpaceY: -1f
+		FrameDelay: 1
+		RelativeLocation: Vector [X=17, Y=0, Z=0]
+		bAutoActivate: True
+		}
+	VariableName: ScreenSpaceLocation_RightB
+	ChildNodes: [ { 
+	ComponentTemplate: P_VignetteRightB834F27C4AF1EE4F5DAA7A83742CF9B2: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/P_Vignette.P_Vignette
+		RelativeLocation: Vector [X=0, Y=0, Z=-1]
+		bAutoActivate: False
+		}
+	VariableName: P_Vignette_RightB
+	VariableGuid: 8052c958-b8e7-4f25-b433-7ffe3193fd38
+	 } ]
+	VariableGuid: 71964ddc-bd00-47e0-89f3-f668ca7f25f1
+	 }, { 
+	ComponentTemplate: ScreenSpaceLocationE298D299483F4C0ED599E094619F6405: {	
+		ScreenSpaceX: -1f
+		ScreenSpaceY: -1f
+		FrameDelay: 1
+		RelativeLocation: Vector [X=17, Y=0, Z=0]
+		bAutoActivate: True
+		}
+	VariableName: ScreenSpaceLocation_LeftB
+	ChildNodes: [ { 
+	ComponentTemplate: P_VignetteLeftE59A5013413716D3ED932F8783A625B4: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/P_Vignette.P_Vignette
+		RelativeLocation: Vector [X=0, Y=0, Z=-1]
+		RelativeRotation: Rotator [Pitch=0, Roll=180, Yaw=0]
+		bAutoActivate: False
+		}
+	VariableName: P_Vignette_LeftB
+	VariableGuid: a284bfc9-e3da-408e-a030-0f1aa560d2ca
+	 } ]
+	VariableGuid: 7bda80dd-d399-4f62-b098-0accff9a1b08
+	 }, { 
+	ComponentTemplate: ScreenSpaceLocation79E41DEF47CDB39AED6BE08370914E0F: {	
+		ScreenSpaceX: 1f
+		ScreenSpaceY: 1f
+		FrameDelay: 1
+		RelativeLocation: Vector [X=17, Y=0, Z=0]
+		bAutoActivate: True
+		}
+	VariableName: ScreenSpaceLocation_RightT
+	VariableGuid: 7e7a24ce-dfb7-4cd3-86fb-fa507c84f7ec
+	 }, { 
+	ComponentTemplate: ScreenSpaceLocation548576A64A480642A441E0872CCC1824: {	
+		ScreenSpaceX: -1f
+		ScreenSpaceY: 1f
+		FrameDelay: 1
+		RelativeLocation: Vector [X=17, Y=0, Z=0]
+		bAutoActivate: True
+		}
+	VariableName: ScreenSpaceLocation_LeftT
+	VariableGuid: 43661285-afd5-4dfd-addb-9e68b859cc16
+	 }, { 
+	ComponentTemplate: BoxA71A067B4771F21AF897FE9C61373795: {	
+		BoxExtent: Vector [X=80, Y=40, Z=80]
+		bGenerateOverlapEvents: False
+		BodyInstance: {
+			CollisionProfileName: Custom
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: WorldStatic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: WorldDynamic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Pawn
+				Response: ECR_Overlap
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PhysicsBody
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Destructible
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel2
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel3
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel4
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel5
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel6
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Interactable
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: BlinkBlocker
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Ground
+				Response: ECR_Ignore
+				 } ]
+				}
+			MassInKgOverride: 304.437f
+			ObjectType: ECC_GameTraceChannel3
 			}
+		RelativeLocation: Vector [X=110, Y=-8.047205E-06, Z=30]
+		RelativeRotation: Rotator [Pitch=0, Roll=-6.103516E-05, Yaw=0]
 		}
-	Interactable: BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/Interactions/SlasherInteractable.SlasherInteractable_C
-	PitchLimitLower: -80f
-	PitchLimitUpper: 80f
-	BlinkFOVCurve: CurveFloat /Game/Blueprints/GameplayElements/Item/Blinker/BlinkFOVCurve.BlinkFOVCurve
-	BlindingChargeableComponent: InvisibilityBurnoutChargeableComponent: {	
-		OnInteractionEmptiedEvent: OnInvisibilityChargeEmptied
-		ChargeAppliedAuthorityDelegate: Authority_OnInvisibilityBurnoutChargeApplied
+	VariableName: BlinkAttackLockZone
+	VariableGuid: 12c148c1-0a0b-483d-a87a-a5d19c30243d
+	 }, { 
+	ComponentTemplate: VignetteBloodlust_GEN_VARIABLE: {	
+		Settings: {
+			WeightedBlendables: {
+				Array: [ { 
+				Weight: 1f
+				Object: MaterialInstanceConstant /Game/Effects/Materials/PostProcess/MI_PP_RadialBlur_Bloodlust.MI_PP_RadialBlur_Bloodlust
+				 } ]
+				}
+			}
+		BlendWeight: 0f
 		}
-	CarryJointName: CamperCarry
-	AttackPounceCurves: [ CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceOpenMaxSpeed.PounceOpenMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceHittingMaxSpeed.PounceHittingMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceSucceedMaxSpeed.PounceSucceedMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceMissMaxSpeed.PounceMissMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceObstructedMaxSpeed.PounceObstructedMaxSpeed ]
-	AttackLungeCurves: [ CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/LungeOpenMaxSpeed.LungeOpenMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/LungeHittingMaxSpeed.LungeHittingMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/LungeSucceedMaxSpeed.LungeSucceedMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/LungeMissMaxSpeed.LungeMissMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/LungeObstructedMaxSpeed.LungeObstructedMaxSpeed ]
-	AttackSlashCurves: [ CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/SlashHittingMaxSpeed.SlashHittingMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/SlashHittingMaxSpeed.SlashHittingMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/SlashSucceedMaxSpeed.SlashSucceedMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/SlashMissMaxSpeed.SlashMissMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/SlashObstructedMaxSpeed.SlashObstructedMaxSpeed ]
-	AttackChainsawCurves: [ CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/ChainsawOpenMaxSpeed.ChainsawOpenMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/ChainsawHittingMaxSpeed.ChainsawHittingMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceSucceedMaxSpeed.PounceSucceedMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/ChainsawMissMaxSpeed.ChainsawMissMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/ChainsawObstructedMaxSpeed.ChainsawObstructedMaxSpeed ]
-	AttackBlinkCurves: [ CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/BlinkOpenMaxSpeed.BlinkOpenMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/BlinkHittingMaxSpeed.BlinkHittingMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceSucceedMaxSpeed.PounceSucceedMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceMissMaxSpeed.PounceMissMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceObstructedMaxSpeed.PounceObstructedMaxSpeed ]
-	AttackPounceCurves_StalkTier1: [ CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceOpenMaxSpeed.PounceOpenMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceHittingMaxSpeed.PounceHittingMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceSucceedMaxSpeed.PounceSucceedMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceMissMaxSpeed.PounceMissMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceObstructedMaxSpeed.PounceObstructedMaxSpeed ]
-	AttackPounceCurves_StalkTier2: [ CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceOpenMaxSpeed.PounceOpenMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceHittingMaxSpeed.PounceHittingMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceSucceedMaxSpeed.PounceSucceedMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceMissMaxSpeed.PounceMissMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceObstructedMaxSpeed.PounceObstructedMaxSpeed ]
-	_pixelCounter: BP_Mesh2SoundPlayerAFA062BD47B5CDB36BBE638BB2049471: {	
-		}
-	GamePadTurnRate: 55f
-	GamePadLookUpRate: 55f
-	MouseTurnSpeedMultiplier: 0.7f
-	MouseLookUpSpeedMultiplier: 0.7f
-	CollectableAttachPoint: Weapon_SocketLT
-	_SM: AudioAmbientDetector_GEN_VARIABLE: {	
+	VariableName: VignetteBloodlust
+	VariableGuid: dc589c7a-8123-4a51-8b56-8187efb04c52
+	 }, { 
+	ComponentTemplate: AudioAmbientDetector_GEN_VARIABLE: {	
 		SphereRadius: 1f
 		AreaClass: 0
 		BodyInstance: {
@@ -211,25 +261,324 @@ GeneratedClass: Default__BP_Slasher_Character_C: {
 		CanCharacterStepUpOn: ECB_No
 		bCanEverAffectNavigation: False
 		}
-	_interactionHandler: EventListener: {	
+	VariableName: AudioAmbientDetector
+	VariableGuid: 5a1ccae6-515b-4252-a146-212c2c35cf3e
+	 }, { 
+	ComponentTemplate: BlindedPostProcess_new_GEN_VARIABLE: {	
+		Settings: {
+			bOverride_ColorGradingIntensity: True
+			bOverride_ColorGradingLUT: True
+			ColorGradingLUT: Texture2D /Game/Textures/Environment/Tiles/White.White
+			}
+		Priority: 100f
+		BlendWeight: 0f
+		RelativeLocation: Vector [X=14, Y=0, Z=-3]
 		}
-	_montagePlayer: P_VignetteLeftE59A5013413716D3ED932F8783A625B4: {	
-		Template: ParticleSystem /Game/Effects/ParticleSystems/P_Vignette.P_Vignette
-		RelativeLocation: Vector [X=0, Y=0, Z=-1]
-		RelativeRotation: Rotator [Pitch=0, Roll=180, Yaw=0]
-		bAutoActivate: False
+	VariableName: BlindedPostProcess_new
+	VariableGuid: d446a618-2e6e-441b-8921-e0835af136c9
+	 } ]
+	VariableGuid: 0235b165-794f-beda-73b1-01ef54dcb200
+	 } ]
+	VariableGuid: 93b63c78-e2e4-4349-94b9-1eb507579621
+	 }, { 
+	ComponentTemplate: Scene02CF642246A5539C0E750B81FBD6E36E: {	
+		RelativeLocation: Vector [X=24.16057, Y=0.9401605, Z=108.2076]
+		RelativeRotation: Rotator [Pitch=-50, Roll=0, Yaw=0]
 		}
-	_perkManager: InteractionHandler: {	
+	VariableName: RedGlow
+	ParentComponentOrVariableName: CollisionCylinder
+	bIsParentComponentNative: True
+	ChildNodes: [ { 
+	ComponentTemplate: StainSpotLight_GEN_VARIABLE: {	
+		InnerConeAngle: 11f
+		OuterConeAngle: 40f
+		AttenuationRadius: 500f
+		MaxDrawDistance: 0f
+		MaxDistanceFadeRange: 0f
+		ShadowBias: 0.1f
+		LightFunctionMaterial: Material /Game/Materials/M_Lightfunc_KillerGlow.M_Lightfunc_KillerGlow
+		LightGuid: db6cbba3-409b-4079-90d1-63ea3139cffc
+		Intensity: 30000f
+		LightColor: Color [B=0, G=0, R=184, A=255]
+		CascadeShadowMapQualityReductionBHVR: 4
+		bAffectTranslucentLighting: False
+		bPrecomputedLightingIsValid: False
 		}
-	_playerData: FirecrackerEffectHandler_GEN_VARIABLE: {	
+	VariableName: StainSpotLight
+	VariableGuid: ce4df6a7-d5fe-4b4d-be06-fd1a1e841cfe
+	 } ]
+	VariableGuid: 8cac00e9-2cab-4fe8-abb1-63764181c79e
+	 }, { 
+	ComponentTemplate: BP_Mesh2SoundPlayerAFA062BD47B5CDB36BBE638BB2049471: {	
 		}
-	_characterSnappingComponent: BlindnessChargeableComponent: {	
-		OnInteractionEmptiedEvent: OnBlindChargeEmptied
-		ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
+	VariableName: BP_Mesh2SoundPlayer
+	VariableGuid: 9113fbc0-926d-48db-bc6b-7c4b6177cacd
+	 }, { 
+	ComponentTemplate: CustomizedSkeletalMeshB61AA9BA457C1A7B84E6EEA183DC7931: {	
+		SlaveAnimInstanceClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Animations/SlasherAnimSlaveMale.SlasherAnimSlaveMale_C
 		}
-	_dreamworldComponent: SnappingComponent: {	
+	VariableName: CustomizedSkeletalMesh
+	VariableGuid: cf991574-2433-4082-a040-f8f04be88a2d
+	 }, { 
+	ComponentTemplate: MaterialHelper7C0EFC0C4A1509BBB4A908B3DC67E286: {	
+		Groups: [ { 
+		GroupName: FirstPerson
+		Maps: [ { 
+		SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Weapon.MI_Slasher_Weapon
+		DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Weapon_FPS.MV_Slasher_Weapon_FPS
+		 }, { 
+		SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_SlasherBlood_Weapon.MI_SlasherBlood_Weapon
+		DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_SlasherBlood_Weapon_FPS.MV_SlasherBlood_Weapon_FPS
+		 } ]
+		 }, { 
+		GroupName: Dissolve
+		Maps: [ { 
+		SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher.M_Slasher
+		DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Dissolve.MV_Slasher_Dissolve
+		 }, { 
+		SrcMaterial: Material /Game/Characters/Campers/Materials/M_Hair.M_Hair
+		DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_Hair_Dissolve.MI_Hair_Dissolve
+		 }, { 
+		SrcMaterial: Material /Game/Characters/Slashers/Materials/M_SlasherBlood.M_SlasherBlood
+		DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_SlasherBlood_Dissolve.MV_SlasherBlood_Dissolve
+		 }, { 
+		SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Dither.MI_Slasher_Dither
+		DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Dissolve.MV_Slasher_Dissolve
+		 }, { 
+		SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher_Cust.M_Slasher_Cust
+		DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Cust_Dissolve.MV_Slasher_Cust_Dissolve
+		 }, { 
+		SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher_Burn.M_Slasher_Burn
+		DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Burn_Dissolve.MV_Slasher_Burn_Dissolve
+		 }, { 
+		SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher_Blend.M_Slasher_Blend
+		DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Blend_Dissolve.MV_Slasher_Blend_Dissolve
+		 }, { 
+		SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Cust_Dither.MI_Slasher_Cust_Dither
+		DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Cust_Dissolve_Dither.MV_Slasher_Cust_Dissolve_Dither
+		 } ]
+		 }, { 
+		GroupName: SlasherInvisible
+		Maps: [ { 
+		SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher.M_Slasher
+		DstMaterial: Material /Game/Characters/Slashers/Materials/M_Basicdistortion.M_Basicdistortion
+		 }, { 
+		SrcMaterial: Material /Game/Characters/Slashers/Materials/M_SlasherBlood.M_SlasherBlood
+		DstMaterial: Material /Game/Characters/Slashers/Materials/M_Basicdistortion.M_Basicdistortion
+		 }, { 
+		SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher_Cust.M_Slasher_Cust
+		DstMaterial: Material /Game/Characters/Slashers/Materials/M_Basicdistortion.M_Basicdistortion
+		 } ]
+		 }, { 
+		GroupName: FirstPerson_Dissolve
+		Maps: [ { 
+		SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Weapon.MI_Slasher_Weapon
+		DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Weapon_FPS_Dissolve.MV_Slasher_Weapon_FPS_Dissolve
+		 }, { 
+		SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_SlasherBlood_Weapon.MI_SlasherBlood_Weapon
+		DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_SlasherBlood_Weapon_FPS_Dissolve.MV_SlasherBlood_Weapon_FPS_Dissolve
+		 }, { 
+		SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher.M_Slasher
+		DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Dissolve.MV_Slasher_Dissolve
+		 }, { 
+		SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Cust.MI_Slasher_Cust
+		DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Cust_Dissolve.MV_Slasher_Cust_Dissolve
+		 }, { 
+		SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher_Burn.M_Slasher_Burn
+		DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Burn_Dissolve.MV_Slasher_Burn_Dissolve
+		 }, { 
+		SrcMaterial: Material /Game/Characters/Slashers/Materials/M_GlassIce.M_GlassIce
+		DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_GlassIce_Dissolve.MV_GlassIce_Dissolve
+		 }, { 
+		SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher_Blend.M_Slasher_Blend
+		DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Blend_Dissolve.MV_Slasher_Blend_Dissolve
+		 } ]
+		 } ]
+		RelativeLocation: Vector [X=0, Y=0, Z=101.7689]
+		RelativeRotation: Rotator [Pitch=0, Roll=89.99999, Yaw=0]
 		}
-	_cameraHandlerComponent: Capsule3B6CDF0B41DFD8D92B9A7EBE6EA4AE27: {	
+	VariableName: MaterialHelper
+	ParentComponentOrVariableName: CharacterMesh0
+	bIsParentComponentNative: True
+	VariableGuid: cc59aff3-f2d8-443e-8d8f-97feee934c08
+	 }, { 
+	ComponentTemplate: DBDOutlineComponent: {	
+		OutlineName: killer
+		RelativeLocation: Vector [X=0, Y=0, Z=101.7689]
+		RelativeRotation: Rotator [Pitch=0, Roll=89.99999, Yaw=0]
+		}
+	VariableName: DBDOutline
+	ParentComponentOrVariableName: CharacterMesh0
+	bIsParentComponentNative: True
+	VariableGuid: 0501cdfd-393b-4dc8-9d8e-0476ca8552a4
+	 }, { 
+	ComponentTemplate: Scene1FBE636D489F4E67FFC0EB967F90EAC0: {	
+		RelativeLocation: Vector [X=0, Y=-50, Z=5]
+		}
+	VariableName: CamperDropOffPoint
+	ParentComponentOrVariableName: CollisionCylinder
+	bIsParentComponentNative: True
+	VariableGuid: a41ffbb3-5c6b-4a7b-a1c3-06f33291a9d8
+	 }, { 
+	ComponentTemplate: CapsuleB3F23CF64DA6BE23BA2FD4A8BE196FB3: {	
+		CapsuleHalfHeight: 103f
+		CapsuleRadius: 50f
+		BodyInstance: {
+			CollisionProfileName: InteractionDetector
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: WorldStatic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: WorldDynamic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Pawn
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PhysicsBody
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Destructible
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel2
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel3
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel4
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel5
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel6
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: BlinkBlocker
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Ground
+				Response: ECR_Ignore
+				 } ]
+				}
+			MassInKgOverride: 223.4707f
+			ObjectType: ECC_GameTraceChannel9
+			}
+		}
+	VariableName: InteractionDetector
+	ParentComponentOrVariableName: CollisionCylinder
+	bIsParentComponentNative: True
+	VariableGuid: da3c54ab-1502-4d64-a4c8-da2dad4461a9
+	 }, { 
+	ComponentTemplate: BoxF1942F2B47A3392B57B0D381F4800C25: {	
+		BoxExtent: Vector [X=50, Y=10, Z=50]
+		BodyInstance: {
+			CollisionProfileName: Custom
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: WorldStatic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: WorldDynamic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Pawn
+				Response: ECR_Overlap
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PhysicsBody
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Destructible
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel2
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel3
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel4
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel5
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel6
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Interactable
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: BlinkBlocker
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Ground
+				Response: ECR_Ignore
+				 } ]
+				}
+			MassInKgOverride: 102.5489f
+			ObjectType: ECC_GameTraceChannel3
+			}
+		RelativeLocation: Vector [X=0, Y=50, Z=145]
+		RelativeRotation: Rotator [Pitch=0, Roll=89.99995, Yaw=0]
+		}
+	VariableName: ChainsawObstruction
+	ParentComponentOrVariableName: CharacterMesh0
+	bIsParentComponentNative: True
+	VariableGuid: 12bfa645-2044-4ad1-a93f-7c007a1afb6f
+	 }, { 
+	ComponentTemplate: Capsule3B6CDF0B41DFD8D92B9A7EBE6EA4AE27: {	
 		CapsuleHalfHeight: 103f
 		CapsuleRadius: 50f
 		BodyInstance: {
@@ -307,73 +656,1018 @@ GeneratedClass: Default__BP_Slasher_Character_C: {
 			ObjectType: ECC_GameTraceChannel10
 			}
 		}
-	_itemDropOffPosition: ScreenSpaceLocation548576A64A480642A441E0872CCC1824: {	
-		ScreenSpaceX: -1f
-		ScreenSpaceY: 1f
-		FrameDelay: 1
-		RelativeLocation: Vector [X=17, Y=0, Z=0]
-		bAutoActivate: True
-		}
-	EffectCameraTypeSettings: [ { 
-	Category: ECustomizationCategory::KillerBody
-	VisibilityInFirstPerson: False
-	VisibilityInThirdPerson: True
+	VariableName: PawnDetector
+	ParentComponentOrVariableName: CollisionCylinder
+	bIsParentComponentNative: True
+	VariableGuid: 600ed468-56b5-4013-812d-0e4dba37bcbc
 	 }, { 
-	Category: ECustomizationCategory::KillerHead
-	VisibilityInFirstPerson: False
-	VisibilityInThirdPerson: True
-	 } ]
-	_eventListener: PostProcess140D1093A459A32F5F567DBA759A3011E: {	
-		Settings: {
-			bOverride_BloomIntensity: True
-			bOverride_AutoExposureLowPercent: True
-			bOverride_AutoExposureHighPercent: True
-			bOverride_AutoExposureMinBrightness: True
-			bOverride_AutoExposureMaxBrightness: True
-			bOverride_AutoExposureBias: True
-			bOverride_LensFlareIntensity: True
-			bOverride_LensFlareTint: True
-			bOverride_ColorGradingIntensity: True
-			bOverride_ColorGradingLUT: True
-			WhiteTemp: 15000f
-			WhiteTint: -1f
-			BloomIntensity: 80f
-			AutoExposureLowPercent: 100f
-			AutoExposureHighPercent: 100f
-			AutoExposureMinBrightness: 20f
-			AutoExposureMaxBrightness: 0f
-			AutoExposureSpeedUp: 19.82318f
-			AutoExposureBias: 20f
-			LensFlareIntensity: 2f
-			LensFlareTint: LinearColor [R=1, G=0.768016, B=0, A=1]
-			ColorGradingLUT: Texture2D /Game/Textures/Environment/Tiles/White.White
+	ComponentTemplate: AkComponent: {	
+		ShouldTransmitRelativeAngle: True
+		OcclusionAffect: 50f
+		RelativeLocation: Vector [X=0, Y=80, Z=100]
+		}
+	VariableName: Ak_Audio_Killer
+	ParentComponentOrVariableName: CharacterMesh0
+	bIsParentComponentNative: True
+	VariableGuid: 6d8a027e-e384-4abb-b76e-9a0f0a20af1e
+	 }, { 
+	ComponentTemplate: Capsule60B147454C203217FFF81BBC0EC46A46: {	
+		CapsuleHalfHeight: 103f
+		CapsuleRadius: 50f
+		BodyInstance: {
+			CollisionProfileName: Custom
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: WorldStatic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: WorldDynamic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Pawn
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PhysicsBody
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Destructible
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel2
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel3
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel4
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel5
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel6
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Interactable
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: BlinkBlocker
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Ground
+				Response: ECR_Ignore
+				 } ]
+				}
+			MassInKgOverride: 223.4707f
+			ObjectType: ECC_GameTraceChannel17
 			}
-		Priority: 1f
-		BlendWeight: 0f
-		RelativeLocation: Vector [X=13.99987, Y=0, Z=-2.999944]
 		}
-	_meatHookZoneDetector: 657
-	_authoritativeMovementComponent: 549
-	Mesh: CharMoveComp: {	
-		RandomInputFrontMultiplier: 0f
-		RandomInputBackMultiplier: 0f
-		GroundFriction: 6f
-		MaxWalkSpeed: 462f
-		MaxWalkSpeedCrouched: 240f
-		MaxFlySpeed: 550f
-		MaxCustomMovementSpeed: 462f
-		MaxAcceleration: 1125f
-		BrakingDecelerationWalking: 2000f
-		BrakingDecelerationFalling: 1000f
-		PerchRadiusThreshold: 30f
+	VariableName: MovementModifierDetector
+	ParentComponentOrVariableName: CollisionCylinder
+	bIsParentComponentNative: True
+	VariableGuid: 38d9e259-72bf-4e92-9733-227d9ad2eec6
+	 }, { 
+	ComponentTemplate: Scene921EA90444BA05DD7DF524BE71551BBF: {	
+		RelativeLocation: Vector [X=0, Y=0, Z=24.61964]
 		}
-	CharacterMovement: SlasherStateMachine: {	
+	VariableName: AttackZonePivot
+	ParentComponentOrVariableName: CollisionCylinder
+	bIsParentComponentNative: True
+	ChildNodes: [ { 
+	ComponentTemplate: StaticMesh3E7341524BF8FA0693A309A6BF479D9A: {	
+		StaticMesh: StaticMesh /Game/Characters/Slashers/Blueprints/AttackZone/AttackZone_001.AttackZone_001
+		bUseDefaultCollision: False
+		OverrideMaterials: [ Material /Game/DumpingGround/M_LetsColorIt.M_LetsColorIt ]
+		bGenerateOverlapEvents: False
+		BodyInstance: {
+			CollisionProfileName: Custom
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: WorldStatic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: WorldDynamic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Pawn
+				Response: ECR_Overlap
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PhysicsBody
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Destructible
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel2
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel3
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel4
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel5
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel6
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Interactable
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: BlinkBlocker
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Ground
+				Response: ECR_Ignore
+				 } ]
+				}
+			MassInKgOverride: 4417.568f
+			CollisionEnabled: ECollisionEnabled::QueryOnly
+			ObjectType: ECC_GameTraceChannel3
+			}
+		bVisible: False
+		RelativeRotation: Rotator [Pitch=0, Roll=89.99998, Yaw=0]
+		RelativeScale3D: Vector [X=0.25, Y=0.25, Z=0.25]
 		}
-	CapsuleComponent: 561
-	bNetLoadOnClient: False
-	bReplicates: False
-	RemoteRole: ROLE_None
-	RootComponent: 561
+	VariableName: AttackZone_001
+	VariableGuid: c0a49463-2371-442b-9ec2-302c9a2d1b87
+	 }, { 
+	ComponentTemplate: StaticMesh1E78C91A4DECA8F36BF02A907686D8B1: {	
+		StaticMesh: StaticMesh /Game/Characters/Slashers/Blueprints/AttackZone/AttackZone_002.AttackZone_002
+		bUseDefaultCollision: False
+		OverrideMaterials: [ Material /Game/DumpingGround/M_LetsColorIt.M_LetsColorIt ]
+		bGenerateOverlapEvents: False
+		BodyInstance: {
+			CollisionProfileName: Custom
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: WorldStatic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: WorldDynamic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Pawn
+				Response: ECR_Overlap
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PhysicsBody
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Destructible
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel2
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel3
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel4
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel5
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel6
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Interactable
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: BlinkBlocker
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Ground
+				Response: ECR_Ignore
+				 } ]
+				}
+			MassInKgOverride: 5004.442f
+			CollisionEnabled: ECollisionEnabled::QueryOnly
+			ObjectType: ECC_GameTraceChannel3
+			}
+		bVisible: False
+		RelativeRotation: Rotator [Pitch=0, Roll=89.99996, Yaw=0]
+		RelativeScale3D: Vector [X=0.242, Y=0.242, Z=0.242]
+		}
+	VariableName: AttackZone_002
+	VariableGuid: 6480b05a-fc07-40db-bb19-57e243255eb4
+	 }, { 
+	ComponentTemplate: StaticMesh1AB6297E4412B0AC167240FB83CBFC02E: {	
+		StaticMesh: StaticMesh /Game/Characters/Slashers/Blueprints/AttackZone/AttackZone_003.AttackZone_003
+		bUseDefaultCollision: False
+		OverrideMaterials: [ Material /Game/DumpingGround/M_LetsColorIt.M_LetsColorIt ]
+		bGenerateOverlapEvents: False
+		BodyInstance: {
+			CollisionProfileName: Custom
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: WorldStatic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: WorldDynamic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Pawn
+				Response: ECR_Overlap
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PhysicsBody
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Destructible
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel2
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel3
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel4
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel5
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel6
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Interactable
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: BlinkBlocker
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Ground
+				Response: ECR_Ignore
+				 } ]
+				}
+			MassInKgOverride: 5550.736f
+			CollisionEnabled: ECollisionEnabled::QueryOnly
+			ObjectType: ECC_GameTraceChannel3
+			}
+		bVisible: False
+		RelativeRotation: Rotator [Pitch=0, Roll=89.99996, Yaw=0]
+		RelativeScale3D: Vector [X=0.239, Y=0.239, Z=0.239]
+		}
+	VariableName: AttackZone_003
+	VariableGuid: b2c8f0b6-ce22-4cc9-bbc6-785afa93e5fb
+	 }, { 
+	ComponentTemplate: Box12CA137340F2B5649E3C4091BC985C45: {	
+		BoxExtent: Vector [X=50, Y=10, Z=40]
+		BodyInstance: {
+			CollisionProfileName: Custom
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: WorldStatic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: WorldDynamic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Pawn
+				Response: ECR_Overlap
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PhysicsBody
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Destructible
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel2
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel3
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel4
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel5
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel6
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Interactable
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: BlinkBlocker
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Ground
+				Response: ECR_Ignore
+				 } ]
+				}
+			MassInKgOverride: 44.9873f
+			ObjectType: ECC_GameTraceChannel3
+			}
+		RelativeLocation: Vector [X=50.26816, Y=0.8480618, Z=-23.34908]
+		RelativeRotation: Rotator [Pitch=0, Roll=-6.103516E-05, Yaw=0]
+		}
+	VariableName: ObstructionShape
+	VariableGuid: c8916b22-6055-4338-bc80-8609bafe929e
+	 }, { 
+	ComponentTemplate: StaticMesh1EA8636B4C6F8F86A67EE59D98BDF8FC: {	
+		StaticMesh: StaticMesh /Game/Characters/Slashers/Blueprints/AttackZone/AttackZone_001.AttackZone_001
+		bUseDefaultCollision: False
+		OverrideMaterials: [ Material /Game/DumpingGround/M_LetsColorIt.M_LetsColorIt ]
+		bGenerateOverlapEvents: False
+		BodyInstance: {
+			CollisionProfileName: Custom
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: WorldStatic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: WorldDynamic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Pawn
+				Response: ECR_Overlap
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PhysicsBody
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Destructible
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel2
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel3
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel4
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel5
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel6
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Interactable
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: BlinkBlocker
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Ground
+				Response: ECR_Ignore
+				 } ]
+				}
+			MassInKgOverride: 4417.568f
+			CollisionEnabled: ECollisionEnabled::QueryOnly
+			ObjectType: ECC_GameTraceChannel3
+			}
+		bVisible: False
+		RelativeLocation: Vector [X=0, Y=0, Z=-30]
+		RelativeRotation: Rotator [Pitch=0, Roll=89.99995, Yaw=0]
+		RelativeScale3D: Vector [X=0.25, Y=0.25, Z=0.5]
+		}
+	VariableName: AttackZoneHigh_001
+	VariableGuid: 58986337-cd1b-410e-b7d5-96bd5e7d6054
+	 }, { 
+	ComponentTemplate: StaticMeshC3788C1F46A22E776987ABA221AC682D: {	
+		StaticMesh: StaticMesh /Game/Characters/Slashers/Blueprints/AttackZone/AttackZone_002.AttackZone_002
+		bUseDefaultCollision: False
+		OverrideMaterials: [ Material /Game/DumpingGround/M_LetsColorIt.M_LetsColorIt ]
+		bGenerateOverlapEvents: False
+		BodyInstance: {
+			CollisionProfileName: Custom
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: WorldStatic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: WorldDynamic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Pawn
+				Response: ECR_Overlap
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PhysicsBody
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Destructible
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel2
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel3
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel4
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel5
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel6
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Interactable
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: BlinkBlocker
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Ground
+				Response: ECR_Ignore
+				 } ]
+				}
+			MassInKgOverride: 5004.442f
+			CollisionEnabled: ECollisionEnabled::QueryOnly
+			ObjectType: ECC_GameTraceChannel3
+			}
+		bVisible: False
+		RelativeLocation: Vector [X=0, Y=0, Z=-30]
+		RelativeRotation: Rotator [Pitch=0, Roll=89.99995, Yaw=0]
+		RelativeScale3D: Vector [X=0.242, Y=0.242, Z=0.5]
+		}
+	VariableName: AttackZoneHigh_002
+	VariableGuid: 661c7b67-94ed-4bf5-b9ee-ff5e4a682e3d
+	 }, { 
+	ComponentTemplate: StaticMesh0CF31C3340E72DBFF7CCDDAB1254956E: {	
+		StaticMesh: StaticMesh /Game/Characters/Slashers/Blueprints/AttackZone/AttackZone_003.AttackZone_003
+		bUseDefaultCollision: False
+		OverrideMaterials: [ Material /Game/DumpingGround/M_LetsColorIt.M_LetsColorIt ]
+		bGenerateOverlapEvents: False
+		BodyInstance: {
+			CollisionProfileName: Custom
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: WorldStatic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: WorldDynamic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Pawn
+				Response: ECR_Overlap
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PhysicsBody
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Destructible
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel2
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel3
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel4
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel5
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel6
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Interactable
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: BlinkBlocker
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Ground
+				Response: ECR_Ignore
+				 } ]
+				}
+			MassInKgOverride: 5550.736f
+			CollisionEnabled: ECollisionEnabled::QueryOnly
+			ObjectType: ECC_GameTraceChannel3
+			}
+		bVisible: False
+		RelativeLocation: Vector [X=0, Y=0, Z=-30]
+		RelativeRotation: Rotator [Pitch=0, Roll=89.99995, Yaw=0]
+		RelativeScale3D: Vector [X=0.239, Y=0.239, Z=0.5]
+		}
+	VariableName: AttackZoneHigh_003
+	VariableGuid: e1b3e47d-bbdb-49f5-952f-c769b0628ff4
+	 }, { 
+	ComponentTemplate: AttackZone_Wedge_Standard_GEN_VARIABLE: {	
+		StaticMesh: StaticMesh /Game/Characters/Slashers/Blueprints/AttackZone/AttackZone_006.AttackZone006
+		bUseDefaultCollision: False
+		OverrideMaterials: [ Material /Game/DumpingGround/M_LetsColorIt.M_LetsColorIt ]
+		bGenerateOverlapEvents: False
+		BodyInstance: {
+			CollisionProfileName: Custom
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: WorldStatic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: WorldDynamic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Pawn
+				Response: ECR_Overlap
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PhysicsBody
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Destructible
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel2
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel3
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel4
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel5
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel6
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Interactable
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: BlinkBlocker
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Ground
+				Response: ECR_Ignore
+				 } ]
+				}
+			MassInKgOverride: 5004.442f
+			CollisionEnabled: ECollisionEnabled::QueryOnly
+			ObjectType: ECC_GameTraceChannel3
+			}
+		RelativeLocation: Vector [X=0, Y=0, Z=-24.61964]
+		RelativeRotation: Rotator [Pitch=0, Roll=-180, Yaw=0]
+		RelativeScale3D: Vector [X=1.45, Y=1, Z=1]
+		}
+	VariableName: AttackZone_Wedge_Standard
+	VariableGuid: e317bc40-9cc7-417b-9271-b552b6eca212
+	 }, { 
+	ComponentTemplate: AttackZone_Wedge_Large_GEN_VARIABLE: {	
+		StaticMesh: StaticMesh /Game/Characters/Slashers/Blueprints/AttackZone/AttackZone_006.AttackZone006
+		bUseDefaultCollision: False
+		OverrideMaterials: [ Material /Game/DumpingGround/M_LetsColorIt.M_LetsColorIt ]
+		bGenerateOverlapEvents: False
+		BodyInstance: {
+			CollisionProfileName: Custom
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: WorldStatic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: WorldDynamic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Pawn
+				Response: ECR_Overlap
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PhysicsBody
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Destructible
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel2
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel3
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel4
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel5
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel6
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Interactable
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: BlinkBlocker
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Ground
+				Response: ECR_Ignore
+				 } ]
+				}
+			MassInKgOverride: 5004.442f
+			CollisionEnabled: ECollisionEnabled::QueryOnly
+			ObjectType: ECC_GameTraceChannel3
+			}
+		RelativeLocation: Vector [X=0, Y=0, Z=-24.61964]
+		RelativeRotation: Rotator [Pitch=0, Roll=-180, Yaw=0]
+		RelativeScale3D: Vector [X=1.6, Y=1.5, Z=1.1]
+		}
+	VariableName: AttackZone_Wedge_Large
+	VariableGuid: e9ab0d22-3893-4607-8318-109362af075b
+	 }, { 
+	ComponentTemplate: AttackZone_004_GEN_VARIABLE: {	
+		StaticMesh: StaticMesh /Game/Characters/Slashers/Blueprints/AttackZone/AttackZone_003.AttackZone_003
+		bUseDefaultCollision: False
+		OverrideMaterials: [ Material /Game/DumpingGround/M_LetsColorIt.M_LetsColorIt ]
+		bGenerateOverlapEvents: False
+		BodyInstance: {
+			CollisionProfileName: Custom
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: WorldStatic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: WorldDynamic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Pawn
+				Response: ECR_Overlap
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PhysicsBody
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Destructible
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel2
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel3
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel4
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel5
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel6
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Interactable
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: BlinkBlocker
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Ground
+				Response: ECR_Ignore
+				 } ]
+				}
+			MassInKgOverride: 5550.736f
+			CollisionEnabled: ECollisionEnabled::QueryOnly
+			ObjectType: ECC_GameTraceChannel3
+			}
+		bVisible: False
+		RelativeLocation: Vector [X=0, Y=0, Z=-24.61964]
+		RelativeRotation: Rotator [Pitch=0, Roll=89.99996, Yaw=0]
+		RelativeScale3D: Vector [X=0.239, Y=0.3, Z=0.239]
+		}
+	VariableName: AttackZone_004
+	VariableGuid: d3c0888d-c615-4ebd-9472-4daeafaa42f9
+	 } ]
+	VariableGuid: 81897cff-b301-4f0c-91cc-e122a1797105
+	 }, { 
+	ComponentTemplate: FirecrackerEffectHandler_GEN_VARIABLE: {	
+		}
+	VariableName: FirecrackerEffectHandler
+	VariableGuid: 784e0c6b-dcb5-4b63-81f6-5f73764f5bda
+	 } ]
+	AllNodes: [ 637, 642, 626, 617, 606, 620, 622, 619, 621, 627, 628, 624, 641, 607, 616, 610, 609, 618, 632, 608, 633, 605, 625, 630, 629, 631, 634, 611, 635, 638, 639, 636, 614, 613, 612, 623, 615, 640, 643 ]
+	DefaultSceneRootNode: SCS_Node: {	
+		ComponentTemplate: SceneComponent: {	
+			}
+		VariableName: DefaultSceneRoot
+		VariableGuid: 56bc9799-e6e6-c494-9542-1d3216b35e7d
+		}
+	}
+Timelines: [ { 
+TimelineLength: 2f
+bValidatedAsWired: True
+FloatTracks: [ { 
+CurveFloat: CurveFloat_3_4__31AECFCB: {	
+	FloatCurve: {
+		Keys: [ RichCurveKey [InterpMode=2, TangentMode=1, TangentWeightMode=0, Time=0, Value=0, ArriveTangent=0.007033875, ArriveTangentWeight=0, LeaveTangent=0.007033875, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=1, TangentWeightMode=0, Time=2, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0] ]
+		}
+	}
+TrackName: Fade
+bIsExternalCurve: False
+ }, { 
+CurveFloat: CurveFloat_0_1__71EEED09: {	
+	FloatCurve: {
+		Keys: [ RichCurveKey [InterpMode=2, TangentMode=0, TangentWeightMode=0, Time=0, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=0, TangentWeightMode=0, Time=2, Value=0.7, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0] ]
+		}
+	}
+TrackName: Distortion
+bIsExternalCurve: False
+ } ]
+TimelineGuid: b6144bae-61d5-4040-bceb-06f8a3a57da4
+ }, { 
+TimelineLength: 0.7f
+bValidatedAsWired: True
+FloatTracks: [ { 
+CurveFloat: CurveFloat_1_2__F8FE0E88_0__695A75DA_0__256B4035_0__93CBDD9C_0_1__8B7580B4_0__AAFCAE8B_0__3B92D941: {	
+	FloatCurve: {
+		Keys: [ RichCurveKey [InterpMode=2, TangentMode=1, TangentWeightMode=0, Time=0, Value=0, ArriveTangent=-0.02971441, ArriveTangentWeight=0, LeaveTangent=-0.02971441, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=1, TangentWeightMode=0, Time=0.7, Value=1, ArriveTangent=-0.03030855, ArriveTangentWeight=0, LeaveTangent=-0.03030855, LeaveTangentWeight=0] ]
+		}
+	}
+TrackName: Dissolve
+bIsExternalCurve: False
+ } ]
+TimelineGuid: 99584b45-abde-4ecd-8c6e-be86001b24d0
+ }, { 
+TimelineLength: 1f
+bValidatedAsWired: True
+FloatTracks: [ { 
+CurveFloat: CurveFloat_0_1__71EEED09: {	
+	FloatCurve: {
+		Keys: [ RichCurveKey [InterpMode=2, TangentMode=0, TangentWeightMode=0, Time=0, Value=0, ArriveTangent=11.20006, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=0, TangentWeightMode=0, Time=0.1, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=0, TangentWeightMode=0, Time=1, Value=0, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=-9.534247, LeaveTangentWeight=0] ]
+		}
+	}
+TrackName: Blend
+bIsExternalCurve: False
+ } ]
+TimelineGuid: 7510578b-070d-48e7-92b9-84993f25943f
+ } ]
+BlueprintSystemVersion: 2
+GeneratedClass: BP_Slasher_Character_C: {	
+	Timelines: [ 661, 662, 660 ]
+	SimpleConstructionScript: 644
+	UberGraphFramePointerProperty: UberGraphFrame: {	
+		}
+	UberGraphFunction: ExecuteUbergraph_BP_Slasher_Character: {	
+		}
 	}
 bLegacyNeedToPurgeSkelRefs: False
 bLegacyGeneratedClassIsAuthoritative: True

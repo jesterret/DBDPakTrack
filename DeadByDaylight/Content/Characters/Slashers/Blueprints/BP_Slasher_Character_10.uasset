@@ -1,105 +1,17 @@
 ParentClass: BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/BP_Slasher_Character.BP_Slasher_Character_C
-SimpleConstructionScript: CharacterMesh0: {	
-	AnimBlueprintGeneratedClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Animations/SlasherMale01/AB_SlasherMale_00.AB_SlasherMale_00_C
-	AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Sandman/AB_SlasherMale08.AB_SlasherMale08_C
-	SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Sandman/Models/SD_DSkeleton_REF.SD_DSkeleton_REF
-	MeshComponentUpdateFlag: EMeshComponentUpdateFlag::AlwaysTickPoseAndRefreshBones
-	bEnableUpdateRateOptimizations: False
-	OverrideMaterials: [ MaterialInstanceConstant /Game/Characters/Slashers/Trapper/Materials/MI_TRHead01.MI_TRHead01, MaterialInstanceConstant /Game/Characters/Slashers/Trapper/Materials/MI_TRTorso01.MI_TRTorso01, MaterialInstanceConstant /Game/Characters/Slashers/Trapper/Materials/MI_TRLegs01.MI_TRLegs01 ]
-	BodyInstance: {
-		CollisionResponses: {
-			ResponseArray: [ { 
-			Channel: Pawn
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Vehicle
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Camera
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Audio
-			Response: ECR_Ignore
-			 } ]
-			}
-		MassInKgOverride: 199.0395f
+SimpleConstructionScript: SimpleConstructionScript: {	
+	RootNodes: [ { 
+	ComponentTemplate: P_Dream_Embers_GEN_VARIABLE: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/Killer10/P_Dream_Embers.P_Dream_Embers
+		RelativeLocation: Vector [X=0, Y=0, Z=-100]
+		bAutoActivate: False
 		}
-	AttachParent: DreamworldComponent: {	
-		}
-	}
-Timelines: [ { 
-TimelineLength: 2f
-bValidatedAsWired: True
-FloatTracks: [ { 
-CurveFloat: CamperSensor: {	
-	OnSeePawn: OnChaseTargetFound
-	}
-TrackName: Dissolve
-bIsExternalCurve: False
- } ]
-TimelineGuid: 9cc3d8ae-b2d7-4a6b-97fd-2aeed6842742
- }, { 
- } ]
-InheritableComponentHandler: MaterialHelperForVignette_GEN_VARIABLE: {	
-	RelativeLocation: Vector [X=0, Y=0, Z=-0.3399999]
-	RelativeRotation: Rotator [Pitch=90, Roll=0, Yaw=0]
-	RelativeScale3D: Vector [X=0.0125, Y=0.007692308, Z=0.02]
-	}
-BlueprintSystemVersion: 2
-GeneratedClass: Default__BP_Slasher_Character_10_C: {	
-	UberGraphFrame: 306
-	DefaultSlasherPower: Item_Slasher_DreamInducer
-	KillerMoodInfluence: EKillerMoodInfluence::VE_Chuckles
-	KillerAbilities: [ EKillerAbilities::VE_InduceDreams, EKillerAbilities::VE_KillNightmare ]
-	_camperSensor: PlayerData: {	
-		}
-	_stillnessTracker: Reduce Color Scale_Template: {	
-		TimelineLength: 0.25f
-		bValidatedAsWired: True
-		FloatTracks: [ { 
-		CurveFloat: CurveFloat: {	
-			FloatCurve: {
-				Keys: [ RichCurveKey [InterpMode=2, TangentMode=1, TangentWeightMode=0, Time=0, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=1, TangentWeightMode=0, Time=0.7239823, Value=0.2970544, ArriveTangent=-0.2516772, ArriveTangentWeight=0, LeaveTangent=-0.2516772, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=1, TangentWeightMode=0, Time=1.995055, Value=-0.0004869699, ArriveTangent=-0.3096623, ArriveTangentWeight=0, LeaveTangent=-0.3096622, LeaveTangentWeight=0] ]
-				}
-			}
-		TrackName: Alpha
-		bIsExternalCurve: False
-		 } ]
-		TimelineGuid: 5df086db-85bb-47e4-a97b-ebb9610c8537
-		}
-	_fullBodyFlashLightReceiver: InheritableComponentHandler: {	
-		Records: [ { 
-		ComponentTemplate: DefaultSceneRoot578264FE466503DE5EF9FD9F80B580EF: {	
-			}
-		ComponentKey: {
-			OwnerClass: BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/BP_Slasher_Character.BP_Slasher_Character_C
-			SCSVariableName: BlindedPostEffect
-			AssociatedGuid: 8496d9e9-4770-4497-af6a-d2b36efc87cd
-			}
-		CookedComponentInstancingData: {
-			bIsValid: False
-			ChangedPropertyList: [  ]
-			}
-		 } ]
-		}
-	_invisibilityBurnoutChargeableComponent: ComponentDelegateBinding: {	
-		ComponentDelegateBindings: [ { 
-		ComponentPropertyName: _dreamworldComponent
-		DelegatePropertyName: DreamStateChanged
-		FunctionNameToBind: BndEvt___dreamworldComponent_K2Node_ComponentBoundEvent_0_DreamStateChangedDelegate__DelegateSignature
-		 } ]
-		}
-	AudioCharacterName: SandMan
-	CharacterClothes: Killer_Tissu
-	CharacterShoes: Sneakers
-	CharacterWeapon: ClawedGlove
-	BlindingChargeableComponent: InvisibilityBurnoutChargeableComponent: {	
-		OnInteractionEmptiedEvent: OnInvisibilityChargeEmptied
-		ChargeAppliedAuthorityDelegate: Authority_OnInvisibilityBurnoutChargeApplied
-		}
-	_pixelCounter: CameraHandlerComponent: {	
-		}
-	_SM: SM_Sphere_VignetteDistortion_GEN_VARIABLE: {	
+	VariableName: P_Dream_Embers
+	ParentComponentOrVariableName: CollisionCylinder
+	bIsParentComponentNative: True
+	VariableGuid: 70e12622-d328-43bc-ba6e-c92f60a718e5
+	 }, { 
+	ComponentTemplate: SM_Sphere_VignetteDistortion_GEN_VARIABLE: {	
 		StaticMesh: StaticMesh /Game/Effects/Mesh/SM_Sphere_VignetteDistortion.SM_Sphere_VignetteDistortion
 		bUseDefaultCollision: False
 		OverrideMaterials: [ MaterialInstanceConstant /Game/Effects/Materials/MI_VignetteSandman.MI_VignetteSandman ]
@@ -112,50 +24,73 @@ GeneratedClass: Default__BP_Slasher_Character_10_C: {
 		RelativeRotation: Rotator [Pitch=-90, Roll=0, Yaw=0]
 		RelativeScale3D: Vector [X=80, Y=130, Z=50]
 		}
-	_interactionHandler: EventListener: {	
+	VariableName: SM_Sphere_VignetteDistortion
+	ParentComponentOrVariableName: Camera1
+	ParentComponentOwnerClassName: BP_Slasher_Character_C
+	ChildNodes: [ { 
+	ComponentTemplate: MaterialHelperForVignette_GEN_VARIABLE: {	
+		RelativeLocation: Vector [X=0, Y=0, Z=-0.3399999]
+		RelativeRotation: Rotator [Pitch=90, Roll=0, Yaw=0]
+		RelativeScale3D: Vector [X=0.0125, Y=0.007692308, Z=0.02]
 		}
-	_montagePlayer: P_Dream_Embers_GEN_VARIABLE: {	
-		Template: ParticleSystem /Game/Effects/ParticleSystems/Killer10/P_Dream_Embers.P_Dream_Embers
-		RelativeLocation: Vector [X=0, Y=0, Z=-100]
-		bAutoActivate: False
-		}
-	_perkManager: InteractionHandler: {	
-		}
-	_playerData: FullBodyFlashLightReceiver: {	
-		}
-	_characterSnappingComponent: BlindnessChargeableComponent: {	
-		OnInteractionEmptiedEvent: OnBlindChargeEmptied
-		ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
-		}
-	_dreamworldComponent: SnappingComponent: {	
-		}
-	_cameraHandlerComponent: CollisionCylinder: {	
-		}
-	_itemDropOffPosition: SCS_Node: {	
-		ComponentTemplate: PerkManager: {	
+	VariableName: MaterialHelperForVignette
+	VariableGuid: 73bfaac0-b23a-4c2b-99d5-47dc894d6092
+	 } ]
+	VariableGuid: 1e4fed50-f7ce-4d75-9fac-2f5c6a8200bb
+	 } ]
+	AllNodes: [ 138, 140, 141 ]
+	DefaultSceneRootNode: SCS_Node: {	
+		ComponentTemplate: DefaultSceneRoot578264FE466503DE5EF9FD9F80B580EF: {	
 			}
-		VariableName: P_Dream_Embers
-		ParentComponentOrVariableName: CollisionCylinder
-		bIsParentComponentNative: True
-		VariableGuid: 70e12622-d328-43bc-ba6e-c92f60a718e5
+		VariableName: DefaultSceneRoot
+		VariableGuid: 7273cd76-aa2c-4738-9027-76547e7f896a
 		}
-	TunableDB: {
-		AssetPtr: /Game/Data/Dlc/England/SandmanTunableDB.SandmanTunableDB
+	}
+Timelines: [ { 
+TimelineLength: 0.25f
+bValidatedAsWired: True
+FloatTracks: [ { 
+CurveFloat: CurveFloat: {	
+	FloatCurve: {
+		Keys: [ RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0.25, Value=0, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0] ]
 		}
-	_eventListener: PostProcess140D1093A459A32F5F567DBA759A3011E: {	
-		Settings: {
-			BloomIntensity: 50f
-			}
+	}
+TrackName: Alpha
+bIsExternalCurve: False
+ } ]
+TimelineGuid: 5df086db-85bb-47e4-a97b-ebb9610c8537
+ }, { 
+TimelineLength: 2f
+bValidatedAsWired: True
+FloatTracks: [ { 
+CurveFloat: CurveFloat: {	
+	FloatCurve: {
+		Keys: [ RichCurveKey [InterpMode=2, TangentMode=1, TangentWeightMode=0, Time=0, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=1, TangentWeightMode=0, Time=0.7239823, Value=0.2970544, ArriveTangent=-0.2516772, ArriveTangentWeight=0, LeaveTangent=-0.2516772, LeaveTangentWeight=0], RichCurveKey [InterpMode=2, TangentMode=1, TangentWeightMode=0, Time=1.995055, Value=-0.0004869699, ArriveTangent=-0.3096623, ArriveTangentWeight=0, LeaveTangent=-0.3096622, LeaveTangentWeight=0] ]
 		}
-	_meatHookZoneDetector: 151
-	_authoritativeMovementComponent: 114
-	_characterIndex: 268435465
-	Mesh: CharMoveComp: {	
+	}
+TrackName: Dissolve
+bIsExternalCurve: False
+ } ]
+TimelineGuid: 9cc3d8ae-b2d7-4a6b-97fd-2aeed6842742
+ } ]
+InheritableComponentHandler: InheritableComponentHandler: {	
+	}
+BlueprintSystemVersion: 2
+GeneratedClass: BP_Slasher_Character_10_C: {	
+	DynamicBindingObjects: [ { 
+	ComponentDelegateBindings: [ { 
+	ComponentPropertyName: _dreamworldComponent
+	DelegatePropertyName: DreamStateChanged
+	FunctionNameToBind: BndEvt___dreamworldComponent_K2Node_ComponentBoundEvent_0_DreamStateChangedDelegate__DelegateSignature
+	 } ]
+	 } ]
+	Timelines: [ 148, 149 ]
+	SimpleConstructionScript: 142
+	InheritableComponentHandler: 129
+	UberGraphFramePointerProperty: UberGraphFrame: {	
 		}
-	CharacterMovement: SlasherStateMachine: {	
+	UberGraphFunction: ExecuteUbergraph_BP_Slasher_Character: {	
 		}
-	CapsuleComponent: 118
-	RootComponent: 118
 	}
 bLegacyNeedToPurgeSkelRefs: False
 bLegacyGeneratedClassIsAuthoritative: True

@@ -1,6 +1,299 @@
-Emitters: [ 21 ]
-CurveEdSetup: RequiredDistributionSpawnRate: {	
+Emitters: [ { 
+EmitterName: Dust
+LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Dust_NoAA.MI_Dust_NoAA
+	bUseLegacyEmitterTime: False
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		}
+	RandomImageTime: 1f
+	LODValidity: 7
 	}
+Modules: [ { 
+Lifetime: {
+	MinValue: 8f
+	MaxValue: 8f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 8 ]
+		}
+	}
+LODValidity: 7
+ }, { 
+StartSize: {
+	MinValue: 2f
+	MaxValue: 3f
+	MinValueVec: Vector [X=2, Y=2, Z=2]
+	MaxValueVec: Vector [X=3, Y=3, Z=3]
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 2, 2, 2, 3, 3, 3 ]
+		}
+	}
+LODValidity: 3
+ }, { 
+StartLocation: {
+	MinValue: -800f
+	MaxValue: 800f
+	MinValueVec: Vector [X=-800, Y=-800, Z=-300]
+	MaxValueVec: Vector [X=800, Y=800, Z=300]
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ -800, -800, -300, 800, 800, 300 ]
+		}
+	}
+b3DDrawMode: True
+LODValidity: 7
+ }, { 
+VectorField: VectorFieldStatic /Game/Effects/VectorField/Environment/Dust/VF_Dust16x16_01.VF_Dust16x16_01
+RelativeRotation: Rotator [Pitch=0, Roll=0, Yaw=-90]
+RelativeScale3D: Vector [X=100, Y=100, Z=100]
+Intensity: 2f
+Tightness: 1f
+b3DDrawMode: True
+LODValidity: 1
+ }, { 
+ColorOverLife: {
+	Distribution: DistributionVectorConstant: {	
+		Constant: Vector [X=0.05, Y=0.05, Z=0.05]
+		}
+	}
+AlphaOverLife: {
+	Distribution: DistributionFloatConstantCurve: {	
+		ConstantCurve: {
+			Points: [ { 
+			InVal: 0f
+			OutVal: 0f
+			ArriveTangent: 0.5f
+			LeaveTangent: 0.5f
+			InterpMode: CIM_Linear
+			 }, { 
+			InVal: 0.25f
+			OutVal: 0.1f
+			ArriveTangent: 0f
+			LeaveTangent: 0f
+			InterpMode: CIM_Linear
+			 }, { 
+			InVal: 0.5f
+			OutVal: 0.05f
+			ArriveTangent: 0f
+			LeaveTangent: 0f
+			InterpMode: CIM_Linear
+			 }, { 
+			InVal: 0.75f
+			OutVal: 0.1f
+			ArriveTangent: -0.5f
+			LeaveTangent: -0.5f
+			InterpMode: CIM_Linear
+			 }, { 
+			InVal: 1f
+			OutVal: 0f
+			ArriveTangent: 0f
+			LeaveTangent: 0f
+			InterpMode: CIM_CurveUser
+			 } ]
+			}
+		}
+	}
+LODValidity: 7
+ }, { 
+StartRotation: {
+	MinValue: -1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ -1, 1 ]
+		}
+	}
+LODValidity: 7
+ }, { 
+StartRotationRate: {
+	MinValue: 0.35f
+	MaxValue: -0.35f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0.35, -0.35 ]
+		}
+	}
+LODValidity: 7
+ } ]
+TypeDataModule: ParticleModuleTypeDataGpu: {	
+	EmitterInfo: {
+		RequiredModule: 10
+		SpawnModule: ParticleModuleSpawn: {	
+			Rate: {
+				MinValue: 500f
+				MaxValue: 500f
+				Distribution: 0
+				Table: {
+					Op: 1
+					EntryCount: 1
+					EntryStride: 1
+					Values: [ 500 ]
+					}
+				}
+			RateScale: {
+				MinValue: 1f
+				MaxValue: 1f
+				Distribution: 0
+				Table: {
+					Op: 1
+					EntryCount: 1
+					EntryStride: 1
+					Values: [ 1 ]
+					}
+				}
+			BurstScale: {
+				MinValue: 1f
+				MaxValue: 1f
+				Distribution: 0
+				Table: {
+					Op: 1
+					EntryCount: 1
+					EntryStride: 1
+					Values: [ 1 ]
+					}
+				}
+			LODValidity: 3
+			}
+		SpawnModules: [ 10, 8, 13, 9, 11, 12 ]
+		LocalVectorField: {
+			Field: VectorFieldStatic /Game/Effects/VectorField/Environment/Dust/VF_Dust16x16_01.VF_Dust16x16_01
+			Transform: {
+				Rotation: Quat [X=0.7071068, Y=0, Z=0, W=0.7071067]
+				Scale3D: Vector [X=100, Y=100, Z=100]
+				}
+			Intensity: 2f
+			Tightness: 1f
+			bUseFixDT: True
+			}
+		InvMaxSize: Vector2D [X=0.3333333, Y=0.3333333]
+		InvRotationRateScale: -0.3571429f
+		MaxLifetime: 8f
+		MaxParticleCount: 4016
+		ScreenAlignment: PSA_Square
+		}
+	ResourceData: {
+		QuantizedColorSamples: [ Color [B=0, G=0, R=0, A=0], Color [B=0, G=0, R=0, A=254], Color [B=0, G=0, R=0, A=255], Color [B=0, G=0, R=0, A=0] ]
+		QuantizedMiscSamples: [ Color [B=0, G=0, R=0, A=0], Color [B=0, G=8, R=8, A=0], Color [B=0, G=16, R=16, A=0], Color [B=0, G=24, R=24, A=0], Color [B=0, G=32, R=32, A=0], Color [B=0, G=41, R=41, A=0], Color [B=0, G=49, R=49, A=0], Color [B=0, G=57, R=57, A=0], Color [B=0, G=65, R=65, A=0], Color [B=0, G=74, R=74, A=0], Color [B=0, G=82, R=82, A=0], Color [B=0, G=90, R=90, A=0], Color [B=0, G=98, R=98, A=0], Color [B=0, G=106, R=106, A=0], Color [B=0, G=115, R=115, A=0], Color [B=0, G=123, R=123, A=0], Color [B=0, G=131, R=131, A=0], Color [B=0, G=139, R=139, A=0], Color [B=0, G=148, R=148, A=0], Color [B=0, G=156, R=156, A=0], Color [B=0, G=164, R=164, A=0], Color [B=0, G=172, R=172, A=0], Color [B=0, G=180, R=180, A=0], Color [B=0, G=189, R=189, A=0], Color [B=0, G=197, R=197, A=0], Color [B=0, G=205, R=205, A=0], Color [B=0, G=213, R=213, A=0], Color [B=0, G=222, R=222, A=0], Color [B=0, G=230, R=230, A=0], Color [B=0, G=238, R=238, A=0], Color [B=0, G=246, R=246, A=0], Color [B=0, G=255, R=255, A=0], Color [B=0, G=254, R=254, A=0], Color [B=0, G=246, R=246, A=0], Color [B=0, G=238, R=238, A=0], Color [B=0, G=230, R=230, A=0], Color [B=0, G=222, R=222, A=0], Color [B=0, G=213, R=213, A=0], Color [B=0, G=205, R=205, A=0], Color [B=0, G=197, R=197, A=0], Color [B=0, G=189, R=189, A=0], Color [B=0, G=180, R=180, A=0], Color [B=0, G=172, R=172, A=0], Color [B=0, G=164, R=164, A=0], Color [B=0, G=156, R=156, A=0], Color [B=0, G=148, R=148, A=0], Color [B=0, G=139, R=139, A=0], Color [B=0, G=131, R=131, A=0], Color [B=0, G=123, R=123, A=0], Color [B=0, G=115, R=115, A=0], Color [B=0, G=106, R=106, A=0], Color [B=0, G=98, R=98, A=0], Color [B=0, G=90, R=90, A=0], Color [B=0, G=82, R=82, A=0], Color [B=0, G=74, R=74, A=0], Color [B=0, G=65, R=65, A=0], Color [B=0, G=57, R=57, A=0], Color [B=0, G=49, R=49, A=0], Color [B=0, G=41, R=41, A=0], Color [B=0, G=32, R=32, A=0], Color [B=0, G=24, R=24, A=0], Color [B=0, G=16, R=16, A=0], Color [B=0, G=8, R=8, A=0], Color [B=0, G=0, R=0, A=0] ]
+		ColorScale: Vector4 [X=0, Y=0, Z=0, W=0.08333334]
+		ColorBias: Vector4 [X=0.05, Y=0.05, Z=0.05, W=0]
+		MiscBias: Vector4 [X=3, Y=3, Z=0, W=0]
+		SimulationAttrCurveBias: Vector4 [X=1, Y=1, Z=0, W=1]
+		SubImageSize: Vector4 [X=1, Y=1, Z=1, W=1]
+		SizeBySpeed: Vector4 [X=0, Y=0, Z=1, W=1]
+		PerParticleVectorFieldBias: 1f
+		CollisionRadiusScale: 0.5f
+		OneMinusFriction: 1f
+		RotationRateScale: -2.8f
+		ScreenAlignment: PSA_Square
+		}
+	LODValidity: 7
+	}
+SpawnModule: 15
+PeakActiveParticles: 4016
+ }, { 
+Level: 1
+RequiredModule: 10
+Modules: [ 8, 13, 9, { 
+VectorField: VectorFieldStatic /Game/Effects/VectorField/Environment/Dust/VF_Dust16x16_01.VF_Dust16x16_01
+RelativeRotation: Rotator [Pitch=0, Roll=0, Yaw=-90]
+RelativeScale3D: Vector [X=100, Y=100, Z=100]
+Intensity: 2f
+b3DDrawMode: True
+LODValidity: 2
+ }, 7, 11, 12 ]
+TypeDataModule: 17
+SpawnModule: 15
+PeakActiveParticles: 4016
+ }, { 
+Level: 2
+RequiredModule: 10
+Modules: [ 8, { 
+StartSize: {
+	MinValue: 2f
+	MaxValue: 2f
+	MinValueVec: Vector [X=2, Y=2, Z=2]
+	MaxValueVec: Vector [X=2, Y=2, Z=2]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 2, 2, 2 ]
+		}
+	}
+LODValidity: 4
+ }, 9, { 
+VectorField: VectorFieldStatic /Game/Effects/VectorField/Environment/Dust/VF_Dust16x16_01.VF_Dust16x16_01
+RelativeRotation: Rotator [Pitch=0, Roll=0, Yaw=-90]
+RelativeScale3D: Vector [X=100, Y=100, Z=100]
+Intensity: 3f
+b3DDrawMode: True
+LODValidity: 4
+ }, 7, 11, 12 ]
+TypeDataModule: 17
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		MinValue: 200f
+		MaxValue: 200f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 200 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	LODValidity: 4
+	}
+PeakActiveParticles: 1607
+ } ]
+ } ]
+CurveEdSetup: 0
 LODDistances: [ 0, 1000, 2500 ]
 LODSettings: [ { 
  }, { 

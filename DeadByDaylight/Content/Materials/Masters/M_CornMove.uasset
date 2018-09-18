@@ -13,18 +13,18 @@ bUsedWithSkeletalMesh: True
 bUsedWithInstancedStaticMeshes: True
 EditorX: 288
 Expressions: [ { 
-MaterialFunction: MaterialFunction /Game/Materials/MaterialFunctions/MFN_IntoTheFogWeGo.MFN_IntoTheFogWeGo
+MaterialFunction: MaterialFunction /Game/Materials/MaterialFunctions/MFN_FadeToColour.MFN_FadeToColour
 FunctionInputs: [ { 
-ExpressionInputId: 8e734024-1932-403e-a312-e15a3a7f4e13
+ExpressionInputId: ee93592b-f8c1-4658-bf3d-528e10bce41a
 Input: [Skipped]
  }, { 
-ExpressionInputId: f9571db8-e541-4b83-b1a8-160d76ba49bc
+ExpressionInputId: 6f7d5760-a2ec-4305-9e7b-7dfb55f292ef
 Input: [Skipped]
  } ]
 FunctionOutputs: [ { 
-ExpressionOutputId: d004ccb0-b1ed-4347-abfb-b14bc7d92d42
+ExpressionOutputId: dd2b889f-e9f5-4846-8b77-774c4ff34fef
 Output: {
-	OutputName: Mask
+	OutputName: Result
 	Mask: 0
 	MaskR: 0
 	MaskG: 0
@@ -32,37 +32,21 @@ Output: {
 	MaskA: 0
 	}
  } ]
-Material: MaterialExpressionMaterialFunctionCall: {	
-	MaterialFunction: MaterialFunction /Game/Materials/MaterialFunctions/MFN_FoliageOffsetHelper.MFN_FoliageOffsetHelper
-	FunctionOutputs: [ { 
-	ExpressionOutputId: f5b329c1-d095-44f3-8693-1a32e47a0b44
-	Output: {
-		OutputName: WorldPositionOffset
-		Mask: 0
-		MaskR: 0
-		MaskG: 0
-		MaskB: 0
-		MaskA: 0
-		}
-	 } ]
-	Material: 1
-	Outputs: [ { 
-	OutputName: WorldPositionOffset
-	Mask: 0
-	MaskR: 0
-	MaskG: 0
-	MaskB: 0
-	MaskA: 0
-	 } ]
-	}
+Material: 1
 Outputs: [ { 
-OutputName: Mask
+OutputName: Result
 Mask: 0
 MaskR: 0
 MaskG: 0
 MaskB: 0
 MaskA: 0
  } ]
+ }, { 
+A: [Skipped]
+B: [Skipped]
+ParameterName: UseMetallic
+ExpressionGUID: 0034369f-6c27-4365-a7bb-46e6b068967c
+Material: 1
  }, { 
 A: [Skipped]
 B: [Skipped]
@@ -88,10 +72,68 @@ ParameterName: UseEmmisiveMask
 ExpressionGUID: 253e798b-0cf3-467b-9173-e19366f97d92
 Material: 1
  }, { 
+MaterialFunction: MaterialFunction /Game/Materials/MaterialFunctions/MFN_IntoTheFogWeGo.MFN_IntoTheFogWeGo
+FunctionInputs: [ { 
+ExpressionInputId: 8e734024-1932-403e-a312-e15a3a7f4e13
+Input: [Skipped]
+ }, { 
+ExpressionInputId: f9571db8-e541-4b83-b1a8-160d76ba49bc
+Input: [Skipped]
+ } ]
+FunctionOutputs: [ { 
+ExpressionOutputId: d004ccb0-b1ed-4347-abfb-b14bc7d92d42
+Output: {
+	OutputName: Mask
+	Mask: 0
+	MaskR: 0
+	MaskG: 0
+	MaskB: 0
+	MaskA: 0
+	}
+ } ]
+Material: 1
+Outputs: [ { 
+OutputName: Mask
+Mask: 0
+MaskR: 0
+MaskG: 0
+MaskB: 0
+MaskA: 0
+ } ]
+ }, { 
+MaterialFunction: MaterialFunction /Game/Characters/Campers/Materials/MF_Outline.MF_Outline
+FunctionInputs: [ { 
+ExpressionInputId: e65f1239-590d-44a9-a8c3-3a9f9b154c3a
+Input: [Skipped]
+ }, { 
+ExpressionInputId: 57223ae6-7900-42ce-9a15-c86249e56400
+Input: [Skipped]
+ } ]
+FunctionOutputs: [ { 
+ExpressionOutputId: 1cafffca-f861-4d41-bce7-59dffe19d828
+Output: {
+	OutputName: Result
+	Mask: 0
+	MaskR: 0
+	MaskG: 0
+	MaskB: 0
+	MaskA: 0
+	}
+ } ]
+Material: 1
+Outputs: [ { 
+OutputName: Result
+Mask: 0
+MaskR: 0
+MaskG: 0
+MaskB: 0
+MaskA: 0
+ } ]
+ }, { 
 A: [Skipped]
 B: [Skipped]
-ParameterName: UseBaseColor
-ExpressionGUID: 5202d8bc-59e1-4189-a2f9-4c20614f016a
+ParameterName: Bend Like A Corn
+ExpressionGUID: 4db9c1e6-58e1-463e-9d3c-7dd5436bfd04
 Material: 1
  }, { 
 MaterialFunction: MaterialFunction /Game/Materials/MaterialFunctions/MFN_CrawlingMoss.MFN_CrawlingMoss
@@ -119,17 +161,85 @@ MaskG: 0
 MaskB: 0
 MaskA: 0
  } ]
- }, { 
+ }, 0, 0, 0, 0, { 
 DefaultValue: 1000f
 ParameterName: pixelfade
 ExpressionGUID: d4c017ca-8c39-4223-8f5c-3ad4cbad5c51
 Group: AO blend
 Material: 1
+ }, 0, 0, 0, { 
+ParameterName: Base Color Texture
+ExpressionGUID: 430841ac-568c-449a-b3db-27563c26e5de
+Texture: Texture2D /Game/Textures/Environment/Tiles/Black.Black
+Material: 1
+ }, { 
+ParameterName: Base AO Texture
+ExpressionGUID: 111dea86-1e75-40e4-a082-4c3353be5249
+Coordinates: [Skipped]
+Texture: Texture2D /Game/Textures/Environment/Tiles/Black.Black
+Material: 1
+ }, { 
+DefaultValue: LinearColor [R=0.355, G=0.298089, B=0.301481, A=1]
+ParameterName: color
+ExpressionGUID: 7f0f6642-8a11-464e-b6d0-ac5834518695
+Material: 1
+ }, { 
+DefaultValue: 1f
+ParameterName: contrast
+ExpressionGUID: 188edee5-a2c8-4bab-80d4-8726db0e6227
+Group: AO blend
+Material: 1
+ }, { 
+DefaultValue: 3f
+ParameterName: AO_scale
+ExpressionGUID: 25d5c2e0-87fc-41a3-adcc-02c4e54939a7
+Material: 1
+ }, 0, 0, 0, { 
+DefaultValue: True
+ParameterName: Blend AO Into Diffuse
+ExpressionGUID: 10e5678b-56cd-47b2-897d-7c3715b17b07
+Material: 1
  }, { 
 A: [Skipped]
 B: [Skipped]
-ParameterName: UseMetallic
-ExpressionGUID: 0034369f-6c27-4365-a7bb-46e6b068967c
+ParameterName: UseBaseColor
+ExpressionGUID: 5202d8bc-59e1-4189-a2f9-4c20614f016a
+Material: 1
+ }, { 
+ParameterName: EmmisiveMask Texture
+ExpressionGUID: cbe56fc1-2587-4a5a-be30-bed8f73b75ed
+Texture: Texture2D /Game/Textures/Environment/Tiles/Black.Black
+Material: 1
+ }, { 
+ParameterName: RoughnessMap Texture
+ExpressionGUID: 746466aa-e86e-4bb8-8ba6-f741d66500fb
+Texture: Texture2D /Game/Textures/Environment/Tiles/Black_Linear.Black_Linear
+SamplerType: SAMPLERTYPE_LinearColor
+Material: 1
+ }, { 
+DefaultValue: 1f
+ParameterName: CustomRoughness
+ExpressionGUID: b13f217c-9c22-4092-ac3e-093972f793bf
+Material: 1
+ }, { 
+ParameterName: MetallicMap Texture
+ExpressionGUID: 7d2b9c5b-9a28-419f-a7ee-07363116f084
+Texture: Texture2D /Game/Textures/Environment/Tiles/Black_Linear.Black_Linear
+SamplerType: SAMPLERTYPE_LinearColor
+Material: 1
+ }, { 
+ParameterName: CustomMetallic
+ExpressionGUID: e6858999-b371-4372-822f-29a08ffa3af4
+Material: 1
+ }, { 
+ParameterName: Specular Texture
+ExpressionGUID: 8763c600-d380-4ed3-b9c5-0b7a25bed172
+Texture: Texture2D /Game/Textures/Environment/Tiles/Black.Black
+Material: 1
+ }, { 
+DefaultValue: LinearColor [R=0.5, G=0.5, B=0.5, A=1]
+ParameterName: CustomDiffuse
+ExpressionGUID: 9fd3c1ee-7d20-4940-b104-dad74fdba44b
 Material: 1
  }, { 
 MaterialFunction: MaterialFunction /Engine/Functions/Engine_MaterialFunctions02/Math/MultiplyAdd.MultiplyAdd
@@ -160,69 +270,10 @@ MaskG: 0
 MaskB: 0
 MaskA: 0
  } ]
- }, 0, 0, 0, 0, { 
-DefaultValue: 1f
-ParameterName: CustomRoughness
-ExpressionGUID: b13f217c-9c22-4092-ac3e-093972f793bf
-Material: 1
- }, 0, 0, 0, { 
-ParameterName: Base AO Texture
-ExpressionGUID: 111dea86-1e75-40e4-a082-4c3353be5249
-Coordinates: [Skipped]
-Texture: Texture2D /Game/Textures/Environment/Tiles/Black.Black
-Material: 1
- }, { 
-ParameterName: EmmisiveMask Texture
-ExpressionGUID: cbe56fc1-2587-4a5a-be30-bed8f73b75ed
-Texture: Texture2D /Game/Textures/Environment/Tiles/Black.Black
-Material: 1
  }, { 
 DefaultValue: LinearColor [R=0, G=0, B=0, A=1]
 ParameterName: Emmisive Color
 ExpressionGUID: 4a8b8707-6bc8-4e4f-9edd-7fb003684930
-Material: 1
- }, { 
-DefaultValue: True
-ParameterName: Blend AO Into Diffuse
-ExpressionGUID: 10e5678b-56cd-47b2-897d-7c3715b17b07
-Material: 1
- }, { 
-ParameterName: CustomMetallic
-ExpressionGUID: e6858999-b371-4372-822f-29a08ffa3af4
-Material: 1
- }, 0, 0, 0, { 
-A: [Skipped]
-B: [Skipped]
-ParameterName: Bend Like A Corn
-ExpressionGUID: 4db9c1e6-58e1-463e-9d3c-7dd5436bfd04
-Material: 1
- }, { 
-A: [Skipped]
-B: [Skipped]
-ParameterName: UseAO
-ExpressionGUID: 85b5d809-e366-48fd-a4ff-ba98aca7cef3
-Material: 1
- }, { 
-ParameterName: RoughnessMap Texture
-ExpressionGUID: 746466aa-e86e-4bb8-8ba6-f741d66500fb
-Texture: Texture2D /Game/Textures/Environment/Tiles/Black_Linear.Black_Linear
-SamplerType: SAMPLERTYPE_LinearColor
-Material: 1
- }, { 
-ParameterName: MetallicMap Texture
-ExpressionGUID: 7d2b9c5b-9a28-419f-a7ee-07363116f084
-Texture: Texture2D /Game/Textures/Environment/Tiles/Black_Linear.Black_Linear
-SamplerType: SAMPLERTYPE_LinearColor
-Material: 1
- }, { 
-DefaultValue: 3f
-ParameterName: AO_scale
-ExpressionGUID: 25d5c2e0-87fc-41a3-adcc-02c4e54939a7
-Material: 1
- }, { 
-ParameterName: Specular Texture
-ExpressionGUID: 8763c600-d380-4ed3-b9c5-0b7a25bed172
-Texture: Texture2D /Game/Textures/Environment/Tiles/Black.Black
 Material: 1
  }, { 
 ParameterName: CustomEmmisive
@@ -235,33 +286,6 @@ Texture: Texture2D /Game/Effects/Textures/SphereNormal.SphereNormal
 SamplerType: SAMPLERTYPE_Normal
 Material: 1
  }, { 
-DefaultValue: LinearColor [R=0, G=0, B=0, A=1]
-ParameterName: CustomAO
-ExpressionGUID: 46dcaf85-7140-4667-bd9e-ca2a8b30f2b5
-Material: 1
- }, { 
-MaterialFunction: MaterialFunction /Game/Materials/MaterialFunctions/MFN_CloseDithering.MFN_CloseDithering
-FunctionOutputs: [ { 
-ExpressionOutputId: 8ca4e555-7e07-4e7e-9840-cc1cf411a3f0
-Output: {
-	OutputName: Result
-	Mask: 0
-	MaskR: 0
-	MaskG: 0
-	MaskB: 0
-	MaskA: 0
-	}
- } ]
-Material: 1
-Outputs: [ { 
-OutputName: Result
-Mask: 0
-MaskR: 0
-MaskG: 0
-MaskB: 0
-MaskA: 0
- } ]
- }, { 
 DefaultValue: LinearColor [R=0, G=0, B=1, A=1]
 ParameterName: CustomNormal
 ExpressionGUID: ccabe30d-b155-4ef0-9c3c-955b2c6420ac
@@ -271,39 +295,22 @@ ParameterName: CustomSpecular
 ExpressionGUID: 3a46e1bd-fc49-4ca4-a0f1-358efc86ce25
 Material: 1
  }, { 
-DefaultValue: LinearColor [R=0.355, G=0.298089, B=0.301481, A=1]
-ParameterName: color
-ExpressionGUID: 7f0f6642-8a11-464e-b6d0-ac5834518695
+A: [Skipped]
+B: [Skipped]
+ParameterName: UseAO
+ExpressionGUID: 85b5d809-e366-48fd-a4ff-ba98aca7cef3
 Material: 1
  }, { 
-DefaultValue: LinearColor [R=0.5, G=0.5, B=0.5, A=1]
-ParameterName: CustomDiffuse
-ExpressionGUID: 9fd3c1ee-7d20-4940-b104-dad74fdba44b
+DefaultValue: LinearColor [R=0, G=0, B=0, A=1]
+ParameterName: CustomAO
+ExpressionGUID: 46dcaf85-7140-4667-bd9e-ca2a8b30f2b5
 Material: 1
- }, { 
-DefaultValue: 1f
-ParameterName: contrast
-ExpressionGUID: 188edee5-a2c8-4bab-80d4-8726db0e6227
-Group: AO blend
-Material: 1
- }, { 
-ParameterName: Base Color Texture
-ExpressionGUID: 430841ac-568c-449a-b3db-27563c26e5de
-Texture: Texture2D /Game/Textures/Environment/Tiles/Black.Black
-Material: 1
- }, 36, 0, { 
-MaterialFunction: MaterialFunction /Game/Materials/MaterialFunctions/MFN_FadeToColour.MFN_FadeToColour
-FunctionInputs: [ { 
-ExpressionInputId: ee93592b-f8c1-4658-bf3d-528e10bce41a
-Input: [Skipped]
- }, { 
-ExpressionInputId: 6f7d5760-a2ec-4305-9e7b-7dfb55f292ef
-Input: [Skipped]
- } ]
+ }, 0, { 
+MaterialFunction: MaterialFunction /Game/Materials/MaterialFunctions/MFN_FoliageOffsetHelper.MFN_FoliageOffsetHelper
 FunctionOutputs: [ { 
-ExpressionOutputId: dd2b889f-e9f5-4846-8b77-774c4ff34fef
+ExpressionOutputId: f5b329c1-d095-44f3-8693-1a32e47a0b44
 Output: {
-	OutputName: Result
+	OutputName: WorldPositionOffset
 	Mask: 0
 	MaskR: 0
 	MaskG: 0
@@ -313,7 +320,7 @@ Output: {
  } ]
 Material: 1
 Outputs: [ { 
-OutputName: Result
+OutputName: WorldPositionOffset
 Mask: 0
 MaskR: 0
 MaskG: 0
@@ -321,16 +328,9 @@ MaskB: 0
 MaskA: 0
  } ]
  }, { 
-MaterialFunction: MaterialFunction /Game/Characters/Campers/Materials/MF_Outline.MF_Outline
-FunctionInputs: [ { 
-ExpressionInputId: e65f1239-590d-44a9-a8c3-3a9f9b154c3a
-Input: [Skipped]
- }, { 
-ExpressionInputId: 57223ae6-7900-42ce-9a15-c86249e56400
-Input: [Skipped]
- } ]
+MaterialFunction: MaterialFunction /Game/Materials/MaterialFunctions/MFN_CloseDithering.MFN_CloseDithering
 FunctionOutputs: [ { 
-ExpressionOutputId: 1cafffca-f861-4d41-bce7-59dffe19d828
+ExpressionOutputId: 8ca4e555-7e07-4e7e-9840-cc1cf411a3f0
 Output: {
 	OutputName: Result
 	Mask: 0

@@ -1,88 +1,35 @@
 ParentClass: BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/BP_Slasher_Character.BP_Slasher_Character_C
-SimpleConstructionScript: CharacterMesh0: {	
-	AnimBlueprintGeneratedClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Animations/SlasherMale01/AB_SlasherMale_00.AB_SlasherMale_00_C
-	AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Animations/SlasherMale05/AB_SlasherMale07.AB_SlasherMale07_C
-	SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Doctor/Models/DO_DSkeleton_REF.DO_DSkeleton_REF
-	OverrideMaterials: [ MaterialInstanceConstant /Game/Characters/Slashers/Doctor/Materials/MI_DOHead01.MI_DOHead01, MaterialInstanceConstant /Game/Characters/Slashers/Trapper/Materials/MI_TRTorso01.MI_TRTorso01, MaterialInstanceConstant /Game/Characters/Slashers/Trapper/Materials/MI_TRLegs01.MI_TRLegs01 ]
-	BodyInstance: {
-		CollisionResponses: {
-			ResponseArray: [ { 
-			Channel: Pawn
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Vehicle
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Camera
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Audio
-			Response: ECR_Ignore
-			 } ]
-			}
-		MassInKgOverride: 199.0395f
-		}
-	AttachParent: DreamworldComponent: {	
-		}
-	}
-Timelines: [ { 
-_trapPlacementRaycastStart: Vector [X=0, Y=0, Z=25]
-_trapPlacementRaycastEnd: Vector [X=0, Y=0, Z=-50]
-_itemTrapId: Item_Slasher_Killer07Item
-RelativeLocation: Vector [X=0, Y=0, Z=206]
-RelativeRotation: Rotator [Pitch=0, Roll=180, Yaw=0]
- } ]
-InheritableComponentHandler: MontagePlayer: {	
-	_playerSpecificMappingsTable: DataTable /Game/Characters/Slashers/Animations/MontageMappings/Slasher007_AnimMappings.Slasher007_AnimMappings
-	}
-BlueprintSystemVersion: 2
-GeneratedClass: Default__BP_Slasher_Character_07_C: {	
-	UberGraphFrame: 459
-	ShockTherapyCooldownTimer: {
-		_startTime: 0f
-		_startTimeDirty: True
-		_timeLeft: {
-			_value: 0f
-			}
-		_replicateTimeLeft: False
-		_interpSpeed: 1f
-		}
-	HiddenColor: LinearColor [R=0, G=0, B=0, A=0]
-	ShownColor: LinearColor [R=0.5, G=0, B=0, A=0.025]
-	DefaultSlasherPower: Item_Slasher_Killer07Item
-	KillerMoodInfluence: EKillerMoodInfluence::VE_Chuckles
-	KillerAbilities: [ EKillerAbilities::VE_Killer07Ability, EKillerAbilities::VE_Kill07 ]
-	_camperSensor: PlayerData: {	
-		}
-	_stillnessTracker: FX AOE Attack Fade_Template: {	
-		TimelineLength: 0.1f
-		bValidatedAsWired: True
-		FloatTracks: [ { 
-		CurveFloat: CamperSensor: {	
-			OnSeePawn: OnChaseTargetFound
-			}
-		TrackName: Fade
-		bIsExternalCurve: False
-		 } ]
-		TimelineGuid: c30d16da-1b81-4cba-9851-a33a864dcd8b
-		}
-	_fullBodyFlashLightReceiver: InheritableComponentHandler: {	
-		}
-	_invisibilityBurnoutChargeableComponent: BP_Effect_Glitch_GEN_VARIABLE: {	
+SimpleConstructionScript: SimpleConstructionScript: {	
+	RootNodes: [ { 
+	ComponentTemplate: BP_Effect_Glitch_GEN_VARIABLE: {	
 		ChildActorClass: BlueprintGeneratedClass /Game/Effects/Blueprints/BP_Effect_Glitch.BP_Effect_Glitch_C
 		RelativeLocation: Vector [X=17, Y=0, Z=0]
 		}
-	AudioCharacterName: Doctor
-	CharacterClothes: Killer_Leather
-	CharacterShoes: Boots
-	CharacterWeapon: Stick
-	BlindingChargeableComponent: InvisibilityBurnoutChargeableComponent: {	
-		OnInteractionEmptiedEvent: OnInvisibilityChargeEmptied
-		ChargeAppliedAuthorityDelegate: Authority_OnInvisibilityBurnoutChargeApplied
+	VariableName: BP_Effect_Glitch
+	ParentComponentOrVariableName: Camera1
+	ParentComponentOwnerClassName: BP_Slasher_Character_C
+	VariableGuid: 80b1e0a7-1ff7-4758-b616-6e5adab4ce04
+	 }, { 
+	ComponentTemplate: P_VignetteLightning_RightB_GEN_VARIABLE: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/P_VignetteLightning.P_VignetteLightning
+		bAutoActivate: False
 		}
-	_pixelCounter: CameraHandlerComponent: {	
+	VariableName: P_VignetteLightning_RightB
+	ParentComponentOrVariableName: ScreenSpaceLocation_RightB
+	ParentComponentOwnerClassName: BP_Slasher_Character_C
+	VariableGuid: af77c8f9-06b5-4a90-985e-155edd049f86
+	 }, { 
+	ComponentTemplate: P_VignetteLightning_LeftB_GEN_VARIABLE: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/P_VignetteLightning.P_VignetteLightning
+		RelativeRotation: Rotator [Pitch=0, Roll=180, Yaw=0]
+		bAutoActivate: False
 		}
-	_SM: StaticMesh_GEN_VARIABLE: {	
+	VariableName: P_VignetteLightning_LeftB
+	ParentComponentOrVariableName: ScreenSpaceLocation_LeftB
+	ParentComponentOwnerClassName: BP_Slasher_Character_C
+	VariableGuid: 82c75542-546c-431c-8ef9-76ed8645c8a5
+	 }, { 
+	ComponentTemplate: StaticMesh_GEN_VARIABLE: {	
 		StaticMesh: StaticMesh /Game/Characters/Slashers/Blueprints/AttackZone/AttackZone_005.AttackZone_005
 		bUseDefaultCollision: False
 		OverrideMaterials: [ Material /Game/DumpingGround/M_LetsColorIt.M_LetsColorIt ]
@@ -161,50 +108,139 @@ GeneratedClass: Default__BP_Slasher_Character_07_C: {
 		RelativeRotation: Rotator [Pitch=0, Roll=89.99998, Yaw=0]
 		RelativeScale3D: Vector [X=0.8, Y=0.8, Z=0.1]
 		}
-	_interactionHandler: EventListener: {	
+	VariableName: StaticMesh
+	ParentComponentOrVariableName: CollisionCylinder
+	bIsParentComponentNative: True
+	VariableGuid: 2174608b-df72-4198-bc34-3fb321e55ab5
+	 }, { 
+	ComponentTemplate: P_TerrorRadiusSlasher_GEN_VARIABLE: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/Killer07/P_TerrorRadiusSlasher.P_TerrorRadiusSlasher
+		WarmupTime: 5f
+		bAutoActivate: False
 		}
-	_montagePlayer: P_AOE_Hand_Lightning_GEN_VARIABLE: {	
+	VariableName: P_TerrorRadiusSlasher
+	ParentComponentOrVariableName: CharacterMesh0
+	bIsParentComponentNative: True
+	VariableGuid: 7307739e-4dd5-4d37-9a2f-69026e857d1c
+	 }, { 
+	ComponentTemplate: P_Hand_Idle_GEN_VARIABLE: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/Killer07/P_AOE_Hand_Idle.P_AOE_Hand_Idle
+		bAutoActivate: False
+		}
+	VariableName: P_Hand_Idle
+	AttachToName: FX_AOE_Hand_Idle
+	ParentComponentOrVariableName: CharacterMesh0
+	bIsParentComponentNative: True
+	VariableGuid: 0b539343-0c06-49ab-933b-b2231eb869ed
+	 }, { 
+	ComponentTemplate: P_AOE_Hand_Lightning_GEN_VARIABLE: {	
 		Template: ParticleSystem /Game/Effects/ParticleSystems/Killer07/P_AOE_Hand_Lightning.P_AOE_Hand_Lightning
 		bAbsoluteRotation: True
 		bAutoActivate: False
 		}
-	_perkManager: InteractionHandler: {	
+	VariableName: P_AOE_Hand_Lightning
+	ParentComponentOrVariableName: CharacterMesh0
+	bIsParentComponentNative: True
+	VariableGuid: 948152cb-a9b7-4c4a-9a1d-f7a7617b28bb
+	 }, { 
+	ComponentTemplate: P_AOE_Hand_Sparks_GEN_VARIABLE: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/Killer07/P_AOE_Hand_Sparks.P_AOE_Hand_Sparks
+		bAutoActivate: False
 		}
-	_playerData: FullBodyFlashLightReceiver: {	
+	VariableName: P_AOE_Hand_Sparks
+	AttachToName: FX_AOE_Hand_Idle
+	ParentComponentOrVariableName: CharacterMesh0
+	bIsParentComponentNative: True
+	VariableGuid: 3148fc54-c822-4e32-b52d-37dd57e6b7b2
+	 }, { 
+	ComponentTemplate: P_AOE_Hand_LightningEnd_GEN_VARIABLE: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/Killer07/P_AOE_Hand_LightningEnd.P_AOE_Hand_LightningEnd
+		bAbsoluteRotation: True
+		bAutoActivate: False
 		}
-	_characterSnappingComponent: BlindnessChargeableComponent: {	
-		OnInteractionEmptiedEvent: OnBlindChargeEmptied
-		ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
+	VariableName: P_AOE_Hand_LightningEnd
+	ParentComponentOrVariableName: CharacterMesh0
+	bIsParentComponentNative: True
+	VariableGuid: e0d51aff-c36d-4e9f-9e31-132b6c8115dc
+	 }, { 
+	ComponentTemplate: P_Hand_TreatmentStart_GEN_VARIABLE: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/Killer07/P_AOE_Hand_Sparks.P_AOE_Hand_Sparks
+		bAutoActivate: False
 		}
-	_dreamworldComponent: SnappingComponent: {	
+	VariableName: P_Hand_TreatmentStart
+	AttachToName: FX_AOE_Hand_Idle
+	ParentComponentOrVariableName: CharacterMesh0
+	bIsParentComponentNative: True
+	VariableGuid: 35c3ab63-25a6-4431-bfa3-10e5d80a30f6
+	 }, { 
+	ComponentTemplate: TrapPlacer_GEN_VARIABLE: {	
+		_trapPlacementRaycastStart: Vector [X=0, Y=0, Z=25]
+		_trapPlacementRaycastEnd: Vector [X=0, Y=0, Z=-50]
+		_itemTrapId: Item_Slasher_Killer07Item
+		RelativeLocation: Vector [X=0, Y=0, Z=206]
+		RelativeRotation: Rotator [Pitch=0, Roll=180, Yaw=0]
 		}
-	_cameraHandlerComponent: CollisionCylinder: {	
+	VariableName: TrapPlacer
+	ParentComponentOrVariableName: CharacterMesh0
+	bIsParentComponentNative: True
+	ChildNodes: [ { 
+	ComponentTemplate: ShockTherapyZoneIndicatorBeam_GEN_VARIABLE: {	
+		ChildActorClass: BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/AttackZone/Dlc4/Killer07_AoE_Line_Target.Killer07_AoE_Line_Target_C
+		RelativeLocation: Vector [X=0, Y=-1000, Z=0]
+		RelativeRotation: Rotator [Pitch=0, Roll=90, Yaw=0]
 		}
-	_itemDropOffPosition: SCS_Node: {	
-		ComponentTemplate: ShockTherapyZoneIndicatorBeam_GEN_VARIABLE: {	
-			ChildActorClass: BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/AttackZone/Dlc4/Killer07_AoE_Line_Target.Killer07_AoE_Line_Target_C
-			RelativeLocation: Vector [X=0, Y=-1000, Z=0]
-			RelativeRotation: Rotator [Pitch=0, Roll=90, Yaw=0]
+	VariableName: ShockTherapyZoneIndicatorBeam
+	VariableGuid: e8b2f60e-b9bc-432c-a96d-41d405f14a4e
+	 }, { 
+	ComponentTemplate: ShockTherapyZoneIndicatorRing_GEN_VARIABLE: {	
+		ChildActorClass: BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/AttackZone/Dlc4/Killer07_AoE_Circle_Target.Killer07_AoE_Circle_Target_C
+		RelativeLocation: Vector [X=0, Y=-800, Z=0]
+		RelativeScale3D: Vector [X=0.6, Y=0.6, Z=0.6]
+		}
+	VariableName: ShockTherapyZoneIndicatorRing
+	VariableGuid: 44817992-527d-4d52-b624-5c172954ef32
+	 }, { 
+	ComponentTemplate: ShockTherapyZoneIndicatorCone_GEN_VARIABLE: {	
+		ChildActorClass: BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/AttackZone/Dlc4/Killer07_AoE_Target.Killer07_AoE_Target_C
+		}
+	VariableName: ShockTherapyZoneIndicatorCone
+	VariableGuid: f07ccd3c-c3f9-4709-9ddf-9d2c5d730ccc
+	 } ]
+	VariableGuid: f7e39254-bac4-4e3f-a9b5-69ab5d3971f6
+	 } ]
+	AllNodes: [ 250, 257, 258, 259, 260, 252, 253, 254, 255, 264, 256, 262, 263, 261 ]
+	DefaultSceneRootNode: SCS_Node: {	
+		ComponentTemplate: DefaultSceneRoot578264FE466503DE5EF9FD9F80B580EF: {	
 			}
-		VariableName: BP_Effect_Glitch
-		ParentComponentOrVariableName: Camera1
-		ParentComponentOwnerClassName: BP_Slasher_Character_C
-		VariableGuid: 80b1e0a7-1ff7-4758-b616-6e5adab4ce04
+		VariableName: DefaultSceneRoot
+		VariableGuid: 7273cd76-aa2c-4738-9027-76547e7f896a
 		}
-	TunableDB: {
-		AssetPtr: /Game/Data/DoctorTunableDB.DoctorTunableDB
+	}
+Timelines: [ { 
+TimelineLength: 0.1f
+bValidatedAsWired: True
+FloatTracks: [ { 
+CurveFloat: CurveFloat: {	
+	FloatCurve: {
+		Keys: [ RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0.1, Value=0, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0] ]
 		}
-	_eventListener: DefaultSceneRoot578264FE466503DE5EF9FD9F80B580EF: {	
+	}
+TrackName: Fade
+bIsExternalCurve: False
+ } ]
+TimelineGuid: c30d16da-1b81-4cba-9851-a33a864dcd8b
+ } ]
+InheritableComponentHandler: InheritableComponentHandler: {	
+	}
+BlueprintSystemVersion: 2
+GeneratedClass: BP_Slasher_Character_07_C: {	
+	Timelines: [ 271 ]
+	SimpleConstructionScript: 265
+	InheritableComponentHandler: 235
+	UberGraphFramePointerProperty: UberGraphFrame: {	
 		}
-	_meatHookZoneDetector: 273
-	_authoritativeMovementComponent: 218
-	_characterIndex: 268435462
-	Mesh: CharMoveComp: {	
+	UberGraphFunction: ExecuteUbergraph_BP_Slasher_Character_07: {	
 		}
-	CharacterMovement: SlasherStateMachine: {	
-		}
-	CapsuleComponent: 222
-	RootComponent: 222
 	}
 bLegacyNeedToPurgeSkelRefs: False
 bLegacyGeneratedClassIsAuthoritative: True

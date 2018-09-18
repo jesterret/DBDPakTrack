@@ -1,23 +1,50 @@
 Emitters: [ { 
 EmitterName: Embers
 LODLevels: [ { 
-RequiredModule: ParticleModuleSize: {	
-	StartSize: {
-		MinValue: 12f
-		MaxValue: 15f
+RequiredModule: ParticleModuleRequired: {	
+	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Cockroach.MI_Cockroach
+	bUseLocalSpace: True
+	bUseLegacyEmitterTime: False
+	EmitterLoops: 1
+	SpawnRate: {
 		Distribution: RequiredDistributionSpawnRate: {	
 			}
-		Table: {
-			Op: 2
-			EntryCount: 1
-			EntryStride: 6
-			SubEntryStride: 3
-			Values: [ 12, 12, 12, 15, 15, 15 ]
-			}
 		}
+	InterpolationMethod: PSUVIM_Linear_Blend
+	SubImages_Horizontal: 2
+	SubImages_Vertical: 2
+	RandomImageTime: 1f
 	LODValidity: 1
 	}
 Modules: [ { 
+Lifetime: {
+	MinValue: 2f
+	MaxValue: 3f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 2, 3 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartSize: {
+	MinValue: 12f
+	MaxValue: 15f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 12, 12, 12, 15, 15, 15 ]
+		}
+	}
+LODValidity: 1
+ }, { 
 StartLocation: {
 	MinValue: -2f
 	MaxValue: 2f
@@ -30,6 +57,56 @@ StartLocation: {
 		Values: [ -2, -2, 0, 2, 2, 0 ]
 		}
 	}
+LODValidity: 1
+ }, { 
+StartVelocity: {
+	MinValue: -10f
+	MaxValue: 150f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 120, -10, 0, 150, 10, 0 ]
+		}
+	}
+StartVelocityRadial: {
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 0 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+ColorOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 1, 1, 1 ]
+		}
+	}
+AlphaOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+LockAxisFlags: EPAL_Z
 LODValidity: 1
  }, { 
 LifeMultiplier: {
@@ -45,8 +122,61 @@ LifeMultiplier: {
 	}
 LODValidity: 1
  }, { 
-LockAxisFlags: EPAL_Z
+SubImageIndex: {
+	MaxValue: 16f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 1
+		TimeScale: 1f
+		Values: [ 0, 16 ]
+		}
+	}
 LODValidity: 1
+ } ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 0 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstList: [ { 
+	Count: 3
+	CountLow: 2
+	Time: 0f
+	 } ]
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	bApplyGlobalSpawnRateScale: False
+	LODValidity: 1
+	}
+PeakActiveParticles: 5
+ } ]
  }, { 
 EmitterName: Embers
 LODLevels: [ { 
@@ -56,155 +186,69 @@ RequiredModule: ParticleModuleRequired: {
 	bUseLegacyEmitterTime: False
 	EmitterLoops: 1
 	SpawnRate: {
-		Distribution: ParticleLODLevel: {	
-			RequiredModule: ParticleModuleRequired: {	
-				Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Cockroach.MI_Cockroach
-				bUseLocalSpace: True
-				bUseLegacyEmitterTime: False
-				EmitterLoops: 1
-				SpawnRate: {
-					Distribution: RequiredDistributionSpawnRate: {	
-						}
-					}
-				EmitterDelay: 0.5f
-				InterpolationMethod: PSUVIM_Linear_Blend
-				SubImages_Horizontal: 2
-				SubImages_Vertical: 2
-				RandomImageTime: 1f
-				LODValidity: 1
-				}
-			Modules: [ 8, 14, 9, 20, { 
-			Lifetime: {
-				MinValue: 2f
-				MaxValue: 3f
-				Distribution: 0
-				Table: {
-					Op: 2
-					EntryCount: 1
-					EntryStride: 2
-					SubEntryStride: 1
-					Values: [ 2, 3 ]
-					}
-				}
-			LODValidity: 1
-			 }, { 
-			Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Cockroach.MI_Cockroach
-			bUseLocalSpace: True
-			bUseLegacyEmitterTime: False
-			EmitterLoops: 1
-			SpawnRate: {
-				Distribution: RequiredDistributionSpawnRate: {	
-					}
-				}
-			InterpolationMethod: PSUVIM_Linear_Blend
-			SubImages_Horizontal: 2
-			SubImages_Vertical: 2
-			RandomImageTime: 1f
-			LODValidity: 1
-			 }, { 
-			Rate: {
-				Distribution: 0
-				Table: {
-					Op: 1
-					EntryCount: 1
-					EntryStride: 1
-					Values: [ 0 ]
-					}
-				}
-			RateScale: {
-				MinValue: 1f
-				MaxValue: 1f
-				Distribution: 0
-				Table: {
-					Op: 1
-					EntryCount: 1
-					EntryStride: 1
-					Values: [ 1 ]
-					}
-				}
-			BurstList: [ { 
-			Count: 3
-			CountLow: 2
-			Time: 0f
-			 } ]
-			BurstScale: {
-				MinValue: 1f
-				MaxValue: 1f
-				Distribution: 0
-				Table: {
-					Op: 1
-					EntryCount: 1
-					EntryStride: 1
-					Values: [ 1 ]
-					}
-				}
-			bApplyGlobalSpawnRateScale: False
-			LODValidity: 1
-			 }, { 
-			StartVelocity: {
-				MinValue: -10f
-				MaxValue: 150f
-				Distribution: 0
-				Table: {
-					Op: 2
-					EntryCount: 1
-					EntryStride: 6
-					SubEntryStride: 3
-					Values: [ 120, -10, 0, 150, 10, 0 ]
-					}
-				}
-			StartVelocityRadial: {
-				Distribution: 0
-				Table: {
-					Op: 1
-					EntryCount: 1
-					EntryStride: 1
-					Values: [ 0 ]
-					}
-				}
-			LODValidity: 1
-			 } ]
-			SpawnModule: ParticleModuleSpawn: {	
-				Rate: {
-					Distribution: 0
-					Table: {
-						Op: 1
-						EntryCount: 1
-						EntryStride: 1
-						Values: [ 0 ]
-						}
-					}
-				RateScale: {
-					MinValue: 1f
-					MaxValue: 1f
-					Distribution: 0
-					Table: {
-						Op: 1
-						EntryCount: 1
-						EntryStride: 1
-						Values: [ 1 ]
-						}
-					}
-				BurstList: [ { 
-				Count: 2
-				CountLow: 1
-				Time: 0f
-				 } ]
-				BurstScale: {
-					MinValue: 1f
-					MaxValue: 1f
-					Distribution: 0
-					Table: {
-						Op: 1
-						EntryCount: 1
-						EntryStride: 1
-						Values: [ 1 ]
-						}
-					}
-				bApplyGlobalSpawnRateScale: False
-				LODValidity: 1
-				}
-			PeakActiveParticles: 5
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		}
+	EmitterDelay: 0.5f
+	InterpolationMethod: PSUVIM_Linear_Blend
+	SubImages_Horizontal: 2
+	SubImages_Vertical: 2
+	RandomImageTime: 1f
+	LODValidity: 1
+	}
+Modules: [ 8, 14, 9, 20, 7, 10, 15, 19 ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 0 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstList: [ { 
+	Count: 2
+	CountLow: 1
+	Time: 0f
+	 } ]
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	bApplyGlobalSpawnRateScale: False
+	LODValidity: 1
+	}
+PeakActiveParticles: 4
+ } ]
+ }, { 
+EmitterName: Embers
+LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Cockroach.MI_Cockroach
+	bUseLocalSpace: True
+	bUseLegacyEmitterTime: False
+	EmitterLoops: 1
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
 			}
 		}
 	EmitterDelay: 1f
@@ -255,53 +299,9 @@ SpawnModule: ParticleModuleSpawn: {
 	bApplyGlobalSpawnRateScale: False
 	LODValidity: 1
 	}
-PeakActiveParticles: 4
- } ]
- }, 7, 10, 15, 19 ]
-SpawnModule: ParticleModuleSubUV: {	
-	SubImageIndex: {
-		MaxValue: 16f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 2
-			EntryStride: 1
-			TimeScale: 1f
-			Values: [ 0, 16 ]
-			}
-		}
-	LODValidity: 1
-	}
 PeakActiveParticles: 3
  } ]
- }, { 
-EmitterName: Embers
-LODLevels: [ { 
-ColorOverLife: {
-	MinValue: 1f
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 1, 1, 1 ]
-		}
-	}
-AlphaOverLife: {
-	MinValue: 1f
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 1 ]
-		}
-	}
-LODValidity: 1
  } ]
- }, 23 ]
 CurveEdSetup: 0
 LODDistances: [ 0 ]
 LODSettings: [ 51 ]

@@ -1,26 +1,50 @@
 ParentClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/BaseSlasherItem.BaseSlasherItem_C
-SimpleConstructionScript: ItemMesh: {	
-	OverrideMaterials: [ MaterialInstanceConstant /Game/Characters/Slashers/Wraith/Materials/MI_TWBell.MI_TWBell ]
-	CastShadow: True
-	bCastCinematicShadow: True
-	}
-InheritableComponentHandler: ItemModifier: {	
-	}
-BlueprintSystemVersion: 2
-GeneratedClass: Default__CloakingBell_BP_C: {	
-	UberGraphFrame: 135
-	VisibleWhenEquipped: False
-	HandPosition: EItemHandPosition::HandleItem
-	HasUseInteraction: True
-	HasDropInteraction: False
-	ItemID: Item_Slasher_CloakBell
-	BaseItemModifier: ItemModifier1: {	
+SimpleConstructionScript: SimpleConstructionScript: {	
+	RootNodes: [ { 
+	ComponentTemplate: UncloakInteractionDefinitionE569EB9346BACAC5BD208E8E6F1E1C7B: {	
+		RelativeLocation: Vector [X=0, Y=0, Z=-4.999996]
 		}
-	ItemModifier1: ItemModifier2: {	
+	VariableName: UncloakInteractionDefinition
+	ParentComponentOrVariableName: Item Interactor
+	ParentComponentOwnerClassName: BaseSlasherItem_C
+	VariableGuid: 931307e9-a014-4165-a5fc-968dbbd3ed3b
+	 }, { 
+	ComponentTemplate: CloakInteractionDefinitionCAA3A25146959A3F0EC05DB084CECD65: {	
+		RelativeLocation: Vector [X=0, Y=0, Z=-4.999996]
 		}
-	ItemModifier2: DefaultSceneRootC0BF56C44DBD5316EE5EB39AC42F953A: {	
+	VariableName: CloakInteractionDefinition
+	ParentComponentOrVariableName: Item Interactor
+	ParentComponentOwnerClassName: BaseSlasherItem_C
+	VariableGuid: 82eede3f-72cf-4d8e-b2a2-02f8e0043361
+	 }, { 
+	ComponentTemplate: ChargeableC1129F76480D80F1880AEC9D91D6F578: {	
+		ChargeableComponentID: CloakChargeable
 		}
-	_mesh: Slasher03_BellDB7D55DE4559C83F045F3F9CB64EA3CB: {	
+	VariableName: CloakChargeable
+	VariableGuid: 34a85c46-eedb-4a9a-b3ee-ad9f1b9fbe17
+	 }, { 
+	ComponentTemplate: Chargeable3DEE18CD4A64C97F8795E1ACD38B700D: {	
+		ChargeableComponentID: UncloakChargeable
+		}
+	VariableName: UncloakChargeable
+	VariableGuid: 78636b8b-b86d-4122-96d2-420933f8a405
+	 }, { 
+	ComponentTemplate: FlashlightUncloakInteractionDefinition49E7E8304365A2C8E0556DB4C3D31CE8: {	
+		InteractionInputType: EInputInteractionType::VE_ExternalRequestFlashlightStunUncloak
+		InteractionTime: 3f
+		RelativeLocation: Vector [X=0, Y=0, Z=-4.999996]
+		}
+	VariableName: FlashlightUncloakInteractionDefinition
+	ParentComponentOrVariableName: Item Interactor
+	ParentComponentOwnerClassName: BaseSlasherItem_C
+	VariableGuid: 47318187-c286-4ae1-936b-696148ea513a
+	 }, { 
+	ComponentTemplate: DBDTimer58E9E7784B96458B1BAFFEA75748D7BF: {	
+		}
+	VariableName: ActivationCooldownTimer
+	VariableGuid: ddd8130f-9989-42ad-8dec-4ed63b5e46a3
+	 }, { 
+	ComponentTemplate: Slasher03_BellDB7D55DE4559C83F045F3F9CB64EA3CB: {	
 		StaticMesh: StaticMesh /Game/Characters/Slashers/Wraith/Weapons/Models/Slasher03_Bell.Slasher03_Bell
 		bUseDefaultCollision: False
 		BodyInstance: {
@@ -96,30 +120,57 @@ GeneratedClass: Default__CloakingBell_BP_C: {
 			}
 		RelativeLocation: Vector [X=0, Y=0, Z=-45]
 		}
-	_placementOrigin: SCS_Node: {	
-		ComponentTemplate: InheritableComponentHandler: {	
-			Records: [ { 
-			ComponentTemplate: Chargeable3DEE18CD4A64C97F8795E1ACD38B700D: {	
-				ChargeableComponentID: UncloakChargeable
-				}
-			ComponentKey: {
-				OwnerClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/BaseSlasherItem.BaseSlasherItem_C
-				SCSVariableName: Interaction Volume
-				AssociatedGuid: ef779b2a-ae8e-4f22-93cb-267d4a52738a
-				}
-			CookedComponentInstancingData: {
-				bIsValid: False
-				ChangedPropertyList: [  ]
-				}
-			 } ]
-			}
-		VariableName: StunUncloakInteractionDefinition
-		ParentComponentOrVariableName: Item Interactor
-		ParentComponentOwnerClassName: BaseSlasherItem_C
-		VariableGuid: a08d3b3c-a9f0-4cd4-a7fd-807f9afc8993
+	VariableName: Slasher03_Bell
+	ParentComponentOrVariableName: ItemMesh
+	bIsParentComponentNative: True
+	VariableGuid: 93c682a2-d222-44a1-9f48-9bc49f4b5b06
+	 }, { 
+	ComponentTemplate: StunUncloakInteractionDefinition_GEN_VARIABLE: {	
+		InteractionID: UncloakStun
+		InteractionInputType: EInputInteractionType::VE_ExternalRequestStunUncloak
+		InteractionTime: 3f
+		RelativeLocation: Vector [X=0, Y=0, Z=-9.999994]
 		}
-	bReplicateMovement: False
-	RootComponent: 49
+	VariableName: StunUncloakInteractionDefinition
+	ParentComponentOrVariableName: Item Interactor
+	ParentComponentOwnerClassName: BaseSlasherItem_C
+	VariableGuid: a08d3b3c-a9f0-4cd4-a7fd-807f9afc8993
+	 } ]
+	AllNodes: [ 44, 43, 41, 42, 46, 45, 47, 39 ]
+	DefaultSceneRootNode: SCS_Node: {	
+		ComponentTemplate: DefaultSceneRootC0BF56C44DBD5316EE5EB39AC42F953A: {	
+			}
+		VariableName: DefaultSceneRoot
+		VariableGuid: 9dc0493d-ccd2-4e79-9d0b-8a910e403ec2
+		}
+	}
+InheritableComponentHandler: InheritableComponentHandler: {	
+	Records: [ { 
+	ComponentTemplate: BoxA1188C7847A0288A4E251D895E18E536: {	
+		BoxExtent: Vector [X=120.8375, Y=98.67358, Z=79.44968]
+		BodyInstance: {
+			MassInKgOverride: 812.2479f
+			}
+		}
+	ComponentKey: {
+		OwnerClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/BaseSlasherItem.BaseSlasherItem_C
+		SCSVariableName: Interaction Volume
+		AssociatedGuid: ef779b2a-ae8e-4f22-93cb-267d4a52738a
+		}
+	CookedComponentInstancingData: {
+		bIsValid: False
+		ChangedPropertyList: [  ]
+		}
+	 } ]
+	}
+BlueprintSystemVersion: 2
+GeneratedClass: CloakingBell_BP_C: {	
+	SimpleConstructionScript: 48
+	InheritableComponentHandler: 33
+	UberGraphFramePointerProperty: UberGraphFrame: {	
+		}
+	UberGraphFunction: ExecuteUbergraph_CloakingBell_BP: {	
+		}
 	}
 bLegacyNeedToPurgeSkelRefs: False
 bLegacyGeneratedClassIsAuthoritative: True

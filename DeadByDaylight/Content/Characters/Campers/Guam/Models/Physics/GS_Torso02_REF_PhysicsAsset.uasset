@@ -2,6 +2,17 @@ BoundsBodies: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ]
 SkeletalBodySetups: [ { 
 AggGeom: {
 	SphylElems: [ { 
+	Center: Vector [X=0, Y=0, Z=0]
+	Orientation: Quat [X=0.6963487, Y=0, Z=0, W=0.7177036]
+	Radius: 0.505f
+	Length: 0.505f
+	 } ]
+	}
+BoneName: joint_Char
+CollisionTraceFlag: CTF_UseSimpleAsComplex
+ }, { 
+AggGeom: {
+	SphylElems: [ { 
 	Center: Vector [X=-0.03103256, Y=-4.945406, Z=0.177588]
 	Orientation: Quat [X=0.7071068, Y=-1.822289E-30, Z=-1.822289E-30, W=0.7071068]
 	Radius: 14.10909f
@@ -13,13 +24,13 @@ CollisionTraceFlag: CTF_UseSimpleAsComplex
  }, { 
 AggGeom: {
 	SphylElems: [ { 
-	Center: Vector [X=0.4147209, Y=13.43465, Z=1.717555]
-	Orientation: Quat [X=0.003550517, Y=0.6816271, Z=0.7316812, W=0.003811243]
-	Radius: 5.495158f
-	Length: 15.99495f
+	Center: Vector [X=-0.2238579, Y=-13.07518, Z=0.09747314]
+	Orientation: Quat [X=0.7071068, Y=4.65317E-16, Z=4.65317E-16, W=0.7071068]
+	Radius: 12.62236f
+	Length: 7.419568f
 	 } ]
 	}
-BoneName: joint_ShoulderRT_01
+BoneName: joint_TorsoA_01
 CollisionTraceFlag: CTF_UseSimpleAsComplex
  }, { 
 AggGeom: {
@@ -98,7 +109,18 @@ AggGeom: {
 	}
 BoneName: joint_ClavicleRT_01
 CollisionTraceFlag: CTF_UseSimpleAsComplex
- }, 30, { 
+ }, { 
+AggGeom: {
+	SphylElems: [ { 
+	Center: Vector [X=0.4147209, Y=13.43465, Z=1.717555]
+	Orientation: Quat [X=0.003550517, Y=0.6816271, Z=0.7316812, W=0.003811243]
+	Radius: 5.495158f
+	Length: 15.99495f
+	 } ]
+	}
+BoneName: joint_ShoulderRT_01
+CollisionTraceFlag: CTF_UseSimpleAsComplex
+ }, { 
 AggGeom: {
 	SphylElems: [ { 
 	Center: Vector [X=-0.5481987, Y=11.98919, Z=-0.02789402]
@@ -142,19 +164,15 @@ AggGeom: {
 	}
 BoneName: joint_ChestRT_01
 CollisionTraceFlag: CTF_UseSimpleAsComplex
- }, { 
-AggGeom: {
-	SphylElems: [ { 
-	Center: Vector [X=-0.2238579, Y=-13.07518, Z=0.09747314]
-	Orientation: Quat [X=0.7071068, Y=4.65317E-16, Z=4.65317E-16, W=0.7071068]
-	Radius: 12.62236f
-	Length: 7.419568f
-	 } ]
-	}
-BoneName: joint_TorsoA_01
-CollisionTraceFlag: CTF_UseSimpleAsComplex
  } ]
 ConstraintSetup: [ { 
+DefaultInstance: {
+	JointName: joint_Pelvis_01
+	ConstraintBone1: joint_Pelvis_01
+	ConstraintBone2: joint_Char
+	Pos2: Vector [X=0, Y=-90.7038, Z=2.740244]
+	}
+ }, { 
 DefaultInstance: {
 	JointName: joint_TorsoA_01
 	ConstraintBone1: joint_TorsoA_01
@@ -165,12 +183,12 @@ DefaultInstance: {
 	}
  }, { 
 DefaultInstance: {
-	JointName: joint_ElbowRT_01
-	ConstraintBone1: joint_ElbowRT_01
-	ConstraintBone2: joint_ShoulderRT_01
-	Pos2: Vector [X=0.2922334, Y=28.05067, Z=1.989505]
-	PriAxis2: Vector [X=0.9290583, Y=0.3699333, Z=0]
-	SecAxis2: Vector [X=-0.3698381, Y=0.9288192, Z=-0.02268733]
+	JointName: joint_TorsoB_01
+	ConstraintBone1: joint_TorsoB_01
+	ConstraintBone2: joint_TorsoA_01
+	Pos2: Vector [X=1.865175E-14, Y=-14.17182, Z=1.13172E-15]
+	PriAxis2: Vector [X=0.9908902, Y=0.1346722, Z=-8.246294E-18]
+	SecAxis2: Vector [X=-0.1346722, Y=0.9908902, Z=5.578141E-19]
 	}
  }, { 
 DefaultInstance: {
@@ -236,16 +254,14 @@ DefaultInstance: {
 	SecAxis2: Vector [X=0.02797233, Y=0.7332677, Z=0.6793644]
 	}
  }, { 
-AggGeom: {
-	SphylElems: [ { 
-	Center: Vector [X=0, Y=0, Z=0]
-	Orientation: Quat [X=0.6963487, Y=0, Z=0, W=0.7177036]
-	Radius: 0.505f
-	Length: 0.505f
-	 } ]
+DefaultInstance: {
+	JointName: joint_ElbowRT_01
+	ConstraintBone1: joint_ElbowRT_01
+	ConstraintBone2: joint_ShoulderRT_01
+	Pos2: Vector [X=0.2922334, Y=28.05067, Z=1.989505]
+	PriAxis2: Vector [X=0.9290583, Y=0.3699333, Z=0]
+	SecAxis2: Vector [X=-0.3698381, Y=0.9288192, Z=-0.02268733]
 	}
-BoneName: joint_Char
-CollisionTraceFlag: CTF_UseSimpleAsComplex
  }, { 
 DefaultInstance: {
 	JointName: joint_HandRT_01
@@ -272,14 +288,5 @@ DefaultInstance: {
 	Pos2: Vector [X=-6.776395, Y=-1.206499, Z=-6.178131]
 	PriAxis2: Vector [X=-0.6256098, Y=0.0835437, Z=0.77565]
 	SecAxis2: Vector [X=0.1323646, Y=0.9912011, Z=0]
-	}
- }, { 
-DefaultInstance: {
-	JointName: joint_TorsoB_01
-	ConstraintBone1: joint_TorsoB_01
-	ConstraintBone2: joint_TorsoA_01
-	Pos2: Vector [X=1.865175E-14, Y=-14.17182, Z=1.13172E-15]
-	PriAxis2: Vector [X=0.9908902, Y=0.1346722, Z=-8.246294E-18]
-	SecAxis2: Vector [X=-0.1346722, Y=0.9908902, Z=5.578141E-19]
 	}
  } ]

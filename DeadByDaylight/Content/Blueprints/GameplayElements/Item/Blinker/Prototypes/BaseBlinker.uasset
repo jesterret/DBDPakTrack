@@ -1,25 +1,58 @@
 ParentClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/BaseSlasherItem.BaseSlasherItem_C
-SimpleConstructionScript: ItemMesh: {	
-	}
-InheritableComponentHandler: ItemModifier: {	
-	}
-BlueprintSystemVersion: 2
-GeneratedClass: Default__BaseBlinker_C: {	
-	UberGraphFrame: 216
-	BlinkDistance: 900f
-	RaycastStartHeight: 150f
-	BlinkTargetClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/Blinker/Prototypes/BlinkTarget.BlinkTarget_C
-	RaycastEndHeight: -500f
-	RaycastPercentLocations: [ 0.99, 0.95, 0.9, 0.8, 0.7, 0.6, 0.4, 0.2, 0.1 ]
-	CooldownDuration: 6f
-	ItemID: Item_Slasher_Blinker
-	BaseItemModifier: ItemModifier1: {	
+SimpleConstructionScript: SimpleConstructionScript: {	
+	RootNodes: [ { 
+	ComponentTemplate: StaticMesh8EA7CFEC40F70AF754BED3B2C6FE3E27: {	
+		StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Axe/SM_Axe01.SM_Axe01
+		bUseDefaultCollision: False
+		BodyInstance: {
+			MassInKgOverride: 0f
+			}
+		bVisible: False
 		}
-	ItemModifier1: ItemModifier2: {	
+	VariableName: StaticMesh
+	ParentComponentOrVariableName: ItemMesh
+	bIsParentComponentNative: True
+	VariableGuid: d8187fff-972e-406f-95bd-dc83883ed1ed
+	 }, { 
+	ComponentTemplate: Chargeable4F1AAC324142587A21B382B53B5EAB94: {	
+		ChargeableComponentID: BlinkChargeable
 		}
-	ItemModifier2: DefaultSceneRoot34EF1A1542721EBF74EAB484A1ACD25F: {	
+	VariableName: BlinkChargeable
+	VariableGuid: b9843005-ecff-4fad-8ad8-5e91afef8539
+	 }, { 
+	ComponentTemplate: ChargerBC2E5DB1475761A76281CE92E636CB6D: {	
 		}
-	_mesh: SphereFF1952014285556BCA6F228A26783A7C: {	
+	VariableName: BlinkerEnergy
+	VariableGuid: 70d29452-5520-4519-a6a4-619e2a934e97
+	 }, { 
+	ComponentTemplate: DBDTimerACD5A0AB4F7922E8B51FC3A7D139351C: {	
+		}
+	VariableName: BlinkerCooldownTimer
+	VariableGuid: 9991e835-bbea-4b11-93be-6a32becc1843
+	 }, { 
+	ComponentTemplate: DBDTimer5B7E5ADE4D2B4A2BD179FB8660D87E7B: {	
+		}
+	VariableName: ChainBlinkTimer
+	VariableGuid: 70cc1111-61e0-44ec-89e4-add0f9a4b338
+	 }, { 
+	ComponentTemplate: Chargeable38046210441108E33ECDA19B11596A99: {	
+		AllowSkillChecksAtFullCharge: True
+		ChargeableComponentID: ChainBlinkChargeable
+		}
+	VariableName: ChainBlinkChargeable
+	VariableGuid: c6580069-47cc-45f8-8101-f60dbbd2369f
+	 }, { 
+	ComponentTemplate: BlinkerE65BCFCE47574DA111E38A94D74781BA: {	
+		}
+	VariableName: BlinkerComponent
+	VariableGuid: e6593330-c2bf-449d-aea6-716854f83a51
+	 }, { 
+	ComponentTemplate: DBDTimer26A20A934F6D6AE386F200A634CCE048: {	
+		}
+	VariableName: ChainBlinkWindowTimer
+	VariableGuid: 3936cde0-0ff4-4550-809a-3b5da097d800
+	 }, { 
+	ComponentTemplate: SphereFF1952014285556BCA6F228A26783A7C: {	
 		StaticMesh: StaticMesh /Engine/BasicShapes/Sphere.Sphere
 		bUseDefaultCollision: False
 		OverrideMaterials: [ Material /Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial ]
@@ -95,14 +128,29 @@ GeneratedClass: Default__BaseBlinker_C: {
 			CollisionEnabled: ECollisionEnabled::NoCollision
 			}
 		}
-	_placementOrigin: SCS_Node: {	
-		ComponentTemplate: PlacementOrigin: {	
-			AttachParent: 163
+	VariableName: Sphere
+	ParentComponentOrVariableName: ItemMesh
+	bIsParentComponentNative: True
+	VariableGuid: e9a55e1c-22b6-42f3-a790-17bba3881fdc
+	 } ]
+	AllNodes: [ 156, 157, 158, 159, 160, 161, 154, 155, 153 ]
+	DefaultSceneRootNode: SCS_Node: {	
+		ComponentTemplate: DefaultSceneRoot34EF1A1542721EBF74EAB484A1ACD25F: {	
 			}
 		VariableName: DefaultSceneRoot
 		VariableGuid: a323c612-4a18-4d3e-a606-744d44376259
 		}
-	RootComponent: 163
+	}
+InheritableComponentHandler: InheritableComponentHandler: {	
+	}
+BlueprintSystemVersion: 2
+GeneratedClass: BaseBlinker_C: {	
+	SimpleConstructionScript: 162
+	InheritableComponentHandler: 146
+	UberGraphFramePointerProperty: UberGraphFrame: {	
+		}
+	UberGraphFunction: ExecuteUbergraph_BaseBlinker: {	
+		}
 	}
 bLegacyNeedToPurgeSkelRefs: False
 bLegacyGeneratedClassIsAuthoritative: True

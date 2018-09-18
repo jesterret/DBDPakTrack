@@ -1,96 +1,79 @@
 WarmupTime: 5f
 Emitters: [ { 
-EmitterName: Glow
+EmitterName: Embers
 LODLevels: [ { 
-Level: 1
-RequiredModule: ParticleModuleSize: {	
-	StartSize: {
-		MinValue: 0.3f
-		MaxValue: 0.3f
-		Distribution: DistributionStartRadius: {	
-			Constant: 1f
-			bCanBeBaked: False
-			}
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 3
-			Values: [ 0.3, 0.3, 0.3 ]
+RequiredModule: ParticleModuleRequired: {	
+	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Glow.MI_Glow
+	ScreenAlignment: PSA_FacingCameraPosition
+	bUseLocalSpace: True
+	bKillOnDeactivate: True
+	bKillOnCompleted: True
+	bUseLegacyEmitterTime: False
+	EmitterLoops: 1
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
 			}
 		}
+	RandomImageTime: 1f
 	LODValidity: 3
 	}
 Modules: [ { 
-Rate: {
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 0 ]
-		}
-	}
-RateScale: {
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 0 ]
-		}
-	}
-BurstList: [ { 
-Count: 0
-CountLow: -1
-Time: 0f
- } ]
-BurstScale: {
-	MinValue: 1f
-	MaxValue: 1f
-	Distribution: DistributionFloatParticleParameter: {	
-		ParameterName: BlinkNumbers
-		MaxInput: 10f
-		MaxOutput: 10f
-		Constant: 3f
-		}
-	Table: {
-		Values: [ 1 ]
-		}
-	}
-bApplyGlobalSpawnRateScale: False
-LODValidity: 2
- }, { 
-ColorScaleOverLife: {
-	MinValue: 1f
-	MaxValue: 1f
+StartSize: {
+	MinValue: 0.3f
+	MaxValue: 0.3f
 	Distribution: 0
 	Table: {
 		Op: 1
 		EntryCount: 1
 		EntryStride: 3
-		Values: [ 1, 1, 1 ]
-		}
-	}
-AlphaScaleOverLife: {
-	MinValue: 1f
-	MaxValue: 1f
-	Distribution: DistributionFloatParticleParameter: {	
-		ParameterName: Nurse_LightIntensity
-		Constant: 1f
-		}
-	Table: {
-		Values: [ 1 ]
+		Values: [ 0.3, 0.3, 0.3 ]
 		}
 	}
 LODValidity: 3
  }, { 
-StartLocation: {
+StartVelocity: {
+	MinValue: -5f
+	MaxValue: 5f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ -5, -5, -5, 5, 5, 5 ]
+		}
+	}
+StartVelocityRadial: {
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 0 ]
+		}
+	}
+LODValidity: 3
+ }, { 
+ColorOverLife: {
+	MinValue: 22.745f
+	MaxValue: 200f
 	Distribution: 0
 	Table: {
 		Op: 1
 		EntryCount: 1
 		EntryStride: 3
-		Values: [ 0, 0, 0 ]
+		Values: [ 200, 51.76477, 22.745 ]
+		}
+	}
+AlphaOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1 ]
 		}
 	}
 LODValidity: 3
@@ -101,7 +84,9 @@ RandomSeedInfo: {
 StartRadius: {
 	MinValue: 1f
 	MaxValue: 1f
-	Distribution: RequiredDistributionSpawnRate: {	
+	Distribution: DistributionStartRadius: {	
+		Constant: 1f
+		bCanBeBaked: False
 		}
 	Table: {
 		Values: [ 1 ]
@@ -131,223 +116,6 @@ StartLocation: {
 		}
 	}
 LODValidity: 3
- }, { 
-ColorScaleOverLife: {
-	MinValue: 1f
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 1, 1, 1 ]
-		}
-	}
-AlphaScaleOverLife: {
-	MinValue: 1f
-	MaxValue: 1f
-	Distribution: DistributionFloatParticleParameter: {	
-		ParameterName: BlinkNumbers
-		MaxInput: 10f
-		MaxOutput: 10f
-		Constant: 3f
-		}
-	Table: {
-		Values: [ 1 ]
-		}
-	}
-LODValidity: 3
- } ]
-SpawnModule: ParticleModuleSpawn: {	
-	Rate: {
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 0 ]
-			}
-		}
-	RateScale: {
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 0 ]
-			}
-		}
-	BurstList: [ { 
-	Count: 1
-	CountLow: -1
-	Time: 0f
-	 } ]
-	BurstScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: ParticleLODLevel: {	
-			RequiredModule: ParticleModuleRequired: {	
-				Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Glow.MI_Glow
-				ScreenAlignment: PSA_FacingCameraPosition
-				bUseLocalSpace: True
-				bKillOnDeactivate: True
-				bKillOnCompleted: True
-				bUseLegacyEmitterTime: False
-				EmitterLoops: 1
-				SpawnRate: {
-					Distribution: RequiredDistributionSpawnRate: {	
-						}
-					}
-				RandomImageTime: 1f
-				LODValidity: 3
-				}
-			Modules: [ { 
-			StartSize: {
-				MinValue: 3f
-				MaxValue: 3f
-				MinValueVec: Vector [X=3, Y=3, Z=3]
-				MaxValueVec: Vector [X=3, Y=3, Z=3]
-				Distribution: 0
-				Table: {
-					Op: 1
-					EntryCount: 1
-					EntryStride: 3
-					Values: [ 3, 3, 3 ]
-					}
-				}
-			LODValidity: 3
-			 }, { 
-			ColorOverLife: {
-				MinValue: 117.1637f
-				MaxValue: 1000f
-				Distribution: 0
-				Table: {
-					Op: 1
-					EntryCount: 1
-					EntryStride: 3
-					Values: [ 1000, 261.1014, 117.1637 ]
-					}
-				}
-			AlphaOverLife: {
-				MinValue: 1f
-				MaxValue: 1f
-				Distribution: 0
-				Table: {
-					Op: 1
-					EntryCount: 1
-					EntryStride: 1
-					Values: [ 1 ]
-					}
-				}
-			LODValidity: 3
-			 }, { 
-			StartLocation: {
-				Distribution: 0
-				Table: {
-					Op: 1
-					EntryCount: 1
-					EntryStride: 3
-					Values: [ 0, 0, 0 ]
-					}
-				}
-			LODValidity: 3
-			 }, { 
-			bUseInverseSquaredFalloff: False
-			bAffectsTranslucency: True
-			ColorScaleOverLife: {
-				MinValue: 1f
-				MaxValue: 1f
-				Distribution: 0
-				Table: {
-					Op: 1
-					EntryCount: 1
-					EntryStride: 3
-					Values: [ 1, 1, 1 ]
-					}
-				}
-			BrightnessOverLife: {
-				MinValue: 0.05f
-				MaxValue: 0.05f
-				Distribution: 0
-				Table: {
-					Op: 1
-					EntryCount: 1
-					EntryStride: 1
-					Values: [ 0.05 ]
-					}
-				}
-			RadiusScale: {
-				MinValue: 30f
-				MaxValue: 30f
-				Distribution: 0
-				Table: {
-					Op: 1
-					EntryCount: 1
-					EntryStride: 1
-					Values: [ 30 ]
-					}
-				}
-			LightExponent: {
-				MinValue: 1200f
-				MaxValue: 1200f
-				Distribution: 0
-				Table: {
-					Op: 1
-					EntryCount: 1
-					EntryStride: 1
-					Values: [ 1200 ]
-					}
-				}
-			LODValidity: 3
-			 } ]
-			SpawnModule: ParticleModuleSpawn: {	
-				Rate: {
-					Distribution: 0
-					Table: {
-						Op: 1
-						EntryCount: 1
-						EntryStride: 1
-						Values: [ 0 ]
-						}
-					}
-				RateScale: {
-					Distribution: 0
-					Table: {
-						Op: 1
-						EntryCount: 1
-						EntryStride: 1
-						Values: [ 0 ]
-						}
-					}
-				BurstList: [ { 
-				Count: 0
-				CountLow: -1
-				Time: 0f
-				 } ]
-				BurstScale: {
-					MinValue: 1f
-					MaxValue: 1f
-					Distribution: 0
-					Table: {
-						Op: 1
-						EntryCount: 1
-						EntryStride: 1
-						Values: [ 1 ]
-						}
-					}
-				bApplyGlobalSpawnRateScale: False
-				LODValidity: 2
-				}
-			PeakActiveParticles: 3
-			}
-		Table: {
-			Values: [ 1 ]
-			}
-		}
-	bApplyGlobalSpawnRateScale: False
-	LODValidity: 1
-	}
-PeakActiveParticles: 1
  }, { 
 Position: {
 	MinValue: -5f
@@ -386,49 +154,6 @@ bAffectBaseVelocity: True
 bOverrideVelocity: True
 LODValidity: 3
  } ]
- }, 40, { 
-EmitterName: Embers
-LODLevels: [ { 
-Level: 1
-RequiredModule: ParticleModuleRequired: {	
-	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Invisible.MI_Invisible
-	ScreenAlignment: PSA_Rectangle
-	bUseLocalSpace: True
-	bKillOnDeactivate: True
-	bKillOnCompleted: True
-	bUseLegacyEmitterTime: False
-	EmitterLoops: 1
-	SpawnRate: {
-		Distribution: DistributionFloatParticleParameter: {	
-			ParameterName: Nurse_LightIntensity
-			Constant: 1f
-			}
-		}
-	RandomImageTime: 0.495f
-	RandomImageChanges: 1
-	LODValidity: 3
-	}
-Modules: [ { 
-StartSize: {
-	MinValue: 0.2f
-	MaxValue: 0.2f
-	MinValueVec: Vector [X=0.2, Y=0.2, Z=0.2]
-	MaxValueVec: Vector [X=0.2, Y=0.2, Z=0.2]
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 0.2, 0.2, 0.2 ]
-		}
-	}
-LODValidity: 3
- }, { 
-EmitterName: Glow
-LODLevels: [ { 
-Level: 1
-RequiredModule: 25
-Modules: [ 29, 17, 22, 20 ]
 SpawnModule: ParticleModuleSpawn: {	
 	Rate: {
 		Distribution: 0
@@ -456,21 +181,101 @@ SpawnModule: ParticleModuleSpawn: {
 	BurstScale: {
 		MinValue: 1f
 		MaxValue: 1f
-		Distribution: 0
+		Distribution: DistributionFloatParticleParameter: {	
+			ParameterName: BlinkNumbers
+			MaxInput: 10f
+			MaxOutput: 10f
+			Constant: 3f
+			}
 		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
 			Values: [ 1 ]
 			}
 		}
 	bApplyGlobalSpawnRateScale: False
 	LODValidity: 1
 	}
-PeakActiveParticles: 1
+PeakActiveParticles: 5
  }, { 
+Level: 1
 RequiredModule: 26
-Modules: [ 28, 37, { 
+Modules: [ 28, 37, 16, 24, 15 ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 0 ]
+			}
+		}
+	RateScale: {
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 0 ]
+			}
+		}
+	BurstList: [ { 
+	Count: 0
+	CountLow: -1
+	Time: 0f
+	 } ]
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: DistributionFloatParticleParameter: {	
+			ParameterName: BlinkNumbers
+			MaxInput: 10f
+			MaxOutput: 10f
+			Constant: 3f
+			}
+		Table: {
+			Values: [ 1 ]
+			}
+		}
+	bApplyGlobalSpawnRateScale: False
+	LODValidity: 2
+	}
+PeakActiveParticles: 1
+ } ]
+ }, { 
+EmitterName: Glow
+LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Invisible.MI_Invisible
+	ScreenAlignment: PSA_Rectangle
+	bUseLocalSpace: True
+	bKillOnDeactivate: True
+	bKillOnCompleted: True
+	bUseLegacyEmitterTime: False
+	EmitterLoops: 1
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		}
+	RandomImageTime: 0.495f
+	RandomImageChanges: 1
+	LODValidity: 3
+	}
+Modules: [ { 
+StartSize: {
+	MinValue: 3f
+	MaxValue: 3f
+	MinValueVec: Vector [X=3, Y=3, Z=3]
+	MaxValueVec: Vector [X=3, Y=3, Z=3]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 3, 3, 3 ]
+		}
+	}
+LODValidity: 3
+ }, { 
 ColorOverLife: {
 	MinValue: 117.1637f
 	MaxValue: 1000f
@@ -495,40 +300,84 @@ AlphaOverLife: {
 	}
 LODValidity: 3
  }, { 
-Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Glow.MI_Glow
-ScreenAlignment: PSA_Rectangle
-bUseLocalSpace: True
-bKillOnDeactivate: True
-bKillOnCompleted: True
-bUseLegacyEmitterTime: False
-EmitterLoops: 1
-SpawnRate: {
-	Distribution: RequiredDistributionSpawnRate: {	
-		}
-	}
-RandomImageTime: 0.495f
-RandomImageChanges: 1
-LODValidity: 3
- }, { 
-ColorOverLife: {
-	MinValue: 22.745f
-	MaxValue: 200f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 200, 51.76477, 22.745 ]
-		}
-	}
-AlphaOverLife: {
+bUseInverseSquaredFalloff: False
+bAffectsTranslucency: True
+ColorScaleOverLife: {
 	MinValue: 1f
 	MaxValue: 1f
 	Distribution: 0
 	Table: {
 		Op: 1
 		EntryCount: 1
+		EntryStride: 3
+		Values: [ 1, 1, 1 ]
+		}
+	}
+BrightnessOverLife: {
+	MinValue: 0.05f
+	MaxValue: 0.05f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
 		EntryStride: 1
+		Values: [ 0.05 ]
+		}
+	}
+RadiusScale: {
+	MinValue: 30f
+	MaxValue: 30f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 30 ]
+		}
+	}
+LightExponent: {
+	MinValue: 1200f
+	MaxValue: 1200f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1200 ]
+		}
+	}
+LODValidity: 3
+ }, { 
+StartLocation: {
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0, 0, 0 ]
+		}
+	}
+LODValidity: 3
+ }, { 
+ColorScaleOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 1, 1, 1 ]
+		}
+	}
+AlphaScaleOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: DistributionFloatParticleParameter: {	
+		ParameterName: Nurse_LightIntensity
+		Constant: 1f
+		}
+	Table: {
 		Values: [ 1 ]
 		}
 	}
@@ -572,9 +421,11 @@ SpawnModule: ParticleModuleSpawn: {
 	bApplyGlobalSpawnRateScale: False
 	LODValidity: 1
 	}
-PeakActiveParticles: 5
- } ]
- }, 16, 24, 15 ]
+PeakActiveParticles: 3
+ }, { 
+Level: 1
+RequiredModule: 27
+Modules: [ 30, 18, 21, 23, 19 ]
 SpawnModule: ParticleModuleSpawn: {	
 	Rate: {
 		Distribution: 0
@@ -614,23 +465,103 @@ SpawnModule: ParticleModuleSpawn: {
 	LODValidity: 2
 	}
 PeakActiveParticles: 1
+ } ]
  }, { 
-RequiredModule: 27
-Modules: [ 30, 18, 21, 23, 19 ]
-SpawnModule: ParticleModuleVelocity: {	
-	StartVelocity: {
-		MinValue: -5f
-		MaxValue: 5f
-		Distribution: 0
-		Table: {
-			Op: 2
-			EntryCount: 1
-			EntryStride: 6
-			SubEntryStride: 3
-			Values: [ -5, -5, -5, 5, 5, 5 ]
+EmitterName: Glow
+LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Glow.MI_Glow
+	ScreenAlignment: PSA_Rectangle
+	bUseLocalSpace: True
+	bKillOnDeactivate: True
+	bKillOnCompleted: True
+	bUseLegacyEmitterTime: False
+	EmitterLoops: 1
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
 			}
 		}
-	StartVelocityRadial: {
+	RandomImageTime: 0.495f
+	RandomImageChanges: 1
+	LODValidity: 3
+	}
+Modules: [ { 
+StartSize: {
+	MinValue: 0.2f
+	MaxValue: 0.2f
+	MinValueVec: Vector [X=0.2, Y=0.2, Z=0.2]
+	MaxValueVec: Vector [X=0.2, Y=0.2, Z=0.2]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0.2, 0.2, 0.2 ]
+		}
+	}
+LODValidity: 3
+ }, { 
+ColorOverLife: {
+	MinValue: 117.1637f
+	MaxValue: 1000f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 1000, 261.1014, 117.1637 ]
+		}
+	}
+AlphaOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1 ]
+		}
+	}
+LODValidity: 3
+ }, { 
+StartLocation: {
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0, 0, 0 ]
+		}
+	}
+LODValidity: 3
+ }, { 
+ColorScaleOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 1, 1, 1 ]
+		}
+	}
+AlphaScaleOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: DistributionFloatParticleParameter: {	
+		ParameterName: Nurse_LightIntensity
+		Constant: 1f
+		}
+	Table: {
+		Values: [ 1 ]
+		}
+	}
+LODValidity: 3
+ } ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
 		Distribution: 0
 		Table: {
 			Op: 1
@@ -639,9 +570,78 @@ SpawnModule: ParticleModuleVelocity: {
 			Values: [ 0 ]
 			}
 		}
-	LODValidity: 3
+	RateScale: {
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 0 ]
+			}
+		}
+	BurstList: [ { 
+	Count: 1
+	CountLow: -1
+	Time: 0f
+	 } ]
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	bApplyGlobalSpawnRateScale: False
+	LODValidity: 1
 	}
 PeakActiveParticles: 3
+ }, { 
+Level: 1
+RequiredModule: 25
+Modules: [ 29, 17, 22, 20 ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 0 ]
+			}
+		}
+	RateScale: {
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 0 ]
+			}
+		}
+	BurstList: [ { 
+	Count: 0
+	CountLow: -1
+	Time: 0f
+	 } ]
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	bApplyGlobalSpawnRateScale: False
+	LODValidity: 2
+	}
+PeakActiveParticles: 1
  } ]
  } ]
 CurveEdSetup: 0

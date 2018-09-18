@@ -13,16 +13,17 @@ bUsedWithInstancedStaticMeshes: True
 EditorX: 2272
 EditorY: -512
 Expressions: [ 0, { 
+DefaultValue: 0.02f
+ParameterName: Metallic
+ExpressionGUID: cc67021d-b4ac-4278-923a-05725649b284
+Group: Surface Adjustments
+Material: 1
+ }, { 
 DefaultValue: 0.005f
 ParameterName: Spec
 ExpressionGUID: 67404405-b48a-4d6a-bd0f-4de483681cf6
 Group: Surface Adjustments
-Material: MaterialExpressionCollectionParameter: {	
-	Collection: MaterialParameterCollection /Game/Effects/Materials/PostProcess/MPC_PP_Material.MPC_PP_Material
-	ParameterName: V_BoostColor
-	ParameterId: 83d92296-45c8-4ee6-80fe-3c02503fc60f
-	Material: 1
-	}
+Material: 1
  }, { 
 DefaultValue: 0.3f
 ParameterName: Roughness
@@ -30,31 +31,21 @@ ExpressionGUID: 575e92be-a149-446f-9406-fb472186c596
 Group: Surface Adjustments
 Material: 1
  }, { 
-DefaultValue: 1f
-SliderMax: 1f
-ParameterName: BloodAnim
-ExpressionGUID: ef30f1f3-87d8-4c6b-8990-2608d517a398
-Group: Surface Adjustments
-Material: 1
- }, { 
 A: [Skipped]
 B: [Skipped]
 DefaultValue: True
-ParameterName: Add Detail Alpha
-ExpressionGUID: b73fb513-71bf-44d6-b22d-a3b9bb63647a
-Group: Smoke Opacity
+ParameterName: Use Normal
+ExpressionGUID: 51c65d7b-83fa-457e-8a4f-6ca3a4cb4af8
+Group: Normal
 Material: 1
  }, 0, 0, 0, { 
-Coordinates: [Skipped]
-Texture: Texture2D /Game/Effects/Textures/T_SmokeTile.T_SmokeTile
+A: [Skipped]
+B: [Skipped]
+DefaultValue: True
+ParameterName: Add more Detail to Opacity
+ExpressionGUID: 4f1a2f52-f3ee-48ec-ae64-be0e95d566f2
+Group: Blood Mask
 Material: 1
- }, { 
-DefaultValue: LinearColor [R=0.01, G=0, B=0, A=1]
-ParameterName: BloodColor_Edge
-ExpressionGUID: d11b0dbd-fbe1-410b-882e-374f4143deaf
-Group: Blood Color
-Material: 1
-bCollapsed: True
  }, { 
 ParameterName: Motion Map
 ExpressionGUID: bc82cbb0-0205-4413-9d34-c03daa7e3ec5
@@ -65,15 +56,17 @@ Texture: Texture2D /Game/Effects/Textures/T_Water_N.T_Water_N
 SamplerType: SAMPLERTYPE_Normal
 Material: 1
 bCollapsed: True
- }, 0, { 
-A: [Skipped]
-B: [Skipped]
-DefaultValue: True
-ParameterName: Add more Detail to Opacity
-ExpressionGUID: 4f1a2f52-f3ee-48ec-ae64-be0e95d566f2
-Group: Blood Mask
-Material: 1
  }, { 
+ParameterName: Motion Map
+ExpressionGUID: e8d61e85-85f7-48b0-aaa2-f3094ccf5319
+Group: Pool Motion
+Coordinates: [Skipped]
+SamplerSource: SSM_Wrap_WorldGroupSettings
+Texture: Texture2D /Game/Effects/Textures/T_Water_N.T_Water_N
+SamplerType: SAMPLERTYPE_Normal
+Material: 1
+bCollapsed: True
+ }, 0, { 
 A: [Skipped]
 B: [Skipped]
 DefaultValue: True
@@ -101,20 +94,18 @@ Material: 1
 A: [Skipped]
 B: [Skipped]
 DefaultValue: True
-ParameterName: Use Normal
-ExpressionGUID: 51c65d7b-83fa-457e-8a4f-6ca3a4cb4af8
-Group: Normal
+ParameterName: Add Detail Alpha
+ExpressionGUID: b73fb513-71bf-44d6-b22d-a3b9bb63647a
+Group: Smoke Opacity
 Material: 1
  }, { 
-ParameterName: Motion Map
-ExpressionGUID: e8d61e85-85f7-48b0-aaa2-f3094ccf5319
-Group: Pool Motion
-Coordinates: [Skipped]
-SamplerSource: SSM_Wrap_WorldGroupSettings
-Texture: Texture2D /Game/Effects/Textures/T_Water_N.T_Water_N
-SamplerType: SAMPLERTYPE_Normal
+DefaultValue: 0.01f
+SliderMin: 0.01f
+SliderMax: 1f
+ParameterName: EdgeSmooth
+ExpressionGUID: d6a9a2bf-c331-490c-bc2d-9cff8bf28414
+Group: Edge Smooth (Dissolve)
 Material: 1
-bCollapsed: True
  }, { 
 ParameterName: Blood_Mask
 ExpressionGUID: f8bd2beb-d6ad-4f60-8399-ccee2189d3dd
@@ -130,19 +121,6 @@ SamplerSource: SSM_Wrap_WorldGroupSettings
 Texture: Texture2D /Game/Effects/Textures/T_FSbloodmist.T_FSbloodmist
 Material: 1
  }, { 
-DefaultValue: 0.01f
-SliderMin: 0.01f
-SliderMax: 1f
-ParameterName: EdgeSmooth
-ExpressionGUID: d6a9a2bf-c331-490c-bc2d-9cff8bf28414
-Group: Edge Smooth (Dissolve)
-Material: 1
- }, { 
-ParameterName: Blood_MaskOffset
-ExpressionGUID: 1ba5e945-4a7a-4b4c-bfaa-a024433f318d
-Group: Blood Mask
-Material: 1
- }, { 
 ParameterName: Blood Mask Detail
 ExpressionGUID: 8d624da3-e4e1-4491-8851-0535781aebda
 Coordinates: [Skipped]
@@ -151,8 +129,20 @@ Texture: Texture2D /Game/Effects/Textures/T_FSbloodmist.T_FSbloodmist
 Material: 1
  }, { 
 ParameterName: Blood_MaskOffset
+ExpressionGUID: 1ba5e945-4a7a-4b4c-bfaa-a024433f318d
+Group: Blood Mask
+Material: 1
+ }, { 
+ParameterName: Blood_MaskOffset
 ExpressionGUID: 9c3768fb-49aa-48b3-bdb5-861ad0d9f595
 Group: Blood Mask
+Material: 1
+ }, { 
+ParameterName: Blood_Mask
+ExpressionGUID: 110a7238-1725-4045-ab9d-9efaa29315b5
+SamplerSource: SSM_Clamp_WorldGroupSettings
+Texture: Texture2D /Game/Effects/Textures/Liquid/T_Liquid_Splatter04.T_Liquid_Splatter04
+SamplerType: SAMPLERTYPE_LinearColor
 Material: 1
  }, { 
 DefaultValue: 1f
@@ -190,36 +180,33 @@ ParameterName: Textures Tiling
 ExpressionGUID: 7fde2e76-7183-4955-86be-b4ff33a9c85b
 Group: Surface Adjustments
 Material: 1
- }, 0, 0, 0, 0, 0, 0, 0, { 
+ }, { 
 ParameterName: EmissiveIntensity
 ExpressionGUID: 30803e69-75bd-4a3b-a40b-8009bf00ea3d
 Group: Emissive
 Material: 1
- }, 0, 0, { 
+ }, 0, 0, 0, 0, 0, 0, 0, { 
 DefaultValue: 1f
 ParameterName: Textures Tiling
 ExpressionGUID: 2e920124-cd9b-4744-8064-34e8f778313e
 Group: Surface Adjustments
 Material: 1
+ }, 0, 0, { 
+DefaultValue: 0.9f
+ParameterName: Opacity
+ExpressionGUID: a2e1426f-c213-411e-a3c3-fe46ba4dad38
+Group: Surface Adjustments
+Material: 1
  }, 0, { 
-ParameterName: Blood_Mask
-ExpressionGUID: 110a7238-1725-4045-ab9d-9efaa29315b5
-SamplerSource: SSM_Clamp_WorldGroupSettings
-Texture: Texture2D /Game/Effects/Textures/Liquid/T_Liquid_Splatter04.T_Liquid_Splatter04
-SamplerType: SAMPLERTYPE_LinearColor
-Material: 1
- }, { 
-DefaultValue: LinearColor [R=0.02, G=0, B=0, A=1]
-ParameterName: BloodColor2
-ExpressionGUID: 8274f26b-6fe8-44d5-b516-3d2a20dd0bd6
-Group: Blood Color
-Material: 1
-bCollapsed: True
- }, { 
 ParameterName: Detail Texture
 ExpressionGUID: f16f79d2-8e97-488a-8bf9-31e595a04859
 Coordinates: [Skipped]
 Texture: Texture2D /Game/Effects/Textures/T_Veins.T_Veins
+Material: 1
+ }, { 
+ParameterName: EmissiveColor
+ExpressionGUID: 8904e7ce-7bc0-4ffd-9d0b-1ccd71b7cbb6
+Group: Emissive
 Material: 1
  }, { 
 ParameterName: Blood_MaskNormal
@@ -227,100 +214,49 @@ ExpressionGUID: 01069c39-7c51-4559-9a96-519fb40fc969
 Texture: Texture2D /Game/Effects/Textures/Liquid/T_Liquid_Splatter04_N.T_Liquid_Splatter04_N
 SamplerType: SAMPLERTYPE_Normal
 Material: 1
- }, 0, 0, 0, 0, 0, 0, 0, { 
-DefaultValue: 0.9f
-ParameterName: Opacity
-ExpressionGUID: a2e1426f-c213-411e-a3c3-fe46ba4dad38
-Group: Surface Adjustments
-Material: 1
  }, { 
-DefaultValue: 0.3f
-ParameterName: PoolMotion
-ExpressionGUID: 6f627066-3569-452c-b026-7c9f899303a4
-Group: Pool Motion
-Material: 1
- }, 0, 0, { 
-DefaultValue: 0.7f
-ParameterName: PoolMotion Tiling
-ExpressionGUID: d0e3c6cb-d549-4573-9703-1d15a5bb613e
-Group: Pool Motion
-Material: 1
- }, 0, 0, 0, 0, 0, 0, { 
-DefaultValue: 0.1f
-ParameterName: PoolMotion Intensity
-ExpressionGUID: 646794c7-4c0a-475a-9cfe-a5bfdb31472b
-Group: Pool Motion
-Material: 1
- }, 0, { 
 ParameterName: Blood_Mask
 ExpressionGUID: 836dbec5-4aa5-496c-85a6-db19ddfb7f88
 SamplerSource: SSM_Clamp_WorldGroupSettings
 Texture: Texture2D /Game/Effects/Textures/Liquid/T_Liquid_Splatter04.T_Liquid_Splatter04
 SamplerType: SAMPLERTYPE_LinearColor
 Material: 1
+ }, 0, 0, 0, 0, 0, 0, 0, { 
+DefaultValue: 0.3f
+ParameterName: PoolMotion
+ExpressionGUID: 6f627066-3569-452c-b026-7c9f899303a4
+Group: Pool Motion
+Material: 1
  }, { 
+DefaultValue: 0.7f
+ParameterName: PoolMotion Tiling
+ExpressionGUID: d0e3c6cb-d549-4573-9703-1d15a5bb613e
+Group: Pool Motion
+Material: 1
+ }, 0, 0, { 
+DefaultValue: 0.1f
+ParameterName: PoolMotion Intensity
+ExpressionGUID: 646794c7-4c0a-475a-9cfe-a5bfdb31472b
+Group: Pool Motion
+Material: 1
+ }, 0, 0, 0, 0, 0, 0, { 
 DefaultValue: 0.2f
 ParameterName: NormalIntensity
 ExpressionGUID: d5b73d57-e8e2-445e-b062-b4d11f76b724
 Group: Surface Adjustments
 Material: 1
  }, 0, { 
-DefaultValue: 0.02f
-ParameterName: Metallic
-ExpressionGUID: cc67021d-b4ac-4278-923a-05725649b284
-Group: Surface Adjustments
+ParameterName: Normal3
+ExpressionGUID: 2ac964f2-f10d-411d-bc05-8b9903241782
+Coordinates: [Skipped]
+Texture: Texture2D /Game/Effects/Textures/T_WaterNormal.T_WaterNormal
+SamplerType: SAMPLERTYPE_Normal
 Material: 1
  }, { 
 DefaultValue: 0.2f
 ParameterName: Normal3Intensity
 ExpressionGUID: 4c27ebe5-5d8a-4ec8-a98d-7da6c99ab513
 Group: Surface Adjustments
-Material: 1
- }, 0, 0, { 
-DefaultValue: 0.7f
-SliderMax: 1f
-ParameterName: BorderOpacity
-ExpressionGUID: aeab8993-6bf2-4ac6-804d-4e957e626857
-Group: Border Color Smooth
-Material: 1
- }, 0, 0, 0, { 
-Coordinates: [Skipped]
-Texture: Texture2D /Game/Effects/Textures/T_Smoke_Soft_Tile.T_Smoke_Soft_Tile
-Material: 1
- }, { 
-ParameterName: Blood_VeinsOffset
-ExpressionGUID: 064b4ba0-d9cd-41ae-99b5-b06a166918e5
-Material: 1
- }, 0, 0, 0, 0, 0, 0, { 
-ParameterName: EmissiveColor
-ExpressionGUID: 8904e7ce-7bc0-4ffd-9d0b-1ccd71b7cbb6
-Group: Emissive
-Material: 1
- }, 0, 0, 0, 0, 0, 0, { 
-ParameterName: Blood_MaskOffset
-ExpressionGUID: 6a55b141-3c00-44ba-95e2-b5d4e508f616
-Group: Blood Mask
-Material: 1
- }, 0, 0, 0, 0, { 
-DefaultValue: 0.3f
-SliderMax: 1f
-ParameterName: Border
-ExpressionGUID: 15b736cf-fd53-446c-9c98-321586dece6c
-Group: Border Color Smooth
-Material: 1
- }, 0, 0, 58, 0, { 
-DefaultValue: LinearColor [R=0.02, G=0, B=0, A=1]
-ParameterName: BloodColor
-ExpressionGUID: 3aa65ba0-0895-4b70-8b3a-245538b96178
-Group: Blood Color
-Material: 1
- }, 0, 0, { 
-DefaultValue: 0.2f
-SliderMin: 0.01f
-SliderMax: 1f
-ParameterName: BorderEdgeSmooth
-ExpressionGUID: 9b175e1f-f603-45be-b60b-21baa763a987
-Group: Border Color Smooth
 Material: 1
  }, 0, { 
 MaterialFunction: MaterialFunction /Engine/Functions/Engine_MaterialFunctions02/Utility/BlendAngleCorrectedNormals.BlendAngleCorrectedNormals
@@ -351,45 +287,69 @@ MaskG: 0
 MaskB: 0
 MaskA: 0
  } ]
- }, 0, 0, 0, 0, { 
-ParameterName: Normal2
-ExpressionGUID: 071a42ce-fa6c-476c-9b0b-1c84ab8c8811
-Coordinates: [Skipped]
-Texture: Texture2D /Game/Effects/Textures/T_Veins_N.T_Veins_N
-SamplerType: SAMPLERTYPE_Normal
+ }, { 
+DefaultValue: 0.7f
+SliderMax: 1f
+ParameterName: BorderOpacity
+ExpressionGUID: aeab8993-6bf2-4ac6-804d-4e957e626857
+Group: Border Color Smooth
 Material: 1
  }, 0, 0, { 
-Texture: Texture2D /Game/Effects/Textures/Fx_radialGradient.Fx_radialGradient
+ParameterName: Blood_VeinsOffset
+ExpressionGUID: 064b4ba0-d9cd-41ae-99b5-b06a166918e5
+Material: 1
+ }, 0, 0, 0, { 
+Coordinates: [Skipped]
+Texture: Texture2D /Game/Effects/Textures/T_SmokeTile.T_SmokeTile
+Material: 1
+ }, { 
+ParameterName: Blood_MaskOffset
+ExpressionGUID: 6a55b141-3c00-44ba-95e2-b5d4e508f616
+Group: Blood Mask
+Material: 1
+ }, 0, 0, 0, 0, 0, 0, { 
+DefaultValue: LinearColor [R=0.01, G=0, B=0, A=1]
+ParameterName: BloodColor_Edge
+ExpressionGUID: d11b0dbd-fbe1-410b-882e-374f4143deaf
+Group: Blood Color
+Material: 1
+bCollapsed: True
+ }, 0, 0, 0, 0, 0, 0, { 
+DefaultValue: 0.3f
+SliderMax: 1f
+ParameterName: Border
+ExpressionGUID: 15b736cf-fd53-446c-9c98-321586dece6c
+Group: Border Color Smooth
+Material: 1
+ }, 0, 0, 0, 0, { 
+DefaultValue: 0.2f
+SliderMin: 0.01f
+SliderMax: 1f
+ParameterName: BorderEdgeSmooth
+ExpressionGUID: 9b175e1f-f603-45be-b60b-21baa763a987
+Group: Border Color Smooth
+Material: 1
+ }, 0, 0, { 
+DefaultValue: LinearColor [R=0.02, G=0, B=0, A=1]
+ParameterName: BloodColor
+ExpressionGUID: 3aa65ba0-0895-4b70-8b3a-245538b96178
+Group: Blood Color
 Material: 1
  }, 0, { 
+DefaultValue: LinearColor [R=0.02, G=0, B=0, A=1]
+ParameterName: BloodColor2
+ExpressionGUID: 8274f26b-6fe8-44d5-b516-3d2a20dd0bd6
+Group: Blood Color
+Material: 1
+bCollapsed: True
+ }, 0, 0, { 
 DefaultValue: 1f
 SliderMax: 1f
 ParameterName: OpacityAnim
 ExpressionGUID: 285db720-2f99-49fa-8075-f317518c81c5
 Group: Surface Adjustments
 Material: 1
- }, 0, 0, 0, 0, 0, { 
-ParameterName: Normal3
-ExpressionGUID: 2ac964f2-f10d-411d-bc05-8b9903241782
-Coordinates: [Skipped]
-Texture: Texture2D /Game/Effects/Textures/T_WaterNormal.T_WaterNormal
-SamplerType: SAMPLERTYPE_Normal
-Material: 1
- }, { 
-DefaultValue: 0.01f
-SliderMin: 0.01f
-SliderMax: 1f
-ParameterName: EdgeSmooth
-ExpressionGUID: 98591fad-a5e9-44bc-925e-beb3757b54f0
-Group: Edge Smooth (Dissolve)
-Material: 1
- }, { 
-DefaultValue: 0.2f
-ParameterName: Normal2Intensity
-ExpressionGUID: 71759ff5-fd60-42f5-8df7-db8d49d4c591
-Group: Surface Adjustments
-Material: 1
- }, 0, 0, 0, { 
+ }, 0, { 
 MaterialFunction: MaterialFunction /Game/Materials/MF_GhettoNormalFromDepth.MF_GhettoNormalFromDepth
 FunctionOutputs: [ { 
 ExpressionOutputId: a1c73247-3d49-447d-b31d-a5f6d4f5eadc
@@ -411,7 +371,42 @@ MaskG: 0
 MaskB: 0
 MaskA: 0
  } ]
+ }, 0, 0, 0, 0, { 
+Texture: Texture2D /Game/Effects/Textures/Fx_radialGradient.Fx_radialGradient
+Material: 1
+ }, 0, 0, { 
+Coordinates: [Skipped]
+Texture: Texture2D /Game/Effects/Textures/T_Smoke_Soft_Tile.T_Smoke_Soft_Tile
+Material: 1
  }, 0, { 
+DefaultValue: 0.01f
+SliderMin: 0.01f
+SliderMax: 1f
+ParameterName: EdgeSmooth
+ExpressionGUID: 98591fad-a5e9-44bc-925e-beb3757b54f0
+Group: Edge Smooth (Dissolve)
+Material: 1
+ }, 0, 0, 0, 0, 0, { 
+ParameterName: Normal2
+ExpressionGUID: 071a42ce-fa6c-476c-9b0b-1c84ab8c8811
+Coordinates: [Skipped]
+Texture: Texture2D /Game/Effects/Textures/T_Veins_N.T_Veins_N
+SamplerType: SAMPLERTYPE_Normal
+Material: 1
+ }, { 
+DefaultValue: 0.2f
+ParameterName: Normal2Intensity
+ExpressionGUID: 71759ff5-fd60-42f5-8df7-db8d49d4c591
+Group: Surface Adjustments
+Material: 1
+ }, { 
+DefaultValue: 1f
+SliderMax: 1f
+ParameterName: BloodAnim
+ExpressionGUID: ef30f1f3-87d8-4c6b-8990-2608d517a398
+Group: Surface Adjustments
+Material: 1
+ }, 0, 0, 0, { 
 MaterialFunction: MaterialFunction /Engine/Functions/Engine_MaterialFunctions02/Utility/BlendAngleCorrectedNormals.BlendAngleCorrectedNormals
 FunctionInputs: [ { 
 ExpressionInputId: 471965e5-5d27-48c5-83d3-06e6d30a492c
@@ -440,6 +435,11 @@ MaskG: 0
 MaskB: 0
 MaskA: 0
  } ]
+ }, 0, { 
+Collection: MaterialParameterCollection /Game/Effects/Materials/PostProcess/MPC_PP_Material.MPC_PP_Material
+ParameterName: V_BoostColor
+ParameterId: 83d92296-45c8-4ee6-80fe-3c02503fc60f
+Material: 1
  }, 0 ]
 MaterialFunctionInfos: [ { 
 StateId: 66f45eb5-e1de-4557-b3c7-50aaac15a4ca

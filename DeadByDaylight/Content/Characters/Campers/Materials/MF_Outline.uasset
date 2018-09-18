@@ -1,12 +1,36 @@
 StateId: a300c338-91a8-4ebb-ba33-5e0ef35c67ae
 Description: Logic to handle the outline of the camper
-FunctionExpressions: [ { 
-Collection: MaterialParameterCollection /Game/Materials/PostProcess/MPC_OutlineFade.MPC_OutlineFade
-ParameterName: FadeOffset
-ParameterId: bdf5aef7-eaf6-42b0-93b5-334ee42c78f0
+FunctionExpressions: [ 0, { 
+MaterialFunction: MaterialFunction /Game/Materials/PostProcess/MF_PrepareForOutline.MF_PrepareForOutline
+FunctionInputs: [ { 
+ExpressionInputId: 8289f17d-ab81-41e8-b501-5474d02472b5
+Input: [Skipped]
+ } ]
+FunctionOutputs: [ { 
+ExpressionOutputId: 82077c11-0d80-4456-83fc-e94b6cf294f1
+Output: {
+	OutputName: Transformed Colour
+	Mask: 0
+	MaskR: 0
+	MaskG: 0
+	MaskB: 0
+	MaskA: 0
+	}
+ } ]
 Function: 13
-bCollapsed: True
+Outputs: [ { 
+OutputName: Transformed Colour
+Mask: 0
+MaskR: 0
+MaskG: 0
+MaskB: 0
+MaskA: 0
+ } ]
  }, { 
+ParameterName: OutlineColour
+ExpressionGUID: 081e4b46-9ee6-4e8d-a0a8-ee9ce58c2820
+Function: 13
+ }, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, { 
 MaterialFunction: MaterialFunction /Engine/Functions/Engine_MaterialFunctions02/Utility/MakeFloat4.MakeFloat4
 FunctionInputs: [ { 
 ExpressionInputId: 529c1d96-07eb-441e-9be5-a903b6677f8a
@@ -41,19 +65,19 @@ MaskG: 0
 MaskB: 0
 MaskA: 0
  } ]
- }, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, { 
-DefaultValue: 1f
-ParameterName: Outline Intensity
-ExpressionGUID: 66283bd2-3a87-41b8-9d74-121b1ac7f58d
-Group: Outline
-Function: 13
  }, 0, { 
+Collection: MaterialParameterCollection /Game/Materials/PostProcess/MPC_OutlineFade.MPC_OutlineFade
+ParameterName: FadeOffset
+ParameterId: bdf5aef7-eaf6-42b0-93b5-334ee42c78f0
+Function: 13
+bCollapsed: True
+ }, { 
 Collection: MaterialParameterCollection /Game/Materials/PostProcess/MPC_OutlineFade.MPC_OutlineFade
 ParameterName: FadeFactor
 ParameterId: 912b79d7-5759-492c-9471-9cea2ba3d739
 Function: 13
 bCollapsed: True
- }, { 
+ }, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, { 
 MaterialFunction: MaterialFunction /Engine/Functions/Engine_MaterialFunctions02/Utility/LinearSine.LinearSine
 FunctionInputs: [ { 
 ExpressionInputId: c9c808ee-aa98-4912-837e-335902d402d3
@@ -123,46 +147,14 @@ MaskB: 0
 MaskA: 0
  } ]
  }, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, { 
-MaterialFunction: MaterialFunction /Game/Materials/PostProcess/MF_PrepareForOutline.MF_PrepareForOutline
-FunctionInputs: [ { 
-ExpressionInputId: 8289f17d-ab81-41e8-b501-5474d02472b5
-Input: [Skipped]
- } ]
-FunctionOutputs: [ { 
-ExpressionOutputId: 82077c11-0d80-4456-83fc-e94b6cf294f1
-Output: {
-	OutputName: Transformed Colour
-	Mask: 0
-	MaskR: 0
-	MaskG: 0
-	MaskB: 0
-	MaskA: 0
-	}
- } ]
-Function: 13
-Outputs: [ { 
-OutputName: Transformed Colour
-Mask: 0
-MaskR: 0
-MaskG: 0
-MaskB: 0
-MaskA: 0
- } ]
- }, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, { 
-Coordinates: [Skipped]
-SamplerSource: SSM_Wrap_WorldGroupSettings
-Texture: Texture2D /Game/Effects/Textures/T_Noise_04.T_Noise_04
+A: [Skipped]
+B: [Skipped]
+DefaultValue: True
+ParameterName: FadeOutlinesAsWeApproach
+ExpressionGUID: 8c3caeb6-1e9d-4e55-b370-33a031ab43b3
+Group: Outline
 Function: 13
  }, 0, { 
-ParameterName: OutlineColour
-ExpressionGUID: 081e4b46-9ee6-4e8d-a0a8-ee9ce58c2820
-Function: 13
- }, 0, 0, 0, { 
-Coordinates: [Skipped]
-SamplerSource: SSM_Wrap_WorldGroupSettings
-Texture: Texture2D /Game/Effects/Textures/T_Noise_04.T_Noise_04
-Function: 13
- }, { 
 ParameterName: OutlineFadeGradient
 ExpressionGUID: 6210786e-f323-43c2-8b3a-a58fc99fadc0
 Group: Outline
@@ -171,17 +163,25 @@ SamplerSource: SSM_Clamp_WorldGroupSettings
 Texture: Texture2D /Game/Textures/Outlines/T_OutlineGradient.T_OutlineGradient
 SamplerType: SAMPLERTYPE_Alpha
 Function: 13
+ }, 0, 0, 0, { 
+Coordinates: [Skipped]
+SamplerSource: SSM_Wrap_WorldGroupSettings
+Texture: Texture2D /Game/Effects/Textures/T_Noise_04.T_Noise_04
+Function: 13
  }, { 
-ParameterName: OutlineFadeIntensity
-ExpressionGUID: adcaa7c9-8f26-428c-a5d5-a0b9d83cacde
+Coordinates: [Skipped]
+SamplerSource: SSM_Wrap_WorldGroupSettings
+Texture: Texture2D /Game/Effects/Textures/T_Noise_04.T_Noise_04
+Function: 13
+ }, { 
+DefaultValue: 1f
+ParameterName: Outline Intensity
+ExpressionGUID: 66283bd2-3a87-41b8-9d74-121b1ac7f58d
 Group: Outline
 Function: 13
  }, { 
-A: [Skipped]
-B: [Skipped]
-DefaultValue: True
-ParameterName: FadeOutlinesAsWeApproach
-ExpressionGUID: 8c3caeb6-1e9d-4e55-b370-33a031ab43b3
+ParameterName: OutlineFadeIntensity
+ExpressionGUID: adcaa7c9-8f26-428c-a5d5-a0b9d83cacde
 Group: Outline
 Function: 13
  } ]

@@ -1,21 +1,244 @@
 Emitters: [ { 
-EmitterName: DropletsSpawn
+EmitterName: Dripping
 LODLevels: [ { 
-RequiredModule: ParticleModuleSize: {	
-	StartSize: {
-		MaxValue: 12f
+RequiredModule: ParticleModuleRequired: {	
+	Material: MaterialInstanceConstant /Game/Effects/Materials/Liquid/MI_WaterDrops.MI_WaterDrops
+	ScreenAlignment: PSA_Rectangle
+	bUseLocalSpace: True
+	SortMode: PSORTMODE_Age_NewestFirst
+	bUseLegacyEmitterTime: False
+	EmitterDuration: 5f
+	EmitterDurationLow: 4f
+	bEmitterDurationUseRange: True
+	bDurationRecalcEachLoop: True
+	SpawnRate: {
 		Distribution: RequiredDistributionSpawnRate: {	
 			}
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 3
-			Values: [ 4, 12, 0 ]
-			}
 		}
+	EmitterDelay: 1f
+	bEmitterDelayUseRange: True
+	bDelayFirstLoopOnly: True
+	InterpolationMethod: PSUVIM_Linear_Blend
+	SubImages_Horizontal: 4
+	SubImages_Vertical: 4
+	RandomImageTime: 1f
 	LODValidity: 1
 	}
 Modules: [ { 
+Events: [ { 
+Type: EPET_Spawn
+Frequency: 0
+ParticleFrequency: 0
+FirstTimeOnly: False
+LastTimeOnly: False
+UseReflectedImpactVector: False
+bUseOrbitOffset: False
+CustomName: Spawn
+ParticleModuleEventsToSendToGame: [  ]
+ } ]
+LODValidity: 1
+ }, { 
+Lifetime: {
+	MinValue: 1.5f
+	MaxValue: 1.5f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1.5 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartLocation: {
+	MinValue: -5f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0, 0, -5 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartSize: {
+	MaxValue: 12f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 4, 12, 0 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+ColorOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 1, 1, 1 ]
+		}
+	}
+AlphaOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1 ]
+		}
+	}
+bClampAlpha: False
+LODValidity: 1
+ }, { 
+SubImageIndex: {
+	MaxValue: 16f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 1
+		TimeScale: 1f
+		Values: [ 0, 16 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+LockAxisFlags: EPAL_ROTATE_Z
+LODValidity: 1
+ }, { 
+StartVelocity: {
+	MinValue: -20f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 0, 0, -20, 0, 0, -60 ]
+		}
+	}
+StartVelocityRadial: {
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 0 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+AccelOverLife: {
+	MinValue: -400f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 6.666667f
+		Values: [ 0, 0, 0, 0, 0, -400 ]
+		}
+	}
+bAlwaysInWorldSpace: True
+LODValidity: 1
+ } ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 0 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstList: [ { 
+	Count: 1
+	CountLow: -1
+	Time: 0f
+	 } ]
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	bApplyGlobalSpawnRateScale: False
+	bProcessSpawnRate: False
+	LODValidity: 1
+	}
+EventGenerator: 10
+PeakActiveParticles: 3
+ } ]
+ }, { 
+EmitterName: DropletsSpawn
+LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: MaterialInstanceConstant /Game/Effects/Materials/Liquid/MI_WaterDrops2.MI_WaterDrops2
+	ScreenAlignment: PSA_Rectangle
+	bUseLocalSpace: True
+	SortMode: PSORTMODE_Age_NewestFirst
+	bUseLegacyEmitterTime: False
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		}
+	RandomImageTime: 1f
+	LODValidity: 1
+	}
+Modules: [ { 
+SpawnCount: {
+	MaxValue: 2f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0, 2 ]
+		}
+	}
+InheritVelocityScale: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 1, 1, 1 ]
+		}
+	}
+EventGeneratorType: EPET_Spawn
+EventName: Spawn
+LODValidity: 1
+ }, 12, { 
 StartRadius: {
 	MinValue: 0.5f
 	MaxValue: 0.5f
@@ -63,21 +286,18 @@ StartLocation: {
 	}
 LODValidity: 1
  }, { 
-StartLocation: {
-	MinValue: -5f
+StartSize: {
+	MaxValue: 1.5f
 	Distribution: 0
 	Table: {
 		Op: 1
 		EntryCount: 1
 		EntryStride: 3
-		Values: [ 0, 0, -5 ]
+		Values: [ 1.5, 1.5, 0 ]
 		}
 	}
 LODValidity: 1
- }, { 
-LockAxisFlags: EPAL_ROTATE_Z
-LODValidity: 1
- }, { 
+ }, 9, { 
 LifeMultiplier: {
 	MaxValue: 2f
 	Distribution: 0
@@ -91,83 +311,59 @@ LifeMultiplier: {
 		}
 	}
 LODValidity: 1
- }, { 
-Events: [ { 
-Type: EPET_Spawn
-Frequency: 0
-ParticleFrequency: 0
-FirstTimeOnly: False
-LastTimeOnly: False
-UseReflectedImpactVector: False
-bUseOrbitOffset: False
-CustomName: Spawn
-ParticleModuleEventsToSendToGame: [  ]
+ }, 16, 27, { 
+AccelOverLife: {
+	MinValue: -300f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 6.666667f
+		Values: [ 0, 0, 0, 0, 0, -300 ]
+		}
+	}
+bAlwaysInWorldSpace: True
+LODValidity: 1
  } ]
-LODValidity: 1
- }, { 
-Rate: {
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 0 ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 0 ]
+			}
 		}
-	}
-RateScale: {
-	MinValue: 1f
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 1 ]
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
 		}
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	LODValidity: 1
 	}
-BurstList: [ { 
-Count: 1
-CountLow: -1
-Time: 0f
+PeakActiveParticles: 3
  } ]
-BurstScale: {
-	MinValue: 1f
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 1 ]
-		}
-	}
-bApplyGlobalSpawnRateScale: False
-bProcessSpawnRate: False
-LODValidity: 1
  }, { 
-Material: MaterialInstanceConstant /Game/Effects/Materials/Liquid/MI_WaterDrops.MI_WaterDrops
-ScreenAlignment: PSA_Rectangle
-bUseLocalSpace: True
-SortMode: PSORTMODE_Age_NewestFirst
-bUseLegacyEmitterTime: False
-EmitterDuration: 5f
-EmitterDurationLow: 4f
-bEmitterDurationUseRange: True
-bDurationRecalcEachLoop: True
-SpawnRate: {
-	Distribution: RequiredDistributionSpawnRate: {	
-		}
-	}
-EmitterDelay: 1f
-bEmitterDelayUseRange: True
-bDelayFirstLoopOnly: True
-InterpolationMethod: PSUVIM_Linear_Blend
-SubImages_Horizontal: 4
-SubImages_Vertical: 4
-RandomImageTime: 1f
-LODValidity: 1
- }, { 
-EmitterName: Dripping
+EmitterName: Droplets
 LODLevels: [ { 
 RequiredModule: ParticleModuleRequired: {	
 	Material: MaterialInstanceConstant /Game/Effects/Materials/Liquid/MI_WaterDrops2.MI_WaterDrops2
@@ -180,154 +376,7 @@ RequiredModule: ParticleModuleRequired: {
 	bEmitterDurationUseRange: True
 	bDurationRecalcEachLoop: True
 	SpawnRate: {
-		Distribution: ParticleLODLevel: {	
-			RequiredModule: ParticleModuleRequired: {	
-				Material: MaterialInstanceConstant /Game/Effects/Materials/Liquid/MI_WaterDrops2.MI_WaterDrops2
-				ScreenAlignment: PSA_Rectangle
-				bUseLocalSpace: True
-				SortMode: PSORTMODE_Age_NewestFirst
-				bUseLegacyEmitterTime: False
-				SpawnRate: {
-					Distribution: RequiredDistributionSpawnRate: {	
-						}
-					}
-				RandomImageTime: 1f
-				LODValidity: 1
-				}
-			Modules: [ { 
-			SpawnCount: {
-				MaxValue: 2f
-				Distribution: 0
-				Table: {
-					Op: 2
-					EntryCount: 1
-					EntryStride: 2
-					SubEntryStride: 1
-					Values: [ 0, 2 ]
-					}
-				}
-			InheritVelocityScale: {
-				MinValue: 1f
-				MaxValue: 1f
-				Distribution: 0
-				Table: {
-					Op: 1
-					EntryCount: 1
-					EntryStride: 3
-					Values: [ 1, 1, 1 ]
-					}
-				}
-			EventGeneratorType: EPET_Spawn
-			EventName: Spawn
-			LODValidity: 1
-			 }, 12, { 
-			StartLocation: {
-				MinValue: -7f
-				Distribution: 0
-				Table: {
-					Op: 1
-					EntryCount: 1
-					EntryStride: 3
-					Values: [ 0, 0, -7 ]
-					}
-				}
-			LODValidity: 1
-			 }, { 
-			StartSize: {
-				MaxValue: 1.5f
-				Distribution: 0
-				Table: {
-					Op: 1
-					EntryCount: 1
-					EntryStride: 3
-					Values: [ 1.5, 1.5, 0 ]
-					}
-				}
-			LODValidity: 1
-			 }, 9, { 
-			StartVelocity: {
-				MinValue: -20f
-				Distribution: 0
-				Table: {
-					Op: 2
-					EntryCount: 1
-					EntryStride: 6
-					SubEntryStride: 3
-					Values: [ 0, 0, -20, 0, 0, -60 ]
-					}
-				}
-			StartVelocityRadial: {
-				Distribution: 0
-				Table: {
-					Op: 1
-					EntryCount: 1
-					EntryStride: 1
-					Values: [ 0 ]
-					}
-				}
-			LODValidity: 1
-			 }, 16, 27, { 
-			ColorOverLife: {
-				MinValue: 1f
-				MaxValue: 1f
-				Distribution: 0
-				Table: {
-					Op: 1
-					EntryCount: 1
-					EntryStride: 3
-					Values: [ 1, 1, 1 ]
-					}
-				}
-			AlphaOverLife: {
-				MinValue: 1f
-				MaxValue: 1f
-				Distribution: 0
-				Table: {
-					Op: 1
-					EntryCount: 1
-					EntryStride: 1
-					Values: [ 1 ]
-					}
-				}
-			bClampAlpha: False
-			LODValidity: 1
-			 } ]
-			SpawnModule: ParticleModuleSpawn: {	
-				Rate: {
-					Distribution: 0
-					Table: {
-						Op: 1
-						EntryCount: 1
-						EntryStride: 1
-						Values: [ 0 ]
-						}
-					}
-				RateScale: {
-					MinValue: 1f
-					MaxValue: 1f
-					Distribution: 0
-					Table: {
-						Op: 1
-						EntryCount: 1
-						EntryStride: 1
-						Values: [ 1 ]
-						}
-					}
-				BurstScale: {
-					MinValue: 1f
-					MaxValue: 1f
-					Distribution: 0
-					Table: {
-						Op: 1
-						EntryCount: 1
-						EntryStride: 1
-						Values: [ 1 ]
-						}
-					}
-				LODValidity: 1
-				}
-			EventGenerator: 10
-			PeakActiveParticles: 3
+		Distribution: RequiredDistributionSpawnRate: {	
 			}
 		}
 	EmitterDelay: 1f
@@ -337,33 +386,18 @@ RequiredModule: ParticleModuleRequired: {
 	LODValidity: 1
 	}
 Modules: [ { 
-Lifetime: {
-	MinValue: 1.5f
-	MaxValue: 1.5f
+StartLocation: {
+	MinValue: -7f
 	Distribution: 0
 	Table: {
 		Op: 1
 		EntryCount: 1
-		EntryStride: 1
-		Values: [ 1.5 ]
-		}
-	}
-LODValidity: 1
- }, 12, 15, 21, 9, 22, 16, 27, { 
-AccelOverLife: {
-	MinValue: -400f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 2
 		EntryStride: 3
-		TimeScale: 6.666667f
-		Values: [ 0, 0, 0, 0, 0, -400 ]
+		Values: [ 0, 0, -7 ]
 		}
 	}
-bAlwaysInWorldSpace: True
 LODValidity: 1
- } ]
+ }, 12, 15, 21, 9, 22, 16, 27, 7 ]
 SpawnModule: ParticleModuleSpawn: {	
 	Rate: {
 		Distribution: 0
@@ -407,43 +441,9 @@ SpawnModule: ParticleModuleSpawn: {
 		}
 	LODValidity: 1
 	}
-PeakActiveParticles: 3
- } ]
- }, 7 ]
-SpawnModule: ParticleModuleSubUV: {	
-	SubImageIndex: {
-		MaxValue: 16f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 2
-			EntryStride: 1
-			TimeScale: 1f
-			Values: [ 0, 16 ]
-			}
-		}
-	LODValidity: 1
-	}
 PeakActiveParticles: 5
  } ]
- }, { 
-EmitterName: Droplets
-LODLevels: [ { 
-AccelOverLife: {
-	MinValue: -300f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 2
-		EntryStride: 3
-		TimeScale: 6.666667f
-		Values: [ 0, 0, 0, 0, 0, -300 ]
-		}
-	}
-bAlwaysInWorldSpace: True
-LODValidity: 1
  } ]
- }, 30 ]
 CurveEdSetup: 0
 LODDistances: [ 0 ]
 LODSettings: [ 80 ]

@@ -1,23 +1,86 @@
 WarmupTime: 10f
-Emitters: [ 22, { 
-EmitterName: VeinsGround2
+Emitters: [ { 
+EmitterName: VeinsCorner
 LODLevels: [ { 
-RequiredModule: ParticleModuleRotation: {	
-	StartRotation: {
-		MaxValue: 1f
+RequiredModule: ParticleModuleRequired: {	
+	Material: Material /Game/Effects/Materials/M_VignetteHook.M_VignetteHook
+	bUseLocalSpace: True
+	bKillOnDeactivate: True
+	bKillOnCompleted: True
+	bUseLegacyEmitterTime: False
+	EmitterDuration: 0f
+	SpawnRate: {
 		Distribution: RequiredDistributionSpawnRate: {	
 			}
-		Table: {
-			Op: 2
-			EntryCount: 1
-			EntryStride: 2
-			SubEntryStride: 1
-			Values: [ 0, 1 ]
-			}
 		}
+	RandomImageTime: 1f
 	LODValidity: 1
 	}
 Modules: [ { 
+StartSize: {
+	MaxValue: 20f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 20, 0, 0 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+ColorOverLife: {
+	MaxValue: 15f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 15, 0.300003, 0 ]
+		}
+	}
+AlphaOverLife: {
+	MinValue: 0.05f
+	MaxValue: 0.05f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 0.05 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartLocation: {
+	MinValue: -1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0, 1, -1 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartRotation: {
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0, 1 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+LockAxisFlags: EPAL_NEGATIVE_X
+LODValidity: 1
+ }, { 
 SizeScale: {
 	MinValue: 0.5f
 	MaxValue: 0.5f
@@ -45,121 +108,84 @@ ColorScaleOverLife: {
 AlphaScaleOverLife: {
 	MinValue: 1f
 	MaxValue: 1f
-	Distribution: ParticleLODLevel: {	
-		RequiredModule: 14
-		Modules: [ 16, 7, { 
-		StartLocation: {
-			MaxValue: 7f
-			Distribution: 0
-			Table: {
-				Op: 2
-				EntryCount: 1
-				EntryStride: 6
-				SubEntryStride: 3
-				Values: [ 0, 3, 5, 0, 4, 7 ]
-				}
-			}
-		LODValidity: 1
-		 }, { 
-		StartSize: {
-			MaxValue: 20f
-			Distribution: 0
-			Table: {
-				Op: 1
-				EntryCount: 1
-				EntryStride: 3
-				Values: [ 20, 0, 0 ]
-				}
-			}
-		LODValidity: 1
-		 }, { 
-		Material: Material /Game/Effects/Materials/M_VignetteHook.M_VignetteHook
-		bUseLocalSpace: True
-		bKillOnDeactivate: True
-		bKillOnCompleted: True
-		bUseLegacyEmitterTime: False
-		EmitterDuration: 0f
-		SpawnRate: {
-			Distribution: DistributionFloatParticleParameter: {	
-				ParameterName: Fade
-				ParamMode: DPM_Direct
-				Constant: 1f
-				}
-			}
-		RandomImageTime: 1f
-		LODValidity: 1
-		 }, { 
-		Rate: {
-			Distribution: 0
-			Table: {
-				Op: 1
-				EntryCount: 1
-				EntryStride: 1
-				Values: [ 0 ]
-				}
-			}
-		RateScale: {
-			MinValue: 1f
-			MaxValue: 1f
-			Distribution: 0
-			Table: {
-				Op: 1
-				EntryCount: 1
-				EntryStride: 1
-				Values: [ 1 ]
-				}
-			}
-		BurstList: [ { 
-		Count: 1
-		CountLow: 1
-		Time: 0f
-		 } ]
-		BurstScale: {
-			MinValue: 1f
-			MaxValue: 1f
-			Distribution: 0
-			Table: {
-				Op: 1
-				EntryCount: 1
-				EntryStride: 1
-				Values: [ 1 ]
-				}
-			}
-		LODValidity: 1
-		 }, { 
-		StartLocation: {
-			MinValue: -12f
-			Distribution: 0
-			Table: {
-				Op: 2
-				EntryCount: 1
-				EntryStride: 6
-				SubEntryStride: 3
-				Values: [ 0, -12, -5, 0, -10, -4 ]
-				}
-			}
-		LODValidity: 1
-		 } ]
-		SpawnModule: ParticleSpriteEmitter: {	
-			EmitterName: VeinsGround
-			LODLevels: [ { 
-			RequiredModule: 14
-			Modules: [ 16, 7, { 
-			LockAxisFlags: EPAL_NEGATIVE_X
-			LODValidity: 1
-			 }, 15, 13, 17, 8 ]
-			SpawnModule: 18
-			PeakActiveParticles: 3
-			 } ]
-			}
-		PeakActiveParticles: 3
+	Distribution: DistributionFloatParticleParameter: {	
+		ParameterName: Fade
+		ParamMode: DPM_Direct
+		Constant: 1f
 		}
 	Table: {
 		Values: [ 1 ]
 		}
 	}
 LODValidity: 1
+ } ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 0 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstList: [ { 
+	Count: 1
+	CountLow: 1
+	Time: 0f
+	 } ]
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	LODValidity: 1
+	}
+PeakActiveParticles: 3
+ } ]
  }, { 
+EmitterName: VeinsWall
+LODLevels: [ { 
+RequiredModule: 14
+Modules: [ 16, 7, { 
+StartLocation: {
+	MaxValue: 7f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 0, 3, 5, 0, 4, 7 ]
+		}
+	}
+LODValidity: 1
+ }, 15, 13, 17, 8 ]
+SpawnModule: 18
+PeakActiveParticles: 3
+ } ]
+ }, { 
+EmitterName: VeinsGround
+LODLevels: [ { 
+RequiredModule: 14
+Modules: [ 16, 7, { 
 StartLocation: {
 	MinValue: -7f
 	Distribution: 0
@@ -177,51 +203,25 @@ SpawnModule: 18
 PeakActiveParticles: 3
  } ]
  }, { 
-EmitterName: VeinsWall
+EmitterName: VeinsGround2
 LODLevels: [ { 
 RequiredModule: 14
 Modules: [ 16, 7, { 
 StartLocation: {
-	MinValue: -1f
-	MaxValue: 1f
+	MinValue: -12f
 	Distribution: 0
 	Table: {
-		Op: 1
+		Op: 2
 		EntryCount: 1
-		EntryStride: 3
-		Values: [ 0, 1, -1 ]
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 0, -12, -5, 0, -10, -4 ]
 		}
 	}
 LODValidity: 1
  }, 15, 13, 17, 8 ]
 SpawnModule: 18
 PeakActiveParticles: 3
- } ]
- }, { 
-EmitterName: VeinsCorner
-LODLevels: [ { 
-ColorOverLife: {
-	MaxValue: 15f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 15, 0.300003, 0 ]
-		}
-	}
-AlphaOverLife: {
-	MinValue: 0.05f
-	MaxValue: 0.05f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 0.05 ]
-		}
-	}
-LODValidity: 1
  } ]
  } ]
 CurveEdSetup: 0

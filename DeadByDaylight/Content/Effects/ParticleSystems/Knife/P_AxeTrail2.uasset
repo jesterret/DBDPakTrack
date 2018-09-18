@@ -1,6 +1,118 @@
-Emitters: [ 10 ]
-CurveEdSetup: RequiredDistributionSpawnRate: {	
+Emitters: [ { 
+EmitterName: Trail
+LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_KnifeTrail.MI_KnifeTrail
+	bKillOnDeactivate: True
+	bKillOnCompleted: True
+	bUseLegacyEmitterTime: False
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		}
+	RandomImageTime: 1f
+	LODValidity: 1
 	}
+Modules: [ { 
+Lifetime: {
+	MinValue: 0.3f
+	MaxValue: 0.3f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 0.3 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartSize: {
+	MinValue: 30f
+	MaxValue: 30f
+	MinValueVec: Vector [X=30, Y=30, Z=30]
+	MaxValueVec: Vector [X=30, Y=30, Z=30]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 30, 30, 30 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+ColorOverLife: {
+	MinValue: 0.145f
+	MaxValue: 0.145f
+	MinValueVec: Vector [X=0.145, Y=0.145, Z=0.145]
+	MaxValueVec: Vector [X=0.145, Y=0.145, Z=0.145]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0.145, 0.145, 0.145 ]
+		}
+	}
+AlphaOverLife: {
+	MinValue: 0.02f
+	MaxValue: 0.02f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 0.02 ]
+		}
+	}
+LODValidity: 1
+ } ]
+TypeDataModule: ParticleModuleTypeDataAnimTrail: {	
+	DistanceTessellationStepSize: 0.1f
+	TangentTessellationStepSize: 0.1f
+	WidthTessellationStepSize: 0.1f
+	LODValidity: 1
+	}
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		MinValue: 7f
+		MaxValue: 7f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 7 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstList: [ { 
+	Count: 1
+	CountLow: 1
+	Time: 0f
+	 } ]
+	BurstScale: {
+		Distribution: BurstScaleDistribution: {	
+			Constant: 1f
+			}
+		}
+	LODValidity: 1
+	}
+PeakActiveParticles: 6
+ } ]
+ } ]
+CurveEdSetup: 0
 LODDistances: [ 0 ]
 LODSettings: [ 49 ]
 bUseFixedRelativeBoundingBox: True

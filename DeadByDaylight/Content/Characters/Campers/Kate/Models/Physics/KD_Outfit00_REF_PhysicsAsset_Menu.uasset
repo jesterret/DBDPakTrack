@@ -1,6 +1,18 @@
 BoundsBodies: [ 0, 1, 2, 3, 4, 5 ]
 SkeletalBodySetups: [ { 
 AggGeom: {
+	SphylElems: [ { 
+	Center: Vector [X=0, Y=0, Z=0]
+	Orientation: Quat [X=0, Y=0, Z=-0.7071068, W=0.7071068]
+	Radius: 0.505f
+	Length: 0.505f
+	 } ]
+	}
+BoneName: joint_Char
+PhysicsType: PhysType_Kinematic
+CollisionTraceFlag: CTF_UseSimpleAsComplex
+ }, { 
+AggGeom: {
 	SphereElems: [ { 
 	Center: Vector [X=-2.340158, Y=1.885814, Z=3.521197]
 	Radius: 6.617075f
@@ -47,7 +59,17 @@ AggGeom: {
 BoneName: joint_TorsoC_01
 PhysicsType: PhysType_Kinematic
 CollisionTraceFlag: CTF_UseSimpleAsComplex
- }, 12, { 
+ }, { 
+AggGeom: {
+	SphereElems: [ { 
+	Center: Vector [X=-0.3661375, Y=-7.493392, Z=-0.005095003]
+	Radius: 8.86581f
+	 } ]
+	}
+BoneName: joint_Head_01
+PhysicsType: PhysType_Kinematic
+CollisionTraceFlag: CTF_UseSimpleAsComplex
+ }, { 
 AggGeom: {
 	SphereElems: [ { 
 	Center: Vector [X=0.4023664, Y=-4.756728, Z=0.04553604]
@@ -57,20 +79,31 @@ AggGeom: {
 BoneName: joint_NeckA_01
 PhysicsType: PhysType_Kinematic
 CollisionTraceFlag: CTF_UseSimpleAsComplex
- }, { 
-AggGeom: {
-	SphylElems: [ { 
-	Center: Vector [X=0, Y=0, Z=0]
-	Orientation: Quat [X=0, Y=0, Z=-0.7071068, W=0.7071068]
-	Radius: 0.505f
-	Length: 0.505f
-	 } ]
-	}
-BoneName: joint_Char
-PhysicsType: PhysType_Kinematic
-CollisionTraceFlag: CTF_UseSimpleAsComplex
  } ]
 ConstraintSetup: [ { 
+DefaultInstance: {
+	JointName: joint_ChesLT_01
+	ConstraintBone1: joint_ChesLT_01
+	ConstraintBone2: joint_TorsoC_01
+	Pos2: Vector [X=-7.501173, Y=-1.202255, Z=6.452918]
+	PriAxis2: Vector [X=0.6256097, Y=-0.08354371, Z=0.77565]
+	SecAxis2: Vector [X=0.1323645, Y=0.9912011, Z=5.960464E-08]
+	ProfileInstance: {
+		ConeLimit: {
+			Swing1LimitDegrees: 0f
+			Swing2LimitDegrees: 0f
+			Swing1Motion: ACM_Limited
+			Swing2Motion: ACM_Limited
+			Damping: 10f
+			}
+		TwistLimit: {
+			TwistLimitDegrees: 0f
+			TwistMotion: ACM_Limited
+			Damping: 10f
+			}
+		}
+	}
+ }, { 
 DefaultInstance: {
 	JointName: joint_ChestRT_01
 	ConstraintBone1: joint_ChestRT_01
@@ -103,15 +136,14 @@ DefaultInstance: {
 	SecAxis2: Vector [X=0, Y=0.9912011, Z=0.1323644]
 	}
  }, { 
-AggGeom: {
-	SphereElems: [ { 
-	Center: Vector [X=-0.3661375, Y=-7.493392, Z=-0.005095003]
-	Radius: 8.86581f
-	 } ]
+DefaultInstance: {
+	JointName: joint_Head_01
+	ConstraintBone1: joint_Head_01
+	ConstraintBone2: joint_NeckA_01
+	Pos2: Vector [X=-0.3097496, Y=-9.036804, Z=3.692548E-08]
+	PriAxis2: Vector [X=0.9300542, Y=0.3674222, Z=-1.108711E-07]
+	SecAxis2: Vector [X=-0.3674222, Y=0.9300543, Z=4.380014E-08]
 	}
-BoneName: joint_Head_01
-PhysicsType: PhysType_Kinematic
-CollisionTraceFlag: CTF_UseSimpleAsComplex
  }, { 
 DefaultInstance: {
 	JointName: joint_NeckA_01
@@ -120,28 +152,5 @@ DefaultInstance: {
 	Pos2: Vector [X=0.3304043, Y=-21.99374, Z=0]
 	PriAxis2: Vector [X=0.8732371, Y=-0.4872956, Z=1.192093E-07]
 	SecAxis2: Vector [X=0.4872955, Y=0.8732371, Z=0]
-	}
- }, { 
-DefaultInstance: {
-	JointName: joint_ChesLT_01
-	ConstraintBone1: joint_ChesLT_01
-	ConstraintBone2: joint_TorsoC_01
-	Pos2: Vector [X=-7.501173, Y=-1.202255, Z=6.452918]
-	PriAxis2: Vector [X=0.6256097, Y=-0.08354371, Z=0.77565]
-	SecAxis2: Vector [X=0.1323645, Y=0.9912011, Z=5.960464E-08]
-	ProfileInstance: {
-		ConeLimit: {
-			Swing1LimitDegrees: 0f
-			Swing2LimitDegrees: 0f
-			Swing1Motion: ACM_Limited
-			Swing2Motion: ACM_Limited
-			Damping: 10f
-			}
-		TwistLimit: {
-			TwistLimitDegrees: 0f
-			TwistMotion: ACM_Limited
-			Damping: 10f
-			}
-		}
 	}
  } ]

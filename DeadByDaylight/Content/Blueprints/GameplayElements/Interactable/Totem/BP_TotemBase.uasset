@@ -1,45 +1,413 @@
 ParentClass: Class /Script/DeadByDaylight.Totem
-SimpleConstructionScript: SpotLightE1E7CEF447B58DC5D9C689A5DBEC745B: {	
-	InnerConeAngle: 5f
-	OuterConeAngle: 60f
-	AttenuationRadius: 100f
-	MaxDrawDistance: 0f
-	MaxDistanceFadeRange: 0f
-	LightGuid: 94c698c7-d877-45d9-af69-30554b6331f2
-	Intensity: 300f
-	LightColor: Color [B=124, G=160, R=255, A=0]
-	CastShadows: False
-	CastStaticShadows: False
-	CastDynamicShadows: False
-	bAffectTranslucentLighting: False
-	bPrecomputedLightingIsValid: False
-	bVisible: False
-	RelativeLocation: Vector [X=7.098297E-07, Y=0, Z=11.42972]
-	RelativeRotation: Rotator [Pitch=90, Roll=0, Yaw=0]
+SimpleConstructionScript: SimpleConstructionScript: {	
+	RootNodes: [ { 
+	ComponentTemplate: DefaultSceneRootF0664FA042DEBE520343D6972F35AE9C: {	
+		}
+	VariableName: DefaultSceneRoot
+	ChildNodes: [ { 
+	ComponentTemplate: StaticMesh7CEE53F54BC5B090EC85F0BED9A67A40: {	
+		StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/HexBags/SM_HexTotem01.SM_HexTotem01
+		bUseDefaultCollision: False
+		BodyInstance: {
+			MassInKgOverride: 56.12061f
+			}
+		CanCharacterStepUpOn: ECB_No
+		}
+	VariableName: MainMesh
+	ChildNodes: [ { 
+	ComponentTemplate: P_Totem44E4154E4049F4741736C8A868BF8629: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/P_Totem.P_Totem
+		WarmupTime: 5f
+		bAutoActivate: False
+		}
+	VariableName: P_Totem
+	VariableGuid: bfef739b-aac8-43af-a668-06dc9847811e
+	 }, { 
+	ComponentTemplate: SpotLightE1E7CEF447B58DC5D9C689A5DBEC745B: {	
+		InnerConeAngle: 5f
+		OuterConeAngle: 60f
+		AttenuationRadius: 100f
+		MaxDrawDistance: 0f
+		MaxDistanceFadeRange: 0f
+		LightGuid: 94c698c7-d877-45d9-af69-30554b6331f2
+		Intensity: 300f
+		LightColor: Color [B=124, G=160, R=255, A=0]
+		CastShadows: False
+		CastStaticShadows: False
+		CastDynamicShadows: False
+		bAffectTranslucentLighting: False
+		bPrecomputedLightingIsValid: False
+		bVisible: False
+		RelativeLocation: Vector [X=7.098297E-07, Y=0, Z=11.42972]
+		RelativeRotation: Rotator [Pitch=90, Roll=0, Yaw=0]
+		}
+	VariableName: SpotLight
+	VariableGuid: 7c021a2b-525e-459b-af70-7476db200d77
+	 }, { 
+	ComponentTemplate: P_TotemBurst2E17ED464A93F36CD25DC78077354A6B: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/P_TotemBurst.P_TotemBurst
+		bAutoActivate: False
+		}
+	VariableName: P_TotemBurst
+	VariableGuid: b0009246-354c-4f8c-9f85-2506db6c10a5
+	 } ]
+	VariableGuid: a1d74765-650d-4dd2-99f2-57223d41e3c4
+	 }, { 
+	ComponentTemplate: InteractorA638A43E46A2B47D2B3F1E9F443BE1D0: {	
+		}
+	VariableName: MainInteractor
+	ChildNodes: [ { 
+	ComponentTemplate: BoxF64FCC724A6B22B9CA4CB0B36F1228AA: {	
+		BoxExtent: Vector [X=64, Y=64, Z=48]
+		BodyInstance: {
+			CollisionProfileName: Interactable
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: WorldStatic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: WorldDynamic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Pawn
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PhysicsBody
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Destructible
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel2
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel3
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel4
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel5
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel6
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Interactable
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: BlinkBlocker
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Ground
+				Response: ECR_Ignore
+				 } ]
+				}
+			MassInKgOverride: 249.7574f
+			ObjectType: ECC_GameTraceChannel1
+			}
+		CanCharacterStepUpOn: ECB_No
+		RelativeLocation: Vector [X=0, Y=0, Z=48]
+		}
+	VariableName: InteractorZone
+	ChildNodes: [ { 
+	ComponentTemplate: DestroyTotem54C7621142FBCAA62CEF84AAA3DB9A4B: {	
+		SnapTime: 0.4f
+		RelativeLocation: Vector [X=0, Y=0, Z=-48]
+		}
+	VariableName: CleanseTotem
+	ChildNodes: [ { 
+	ComponentTemplate: CleanseTotemInterruptD09DB829456B354A731D8CA8C9B8B709: {	
+		InterruptionID: CleanseTotemInterrupt
+		}
+	VariableName: CleanseTotemInterrupt
+	VariableGuid: 4d52e9b9-65f0-44c2-9230-4d9876582280
+	 } ]
+	VariableGuid: 86335fbb-f94f-42c2-88be-bfadb0f084e0
+	 }, { 
+	ComponentTemplate: Validator_GEN_VARIABLE: {	
+		RelativeLocation: Vector [X=0, Y=0, Z=-48]
+		}
+	VariableName: Validator
+	ChildNodes: [ { 
+	ComponentTemplate: Validator1_GEN_VARIABLE: {	
+		RelativeLocation: Vector [X=0, Y=65, Z=0]
+		ComponentTags: [ Validator ]
+		}
+	VariableName: Validator1
+	VariableGuid: bb6932bb-9d42-46f9-8577-6d30541a7c59
+	 }, { 
+	ComponentTemplate: Validator2_GEN_VARIABLE: {	
+		RelativeLocation: Vector [X=0, Y=-65, Z=0]
+		Mobility: EComponentMobility::Static
+		ComponentTags: [ Validator ]
+		}
+	VariableName: Validator2
+	VariableGuid: 75be7aae-d47d-41c1-a2d2-15666c4ae20c
+	 }, { 
+	ComponentTemplate: Validator3_GEN_VARIABLE: {	
+		RelativeLocation: Vector [X=65, Y=0, Z=0]
+		Mobility: EComponentMobility::Static
+		ComponentTags: [ Validator ]
+		}
+	VariableName: Validator3
+	VariableGuid: c16b61cf-3846-4a62-9373-797829ddf07b
+	 }, { 
+	ComponentTemplate: Validator4_GEN_VARIABLE: {	
+		RelativeLocation: Vector [X=-65, Y=0, Z=0]
+		Mobility: EComponentMobility::Static
+		ComponentTags: [ Validator ]
+		}
+	VariableName: Validator4
+	VariableGuid: 4a001305-1f9c-46f3-817b-8e1e2025cee5
+	 }, { 
+	ComponentTemplate: Validator5_GEN_VARIABLE: {	
+		RelativeLocation: Vector [X=50, Y=50, Z=0]
+		Mobility: EComponentMobility::Static
+		ComponentTags: [ Validator ]
+		}
+	VariableName: Validator5
+	VariableGuid: bb96854a-b830-4713-9a6c-e3e9e703ecaa
+	 }, { 
+	ComponentTemplate: Validator6_GEN_VARIABLE: {	
+		RelativeLocation: Vector [X=-50, Y=-50, Z=0]
+		Mobility: EComponentMobility::Static
+		ComponentTags: [ Validator ]
+		}
+	VariableName: Validator6
+	VariableGuid: 86f76f5a-2002-430b-8886-cd2ec81d705b
+	 }, { 
+	ComponentTemplate: Validator7_GEN_VARIABLE: {	
+		RelativeLocation: Vector [X=50, Y=-50, Z=0]
+		Mobility: EComponentMobility::Static
+		ComponentTags: [ Validator ]
+		}
+	VariableName: Validator7
+	VariableGuid: 2fbec31f-3e05-46e6-ade4-89a77c8d3618
+	 }, { 
+	ComponentTemplate: Validator8_GEN_VARIABLE: {	
+		RelativeLocation: Vector [X=-50, Y=50, Z=0]
+		Mobility: EComponentMobility::Static
+		ComponentTags: [ Validator ]
+		}
+	VariableName: Validator8
+	VariableGuid: ab7b046f-335e-4792-87cf-ff09156a5a2d
+	 } ]
+	VariableGuid: 1382a44f-af40-42b3-9115-0160f9c9bfba
+	 } ]
+	VariableGuid: 11b72ead-85df-45f6-a139-1cfe048d726e
+	 } ]
+	VariableGuid: 4728cf46-68ff-4d99-9232-2c3e8b15b273
+	 }, { 
+	ComponentTemplate: DBDOutlineCB6F984A412C4DC0B81DDCAFC63C2D03: {	
+		OutlineName: totem
+		}
+	VariableName: DBDOutline
+	VariableGuid: 6519708a-d703-4882-b3df-4048a42782ce
+	 }, { 
+	ComponentTemplate: BoxF7F52C244E431B52FA2AC78289CA76DC: {	
+		BoxExtent: Vector [X=48, Y=48, Z=48]
+		BodyInstance: {
+			CollisionProfileName: MapActor
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: WorldStatic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: WorldDynamic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Pawn
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PhysicsBody
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Destructible
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel2
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel3
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel4
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel5
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel6
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Interactable
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: MapActor
+				Response: ECR_Overlap
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: BlinkBlocker
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Ground
+				Response: ECR_Ignore
+				 } ]
+				}
+			MassInKgOverride: 162.2222f
+			ObjectType: ECC_GameTraceChannel7
+			}
+		CanCharacterStepUpOn: ECB_No
+		RelativeLocation: Vector [X=0, Y=0, Z=48]
+		}
+	VariableName: MapActorPrimitive
+	VariableGuid: 2e16fe74-a002-4098-b559-e486926e0f93
+	 }, { 
+	ComponentTemplate: AkDB6FB0B04BC35865691E04A008331C01: {	
+		RelativeLocation: Vector [X=0, Y=0, Z=99.99999]
+		}
+	VariableName: Ak_Audio_Totem
+	VariableGuid: c6866e3f-3c80-4109-9e8a-25b2a9858297
+	 }, { 
+	ComponentTemplate: Destructible24F25F6244FE232248C204AF911C4D9A: {	
+		FractureEffects: [ { 
+		ParticleSystem: 0
+		Sound: 0
+		 }, { 
+		ParticleSystem: 0
+		Sound: 0
+		 } ]
+		SkeletalMesh: DestructibleMesh /Game/Meshes/InteractableObjects/HexBags/SM_HexTotem01_DM.SM_HexTotem01_DM
+		BodyInstance: {
+			CollisionProfileName: Custom
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: Interactable
+				Response: ECR_Block
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Block
+				 }, { 
+				Channel: Pawn
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Destructible
+				Response: ECR_Overlap
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 } ]
+				}
+			CollisionEnabled: ECollisionEnabled::QueryOnly
+			}
+		}
+	VariableName: DestructibleMesh
+	VariableGuid: fdbc842e-749a-4b18-a642-af847f0c3548
+	 } ]
+	VariableGuid: 348daed9-7948-4fca-9b41-c9ef1912a8ba
+	 }, { 
+	ComponentTemplate: Chargeable03DA241A44D693EAD4E64C8D2B65DD1F: {	
+		ChargeableComponentID: CleanseTotem
+		}
+	VariableName: CleanseTotemChargeable
+	VariableGuid: bd8f5911-be0e-4115-8cce-dfd46739c9d4
+	 }, { 
+	ComponentTemplate: MapActorD64331214B17DD9CAB237285DCF2FB43: {	
+		Category: EMapActorCategory::KillerObject
+		}
+	VariableName: MapActor
+	VariableGuid: 80ce5659-e374-48b6-bea3-1f95e6a9d591
+	 } ]
+	AllNodes: [ 142, 154, 163, 164, 148, 159, 160, 161, 146, 143, 145, 144, 147, 162, 165, 149, 150, 151, 152, 153, 155, 156, 157, 158 ]
+	DefaultSceneRootNode: 142
 	}
-Timelines: [ 170, { 
+Timelines: [ { 
 LengthMode: TL_LastKeyFrame
 bLoop: True
 bValidatedAsWired: True
 FloatTracks: [ { 
-CurveFloat: DBDOutlineCB6F984A412C4DC0B81DDCAFC63C2D03: {	
-	OutlineName: totem
+CurveFloat: CurveFloat_0_1__71EEED09_0__FBE269D4: {	
+	FloatCurve: {
+		Keys: [ RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0, Value=0.4087059, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0.05597138, Value=0.2899628, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0.1119495, Value=0.7549855, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0.1745934, Value=0.4620926, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0.2401797, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0.5393339, Value=0.241805, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0.6315511, Value=0.7499149, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0.7364706, Value=0.6558022, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0.8018172, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0.9714243, Value=0.4473959, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=1.034821, Value=0.5924689, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=1.167535, Value=0.2742131, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=1.217954, Value=0.4576554, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=1.347026, Value=0.4788271, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=1.449678, Value=0.8917332, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=1.637933, Value=0.3707355, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=1.716647, Value=0.6107355, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=1.805804, Value=0.3114824, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=1.944673, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=2.179623, Value=0.3867875, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=2.241967, Value=0.4874021, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=2.415161, Value=0.6974021, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=2.637987, Value=0.3333186, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=2.730992, Value=0.4820617, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=2.898941, Value=0.3533186, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=3.043474, Value=0.6874021, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=3.193465, Value=0.3449514, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=3.37654, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=3.503282, Value=0.4774021, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=3.635919, Value=0.6474022, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=3.839153, Value=0.3784203, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=4.170386, Value=0.7402366, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=4.546693, Value=0.3007355, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=4.761775, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=5, Value=0.3074021, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0] ]
+		}
 	}
 TrackName: Brightness
 bIsExternalCurve: False
  } ]
 TimelineGuid: 1cc6ebe3-84d4-4305-b843-2735ca2ff458
+ }, { 
+TimelineLength: 1f
+bValidatedAsWired: True
+FloatTracks: [ { 
+CurveFloat: CurveFloat: {	
+	FloatCurve: {
+		Keys: [ RichCurveKey [InterpMode=2, TangentMode=1, TangentWeightMode=0, Time=0, Value=300, ArriveTangent=-471.2213, ArriveTangentWeight=0, LeaveTangent=-471.2213, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=1, Value=0, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0] ]
+		}
+	}
+TrackName: NewTrack
+bIsExternalCurve: False
+ } ]
+TimelineGuid: fadcfa9d-dbd9-4a95-b30a-1ce999b56d53
  } ]
 BlueprintSystemVersion: 2
-GeneratedClass: Default__BP_TotemBase_C: {	
-	UberGraphFrame: 260
-	OutlineFadeSlasher: CurveLinearColor /Game/Characters/Slashers/Blueprints/CLC_SlasherOutlineColor.CLC_SlasherOutlineColor
-	RevealedColorForCamper: LinearColor [R=1, G=0.109804, B=0.329412, A=1]
-	PrimaryActorTick: {
-		bCanEverTick: True
+GeneratedClass: BP_TotemBase_C: {	
+	Timelines: [ 170, 169 ]
+	SimpleConstructionScript: 166
+	UberGraphFramePointerProperty: UberGraphFrame: {	
 		}
-	NetUpdateFrequency: 1f
-	MinNetUpdateFrequency: 1f
+	UberGraphFunction: ExecuteUbergraph_BP_TotemBase: {	
+		}
 	}
 bLegacyNeedToPurgeSkelRefs: False
 bLegacyGeneratedClassIsAuthoritative: True

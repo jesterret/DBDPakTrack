@@ -1,14 +1,51 @@
 ParentClass: Class /Script/Engine.Actor
-SimpleConstructionScript: AttackZone_Outside_GEN_VARIABLE: {	
-	SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Blueprints/AttackZone/AttackZone_Outside.AttackZone_Outside
-	OverrideMaterials: [ MaterialInstanceConstant /Game/Effects/Materials/MI_Invisible.MI_Invisible ]
-	bRenderInMainPass: False
-	bReceivesDecals: False
-	bUseAsOccluder: False
+SimpleConstructionScript: SimpleConstructionScript: {	
+	RootNodes: [ { 
+	ComponentTemplate: DefaultSceneRoot_GEN_VARIABLE: {	
+		}
+	VariableName: DefaultSceneRoot
+	ChildNodes: [ { 
+	ComponentTemplate: AttackZone_Outside_GEN_VARIABLE: {	
+		SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Blueprints/AttackZone/AttackZone_Outside.AttackZone_Outside
+		OverrideMaterials: [ MaterialInstanceConstant /Game/Effects/Materials/MI_Invisible.MI_Invisible ]
+		bRenderInMainPass: False
+		bReceivesDecals: False
+		bUseAsOccluder: False
+		}
+	VariableName: AttackZone_Outside
+	ChildNodes: [ { 
+	ComponentTemplate: P_AOE_AttackTarget_GEN_VARIABLE: {	
+		Template: ParticleSystem /Game/Effects/ParticleSystems/Killer07/P_AOE_AttackTarget.P_AOE_AttackTarget
+		InstanceParameters: [ { 
+		Name: VertSurfaceActor2
+		ParamType: PSPT_Actor
+		Scalar: 0f
+		Scalar_Low: 0f
+		Vector: Vector [X=0, Y=0, Z=0]
+		Vector_Low: Vector [X=0, Y=0, Z=0]
+		Color: Color [B=0, G=0, R=0, A=0]
+		Actor: 0
+		Material: 0
+		 } ]
+		bAutoActivate: False
+		}
+	VariableName: P_AOE_AttackTarget
+	VariableGuid: 27bbcc3a-009e-4c82-a04c-d8d0ce3753dd
+	 } ]
+	VariableGuid: ddcea145-c819-41fc-8df9-78ce40a46932
+	 } ]
+	VariableGuid: 89694c70-68d7-4e8a-a187-a256160cb287
+	 } ]
+	AllNodes: [ 23, 24, 25 ]
+	DefaultSceneRootNode: 23
 	}
 BlueprintSystemVersion: 2
-GeneratedClass: Default__Killer07_AoE_Target_C: {	
-	UberGraphFrame: 80
+GeneratedClass: Killer07_AoE_Target_C: {	
+	SimpleConstructionScript: 26
+	UberGraphFramePointerProperty: UberGraphFrame: {	
+		}
+	UberGraphFunction: ExecuteUbergraph_Killer07_AoE_Target: {	
+		}
 	}
 bLegacyNeedToPurgeSkelRefs: False
 bLegacyGeneratedClassIsAuthoritative: True
