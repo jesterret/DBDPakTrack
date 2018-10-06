@@ -82,9 +82,88 @@ SimpleConstructionScript: SimpleConstructionScript: {
 		}
 	VariableName: Collision
 	ChildNodes: [ { 
+	ComponentTemplate: TargetDetector_GEN_VARIABLE: {	
+		SphereRadius: 40f
+		BodyInstance: {
+			CollisionProfileName: AttackDetector
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: WorldStatic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: WorldDynamic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Pawn
+				Response: ECR_Overlap
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PhysicsBody
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Destructible
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel2
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel3
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel4
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel5
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel6
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Interactable
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: BlinkBlocker
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Ground
+				Response: ECR_Ignore
+				 } ]
+				}
+			bUseCCD: True
+			ObjectType: ECC_GameTraceChannel3
+			}
+		bCanEverAffectNavigation: False
+		}
+	VariableName: TargetDetector
+	VariableGuid: 3fc52bc2-c0e4-4ffe-8cff-03472deb9d7d
+	 }, { 
 	ComponentTemplate: Ak_Audio_Hatchet_GEN_VARIABLE: {	
 		ShouldTransmitRelativeAngle: True
 		OcclusionAffect: 10f
+		RelativeLocation: Vector [X=0, Y=0, Z=-10]
 		}
 	VariableName: Ak_Audio_Hatchet
 	VariableGuid: bf21a2d8-6b97-47ef-b08e-d84b8a2c0e30
@@ -185,91 +264,12 @@ SimpleConstructionScript: SimpleConstructionScript: {
 		}
 	VariableName: StaticMesh
 	VariableGuid: c0986e3e-9f93-4287-a7e1-01b05b322be7
-	 }, { 
-	ComponentTemplate: TargetDetector_GEN_VARIABLE: {	
-		BoxExtent: Vector [X=20, Y=8, Z=47]
-		BodyInstance: {
-			CollisionProfileName: AttackDetector
-			CollisionResponses: {
-				ResponseArray: [ { 
-				Channel: WorldStatic
-				Response: ECR_Ignore
-				 }, { 
-				Channel: WorldDynamic
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Pawn
-				Response: ECR_Overlap
-				 }, { 
-				Channel: Visibility
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Camera
-				Response: ECR_Ignore
-				 }, { 
-				Channel: PhysicsBody
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Vehicle
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Destructible
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel2
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel3
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel4
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel5
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel6
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Interactable
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Audio
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Slasher
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Spider
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Traps
-				Response: ECR_Ignore
-				 }, { 
-				Channel: InteractionDetector
-				Response: ECR_Ignore
-				 }, { 
-				Channel: BlinkBlocker
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Ground
-				Response: ECR_Ignore
-				 } ]
-				}
-			bUseCCD: True
-			ObjectType: ECC_GameTraceChannel3
-			}
-		RelativeLocation: Vector [X=8, Y=0, Z=-3]
-		bCanEverAffectNavigation: False
-		}
-	VariableName: TargetDetector
-	VariableGuid: 118754a3-30ff-4298-8f30-49f88dc0509b
 	 } ]
 	VariableGuid: 225502ff-6788-4b5d-9bba-fb9d733e8120
 	 } ]
 	VariableGuid: 39dea64e-8077-492e-b5b2-653def62ae85
 	 } ]
-	AllNodes: [ 339, 335, 337, 336, 338, 334, 340, 341 ]
+	AllNodes: [ 334, 337, 336, 338, 339, 333, 340, 335 ]
 	DefaultSceneRootNode: SCS_Node: {	
 		ComponentTemplate: DefaultSceneRoot_REMOVED_F4A88F46443ABA8E4B6CB8ABECA59A5C: {	
 			}
@@ -321,18 +321,18 @@ BlueprintSystemVersion: 2
 GeneratedClass: HatchetProjectile_C: {	
 	DynamicBindingObjects: [ { 
 	ComponentDelegateBindings: [ { 
-	ComponentPropertyName: TargetDetector
-	DelegatePropertyName: OnComponentBeginOverlap
-	FunctionNameToBind: BndEvt__TargetDetector2_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature
-	 }, { 
 	ComponentPropertyName: Collision
 	DelegatePropertyName: OnComponentHit
 	FunctionNameToBind: BndEvt__Collision_K2Node_ComponentBoundEvent_0_ComponentHitSignature__DelegateSignature
+	 }, { 
+	ComponentPropertyName: TargetDetector
+	DelegatePropertyName: OnComponentBeginOverlap
+	FunctionNameToBind: BndEvt__TargetDetector_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature
 	 } ]
 	 } ]
-	ComponentTemplates: [ 328, 320, 327 ]
+	ComponentTemplates: [ 327, 320, 326 ]
 	Timelines: [ 345 ]
-	SimpleConstructionScript: 342
+	SimpleConstructionScript: 341
 	UberGraphFramePointerProperty: UberGraphFrame: {	
 		}
 	UberGraphFunction: ExecuteUbergraph_HatchetProjectile: {	
