@@ -29,6 +29,74 @@ SimpleConstructionScript: SimpleConstructionScript: {
 	VariableName: SM_Fin_MainBathRoom01
 	VariableGuid: f3483906-1dbc-40ae-9b74-4b55a41ac581
 	 }, { 
+	ComponentTemplate: SM_Fin_MainBathRoom01_NavMesh_GEN_VARIABLE: {	
+		StaticMesh: StaticMesh /Game/Meshes/Environment/Finland/Structures/SM_Fin_MainBathRoom01_NavMesh.SM_Fin_MainBathRoom01_NavMesh
+		bUseDefaultCollision: False
+		BodyInstance: {
+			CollisionProfileName: Ground
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: Interactable
+				Response: ECR_Block
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Block
+				 }, { 
+				Channel: Blood
+				Response: ECR_Block
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: World
+				Response: ECR_Overlap
+				 }, { 
+				Channel: Walkable
+				Response: ECR_Block
+				 } ]
+				}
+			ObjectType: ECC_GameTraceChannel15
+			}
+		bVisible: False
+		Mobility: EComponentMobility::Static
+		}
+	VariableName: SM_Fin_MainBathRoom01_NavMesh
+	VariableGuid: 33dfb005-958b-492b-979d-c7b31a12a6c4
+	 }, { 
+	ComponentTemplate: SM_Fin_WorkShop01_NavMesh_GEN_VARIABLE: {	
+		StaticMesh: StaticMesh /Game/Meshes/Environment/Finland/Structures/SM_Fin_WorkShop01_NavMesh.SM_Fin_WorkShop01_NavMesh
+		bUseDefaultCollision: False
+		BodyInstance: {
+			CollisionProfileName: Ground
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: Interactable
+				Response: ECR_Block
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Block
+				 }, { 
+				Channel: Blood
+				Response: ECR_Block
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: World
+				Response: ECR_Overlap
+				 }, { 
+				Channel: Walkable
+				Response: ECR_Block
+				 } ]
+				}
+			ObjectType: ECC_GameTraceChannel15
+			}
+		bVisible: False
+		Mobility: EComponentMobility::Static
+		}
+	VariableName: SM_Fin_WorkShop01_NavMesh
+	VariableGuid: 26c78d2e-3ec2-4b21-b217-c0af51de896d
+	 }, { 
 	ComponentTemplate: Big_Door_frame_gr_GEN_VARIABLE: {	
 		Mobility: EComponentMobility::Static
 		}
@@ -672,9 +740,7 @@ SimpleConstructionScript: SimpleConstructionScript: {
 		Weight: 1f
 		 } ]
 		WeightInfluenceable: False
-		WeightInfluencer: False
-		RelativeLocation: Vector [X=-350.3802, Y=61.80197, Z=-422.9998]
-		RelativeRotation: Rotator [Pitch=0, Roll=180, Yaw=0]
+		RelativeLocation: Vector [X=-355.0001, Y=85.55164, Z=-423]
 		Mobility: EComponentMobility::Static
 		}
 	VariableName: Bookshelf1
@@ -690,8 +756,7 @@ SimpleConstructionScript: SimpleConstructionScript: {
 		Weight: 1f
 		 } ]
 		WeightInfluenceable: False
-		WeightInfluencer: False
-		RelativeLocation: Vector [X=634.9999, Y=-340.216, Z=-422.9999]
+		RelativeLocation: Vector [X=634.9999, Y=-280, Z=-423]
 		RelativeRotation: Rotator [Pitch=0, Roll=89.99995, Yaw=0]
 		Mobility: EComponentMobility::Static
 		}
@@ -708,7 +773,6 @@ SimpleConstructionScript: SimpleConstructionScript: {
 		Weight: 1f
 		 } ]
 		WeightInfluenceable: False
-		WeightInfluencer: False
 		RelativeLocation: Vector [X=1154.313, Y=646.3347, Z=7.001465]
 		RelativeRotation: Rotator [Pitch=0, Roll=-90.00024, Yaw=0]
 		Mobility: EComponentMobility::Static
@@ -771,7 +835,6 @@ SimpleConstructionScript: SimpleConstructionScript: {
 		Weight: 1f
 		 } ]
 		WeightInfluenceable: False
-		WeightInfluencer: False
 		RelativeLocation: Vector [X=-290.0001, Y=-29.9999, Z=7]
 		RelativeRotation: Rotator [Pitch=0, Roll=-6.830187E-06, Yaw=0]
 		Mobility: EComponentMobility::Static
@@ -2073,14 +2136,14 @@ SimpleConstructionScript: SimpleConstructionScript: {
 	ComponentTemplate: Box1_GEN_VARIABLE: {	
 		BoxExtent: Vector [X=1200, Y=1100, Z=300]
 		BodyInstance: {
-			CollisionProfileName: NoCollision
+			CollisionProfileName: Custom
 			CollisionResponses: {
 				ResponseArray: [ { 
 				Channel: WorldStatic
 				Response: ECR_Ignore
 				 }, { 
 				Channel: WorldDynamic
-				Response: ECR_Ignore
+				Response: ECR_Overlap
 				 }, { 
 				Channel: Pawn
 				Response: ECR_Ignore
@@ -2133,6 +2196,9 @@ SimpleConstructionScript: SimpleConstructionScript: {
 				Channel: InteractionDetector
 				Response: ECR_Ignore
 				 }, { 
+				Channel: PawnDetector
+				Response: ECR_Overlap
+				 }, { 
 				Channel: BlinkBlocker
 				Response: ECR_Ignore
 				 }, { 
@@ -2141,8 +2207,7 @@ SimpleConstructionScript: SimpleConstructionScript: {
 				 } ]
 				}
 			MassInKgOverride: 36907.18f
-			CollisionEnabled: ECollisionEnabled::NoCollision
-			ObjectType: ECC_WorldStatic
+			ObjectType: ECC_GameTraceChannel10
 			}
 		RelativeLocation: Vector [X=403.1322, Y=325.9311, Z=278.1624]
 		Mobility: EComponentMobility::Static
@@ -2203,14 +2268,14 @@ SimpleConstructionScript: SimpleConstructionScript: {
 	ComponentTemplate: Box_GEN_VARIABLE: {	
 		BoxExtent: Vector [X=390, Y=650, Z=200]
 		BodyInstance: {
-			CollisionProfileName: NoCollision
+			CollisionProfileName: Custom
 			CollisionResponses: {
 				ResponseArray: [ { 
 				Channel: WorldStatic
 				Response: ECR_Ignore
 				 }, { 
 				Channel: WorldDynamic
-				Response: ECR_Ignore
+				Response: ECR_Overlap
 				 }, { 
 				Channel: Pawn
 				Response: ECR_Ignore
@@ -2263,6 +2328,9 @@ SimpleConstructionScript: SimpleConstructionScript: {
 				Channel: InteractionDetector
 				Response: ECR_Ignore
 				 }, { 
+				Channel: PawnDetector
+				Response: ECR_Overlap
+				 }, { 
 				Channel: BlinkBlocker
 				Response: ECR_Ignore
 				 }, { 
@@ -2271,8 +2339,7 @@ SimpleConstructionScript: SimpleConstructionScript: {
 				 } ]
 				}
 			MassInKgOverride: 36907.18f
-			CollisionEnabled: ECollisionEnabled::NoCollision
-			ObjectType: ECC_WorldStatic
+			ObjectType: ECC_GameTraceChannel10
 			}
 		RelativeLocation: Vector [X=-70.8678, Y=929.9312, Z=-231.8376]
 		Mobility: EComponentMobility::Static
@@ -2680,7 +2747,7 @@ SimpleConstructionScript: SimpleConstructionScript: {
 	VariableGuid: 2086894e-7f45-487f-847f-aa3d6d4c427d
 	 }, { 
 	ComponentTemplate: AudioFloorOcclusion_GEN_VARIABLE: {	
-		BodyInstance: 815
+		BodyInstance: 817
 		RelativeLocation: Vector [X=400, Y=400, Z=-10]
 		RelativeScale3D: Vector [X=1.5, Y=1.5, Z=1]
 		}
@@ -4424,48 +4491,8 @@ SimpleConstructionScript: SimpleConstructionScript: {
 	ParentComponentOrVariableName: Deco
 	ParentComponentOwnerClassName: TileBase01_C
 	VariableGuid: 59c19887-1679-4a65-87ef-c2063f141bbd
-	 }, { 
-	ComponentTemplate: BP_Editor_Hook1_GEN_VARIABLE: {	
-		Type: EGameplayElementType::MeatLocker_Small
-		Visualization: /Game/Blueprints/Editor/BP_Editor_Hook.BP_Editor_Hook_C
-		ActivatedByDefault: False
-		ActivatedSceneElement: [ { 
-		SceneElement: /Game/Blueprints/GameplayElements/Interactable/MeatLocker/BP_SmallMeatLocker.BP_SmallMeatLocker_C
-		Weight: 1f
-		 } ]
-		RelativeLocation: Vector [X=843.9913, Y=371.1223, Z=-3.515743E-08]
-		RelativeRotation: Rotator [Pitch=0, Roll=139.2972, Yaw=0]
-		Mobility: EComponentMobility::Static
-		}
-	VariableName: BP_Editor_Hook1
-	ParentComponentOrVariableName: Root
-	ParentComponentOwnerClassName: TileBase01_C
-	VariableGuid: 3d37d588-d013-4279-94fe-c3d9797b9dab
-	 }, { 
-	ComponentTemplate: SM_Fin_WorkShop01_NavMesh1_GEN_VARIABLE: {	
-		StaticMesh: StaticMesh /Game/Meshes/Environment/Finland/Structures/SM_Fin_WorkShop01_NavMesh.SM_Fin_WorkShop01_NavMesh
-		bRenderInMainPass: False
-		bReceivesDecals: False
-		Mobility: EComponentMobility::Static
-		}
-	VariableName: SM_Fin_WorkShop01_NavMesh1
-	ParentComponentOrVariableName: Root
-	ParentComponentOwnerClassName: TileBase01_C
-	VariableGuid: 714ca653-bf7b-41d2-8ad6-0ba638bcb82a
-	 }, { 
-	ComponentTemplate: SM_Fin_MainBathRoom01_NavMesh1_GEN_VARIABLE: {	
-		StaticMesh: StaticMesh /Game/Meshes/Environment/Finland/Structures/SM_Fin_MainBathRoom01_NavMesh.SM_Fin_MainBathRoom01_NavMesh
-		bRenderInMainPass: False
-		bReceivesDecals: False
-		RelativeLocation: Vector [X=0, Y=-0.0002441406, Z=1.663818]
-		Mobility: EComponentMobility::Static
-		}
-	VariableName: SM_Fin_MainBathRoom01_NavMesh1
-	ParentComponentOrVariableName: Root
-	ParentComponentOwnerClassName: TileBase01_C
-	VariableGuid: 3a97e3c9-012a-48bc-b6b7-63da728df0d4
 	 } ]
-	AllNodes: [ 638, 861, 872, 894, 849, 883, 905, 924, 957, 749, 860, 935, 946, 683, 966, 977, 639, 661, 672, 738, 647, 651, 693, 695, 698, 703, 706, 707, 710, 713, 714, 721, 686, 657, 640, 708, 682, 681, 680, 679, 685, 664, 665, 666, 667, 670, 709, 653, 654, 655, 652, 783, 716, 727, 936, 700, 701, 702, 705, 761, 774, 945, 947, 948, 974, 641, 929, 775, 712, 784, 793, 798, 799, 800, 801, 802, 779, 786, 790, 791, 792, 797, 777, 965, 950, 951, 952, 949, 953, 956, 955, 958, 959, 962, 963, 964, 968, 967, 969, 972, 973, 982, 983, 984, 985, 986, 987, 981, 768, 663, 658, 976, 978, 975, 762, 763, 769, 770, 773, 720, 719, 747, 980, 711, 771, 937, 979, 744, 726, 728, 729, 730, 731, 732, 733, 734, 735, 736, 737, 739, 740, 741, 742, 743, 725, 745, 746, 748, 752, 753, 754, 755, 756, 757, 758, 759, 760, 690, 689, 688, 687, 751, 649, 750, 656, 816, 650, 939, 941, 942, 938, 645, 646, 694, 971, 960, 788, 718, 921, 922, 923, 920, 925, 916, 772, 930, 954, 805, 827, 838, 794, 961, 927, 928, 691, 704, 668, 780, 724, 764, 765, 766, 767, 776, 778, 795, 781, 782, 785, 787, 789, 696, 692, 717, 715, 722, 818, 819, 817, 821, 820, 642, 926, 809, 723, 796, 803, 804, 806, 807, 808, 697, 810, 811, 812, 813, 814, 815, 643, 684, 824, 825, 828, 829, 830, 832, 833, 834, 648, 970, 644, 835, 836, 852, 853, 854, 855, 856, 831, 660, 662, 669, 671, 673, 674, 675, 676, 677, 678, 699, 822, 659, 837, 839, 840, 841, 842, 843, 844, 845, 846, 847, 848, 850, 851, 857, 858, 859, 862, 863, 864, 865, 866, 868, 869, 870, 871, 823, 867, 934, 933, 932, 931, 826, 878, 874, 875, 876, 877, 873, 879, 880, 881, 882, 884, 898, 885, 886, 887, 888, 889, 890, 891, 892, 893, 896, 897, 913, 899, 900, 901, 902, 903, 904, 907, 908, 909, 910, 911, 912, 917, 915, 914, 895, 940, 944, 943, 906, 918, 919 ]
+	AllNodes: [ 636, 859, 870, 892, 847, 881, 903, 919, 952, 747, 858, 930, 941, 681, 963, 974, 637, 659, 670, 736, 645, 649, 691, 693, 696, 701, 704, 705, 708, 711, 712, 719, 684, 655, 638, 706, 680, 679, 678, 677, 683, 662, 663, 664, 665, 668, 707, 651, 652, 653, 650, 781, 714, 725, 931, 698, 699, 700, 703, 759, 772, 940, 942, 943, 971, 639, 924, 773, 710, 782, 791, 796, 797, 798, 799, 800, 777, 784, 788, 789, 790, 795, 775, 962, 945, 946, 947, 944, 948, 951, 950, 953, 954, 959, 960, 961, 965, 964, 966, 969, 970, 979, 980, 981, 982, 983, 984, 978, 766, 661, 656, 973, 975, 972, 760, 761, 767, 768, 771, 718, 717, 745, 977, 709, 769, 932, 976, 742, 724, 726, 727, 728, 729, 730, 731, 732, 733, 734, 735, 737, 738, 739, 740, 741, 723, 743, 744, 746, 750, 751, 752, 753, 754, 755, 756, 757, 758, 688, 687, 686, 685, 749, 647, 748, 654, 814, 648, 934, 936, 937, 933, 643, 644, 692, 968, 957, 786, 716, 916, 917, 918, 915, 920, 913, 770, 925, 949, 955, 956, 803, 825, 836, 792, 958, 922, 923, 689, 702, 666, 778, 722, 762, 763, 764, 765, 774, 776, 793, 779, 780, 783, 785, 787, 694, 690, 715, 713, 720, 816, 817, 815, 819, 818, 640, 921, 807, 721, 794, 801, 802, 804, 805, 806, 695, 808, 809, 810, 811, 812, 813, 641, 682, 822, 823, 826, 827, 828, 830, 831, 832, 646, 967, 642, 833, 834, 850, 851, 852, 853, 854, 829, 658, 660, 667, 669, 671, 672, 673, 674, 675, 676, 697, 820, 657, 835, 837, 838, 839, 840, 841, 842, 843, 844, 845, 846, 848, 849, 855, 856, 857, 860, 861, 862, 863, 864, 866, 867, 868, 869, 821, 865, 929, 928, 927, 926, 824, 876, 872, 873, 874, 875, 871, 877, 878, 879, 880, 882, 896, 883, 884, 885, 886, 887, 888, 889, 890, 891, 894, 895, 910, 897, 898, 899, 900, 901, 902, 904, 905, 906, 907, 908, 909, 914, 912, 911, 893, 935, 939, 938 ]
 	DefaultSceneRootNode: SCS_Node: {	
 		ComponentTemplate: SceneComponent: {	
 			}
@@ -4790,8 +4817,8 @@ GeneratedClass: BP_TL_Bd_16x16_Crn_ControlRoom_C: {
 	FunctionNameToBind: BndEvt__AudioAmbienceBox_Basement_K2Node_ComponentBoundEvent_3_ComponentBeginOverlapSignature__DelegateSignature
 	 } ]
 	 } ]
-	SimpleConstructionScript: 988
-	InheritableComponentHandler: 600
+	SimpleConstructionScript: 985
+	InheritableComponentHandler: 598
 	UberGraphFramePointerProperty: UberGraphFrame: {	
 		}
 	UberGraphFunction: ExecuteUbergraph_BP_TL_Bd_16x16_Crn_ControlRoom: {	
