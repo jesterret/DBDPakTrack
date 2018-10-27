@@ -188,16 +188,13 @@ SimpleConstructionScript: SimpleConstructionScript: {
 		bCastStaticShadow: False
 		bCastCinematicShadow: True
 		BodyInstance: {
-			CollisionProfileName: NoCollision
+			CollisionProfileName: CharacterBlocker
 			CollisionResponses: {
 				ResponseArray: [ { 
 				Channel: WorldStatic
 				Response: ECR_Ignore
 				 }, { 
 				Channel: WorldDynamic
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Pawn
 				Response: ECR_Ignore
 				 }, { 
 				Channel: Visibility
@@ -237,7 +234,7 @@ SimpleConstructionScript: SimpleConstructionScript: {
 				Response: ECR_Ignore
 				 }, { 
 				Channel: Slasher
-				Response: ECR_Ignore
+				Response: ECR_Block
 				 }, { 
 				Channel: Spider
 				Response: ECR_Ignore
@@ -256,7 +253,6 @@ SimpleConstructionScript: SimpleConstructionScript: {
 				 } ]
 				}
 			MassInKgOverride: 0f
-			CollisionEnabled: ECollisionEnabled::NoCollision
 			}
 		RelativeLocation: Vector [X=0.9424865, Y=-5.029552, Z=0]
 		Mobility: EComponentMobility::Static
@@ -1601,8 +1597,8 @@ SimpleConstructionScript: SimpleConstructionScript: {
 		BodyInstance: {
 			MassInKgOverride: 221.1107f
 			}
-		RelativeLocation: Vector [X=170.475, Y=-538.9904, Z=-302.4583]
-		RelativeRotation: Rotator [Pitch=0, Roll=-89.99998, Yaw=0]
+		RelativeLocation: Vector [X=169.4357, Y=-480.4382, Z=-302.4583]
+		RelativeRotation: Rotator [Pitch=0, Roll=-90, Yaw=0]
 		Mobility: EComponentMobility::Static
 		}
 	VariableName: SM_Crate02
@@ -7552,7 +7548,7 @@ SimpleConstructionScript: SimpleConstructionScript: {
 	VariableGuid: e64df3b0-706c-41d0-bcd3-06cfccc17763
 	 }, { 
 	ComponentTemplate: AudioFloorOcclusion_GEN_VARIABLE: {	
-		BodyInstance: 626
+		BodyInstance: 633
 		RelativeLocation: Vector [X=240, Y=490, Z=0]
 		RelativeScale3D: Vector [X=0.4, Y=0.4, Z=1]
 		}
@@ -7560,8 +7556,112 @@ SimpleConstructionScript: SimpleConstructionScript: {
 	ParentComponentOrVariableName: Audio
 	ParentComponentOwnerClassName: TileBase01_C
 	VariableGuid: ffc8cd89-1eb3-4a77-a94c-cf15c58e69de
+	 }, { 
+	ComponentTemplate: Cube1_GEN_VARIABLE: {	
+		StaticMesh: StaticMesh /Engine/BasicShapes/Cube.Cube
+		OverrideMaterials: [ Material /Game/Materials/PlaceHolder/PlaceHolder04.PlaceHolder04 ]
+		bHiddenInGame: True
+		RelativeLocation: Vector [X=143.3178, Y=-555.5876, Z=-151.147]
+		RelativeScale3D: Vector [X=0.1, Y=2.5, Z=3]
+		Mobility: EComponentMobility::Static
+		}
+	VariableName: Cube1
+	ParentComponentOrVariableName: Blockers
+	ParentComponentOwnerClassName: TileBase01_C
+	VariableGuid: 85b3d2f8-8ad3-466b-84b8-c263e3c0de25
+	 }, { 
+	ComponentTemplate: Cube_GEN_VARIABLE: {	
+		StaticMesh: StaticMesh /Engine/BasicShapes/Cube.Cube
+		bUseDefaultCollision: False
+		OverrideMaterials: [ Material /Game/Materials/PlaceHolder/PlaceHolder04.PlaceHolder04 ]
+		BodyInstance: {
+			CollisionProfileName: CharacterBlocker
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: WorldStatic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: WorldDynamic
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PhysicsBody
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Destructible
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel2
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel3
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel4
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel5
+				Response: ECR_Ignore
+				 }, { 
+				Channel: EngineTraceChannel6
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Interactable
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Block
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: BlinkBlocker
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Ground
+				Response: ECR_Ignore
+				 } ]
+				}
+			}
+		bHiddenInGame: True
+		RelativeLocation: Vector [X=-301.7369, Y=-132.0867, Z=-151.147]
+		RelativeScale3D: Vector [X=0.1, Y=2.25, Z=3]
+		Mobility: EComponentMobility::Static
+		}
+	VariableName: Cube
+	ParentComponentOrVariableName: Blockers
+	ParentComponentOwnerClassName: TileBase01_C
+	VariableGuid: d1ec9f75-807d-458d-bb79-8d336b8e7846
+	 }, { 
+	ComponentTemplate: SM_Bed_Frame011_GEN_VARIABLE: {	
+		StaticMesh: StaticMesh /Game/Meshes/Environment/Suburbs/Props/SM_Bed_Frame01.SM_Bed_Frame01
+		RelativeLocation: Vector [X=-304.4874, Y=-190.1141, Z=-203.7086]
+		RelativeRotation: Rotator [Pitch=0, Roll=89.99988, Yaw=85.16475]
+		Mobility: EComponentMobility::Static
+		}
+	VariableName: SM_Bed_Frame011
+	ParentComponentOrVariableName: Blockers
+	ParentComponentOwnerClassName: TileBase01_C
+	VariableGuid: 35942e04-a0b0-46a7-ab48-af1ae5f4331d
 	 } ]
-	AllNodes: [ 570, 584, 586, 598, 607, 609, 610, 806, 585, 587, 603, 793, 795, 798, 669, 581, 700, 706, 684, 686, 705, 720, 721, 723, 730, 725, 726, 727, 728, 732, 733, 734, 735, 738, 739, 740, 741, 743, 744, 745, 746, 747, 748, 749, 750, 751, 752, 755, 756, 757, 758, 765, 788, 789, 769, 805, 742, 799, 800, 801, 802, 808, 813, 810, 754, 803, 708, 753, 782, 770, 821, 818, 819, 827, 822, 568, 824, 694, 825, 658, 718, 729, 771, 773, 772, 679, 736, 776, 575, 576, 577, 578, 794, 590, 604, 775, 790, 629, 630, 703, 760, 599, 691, 605, 596, 673, 600, 681, 833, 636, 625, 623, 620, 621, 622, 619, 624, 626, 627, 628, 614, 823, 680, 601, 602, 591, 777, 767, 779, 781, 783, 786, 787, 791, 778, 830, 809, 811, 814, 815, 816, 817, 820, 826, 828, 829, 804, 831, 571, 572, 573, 574, 579, 580, 582, 583, 588, 784, 589, 642, 634, 635, 637, 638, 639, 640, 641, 651, 643, 644, 645, 646, 648, 649, 650, 662, 663, 664, 665, 666, 832, 668, 670, 671, 672, 667, 569, 719, 687, 597, 606, 611, 613, 616, 617, 618, 655, 656, 657, 659, 660, 661, 632, 653, 608, 631, 674, 675, 676, 677, 678, 682, 683, 685, 768, 688, 689, 695, 696, 698, 699, 701, 702, 704, 709, 710, 711, 712, 692, 713, 714, 715, 716, 792, 612, 615, 633, 652, 717, 731, 759, 761, 762, 763, 764, 722, 594, 595, 593, 796, 774, 785, 592, 697, 707, 797, 807, 654, 780, 766, 690, 647, 724, 693, 737 ]
+	AllNodes: [ 573, 587, 589, 601, 610, 612, 613, 812, 588, 590, 606, 796, 798, 801, 672, 584, 703, 709, 687, 689, 708, 723, 724, 726, 733, 728, 729, 730, 731, 735, 736, 737, 738, 741, 742, 743, 744, 746, 747, 748, 749, 750, 751, 752, 753, 754, 755, 758, 759, 760, 761, 768, 791, 792, 772, 811, 745, 804, 805, 806, 808, 814, 819, 816, 757, 809, 711, 756, 785, 773, 827, 824, 825, 833, 828, 571, 830, 697, 831, 661, 721, 732, 774, 776, 775, 682, 739, 779, 578, 579, 580, 581, 797, 593, 607, 778, 793, 632, 633, 706, 763, 602, 694, 608, 599, 676, 603, 684, 839, 639, 628, 626, 623, 624, 625, 622, 627, 629, 630, 631, 617, 829, 683, 604, 605, 594, 780, 770, 782, 784, 786, 789, 790, 794, 781, 836, 815, 817, 820, 821, 822, 823, 826, 832, 834, 835, 810, 837, 574, 575, 576, 577, 582, 583, 585, 586, 591, 787, 592, 645, 637, 638, 640, 641, 642, 643, 644, 654, 646, 647, 648, 649, 651, 652, 653, 665, 666, 667, 668, 669, 838, 671, 673, 674, 675, 670, 572, 722, 690, 600, 609, 614, 616, 619, 620, 621, 658, 659, 660, 662, 663, 664, 635, 656, 611, 634, 677, 678, 679, 680, 681, 685, 686, 688, 771, 691, 692, 698, 699, 701, 702, 704, 705, 707, 712, 713, 714, 715, 695, 716, 717, 718, 719, 795, 615, 618, 636, 655, 720, 734, 762, 764, 765, 766, 767, 725, 597, 598, 596, 799, 777, 788, 595, 700, 710, 800, 813, 657, 783, 769, 693, 650, 727, 696, 740, 803, 802, 807 ]
 	DefaultSceneRootNode: SCS_Node: {	
 		ComponentTemplate: SceneComponent: {	
 			}
@@ -7742,8 +7842,7 @@ InheritableComponentHandler: InheritableComponentHandler: {
 		}
 	 }, { 
 	ComponentTemplate: ActorSpawner836F088848C74DFA83D97DA0FDF090B1: {	
-		RelativeLocation: Vector [X=-427.1277, Y=-38.31049, Z=-282.3317]
-		RelativeRotation: Rotator [Pitch=0, Roll=-180, Yaw=0]
+		RelativeLocation: Vector [X=468.6518, Y=296.8551, Z=-282.3313]
 		}
 	ComponentKey: {
 		OwnerClass: BlueprintGeneratedClass /Game/Blueprints/Tiles/TileBase01.TileBase01_C
@@ -7846,8 +7945,8 @@ GeneratedClass: BP_TL_St_16x16_SmallHouse2_C: {
 	FunctionNameToBind: BndEvt__Box_Audio_Neighborhood_K2Node_ComponentBoundEvent_531_ComponentBeginOverlapSignature__DelegateSignature
 	 } ]
 	 } ]
-	SimpleConstructionScript: 834
-	InheritableComponentHandler: 499
+	SimpleConstructionScript: 840
+	InheritableComponentHandler: 502
 	UberGraphFramePointerProperty: UberGraphFrame: {	
 		}
 	UberGraphFunction: ExecuteUbergraph_BP_TL_St_16x16_SmallHouse2: {	
