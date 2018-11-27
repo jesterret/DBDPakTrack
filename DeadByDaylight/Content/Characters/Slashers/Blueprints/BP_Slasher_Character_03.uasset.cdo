@@ -1,7 +1,7 @@
-UberGraphFrame: 175
+UberGraphFrame: 177
 DefaultSlasherPower: Item_Slasher_Chainsaw
 KillerMoodInfluence: EKillerMoodInfluence::VE_Hillbilly
-KillerAbilities: [ 128, 0 ]
+KillerAbilities: [ EKillerAbilities::VE_Chainsaw, EKillerAbilities::VE_Kill03 ]
 _camperSensor: CamperSensor: {	
 	OnSeePawn: OnChaseTargetFound
 	}
@@ -13,9 +13,13 @@ _invisibilityBurnoutChargeableComponent: InvisibilityBurnoutChargeableComponent:
 	OnInteractionEmptiedEvent: OnInvisibilityChargeEmptied
 	ChargeAppliedAuthorityDelegate: Authority_OnInvisibilityBurnoutChargeApplied
 	}
+_hitsWhileCarryingTracker: HitsWhileCarryingTracker: {	
+	}
 BlindingChargeableComponent: BlindnessChargeableComponent: {	
 	OnInteractionEmptiedEvent: OnBlindChargeEmptied
 	ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
+	}
+_characterInventoryComponent: CharacterInventoryComponent: {	
 	}
 _pixelCounter: PixelCounter: {	
 	}
@@ -50,13 +54,15 @@ _authoritativeMovementComponent: AuthoritativeMovement: {
 	}
 _characterIndex: 268435458
 Mesh: CharacterMesh0: {	
-	AnimBlueprintGeneratedClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Animations/SlasherMale03/AB_SlasherMale03.AB_SlasherMale03_C
 	AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Animations/SlasherMale03/AB_SlasherMale03.AB_SlasherMale03_C
 	SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Crooked/Models/TC_DSkeleton_REF.TC_DSkeleton_REF
-	OverrideMaterials: [ MaterialInstanceConstant /Game/Characters/Slashers/Crooked/Materials/MI_TCHair01.MI_TCHair01, MaterialInstanceConstant /Game/Characters/Slashers/Crooked/Materials/MI_TCTorso01.MI_TCTorso01, MaterialInstanceConstant /Game/Characters/Slashers/Crooked/Materials/MI_TCHead01.MI_TCHead01 ]
+	OverrideMaterials: [ MaterialInstanceConstant /Game/Materials/Instances/MI_Basic_FullAlpha.MI_Basic_FullAlpha, MaterialInstanceConstant /Game/Characters/Slashers/Crooked/Materials/MI_TCTorso01.MI_TCTorso01, MaterialInstanceConstant /Game/Characters/Slashers/Crooked/Materials/MI_TCHead01.MI_TCHead01 ]
 	bAlwaysCreatePhysicsState: True
 	bGenerateOverlapEvents: True
 	BodyInstance: {
+		ObjectType: ECC_PhysicsBody
+		bUseCCD: True
+		bNotifyRigidBodyCollision: True
 		CollisionProfileName: Ragdoll
 		CollisionResponses: {
 			ResponseArray: [ { 
@@ -88,15 +94,12 @@ Mesh: CharacterMesh0: {
 			Response: ECR_Ignore
 			 } ]
 			}
-		bUseCCD: True
-		bNotifyRigidBodyCollision: True
 		MassInKgOverride: 138.2622f
 		PhysMaterialOverride: PhysicalMaterial /Game/Characters/Campers/Materials/Physics_Mat/Jacket.Jacket
-		ObjectType: ECC_PhysicsBody
 		}
-	AttachParent: 20
+	AttachParent: 14
 	}
 CharacterMovement: CharMoveComp: {	
 	}
-CapsuleComponent: 20
-RootComponent: 20
+CapsuleComponent: 14
+RootComponent: 14

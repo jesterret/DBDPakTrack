@@ -1,15 +1,15 @@
-UberGraphFrame: 762
+UberGraphFrame: 770
+Sword_Disappear_Wipe_Shard_Size_C1E0EF564A4859780BF1B2B6A20FCC8F: Vector [X=0, Y=0, Z=0]
+Sword_Disappear_Wipe_Particle_Position_C1E0EF564A4859780BF1B2B6A20FCC8F: Vector [X=0, Y=0, Z=0]
+Sword_Disappear_FPV_Shard_Size_4308A1C24008EAF50F379A8B4C982310: Vector [X=0, Y=0, Z=0]
+Sword_Disappear_FPV_Particle_Position_4308A1C24008EAF50F379A8B4C982310: Vector [X=0, Y=0, Z=0]
+AttackSwordDisappearance_Shard_Size_9CF072484003289F578AB69E6D076C00: Vector [X=0, Y=0, Z=0]
+AttackSwordDisappearance_Particle_Position_9CF072484003289F578AB69E6D076C00: Vector [X=0, Y=0, Z=0]
 Veins_Appearance_Color_382261FB4661E8B9C2F86E9FA136C6B8: LinearColor [R=0, G=0, B=0, A=0]
-Timeline_2_Shard_Size_C1E0EF564A4859780BF1B2B6A20FCC8F: Vector [X=0, Y=0, Z=0]
-Timeline_2_Particle_Position_C1E0EF564A4859780BF1B2B6A20FCC8F: Vector [X=0, Y=0, Z=0]
-Timeline_3_Shard_Size_4308A1C24008EAF50F379A8B4C982310: Vector [X=0, Y=0, Z=0]
-Timeline_3_Particle_Position_4308A1C24008EAF50F379A8B4C982310: Vector [X=0, Y=0, Z=0]
 Weapon_Appear_Particle_FPV_Size_B39B844143B75B115BDC5A99AB99A04C: Vector [X=0, Y=0, Z=0]
 Weapon_Appear_Particle_FPV_Particle_Location_B39B844143B75B115BDC5A99AB99A04C: Vector [X=0, Y=0, Z=0]
 Carry_Shard_Size_FA692ABD4E8B2E9DC649DCBA5AC1237F: Vector [X=0, Y=0, Z=0]
 Carry_Particle_Position_FA692ABD4E8B2E9DC649DCBA5AC1237F: Vector [X=0, Y=0, Z=0]
-AttackSwordDisappearance_Shard_Size_9CF072484003289F578AB69E6D076C00: Vector [X=0, Y=0, Z=0]
-AttackSwordDisappearance_Particle_Position_9CF072484003289F578AB69E6D076C00: Vector [X=0, Y=0, Z=0]
 AttackInParticle_Size_8DB9BAA14904B880D33B69A01B3310DA: Vector [X=0, Y=0, Z=0]
 AttackInParticle_Particle_Location_8DB9BAA14904B880D33B69A01B3310DA: Vector [X=0, Y=0, Z=0]
 VignetteFadeOut_Color_814E308F45F684887072B59BC03136B8: LinearColor [R=0, G=0, B=0, A=0]
@@ -20,12 +20,11 @@ WipeSwordDisappearance_Particle_Position_21EBFE01438C5529FACAF5B8A84DE6E4: Vecto
 LocationOffset: Vector [X=0, Y=0, Z=0]
 WeaponParticleLocation: Vector [X=0, Y=0, Z=0]
 FirstTimeToMori: True
-AudioPlayRadiusEvent: True
 Scale: 1f
 StartingMeshOffset: Vector [X=0, Y=0, Z=-103]
 DefaultSlasherPower: Item_Slasher_PhaseWalker
 KillerMoodInfluence: EKillerMoodInfluence::VE_Chuckles
-KillerAbilities: [ 57, 2 ]
+KillerAbilities: [ EKillerAbilities::VE_PhaseWalk, EKillerAbilities::VE_KillSpirit ]
 _camperSensor: CamperSensor: {	
 	OnSeePawn: OnChaseTargetFound
 	}
@@ -37,13 +36,16 @@ _invisibilityBurnoutChargeableComponent: InvisibilityBurnoutChargeableComponent:
 	OnInteractionEmptiedEvent: OnInvisibilityChargeEmptied
 	ChargeAppliedAuthorityDelegate: Authority_OnInvisibilityBurnoutChargeApplied
 	}
+_hitsWhileCarryingTracker: HitsWhileCarryingTracker: {	
+	}
 BlindingChargeableComponent: BlindnessChargeableComponent: {	
 	OnInteractionEmptiedEvent: OnBlindChargeEmptied
 	ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
 	}
+_characterInventoryComponent: CharacterInventoryComponent: {	
+	}
 AttackPounceCurves: [ CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/SlowKillerPounceOpenMaxSpeed.SlowKillerPounceOpenMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/SlowKillerPounceHittingMaxSpeed.SlowKillerPounceHittingMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/SlowKillerPounceSucceedMaxSpeed.SlowKillerPounceSucceedMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/SlowKillerPounceMissMaxSpeed.SlowKillerPounceMissMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/SlowKillerPounceObstructedMaxSpeed.SlowKillerPounceObstructedMaxSpeed ]
 _pixelCounter: PixelCounter: {	
-	RelativeLocation: Vector [X=-8102.022, Y=-3287.292, Z=-370.215]
 	}
 _SM: SlasherStateMachine: {	
 	}
@@ -68,9 +70,6 @@ _itemDropOffPosition: ItemDropOffPosition: {
 	AttachParent: CollisionCylinder: {	
 		}
 	}
-TunableDB: {
-	AssetPtr: /Game/Data/Dlc/Haiti/SpiritTunableDB.SpiritTunableDB
-	}
 _eventListener: EventListener: {	
 	}
 _meatHookZoneDetector: MeatHookZoneDetector: {	
@@ -79,12 +78,11 @@ _authoritativeMovementComponent: AuthoritativeMovement: {
 	}
 _characterIndex: 268435468
 Mesh: CharacterMesh0: {	
-	AnimBlueprintGeneratedClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Animations/SlasherMale01/AB_SlasherMale_00.AB_SlasherMale_00_C
 	AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Haiti/AB_SlasherMale13.AB_SlasherMale13_C
 	SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Haiti/Models/HK_DSkeleton_REF.HK_DSkeleton_REF
 	MeshComponentUpdateFlag: EMeshComponentUpdateFlag::AlwaysTickPoseAndRefreshBones
 	bEnableUpdateRateOptimizations: False
-	OverrideMaterials: [ MaterialInstanceConstant /Game/Characters/Slashers/Trapper/Materials/MI_TRHead01.MI_TRHead01, MaterialInstanceConstant /Game/Characters/Slashers/Trapper/Materials/MI_TRTorso01.MI_TRTorso01, MaterialInstanceConstant /Game/Characters/Slashers/Trapper/Materials/MI_TRLegs01.MI_TRLegs01 ]
+	OverrideMaterials: [ MaterialInstanceConstant /Game/Materials/Instances/MI_Basic_FullAlpha.MI_Basic_FullAlpha, MaterialInstanceConstant /Game/Characters/Slashers/Trapper/Materials/MI_TRTorso01.MI_TRTorso01, MaterialInstanceConstant /Game/Characters/Slashers/Trapper/Materials/MI_TRLegs01.MI_TRLegs01 ]
 	BodyInstance: {
 		CollisionResponses: {
 			ResponseArray: [ { 
@@ -103,7 +101,7 @@ Mesh: CharacterMesh0: {
 			}
 		MassInKgOverride: 199.0395f
 		}
-	AttachParent: 549
+	AttachParent: 238
 	RelativeLocation: Vector [X=0, Y=0, Z=-103]
 	RelativeRotation: Rotator [Pitch=0, Roll=-90.00001, Yaw=0]
 	PrimaryComponentTick: {
@@ -117,6 +115,6 @@ CharacterMovement: CharMoveComp: {
 		AgentHeight: 206f
 		}
 	}
-CapsuleComponent: 549
+CapsuleComponent: 238
 SpawnCollisionHandlingMethod: ESpawnActorCollisionHandlingMethod::AlwaysSpawn
-RootComponent: 549
+RootComponent: 238

@@ -1,13 +1,17 @@
-UberGraphFrame: 179
+UberGraphFrame: 181
 DarkMaterial: /Game/Characters/Campers/Materials/Instances/MI_BlackGlass.MI_BlackGlass
 ItemMesh: ItemMesh: {	
+	DetailLevelBeforeCastShadows: DM_MAX
 	BodyInstance: {
 		MassInKgOverride: 0f
 		}
 	AttachParent: CharacterMesh0: {	
 		ForcedLodModel: 1
+		DetailLevelBeforeCastShadows: DM_MAX
 		bCastCinematicShadow: True
 		BodyInstance: {
+			CollisionEnabled: ECollisionEnabled::QueryAndPhysics
+			bNotifyRigidBodyCollision: True
 			CollisionProfileName: Ragdoll
 			CollisionResponses: {
 				ResponseArray: [ { 
@@ -39,14 +43,16 @@ ItemMesh: ItemMesh: {
 				Response: ECR_Ignore
 				 } ]
 				}
-			bNotifyRigidBodyCollision: True
 			MassInKgOverride: 0f
-			CollisionEnabled: ECollisionEnabled::QueryAndPhysics
 			}
 		AttachParent: CollisionCylinder: {	
 			CapsuleHalfHeight: 100f
 			bGenerateOverlapEvents: False
+			DetailLevelBeforeCastShadows: DM_MAX
 			BodyInstance: {
+				ObjectType: ECC_WorldDynamic
+				CollisionEnabled: ECollisionEnabled::QueryOnly
+				bEnableGravity: False
 				CollisionProfileName: IgnoreOnlyPawn
 				CollisionResponses: {
 					ResponseArray: [ { 
@@ -69,21 +75,17 @@ ItemMesh: ItemMesh: {
 					Response: ECR_Ignore
 					 } ]
 					}
-				bEnableGravity: False
 				MassInKgOverride: 127.8414f
-				CollisionEnabled: ECollisionEnabled::QueryOnly
-				ObjectType: ECC_WorldDynamic
 				}
 			}
 		RelativeLocation: Vector [X=0, Y=0, Z=-100]
 		RelativeRotation: Rotator [Pitch=0, Roll=-90, Yaw=0]
 		}
 	}
-Mesh: 52
+Mesh: 49
 CharacterMovement: CharMoveComp: {	
 	GravityScale: 0f
 	}
-CapsuleComponent: 38
-bHidden: True
-RootComponent: 38
+CapsuleComponent: 15
+RootComponent: 15
 OnDestroyed: WrappedOnDestroyed

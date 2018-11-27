@@ -1,4 +1,4 @@
-UberGraphFrame: 375
+UberGraphFrame: 377
 TeleportCooldown: {
 	_startTime: 0f
 	_startTimeDirty: True
@@ -16,7 +16,7 @@ TrapTransform: {
 SetTrapAnimMontageName: BearTrapSet_Middle
 DefaultSlasherPower: Item_Slasher_PhantomTrap
 KillerMoodInfluence: EKillerMoodInfluence::VE_Chuckles
-KillerAbilities: [ 12, 1 ]
+KillerAbilities: [ EKillerAbilities::VE_PhantomTrap, EKillerAbilities::VE_Kill05 ]
 _camperSensor: CamperSensor: {	
 	OnSeePawn: OnChaseTargetFound
 	}
@@ -28,9 +28,13 @@ _invisibilityBurnoutChargeableComponent: InvisibilityBurnoutChargeableComponent:
 	OnInteractionEmptiedEvent: OnInvisibilityChargeEmptied
 	ChargeAppliedAuthorityDelegate: Authority_OnInvisibilityBurnoutChargeApplied
 	}
+_hitsWhileCarryingTracker: HitsWhileCarryingTracker: {	
+	}
 BlindingChargeableComponent: BlindnessChargeableComponent: {	
 	OnInteractionEmptiedEvent: OnBlindChargeEmptied
 	ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
+	}
+_characterInventoryComponent: CharacterInventoryComponent: {	
 	}
 AttackPounceCurves: [ CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/SlowKillerPounceOpenMaxSpeed.SlowKillerPounceOpenMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/SlowKillerPounceHittingMaxSpeed.SlowKillerPounceHittingMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/SlowKillerPounceSucceedMaxSpeed.SlowKillerPounceSucceedMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/SlowKillerPounceMissMaxSpeed.SlowKillerPounceMissMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/SlowKillerPounceObstructedMaxSpeed.SlowKillerPounceObstructedMaxSpeed ]
 _pixelCounter: PixelCounter: {	
@@ -58,9 +62,6 @@ _itemDropOffPosition: ItemDropOffPosition: {
 	AttachParent: CollisionCylinder: {	
 		}
 	}
-TunableDB: {
-	AssetPtr: /Game/Data/WitchTunableDB.WitchTunableDB
-	}
 _eventListener: EventListener: {	
 	}
 _meatHookZoneDetector: MeatHookZoneDetector: {	
@@ -72,6 +73,9 @@ Mesh: CharacterMesh0: {
 	AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Animations/SlasherFemale01/AB_SlasherFemale02.AB_SlasherFemale02_C
 	SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Witch/Models/WI_DSkeleton_REF.WI_DSkeleton_REF
 	BodyInstance: {
+		ObjectType: ECC_PhysicsBody
+		bNotifyRigidBodyCollision: True
+		bEnableGravity: False
 		CollisionProfileName: Ragdoll
 		CollisionResponses: {
 			ResponseArray: [ { 
@@ -103,13 +107,10 @@ Mesh: CharacterMesh0: {
 			Response: ECR_Ignore
 			 } ]
 			}
-		bNotifyRigidBodyCollision: True
-		bSimulatePhysics: True
-		ObjectType: ECC_PhysicsBody
 		}
-	AttachParent: 148
+	AttachParent: 79
 	}
 CharacterMovement: CharMoveComp: {	
 	}
-CapsuleComponent: 148
-RootComponent: 148
+CapsuleComponent: 79
+RootComponent: 79

@@ -1,6 +1,6 @@
-UberGraphFrame: 403
+UberGraphFrame: 424
 Blink Interaction IDs: [ Blink, ChainBlink, TriggeredChainBlink ]
-CooldownVignetteCurve: CurveFloat /Game/Blueprints/GameplayElements/Item/Blinker/CooldownVignetteCurve.CooldownVignetteCurve
+FatigueVignetteCurve: CurveFloat /Game/Blueprints/GameplayElements/Item/Blinker/FatigueVignetteCurve.FatigueVignetteCurve
 CooldownFlashVignetteCurve: CurveFloat /Game/Blueprints/GameplayElements/Item/Blinker/CooldownFlashVignetteCurve.CooldownFlashVignetteCurve
 CooldownWarningThreshold: 0.75f
 BlinkVignetteCurve: CurveFloat /Game/Blueprints/GameplayElements/Item/Blinker/BlinkVignetteCurve.BlinkVignetteCurve
@@ -14,7 +14,7 @@ DissolveAmount: 1f
 RootMeshIsHeadOnly: True
 DefaultSlasherPower: Item_Slasher_Blinker
 KillerMoodInfluence: EKillerMoodInfluence::VE_Nurse
-KillerAbilities: [ 42, 1 ]
+KillerAbilities: [ EKillerAbilities::VE_Blink, EKillerAbilities::VE_Kill04 ]
 _camperSensor: CamperSensor: {	
 	OnSeePawn: OnChaseTargetFound
 	}
@@ -26,9 +26,13 @@ _invisibilityBurnoutChargeableComponent: InvisibilityBurnoutChargeableComponent:
 	OnInteractionEmptiedEvent: OnInvisibilityChargeEmptied
 	ChargeAppliedAuthorityDelegate: Authority_OnInvisibilityBurnoutChargeApplied
 	}
+_hitsWhileCarryingTracker: HitsWhileCarryingTracker: {	
+	}
 BlindingChargeableComponent: BlindnessChargeableComponent: {	
 	OnInteractionEmptiedEvent: OnBlindChargeEmptied
 	ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
+	}
+_characterInventoryComponent: CharacterInventoryComponent: {	
 	}
 AttackPounceCurves: [ CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/NursePounceOpenMaxSpeed.NursePounceOpenMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/NursePounceHittingMaxSpeed.NursePounceHittingMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceSucceedMaxSpeed.PounceSucceedMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceMissMaxSpeed.PounceMissMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceObstructedMaxSpeed.PounceObstructedMaxSpeed ]
 _pixelCounter: PixelCounter: {	
@@ -64,10 +68,9 @@ _authoritativeMovementComponent: AuthoritativeMovement: {
 	}
 _characterIndex: 268435459
 Mesh: CharacterMesh0: {	
-	AnimBlueprintGeneratedClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Animations/SlasherFemale01/AB_SlasherFemale01.AB_SlasherFemale01_C
 	AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Animations/SlasherFemale01/AB_SlasherFemale01.AB_SlasherFemale01_C
 	SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Nurse/Models/TN_DSkeleton_REF.TN_DSkeleton_REF
-	OverrideMaterials: [ MaterialInstanceConstant /Game/Characters/Slashers/Nurse/Materials/MI_TNHead01.MI_TNHead01, MaterialInstanceConstant /Game/Characters/Slashers/Nurse/Materials/MI_TNAcc01.MI_TNAcc01, MaterialInstanceConstant /Game/Characters/Slashers/Nurse/Materials/MI_TNTorso01.MI_TNTorso01, MaterialInstanceConstant /Game/Characters/Slashers/Nurse/Materials/MI_TNHead01.MI_TNHead01 ]
+	OverrideMaterials: [ MaterialInstanceConstant /Game/Materials/Instances/MI_Basic_FullAlpha.MI_Basic_FullAlpha, MaterialInstanceConstant /Game/Characters/Slashers/Nurse/Materials/MI_TNAcc01.MI_TNAcc01, MaterialInstanceConstant /Game/Characters/Slashers/Nurse/Materials/MI_TNTorso01.MI_TNTorso01, MaterialInstanceConstant /Game/Characters/Slashers/Nurse/Materials/MI_TNHead01.MI_TNHead01 ]
 	BodyInstance: {
 		CollisionResponses: {
 			ResponseArray: [ { 
@@ -86,11 +89,11 @@ Mesh: CharacterMesh0: {
 			}
 		MassInKgOverride: 8.423242f
 		}
-	AttachParent: 224
+	AttachParent: 149
 	}
 CharacterMovement: CharMoveComp: {	
 	MaxAcceleration: 1000f
 	BrakingDecelerationWalking: 2048f
 	}
-CapsuleComponent: 224
-RootComponent: 224
+CapsuleComponent: 149
+RootComponent: 149

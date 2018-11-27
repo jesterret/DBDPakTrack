@@ -1,4 +1,4 @@
-UberGraphFrame: 896
+UberGraphFrame: 925
 CenterOfWorld: {
 	Rotation: Quat [X=0, Y=0, Z=0, W=1]
 	Translation: Vector [X=0, Y=0, Z=0]
@@ -31,23 +31,28 @@ DeafenTimer: {
 TrapPlacementRaycastStart: Vector [X=0, Y=0, Z=25]
 TrapPlacementRaycastEnd: Vector [X=0, Y=0, Z=-50]
 BlindnessCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/BlindnessCurve.BlindnessCurve
-BlindnessCurve_Material: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/BlindnessCurve_Material.BlindnessCurve_Material
+BlindnessMaterialCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/BlindnessCurve_Material.BlindnessCurve_Material
 PutDownTraceLocation: Vector [X=1, Y=-50, Z=0]
 DefaultSlasherPower: Item_Slasher_Beartrap
 LoudNoiseDisplayTime: 10f
 CamperExposer: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Entity/CamperTrackers/BP_ExposerCrow.BP_ExposerCrow_C
-KillerAbilities: [ 80, 2 ]
+KillerAbilities: [ EKillerAbilities::VE_SpawnTraps, EKillerAbilities::VE_Kill01 ]
 AttackForwardInputSmoothingCurve: CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/ForwardInputSmoothingCurve.ForwardInputSmoothingCurve
 _camperSensor: CamperSensor: {	
 	OnSeePawn: OnChaseTargetFound
 	}
 _stillnessTracker: StillnessTracker: {	
 	}
+AttackFrenzyOnHealthyCurve: CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/FrenzySucceedOnHealthyMaxSpeed.FrenzySucceedOnHealthyMaxSpeed
+AttackFrenzyOnInjuredCurve: CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/FrenzySucceedOnInjuredMaxSpeed.FrenzySucceedOnInjuredMaxSpeed
+AttackFrenzyOnBleedoutCurve: CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/FrenzySucceedOnBleedoutMaxSpeed.FrenzySucceedOnBleedoutMaxSpeed
 _fullBodyFlashLightReceiver: FullBodyFlashLightReceiver: {	
 	}
 _invisibilityBurnoutChargeableComponent: InvisibilityBurnoutChargeableComponent: {	
 	OnInteractionEmptiedEvent: OnInvisibilityChargeEmptied
 	ChargeAppliedAuthorityDelegate: Authority_OnInvisibilityBurnoutChargeApplied
+	}
+_hitsWhileCarryingTracker: HitsWhileCarryingTracker: {	
 	}
 Interactable: BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/Interactions/SlasherInteractable.SlasherInteractable_C
 PitchLimitLower: -80f
@@ -57,16 +62,19 @@ BlindingChargeableComponent: BlindnessChargeableComponent: {
 	OnInteractionEmptiedEvent: OnBlindChargeEmptied
 	ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
 	}
+_characterInventoryComponent: CharacterInventoryComponent: {	
+	}
 CarryJointName: CamperCarry
 AttackPounceCurves: [ CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceOpenMaxSpeed.PounceOpenMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceHittingMaxSpeed.PounceHittingMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceSucceedMaxSpeed.PounceSucceedMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceMissMaxSpeed.PounceMissMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceObstructedMaxSpeed.PounceObstructedMaxSpeed ]
 AttackLungeCurves: [ CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/LungeOpenMaxSpeed.LungeOpenMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/LungeHittingMaxSpeed.LungeHittingMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/LungeSucceedMaxSpeed.LungeSucceedMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/LungeMissMaxSpeed.LungeMissMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/LungeObstructedMaxSpeed.LungeObstructedMaxSpeed ]
 AttackSlashCurves: [ CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/SlashHittingMaxSpeed.SlashHittingMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/SlashHittingMaxSpeed.SlashHittingMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/SlashSucceedMaxSpeed.SlashSucceedMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/SlashMissMaxSpeed.SlashMissMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/SlashObstructedMaxSpeed.SlashObstructedMaxSpeed ]
 AttackChainsawCurves: [ CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/ChainsawOpenMaxSpeed.ChainsawOpenMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/ChainsawHittingMaxSpeed.ChainsawHittingMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceSucceedMaxSpeed.PounceSucceedMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/ChainsawMissMaxSpeed.ChainsawMissMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/ChainsawObstructedMaxSpeed.ChainsawObstructedMaxSpeed ]
 AttackBlinkCurves: [ CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/BlinkOpenMaxSpeed.BlinkOpenMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/BlinkHittingMaxSpeed.BlinkHittingMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceSucceedMaxSpeed.PounceSucceedMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceMissMaxSpeed.PounceMissMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceObstructedMaxSpeed.PounceObstructedMaxSpeed ]
+AttackFrenzyCurves: [ CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceOpenMaxSpeed.PounceOpenMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceHittingMaxSpeed.PounceHittingMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/PounceSucceedMaxSpeed.PounceSucceedMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceMissMaxSpeed.PounceMissMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceObstructedMaxSpeed.PounceObstructedMaxSpeed ]
 AttackPounceCurves_StalkTier1: [ CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceOpenMaxSpeed.PounceOpenMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceHittingMaxSpeed.PounceHittingMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceSucceedMaxSpeed.PounceSucceedMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceMissMaxSpeed.PounceMissMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceObstructedMaxSpeed.PounceObstructedMaxSpeed ]
 AttackPounceCurves_StalkTier2: [ CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceOpenMaxSpeed.PounceOpenMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceHittingMaxSpeed.PounceHittingMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceSucceedMaxSpeed.PounceSucceedMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceMissMaxSpeed.PounceMissMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceObstructedMaxSpeed.PounceObstructedMaxSpeed ]
 _pixelCounter: PixelCounter: {	
-	BoxExtent: Vector [X=50, Y=50, Z=100]
+	DetailLevelBeforeCastShadows: DM_MAX
 	}
 GamePadTurnRate: 55f
 GamePadLookUpRate: 55f
@@ -98,7 +106,9 @@ _itemDropOffPosition: ItemDropOffPosition: {
 	AttachParent: CollisionCylinder: {	
 		CapsuleHalfHeight: 103f
 		CapsuleRadius: 50f
+		DetailLevelBeforeCastShadows: DM_MAX
 		BodyInstance: {
+			ObjectType: ECC_GameTraceChannel3
 			CollisionResponses: {
 				ResponseArray: [ { 
 				Channel: Camera
@@ -124,7 +134,6 @@ _itemDropOffPosition: ItemDropOffPosition: {
 				 } ]
 				}
 			MassInKgOverride: 223.4707f
-			ObjectType: ECC_GameTraceChannel3
 			}
 		ComponentTags: [ Clip ]
 		}
@@ -146,10 +155,15 @@ _meatHookZoneDetector: MeatHookZoneDetector: {
 _authoritativeMovementComponent: AuthoritativeMovement: {	
 	}
 Mesh: CharacterMesh0: {	
-	bAlwaysMarkRenderStateAsDirty: True
 	bEnableUpdateRateOptimizations: True
 	OverrideMaterials: [ 0, 0, MaterialInstanceConstant /Game/Characters/Slashers/Trapper/Materials/MI_TRLegs01.MI_TRLegs01 ]
+	DetailLevelBeforeCastShadows: DM_MAX
 	bCastCinematicShadow: True
+	LightingChannels: {
+		bChannel0: False
+		bChannel1: False
+		}
+	BoundsScale: 2f
 	BodyInstance: {
 		CollisionResponses: {
 			ResponseArray: [ { 
@@ -165,8 +179,7 @@ Mesh: CharacterMesh0: {
 			}
 		MassInKgOverride: 0f
 		}
-	BoundsScale: 2f
-	AttachParent: 573
+	AttachParent: 285
 	RelativeLocation: Vector [X=0, Y=0, Z=-103]
 	RelativeRotation: Rotator [Pitch=0, Roll=-90, Yaw=0]
 	}
@@ -183,8 +196,8 @@ CharacterMovement: CharMoveComp: {
 	BrakingDecelerationFalling: 1000f
 	PerchRadiusThreshold: 30f
 	}
-CapsuleComponent: 573
+CapsuleComponent: 285
 bNetLoadOnClient: False
 bReplicates: False
 RemoteRole: ROLE_None
-RootComponent: 573
+RootComponent: 285

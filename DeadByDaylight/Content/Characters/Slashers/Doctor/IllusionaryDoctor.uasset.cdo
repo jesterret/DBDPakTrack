@@ -1,4 +1,4 @@
-UberGraphFrame: 205
+UberGraphFrame: 200
 UnrevealedColour: LinearColor [R=0, G=0, B=0, A=0]
 RevealedColour: LinearColor [R=0.938686, G=0.496933, B=0.007499, A=1]
 AddVFXApparition: BlueprintGeneratedClass /Game/Effects/Blueprints/Killer07/BP_Effect_Killer07_CloneSmoke.BP_Effect_Killer07_CloneSmoke_C
@@ -9,8 +9,12 @@ ItemMesh: ItemMesh: {
 		bDisableClothSimulation: True
 		bResetAfterTeleport: False
 		ClothBlendWeight: 0f
+		bApplyImpulseOnDamage: False
 		BodyInstance: {
-			CollisionProfileName: OverlapAll
+			ObjectType: ECC_WorldStatic
+			CollisionEnabled: ECollisionEnabled::NoCollision
+			bEnableGravity: False
+			CollisionProfileName: NoCollision
 			CollisionResponses: {
 				ResponseArray: [ { 
 				Channel: WorldStatic
@@ -37,23 +41,20 @@ ItemMesh: ItemMesh: {
 				Channel: Destructible
 				Response: ECR_Ignore
 				 }, { 
-				Channel: EngineTraceChannel1
-				Response: ECR_Overlap
-				 }, { 
 				Channel: EngineTraceChannel2
-				Response: ECR_Overlap
+				Response: ECR_Ignore
 				 }, { 
 				Channel: EngineTraceChannel3
-				Response: ECR_Overlap
+				Response: ECR_Ignore
 				 }, { 
 				Channel: EngineTraceChannel4
-				Response: ECR_Overlap
+				Response: ECR_Ignore
 				 }, { 
 				Channel: EngineTraceChannel5
-				Response: ECR_Overlap
+				Response: ECR_Ignore
 				 }, { 
 				Channel: EngineTraceChannel6
-				Response: ECR_Overlap
+				Response: ECR_Ignore
 				 }, { 
 				Channel: Interactable
 				Response: ECR_Ignore
@@ -70,74 +71,98 @@ ItemMesh: ItemMesh: {
 				Channel: Traps
 				Response: ECR_Ignore
 				 }, { 
-				Channel: Blood
-				Response: ECR_Overlap
-				 }, { 
-				Channel: MapActor
-				Response: ECR_Overlap
-				 }, { 
-				Channel: FX
-				Response: ECR_Overlap
-				 }, { 
-				Channel: PawnDetector
-				Response: ECR_Overlap
-				 }, { 
-				Channel: World
-				Response: ECR_Overlap
-				 }, { 
-				Channel: Blink
-				Response: ECR_Overlap
-				 }, { 
-				Channel: Unused
-				Response: ECR_Overlap
+				Channel: InteractionDetector
+				Response: ECR_Ignore
 				 }, { 
 				Channel: BlinkBlocker
 				Response: ECR_Ignore
 				 }, { 
 				Channel: Ground
-				Response: ECR_Overlap
-				 }, { 
-				Channel: GroundNonBlocking
-				Response: ECR_Overlap
-				 }, { 
-				Channel: Walkable
-				Response: ECR_Overlap
+				Response: ECR_Ignore
 				 } ]
 				}
-			ObjectType: ECC_WorldStatic
 			}
 		AttachParent: CollisionCylinder: {	
+			bGenerateOverlapEvents: False
+			bApplyImpulseOnDamage: False
 			BodyInstance: {
-				CollisionProfileName: OverlapOnlyPawn
+				ObjectType: ECC_WorldStatic
+				CollisionEnabled: ECollisionEnabled::NoCollision
+				bEnableGravity: False
+				CollisionProfileName: NoCollision
 				CollisionResponses: {
 					ResponseArray: [ { 
+					Channel: WorldStatic
+					Response: ECR_Ignore
+					 }, { 
+					Channel: WorldDynamic
+					Response: ECR_Ignore
+					 }, { 
 					Channel: Pawn
-					Response: ECR_Overlap
+					Response: ECR_Ignore
+					 }, { 
+					Channel: Visibility
+					Response: ECR_Ignore
 					 }, { 
 					Channel: Camera
 					Response: ECR_Ignore
 					 }, { 
+					Channel: PhysicsBody
+					Response: ECR_Ignore
+					 }, { 
 					Channel: Vehicle
-					Response: ECR_Overlap
+					Response: ECR_Ignore
+					 }, { 
+					Channel: Destructible
+					Response: ECR_Ignore
+					 }, { 
+					Channel: EngineTraceChannel2
+					Response: ECR_Ignore
+					 }, { 
+					Channel: EngineTraceChannel3
+					Response: ECR_Ignore
+					 }, { 
+					Channel: EngineTraceChannel4
+					Response: ECR_Ignore
+					 }, { 
+					Channel: EngineTraceChannel5
+					Response: ECR_Ignore
+					 }, { 
+					Channel: EngineTraceChannel6
+					Response: ECR_Ignore
 					 }, { 
 					Channel: Interactable
-					Response: ECR_Block
+					Response: ECR_Ignore
 					 }, { 
 					Channel: Audio
-					Response: ECR_Block
+					Response: ECR_Ignore
+					 }, { 
+					Channel: Slasher
+					Response: ECR_Ignore
+					 }, { 
+					Channel: Spider
+					Response: ECR_Ignore
+					 }, { 
+					Channel: Traps
+					Response: ECR_Ignore
 					 }, { 
 					Channel: InteractionDetector
 					Response: ECR_Ignore
+					 }, { 
+					Channel: BlinkBlocker
+					Response: ECR_Ignore
+					 }, { 
+					Channel: Ground
+					Response: ECR_Ignore
 					 } ]
 					}
-				bEnableGravity: False
 				LinearDamping: 1f
 				AngularDamping: 1f
 				}
 			}
 		}
 	}
-Mesh: 92
+Mesh: 88
 CharacterMovement: CharMoveComp: {	
 	MaxAcceleration: 0f
 	Mass: 0f
@@ -151,7 +176,7 @@ CharacterMovement: CharMoveComp: {
 		}
 	bAutoActivate: False
 	}
-CapsuleComponent: 83
+CapsuleComponent: 58
 bGenerateOverlapEventsDuringLevelStreaming: True
-RootComponent: 83
+RootComponent: 58
 OnDestroyed: WrappedOnDestroyed

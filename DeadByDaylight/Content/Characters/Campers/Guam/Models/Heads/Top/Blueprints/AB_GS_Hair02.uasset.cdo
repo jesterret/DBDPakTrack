@@ -1,4 +1,4 @@
-UberGraphFrame: 185
+UberGraphFrame: 218
 AnimGraphNode_Root_04CA98AF41E84D75578246B378341690: {
 	Result: {
 		LinkID: 7
@@ -6,6 +6,7 @@ AnimGraphNode_Root_04CA98AF41E84D75578246B378341690: {
 	EvaluateGraphExposedInputs: {
 		BoundFunction: None
 		CopyRecords: [  ]
+		Function: 0
 		}
 	}
 AnimGraphNode_ComponentToLocalSpace_E7173A8C48DB795510FA53A4B83504DD: {
@@ -15,6 +16,7 @@ AnimGraphNode_ComponentToLocalSpace_E7173A8C48DB795510FA53A4B83504DD: {
 	EvaluateGraphExposedInputs: {
 		BoundFunction: None
 		CopyRecords: [  ]
+		Function: 0
 		}
 	}
 AnimGraphNode_LocalToComponentSpace_D9018AD147E6694F3B4B29B50AA1B74D: {
@@ -24,6 +26,7 @@ AnimGraphNode_LocalToComponentSpace_D9018AD147E6694F3B4B29B50AA1B74D: {
 	EvaluateGraphExposedInputs: {
 		BoundFunction: None
 		CopyRecords: [  ]
+		Function: 0
 		}
 	}
 AnimGraphNode_AnimDynamics_FBAA602646ADBB27DA1E24936AB20636: {
@@ -32,26 +35,27 @@ AnimGraphNode_AnimDynamics_FBAA602646ADBB27DA1E24936AB20636: {
 		BoneName: None
 		}
 	bChain: True
-	bHardLinkChain: False
+	bHardLinkChain: True
 	BoundBone: {
 		BoneName: joint_Hair02
 		}
 	ChainEnd: {
 		BoneName: joint_Hair04
 		}
-	BoxExtents: Vector [X=10, Y=10, Z=10]
+	BoxExtents: Vector [X=15, Y=15, Z=15]
 	LocalJointOffset: Vector [X=-4, Y=0, Z=0]
-	GravityScale: 1f
+	GravityScale: 1.25f
 	bLinearSpring: False
 	bAngularSpring: False
 	LinearSpringConstant: 0f
 	AngularSpringConstant: 0f
 	bEnableWind: True
+	bWindWasEnabled: False
 	WindScale: 1f
 	bOverrideLinearDamping: False
 	LinearDampingOverride: 0f
 	bOverrideAngularDamping: True
-	AngularDampingOverride: 0.75f
+	AngularDampingOverride: 0.99f
 	bOverrideAngularBias: False
 	AngularBiasOverride: 0f
 	bDoUpdate: True
@@ -83,22 +87,81 @@ AnimGraphNode_AnimDynamics_FBAA602646ADBB27DA1E24936AB20636: {
 	ComponentPose: {
 		LinkID: 2
 		}
+	LODThreshold: -1
+	ActualAlpha: 0f
+	AlphaInputType: EAnimAlphaInputType::Float
 	Alpha: 1f
 	AlphaScaleBias: {
 		Scale: 1f
 		Bias: 0f
 		}
-	LODThreshold: -1
-	ActualAlpha: 0f
+	bAlphaBoolEnabled: True
+	AlphaBoolBlend: {
+		BlendInTime: 0f
+		BlendOutTime: 0f
+		BlendOption: EAlphaBlendOption::Linear
+		CustomCurve: 0
+		AlphaBlend: {
+			BlendOption: EAlphaBlendOption::Linear
+			CustomCurve: 0
+			BlendTime: 0.2f
+			}
+		bInitialized: False
+		}
+	AlphaCurveName: None
+	AlphaScaleBiasClamp: {
+		bMapRange: False
+		InRange: {
+			Min: 0f
+			Max: 1f
+			}
+		OutRange: {
+			Min: 0f
+			Max: 1f
+			}
+		Scale: 1f
+		Bias: 0f
+		bClampResult: False
+		ClampMin: 0f
+		ClampMax: 1f
+		bInterpResult: False
+		InterpSpeedIncreasing: 10f
+		InterpSpeedDecreasing: 10f
+		InterpolatedResult: 0f
+		bInitialized: False
+		}
 	EvaluateGraphExposedInputs: {
 		BoundFunction: None
 		CopyRecords: [  ]
+		Function: 0
 		}
 	}
 AnimGraphNode_SequencePlayer_217E258140993D6B970240991EC34490: {
 	Sequence: AnimSequence /Game/Characters/Campers/Guam/Models/Heads/Top/Animation/GS_Hair02/GS_Hair02_Idle.GS_Hair02_Idle
 	bLoopAnimation: True
+	PlayRateBasis: 1f
 	PlayRate: 1f
+	PlayRateScaleBiasClamp: {
+		bMapRange: False
+		InRange: {
+			Min: 0f
+			Max: 1f
+			}
+		OutRange: {
+			Min: 0f
+			Max: 1f
+			}
+		Scale: 1f
+		Bias: 0f
+		bClampResult: False
+		ClampMin: 0f
+		ClampMax: 1f
+		bInterpResult: False
+		InterpSpeedIncreasing: 10f
+		InterpSpeedDecreasing: 10f
+		InterpolatedResult: 0f
+		bInitialized: False
+		}
 	StartPosition: 0f
 	bIgnoreForRelevancyTest: False
 	GroupIndex: -1
@@ -108,6 +171,7 @@ AnimGraphNode_SequencePlayer_217E258140993D6B970240991EC34490: {
 	EvaluateGraphExposedInputs: {
 		BoundFunction: None
 		CopyRecords: [  ]
+		Function: 0
 		}
 	}
 AnimGraphNode_StateResult_64872A6A40CF45F088DA3A977C9E755E: {
@@ -117,17 +181,20 @@ AnimGraphNode_StateResult_64872A6A40CF45F088DA3A977C9E755E: {
 	EvaluateGraphExposedInputs: {
 		BoundFunction: None
 		CopyRecords: [  ]
+		Function: 0
 		}
 	}
 AnimGraphNode_StateMachine_8E43FA3F401D313D34B910BE685AC329: {
 	StateMachineIndexInClass: 0
 	MaxTransitionsPerFrame: 3
 	bSkipFirstUpdateTransition: True
+	bReinitializeOnBecomingRelevant: True
 	CurrentState: -1
 	ElapsedTime: 0f
 	EvaluateGraphExposedInputs: {
 		BoundFunction: None
 		CopyRecords: [  ]
+		Function: 0
 		}
 	}
 AnimGraphNode_BlendListByBool_AD3A169346154907DE4F388B239766CF: {
@@ -148,14 +215,50 @@ AnimGraphNode_BlendListByBool_AD3A169346154907DE4F388B239766CF: {
 	PerBoneSampleData: [  ]
 	bResetChildOnActivation: False
 	EvaluateGraphExposedInputs: {
-		BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_AB_GS_Hair02_AnimGraphNode_BlendListByBool_AD3A169346154907DE4F388B239766CF
-		CopyRecords: [  ]
+		BoundFunction: None
+		CopyRecords: [ { 
+		SourcePropertyName: IsViewedDuration
+		SourceSubPropertyName: None
+		SourceArrayIndex: 0
+		DestProperty: BoolProperty /Script/AnimGraphRuntime.AnimNode_BlendListByBool.bActiveValue
+		DestArrayIndex: 0
+		Size: 1
+		bInstanceIsTarget: False
+		PostCopyOperation: EPostCopyOperation::None
+		CopyType: ECopyType::BoolProperty
+		CachedSourceProperty: IsViewedDuration: {	
+			}
+		CachedSourceStructSubProperty: 0
+		 } ]
+		Function: 0
 		}
 	}
 AnimGraphNode_SequencePlayer_A7C81D33442116B11CAD27AA5F928730: {
 	Sequence: AnimSequence /Game/Characters/Campers/Guam/Models/Heads/Top/Animation/GS_Hair02/GS_Hair02_Idle.GS_Hair02_Idle
 	bLoopAnimation: True
+	PlayRateBasis: 1f
 	PlayRate: 1f
+	PlayRateScaleBiasClamp: {
+		bMapRange: False
+		InRange: {
+			Min: 0f
+			Max: 1f
+			}
+		OutRange: {
+			Min: 0f
+			Max: 1f
+			}
+		Scale: 1f
+		Bias: 0f
+		bClampResult: False
+		ClampMin: 0f
+		ClampMax: 1f
+		bInterpResult: False
+		InterpSpeedIncreasing: 10f
+		InterpSpeedDecreasing: 10f
+		InterpolatedResult: 0f
+		bInitialized: False
+		}
 	StartPosition: 0f
 	bIgnoreForRelevancyTest: False
 	GroupIndex: -1
@@ -165,5 +268,6 @@ AnimGraphNode_SequencePlayer_A7C81D33442116B11CAD27AA5F928730: {
 	EvaluateGraphExposedInputs: {
 		BoundFunction: None
 		CopyRecords: [  ]
+		Function: 0
 		}
 	}

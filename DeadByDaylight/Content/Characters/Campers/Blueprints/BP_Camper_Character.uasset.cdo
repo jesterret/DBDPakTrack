@@ -1,4 +1,4 @@
-UberGraphFrame: 1337
+UberGraphFrame: 1397
 IKTraceDistance: 50f
 IKInterpSpeed: 5f
 RightFootSocket: RightFootIKSocket
@@ -22,6 +22,9 @@ DeafenTimer: {
 	_interpSpeed: 1f
 	}
 BloodDecalClass: BlueprintGeneratedClass /Game/Effects/Decals/BP_DecalEffect_Blood.BP_DecalEffect_Blood_C
+Timer Deep Wound VFX : {
+	Handle: 0
+	}
 InputMashCount: 5f
 InputMashDecayTime: 2f
 CameraSocketName_Hooked: CameraHooked
@@ -35,6 +38,8 @@ _stillnessTracker: StillnessTracker: {
 	}
 PartiallyHiddenStillnessThreshold: 0.4f
 ProximityZone: ProximityZone: {	
+	DetailLevelBeforeCastShadows: DM_MAX
+	CanCharacterStepUpOn: ECB_No
 	BodyInstance: {
 		CollisionProfileName: Custom
 		CollisionResponses: {
@@ -98,13 +103,12 @@ ProximityZone: ProximityZone: {
 			 } ]
 			}
 		MassInKgOverride: 40.10013f
-		ObjectType: ECC_GameTraceChannel13
 		}
-	CanCharacterStepUpOn: ECB_No
 	OnComponentBeginOverlap: OnProximityEnterred
 	AttachParent: CollisionCylinder: {	
 		CapsuleHalfHeight: 80f
 		CapsuleRadius: 45f
+		DetailLevelBeforeCastShadows: DM_MAX
 		BodyInstance: {
 			CollisionResponses: {
 				ResponseArray: [ { 
@@ -138,7 +142,9 @@ ProximityZone: ProximityZone: {
 SlashableZone: Slashable: {	
 	CapsuleHalfHeight: 60f
 	CapsuleRadius: 25f
+	DetailLevelBeforeCastShadows: DM_MAX
 	BodyInstance: {
+		ObjectType: ECC_Pawn
 		CollisionProfileName: Custom
 		CollisionResponses: {
 			ResponseArray: [ { 
@@ -203,15 +209,16 @@ SlashableZone: Slashable: {
 			Response: ECR_Ignore
 			 } ]
 			}
-		ObjectType: ECC_Pawn
 		}
-	AttachParent: 1225
+	AttachParent: 579
 	ComponentTags: [ Slashable ]
 	}
 HookSlashableZone: HookSlashable: {	
 	CapsuleHalfHeight: 120f
 	CapsuleRadius: 25f
+	DetailLevelBeforeCastShadows: DM_MAX
 	BodyInstance: {
+		ObjectType: ECC_Pawn
 		CollisionProfileName: Custom
 		CollisionResponses: {
 			ResponseArray: [ { 
@@ -276,12 +283,72 @@ HookSlashableZone: HookSlashable: {
 			Response: ECR_Ignore
 			 } ]
 			}
-		ObjectType: ECC_Pawn
 		}
-	AttachParent: 1225
+	AttachParent: 579
 	RelativeLocation: Vector [X=0, Y=0, Z=40]
 	ComponentTags: [ Slashable ]
 	}
+FlashLightBlocker: FlashlightBlocker: {	
+	CapsuleHalfHeight: 70f
+	CapsuleRadius: 25f
+	DetailLevelBeforeCastShadows: DM_MAX
+	BodyInstance: {
+		ObjectType: ECC_WorldStatic
+		CollisionProfileName: Custom
+		CollisionResponses: {
+			ResponseArray: [ { 
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			 }, { 
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			 }, { 
+			Channel: Pawn
+			Response: ECR_Ignore
+			 }, { 
+			Channel: Camera
+			Response: ECR_Ignore
+			 }, { 
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			 }, { 
+			Channel: Vehicle
+			Response: ECR_Ignore
+			 }, { 
+			Channel: Destructible
+			Response: ECR_Ignore
+			 }, { 
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			 }, { 
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			 }, { 
+			Channel: Ground
+			Response: ECR_Ignore
+			 }, { 
+			Channel: Interactable
+			Response: ECR_Ignore
+			 }, { 
+			Channel: Audio
+			Response: ECR_Ignore
+			 }, { 
+			Channel: Slasher
+			Response: ECR_Ignore
+			 }, { 
+			Channel: Spider
+			Response: ECR_Ignore
+			 }, { 
+			Channel: Traps
+			Response: ECR_Ignore
+			 } ]
+			}
+		}
+	AttachParent: 579
+	RelativeLocation: Vector [X=0, Y=0, Z=-10]
+	}
+FlashlightBlockerHalfHeight: 70f
+FlashlightBlockerHalfHeightCrouched: 55f
 CrouchCapsuleHalfHeight: 50f
 MaterialHelper: MaterialHelperNative: {	
 	Groups: [ { 
@@ -322,11 +389,13 @@ MaterialHelper: MaterialHelperNative: {
 	 } ]
 	 } ]
 	AttachParent: CharacterMesh0: {	
-		bAlwaysMarkRenderStateAsDirty: True
 		bEnableUpdateRateOptimizations: True
+		DetailLevelBeforeCastShadows: DM_MAX
 		bCastCinematicShadow: True
 		bRenderCustomDepth: True
+		BoundsScale: 2f
 		BodyInstance: {
+			ObjectType: ECC_PhysicsBody
 			CollisionResponses: {
 				ResponseArray: [ { 
 				Channel: WorldStatic
@@ -391,10 +460,8 @@ MaterialHelper: MaterialHelperNative: {
 				 } ]
 				}
 			MassInKgOverride: 0f
-			ObjectType: ECC_PhysicsBody
 			}
-		BoundsScale: 2f
-		AttachParent: 1225
+		AttachParent: 579
 		RelativeLocation: Vector [X=0, Y=0, Z=-80]
 		RelativeRotation: Rotator [Pitch=0, Roll=-90, Yaw=0]
 		}
@@ -402,15 +469,25 @@ MaterialHelper: MaterialHelperNative: {
 _camperSensor: CamperSensor: {	
 	OnSeePawn: OnCamperFound
 	}
-_hpSlot01: HPSlot01: {	
-	ChargeableComponentID: HPSlot01
+_healthComponent: CamperHealthComponent: {	
+	_healFromDyingChargeable: HPSlot01: {	
+		ChargeableComponentID: HPSlot01
+		}
+	_healFromInjuredChargeable: HPSlot02: {	
+		ChargeableComponentID: HPSlot02
+		}
+	_mendChargeable: MendChargeable: {	
+		ChargeableComponentID: Mend
+		}
 	}
-_hpSlot02: HPSlot02: {	
-	ChargeableComponentID: HPSlot02
-	}
+_hpSlot01: 589
+_hpSlot02: 590
+_mendChargeable: 591
 _carryEscapeProgress: CarryEscape: {	
 	}
-Interactable: BlueprintGeneratedClass /Game/Characters/Campers/Blueprints/Interactions/CamperInteractable.CamperInteractable_C
+_killerInstinctComponent: KillerInstinctComponent: {	
+	}
+Interactable: BlueprintGeneratedClass /Game/Characters/Campers/Blueprints/Interactions/BP_CamperInteractable.BP_CamperInteractable_C
 PitchLimitUpper: 50f
 StrafingOffset: Vector [X=160, Y=60, Z=0]
 GamepadYawCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/GamepadYaw.GamepadYaw
@@ -418,80 +495,11 @@ GamepadPitchCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/Gamepa
 BlindingChargeableComponent: BlindnessChargeableComponent: {	
 	OnInteractionEmptiedEvent: OnBlindChargeEmptied
 	}
+_characterInventoryComponent: CharacterInventoryComponent: {	
+	}
 _pitchOffsetForInteractionPriority: -15f
 _pixelCounter: PixelCounter: {	
-	BoxExtent: Vector [X=35, Y=35, Z=70]
-	BodyInstance: {
-		CollisionProfileName: NoCollision
-		CollisionResponses: {
-			ResponseArray: [ { 
-			Channel: WorldStatic
-			Response: ECR_Ignore
-			 }, { 
-			Channel: WorldDynamic
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Pawn
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Visibility
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Camera
-			Response: ECR_Ignore
-			 }, { 
-			Channel: PhysicsBody
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Vehicle
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Destructible
-			Response: ECR_Ignore
-			 }, { 
-			Channel: EngineTraceChannel2
-			Response: ECR_Ignore
-			 }, { 
-			Channel: EngineTraceChannel3
-			Response: ECR_Ignore
-			 }, { 
-			Channel: EngineTraceChannel4
-			Response: ECR_Ignore
-			 }, { 
-			Channel: EngineTraceChannel5
-			Response: ECR_Ignore
-			 }, { 
-			Channel: EngineTraceChannel6
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Interactable
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Audio
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Slasher
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Spider
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Traps
-			Response: ECR_Ignore
-			 }, { 
-			Channel: InteractionDetector
-			Response: ECR_Ignore
-			 }, { 
-			Channel: BlinkBlocker
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Ground
-			Response: ECR_Ignore
-			 } ]
-			}
-		CollisionEnabled: ECollisionEnabled::NoCollision
-		ObjectType: ECC_WorldStatic
-		}
+	DetailLevelBeforeCastShadows: DM_MAX
 	}
 GamePadTurnRate: 60f
 GamePadLookUpRate: 60f
@@ -522,7 +530,7 @@ _cameraHandlerComponent: CameraHandlerComponent: {
 _specialEventSpawnerComponent: SpecialEventSpawnerComponent: {	
 	}
 _itemDropOffPosition: ItemDropOffPosition: {	
-	AttachParent: 1225
+	AttachParent: 579
 	RelativeLocation: Vector [X=40, Y=0, Z=-100]
 	RelativeRotation: Rotator [Pitch=0, Roll=-90, Yaw=0]
 	}
@@ -532,7 +540,7 @@ _meatHookZoneDetector: MeatHookZoneDetector: {
 	}
 _authoritativeMovementComponent: AuthoritativeMovement: {	
 	}
-Mesh: 1351
+Mesh: 1270
 CharacterMovement: CharMoveComp: {	
 	MaxRunSpeed: 410f
 	MaxRunSpeedInjured: 50f
@@ -551,9 +559,9 @@ CharacterMovement: CharMoveComp: {
 		bCanCrouch: True
 		}
 	}
-CapsuleComponent: 1225
+CapsuleComponent: 579
 bUseControllerRotationYaw: False
 bNetLoadOnClient: False
 RemoteRole: ROLE_None
 NetUpdateFrequency: 20f
-RootComponent: 1225
+RootComponent: 579
