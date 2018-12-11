@@ -34,6 +34,8 @@ LODValidity: 3
 StartSize: {
 	MinValue: 3f
 	MaxValue: 25f
+	MinValueVec: Vector [X=3, Y=25, Z=25]
+	MaxValueVec: Vector [X=3.5, Y=2, Z=25]
 	Distribution: 0
 	Table: {
 		Op: 2
@@ -48,6 +50,8 @@ LODValidity: 3
 StartVelocity: {
 	MinValue: -2f
 	MaxValue: 5f
+	MinValueVec: Vector [X=-2, Y=-2, Z=0]
+	MaxValueVec: Vector [X=2, Y=2, Z=5]
 	Distribution: 0
 	Table: {
 		Op: 2
@@ -70,6 +74,7 @@ LODValidity: 3
  }, { 
 ColorOverLife: {
 	MaxValue: 0.01f
+	MaxValueVec: Vector [X=0.01, Y=0, Z=1.5E-05]
 	Distribution: 0
 	Table: {
 		Op: 1
@@ -151,6 +156,7 @@ LODValidity: 3
  }, { 
 OffsetAmount: {
 	MaxValue: 1f
+	MaxValueVec: Vector [X=1, Y=1, Z=1]
 	Distribution: 0
 	Table: {
 		Op: 2
@@ -162,6 +168,7 @@ OffsetAmount: {
 	}
 RotationAmount: {
 	MaxValue: 1f
+	MaxValueVec: Vector [X=1, Y=1, Z=1]
 	Distribution: 0
 	Table: {
 		Op: 2
@@ -173,6 +180,7 @@ RotationAmount: {
 	}
 RotationRateAmount: {
 	MaxValue: 0.1f
+	MaxValueVec: Vector [X=0.1, Y=0.1, Z=0.1]
 	Distribution: 0
 	Table: {
 		Op: 2
@@ -201,6 +209,8 @@ LODValidity: 3
 LifeMultiplier: {
 	MinValue: 1f
 	MaxValue: 20f
+	MinValueVec: Vector [X=1, Y=1, Z=1]
+	MaxValueVec: Vector [X=20, Y=20, Z=20]
 	Distribution: 0
 	Table: {
 		Op: 1
@@ -228,12 +238,36 @@ LODValidity: 3
  }, { 
 StartLocation: {
 	MaxValue: 50f
+	MinValueVec: Vector [X=0, Y=0, Z=50]
+	MaxValueVec: Vector [X=0, Y=0, Z=50]
 	Distribution: 0
 	Table: {
 		Op: 1
 		EntryCount: 1
 		EntryStride: 3
 		Values: [ 0, 0, 50 ]
+		}
+	}
+LODValidity: 3
+ }, { 
+ColorScaleOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	MinValueVec: Vector [X=1, Y=1, Z=1]
+	MaxValueVec: Vector [X=1, Y=1, Z=1]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 1, 1, 1 ]
+		}
+	}
+AlphaScaleOverLife: {
+	Distribution: DistributionFloatParticleParameter: {	
+		ParameterName: Opacity
+		ParamMode: DPM_Direct
+		Constant: 1f
 		}
 	}
 LODValidity: 3
@@ -282,9 +316,9 @@ SpawnModule: ParticleModuleSpawn: {
 PeakActiveParticles: 47
  }, { 
 Level: 1
-RequiredModule: 18
-Modules: [ 11, 23, 31, 9, 29, 14, 15, 19, 24, 21, 12 ]
-SpawnModule: 28
+RequiredModule: 22
+Modules: [ 15, 27, 35, 12, 33, 18, 19, 23, 28, 25, 16, 13 ]
+SpawnModule: 32
 PeakActiveParticles: 47
  } ]
 DetailModeBitmask: 7
@@ -304,18 +338,20 @@ RequiredModule: ParticleModuleRequired: {
 			}
 		}
 	RandomImageTime: 1f
-	bEnabled: False
 	LODValidity: 3
 	}
 Modules: [ { 
 Lifetime: {
 	MinValue: 7f
 	MaxValue: 7f
-	Distribution: 0
+	Distribution: DistributionFloatParticleParameter: {	
+		ParameterName: Lifetime
+		MaxInput: 7f
+		MaxOutput: 7f
+		ParamMode: DPM_Direct
+		Constant: 7f
+		}
 	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
 		Values: [ 7 ]
 		}
 	}
@@ -324,6 +360,8 @@ LODValidity: 3
 StartSize: {
 	MinValue: 25f
 	MaxValue: 50f
+	MinValueVec: Vector [X=50, Y=25, Z=25]
+	MaxValueVec: Vector [X=50, Y=25, Z=25]
 	Distribution: 0
 	Table: {
 		Op: 1
@@ -375,6 +413,7 @@ LODValidity: 3
  }, { 
 ColorOverLife: {
 	MaxValue: 0.1f
+	MaxValueVec: Vector [X=0.1, Y=0.0012, Z=0]
 	Distribution: 0
 	Table: {
 		Op: 1
@@ -432,7 +471,7 @@ StartLocation: {
 	}
 bEnabled: False
 LODValidity: 3
- }, 12, { 
+ }, 16, { 
 StartRotation: {
 	MinValue: -1f
 	MaxValue: 1f
@@ -450,6 +489,7 @@ LODValidity: 3
  }, { 
 LifeMultiplier: {
 	MaxValue: 1.5f
+	MaxValueVec: Vector [X=1.5, Y=1, Z=1]
 	Distribution: 0
 	Table: {
 		Op: 1
@@ -490,16 +530,18 @@ ValueMethod: EDPV_UserSet
 bScaleVelocityByParamValue: False
 ParamValue: {
 	MinValue: 0f
-	MaxValue: 0f
-	Distribution: 0
+	MaxValue: 1f
+	Distribution: DistributionFloatParticleParameter: {	
+		ParameterName: ControlRefraction
+		}
 	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
+		Op: 0
+		EntryCount: 0
+		EntryStride: 0
 		SubEntryStride: 0
 		TimeScale: 0f
 		TimeBias: 0f
-		Values: [ 0 ]
+		Values: [ 0, 0, 0, 0, 0, 0, 0, 0, 0.0666667, 0.2000001, 0.3333334, 0.4666668, 0.6, 0.7333335, 0.8666667, 1 ]
 		LockFlag: 0
 		}
 	}
@@ -591,9 +633,9 @@ SpawnModule: ParticleModuleSpawn: {
 PeakActiveParticles: 3
  }, { 
 Level: 1
-RequiredModule: 17
-Modules: [ 10, 22, 26, 30, 8, 13, 12, 20, 25, 16 ]
-SpawnModule: 27
+RequiredModule: 21
+Modules: [ 14, 26, 30, 34, 11, 17, 16, 24, 29, 20 ]
+SpawnModule: 31
 PeakActiveParticles: 2
  } ]
 DetailModeBitmask: 7
