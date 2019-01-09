@@ -46,6 +46,42 @@ _stillnessTracker: StillnessTracker: {
 AttackFrenzyOnHealthyCurve: CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/FrenzySucceedOnHealthyMaxSpeed.FrenzySucceedOnHealthyMaxSpeed
 AttackFrenzyOnInjuredCurve: CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/FrenzySucceedOnInjuredMaxSpeed.FrenzySucceedOnInjuredMaxSpeed
 AttackFrenzyOnBleedoutCurve: CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/FrenzySucceedOnBleedoutMaxSpeed.FrenzySucceedOnBleedoutMaxSpeed
+_terrorRadiusEmitter: Terror Radius Component: {	
+	AttachParent: CollisionCylinder: {	
+		CapsuleHalfHeight: 103f
+		CapsuleRadius: 50f
+		DetailLevelBeforeCastShadows: DM_MAX
+		BodyInstance: {
+			ObjectType: ECC_GameTraceChannel3
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: PhysicsBody
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Block
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 }, { 
+				Channel: BlinkBlocker
+				Response: ECR_Ignore
+				 } ]
+				}
+			MassInKgOverride: 223.4707f
+			}
+		ComponentTags: [ Clip ]
+		}
+	}
 _fullBodyFlashLightReceiver: FullBodyFlashLightReceiver: {	
 	}
 _invisibilityBurnoutChargeableComponent: InvisibilityBurnoutChargeableComponent: {	
@@ -103,40 +139,7 @@ _cameraHandlerComponent: CameraHandlerComponent: {
 _specialEventSpawnerComponent: SpecialEventSpawnerComponent: {	
 	}
 _itemDropOffPosition: ItemDropOffPosition: {	
-	AttachParent: CollisionCylinder: {	
-		CapsuleHalfHeight: 103f
-		CapsuleRadius: 50f
-		DetailLevelBeforeCastShadows: DM_MAX
-		BodyInstance: {
-			ObjectType: ECC_GameTraceChannel3
-			CollisionResponses: {
-				ResponseArray: [ { 
-				Channel: Camera
-				Response: ECR_Ignore
-				 }, { 
-				Channel: PhysicsBody
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Slasher
-				Response: ECR_Block
-				 }, { 
-				Channel: Spider
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Traps
-				Response: ECR_Ignore
-				 }, { 
-				Channel: InteractionDetector
-				Response: ECR_Ignore
-				 }, { 
-				Channel: BlinkBlocker
-				Response: ECR_Ignore
-				 } ]
-				}
-			MassInKgOverride: 223.4707f
-			}
-		ComponentTags: [ Clip ]
-		}
+	AttachParent: 283
 	RelativeLocation: Vector [X=50, Y=0, Z=-100]
 	}
 EffectCameraTypeSettings: [ { 
@@ -179,7 +182,7 @@ Mesh: CharacterMesh0: {
 			}
 		MassInKgOverride: 0f
 		}
-	AttachParent: 285
+	AttachParent: 283
 	RelativeLocation: Vector [X=0, Y=0, Z=-103]
 	RelativeRotation: Rotator [Pitch=0, Roll=-90, Yaw=0]
 	}
@@ -196,8 +199,8 @@ CharacterMovement: CharMoveComp: {
 	BrakingDecelerationFalling: 1000f
 	PerchRadiusThreshold: 30f
 	}
-CapsuleComponent: 285
+CapsuleComponent: 283
 bNetLoadOnClient: False
 bReplicates: False
 RemoteRole: ROLE_None
-RootComponent: 285
+RootComponent: 283
