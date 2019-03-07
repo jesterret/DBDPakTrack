@@ -4,7 +4,7 @@ Row DR_sacrifice:
 DisplayName: Worship by Sacrifice
 Description: Complete {1} sacrifices with {0}.
 IconPath: UI/Icons/DailyRituals/dailyRitualIcon_sacrifice.png
-PossibleCharacterIDs: [ 268435456, 268435457, 268435458, 268435459, 268435460, 268435461, 268435462, 268435463, 268435464, 268435465, 268435466, 268435467, 286435468, 268435469 ]
+PossibleCharacterIDs: [ 268435456, 268435457, 268435458, 268435459, 268435460, 268435461, 268435462, 268435463, 268435464, 268435465, 268435466, 268435467, 268435468, 268435469, 268435470 ]
 PossibleRoles: [ EPlayerRole::VE_Slasher ]
 TrackedEvents: [ EDBDScoreTypes::DBDSlasherScore_SacrificeSuccess ]
 TrackedGameEvents: [  ]
@@ -100,11 +100,13 @@ Row DR_rescuehook:
 DisplayName: The Savior Ritual
 Description: Rescue {1} survivors from the hook with {0}.
 IconPath: UI/Icons/DailyRituals/dailyRitualIcon_altruism.png
-PossibleCharacterIDs: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ]
+PossibleCharacterIDs: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ]
 PossibleRoles: [ EPlayerRole::VE_Camper ]
 TrackedEvents: [  ]
 TrackedGameEvents: [ { 
 TagName: GameEvent.ScoreEvent.Camper.SaveFromHook
+ }, { 
+TagName: GameEvent.ScoreEvent.Camper.SaveFromHookGeneratorsComplete
  }, { 
 TagName: GameEvent.ScoreEvent.Camper.SaveFromHookPostExit
  } ]
@@ -126,11 +128,13 @@ TrackedEvents: [  ]
 TrackedGameEvents: [ { 
 TagName: GameEvent.ScoreEvent.Camper.HealPercent
  }, { 
-TagName: GameEvent.ScoreEvent.Camper.HealPercentPostExit
+TagName: GameEvent.ScoreEvent.Camper.HealPercent.GeneratorsComplete
+ }, { 
+TagName: GameEvent.ScoreEvent.Camper.HealPercent.PostExit
  }, { 
 TagName: GameEvent.HealFromDying
  }, { 
-TagName: GameEvent.HealFromDyingPostExit
+TagName: GameEvent.HealFromDying.PostExit
  } ]
 DifficultyLevels: [ { 
 Threshold: 3f
@@ -162,7 +166,7 @@ Row DR_escape:
 DisplayName: The Awakening
 Description: Escape and survive {1} time(s) with {0}.
 IconPath: UI/Icons/DailyRituals/dailyRitualIcon_survival.png
-PossibleCharacterIDs: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ]
+PossibleCharacterIDs: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ]
 PossibleRoles: [ EPlayerRole::VE_Camper ]
 TrackedEvents: [  ]
 TrackedGameEvents: [ { 
@@ -184,7 +188,7 @@ Row DR_opengate:
 DisplayName: The Way of Light
 Description: Successfully open {1} Exit Gate(s) with {0}.
 IconPath: UI/Icons/DailyRituals/dailyRitualIcon_objectives.png
-PossibleCharacterIDs: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ]
+PossibleCharacterIDs: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ]
 PossibleRoles: [ EPlayerRole::VE_Camper ]
 TrackedEvents: [  ]
 TrackedGameEvents: [ { 
@@ -218,32 +222,32 @@ Evaluator: None
 
 Row DR_chasesurvivor:
 DisplayName: Wild Dance
-Description: Be chased by the Killer for a total of {1} minutes with {0}.
+Description: Be chased by the Killer for a total of {1} seconds with {0}.
 IconPath: UI/Icons/DailyRituals/dailyRitualIcon_boldness.png
-PossibleCharacterIDs: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ]
+PossibleCharacterIDs: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ]
 PossibleRoles: [ EPlayerRole::VE_Camper ]
 TrackedEvents: [ EDBDScoreTypes::DBDCamperScore_ChasePerSecond ]
 TrackedGameEvents: [  ]
 DifficultyLevels: [ { 
 Threshold: 120f
 Tolerance: 0f
-DisplayTotal: 2
+DisplayTotal: 120
 BloodpointsReward: 30000f
  } ]
 Evaluator: None
 
 Row DR_chasekiller:
 DisplayName: The Hunt Ritual
-Description: Chase the survivors for a total of {1} minutes with {0}.
+Description: Chase the Survivors for a total of {1} seconds with {0}.
 IconPath: UI/Icons/DailyRituals/dailyRitualIcon_hunter.png
-PossibleCharacterIDs: [ 268435456, 268435457, 268435458, 268435459, 268435460, 268435461, 268435462, 268435463, 268435464, 268435465, 268435466, 268435467, 268435468, 268435469 ]
+PossibleCharacterIDs: [ 268435456, 268435457, 268435458, 268435459, 268435460, 268435461, 268435462, 268435463, 268435464, 268435465, 268435466, 268435467, 268435468, 268435469, 268435470 ]
 PossibleRoles: [ EPlayerRole::VE_Slasher ]
 TrackedEvents: [ EDBDScoreTypes::DBDSlasherScore_ChasePerSecond ]
 TrackedGameEvents: [  ]
 DifficultyLevels: [ { 
 Threshold: 180f
 Tolerance: 10f
-DisplayTotal: 3
+DisplayTotal: 180
 BloodpointsReward: 45000f
  } ]
 Evaluator: None
@@ -362,9 +366,9 @@ Evaluator: None
 
 Row DR_kill:
 DisplayName: Mors Ambitio
-Description: By your hands, kill {1} Survivor(s) with {0}.
+Description: By your hand, kill {1} Survivor(s) with {0}.
 IconPath: UI/Icons/DailyRituals/dailyRitualIcon_brutality.png
-PossibleCharacterIDs: [ 268435456, 268435457, 268435458, 268435459, 268435460, 268435461, 268435462, 268435463, 268435464, 268435465, 268435466, 268435467, 268435468, 268435469 ]
+PossibleCharacterIDs: [ 268435456, 268435457, 268435458, 268435459, 268435460, 268435461, 268435462, 268435463, 268435464, 268435465, 268435466, 268435467, 268435468, 268435469, 268435470 ]
 PossibleRoles: [ EPlayerRole::VE_Slasher ]
 TrackedEvents: [  ]
 TrackedGameEvents: [ { 
@@ -430,13 +434,31 @@ Evaluator: None
 
 Row DR_legion:
 DisplayName: Rite of the Legion
-Description: With the Legion, apply the Deep Wound Status Effect to {1} Survivor(s).
+Description: With the Legion, apply the Deep Wound status effect to {1} Survivor(s).
 IconPath: UI/Icons/DailyRituals/dailyRitualIcon_deviousness.png
 PossibleCharacterIDs: [ 268435469 ]
 PossibleRoles: [ EPlayerRole::VE_Slasher ]
 TrackedEvents: [  ]
 TrackedGameEvents: [ { 
 TagName: GameEvent.ScoreEvent.Slasher.ApplyDeepWound
+ } ]
+DifficultyLevels: [ { 
+Threshold: 4f
+Tolerance: 0f
+DisplayTotal: 4
+BloodpointsReward: 30000f
+ } ]
+Evaluator: None
+
+Row DR_Plague:
+DisplayName: Rite of the Plague
+Description: With the Plague, hit {1} Survivor(s) affected by the maximum infection with your base weapon.
+IconPath: UI/Icons/DailyRituals/dailyRitualIcon_deviousness.png
+PossibleCharacterIDs: [ 268435470 ]
+PossibleRoles: [ EPlayerRole::VE_Slasher ]
+TrackedEvents: [  ]
+TrackedGameEvents: [ { 
+TagName: GameEvent.ScoreEvent.Slasher.DownSurvivorWithMaxSickness
  } ]
 DifficultyLevels: [ { 
 Threshold: 4f

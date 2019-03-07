@@ -1,5 +1,6 @@
 Emitters: [ { 
 EmitterName: RainDropGPU
+bUseLegacySpawningBehavior: True
 LODLevels: [ { 
 RequiredModule: ParticleModuleRequired: {	
 	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Rain.MI_Rain
@@ -189,9 +190,9 @@ TypeDataModule: ParticleModuleTypeDataGpu: {
 		ScreenAlignment: PSA_Velocity
 		}
 	ResourceData: {
-		QuantizedColorSamples: [ Color [B=0, G=0, R=0, A=0], Color [B=0, G=0, R=0, A=127], Color [B=0, G=0, R=0, A=255], Color [B=0, G=0, R=0, A=0] ]
+		QuantizedColorSamples: [ Color [B=0, G=0, R=0, A=0], Color [B=0, G=0, R=0, A=54], Color [B=0, G=0, R=0, A=109], Color [B=0, G=0, R=0, A=163], Color [B=0, G=0, R=0, A=218], Color [B=0, G=0, R=0, A=255], Color [B=0, G=0, R=0, A=127], Color [B=0, G=0, R=0, A=0] ]
 		QuantizedMiscSamples: [ Color [B=0, G=0, R=0, A=0], Color [B=0, G=255, R=0, A=0] ]
-		ColorScale: Vector4 [X=0, Y=0, Z=0, W=0.1428572]
+		ColorScale: Vector4 [X=0, Y=0, Z=0, W=0.4761904]
 		ColorBias: Vector4 [X=0.6, Y=0.6, Z=0.6, W=0]
 		MiscScale: Vector4 [X=0, Y=45, Z=0, W=0]
 		MiscBias: Vector4 [X=5, Y=5, Z=0, W=0]
@@ -290,9 +291,9 @@ SpawnModule: 75
 PeakActiveParticles: 3
  } ]
 DetailModeBitmask: 7
-bUseLegacySpawningBehavior: True
  }, { 
 EmitterName: RainFogGPU
+bUseLegacySpawningBehavior: True
 LODLevels: [ { 
 RequiredModule: ParticleModuleRequired: {	
 	Material: Material /Game/Effects/Materials/M_smoke_subUV2.M_smoke_subUV2
@@ -307,6 +308,8 @@ RequiredModule: ParticleModuleRequired: {
 	SubImages_Horizontal: 8
 	SubImages_Vertical: 8
 	RandomImageTime: 1f
+	CutoutTexture: Texture2D /Game/Effects/Textures/T_SmokeSubUV_8X8_02.T_SmokeSubUV_8X8_02
+	AlphaThreshold: 0.02f
 	bEnabled: False
 	LODValidity: 7
 	}
@@ -379,14 +382,14 @@ ColorOverLife: {
 		}
 	}
 AlphaOverLife: {
-	MaxValue: 0.1f
+	MaxValue: 0.2f
 	Distribution: 0
 	Table: {
 		Op: 1
-		EntryCount: 8
+		EntryCount: 16
 		EntryStride: 1
-		TimeScale: 7f
-		Values: [ 0, 0.01587302, 0.03174603, 0.04761906, 0.06349207, 0.07936508, 0.0952381, 0 ]
+		TimeScale: 15f
+		Values: [ 0, 0.01481482, 0.02962963, 0.04444445, 0.05925927, 0.07407408, 0.08888889, 0.1037037, 0.1185185, 0.1333334, 0.1481482, 0.162963, 0.1777778, 0.1925926, 0.1333333, 0 ]
 		}
 	}
 LODValidity: 3
@@ -407,7 +410,6 @@ StartLocation: {
 	}
 LODValidity: 3
  }, { 
-Animation: SubUVAnimation /Game/Effects/Textures/T_SmokeSubUV_8X8_02_SubUV.T_SmokeSubUV_8X8_02_SubUV
 SubImageIndex: {
 	MaxValue: 63f
 	Distribution: 0
@@ -764,9 +766,9 @@ SpawnModule: ParticleModuleSpawn: {
 PeakActiveParticles: 8
  } ]
 DetailModeBitmask: 6
-bUseLegacySpawningBehavior: True
  }, { 
 EmitterName: RainDropImpact
+bUseLegacySpawningBehavior: True
 LODLevels: [ { 
 RequiredModule: ParticleModuleRequired: {	
 	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_RainSplash.MI_RainSplash
@@ -822,14 +824,14 @@ ColorOverLife: {
 		}
 	}
 AlphaOverLife: {
-	MaxValue: 0.08f
+	MaxValue: 0.15f
 	Distribution: 0
 	Table: {
 		Op: 1
 		EntryCount: 8
 		EntryStride: 1
 		TimeScale: 7f
-		Values: [ 0, 0.07619048, 0.06349206, 0.05079364, 0.03809523, 0.02539682, 0.0126984, 0 ]
+		Values: [ 0, 0.1428571, 0.1190476, 0.09523809, 0.07142857, 0.04761904, 0.02380951, 0 ]
 		}
 	}
 LODValidity: 15
@@ -919,7 +921,7 @@ SpawnModule: ParticleModuleSpawn: {
 		}
 	LODValidity: 15
 	}
-PeakActiveParticles: 3
+PeakActiveParticles: 83
  }, { 
 Level: 1
 RequiredModule: 55
@@ -943,9 +945,9 @@ SpawnModule: 73
 PeakActiveParticles: 3
  } ]
 DetailModeBitmask: 7
-bUseLegacySpawningBehavior: True
  }, { 
 EmitterName: RainDropCpu 
+bUseLegacySpawningBehavior: True
 LODLevels: [ { 
 RequiredModule: ParticleModuleRequired: {	
 	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Rain.MI_Rain
@@ -1073,14 +1075,14 @@ ColorOverLife: {
 		}
 	}
 AlphaOverLife: {
-	MaxValue: 0.1f
+	MaxValue: 0.5f
 	Distribution: 0
 	Table: {
 		Op: 1
-		EntryCount: 4
+		EntryCount: 8
 		EntryStride: 1
-		TimeScale: 3f
-		Values: [ 0, 0.04761905, 0.0952381, 0 ]
+		TimeScale: 7f
+		Values: [ 0, 0.1020408, 0.2040816, 0.3061225, 0.4081633, 0.4761904, 0.2380951, 0 ]
 		}
 	}
 LODValidity: 15
@@ -1210,7 +1212,6 @@ EventGenerator: 40
 PeakActiveParticles: 7
  } ]
 DetailModeBitmask: 7
-bUseLegacySpawningBehavior: True
  } ]
 CurveEdSetup: 0
 LODDistances: [ 0, 2000, 3000, 15000 ]

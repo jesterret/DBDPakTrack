@@ -1,4 +1,5 @@
-UberGraphFrame: 1393
+UberGraphFrame: 1430
+TML_Mori_DecalVomit_Size_AC89E6074867E4C768AE2EA21D9B6765: Vector [X=0, Y=0, Z=0]
 IKTraceDistance: 50f
 IKInterpSpeed: 5f
 RightFootSocket: RightFootIKSocket
@@ -12,22 +13,12 @@ ScreamingMaxDelay: 7f
 CameraLag: 7f
 AimPoint: Vector [X=0, Y=0, Z=0]
 LastHitNormal: Vector [X=0, Y=0, Z=0]
-DeafenTimer: {
-	_startTime: 0f
-	_startTimeDirty: True
-	_timeLeft: {
-		_value: 0f
-		}
-	_replicateTimeLeft: False
-	_interpSpeed: 1f
-	}
 BloodDecalClass: BlueprintGeneratedClass /Game/Effects/Decals/BP_DecalEffect_Blood.BP_DecalEffect_Blood_C
 Timer Deep Wound VFX : {
 	Handle: 0
 	}
 InputMashCount: 5f
 InputMashDecayTime: 2f
-CameraSocketName_Hooked: CameraHooked
 ReverseBearTrapAttachSocket: head_attach
 StalkedComponent: StalkedComponent: {	
 	}
@@ -121,9 +112,6 @@ ProximityZone: ProximityZone: {
 				Channel: Camera
 				Response: ECR_Ignore
 				 }, { 
-				Channel: PhysicsBody
-				Response: ECR_Ignore
-				 }, { 
 				Channel: Slasher
 				Response: ECR_Block
 				 }, { 
@@ -137,6 +125,9 @@ ProximityZone: ProximityZone: {
 				Response: ECR_Ignore
 				 }, { 
 				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
 				Response: ECR_Ignore
 				 } ]
 				}
@@ -158,7 +149,7 @@ SlashableZone: Slashable: {
 			Response: ECR_Ignore
 			 }, { 
 			Channel: WorldDynamic
-			Response: ECR_Ignore
+			Response: ECR_Overlap
 			 }, { 
 			Channel: Pawn
 			Response: ECR_Ignore
@@ -216,7 +207,7 @@ SlashableZone: Slashable: {
 			 } ]
 			}
 		}
-	AttachParent: 561
+	AttachParent: 566
 	ComponentTags: [ Slashable ]
 	}
 HookSlashableZone: HookSlashable: {	
@@ -290,7 +281,7 @@ HookSlashableZone: HookSlashable: {
 			 } ]
 			}
 		}
-	AttachParent: 561
+	AttachParent: 566
 	RelativeLocation: Vector [X=0, Y=0, Z=40]
 	ComponentTags: [ Slashable ]
 	}
@@ -350,12 +341,38 @@ FlashLightBlocker: FlashlightBlocker: {
 			 } ]
 			}
 		}
-	AttachParent: 561
+	AttachParent: 566
 	RelativeLocation: Vector [X=0, Y=0, Z=-10]
 	}
 FlashlightBlockerHalfHeight: 70f
 FlashlightBlockerHalfHeightCrouched: 55f
+_terrorRadiusReceiverComponent: TerrorRadiusReceiverComponent: {	
+	_trVerticalDistanceFactor: CurveFloat /Game/Characters/Campers/Blueprints/TRVerticalDistanceFactor.TRVerticalDistanceFactor
+	}
 CrouchCapsuleHalfHeight: 50f
+_camperSensor: CamperSensor: {	
+	OnSeePawn: OnCamperFound
+	}
+_healthComponent: CamperHealthComponent: {	
+	_healFromDyingChargeable: HPSlot01: {	
+		ChargeableComponentID: HPSlot01
+		}
+	_healFromInjuredChargeable: HPSlot02: {	
+		ChargeableComponentID: HPSlot02
+		}
+	_mendChargeable: MendChargeable: {	
+		ChargeableComponentID: Mend
+		}
+	}
+_hpSlot01: 576
+_hpSlot02: 577
+_mendChargeable: 578
+_carryEscapeProgress: CarryEscape: {	
+	}
+_killerInstinctComponent: KillerInstinctComponent: {	
+	}
+_cameraAttachment: CameraAttachmentComponent: {	
+	}
 MaterialHelper: MaterialHelperNative: {	
 	Groups: [ { 
 	GroupName: Camper1
@@ -374,6 +391,9 @@ MaterialHelper: MaterialHelperNative: {
 	 }, { 
 	SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_TransCust.MI_Camper_TransCust
 	DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_TransCust.MI_CamperDissolve_TransCust
+	 }, { 
+	SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Instances/MI_HairTAA.MI_HairTAA
+	DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_HairTAA_Dissolve.MI_HairTAA_Dissolve
 	 } ]
 	 }, { 
 	GroupName: Highlighted
@@ -392,10 +412,29 @@ MaterialHelper: MaterialHelperNative: {
 	 }, { 
 	SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_TransCust.MI_Camper_TransCust
 	DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_TransCust.MI_CamperDissolve_TransCust
+	 }, { 
+	SrcMaterial: Material /Game/Characters/Campers/Materials/M_HairTAA.M_HairTAA
+	DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_HairTAA_Highlighted.MI_HairTAA_Highlighted
 	 } ]
 	 } ]
 	AttachParent: CharacterMesh0: {	
 		bEnableUpdateRateOptimizations: True
+		AnimationTresholdToFrameSkip: [ { 
+		Treshold: 4453159312402939905
+		FrameSkip: 1
+		 }, { 
+		Treshold: 4438747794454347777
+		FrameSkip: 4294967297
+		 }, { 
+		Treshold: 4417130515383975937
+		FrameSkip: 8589934593
+		 }, { 
+		Treshold: 4381101718365011969
+		FrameSkip: 12884901889
+		 }, { 
+		Treshold: 1
+		FrameSkip: 17179869185
+		 } ]
 		DetailLevelBeforeCastShadows: DM_MAX
 		bCastCinematicShadow: True
 		bRenderCustomDepth: True
@@ -467,46 +506,21 @@ MaterialHelper: MaterialHelperNative: {
 				}
 			MassInKgOverride: 0f
 			}
-		AttachParent: 561
+		AttachParent: 566
 		RelativeLocation: Vector [X=0, Y=0, Z=-80]
 		RelativeRotation: Rotator [Pitch=0, Roll=-90, Yaw=0]
 		}
-	}
-_camperSensor: CamperSensor: {	
-	OnSeePawn: OnCamperFound
-	}
-_healthComponent: CamperHealthComponent: {	
-	_healFromDyingChargeable: HPSlot01: {	
-		ChargeableComponentID: HPSlot01
-		}
-	_healFromInjuredChargeable: HPSlot02: {	
-		ChargeableComponentID: HPSlot02
-		}
-	_mendChargeable: MendChargeable: {	
-		ChargeableComponentID: Mend
-		}
-	}
-_hpSlot01: 571
-_hpSlot02: 572
-_mendChargeable: 573
-_carryEscapeProgress: CarryEscape: {	
-	}
-_killerInstinctComponent: KillerInstinctComponent: {	
-	}
-_terrorRadiusReceiverComponent: TerrorRadiusReceiverComponent: {	
 	}
 Interactable: BlueprintGeneratedClass /Game/Characters/Campers/Blueprints/Interactions/BP_CamperInteractable.BP_CamperInteractable_C
 PitchLimitUpper: 50f
 StrafingOffset: Vector [X=160, Y=60, Z=0]
 GamepadYawCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/GamepadYaw.GamepadYaw
 GamepadPitchCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/GamepadPitch.GamepadPitch
-BlindingChargeableComponent: BlindnessChargeableComponent: {	
-	OnInteractionEmptiedEvent: OnBlindChargeEmptied
-	}
 _characterInventoryComponent: CharacterInventoryComponent: {	
 	}
 _pitchOffsetForInteractionPriority: -15f
 _pixelCounter: PixelCounter: {	
+	BoxExtent: Vector [X=32, Y=32, Z=90]
 	DetailLevelBeforeCastShadows: DM_MAX
 	}
 GamePadTurnRate: 60f
@@ -538,17 +552,33 @@ _cameraHandlerComponent: CameraHandlerComponent: {
 _specialEventSpawnerComponent: SpecialEventSpawnerComponent: {	
 	}
 _itemDropOffPosition: ItemDropOffPosition: {	
-	AttachParent: 561
+	AttachParent: 566
 	RelativeLocation: Vector [X=40, Y=0, Z=-100]
 	RelativeRotation: Rotator [Pitch=0, Roll=-90, Yaw=0]
 	}
+_blindingChargeableComponent: BlindnessChargeableComponent: {	
+	OnInteractionEmptiedEvent: OnBlindChargeEmptied
+	ChargeableCompletionPercentChangeCosmeticDelegate: OnChargeableCompletionPercent
+	}
 _eventListener: EventListener: {	
+	}
+_chaseComponent: Chase Component: {	
 	}
 _meatHookZoneDetector: MeatHookZoneDetector: {	
 	}
 _authoritativeMovementComponent: AuthoritativeMovement: {	
 	}
-Mesh: 1243
+_objectState: ObjectState: {	
+	}
+_audioFXComponent: AudioFXComponent: {	
+	}
+_tileVisitedAnalyticsComponent: TileVisitedAnalyticsComponent: {	
+	}
+_blindableComponent: BlindableComponent: {	
+	_blendWeightParameter: M_FlashLight_BlendWeight_Camper
+	_chargeableComponent: 574
+	}
+Mesh: 1267
 CharacterMovement: CharMoveComp: {	
 	MaxRunSpeed: 410f
 	MaxRunSpeedInjured: 50f
@@ -567,9 +597,9 @@ CharacterMovement: CharMoveComp: {
 		bCanCrouch: True
 		}
 	}
-CapsuleComponent: 561
+CapsuleComponent: 566
 bUseControllerRotationYaw: False
 bNetLoadOnClient: False
 RemoteRole: ROLE_None
 NetUpdateFrequency: 20f
-RootComponent: 561
+RootComponent: 566

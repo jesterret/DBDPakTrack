@@ -1,10 +1,7 @@
-UberGraphFrame: 209
+UberGraphFrame: 220
 DefaultSlasherPower: Item_Slasher_LFChainsaw
 KillerMoodInfluence: EKillerMoodInfluence::VE_Hillbilly
 KillerAbilities: [ EKillerAbilities::VE_LFChainsaw, EKillerAbilities::VE_Kill09 ]
-_camperSensor: CamperSensor: {	
-	OnSeePawn: OnChaseTargetFound
-	}
 _stillnessTracker: StillnessTracker: {	
 	}
 _terrorRadiusEmitter: Terror Radius Component: {	
@@ -19,9 +16,31 @@ _invisibilityBurnoutChargeableComponent: InvisibilityBurnoutChargeableComponent:
 	}
 _hitsWhileCarryingTracker: HitsWhileCarryingTracker: {	
 	}
-BlindingChargeableComponent: BlindnessChargeableComponent: {	
-	OnInteractionEmptiedEvent: OnBlindChargeEmptied
-	ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
+MaterialHelper: MaterialHelperNative: {	
+	AttachParent: CharacterMesh0: {	
+		AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Cannibal/AB_SlasherMale07.AB_SlasherMale07_C
+		SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Cannibal/Models/CA_DSkeleton_REF.CA_DSkeleton_REF
+		OverrideMaterials: [ MaterialInstanceConstant /Game/Materials/Instances/MI_Basic_FullAlpha.MI_Basic_FullAlpha, MaterialInstanceConstant /Game/Characters/Slashers/Crooked/Materials/MI_TCTorso01.MI_TCTorso01, MaterialInstanceConstant /Game/Characters/Slashers/Crooked/Materials/MI_TCHead01.MI_TCHead01 ]
+		BodyInstance: {
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: Pawn
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 } ]
+				}
+			MassInKgOverride: 138.2622f
+			}
+		AttachParent: 57
+		}
 	}
 _characterInventoryComponent: CharacterInventoryComponent: {	
 	}
@@ -48,42 +67,35 @@ _cameraHandlerComponent: CameraHandlerComponent: {
 _specialEventSpawnerComponent: SpecialEventSpawnerComponent: {	
 	}
 _itemDropOffPosition: ItemDropOffPosition: {	
-	AttachParent: 52
+	AttachParent: 57
+	}
+_blindingChargeableComponent: BlindnessChargeableComponent: {	
+	OnInteractionEmptiedEvent: OnBlindChargeEmptied
+	ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
+	ChargeableCompletionPercentChangeCosmeticDelegate: OnChargeableCompletionPercent
 	}
 _eventListener: EventListener: {	
+	}
+_chaseComponent: Chase Component: {	
 	}
 _meatHookZoneDetector: MeatHookZoneDetector: {	
 	}
 _authoritativeMovementComponent: AuthoritativeMovement: {	
 	}
-_characterIndex: 268435464
-Mesh: CharacterMesh0: {	
-	AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Cannibal/AB_SlasherMale07.AB_SlasherMale07_C
-	SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Cannibal/Models/CA_DSkeleton_REF.CA_DSkeleton_REF
-	OverrideMaterials: [ MaterialInstanceConstant /Game/Materials/Instances/MI_Basic_FullAlpha.MI_Basic_FullAlpha, MaterialInstanceConstant /Game/Characters/Slashers/Crooked/Materials/MI_TCTorso01.MI_TCTorso01, MaterialInstanceConstant /Game/Characters/Slashers/Crooked/Materials/MI_TCHead01.MI_TCHead01 ]
-	BodyInstance: {
-		CollisionResponses: {
-			ResponseArray: [ { 
-			Channel: Pawn
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Vehicle
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Camera
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Audio
-			Response: ECR_Ignore
-			 } ]
-			}
-		MassInKgOverride: 138.2622f
-		}
-	AttachParent: 52
+_objectState: ObjectState: {	
 	}
+_audioFXComponent: AudioFXComponent: {	
+	}
+_tileVisitedAnalyticsComponent: TileVisitedAnalyticsComponent: {	
+	}
+_blindableComponent: BlindableComponent: {	
+	_chargeableComponent: 61
+	}
+_characterIndex: 268435464
+Mesh: 86
 CharacterMovement: CharMoveComp: {	
 	MaxWalkSpeed: 460f
 	MaxCustomMovementSpeed: 460f
 	}
-CapsuleComponent: 52
-RootComponent: 52
+CapsuleComponent: 57
+RootComponent: 57

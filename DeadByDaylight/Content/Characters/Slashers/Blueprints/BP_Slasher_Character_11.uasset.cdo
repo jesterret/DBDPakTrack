@@ -1,12 +1,9 @@
-UberGraphFrame: 191
+UberGraphFrame: 202
 DefaultSlasherPower: Item_Slasher_ReverseBearTrap
 AbilityStealthRatioIncreaseRate: 0.25f
 AbilityStealthRatioDecreaseRate: 0.66f
 KillerMoodInfluence: EKillerMoodInfluence::VE_Hillbilly
 KillerAbilities: [ EKillerAbilities::VE_ReverseBearTrap, EKillerAbilities::VE_KillPig ]
-_camperSensor: CamperSensor: {	
-	OnSeePawn: OnChaseTargetFound
-	}
 _stillnessTracker: StillnessTracker: {	
 	}
 _terrorRadiusEmitter: Terror Radius Component: {	
@@ -21,11 +18,33 @@ _invisibilityBurnoutChargeableComponent: InvisibilityBurnoutChargeableComponent:
 	}
 _hitsWhileCarryingTracker: HitsWhileCarryingTracker: {	
 	}
-Interactable: BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/Interactions/SlasherInteractable_Finland.SlasherInteractable_Finland_C
-BlindingChargeableComponent: BlindnessChargeableComponent: {	
-	OnInteractionEmptiedEvent: OnBlindChargeEmptied
-	ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
+MaterialHelper: MaterialHelperNative: {	
+	AttachParent: CharacterMesh0: {	
+		AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Finland/AB_SlasherMale09.AB_SlasherMale09_C
+		SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Finland/Models/FK_DSkeleton_REF.FK_DSkeleton_REF
+		OverrideMaterials: [ MaterialInstanceConstant /Game/Materials/Instances/MI_Basic_FullAlpha.MI_Basic_FullAlpha, MaterialInstanceConstant /Game/Characters/Slashers/Crooked/Materials/MI_TCTorso01.MI_TCTorso01, MaterialInstanceConstant /Game/Characters/Slashers/Crooked/Materials/MI_TCHead01.MI_TCHead01 ]
+		BodyInstance: {
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: Pawn
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 } ]
+				}
+			MassInKgOverride: 138.2622f
+			}
+		AttachParent: 33
+		}
 	}
+Interactable: BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/Interactions/SlasherInteractable_Finland.SlasherInteractable_Finland_C
 _characterInventoryComponent: CharacterInventoryComponent: {	
 	}
 AttackAmbushCurves: [ CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/AmbushOpenMaxSpeed.AmbushOpenMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/AmbushHittingMaxSpeed.AmbushHittingMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/AmbushSucceedMaxSpeed.AmbushSucceedMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/AmbushMissMaxSpeed.AmbushMissMaxSpeed, CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/AmbushObstructedMaxSpeed.AmbushObstructedMaxSpeed ]
@@ -51,40 +70,33 @@ _cameraHandlerComponent: CameraHandlerComponent: {
 _specialEventSpawnerComponent: SpecialEventSpawnerComponent: {	
 	}
 _itemDropOffPosition: ItemDropOffPosition: {	
-	AttachParent: 28
+	AttachParent: 33
 	RelativeLocation: Vector [X=100, Y=0, Z=-90]
 	}
+_blindingChargeableComponent: BlindnessChargeableComponent: {	
+	OnInteractionEmptiedEvent: OnBlindChargeEmptied
+	ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
+	ChargeableCompletionPercentChangeCosmeticDelegate: OnChargeableCompletionPercent
+	}
 _eventListener: EventListener: {	
+	}
+_chaseComponent: Chase Component: {	
 	}
 _meatHookZoneDetector: MeatHookZoneDetector: {	
 	}
 _authoritativeMovementComponent: AuthoritativeMovement: {	
 	}
-_characterIndex: 268435466
-Mesh: CharacterMesh0: {	
-	AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Finland/AB_SlasherMale09.AB_SlasherMale09_C
-	SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Finland/Models/FK_DSkeleton_REF.FK_DSkeleton_REF
-	OverrideMaterials: [ MaterialInstanceConstant /Game/Materials/Instances/MI_Basic_FullAlpha.MI_Basic_FullAlpha, MaterialInstanceConstant /Game/Characters/Slashers/Crooked/Materials/MI_TCTorso01.MI_TCTorso01, MaterialInstanceConstant /Game/Characters/Slashers/Crooked/Materials/MI_TCHead01.MI_TCHead01 ]
-	BodyInstance: {
-		CollisionResponses: {
-			ResponseArray: [ { 
-			Channel: Pawn
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Vehicle
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Camera
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Audio
-			Response: ECR_Ignore
-			 } ]
-			}
-		MassInKgOverride: 138.2622f
-		}
-	AttachParent: 28
+_objectState: ObjectState: {	
 	}
+_audioFXComponent: AudioFXComponent: {	
+	}
+_tileVisitedAnalyticsComponent: TileVisitedAnalyticsComponent: {	
+	}
+_blindableComponent: BlindableComponent: {	
+	_chargeableComponent: 37
+	}
+_characterIndex: 268435466
+Mesh: 59
 CharacterMovement: CharMoveComp: {	
 	MaxWalkSpeedCrouched: 360f
 	CrouchedHalfHeight: 103f
@@ -93,6 +105,6 @@ CharacterMovement: CharMoveComp: {
 		bCanCrouch: True
 		}
 	}
-CapsuleComponent: 28
+CapsuleComponent: 33
 CrouchedEyeHeight: 0f
-RootComponent: 28
+RootComponent: 33

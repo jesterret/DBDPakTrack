@@ -1,4 +1,4 @@
-UberGraphFrame: 772
+UberGraphFrame: 724
 Sword_Disappear_Wipe_Shard_Size_C1E0EF564A4859780BF1B2B6A20FCC8F: Vector [X=0, Y=0, Z=0]
 Sword_Disappear_Wipe_Particle_Position_C1E0EF564A4859780BF1B2B6A20FCC8F: Vector [X=0, Y=0, Z=0]
 Sword_Disappear_FPV_Shard_Size_4308A1C24008EAF50F379A8B4C982310: Vector [X=0, Y=0, Z=0]
@@ -25,9 +25,6 @@ StartingMeshOffset: Vector [X=0, Y=0, Z=-103]
 DefaultSlasherPower: Item_Slasher_PhaseWalker
 KillerMoodInfluence: EKillerMoodInfluence::VE_Chuckles
 KillerAbilities: [ EKillerAbilities::VE_PhaseWalk, EKillerAbilities::VE_KillSpirit ]
-_camperSensor: CamperSensor: {	
-	OnSeePawn: OnChaseTargetFound
-	}
 _stillnessTracker: StillnessTracker: {	
 	}
 _terrorRadiusEmitter: Terror Radius Component: {	
@@ -42,9 +39,38 @@ _invisibilityBurnoutChargeableComponent: InvisibilityBurnoutChargeableComponent:
 	}
 _hitsWhileCarryingTracker: HitsWhileCarryingTracker: {	
 	}
-BlindingChargeableComponent: BlindnessChargeableComponent: {	
-	OnInteractionEmptiedEvent: OnBlindChargeEmptied
-	ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
+MaterialHelper: MaterialHelperNative: {	
+	AttachParent: CharacterMesh0: {	
+		AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Haiti/AB_SlasherMale13.AB_SlasherMale13_C
+		SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Haiti/Models/HK_DSkeleton_REF.HK_DSkeleton_REF
+		VisibilityBasedAnimTickOption: EVisibilityBasedAnimTickOption::AlwaysTickPoseAndRefreshBones
+		bEnableUpdateRateOptimizations: False
+		OverrideMaterials: [ MaterialInstanceConstant /Game/Materials/Instances/MI_Basic_FullAlpha.MI_Basic_FullAlpha, MaterialInstanceConstant /Game/Characters/Slashers/Trapper/Materials/MI_TRTorso01.MI_TRTorso01, MaterialInstanceConstant /Game/Characters/Slashers/Trapper/Materials/MI_TRLegs01.MI_TRLegs01 ]
+		BodyInstance: {
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: Pawn
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 } ]
+				}
+			MassInKgOverride: 199.0395f
+			}
+		AttachParent: 244
+		RelativeLocation: Vector [X=0, Y=0, Z=-103]
+		RelativeRotation: Rotator [Pitch=0, Roll=-90.00001, Yaw=0]
+		PrimaryComponentTick: {
+			EndTickGroup: TG_PostPhysics
+			}
+		}
 	}
 _characterInventoryComponent: CharacterInventoryComponent: {	
 	}
@@ -71,46 +97,32 @@ _cameraHandlerComponent: CameraHandlerComponent: {
 _specialEventSpawnerComponent: SpecialEventSpawnerComponent: {	
 	}
 _itemDropOffPosition: ItemDropOffPosition: {	
-	AttachParent: 239
+	AttachParent: 244
+	}
+_blindingChargeableComponent: BlindnessChargeableComponent: {	
+	OnInteractionEmptiedEvent: OnBlindChargeEmptied
+	ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
+	ChargeableCompletionPercentChangeCosmeticDelegate: OnChargeableCompletionPercent
 	}
 _eventListener: EventListener: {	
+	}
+_chaseComponent: Chase Component: {	
 	}
 _meatHookZoneDetector: MeatHookZoneDetector: {	
 	}
 _authoritativeMovementComponent: AuthoritativeMovement: {	
 	}
-_characterIndex: 268435468
-Mesh: CharacterMesh0: {	
-	AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Haiti/AB_SlasherMale13.AB_SlasherMale13_C
-	SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Haiti/Models/HK_DSkeleton_REF.HK_DSkeleton_REF
-	MeshComponentUpdateFlag: EMeshComponentUpdateFlag::AlwaysTickPoseAndRefreshBones
-	bEnableUpdateRateOptimizations: False
-	OverrideMaterials: [ MaterialInstanceConstant /Game/Materials/Instances/MI_Basic_FullAlpha.MI_Basic_FullAlpha, MaterialInstanceConstant /Game/Characters/Slashers/Trapper/Materials/MI_TRTorso01.MI_TRTorso01, MaterialInstanceConstant /Game/Characters/Slashers/Trapper/Materials/MI_TRLegs01.MI_TRLegs01 ]
-	BodyInstance: {
-		CollisionResponses: {
-			ResponseArray: [ { 
-			Channel: Pawn
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Vehicle
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Camera
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Audio
-			Response: ECR_Ignore
-			 } ]
-			}
-		MassInKgOverride: 199.0395f
-		}
-	AttachParent: 239
-	RelativeLocation: Vector [X=0, Y=0, Z=-103]
-	RelativeRotation: Rotator [Pitch=0, Roll=-90.00001, Yaw=0]
-	PrimaryComponentTick: {
-		EndTickGroup: TG_PostPhysics
-		}
+_objectState: ObjectState: {	
 	}
+_audioFXComponent: AudioFXComponent: {	
+	}
+_tileVisitedAnalyticsComponent: TileVisitedAnalyticsComponent: {	
+	}
+_blindableComponent: BlindableComponent: {	
+	_chargeableComponent: 248
+	}
+_characterIndex: 268435468
+Mesh: 576
 CharacterMovement: CharMoveComp: {	
 	WalkableFloorZ: 0.71f
 	NavAgentProps: {
@@ -118,6 +130,6 @@ CharacterMovement: CharMoveComp: {
 		AgentHeight: 206f
 		}
 	}
-CapsuleComponent: 239
+CapsuleComponent: 244
 SpawnCollisionHandlingMethod: ESpawnActorCollisionHandlingMethod::AlwaysSpawn
-RootComponent: 239
+RootComponent: 244

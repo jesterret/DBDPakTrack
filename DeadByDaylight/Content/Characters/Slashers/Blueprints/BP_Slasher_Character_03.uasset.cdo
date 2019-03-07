@@ -1,10 +1,7 @@
-UberGraphFrame: 179
+UberGraphFrame: 192
 DefaultSlasherPower: Item_Slasher_Chainsaw
 KillerMoodInfluence: EKillerMoodInfluence::VE_Hillbilly
 KillerAbilities: [ EKillerAbilities::VE_Chainsaw, EKillerAbilities::VE_Kill03 ]
-_camperSensor: CamperSensor: {	
-	OnSeePawn: OnChaseTargetFound
-	}
 _stillnessTracker: StillnessTracker: {	
 	}
 _terrorRadiusEmitter: Terror Radius Component: {	
@@ -19,9 +16,53 @@ _invisibilityBurnoutChargeableComponent: InvisibilityBurnoutChargeableComponent:
 	}
 _hitsWhileCarryingTracker: HitsWhileCarryingTracker: {	
 	}
-BlindingChargeableComponent: BlindnessChargeableComponent: {	
-	OnInteractionEmptiedEvent: OnBlindChargeEmptied
-	ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
+MaterialHelper: MaterialHelperNative: {	
+	AttachParent: CharacterMesh0: {	
+		AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Animations/SlasherMale03/AB_SlasherMale03.AB_SlasherMale03_C
+		SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Crooked/Models/TC_DSkeleton_REF.TC_DSkeleton_REF
+		OverrideMaterials: [ MaterialInstanceConstant /Game/Materials/Instances/MI_Basic_FullAlpha.MI_Basic_FullAlpha, MaterialInstanceConstant /Game/Characters/Slashers/Crooked/Materials/MI_TCTorso01.MI_TCTorso01, MaterialInstanceConstant /Game/Characters/Slashers/Crooked/Materials/MI_TCHead01.MI_TCHead01 ]
+		bAlwaysCreatePhysicsState: True
+		bGenerateOverlapEvents: True
+		BodyInstance: {
+			ObjectType: ECC_PhysicsBody
+			bUseCCD: True
+			bNotifyRigidBodyCollision: True
+			CollisionProfileName: Ragdoll
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: Pawn
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Interactable
+				Response: ECR_Block
+				 }, { 
+				Channel: Audio
+				Response: ECR_Block
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 } ]
+				}
+			MassInKgOverride: 138.2622f
+			PhysMaterialOverride: PhysicalMaterial /Game/Characters/Campers/Materials/Physics_Mat/Jacket.Jacket
+			}
+		AttachParent: 20
+		}
 	}
 _characterInventoryComponent: CharacterInventoryComponent: {	
 	}
@@ -47,62 +88,33 @@ _cameraHandlerComponent: CameraHandlerComponent: {
 _specialEventSpawnerComponent: SpecialEventSpawnerComponent: {	
 	}
 _itemDropOffPosition: ItemDropOffPosition: {	
-	AttachParent: 15
+	AttachParent: 20
+	}
+_blindingChargeableComponent: BlindnessChargeableComponent: {	
+	OnInteractionEmptiedEvent: OnBlindChargeEmptied
+	ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
+	ChargeableCompletionPercentChangeCosmeticDelegate: OnChargeableCompletionPercent
 	}
 _eventListener: EventListener: {	
+	}
+_chaseComponent: Chase Component: {	
 	}
 _meatHookZoneDetector: MeatHookZoneDetector: {	
 	}
 _authoritativeMovementComponent: AuthoritativeMovement: {	
 	}
-_characterIndex: 268435458
-Mesh: CharacterMesh0: {	
-	AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Animations/SlasherMale03/AB_SlasherMale03.AB_SlasherMale03_C
-	SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Crooked/Models/TC_DSkeleton_REF.TC_DSkeleton_REF
-	OverrideMaterials: [ MaterialInstanceConstant /Game/Materials/Instances/MI_Basic_FullAlpha.MI_Basic_FullAlpha, MaterialInstanceConstant /Game/Characters/Slashers/Crooked/Materials/MI_TCTorso01.MI_TCTorso01, MaterialInstanceConstant /Game/Characters/Slashers/Crooked/Materials/MI_TCHead01.MI_TCHead01 ]
-	bAlwaysCreatePhysicsState: True
-	bGenerateOverlapEvents: True
-	BodyInstance: {
-		ObjectType: ECC_PhysicsBody
-		bUseCCD: True
-		bNotifyRigidBodyCollision: True
-		CollisionProfileName: Ragdoll
-		CollisionResponses: {
-			ResponseArray: [ { 
-			Channel: Pawn
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Visibility
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Camera
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Interactable
-			Response: ECR_Block
-			 }, { 
-			Channel: Audio
-			Response: ECR_Block
-			 }, { 
-			Channel: Slasher
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Spider
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Traps
-			Response: ECR_Ignore
-			 }, { 
-			Channel: InteractionDetector
-			Response: ECR_Ignore
-			 } ]
-			}
-		MassInKgOverride: 138.2622f
-		PhysMaterialOverride: PhysicalMaterial /Game/Characters/Campers/Materials/Physics_Mat/Jacket.Jacket
-		}
-	AttachParent: 15
+_objectState: ObjectState: {	
 	}
+_audioFXComponent: AudioFXComponent: {	
+	}
+_tileVisitedAnalyticsComponent: TileVisitedAnalyticsComponent: {	
+	}
+_blindableComponent: BlindableComponent: {	
+	_chargeableComponent: 24
+	}
+_characterIndex: 268435458
+Mesh: 49
 CharacterMovement: CharMoveComp: {	
 	}
-CapsuleComponent: 15
-RootComponent: 15
+CapsuleComponent: 20
+RootComponent: 20

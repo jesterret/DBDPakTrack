@@ -1,10 +1,7 @@
-UberGraphFrame: 312
+UberGraphFrame: 323
 DefaultSlasherPower: Item_Slasher_DreamInducer
 KillerMoodInfluence: EKillerMoodInfluence::VE_Chuckles
 KillerAbilities: [ EKillerAbilities::VE_InduceDreams, EKillerAbilities::VE_KillNightmare ]
-_camperSensor: CamperSensor: {	
-	OnSeePawn: OnChaseTargetFound
-	}
 _stillnessTracker: StillnessTracker: {	
 	}
 _terrorRadiusEmitter: Terror Radius Component: {	
@@ -19,9 +16,33 @@ _invisibilityBurnoutChargeableComponent: InvisibilityBurnoutChargeableComponent:
 	}
 _hitsWhileCarryingTracker: HitsWhileCarryingTracker: {	
 	}
-BlindingChargeableComponent: BlindnessChargeableComponent: {	
-	OnInteractionEmptiedEvent: OnBlindChargeEmptied
-	ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
+MaterialHelper: MaterialHelperNative: {	
+	AttachParent: CharacterMesh0: {	
+		AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Sandman/AB_SlasherMale08.AB_SlasherMale08_C
+		SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Sandman/Models/SD_DSkeleton_REF.SD_DSkeleton_REF
+		VisibilityBasedAnimTickOption: EVisibilityBasedAnimTickOption::AlwaysTickPoseAndRefreshBones
+		bEnableUpdateRateOptimizations: False
+		OverrideMaterials: [ MaterialInstanceConstant /Game/Materials/Instances/MI_Basic_FullAlpha.MI_Basic_FullAlpha, MaterialInstanceConstant /Game/Characters/Slashers/Trapper/Materials/MI_TRTorso01.MI_TRTorso01, MaterialInstanceConstant /Game/Characters/Slashers/Trapper/Materials/MI_TRLegs01.MI_TRLegs01 ]
+		BodyInstance: {
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: Pawn
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 } ]
+				}
+			MassInKgOverride: 199.0395f
+			}
+		AttachParent: 87
+		}
 	}
 _characterInventoryComponent: CharacterInventoryComponent: {	
 	}
@@ -47,42 +68,33 @@ _cameraHandlerComponent: CameraHandlerComponent: {
 _specialEventSpawnerComponent: SpecialEventSpawnerComponent: {	
 	}
 _itemDropOffPosition: ItemDropOffPosition: {	
-	AttachParent: 82
+	AttachParent: 87
+	}
+_blindingChargeableComponent: BlindnessChargeableComponent: {	
+	OnInteractionEmptiedEvent: OnBlindChargeEmptied
+	ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
+	ChargeableCompletionPercentChangeCosmeticDelegate: OnChargeableCompletionPercent
 	}
 _eventListener: EventListener: {	
+	}
+_chaseComponent: Chase Component: {	
 	}
 _meatHookZoneDetector: MeatHookZoneDetector: {	
 	}
 _authoritativeMovementComponent: AuthoritativeMovement: {	
 	}
-_characterIndex: 268435465
-Mesh: CharacterMesh0: {	
-	AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Sandman/AB_SlasherMale08.AB_SlasherMale08_C
-	SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Sandman/Models/SD_DSkeleton_REF.SD_DSkeleton_REF
-	MeshComponentUpdateFlag: EMeshComponentUpdateFlag::AlwaysTickPoseAndRefreshBones
-	bEnableUpdateRateOptimizations: False
-	OverrideMaterials: [ MaterialInstanceConstant /Game/Materials/Instances/MI_Basic_FullAlpha.MI_Basic_FullAlpha, MaterialInstanceConstant /Game/Characters/Slashers/Trapper/Materials/MI_TRTorso01.MI_TRTorso01, MaterialInstanceConstant /Game/Characters/Slashers/Trapper/Materials/MI_TRLegs01.MI_TRLegs01 ]
-	BodyInstance: {
-		CollisionResponses: {
-			ResponseArray: [ { 
-			Channel: Pawn
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Vehicle
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Camera
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Audio
-			Response: ECR_Ignore
-			 } ]
-			}
-		MassInKgOverride: 199.0395f
-		}
-	AttachParent: 82
+_objectState: ObjectState: {	
 	}
+_audioFXComponent: AudioFXComponent: {	
+	}
+_tileVisitedAnalyticsComponent: TileVisitedAnalyticsComponent: {	
+	}
+_blindableComponent: BlindableComponent: {	
+	_chargeableComponent: 91
+	}
+_characterIndex: 268435465
+Mesh: 165
 CharacterMovement: CharMoveComp: {	
 	}
-CapsuleComponent: 82
-RootComponent: 82
+CapsuleComponent: 87
+RootComponent: 87

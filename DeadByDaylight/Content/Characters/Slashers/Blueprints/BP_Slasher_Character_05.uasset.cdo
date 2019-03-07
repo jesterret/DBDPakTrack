@@ -1,4 +1,4 @@
-UberGraphFrame: 379
+UberGraphFrame: 393
 TeleportCooldown: {
 	_startTime: 0f
 	_startTimeDirty: True
@@ -17,9 +17,6 @@ SetTrapAnimMontageName: BearTrapSet_Middle
 DefaultSlasherPower: Item_Slasher_PhantomTrap
 KillerMoodInfluence: EKillerMoodInfluence::VE_Chuckles
 KillerAbilities: [ EKillerAbilities::VE_PhantomTrap, EKillerAbilities::VE_Kill05 ]
-_camperSensor: CamperSensor: {	
-	OnSeePawn: OnChaseTargetFound
-	}
 _stillnessTracker: StillnessTracker: {	
 	}
 _terrorRadiusEmitter: Terror Radius Component: {	
@@ -34,9 +31,48 @@ _invisibilityBurnoutChargeableComponent: InvisibilityBurnoutChargeableComponent:
 	}
 _hitsWhileCarryingTracker: HitsWhileCarryingTracker: {	
 	}
-BlindingChargeableComponent: BlindnessChargeableComponent: {	
-	OnInteractionEmptiedEvent: OnBlindChargeEmptied
-	ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
+MaterialHelper: MaterialHelperNative: {	
+	AttachParent: CharacterMesh0: {	
+		AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Animations/SlasherFemale01/AB_SlasherFemale02.AB_SlasherFemale02_C
+		SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Witch/Models/WI_DSkeleton_REF.WI_DSkeleton_REF
+		BodyInstance: {
+			ObjectType: ECC_PhysicsBody
+			bNotifyRigidBodyCollision: True
+			bEnableGravity: False
+			CollisionProfileName: Ragdoll
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: Pawn
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Visibility
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Interactable
+				Response: ECR_Block
+				 }, { 
+				Channel: Audio
+				Response: ECR_Block
+				 }, { 
+				Channel: Slasher
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Spider
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Traps
+				Response: ECR_Ignore
+				 }, { 
+				Channel: InteractionDetector
+				Response: ECR_Ignore
+				 } ]
+				}
+			}
+		AttachParent: 85
+		}
 	}
 _characterInventoryComponent: CharacterInventoryComponent: {	
 	}
@@ -63,57 +99,33 @@ _cameraHandlerComponent: CameraHandlerComponent: {
 _specialEventSpawnerComponent: SpecialEventSpawnerComponent: {	
 	}
 _itemDropOffPosition: ItemDropOffPosition: {	
-	AttachParent: 80
+	AttachParent: 85
+	}
+_blindingChargeableComponent: BlindnessChargeableComponent: {	
+	OnInteractionEmptiedEvent: OnBlindChargeEmptied
+	ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
+	ChargeableCompletionPercentChangeCosmeticDelegate: OnChargeableCompletionPercent
 	}
 _eventListener: EventListener: {	
+	}
+_chaseComponent: Chase Component: {	
 	}
 _meatHookZoneDetector: MeatHookZoneDetector: {	
 	}
 _authoritativeMovementComponent: AuthoritativeMovement: {	
 	}
-_characterIndex: 268435460
-Mesh: CharacterMesh0: {	
-	AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Animations/SlasherFemale01/AB_SlasherFemale02.AB_SlasherFemale02_C
-	SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Witch/Models/WI_DSkeleton_REF.WI_DSkeleton_REF
-	BodyInstance: {
-		ObjectType: ECC_PhysicsBody
-		bNotifyRigidBodyCollision: True
-		bEnableGravity: False
-		CollisionProfileName: Ragdoll
-		CollisionResponses: {
-			ResponseArray: [ { 
-			Channel: Pawn
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Visibility
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Camera
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Interactable
-			Response: ECR_Block
-			 }, { 
-			Channel: Audio
-			Response: ECR_Block
-			 }, { 
-			Channel: Slasher
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Spider
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Traps
-			Response: ECR_Ignore
-			 }, { 
-			Channel: InteractionDetector
-			Response: ECR_Ignore
-			 } ]
-			}
-		}
-	AttachParent: 80
+_objectState: ObjectState: {	
 	}
+_audioFXComponent: AudioFXComponent: {	
+	}
+_tileVisitedAnalyticsComponent: TileVisitedAnalyticsComponent: {	
+	}
+_blindableComponent: BlindableComponent: {	
+	_chargeableComponent: 89
+	}
+_characterIndex: 268435460
+Mesh: 174
 CharacterMovement: CharMoveComp: {	
 	}
-CapsuleComponent: 80
-RootComponent: 80
+CapsuleComponent: 85
+RootComponent: 85

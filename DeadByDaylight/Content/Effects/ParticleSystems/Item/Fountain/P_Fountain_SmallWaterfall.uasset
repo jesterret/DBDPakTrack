@@ -1,0 +1,1135 @@
+Emitters: [ { 
+EmitterName: Water Drip
+LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_RadialGradient_NoAA_NoFade.MI_RadialGradient_NoAA_NoFade
+	ScreenAlignment: PSA_Velocity
+	bUseLocalSpace: True
+	bUseLegacyEmitterTime: False
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		}
+	RandomImageTime: 1f
+	LODValidity: 1
+	}
+Modules: [ { 
+Angle: {
+	MaxValue: 0.2f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0, 0.2 ]
+		}
+	}
+Velocity: {
+	MinValue: 2f
+	MaxValue: 6f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 2, 6 ]
+		}
+	}
+Direction: Vector [X=0, Y=0.1, Z=0.1]
+LODValidity: 1
+ }, { 
+VelOverLife: {
+	MinValue: 0.1f
+	MaxValue: 1f
+	MinValueVec: Vector [X=1, Y=0.1, Z=1]
+	MaxValueVec: Vector [X=1, Y=1, Z=1]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1.666667f
+		Values: [ 1, 1, 1, 1, 0.1, 1 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartLocation: {
+	MinValue: -1f
+	MaxValue: 1f
+	MinValueVec: Vector [X=-1, Y=0, Z=0]
+	MaxValueVec: Vector [X=1, Y=0, Z=0]
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ -1, 0, 0, 1, 0, 0 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+Lifetime: {
+	MinValue: 1f
+	MaxValue: 2f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 1, 2 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartSize: {
+	MinValue: 0.2f
+	MaxValue: 1f
+	MinValueVec: Vector [X=0.25, Y=0.2, Z=0.2]
+	MaxValueVec: Vector [X=0.5, Y=1, Z=1]
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 0.25, 0.2, 0.2, 0.5, 1, 1 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+ColorOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	MinValueVec: Vector [X=1, Y=1, Z=1]
+	MaxValueVec: Vector [X=1, Y=1, Z=1]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 1, 1, 1 ]
+		}
+	}
+AlphaOverLife: {
+	MaxValue: 0.5f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 16
+		EntryStride: 1
+		TimeScale: 15f
+		Values: [ 0, 0.04444445, 0.08888889, 0.1333333, 0.1777778, 0.2222222, 0.2666667, 0.3111111, 0.3555556, 0.4, 0.4444444, 0.4888889, 0.3999999, 0.2666666, 0.1333333, 0 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+Acceleration: {
+	MinValue: -50f
+	MinValueVec: Vector [X=0, Y=0, Z=-50]
+	MaxValueVec: Vector [X=0, Y=0, Z=-60]
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 0, 0, -50, 0, 0, -60 ]
+		}
+	}
+bAlwaysInWorldSpace: True
+LODValidity: 1
+ }, { 
+LifeMultiplier: {
+	MaxValue: 3f
+	MaxValueVec: Vector [X=1, Y=3, Z=1]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1f
+		Values: [ 0, 0, 0, 1, 3, 1 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+ColorScaleOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	MinValueVec: Vector [X=1, Y=1, Z=1]
+	MaxValueVec: Vector [X=1, Y=1, Z=1]
+	Distribution: DistributionVectorParticleParameter: {	
+		ParameterName: DripColor
+		ParamModes: DPM_Direct
+		ParamModes: DPM_Direct
+		ParamModes: DPM_Direct
+		Constant: Vector [X=1, Y=1, Z=1]
+		bIsDirty: False
+		}
+	Table: {
+		Values: [ 0, 0, 0, 1, 1, 1 ]
+		}
+	}
+AlphaScaleOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: DistributionFloatParticleParameter: {	
+		ParameterName: DripAplha
+		Constant: 1f
+		}
+	Table: {
+		Values: [ 1 ]
+		}
+	}
+LODValidity: 1
+ } ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		MinValue: 20f
+		MaxValue: 50f
+		Distribution: 0
+		Table: {
+			Op: 2
+			EntryCount: 1
+			EntryStride: 2
+			SubEntryStride: 1
+			Values: [ 20, 50 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstScale: {
+		Distribution: BurstScaleDistribution: {	
+			Constant: 1f
+			}
+		}
+	LODValidity: 1
+	}
+PeakActiveParticles: 102
+ } ]
+DetailModeBitmask: 7
+ }, { 
+EmitterName: Water Drip Burst
+LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_RadialGradient_NoAA_NoFade.MI_RadialGradient_NoAA_NoFade
+	ScreenAlignment: PSA_Velocity
+	bUseLocalSpace: True
+	bUseLegacyEmitterTime: False
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		}
+	RandomImageTime: 1f
+	LODValidity: 1
+	}
+Modules: [ { 
+VelOverLife: {
+	MinValue: 0.1f
+	MaxValue: 1f
+	MinValueVec: Vector [X=1, Y=0.1, Z=1]
+	MaxValueVec: Vector [X=1, Y=1, Z=1]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1.666667f
+		Values: [ 1, 1, 1, 1, 0.1, 1 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartLocation: {
+	MinValue: -1f
+	MaxValue: 1f
+	MinValueVec: Vector [X=-1, Y=0, Z=0]
+	MaxValueVec: Vector [X=1, Y=0, Z=0]
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ -1, 0, 0, 1, 0, 0 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+Angle: {
+	MaxValue: 0.2f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0, 0.2 ]
+		}
+	}
+Velocity: {
+	MinValue: 10f
+	MaxValue: 20f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 10, 20 ]
+		}
+	}
+Direction: Vector [X=0, Y=0.1, Z=0.5]
+LODValidity: 1
+ }, { 
+Lifetime: {
+	MinValue: 0.6f
+	MaxValue: 0.5f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0.6, 0.5 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartSize: {
+	MinValue: 0.2f
+	MaxValue: 1f
+	MinValueVec: Vector [X=0.25, Y=0.2, Z=0.2]
+	MaxValueVec: Vector [X=0.5, Y=1, Z=1]
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 0.25, 0.2, 0.2, 0.5, 1, 1 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+ColorOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	MinValueVec: Vector [X=1, Y=1, Z=1]
+	MaxValueVec: Vector [X=1, Y=1, Z=1]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 1, 1, 1 ]
+		}
+	}
+AlphaOverLife: {
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 1
+		TimeScale: 1f
+		Values: [ 1, 0 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+Acceleration: {
+	MinValue: -50f
+	MinValueVec: Vector [X=0, Y=0, Z=-50]
+	MaxValueVec: Vector [X=0, Y=0, Z=-800]
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 0, 0, -50, 0, 0, -800 ]
+		}
+	}
+bAlwaysInWorldSpace: True
+LODValidity: 1
+ }, { 
+AccelOverLife: {
+	MaxValue: 1f
+	MaxValueVec: Vector [X=1, Y=1, Z=1]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1f
+		Values: [ 0, 0, 0, 1, 1, 1 ]
+		}
+	}
+bAlwaysInWorldSpace: True
+LODValidity: 1
+ }, { 
+LifeMultiplier: {
+	MaxValue: 3f
+	MaxValueVec: Vector [X=1, Y=3, Z=1]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1f
+		Values: [ 0, 0, 0, 1, 3, 1 ]
+		}
+	}
+LODValidity: 1
+ }, 33 ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		MinValue: 20f
+		MaxValue: 50f
+		Distribution: 0
+		Table: {
+			Op: 2
+			EntryCount: 1
+			EntryStride: 2
+			SubEntryStride: 1
+			Values: [ 20, 50 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstList: [ { 
+	Count: 25
+	CountLow: -1
+	Time: 0f
+	 } ]
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	LODValidity: 1
+	}
+PeakActiveParticles: 52
+ } ]
+DetailModeBitmask: 7
+ }, { 
+EmitterName: Water Drip Burst Bse
+LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_RadialGradient_NoAA_NoFade.MI_RadialGradient_NoAA_NoFade
+	ScreenAlignment: PSA_Velocity
+	bUseLocalSpace: True
+	bUseLegacyEmitterTime: False
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		}
+	RandomImageTime: 1f
+	LODValidity: 1
+	}
+Modules: [ { 
+StartRadius: {
+	MinValue: 5f
+	MaxValue: 5f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 5 ]
+		}
+	}
+Negative_Z: False
+Velocity: True
+VelocityScale: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1 ]
+		}
+	}
+StartLocation: {
+	MinValue: -80f
+	MinValueVec: Vector [X=0, Y=0, Z=-80]
+	MaxValueVec: Vector [X=0, Y=0, Z=-80]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0, 0, -80 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+Angle: {
+	MaxValue: 0.2f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0, 0.2 ]
+		}
+	}
+Velocity: {
+	MinValue: 10f
+	MaxValue: 60f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 10, 60 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+VelOverLife: {
+	MinValue: 0.1f
+	MaxValue: 1f
+	MinValueVec: Vector [X=1, Y=0.1, Z=1]
+	MaxValueVec: Vector [X=1, Y=1, Z=1]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1.666667f
+		Values: [ 1, 1, 1, 1, 0.1, 1 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+Lifetime: {
+	MinValue: 0.6f
+	MaxValue: 0.5f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0.6, 0.5 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartSize: {
+	MinValue: 0.2f
+	MaxValue: 1f
+	MinValueVec: Vector [X=0.25, Y=0.2, Z=0.2]
+	MaxValueVec: Vector [X=0.5, Y=1, Z=1]
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 0.25, 0.2, 0.2, 0.5, 1, 1 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+ColorOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	MinValueVec: Vector [X=1, Y=1, Z=1]
+	MaxValueVec: Vector [X=1, Y=1, Z=1]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 1, 1, 1 ]
+		}
+	}
+AlphaOverLife: {
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 1
+		TimeScale: 1f
+		Values: [ 1, 0 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+Acceleration: {
+	MinValue: -50f
+	MinValueVec: Vector [X=0, Y=0, Z=-50]
+	MaxValueVec: Vector [X=0, Y=0, Z=-100]
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 0, 0, -50, 0, 0, -100 ]
+		}
+	}
+bAlwaysInWorldSpace: True
+LODValidity: 1
+ }, { 
+AccelOverLife: {
+	MaxValue: 1f
+	MaxValueVec: Vector [X=1, Y=1, Z=1]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1f
+		Values: [ 0, 0, 0, 1, 1, 1 ]
+		}
+	}
+bAlwaysInWorldSpace: True
+LODValidity: 1
+ }, { 
+LifeMultiplier: {
+	MaxValue: 3f
+	MaxValueVec: Vector [X=1, Y=3, Z=1]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1f
+		Values: [ 0, 0, 0, 1, 3, 1 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+ColorScaleOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	MinValueVec: Vector [X=1, Y=1, Z=1]
+	MaxValueVec: Vector [X=1, Y=1, Z=1]
+	Distribution: DistributionVectorParticleParameter: {	
+		ParameterName: DripColor
+		ParamModes: DPM_Direct
+		ParamModes: DPM_Direct
+		ParamModes: DPM_Direct
+		Constant: Vector [X=1, Y=1, Z=1]
+		bIsDirty: False
+		}
+	Table: {
+		Values: [ 0, 0, 0, 1, 1, 1 ]
+		}
+	}
+AlphaScaleOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: DistributionFloatParticleParameter: {	
+		ParameterName: DripAplha
+		Constant: 1f
+		}
+	Table: {
+		Values: [ 1 ]
+		}
+	}
+LODValidity: 1
+ } ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		MinValue: 20f
+		MaxValue: 50f
+		Distribution: 0
+		Table: {
+			Op: 2
+			EntryCount: 1
+			EntryStride: 2
+			SubEntryStride: 1
+			Values: [ 20, 50 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstList: [ { 
+	Count: 25
+	CountLow: -1
+	Time: 0f
+	 } ]
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	LODValidity: 1
+	}
+PeakActiveParticles: 52
+ } ]
+DetailModeBitmask: 7
+ }, { 
+EmitterName: Smoke
+LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_BasicSmoke_White_Fade1.MI_BasicSmoke_White_Fade1
+	bUseLocalSpace: True
+	bUseLegacyEmitterTime: False
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		}
+	InterpolationMethod: PSUVIM_Linear_Blend
+	SubImages_Horizontal: 8
+	SubImages_Vertical: 8
+	bScaleUV: True
+	RandomImageTime: 1f
+	LODValidity: 1
+	}
+Modules: [ { 
+Angle: {
+	MaxValue: 0.2f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0, 0.2 ]
+		}
+	}
+Velocity: {
+	MinValue: 3f
+	MaxValue: 5f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 3, 5 ]
+		}
+	}
+Direction: Vector [X=0, Y=0.5, Z=0.2]
+LODValidity: 1
+ }, { 
+Lifetime: {
+	MinValue: 2.935978f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 2.935978, 1 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartSize: {
+	MinValue: 10f
+	MaxValue: 15f
+	MinValueVec: Vector [X=10, Y=10, Z=10]
+	MaxValueVec: Vector [X=15, Y=15, Z=15]
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 10, 10, 10, 15, 15, 15 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+ColorOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	MinValueVec: Vector [X=1, Y=1, Z=1]
+	MaxValueVec: Vector [X=1, Y=1, Z=1]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 1, 1, 1 ]
+		}
+	}
+AlphaOverLife: {
+	MaxValue: 0.25f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 8
+		EntryStride: 1
+		TimeScale: 7f
+		Values: [ 0, 0.1428571, 0.2380952, 0.1904762, 0.1428571, 0.09523809, 0.04761901, 0 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+LifeMultiplier: {
+	MinValue: 0.5f
+	MaxValue: 1.25f
+	MinValueVec: Vector [X=0.5, Y=0.5, Z=0.5]
+	MaxValueVec: Vector [X=1.25, Y=1.25, Z=1.25]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1f
+		Values: [ 0.5, 0.5, 0.5, 1.25, 1.25, 1.25 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartRotation: {
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0, 1 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+Acceleration: {
+	MinValue: -3f
+	MinValueVec: Vector [X=0, Y=0, Z=-3]
+	MaxValueVec: Vector [X=0, Y=0, Z=-15]
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 0, 0, -3, 0, 0, -15 ]
+		}
+	}
+bAlwaysInWorldSpace: True
+LODValidity: 1
+ }, { 
+ColorScaleOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	MinValueVec: Vector [X=1, Y=1, Z=1]
+	MaxValueVec: Vector [X=1, Y=1, Z=1]
+	Distribution: DistributionVectorParticleParameter: {	
+		ParameterName: SmokeColor
+		ParamModes: DPM_Direct
+		ParamModes: DPM_Direct
+		ParamModes: DPM_Direct
+		Constant: Vector [X=1, Y=1, Z=1]
+		bIsDirty: False
+		}
+	Table: {
+		Values: [ 0, 0, 0, 1, 1, 1 ]
+		}
+	}
+AlphaScaleOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: DistributionFloatParticleParameter: {	
+		ParameterName: SmokeAplha
+		ParamMode: DPM_Direct
+		Constant: 1f
+		}
+	Table: {
+		Values: [ 1 ]
+		}
+	}
+LODValidity: 1
+ } ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		MinValue: 2f
+		MaxValue: 5f
+		Distribution: 0
+		Table: {
+			Op: 2
+			EntryCount: 1
+			EntryStride: 2
+			SubEntryStride: 1
+			Values: [ 2, 5 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstScale: {
+		Distribution: BurstScaleDistribution: {	
+			Constant: 1f
+			}
+		}
+	LODValidity: 1
+	}
+PeakActiveParticles: 11
+ } ]
+DetailModeBitmask: 7
+ }, { 
+EmitterName: Smoke Bottom
+LODLevels: [ { 
+RequiredModule: ParticleModuleRequired: {	
+	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_BasicSmoke_White_Fade1.MI_BasicSmoke_White_Fade1
+	bUseLocalSpace: True
+	bUseLegacyEmitterTime: False
+	SpawnRate: {
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		}
+	InterpolationMethod: PSUVIM_Linear_Blend
+	SubImages_Horizontal: 8
+	SubImages_Vertical: 8
+	bScaleUV: True
+	RandomImageTime: 1f
+	LODValidity: 1
+	}
+Modules: [ { 
+Angle: {
+	MaxValue: 0.35f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0, 0.35 ]
+		}
+	}
+Velocity: {
+	MinValue: 7f
+	MaxValue: 20f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 7, 20 ]
+		}
+	}
+Direction: Vector [X=0, Y=-1, Z=0]
+LODValidity: 1
+ }, { 
+Lifetime: {
+	MinValue: 2.935978f
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 2.935978, 1 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartSize: {
+	MinValue: 15f
+	MaxValue: 25f
+	MinValueVec: Vector [X=15, Y=15, Z=15]
+	MaxValueVec: Vector [X=25, Y=25, Z=25]
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 15, 15, 15, 25, 25, 25 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+ColorOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	MinValueVec: Vector [X=1, Y=1, Z=1]
+	MaxValueVec: Vector [X=1, Y=1, Z=1]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 1, 1, 1 ]
+		}
+	}
+AlphaOverLife: {
+	MaxValue: 0.4f
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 32
+		EntryStride: 1
+		TimeScale: 31f
+		Values: [ 0, 0.1290323, 0.2580645, 0.3840107, 0.3854839, 0.3693548, 0.3532258, 0.3370968, 0.3209677, 0.3048387, 0.2887097, 0.2725807, 0.2564516, 0.2403226, 0.2241936, 0.2080645, 0.1935484, 0.1806452, 0.1677419, 0.1548387, 0.1419355, 0.1290323, 0.116129, 0.1032258, 0.09032259, 0.07741939, 0.06451613, 0.05161289, 0.0387097, 0.02580649, 0.01290324, 0 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+LifeMultiplier: {
+	MinValue: 0.5f
+	MaxValue: 1.25f
+	MinValueVec: Vector [X=0.5, Y=0.5, Z=0.5]
+	MaxValueVec: Vector [X=1.25, Y=1.25, Z=1.25]
+	Distribution: 0
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1f
+		Values: [ 0.5, 0.5, 0.5, 1.25, 1.25, 1.25 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartRotation: {
+	MaxValue: 1f
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0, 1 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+StartLocation: {
+	MinValue: -70f
+	MinValueVec: Vector [X=0, Y=0, Z=-70]
+	MaxValueVec: Vector [X=0, Y=0, Z=-65]
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 0, 0, -70, 0, 0, -65 ]
+		}
+	}
+LODValidity: 1
+ }, { 
+Acceleration: {
+	MaxValue: 1f
+	MinValueVec: Vector [X=0, Y=0, Z=2]
+	MaxValueVec: Vector [X=0, Y=0, Z=1]
+	Distribution: 0
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 0, 0, 2, 0, 0, 1 ]
+		}
+	}
+bAlwaysInWorldSpace: True
+LODValidity: 1
+ }, 32 ]
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		MinValue: 3f
+		MaxValue: 5f
+		Distribution: 0
+		Table: {
+			Op: 2
+			EntryCount: 1
+			EntryStride: 2
+			SubEntryStride: 1
+			Values: [ 3, 5 ]
+			}
+		}
+	RateScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 0
+		Table: {
+			Op: 1
+			EntryCount: 1
+			EntryStride: 1
+			Values: [ 1 ]
+			}
+		}
+	BurstScale: {
+		Distribution: BurstScaleDistribution: {	
+			Constant: 1f
+			}
+		}
+	LODValidity: 1
+	}
+PeakActiveParticles: 13
+ } ]
+DetailModeBitmask: 7
+ } ]
+CurveEdSetup: 0
+LODDistances: [ 0 ]
+LODSettings: [ 68 ]
+bShouldResetPeakCounts: True
+CustomOcclusionBounds: Box [Min={ 
+X: 0
+Y: 0
+Z: 0
+ }, Max={ 
+X: 0
+Y: 0
+Z: 0
+ }, IsValid=1]

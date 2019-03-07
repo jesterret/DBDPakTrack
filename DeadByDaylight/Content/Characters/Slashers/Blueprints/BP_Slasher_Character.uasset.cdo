@@ -1,4 +1,4 @@
-UberGraphFrame: 925
+UberGraphFrame: 889
 CenterOfWorld: {
 	Rotation: Quat [X=0, Y=0, Z=0, W=1]
 	Translation: Vector [X=0, Y=0, Z=0]
@@ -11,23 +11,12 @@ StartingMeshOffset: Vector [X=0, Y=0, Z=0]
 Trap Indicator Offset: -40f
 FirstPersonCarryOffset: Vector [X=0, Y=0, Z=0]
 FirstPersonCarryOffsetLookingDown: Vector [X=0, Y=0, Z=0]
-RevealedColour: LinearColor [R=1, G=0.023783, B=0.129048, A=0.914]
-UnrevealedColour: LinearColor [R=0, G=0, B=0, A=0]
 DissolveMaterialGroupName: Dissolve
 FirstPersonMaterialGroupName: FirstPerson
 DissolveGroupName: Dissolve
 FirstPersonDissolve: FirstPerson_Dissolve
 FirstPersonGroupName: FirstPerson
 Weapon: Weapon
-DeafenTimer: {
-	_startTime: 0f
-	_startTimeDirty: True
-	_timeLeft: {
-		_value: 0f
-		}
-	_replicateTimeLeft: False
-	_interpSpeed: 1f
-	}
 TrapPlacementRaycastStart: Vector [X=0, Y=0, Z=25]
 TrapPlacementRaycastEnd: Vector [X=0, Y=0, Z=-50]
 BlindnessCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/BlindnessCurve.BlindnessCurve
@@ -38,9 +27,6 @@ LoudNoiseDisplayTime: 10f
 CamperExposer: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Entity/CamperTrackers/BP_ExposerCrow.BP_ExposerCrow_C
 KillerAbilities: [ EKillerAbilities::VE_SpawnTraps, EKillerAbilities::VE_Kill01 ]
 AttackForwardInputSmoothingCurve: CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/ForwardInputSmoothingCurve.ForwardInputSmoothingCurve
-_camperSensor: CamperSensor: {	
-	OnSeePawn: OnChaseTargetFound
-	}
 _stillnessTracker: StillnessTracker: {	
 	}
 AttackFrenzyOnHealthyCurve: CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/FrenzySucceedOnHealthyMaxSpeed.FrenzySucceedOnHealthyMaxSpeed
@@ -58,9 +44,6 @@ _terrorRadiusEmitter: Terror Radius Component: {
 				Channel: Camera
 				Response: ECR_Ignore
 				 }, { 
-				Channel: PhysicsBody
-				Response: ECR_Ignore
-				 }, { 
 				Channel: Slasher
 				Response: ECR_Block
 				 }, { 
@@ -74,6 +57,9 @@ _terrorRadiusEmitter: Terror Radius Component: {
 				Response: ECR_Ignore
 				 }, { 
 				Channel: BlinkBlocker
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
 				Response: ECR_Ignore
 				 } ]
 				}
@@ -90,14 +76,130 @@ _invisibilityBurnoutChargeableComponent: InvisibilityBurnoutChargeableComponent:
 	}
 _hitsWhileCarryingTracker: HitsWhileCarryingTracker: {	
 	}
+MaterialHelper: MaterialHelperNative: {	
+	Groups: [ { 
+	GroupName: FirstPerson
+	Maps: [ { 
+	SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Weapon.MI_Slasher_Weapon
+	DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Weapon_FPS.MV_Slasher_Weapon_FPS
+	 }, { 
+	SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_SlasherBlood_Weapon.MI_SlasherBlood_Weapon
+	DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_SlasherBlood_Weapon_FPS.MV_SlasherBlood_Weapon_FPS
+	 } ]
+	 }, { 
+	GroupName: Dissolve
+	Maps: [ { 
+	SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher.M_Slasher
+	DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Dissolve.MV_Slasher_Dissolve
+	 }, { 
+	SrcMaterial: Material /Game/Characters/Campers/Materials/M_Hair.M_Hair
+	DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_Hair_Dissolve.MI_Hair_Dissolve
+	 }, { 
+	SrcMaterial: Material /Game/Characters/Slashers/Materials/M_SlasherBlood.M_SlasherBlood
+	DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_SlasherBlood_Dissolve.MV_SlasherBlood_Dissolve
+	 }, { 
+	SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Dither.MI_Slasher_Dither
+	DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Dissolve.MV_Slasher_Dissolve
+	 }, { 
+	SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher_Cust.M_Slasher_Cust
+	DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Cust_Dissolve.MV_Slasher_Cust_Dissolve
+	 }, { 
+	SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher_Burn.M_Slasher_Burn
+	DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Burn_Dissolve.MV_Slasher_Burn_Dissolve
+	 }, { 
+	SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher_Blend.M_Slasher_Blend
+	DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Blend_Dissolve.MV_Slasher_Blend_Dissolve
+	 }, { 
+	SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Cust_Dither.MI_Slasher_Cust_Dither
+	DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Cust_Dissolve_Dither.MV_Slasher_Cust_Dissolve_Dither
+	 } ]
+	 }, { 
+	GroupName: SlasherInvisible
+	Maps: [ { 
+	SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher.M_Slasher
+	DstMaterial: Material /Game/Characters/Slashers/Materials/M_Basicdistortion.M_Basicdistortion
+	 }, { 
+	SrcMaterial: Material /Game/Characters/Slashers/Materials/M_SlasherBlood.M_SlasherBlood
+	DstMaterial: Material /Game/Characters/Slashers/Materials/M_Basicdistortion.M_Basicdistortion
+	 }, { 
+	SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher_Cust.M_Slasher_Cust
+	DstMaterial: Material /Game/Characters/Slashers/Materials/M_Basicdistortion.M_Basicdistortion
+	 } ]
+	 }, { 
+	GroupName: FirstPerson_Dissolve
+	Maps: [ { 
+	SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Weapon.MI_Slasher_Weapon
+	DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Weapon_FPS_Dissolve.MV_Slasher_Weapon_FPS_Dissolve
+	 }, { 
+	SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_SlasherBlood_Weapon.MI_SlasherBlood_Weapon
+	DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_SlasherBlood_Weapon_FPS_Dissolve.MV_SlasherBlood_Weapon_FPS_Dissolve
+	 }, { 
+	SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher.M_Slasher
+	DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Dissolve.MV_Slasher_Dissolve
+	 }, { 
+	SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Cust.MI_Slasher_Cust
+	DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Cust_Dissolve.MV_Slasher_Cust_Dissolve
+	 }, { 
+	SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher_Burn.M_Slasher_Burn
+	DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Burn_Dissolve.MV_Slasher_Burn_Dissolve
+	 }, { 
+	SrcMaterial: Material /Game/Characters/Slashers/Materials/M_GlassIce.M_GlassIce
+	DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_GlassIce_Dissolve.MV_GlassIce_Dissolve
+	 }, { 
+	SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher_Blend.M_Slasher_Blend
+	DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Blend_Dissolve.MV_Slasher_Blend_Dissolve
+	 } ]
+	 } ]
+	AttachParent: CharacterMesh0: {	
+		bEnableUpdateRateOptimizations: True
+		AnimationTresholdToFrameSkip: [ { 
+		Treshold: 4453159312402939905
+		FrameSkip: 1
+		 }, { 
+		Treshold: 4438747794454347777
+		FrameSkip: 4294967297
+		 }, { 
+		Treshold: 4417130515383975937
+		FrameSkip: 8589934593
+		 }, { 
+		Treshold: 4381101718365011969
+		FrameSkip: 12884901889
+		 }, { 
+		Treshold: 1
+		FrameSkip: 17179869185
+		 } ]
+		OverrideMaterials: [ 0, 0, MaterialInstanceConstant /Game/Characters/Slashers/Trapper/Materials/MI_TRLegs01.MI_TRLegs01 ]
+		DetailLevelBeforeCastShadows: DM_MAX
+		bCastCinematicShadow: True
+		LightingChannels: {
+			bChannel0: False
+			bChannel1: False
+			}
+		BoundsScale: 2f
+		BodyInstance: {
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: Pawn
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 } ]
+				}
+			MassInKgOverride: 0f
+			}
+		AttachParent: 260
+		RelativeLocation: Vector [X=0, Y=0, Z=-103]
+		RelativeRotation: Rotator [Pitch=0, Roll=-90, Yaw=0]
+		}
+	}
 Interactable: BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/Interactions/SlasherInteractable.SlasherInteractable_C
 PitchLimitLower: -80f
 PitchLimitUpper: 80f
 BlinkFOVCurve: CurveFloat /Game/Blueprints/GameplayElements/Item/Blinker/BlinkFOVCurve.BlinkFOVCurve
-BlindingChargeableComponent: BlindnessChargeableComponent: {	
-	OnInteractionEmptiedEvent: OnBlindChargeEmptied
-	ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
-	}
 _characterInventoryComponent: CharacterInventoryComponent: {	
 	}
 CarryJointName: CamperCarry
@@ -139,7 +241,7 @@ _cameraHandlerComponent: CameraHandlerComponent: {
 _specialEventSpawnerComponent: SpecialEventSpawnerComponent: {	
 	}
 _itemDropOffPosition: ItemDropOffPosition: {	
-	AttachParent: 283
+	AttachParent: 260
 	RelativeLocation: Vector [X=50, Y=0, Z=-100]
 	}
 EffectCameraTypeSettings: [ { 
@@ -151,41 +253,32 @@ Category: ECustomizationCategory::KillerHead
 VisibilityInFirstPerson: False
 VisibilityInThirdPerson: True
  } ]
+_blindingChargeableComponent: BlindnessChargeableComponent: {	
+	OnInteractionEmptiedEvent: OnBlindChargeEmptied
+	ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
+	ChargeableCompletionPercentChangeCosmeticDelegate: OnChargeableCompletionPercent
+	}
 _eventListener: EventListener: {	
+	}
+_chaseComponent: Chase Component: {	
 	}
 _meatHookZoneDetector: MeatHookZoneDetector: {	
 	}
 _authoritativeMovementComponent: AuthoritativeMovement: {	
 	}
-Mesh: CharacterMesh0: {	
-	bEnableUpdateRateOptimizations: True
-	OverrideMaterials: [ 0, 0, MaterialInstanceConstant /Game/Characters/Slashers/Trapper/Materials/MI_TRLegs01.MI_TRLegs01 ]
-	DetailLevelBeforeCastShadows: DM_MAX
-	bCastCinematicShadow: True
-	LightingChannels: {
-		bChannel0: False
-		bChannel1: False
-		}
-	BoundsScale: 2f
-	BodyInstance: {
-		CollisionResponses: {
-			ResponseArray: [ { 
-			Channel: Pawn
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Vehicle
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Camera
-			Response: ECR_Ignore
-			 } ]
-			}
-		MassInKgOverride: 0f
-		}
-	AttachParent: 283
-	RelativeLocation: Vector [X=0, Y=0, Z=-103]
-	RelativeRotation: Rotator [Pitch=0, Roll=-90, Yaw=0]
+_objectState: ObjectState: {	
 	}
+_audioFXComponent: AudioFXComponent: {	
+	}
+_tileVisitedAnalyticsComponent: TileVisitedAnalyticsComponent: {	
+	}
+_blindableComponent: BlindableComponent: {	
+	_blendWeightParameter: M_FlashLight_BlendWeight
+	_blindnessMaterialCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/BlindnessCurve_Material.BlindnessCurve_Material
+	_blindnessCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/BlindnessCurve.BlindnessCurve
+	_chargeableComponent: 264
+	}
+Mesh: 570
 CharacterMovement: CharMoveComp: {	
 	RandomInputFrontMultiplier: 0f
 	RandomInputBackMultiplier: 0f
@@ -199,8 +292,8 @@ CharacterMovement: CharMoveComp: {
 	BrakingDecelerationFalling: 1000f
 	PerchRadiusThreshold: 30f
 	}
-CapsuleComponent: 283
+CapsuleComponent: 260
 bNetLoadOnClient: False
 bReplicates: False
 RemoteRole: ROLE_None
-RootComponent: 283
+RootComponent: 260

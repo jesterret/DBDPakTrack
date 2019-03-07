@@ -1,11 +1,8 @@
-UberGraphFrame: 348
+UberGraphFrame: 358
 RootMeshIsHeadOnly: True
 DefaultSlasherPower: Item_Slasher_Stalker
 KillerMoodInfluence: EKillerMoodInfluence::VE_Chuckles
 KillerAbilities: [ EKillerAbilities::VE_Stalker, EKillerAbilities::VE_Kill06 ]
-_camperSensor: CamperSensor: {	
-	OnSeePawn: OnChaseTargetFound
-	}
 _stillnessTracker: StillnessTracker: {	
 	}
 _terrorRadiusEmitter: Terror Radius Component: {	
@@ -20,9 +17,31 @@ _invisibilityBurnoutChargeableComponent: InvisibilityBurnoutChargeableComponent:
 	}
 _hitsWhileCarryingTracker: HitsWhileCarryingTracker: {	
 	}
-BlindingChargeableComponent: BlindnessChargeableComponent: {	
-	OnInteractionEmptiedEvent: OnBlindChargeEmptied
-	ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
+MaterialHelper: MaterialHelperNative: {	
+	AttachParent: CharacterMesh0: {	
+		AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Animations/SlasherMale04/AB_SlasherMale04.AB_SlasherMale04_C
+		SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Michael_Myers/Models/MM_DSkeleton_REF.MM_DSkeleton_REF
+		OverrideMaterials: [ MaterialInstanceConstant /Game/Materials/Instances/MI_Basic_FullAlpha.MI_Basic_FullAlpha, MaterialInstanceConstant /Game/Characters/Slashers/Michael_Myers/Materials/MI_MMHair01.MI_MMHair01, MaterialInstanceConstant /Game/Characters/Slashers/Michael_Myers/Materials/MI_MMHead01.MI_MMHead01 ]
+		BodyInstance: {
+			CollisionResponses: {
+				ResponseArray: [ { 
+				Channel: Pawn
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Vehicle
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Camera
+				Response: ECR_Ignore
+				 }, { 
+				Channel: Audio
+				Response: ECR_Ignore
+				 } ]
+				}
+			MassInKgOverride: 16.39923f
+			}
+		AttachParent: 72
+		}
 	}
 _characterInventoryComponent: CharacterInventoryComponent: {	
 	}
@@ -49,41 +68,34 @@ _cameraHandlerComponent: CameraHandlerComponent: {
 _specialEventSpawnerComponent: SpecialEventSpawnerComponent: {	
 	}
 _itemDropOffPosition: ItemDropOffPosition: {	
-	AttachParent: 67
+	AttachParent: 72
+	}
+_blindingChargeableComponent: BlindnessChargeableComponent: {	
+	OnInteractionEmptiedEvent: OnBlindChargeEmptied
+	ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
+	ChargeableCompletionPercentChangeCosmeticDelegate: OnChargeableCompletionPercent
 	}
 _eventListener: EventListener: {	
+	}
+_chaseComponent: Chase Component: {	
 	}
 _meatHookZoneDetector: MeatHookZoneDetector: {	
 	}
 _authoritativeMovementComponent: AuthoritativeMovement: {	
 	}
-_characterIndex: 268435461
-Mesh: CharacterMesh0: {	
-	AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Animations/SlasherMale04/AB_SlasherMale04.AB_SlasherMale04_C
-	SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Michael_Myers/Models/MM_DSkeleton_REF.MM_DSkeleton_REF
-	OverrideMaterials: [ MaterialInstanceConstant /Game/Materials/Instances/MI_Basic_FullAlpha.MI_Basic_FullAlpha, MaterialInstanceConstant /Game/Characters/Slashers/Michael_Myers/Materials/MI_MMHair01.MI_MMHair01, MaterialInstanceConstant /Game/Characters/Slashers/Michael_Myers/Materials/MI_MMHead01.MI_MMHead01 ]
-	BodyInstance: {
-		CollisionResponses: {
-			ResponseArray: [ { 
-			Channel: Pawn
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Vehicle
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Camera
-			Response: ECR_Ignore
-			 }, { 
-			Channel: Audio
-			Response: ECR_Ignore
-			 } ]
-			}
-		MassInKgOverride: 16.39923f
-		}
-	AttachParent: 67
+_objectState: ObjectState: {	
 	}
+_audioFXComponent: AudioFXComponent: {	
+	}
+_tileVisitedAnalyticsComponent: TileVisitedAnalyticsComponent: {	
+	}
+_blindableComponent: BlindableComponent: {	
+	_chargeableComponent: 76
+	}
+_characterIndex: 268435461
+Mesh: 159
 CharacterMovement: CharMoveComp: {	
 	MaxWalkSpeed: 460f
 	}
-CapsuleComponent: 67
-RootComponent: 67
+CapsuleComponent: 72
+RootComponent: 72
