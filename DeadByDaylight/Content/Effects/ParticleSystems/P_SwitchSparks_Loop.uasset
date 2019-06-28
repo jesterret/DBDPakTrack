@@ -1,0 +1,690 @@
+Emitters: [ {{ 
+EmitterName: Burst_Out
+bUseLegacySpawningBehavior: True
+LODLevels: [ {{ 
+Level: 1
+RequiredModule: ParticleModuleSize: {	
+	StartSize: {
+		MaxValue: 0.3f
+		MinValueVec: { Vector [X=0.1, Y=0, Z=0] }
+		MaxValueVec: { Vector [X=0.3, Y=0, Z=0] }
+		Distribution: DistributionFloatConstant: {	
+			Constant: 1f
+			}
+		Table: { [Skipped] }
+		}
+	LODValidity: 3
+	}
+Modules: [ {{ 
+StartRadius: {
+	MinValue: 20f
+	MaxValue: 20f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+Negative_X: False
+SurfaceOnly: True
+Velocity: True
+VelocityScale: {
+	MinValue: 4f
+	MaxValue: 15f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+StartLocation: {
+	Distribution: 
+	Table: { [Skipped] }
+	}
+LODValidity: 3
+ }}
+, {{ 
+LifeMultiplier: {
+	Distribution: ParticleLODLevel: {	
+		RequiredModule: ParticleModuleRequired: {	
+			Material: MaterialInstanceConstant /Game/Effects/Materials/MI_RadialGradient.MI_RadialGradient
+			ScreenAlignment: PSA_Velocity
+			SortMode: PSORTMODE_Age_OldestFirst
+			bUseLegacyEmitterTime: False
+			EmitterDuration: 3f
+			EmitterLoops: 1
+			SpawnRate: {
+				Distribution: DistributionDistance: {	
+					Constant: 25f
+					}
+				}
+			RandomImageTime: 1f
+			LODValidity: 3
+			}
+		Modules: [ {{ 
+		Lifetime: {
+			MinValue: 0.2f
+			MaxValue: 1f
+			Distribution: 
+			Table: { [Skipped] }
+			}
+		LODValidity: 3
+		 }}
+		, {{ 
+		StartSize: {
+			MaxValue: 1f
+			MinValueVec: { Vector [X=0.1, Y=0, Z=0] }
+			MaxValueVec: { Vector [X=1, Y=0, Z=0] }
+			Distribution: 
+			Table: { [Skipped] }
+			}
+		LODValidity: 3
+		 }}
+		, {{ 
+		StartColor: {
+			MinValue: 1f
+			MaxValue: 5f
+			MinValueVec: { Vector [X=1, Y=1.999999, Z=5] }
+			MaxValueVec: { Vector [X=1, Y=1.999999, Z=5] }
+			Distribution: 
+			Table: { [Skipped] }
+			}
+		StartAlpha: {
+			MinValue: 0.1f
+			MaxValue: 0.1f
+			Distribution: 
+			Table: { [Skipped] }
+			}
+		LODValidity: 3
+		 }}
+		, {{ 
+		TargetMethod: PEB2STM_UserSet
+		TargetName: NewTarget
+		Target: {
+			MinValue: -20f
+			MaxValue: 15f
+			MinValueVec: { Vector [X=-20, Y=-15, Z=-15] }
+			MaxValueVec: { Vector [X=-50, Y=15, Z=15] }
+			Distribution: 
+			Table: { [Skipped] }
+			}
+		TargetTangent: {
+			Distribution: DistributionTargetTangent: {	
+				Constant: { Vector [X=1, Y=0, Z=0] }
+				}
+			}
+		TargetStrength: {
+			MinValue: 25f
+			MaxValue: 25f
+			Distribution: 
+			Table: { [Skipped] }
+			}
+		LODValidity: 3
+		 }}
+		, {{ 
+		Resilience: {
+			Distribution: ResilienceScaleOverLifeDistribution: {	
+				Constant: 1f
+				}
+			}
+		ResilienceScaleOverLife: {
+			Distribution: RequiredDistributionSpawnRate: {	
+				}
+			}
+		Friction: 0.25f
+		LODValidity: 3
+		 }}
+		, {{ 
+		SourceMethod: PEB2STM_UserSet
+		SourceName: Source
+		Source: {
+			MinValue: -20f
+			MaxValue: 20f
+			MinValueVec: { Vector [X=-20, Y=-20, Z=-10] }
+			MaxValueVec: { Vector [X=-20, Y=20, Z=10] }
+			Distribution: 
+			Table: { [Skipped] }
+			}
+		SourceTangent: {
+			Distribution: DistributionSourceTangent: {	
+				Constant: { Vector [X=1, Y=0, Z=0] }
+				}
+			}
+		SourceStrength: {
+			MinValue: 25f
+			MaxValue: 25f
+			Distribution: 
+			Table: { [Skipped] }
+			}
+		LODValidity: 3
+		 }}
+		 ]
+		TypeDataModule: ParticleModuleTypeDataGpu: {	
+			EmitterInfo: {
+				RequiredModule: 
+				SpawnModule: ParticleModuleSpawn: {	
+					Rate: {
+						Distribution: 
+						Table: { [Skipped] }
+						}
+					RateScale: {
+						MinValue: 1f
+						MaxValue: 1f
+						Distribution: 
+						Table: { [Skipped] }
+						}
+					BurstScale: {
+						MinValue: 1f
+						MaxValue: 1f
+						Distribution: 
+						Table: { [Skipped] }
+						}
+					bApplyGlobalSpawnRateScale: False
+					LODValidity: 2
+					}
+				SpawnModules: [ , , , {{ 
+				Material: Material /Game/Effects/Materials/M_beam_ramp.M_beam_ramp
+				bUseLegacyEmitterTime: False
+				EmitterDuration: 1.5f
+				EmitterLoops: 1
+				SpawnRate: {
+					Distribution: RequiredDistributionSpawnRate: {	
+						}
+					}
+				RandomImageTime: 1f
+				LODValidity: 3
+				 }}
+				, {{ 
+				EmitterName: beam
+				bUseLegacySpawningBehavior: True
+				LODLevels: [ {{ 
+				Level: 1
+				RequiredModule: 
+				Modules: [ , , , , ,  ]
+				TypeDataModule: 
+				SpawnModule: ParticleModuleSpawn: {	
+					Rate: {
+						MinValue: 3f
+						MaxValue: 3f
+						Distribution: 
+						Table: { [Skipped] }
+						}
+					RateScale: {
+						Distribution: 
+						Table: { [Skipped] }
+						}
+					BurstList: [ {
+						Count: 5
+						CountLow: -1
+						Time: 0f
+						} ]
+					BurstScale: {
+						MinValue: 1f
+						MaxValue: 1f
+						Distribution: 
+						Table: { [Skipped] }
+						}
+					LODValidity: 3
+					}
+				PeakActiveParticles: 6
+				 }}
+				, {{ 
+				RequiredModule: ParticleModuleRequired: {	
+					Material: Material /Game/Effects/Materials/M_beam_ramp.M_beam_ramp
+					bUseLegacyEmitterTime: False
+					EmitterDuration: 0.1f
+					EmitterLoops: 1
+					SpawnRate: {
+						Distribution: RequiredDistributionSpawnRate: {	
+							}
+						}
+					RandomImageTime: 1f
+					LODValidity: 3
+					}
+				Modules: [ {{ 
+				Lifetime: {
+					MinValue: 0.2f
+					MaxValue: 0.8f
+					Distribution: 
+					Table: { [Skipped] }
+					}
+				LODValidity: 3
+				 }}
+				, {{ 
+				StartSize: {
+					MaxValue: 0.3f
+					MinValueVec: { Vector [X=0.1, Y=0, Z=0] }
+					MaxValueVec: { Vector [X=0.3, Y=0, Z=0] }
+					Distribution: 
+					Table: { [Skipped] }
+					}
+				LODValidity: 3
+				 }}
+				, {{ 
+				StartColor: {
+					MinValue: 21.95876f
+					MaxValue: 28.92477f
+					MinValueVec: { Vector [X=21.95876, Y=24.09111, Z=28.92477] }
+					MaxValueVec: { Vector [X=21.95876, Y=24.09111, Z=28.92477] }
+					Distribution: 
+					Table: { [Skipped] }
+					}
+				StartAlpha: {
+					MinValue: 1f
+					MaxValue: 1f
+					Distribution: 
+					Table: { [Skipped] }
+					}
+				LODValidity: 3
+				 }}
+				, {{ 
+				SourceMethod: PEB2STM_UserSet
+				SourceName: Source
+				Source: {
+					MinValue: -25f
+					MaxValue: 20f
+					MinValueVec: { Vector [X=15, Y=-20, Z=-25] }
+					MaxValueVec: { Vector [X=15, Y=20, Z=-5] }
+					Distribution: 
+					Table: { [Skipped] }
+					}
+				SourceTangent: {
+					Distribution: DistributionTargetTangent: {	
+						Constant: { Vector [X=1, Y=0, Z=0] }
+						}
+					}
+				SourceStrength: {
+					MinValue: 25f
+					MaxValue: 25f
+					Distribution: 
+					Table: { [Skipped] }
+					}
+				LODValidity: 3
+				 }}
+				, {{ 
+				TargetMethod: PEB2STM_UserSet
+				TargetName: NewTarget
+				Target: {
+					MinValue: -30f
+					MaxValue: 20f
+					MinValueVec: { Vector [X=15, Y=-20, Z=-30] }
+					MaxValueVec: { Vector [X=15, Y=20, Z=-10] }
+					Distribution: 
+					Table: { [Skipped] }
+					}
+				TargetTangent: {
+					Distribution: DistributionVectorConstant: {	
+						Constant: { Vector [X=1, Y=1, Z=1] }
+						}
+					}
+				TargetStrength: {
+					MinValue: 25f
+					MaxValue: 25f
+					Distribution: 
+					Table: { [Skipped] }
+					}
+				LODValidity: 3
+				 }}
+				, {{ 
+				bLowFreq_Enabled: True
+				Frequency: 1
+				NoiseRange: {
+					MinValue: -10f
+					MaxValue: 10f
+					MinValueVec: { Vector [X=-10, Y=-10, Z=-10] }
+					MaxValueVec: { Vector [X=10, Y=10, Z=10] }
+					Distribution: 
+					Table: { [Skipped] }
+					}
+				NoiseRangeScale: {
+					MaxValue: 1f
+					Distribution: 
+					Table: { [Skipped] }
+					}
+				NoiseSpeed: {
+					MinValue: 0.1f
+					MaxValue: 0.1f
+					MinValueVec: { Vector [X=0.1, Y=0.1, Z=0.1] }
+					MaxValueVec: { Vector [X=0.1, Y=0.1, Z=0.1] }
+					Distribution: 
+					Table: { [Skipped] }
+					}
+				NoiseLockTime: 0.05f
+				NoiseTension: 0.1f
+				NoiseTangentStrength: {
+					MaxValue: 1f
+					Distribution: 
+					Table: { [Skipped] }
+					}
+				NoiseTessellation: 3
+				FrequencyDistance: 1f
+				NoiseScale: {
+					Distribution: ResilienceDistribution: {	
+						Constant: 0.1f
+						}
+					}
+				LODValidity: 3
+				 }}
+				 ]
+				TypeDataModule: ParticleModuleTypeDataBeam2: {	
+					MaxBeamCount: 5
+					Speed: 0f
+					Distance: {
+						Distribution: DistributionTaperFactor: {	
+							Constant: 1f
+							}
+						}
+					TaperFactor: {
+						Distribution: DistributionTaperScale: {	
+							Constant: 1f
+							}
+						}
+					TaperScale: {
+						Distribution: DistributionFloatConstantCurve: {	
+							ConstantCurve: {
+								Points: [ {
+									InVal: 0f
+									OutVal: 1f
+									ArriveTangent: 0f
+									LeaveTangent: 0f
+									InterpMode: CIM_Linear
+									}, {
+									InVal: 1f
+									OutVal: 0f
+									ArriveTangent: 0f
+									LeaveTangent: 0f
+									InterpMode: CIM_Linear
+									} ]
+								}
+							}
+						}
+					LODValidity: 3
+					}
+				SpawnModule: ParticleModuleTypeDataBeam2: {	
+					MaxBeamCount: 3
+					Speed: 0f
+					Distance: {
+						Distribution: DistributionTaperFactor: {	
+							Constant: 1f
+							}
+						}
+					TaperFactor: {
+						Distribution: DistributionTaperScale: {	
+							Constant: 1f
+							}
+						}
+					TaperScale: {
+						Distribution: DistributionDistance: {	
+							Constant: 25f
+							}
+						}
+					LODValidity: 3
+					}
+				PeakActiveParticles: 5
+				 }}
+				 ]
+				DetailModeBitmask: 7
+				 }}
+				 ]
+				ConstantAcceleration: { Vector [X=0, Y=0, Z=-980] }
+				InvMaxSize: { Vector2D [X=1, Y=1] }
+				InvRotationRateScale: 1f
+				MaxLifetime: 1f
+				MaxParticleCount: 43
+				ScreenAlignment: PSA_Velocity
+				bEnableCollision: True
+				}
+			ResourceData: {
+				QuantizedColorSamples: [ { Color [A=255, R=0, G=0, B=0] }, { Color [A=0, R=0, G=0, B=0] } ]
+				QuantizedMiscSamples: [ { Color [A=0, R=0, G=255, B=0] }, { Color [A=0, R=0, G=255, B=0] }, { Color [A=0, R=0, G=255, B=0] }, { Color [A=0, R=0, G=255, B=0] }, { Color [A=0, R=0, G=255, B=0] }, { Color [A=0, R=0, G=238, B=0] }, { Color [A=0, R=0, G=204, B=0] }, { Color [A=0, R=0, G=169, B=0] }, { Color [A=0, R=0, G=135, B=0] }, { Color [A=0, R=0, G=101, B=0] }, { Color [A=0, R=0, G=68, B=0] }, { Color [A=0, R=0, G=33, B=0] }, { Color [A=0, R=0, G=0, B=0] }, { Color [A=0, R=0, G=0, B=0] }, { Color [A=0, R=0, G=0, B=0] }, { Color [A=0, R=0, G=0, B=0] } ]
+				ColorScale: { Vector4 [X=0, Y=0, Z=0, W=1] }
+				ColorBias: { Vector4 [X=21.95876, Y=24.09111, Z=28.92477, W=0] }
+				MiscScale: { Vector4 [X=0, Y=0.8, Z=0, W=0] }
+				MiscBias: { Vector4 [X=1, Y=0.2, Z=0, W=0] }
+				SimulationAttrCurveBias: { Vector4 [X=1, Y=1, Z=1, W=1] }
+				SubImageSize: { Vector4 [X=1, Y=1, Z=1, W=1] }
+				SizeBySpeed: { Vector4 [X=0.05, Y=0.05, Z=1, W=4] }
+				ConstantAcceleration: { Vector [X=0, Y=0, Z=-980] }
+				PerParticleVectorFieldBias: 1f
+				ResilienceBias: 0.1f
+				CollisionRadiusScale: 0.5f
+				OneMinusFriction: 0.75f
+				RotationRateScale: 1f
+				ScreenAlignment: PSA_Velocity
+				}
+			bClearExistingParticlesOnInit: True
+			LODValidity: 3
+			}
+		SpawnModule: 
+		PeakActiveParticles: 8
+		}
+	}
+LODValidity: 3
+ }}
+, , {{ 
+ColorScaleOverLife: {
+	Distribution: DistributionVectorConstantCurve: {	
+		ConstantCurve: {
+			Points: [ {
+				InVal: 0.3f
+				OutVal: { Vector [X=1, Y=1, Z=1] }
+				ArriveTangent: { Vector [X=0, Y=0, Z=0] }
+				LeaveTangent: { Vector [X=0, Y=0, Z=0] }
+				InterpMode: CIM_Linear
+				}, {
+				InVal: 0.8f
+				OutVal: { Vector [X=1, Y=0.2, Z=1] }
+				ArriveTangent: { Vector [X=0, Y=0, Z=0] }
+				LeaveTangent: { Vector [X=0, Y=0, Z=0] }
+				InterpMode: CIM_Linear
+				} ]
+			}
+		}
+	}
+AlphaScaleOverLife: {
+	Distribution: DistributionSourceTangent: {	
+		Constant: { Vector [X=1, Y=0, Z=0] }
+		}
+	}
+LODValidity: 3
+ }}
+, , {{ 
+StartColor: {
+	MinValue: 1f
+	MaxValue: 5f
+	MinValueVec: { Vector [X=1, Y=1.999999, Z=5] }
+	MaxValueVec: { Vector [X=1, Y=1.999999, Z=5] }
+	Distribution: 
+	Table: { [Skipped] }
+	}
+StartAlpha: {
+	MinValue: 0.1f
+	MaxValue: 0.1f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+LODValidity: 3
+ }}
+, {{ 
+Lifetime: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+LODValidity: 3
+ }}
+, {{ 
+bLowFreq_Enabled: True
+Frequency: 1
+NoiseRange: {
+	MinValue: -10f
+	MaxValue: 10f
+	MinValueVec: { Vector [X=-10, Y=-10, Z=-10] }
+	MaxValueVec: { Vector [X=10, Y=10, Z=10] }
+	Distribution: 
+	Table: { [Skipped] }
+	}
+NoiseRangeScale: {
+	MaxValue: 1f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+NoiseSpeed: {
+	MinValue: 0.1f
+	MaxValue: 0.1f
+	MinValueVec: { Vector [X=0.1, Y=0.1, Z=0.1] }
+	MaxValueVec: { Vector [X=0.1, Y=0.1, Z=0.1] }
+	Distribution: 
+	Table: { [Skipped] }
+	}
+NoiseLockTime: 0.05f
+NoiseTension: 0.1f
+NoiseTangentStrength: {
+	MaxValue: 1f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+NoiseTessellation: 3
+FrequencyDistance: 1f
+NoiseScale: {
+	Distribution: DistributionFloatConstant: {	
+		Constant: 1f
+		}
+	}
+LODValidity: 3
+ }}
+, {{ 
+Rate: {
+	Distribution: 
+	Table: { [Skipped] }
+	}
+RateScale: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+BurstList: [ {
+	Count: 10
+	CountLow: -1
+	Time: 0f
+	}, {
+	Count: 10
+	CountLow: -1
+	Time: 0.5f
+	}, {
+	Count: 10
+	CountLow: -1
+	Time: 1f
+	}, {
+	Count: 3
+	CountLow: -1
+	Time: 1.5f
+	}, {
+	Count: 6
+	CountLow: -1
+	Time: 2f
+	}, {
+	Count: 3
+	CountLow: 1
+	Time: 2.5f
+	} ]
+BurstScale: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+bApplyGlobalSpawnRateScale: False
+LODValidity: 1
+ }}
+, {{ 
+SpeedScale: { Vector2D [X=0.05, Y=0.05] }
+MaxScale: { Vector2D [X=1, Y=4] }
+LODValidity: 3
+ }}
+ ]
+TypeDataModule: ParticleModuleVelocity: {	
+	StartVelocity: {
+		MaxValue: 200f
+		MaxValueVec: { Vector [X=200, Y=0, Z=100] }
+		Distribution: 
+		Table: { [Skipped] }
+		}
+	StartVelocityRadial: {
+		MaxValue: 10f
+		Distribution: 
+		Table: { [Skipped] }
+		}
+	LODValidity: 3
+	}
+SpawnModule: ParticleModuleSpawn: {	
+	Rate: {
+		MinValue: 3f
+		MaxValue: 3f
+		Distribution: 
+		Table: { [Skipped] }
+		}
+	RateScale: {
+		Distribution: 
+		Table: { [Skipped] }
+		}
+	BurstList: [ {
+		Count: 5
+		CountLow: -1
+		Time: 0f
+		} ]
+	BurstScale: {
+		MinValue: 1f
+		MaxValue: 1f
+		Distribution: 
+		Table: { [Skipped] }
+		}
+	LODValidity: 3
+	}
+PeakActiveParticles: 1
+ }}
+, {{ 
+Acceleration: { Vector [X=0, Y=0, Z=-980] }
+bAlwaysInWorldSpace: True
+LODValidity: 3
+ }}
+ ]
+DetailModeBitmask: 7
+ }}
+, {{ 
+EmitterName: beam
+bUseLegacySpawningBehavior: True
+LODLevels: [ {{ 
+Level: 1
+RequiredModule: 
+Modules: [ , , , , ,  ]
+TypeDataModule: 
+SpawnModule: 
+PeakActiveParticles: 6
+ }}
+, {{ 
+RequiredModule: 
+Modules: [ , , , , , , , , ,  ]
+TypeDataModule: 
+SpawnModule: 
+PeakActiveParticles: 43
+ }}
+ ]
+DetailModeBitmask: 7
+ }}
+, this ]
+CurveEdSetup: 
+LODDistances: [ 0, 2000 ]
+LODSettings: [ {
+	}, {
+	} ]
+bUseFixedRelativeBoundingBox: True
+FixedRelativeBoundingBox: { {{ 
+	Min: Vector [X=-400, Y=-400, Z=-400]
+	Max: Vector [X=400, Y=400, Z=400]
+	IsValid: 1
+	 }}
+	 }
+bShouldResetPeakCounts: True
+CustomOcclusionBounds: { {{ 
+	Min: Vector [X=0, Y=0, Z=0]
+	Max: Vector [X=0, Y=0, Z=0]
+	IsValid: 1
+	 }}
+	 }

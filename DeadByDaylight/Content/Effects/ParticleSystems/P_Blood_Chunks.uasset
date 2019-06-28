@@ -1,7 +1,51 @@
-Emitters: [ { 
+Emitters: [ {{ 
+bUseLegacySpawningBehavior: True
+LODLevels: [ {{ 
+RequiredModule: ParticleModuleSize: {	
+	StartSize: {
+		MinValue: 0.01f
+		MaxValue: 0.05f
+		MinValueVec: { Vector [X=0.01, Y=0.01, Z=0.01] }
+		MaxValueVec: { Vector [X=0.05, Y=0.05, Z=0.05] }
+		Distribution: RequiredDistributionSpawnRate: {	
+			}
+		Table: { [Skipped] }
+		}
+	LODValidity: 1
+	}
+Modules: [ {{ 
+StartLocation: {
+	MinValue: -3f
+	MaxValue: 3f
+	MinValueVec: { Vector [X=-3, Y=-3, Z=-3] }
+	MaxValueVec: { Vector [X=3, Y=3, Z=3] }
+	Distribution: 
+	Table: { [Skipped] }
+	}
+LODValidity: 1
+ }}
+, {{ 
+LifeMultiplier: {
+	MaxValue: 1f
+	MaxValueVec: { Vector [X=1, Y=1, Z=1] }
+	Distribution: 
+	Table: { [Skipped] }
+	}
+LODValidity: 1
+ }}
+, {{ 
+RotRate: {
+	MaxValue: 1f
+	MaxValueVec: { Vector [X=1, Y=1, Z=1] }
+	Distribution: 
+	Table: { [Skipped] }
+	}
+LODValidity: 1
+ }}
+, {{ 
 EmitterName: BrainChunks01
 bUseLegacySpawningBehavior: True
-LODLevels: [ { 
+LODLevels: [ {{ 
 RequiredModule: ParticleModuleRequired: {	
 	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Blood_Chunks.MI_Blood_Chunks
 	bKillOnDeactivate: True
@@ -10,608 +54,374 @@ RequiredModule: ParticleModuleRequired: {
 	EmitterDuration: 0.5f
 	EmitterLoops: 1
 	SpawnRate: {
-		Distribution: RequiredDistributionSpawnRate: {	
+		Distribution: ParticleLODLevel: {	
+			RequiredModule: ParticleModuleRequired: {	
+				Material: MaterialInstanceConstant /Game/Effects/Materials/Liquid/MI_BloodLitDrops.MI_BloodLitDrops
+				bKillOnDeactivate: True
+				bKillOnCompleted: True
+				bUseLegacyEmitterTime: False
+				EmitterLoops: 1
+				SpawnRate: {
+					Distribution: RequiredDistributionSpawnRate: {	
+						}
+					}
+				RandomImageTime: 1f
+				LODValidity: 1
+				}
+			Modules: [ {{ 
+			Lifetime: {
+				MinValue: 1f
+				MaxValue: 1f
+				Distribution: 
+				Table: { [Skipped] }
+				}
+			LODValidity: 1
+			 }}
+			, {{ 
+			StartSize: {
+				MinValue: 0.25f
+				MaxValue: 2f
+				MinValueVec: { Vector [X=0.25, Y=0.25, Z=0.25] }
+				MaxValueVec: { Vector [X=1, Y=1, Z=2] }
+				Distribution: 
+				Table: { [Skipped] }
+				}
+			LODValidity: 1
+			 }}
+			, {{ 
+			StartColor: {
+				MaxValue: 0.16f
+				MinValueVec: { Vector [X=0.045, Y=0, Z=0] }
+				MaxValueVec: { Vector [X=0.16, Y=0, Z=0] }
+				Distribution: 
+				Table: { [Skipped] }
+				}
+			StartAlpha: {
+				MinValue: 1f
+				MaxValue: 1f
+				Distribution: 
+				Table: { [Skipped] }
+				}
+			LODValidity: 1
+			 }}
+			, {{ 
+			StartRotation: {
+				MaxValue: 1f
+				MaxValueVec: { Vector [X=1, Y=1, Z=1] }
+				Distribution: 
+				Table: { [Skipped] }
+				}
+			LODValidity: 1
+			 }}
+			, {{ 
+			Angle: {
+				MinValue: 0.1f
+				MaxValue: -0.1f
+				Distribution: 
+				Table: { [Skipped] }
+				}
+			Velocity: {
+				MinValue: 300f
+				MaxValue: 100f
+				Distribution: 
+				Table: { [Skipped] }
+				}
+			LODValidity: 1
+			 }}
+			, {{ 
+			Acceleration: {
+				MinValue: -400f
+				MinValueVec: { Vector [X=0, Y=0, Z=-400] }
+				MaxValueVec: { Vector [X=0, Y=0, Z=-500] }
+				Distribution: 
+				Table: { [Skipped] }
+				}
+			bAlwaysInWorldSpace: True
+			LODValidity: 1
+			 }}
+			, {{ 
+			RotRate: {
+				MaxValue: 1f
+				MaxValueVec: { Vector [X=1, Y=1, Z=1] }
+				Distribution: 
+				Table: { [Skipped] }
+				}
+			LODValidity: 1
+			 }}
+			, {{ 
+			LifeMultiplier: {
+				MaxValue: 1f
+				MaxValueVec: { Vector [X=1, Y=1, Z=1] }
+				Distribution: 
+				Table: { [Skipped] }
+				}
+			LODValidity: 1
+			 }}
+			, {{ 
+			StartLocation: {
+				MinValue: -3f
+				MaxValue: 3f
+				MinValueVec: { Vector [X=-3, Y=-3, Z=-3] }
+				MaxValueVec: { Vector [X=3, Y=3, Z=3] }
+				Distribution: 
+				Table: { [Skipped] }
+				}
+			LODValidity: 1
+			 }}
+			 ]
+			TypeDataModule: ParticleModuleTypeDataMesh: {	
+				Mesh: StaticMesh /Game/Effects/Mesh/SM_Chunks_01.SM_Chunks_01
+				RollPitchYawRange: {
+					Distribution: 
+					Table: { [Skipped] }
+					}
+				LODValidity: 1
+				}
+			SpawnModule: ParticleModuleSpawn: {	
+				Rate: {
+					MinValue: 1f
+					MaxValue: 1f
+					Distribution: 
+					Table: { [Skipped] }
+					}
+				RateScale: {
+					MinValue: 1f
+					MaxValue: 1f
+					Distribution: 
+					Table: { [Skipped] }
+					}
+				BurstList: [ {
+					Count: 50
+					CountLow: -1
+					Time: 0f
+					} ]
+				BurstScale: {
+					MinValue: 1f
+					MaxValue: 1f
+					Distribution: 
+					Table: { [Skipped] }
+					}
+				LODValidity: 1
+				}
+			PeakActiveParticles: 38
 			}
 		}
 	RandomImageTime: 1f
 	LODValidity: 1
 	}
-Modules: [ { 
-Lifetime: {
-	MinValue: 0.4f
-	MaxValue: 0.6f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 2
-		SubEntryStride: 1
-		Values: [ 0.4, 0.6 ]
-		}
-	}
-LODValidity: 1
- }, { 
-StartSize: {
-	MinValue: 0.01f
-	MaxValue: 0.05f
-	MinValueVec: Vector [X=0.01, Y=0.01, Z=0.01]
-	MaxValueVec: Vector [X=0.05, Y=0.05, Z=0.05]
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ 0.01, 0.01, 0.01, 0.05, 0.05, 0.05 ]
-		}
-	}
-LODValidity: 1
- }, { 
-StartColor: {
-	MaxValue: 0.16f
-	MinValueVec: Vector [X=0.045, Y=0, Z=0]
-	MaxValueVec: Vector [X=0.16, Y=0, Z=0]
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 2
-		EntryStride: 3
-		TimeScale: 1f
-		Values: [ 0.045, 0, 0, 0.16, 0, 0 ]
-		}
-	}
-StartAlpha: {
-	MinValue: 1f
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 1 ]
-		}
-	}
-LODValidity: 1
- }, { 
+Modules: [ {{ 
 StartRotation: {
 	MinValue: -1f
 	MaxValue: 1f
-	MinValueVec: Vector [X=-1, Y=-1, Z=-1]
-	MaxValueVec: Vector [X=1, Y=1, Z=1]
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ -1, -1, -1, 1, 1, 1 ]
-		}
+	MinValueVec: { Vector [X=-1, Y=-1, Z=-1] }
+	MaxValueVec: { Vector [X=1, Y=1, Z=1] }
+	Distribution: 
+	Table: { [Skipped] }
 	}
 LODValidity: 1
- }, { 
-Angle: {
-	MinValue: 0.1f
-	MaxValue: -0.1f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 2
-		SubEntryStride: 1
-		Values: [ 0.1, -0.1 ]
-		}
-	}
-Velocity: {
-	MinValue: 300f
-	MaxValue: 100f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 2
-		SubEntryStride: 1
-		Values: [ 300, 100 ]
-		}
-	}
-LODValidity: 1
- }, { 
-Acceleration: {
-	MinValue: -300f
-	MinValueVec: Vector [X=0, Y=0, Z=-300]
-	MaxValueVec: Vector [X=0, Y=0, Z=-500]
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ 0, 0, -300, 0, 0, -500 ]
-		}
-	}
-bAlwaysInWorldSpace: True
-LODValidity: 1
- }, { 
-RotRate: {
-	MaxValue: 1f
-	MaxValueVec: Vector [X=1, Y=1, Z=1]
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 2
-		EntryStride: 3
-		TimeScale: 1f
-		Values: [ 0, 0, 0, 1, 1, 1 ]
-		}
-	}
-LODValidity: 1
- }, { 
-LifeMultiplier: {
-	MaxValue: 1f
-	MaxValueVec: Vector [X=1, Y=1, Z=1]
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 2
-		EntryStride: 3
-		TimeScale: 1f
-		Values: [ 1, 1, 1, 0, 0, 0 ]
-		}
-	}
-LODValidity: 1
- }, { 
-StartLocation: {
-	MinValue: -3f
-	MaxValue: 3f
-	MinValueVec: Vector [X=-3, Y=-3, Z=-3]
-	MaxValueVec: Vector [X=3, Y=3, Z=3]
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ -3, -3, -3, 3, 3, 3 ]
-		}
-	}
-LODValidity: 1
- } ]
-TypeDataModule: ParticleModuleTypeDataMesh: {	
-	Mesh: StaticMesh /Game/Effects/Mesh/SM_Chunks_01.SM_Chunks_01
-	RollPitchYawRange: {
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 3
-			Values: [ 0, 0, 0 ]
-			}
-		}
-	LODValidity: 1
-	}
-SpawnModule: ParticleModuleSpawn: {	
-	Rate: {
-		MaxValue: 10f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 2
-			EntryStride: 1
-			TimeScale: 2f
-			Values: [ 10, 0 ]
-			}
-		}
-	RateScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	BurstList: [ { 
-	Count: 35
-	CountLow: 25
-	Time: 0f
-	 } ]
-	BurstScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	LODValidity: 1
-	}
-PeakActiveParticles: 38
- } ]
-DetailModeBitmask: 7
- }, { 
-EmitterName: BrainChunks01
-bUseLegacySpawningBehavior: True
-LODLevels: [ { 
-RequiredModule: ParticleModuleRequired: {	
-	Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Blood_Chunks.MI_Blood_Chunks
-	bKillOnDeactivate: True
-	bKillOnCompleted: True
-	bUseLegacyEmitterTime: False
-	EmitterDuration: 0.5f
-	EmitterLoops: 1
-	SpawnRate: {
-		Distribution: RequiredDistributionSpawnRate: {	
-			}
-		}
-	RandomImageTime: 1f
-	LODValidity: 1
-	}
-Modules: [ { 
+ }}
+, {{ 
 Lifetime: {
 	MinValue: 0.4f
 	MaxValue: 0.6f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 2
-		SubEntryStride: 1
-		Values: [ 0.4, 0.6 ]
-		}
+	Distribution: 
+	Table: { [Skipped] }
 	}
 LODValidity: 1
- }, { 
+ }}
+, {{ 
 StartSize: {
 	MinValue: 0.01f
 	MaxValue: 0.05f
-	MinValueVec: Vector [X=0.01, Y=0.01, Z=0.01]
-	MaxValueVec: Vector [X=0.05, Y=0.05, Z=0.05]
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ 0.01, 0.01, 0.01, 0.05, 0.05, 0.05 ]
-		}
+	MinValueVec: { Vector [X=0.01, Y=0.01, Z=0.01] }
+	MaxValueVec: { Vector [X=0.05, Y=0.05, Z=0.05] }
+	Distribution: 
+	Table: { [Skipped] }
 	}
 LODValidity: 1
- }, { 
-StartRotation: {
-	MaxValue: 1f
-	MaxValueVec: Vector [X=1, Y=1, Z=1]
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ 0, 0, 0, 1, 1, 1 ]
-		}
-	}
-LODValidity: 1
- }, { 
-Angle: {
-	MinValue: 0.1f
-	MaxValue: -0.1f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 2
-		SubEntryStride: 1
-		Values: [ 0.1, -0.1 ]
-		}
-	}
-Velocity: {
-	MinValue: 300f
-	MaxValue: 100f
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 2
-		SubEntryStride: 1
-		Values: [ 300, 100 ]
-		}
-	}
-LODValidity: 1
- }, { 
+ }}
+, {{ 
 Acceleration: {
 	MinValue: -300f
-	MinValueVec: Vector [X=0, Y=0, Z=-300]
-	MaxValueVec: Vector [X=0, Y=0, Z=-500]
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ 0, 0, -300, 0, 0, -500 ]
-		}
+	MinValueVec: { Vector [X=0, Y=0, Z=-300] }
+	MaxValueVec: { Vector [X=0, Y=0, Z=-500] }
+	Distribution: 
+	Table: { [Skipped] }
 	}
 bAlwaysInWorldSpace: True
 LODValidity: 1
- }, { 
-RotRate: {
-	MaxValue: 1f
-	MaxValueVec: Vector [X=1, Y=1, Z=1]
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 2
-		EntryStride: 3
-		TimeScale: 1f
-		Values: [ 0, 0, 0, 1, 1, 1 ]
-		}
+ }}
+, {{ 
+Lifetime: {
+	MinValue: 0.4f
+	MaxValue: 0.6f
+	Distribution: 
+	Table: { [Skipped] }
 	}
 LODValidity: 1
- }, { 
-LifeMultiplier: {
-	MaxValue: 1f
-	MaxValueVec: Vector [X=1, Y=1, Z=1]
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 2
-		EntryStride: 3
-		TimeScale: 2f
-		TimeBias: 0.5f
-		Values: [ 1, 1, 1, 0, 0, 0 ]
-		}
-	}
-LODValidity: 1
- }, { 
-StartLocation: {
-	MinValue: -3f
-	MaxValue: 3f
-	MinValueVec: Vector [X=-3, Y=-3, Z=-3]
-	MaxValueVec: Vector [X=3, Y=3, Z=3]
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ -3, -3, -3, 3, 3, 3 ]
-		}
-	}
-LODValidity: 1
- }, { 
-StartColor: {
-	MaxValue: 0.16f
-	MinValueVec: Vector [X=0.045, Y=0, Z=0]
-	MaxValueVec: Vector [X=0.16, Y=0, Z=0]
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 2
-		EntryStride: 3
-		TimeScale: 1f
-		Values: [ 0.045, 0, 0, 0.16, 0, 0 ]
-		}
-	}
-StartAlpha: {
-	MinValue: 1f
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 1 ]
-		}
-	}
-LODValidity: 1
- } ]
-TypeDataModule: ParticleModuleTypeDataMesh: {	
-	Mesh: StaticMesh /Game/Effects/Mesh/SM_Chunks_01.SM_Chunks_01
-	RollPitchYawRange: {
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 3
-			Values: [ 0, 0, 0 ]
-			}
-		}
-	LODValidity: 1
-	}
+ }}
+ ]
 SpawnModule: ParticleModuleSpawn: {	
 	Rate: {
 		MaxValue: 10f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 2
-			EntryStride: 1
-			TimeScale: 2f
-			Values: [ 10, 0 ]
-			}
+		Distribution: 
+		Table: { [Skipped] }
 		}
 	RateScale: {
 		MinValue: 1f
 		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
+		Distribution: 
+		Table: { [Skipped] }
 		}
-	BurstList: [ { 
-	Count: 35
-	CountLow: 25
-	Time: 0f
-	 } ]
+	BurstList: [ {
+		Count: 35
+		CountLow: 25
+		Time: 0f
+		} ]
 	BurstScale: {
 		MinValue: 1f
 		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	LODValidity: 1
-	}
-PeakActiveParticles: 38
- } ]
-DetailModeBitmask: 7
- }, { 
-bUseLegacySpawningBehavior: True
-LODLevels: [ { 
-RequiredModule: ParticleModuleRequired: {	
-	Material: MaterialInstanceConstant /Game/Effects/Materials/Liquid/MI_BloodLitDrops.MI_BloodLitDrops
-	bKillOnDeactivate: True
-	bKillOnCompleted: True
-	bUseLegacyEmitterTime: False
-	EmitterLoops: 1
-	SpawnRate: {
-		Distribution: RequiredDistributionSpawnRate: {	
-			}
-		}
-	RandomImageTime: 1f
-	LODValidity: 1
-	}
-Modules: [ { 
-EmitterName: BrainChunks01
-SelectionMethod: ELESM_Sequential
-InheritSourceVelocity: True
-LODValidity: 1
- }, { 
-Lifetime: {
-	MinValue: 1f
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 1 ]
-		}
-	}
-LODValidity: 1
- }, { 
-StartSize: {
-	MinValue: 0.25f
-	MaxValue: 2f
-	MinValueVec: Vector [X=0.25, Y=0.25, Z=0.25]
-	MaxValueVec: Vector [X=1, Y=1, Z=2]
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ 0.25, 0.25, 0.25, 1, 1, 2 ]
-		}
-	}
-LODValidity: 1
- }, { 
-Acceleration: {
-	MinValue: -400f
-	MinValueVec: Vector [X=0, Y=0, Z=-400]
-	MaxValueVec: Vector [X=0, Y=0, Z=-500]
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ 0, 0, -400, 0, 0, -500 ]
-		}
-	}
-bAlwaysInWorldSpace: True
-LODValidity: 1
- }, { 
-ColorOverLife: {
-	MaxValue: 1f
-	MinValueVec: Vector [X=1, Y=0, Z=0]
-	MaxValueVec: Vector [X=1, Y=0, Z=0]
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 1, 0, 0 ]
-		}
-	}
-AlphaOverLife: {
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 32
-		EntryStride: 1
-		TimeScale: 31f
-		Values: [ 0, 0.3225806, 0.6451613, 0.9601219, 0.9677419, 0.9318997, 0.8960574, 0.8602151, 0.8243728, 0.7885305, 0.7526882, 0.7168459, 0.6810036, 0.6451613, 0.609319, 0.5734767, 0.5376344, 0.5017922, 0.4659498, 0.4301075, 0.3942653, 0.3584231, 0.3225807, 0.2867384, 0.2508961, 0.2150539, 0.1792115, 0.1433692, 0.107527, 0.0716847, 0.03584232, 0 ]
-		}
-	}
-LODValidity: 1
- } ]
-SpawnModule: ParticleModuleSpawn: {	
-	Rate: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	RateScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	BurstList: [ { 
-	Count: 50
-	CountLow: -1
-	Time: 0f
-	 } ]
-	BurstScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
+		Distribution: 
+		Table: { [Skipped] }
 		}
 	LODValidity: 1
 	}
 PeakActiveParticles: 53
- } ]
+ }}
+ ]
 DetailModeBitmask: 7
- } ]
-CurveEdSetup: 0
+ }}
+, {{ 
+StartColor: {
+	MaxValue: 0.16f
+	MinValueVec: { Vector [X=0.045, Y=0, Z=0] }
+	MaxValueVec: { Vector [X=0.16, Y=0, Z=0] }
+	Distribution: 
+	Table: { [Skipped] }
+	}
+StartAlpha: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+LODValidity: 1
+ }}
+, {{ 
+Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Blood_Chunks.MI_Blood_Chunks
+bKillOnDeactivate: True
+bKillOnCompleted: True
+bUseLegacyEmitterTime: False
+EmitterDuration: 0.5f
+EmitterLoops: 1
+SpawnRate: {
+	Distribution: RequiredDistributionSpawnRate: {	
+		}
+	}
+RandomImageTime: 1f
+LODValidity: 1
+ }}
+, {{ 
+Rate: {
+	MaxValue: 10f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+RateScale: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+BurstList: [ {
+	Count: 35
+	CountLow: 25
+	Time: 0f
+	} ]
+BurstScale: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+LODValidity: 1
+ }}
+, {{ 
+EmitterName: BrainChunks01
+SelectionMethod: ELESM_Sequential
+InheritSourceVelocity: True
+LODValidity: 1
+ }}
+, {{ 
+ColorOverLife: {
+	MaxValue: 1f
+	MinValueVec: { Vector [X=1, Y=0, Z=0] }
+	MaxValueVec: { Vector [X=1, Y=0, Z=0] }
+	Distribution: 
+	Table: { [Skipped] }
+	}
+AlphaOverLife: {
+	MaxValue: 1f
+	Distribution: 
+	Table: { [Skipped] }
+	}
+LODValidity: 1
+ }}
+ ]
+TypeDataModule: ParticleModuleVelocityCone: {	
+	Angle: {
+		MinValue: 0.1f
+		MaxValue: -0.1f
+		Distribution: 
+		Table: { [Skipped] }
+		}
+	Velocity: {
+		MinValue: 300f
+		MaxValue: 100f
+		Distribution: 
+		Table: { [Skipped] }
+		}
+	LODValidity: 1
+	}
+SpawnModule: ParticleModuleTypeDataMesh: {	
+	Mesh: StaticMesh /Game/Effects/Mesh/SM_Chunks_01.SM_Chunks_01
+	RollPitchYawRange: {
+		Distribution: 
+		Table: { [Skipped] }
+		}
+	LODValidity: 1
+	}
+PeakActiveParticles: 38
+ }}
+ ]
+DetailModeBitmask: 7
+ }}
+, this, {{ 
+EmitterName: BrainChunks01
+bUseLegacySpawningBehavior: True
+LODLevels: [ {{ 
+Acceleration: {
+	MinValue: -300f
+	MinValueVec: { Vector [X=0, Y=0, Z=-300] }
+	MaxValueVec: { Vector [X=0, Y=0, Z=-500] }
+	Distribution: 
+	Table: { [Skipped] }
+	}
+bAlwaysInWorldSpace: True
+LODValidity: 1
+ }}
+ ]
+DetailModeBitmask: 7
+ }}
+ ]
+CurveEdSetup: 
 LODDistances: [ 0 ]
-LODSettings: [ 60 ]
+LODSettings: [ {
+	} ]
 bShouldResetPeakCounts: True
-CustomOcclusionBounds: Box [Min={ 
-X: 0
-Y: 0
-Z: 0
- }, Max={ 
-X: 0
-Y: 0
-Z: 0
- }, IsValid=1]
+CustomOcclusionBounds: { {{ 
+	Min: Vector [X=0, Y=0, Z=0]
+	Max: Vector [X=0, Y=0, Z=0]
+	IsValid: 1
+	 }}
+	 }
