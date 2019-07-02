@@ -1,135 +1,371 @@
-ParentClass: Class /Script/Engine.Actor
-SimpleConstructionScript: SimpleConstructionScript: {	
-	RootNodes: [ { 
-	ComponentTemplate: SM_Lamp031709C05F4413FBB2121C5DBEA9D6B5F7: {	
-		StaticMesh: StaticMesh /Game/Meshes/Props/Light/SM_Lamp03.SM_Lamp03
-		bUseDefaultCollision: False
-		BodyInstance: {
-			MassInKgOverride: 0f
-			}
-		Mobility: EComponentMobility::Static
-		}
-	VariableName: SM_Lamp03
-	ChildNodes: [ { 
-	ComponentTemplate: StaticMeshE874CA004165CF9AD7A59F9515EA8AE6: {	
-		StaticMesh: StaticMesh /Game/Effects/Mesh/LightConeNormal.LightConeNormal
-		bUseDefaultCollision: False
-		OverrideMaterials: [ MaterialInstanceConstant /Game/Effects/Materials/Mi_LightCone2.Mi_LightCone2 ]
-		LDMaxDrawDistance: 5000f
-		CachedMaxDrawDistance: 5000f
-		bGenerateOverlapEvents: False
-		BodyInstance: {
-			CollisionProfileName: NoCollision
-			CollisionResponses: {
-				ResponseArray: [ { 
-				Channel: WorldStatic
-				Response: ECR_Ignore
-				 }, { 
-				Channel: WorldDynamic
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Pawn
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Visibility
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Camera
-				Response: ECR_Ignore
-				 }, { 
-				Channel: PhysicsBody
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Vehicle
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Destructible
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel2
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel3
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel4
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel5
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel6
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Interactable
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Audio
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Slasher
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Spider
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Traps
-				Response: ECR_Ignore
-				 }, { 
-				Channel: InteractionDetector
-				Response: ECR_Ignore
-				 }, { 
-				Channel: BlinkBlocker
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Ground
-				Response: ECR_Ignore
-				 } ]
-				}
-			MassInKgOverride: 0f
-			CollisionEnabled: ECollisionEnabled::NoCollision
-			}
-		RelativeLocation: Vector [X=-0.1788508, Y=-1.002391, Z=-11.13641]
-		RelativeRotation: Rotator [Pitch=10.33371, Roll=-1.549957, Yaw=-8.577515]
-		RelativeScale3D: Vector [X=0.2, Y=0.2, Z=0.2]
-		Mobility: EComponentMobility::Static
-		bCanEverAffectNavigation: False
-		}
-	VariableName: Lightcone
-	VariableGuid: dd89ba7d-aa50-4ba4-b34a-1e95ea0c51cd
-	 }, { 
-	ComponentTemplate: SpotLightFF0C1E2F4D6E90C3418696B27BE912BD: {	
-		OuterConeAngle: 46.79646f
-		AttenuationRadius: 1296.95f
-		MaxDrawDistance: 2000f
-		MaxDistanceFadeRange: 3500f
-		bCastShadowsFromCinematicObjectsOnly: True
-		LightGuid: b5e978db-730a-423c-b85c-00a8014b9ade
-		Intensity: 600f
-		LightColor: Color [B=152, G=238, R=255, A=0]
-		CastStaticShadows: False
-		bAffectTranslucentLighting: False
-		bPrecomputedLightingIsValid: False
-		RelativeLocation: Vector [X=-0.179855, Y=-0.9992635, Z=-3.456991]
-		RelativeRotation: Rotator [Pitch=-79.42981, Roll=-13.82703, Yaw=102.0785]
-		}
-	VariableName: Spotlight
-	VariableGuid: 2c0c0de8-56f6-4723-b150-44e4637f53c7
-	 } ]
-	VariableGuid: 3388785a-afdf-4fbc-adb0-de836052cad0
-	 } ]
-	AllNodes: [ 12, 10, 9 ]
-	DefaultSceneRootNode: SCS_Node: {	
-		ComponentTemplate: SceneComponent: {	
-			}
-		VariableName: DefaultSceneRoot
-		VariableGuid: 0554c38e-4c6e-436f-bac5-cb0adb7cdd6e
-		}
-	}
-BlueprintSystemVersion: 2
-GeneratedClass: BP_Light06_C: {	
-	SimpleConstructionScript: 13
-	}
-bLegacyNeedToPurgeSkelRefs: False
-bLegacyGeneratedClassIsAuthoritative: True
-BlueprintGuid: 59594e06-730c-4282-9102-6870dae8c3b5
+SimpleConstructionScript: { 
+    RootNodes: [ { 
+        ComponentClass: Class /Script/Engine.StaticMeshComponent
+        ComponentTemplate: { 
+            StaticMesh: StaticMesh /Game/Meshes/Props/Light/SM_Lamp03.SM_Lamp03
+            bUseDefaultCollision: False
+            DetailLevelBeforeCastShadows: DM_MAX
+            BodyInstance: { 
+                MassInKgOverride: 0f
+                 }
+            Mobility: EComponentMobility::Static
+             }
+        ChildNodes: [ { 
+            ComponentClass: Class /Script/Engine.StaticMeshComponent
+            ComponentTemplate: { 
+                StaticMesh: StaticMesh /Game/Effects/Mesh/LightConeNormal.LightConeNormal
+                bUseDefaultCollision: False
+                OverrideMaterials: [ MaterialInstanceConstant /Game/Effects/Materials/Mi_LightCone2.Mi_LightCone2 ]
+                CachedMaxDrawDistance: 5000f
+                bGenerateOverlapEvents: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                BodyInstance: { 
+                    ObjectType: ECC_WorldStatic
+                    CollisionEnabled: ECollisionEnabled::NoCollision
+                    CollisionProfileName: NoCollision
+                    CollisionResponses: { 
+                        ResponseArray: [ { 
+                            Channel: WorldStatic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: WorldDynamic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Pawn
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Visibility
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Camera
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: PhysicsBody
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Vehicle
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Destructible
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel2
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel3
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel4
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel5
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel6
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Interactable
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Audio
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Slasher
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Spider
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Traps
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: InteractionDetector
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: BlinkBlocker
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Ground
+                            Response: ECR_Ignore
+                             } ]
+                         }
+                    MassInKgOverride: 0f
+                     }
+                RelativeLocation: { X: -0.1788508, Y: -1.002391, Z: -11.13641 }
+                RelativeRotation: { Pitch: 10.33371, Roll: -1.549957, Yaw: -8.577515 }
+                RelativeScale3D: { X: 0.2, Y: 0.2, Z: 0.2 }
+                Mobility: EComponentMobility::Static
+                DetailModeBitMask: -5
+                bCanEverAffectNavigation: False
+                 }
+            VariableGuid: dd89ba7d-aa50-4ba4-b34a-1e95ea0c51cd
+            InternalVariableName: Lightcone
+             }, { 
+            ComponentClass: Class /Script/Engine.SpotLightComponent
+            ComponentTemplate: { 
+                OuterConeAngle: 46.79646f
+                AttenuationRadius: 1296.95f
+                MaxDrawDistance: 2000f
+                MaxDistanceFadeRange: 3500f
+                bCastShadowsFromCinematicObjectsOnly: True
+                LightGuid: b5e978db-730a-423c-b85c-00a8014b9ade
+                Intensity: 600f
+                LightColor: { R: 255, G: 238, B: 152, A: 0 }
+                CastStaticShadows: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                bAffectTranslucentLighting: False
+                RelativeLocation: { X: -0.179855, Y: -0.9992635, Z: -3.456991 }
+                RelativeRotation: { Pitch: -79.42981, Roll: -13.82703, Yaw: 102.0785 }
+                 }
+            VariableGuid: 2c0c0de8-56f6-4723-b150-44e4637f53c7
+            InternalVariableName: Spotlight
+             } ]
+        VariableGuid: 3388785a-afdf-4fbc-adb0-de836052cad0
+        InternalVariableName: SM_Lamp03
+         } ]
+    AllNodes: [ { 
+        ComponentClass: Class /Script/Engine.StaticMeshComponent
+        ComponentTemplate: { 
+            StaticMesh: StaticMesh /Game/Meshes/Props/Light/SM_Lamp03.SM_Lamp03
+            bUseDefaultCollision: False
+            DetailLevelBeforeCastShadows: DM_MAX
+            BodyInstance: { 
+                MassInKgOverride: 0f
+                 }
+            Mobility: EComponentMobility::Static
+             }
+        ChildNodes: [ { 
+            ComponentClass: Class /Script/Engine.StaticMeshComponent
+            ComponentTemplate: { 
+                StaticMesh: StaticMesh /Game/Effects/Mesh/LightConeNormal.LightConeNormal
+                bUseDefaultCollision: False
+                OverrideMaterials: [ MaterialInstanceConstant /Game/Effects/Materials/Mi_LightCone2.Mi_LightCone2 ]
+                CachedMaxDrawDistance: 5000f
+                bGenerateOverlapEvents: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                BodyInstance: { 
+                    ObjectType: ECC_WorldStatic
+                    CollisionEnabled: ECollisionEnabled::NoCollision
+                    CollisionProfileName: NoCollision
+                    CollisionResponses: { 
+                        ResponseArray: [ { 
+                            Channel: WorldStatic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: WorldDynamic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Pawn
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Visibility
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Camera
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: PhysicsBody
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Vehicle
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Destructible
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel2
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel3
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel4
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel5
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel6
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Interactable
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Audio
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Slasher
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Spider
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Traps
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: InteractionDetector
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: BlinkBlocker
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Ground
+                            Response: ECR_Ignore
+                             } ]
+                         }
+                    MassInKgOverride: 0f
+                     }
+                RelativeLocation: { X: -0.1788508, Y: -1.002391, Z: -11.13641 }
+                RelativeRotation: { Pitch: 10.33371, Roll: -1.549957, Yaw: -8.577515 }
+                RelativeScale3D: { X: 0.2, Y: 0.2, Z: 0.2 }
+                Mobility: EComponentMobility::Static
+                DetailModeBitMask: -5
+                bCanEverAffectNavigation: False
+                 }
+            VariableGuid: dd89ba7d-aa50-4ba4-b34a-1e95ea0c51cd
+            InternalVariableName: Lightcone
+             }, { 
+            ComponentClass: Class /Script/Engine.SpotLightComponent
+            ComponentTemplate: { 
+                OuterConeAngle: 46.79646f
+                AttenuationRadius: 1296.95f
+                MaxDrawDistance: 2000f
+                MaxDistanceFadeRange: 3500f
+                bCastShadowsFromCinematicObjectsOnly: True
+                LightGuid: b5e978db-730a-423c-b85c-00a8014b9ade
+                Intensity: 600f
+                LightColor: { R: 255, G: 238, B: 152, A: 0 }
+                CastStaticShadows: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                bAffectTranslucentLighting: False
+                RelativeLocation: { X: -0.179855, Y: -0.9992635, Z: -3.456991 }
+                RelativeRotation: { Pitch: -79.42981, Roll: -13.82703, Yaw: 102.0785 }
+                 }
+            VariableGuid: 2c0c0de8-56f6-4723-b150-44e4637f53c7
+            InternalVariableName: Spotlight
+             } ]
+        VariableGuid: 3388785a-afdf-4fbc-adb0-de836052cad0
+        InternalVariableName: SM_Lamp03
+         }, { 
+        ComponentClass: Class /Script/Engine.StaticMeshComponent
+        ComponentTemplate: { 
+            StaticMesh: StaticMesh /Game/Effects/Mesh/LightConeNormal.LightConeNormal
+            bUseDefaultCollision: False
+            OverrideMaterials: [ MaterialInstanceConstant /Game/Effects/Materials/Mi_LightCone2.Mi_LightCone2 ]
+            CachedMaxDrawDistance: 5000f
+            bGenerateOverlapEvents: False
+            DetailLevelBeforeCastShadows: DM_MAX
+            BodyInstance: { 
+                ObjectType: ECC_WorldStatic
+                CollisionEnabled: ECollisionEnabled::NoCollision
+                CollisionProfileName: NoCollision
+                CollisionResponses: { 
+                    ResponseArray: [ { 
+                        Channel: WorldStatic
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: WorldDynamic
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Pawn
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Visibility
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Camera
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: PhysicsBody
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Vehicle
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Destructible
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel2
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel3
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel4
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel5
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel6
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Interactable
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Audio
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Slasher
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Spider
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Traps
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: InteractionDetector
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: BlinkBlocker
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Ground
+                        Response: ECR_Ignore
+                         } ]
+                     }
+                MassInKgOverride: 0f
+                 }
+            RelativeLocation: { X: -0.1788508, Y: -1.002391, Z: -11.13641 }
+            RelativeRotation: { Pitch: 10.33371, Roll: -1.549957, Yaw: -8.577515 }
+            RelativeScale3D: { X: 0.2, Y: 0.2, Z: 0.2 }
+            Mobility: EComponentMobility::Static
+            DetailModeBitMask: -5
+            bCanEverAffectNavigation: False
+             }
+        VariableGuid: dd89ba7d-aa50-4ba4-b34a-1e95ea0c51cd
+        InternalVariableName: Lightcone
+         }, { 
+        ComponentClass: Class /Script/Engine.SpotLightComponent
+        ComponentTemplate: { 
+            OuterConeAngle: 46.79646f
+            AttenuationRadius: 1296.95f
+            MaxDrawDistance: 2000f
+            MaxDistanceFadeRange: 3500f
+            bCastShadowsFromCinematicObjectsOnly: True
+            LightGuid: b5e978db-730a-423c-b85c-00a8014b9ade
+            Intensity: 600f
+            LightColor: { R: 255, G: 238, B: 152, A: 0 }
+            CastStaticShadows: False
+            DetailLevelBeforeCastShadows: DM_MAX
+            bAffectTranslucentLighting: False
+            RelativeLocation: { X: -0.179855, Y: -0.9992635, Z: -3.456991 }
+            RelativeRotation: { Pitch: -79.42981, Roll: -13.82703, Yaw: 102.0785 }
+             }
+        VariableGuid: 2c0c0de8-56f6-4723-b150-44e4637f53c7
+        InternalVariableName: Spotlight
+         } ]
+    DefaultSceneRootNode: { 
+        ComponentClass: Class /Script/Engine.SceneComponent
+        ComponentTemplate: { 
+             }
+        VariableGuid: 0554c38e-4c6e-436f-bac5-cb0adb7cdd6e
+        InternalVariableName: DefaultSceneRoot
+         }
+     }
+<--- CDO --->
+PrimaryActorTick: { 
+    bStartWithTickEnabled: False
+     }
+bReplicates: True

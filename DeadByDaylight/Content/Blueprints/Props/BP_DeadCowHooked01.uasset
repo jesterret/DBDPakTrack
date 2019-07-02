@@ -1,79 +1,178 @@
-ParentClass: Class /Script/Engine.Actor
-SimpleConstructionScript: SimpleConstructionScript: {	
-	RootNodes: [ { 
-	ComponentTemplate: Scene8F17B18E441E326BED4491B64F7F5F1B: {	
-		Mobility: EComponentMobility::Static
-		}
-	VariableName: Root
-	ChildNodes: [ { 
-	ComponentTemplate: SM_DeadCow_01486BB15045C68EC89F2501AD7E23D472: {	
-		StaticMesh: StaticMesh /Game/Meshes/Props/DeadCow/SM_DeadCow_01.SM_DeadCow_01
-		bUseDefaultCollision: False
-		bReceivesDecals: False
-		BodyInstance: {
-			CollisionProfileName: PhysicsActor
-			CollisionResponses: {
-				ResponseArray: [ { 
-				Channel: Interactable
-				Response: ECR_Block
-				 }, { 
-				Channel: Audio
-				Response: ECR_Block
-				 }, { 
-				Channel: Slasher
-				Response: ECR_Block
-				 }, { 
-				Channel: InteractionDetector
-				Response: ECR_Ignore
-				 } ]
-				}
-			bUseCCD: True
-			bSimulatePhysics: True
-			bOverrideMass: True
-			bLockXTranslation: True
-			bLockYTranslation: True
-			bLockZTranslation: True
-			bLockZRotation: True
-			MassInKgOverride: 2000f
-			LinearDamping: 0.06f
-			AngularDamping: 0.1f
-			MaxAngularVelocity: 100f
-			ObjectType: ECC_PhysicsBody
-			}
-		CanCharacterStepUpOn: ECB_No
-		RelativeLocation: Vector [X=0.6095802, Y=2.508642, Z=267.8633]
-		RelativeRotation: Rotator [Pitch=9.999997, Roll=0, Yaw=0]
-		bCanEverAffectNavigation: False
-		}
-	VariableName: SM_DeadCow_01
-	VariableGuid: 52453c96-f2a3-426a-914e-e0c59e2fa4fe
-	 }, { 
-	ComponentTemplate: SM_SlaugtherHook02FEE32BBF42A8539E24FD1E81D8BE08AC: {	
-		StaticMesh: StaticMesh /Game/Meshes/Props/DeadCow/SM_SlaugtherHook02.SM_SlaugtherHook02
-		bUseDefaultCollision: False
-		BodyInstance: {
-			MassInKgOverride: 0f
-			}
-		RelativeLocation: Vector [X=-0.005480027, Y=-9.641978, Z=308.6803]
-		RelativeRotation: Rotator [Pitch=0, Roll=81.31765, Yaw=0]
-		}
-	VariableName: SM_SlaugtherHook02
-	VariableGuid: 8de3d8ca-b07d-41b7-b7ae-8fa48f5ba031
-	 } ]
-	VariableGuid: f82cc206-4f89-40b8-8688-3d9101e2194c
-	 } ]
-	AllNodes: [ 13, 10, 12 ]
-	DefaultSceneRootNode: SCS_Node: {	
-		ComponentTemplate: SceneComponent: {	
-			}
-		VariableName: DefaultSceneRoot
-		VariableGuid: 0554c38e-4c6e-436f-bac5-cb0adb7cdd6e
-		}
-	}
-BlueprintSystemVersion: 2
-GeneratedClass: BP_DeadCowHooked01_C: {	
-	SimpleConstructionScript: 14
-	}
-bLegacyNeedToPurgeSkelRefs: False
-bLegacyGeneratedClassIsAuthoritative: True
-BlueprintGuid: 510f259b-0a68-4a2b-bb02-25938fe4cc38
+SimpleConstructionScript: { 
+    RootNodes: [ { 
+        ComponentClass: Class /Script/Engine.SceneComponent
+        ComponentTemplate: { 
+            Mobility: EComponentMobility::Static
+             }
+        ChildNodes: [ { 
+            ComponentClass: Class /Script/Engine.StaticMeshComponent
+            ComponentTemplate: { 
+                StaticMesh: StaticMesh /Game/Meshes/Props/DeadCow/SM_DeadCow_01.SM_DeadCow_01
+                bGenerateOverlapEvents: False
+                bReceivesDecals: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                bApplyImpulseOnDamage: False
+                CanCharacterStepUpOn: ECB_No
+                BodyInstance: { 
+                    ObjectType: ECC_WorldStatic
+                    SleepFamily: ESleepFamily::Custom
+                    bUseCCD: True
+                    bSimulatePhysics: True
+                    bOverrideMass: True
+                    bLockXTranslation: True
+                    bLockYTranslation: True
+                    bLockZTranslation: True
+                    bLockZRotation: True
+                    CollisionProfileName: BlockAll
+                    MassInKgOverride: 8000f
+                    LinearDamping: 0.06f
+                    AngularDamping: 0.1f
+                    MassScale: 100f
+                    InertiaTensorScale: { X: 1.5, Y: 1.5, Z: 1 }
+                    MaxAngularVelocity: 100f
+                    CustomSleepThresholdMultiplier: 0f
+                    StabilizationThresholdMultiplier: 0f
+                     }
+                RelativeLocation: { X: 0.6095802, Y: 2.508642, Z: 267.8633 }
+                RelativeRotation: { Pitch: 20.37059, Roll: 0, Yaw: 0 }
+                bCanEverAffectNavigation: False
+                 }
+            VariableGuid: 52453c96-f2a3-426a-914e-e0c59e2fa4fe
+            InternalVariableName: SM_DeadCow_01
+             }, { 
+            ComponentClass: Class /Script/Engine.StaticMeshComponent
+            ComponentTemplate: { 
+                StaticMesh: StaticMesh /Game/Meshes/Props/DeadCow/SM_SlaugtherHook02.SM_SlaugtherHook02
+                bUseDefaultCollision: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                BodyInstance: { 
+                    MassInKgOverride: 0f
+                     }
+                RelativeLocation: { X: -0.005480027, Y: -9.641978, Z: 308.6803 }
+                RelativeRotation: { Pitch: 0, Roll: 81.31765, Yaw: 0 }
+                 }
+            VariableGuid: 8de3d8ca-b07d-41b7-b7ae-8fa48f5ba031
+            InternalVariableName: SM_SlaugtherHook02
+             } ]
+        VariableGuid: f82cc206-4f89-40b8-8688-3d9101e2194c
+        InternalVariableName: Root
+         } ]
+    AllNodes: [ { 
+        ComponentClass: Class /Script/Engine.SceneComponent
+        ComponentTemplate: { 
+            Mobility: EComponentMobility::Static
+             }
+        ChildNodes: [ { 
+            ComponentClass: Class /Script/Engine.StaticMeshComponent
+            ComponentTemplate: { 
+                StaticMesh: StaticMesh /Game/Meshes/Props/DeadCow/SM_DeadCow_01.SM_DeadCow_01
+                bGenerateOverlapEvents: False
+                bReceivesDecals: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                bApplyImpulseOnDamage: False
+                CanCharacterStepUpOn: ECB_No
+                BodyInstance: { 
+                    ObjectType: ECC_WorldStatic
+                    SleepFamily: ESleepFamily::Custom
+                    bUseCCD: True
+                    bSimulatePhysics: True
+                    bOverrideMass: True
+                    bLockXTranslation: True
+                    bLockYTranslation: True
+                    bLockZTranslation: True
+                    bLockZRotation: True
+                    CollisionProfileName: BlockAll
+                    MassInKgOverride: 8000f
+                    LinearDamping: 0.06f
+                    AngularDamping: 0.1f
+                    MassScale: 100f
+                    InertiaTensorScale: { X: 1.5, Y: 1.5, Z: 1 }
+                    MaxAngularVelocity: 100f
+                    CustomSleepThresholdMultiplier: 0f
+                    StabilizationThresholdMultiplier: 0f
+                     }
+                RelativeLocation: { X: 0.6095802, Y: 2.508642, Z: 267.8633 }
+                RelativeRotation: { Pitch: 20.37059, Roll: 0, Yaw: 0 }
+                bCanEverAffectNavigation: False
+                 }
+            VariableGuid: 52453c96-f2a3-426a-914e-e0c59e2fa4fe
+            InternalVariableName: SM_DeadCow_01
+             }, { 
+            ComponentClass: Class /Script/Engine.StaticMeshComponent
+            ComponentTemplate: { 
+                StaticMesh: StaticMesh /Game/Meshes/Props/DeadCow/SM_SlaugtherHook02.SM_SlaugtherHook02
+                bUseDefaultCollision: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                BodyInstance: { 
+                    MassInKgOverride: 0f
+                     }
+                RelativeLocation: { X: -0.005480027, Y: -9.641978, Z: 308.6803 }
+                RelativeRotation: { Pitch: 0, Roll: 81.31765, Yaw: 0 }
+                 }
+            VariableGuid: 8de3d8ca-b07d-41b7-b7ae-8fa48f5ba031
+            InternalVariableName: SM_SlaugtherHook02
+             } ]
+        VariableGuid: f82cc206-4f89-40b8-8688-3d9101e2194c
+        InternalVariableName: Root
+         }, { 
+        ComponentClass: Class /Script/Engine.StaticMeshComponent
+        ComponentTemplate: { 
+            StaticMesh: StaticMesh /Game/Meshes/Props/DeadCow/SM_DeadCow_01.SM_DeadCow_01
+            bGenerateOverlapEvents: False
+            bReceivesDecals: False
+            DetailLevelBeforeCastShadows: DM_MAX
+            bApplyImpulseOnDamage: False
+            CanCharacterStepUpOn: ECB_No
+            BodyInstance: { 
+                ObjectType: ECC_WorldStatic
+                SleepFamily: ESleepFamily::Custom
+                bUseCCD: True
+                bSimulatePhysics: True
+                bOverrideMass: True
+                bLockXTranslation: True
+                bLockYTranslation: True
+                bLockZTranslation: True
+                bLockZRotation: True
+                CollisionProfileName: BlockAll
+                MassInKgOverride: 8000f
+                LinearDamping: 0.06f
+                AngularDamping: 0.1f
+                MassScale: 100f
+                InertiaTensorScale: { X: 1.5, Y: 1.5, Z: 1 }
+                MaxAngularVelocity: 100f
+                CustomSleepThresholdMultiplier: 0f
+                StabilizationThresholdMultiplier: 0f
+                 }
+            RelativeLocation: { X: 0.6095802, Y: 2.508642, Z: 267.8633 }
+            RelativeRotation: { Pitch: 20.37059, Roll: 0, Yaw: 0 }
+            bCanEverAffectNavigation: False
+             }
+        VariableGuid: 52453c96-f2a3-426a-914e-e0c59e2fa4fe
+        InternalVariableName: SM_DeadCow_01
+         }, { 
+        ComponentClass: Class /Script/Engine.StaticMeshComponent
+        ComponentTemplate: { 
+            StaticMesh: StaticMesh /Game/Meshes/Props/DeadCow/SM_SlaugtherHook02.SM_SlaugtherHook02
+            bUseDefaultCollision: False
+            DetailLevelBeforeCastShadows: DM_MAX
+            BodyInstance: { 
+                MassInKgOverride: 0f
+                 }
+            RelativeLocation: { X: -0.005480027, Y: -9.641978, Z: 308.6803 }
+            RelativeRotation: { Pitch: 0, Roll: 81.31765, Yaw: 0 }
+             }
+        VariableGuid: 8de3d8ca-b07d-41b7-b7ae-8fa48f5ba031
+        InternalVariableName: SM_SlaugtherHook02
+         } ]
+    DefaultSceneRootNode: { 
+        ComponentClass: Class /Script/Engine.SceneComponent
+        ComponentTemplate: { 
+             }
+        VariableGuid: 0554c38e-4c6e-436f-bac5-cb0adb7cdd6e
+        InternalVariableName: DefaultSceneRoot
+         }
+     }
+<--- CDO --->
+PrimaryActorTick: { 
+    bStartWithTickEnabled: False
+     }

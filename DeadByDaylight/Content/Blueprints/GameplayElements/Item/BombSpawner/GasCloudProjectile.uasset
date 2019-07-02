@@ -1,316 +1,808 @@
-ParentClass: Class /Script/DeadByDaylight.BaseProjectile
-SimpleConstructionScript: SimpleConstructionScript: {	
-	RootNodes: [ { 
-	ComponentTemplate: ProjectileMovement_GEN_VARIABLE: {	
-		bShouldBounce: True
-		bBounceAngleAffectsFriction: True
-		ProjectileGravityScale: 0f
-		Bounciness: 0f
-		Friction: 0f
-		}
-	VariableName: ProjectileMovement
-	VariableGuid: 5d0cc2bc-ac67-4f7a-be09-097619d0defa
-	 }, { 
-	ComponentTemplate: SimpleCollider_GEN_VARIABLE: {	
-		SphereRadius: 20f
-		ShapeColor: Color [B=255, G=0, R=11, A=255]
-		bGenerateOverlapEvents: False
-		BodyInstance: {
-			CollisionProfileName: Custom
-			CollisionResponses: {
-				ResponseArray: [ { 
-				Channel: Pawn
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Visibility
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Camera
-				Response: ECR_Ignore
-				 }, { 
-				Channel: PhysicsBody
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Vehicle
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Destructible
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel2
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel3
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel4
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel5
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel6
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Interactable
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Audio
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Slasher
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Spider
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Traps
-				Response: ECR_Ignore
-				 }, { 
-				Channel: InteractionDetector
-				Response: ECR_Ignore
-				 }, { 
-				Channel: BlinkBlocker
-				Response: ECR_Ignore
-				 }, { 
-				Channel: WorldDynamic
-				Response: ECR_Ignore
-				 } ]
-				}
-			bEnableGravity: False
-			CollisionEnabled: ECollisionEnabled::PhysicsOnly
-			}
-		CanCharacterStepUpOn: ECB_No
-		bHiddenInGame: False
-		bCanEverAffectNavigation: False
-		}
-	VariableName: SimpleCollider
-	ChildNodes: [ { 
-	ComponentTemplate: SurvivorDetector_GEN_VARIABLE: {	
-		SphereRadius: 80f
-		ShapeColor: Color [B=18, G=255, R=0, A=255]
-		BodyInstance: {
-			CollisionProfileName: AttackDetector
-			CollisionResponses: {
-				ResponseArray: [ { 
-				Channel: WorldStatic
-				Response: ECR_Ignore
-				 }, { 
-				Channel: WorldDynamic
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Pawn
-				Response: ECR_Overlap
-				 }, { 
-				Channel: Visibility
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Camera
-				Response: ECR_Ignore
-				 }, { 
-				Channel: PhysicsBody
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Vehicle
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Destructible
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel2
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel3
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel4
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel5
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel6
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Interactable
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Audio
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Slasher
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Spider
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Traps
-				Response: ECR_Ignore
-				 }, { 
-				Channel: InteractionDetector
-				Response: ECR_Ignore
-				 }, { 
-				Channel: BlinkBlocker
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Ground
-				Response: ECR_Ignore
-				 } ]
-				}
-			bNotifyRigidBodyCollision: True
-			ObjectType: ECC_GameTraceChannel3
-			}
-		bHiddenInGame: False
-		}
-	VariableName: SurvivorDetector
-	VariableGuid: 67159c16-521c-4e9e-a46d-479ca0bc9617
-	 }, { 
-	ComponentTemplate: ParticleSystem_GEN_VARIABLE: {	
-		Template: ParticleSystem /Game/Effects/ParticleSystems/Killer12/P_Killer12_SmokeBomb2.P_Killer12_SmokeBomb2
-		InstanceParameters: [ { 
-		Name: SmokeCloud_Lifetime
-		ParamType: PSPT_Scalar
-		Scalar: 1f
-		Scalar_Low: 0f
-		Vector: Vector [X=0, Y=0, Z=0]
-		Vector_Low: Vector [X=0, Y=0, Z=0]
-		Color: Color [B=0, G=0, R=0, A=0]
-		Actor: 0
-		Material: 0
-		 } ]
-		bAutoActivate: False
-		}
-	VariableName: ParticleSystem
-	VariableGuid: 58e0cdd9-1a56-4b32-9934-1c866dfebf25
-	 }, { 
-	ComponentTemplate: Ak_Audio_GasBomb_Cloud_GEN_VARIABLE: {	
-		OcclusionRefreshInterval: 0.5f
-		OcclusionAffect: 50f
-		MaxOcclusionDistance: 1600f
-		}
-	VariableName: Ak_Audio_GasBomb_Cloud
-	VariableGuid: 2cb804f3-bd9c-427a-88c5-64c24facdf54
-	 }, { 
-	ComponentTemplate: ComplexCollider_GEN_VARIABLE: {	
-		SphereRadius: 10f
-		bTraceComplexOnMove: True
-		BodyInstance: {
-			CollisionProfileName: Custom
-			CollisionResponses: {
-				ResponseArray: [ { 
-				Channel: Pawn
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Visibility
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Camera
-				Response: ECR_Ignore
-				 }, { 
-				Channel: PhysicsBody
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Vehicle
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Destructible
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel2
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel3
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel4
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel5
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel6
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Interactable
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Audio
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Slasher
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Spider
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Traps
-				Response: ECR_Ignore
-				 }, { 
-				Channel: InteractionDetector
-				Response: ECR_Ignore
-				 }, { 
-				Channel: BlinkBlocker
-				Response: ECR_Ignore
-				 }, { 
-				Channel: WorldDynamic
-				Response: ECR_Ignore
-				 }, { 
-				Channel: WorldStatic
-				Response: ECR_Overlap
-				 }, { 
-				Channel: Ground
-				Response: ECR_Ignore
-				 } ]
-				}
-			bEnableGravity: False
-			}
-		CanCharacterStepUpOn: ECB_No
-		bHiddenInGame: False
-		bCanEverAffectNavigation: False
-		}
-	VariableName: ComplexCollider
-	VariableGuid: db3a17d7-6fff-44d0-8d69-9806292d07f4
-	 } ]
-	VariableGuid: 5ee42eab-c51c-437f-8695-6d37f8e6084d
-	 } ]
-	AllNodes: [ 160, 164, 159, 161, 162, 163 ]
-	DefaultSceneRootNode: SCS_Node: {	
-		ComponentTemplate: DefaultSceneRoot_REMOVED_CF512CC94D5168A85DAA38B8F55376F0: {	
-			}
-		VariableName: DefaultSceneRoot
-		VariableGuid: e1c75bb3-adab-41d0-bc59-fa8b288307e1
-		}
-	}
+DynamicBindingObjects: [ { 
+    ComponentDelegateBindings: [ { 
+        ComponentPropertyName: ComplexCollider
+        DelegatePropertyName: OnComponentBeginOverlap
+        FunctionNameToBind: BndEvt__ComplexCollider_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature
+         } ]
+     } ]
 Timelines: [ { 
-TimelineLength: 1f
-bValidatedAsWired: True
-FloatTracks: [ { 
-CurveFloat: CurveFloat: {	
-	FloatCurve: {
-		Keys: [ RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=0, Value=1, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0], RichCurveKey [InterpMode=0, TangentMode=0, TangentWeightMode=0, Time=1, Value=0, ArriveTangent=0, ArriveTangentWeight=0, LeaveTangent=0, LeaveTangentWeight=0] ]
-		}
-	}
-TrackName: Alpha
-bIsExternalCurve: False
- } ]
-TimelineGuid: 9566c96f-bfc8-414b-9c61-bb84e645b0f8
- } ]
-BlueprintSystemVersion: 2
-GeneratedClass: GasCloudProjectile_C: {	
-	DynamicBindingObjects: [ { 
-	ComponentDelegateBindings: [ { 
-	ComponentPropertyName: ComplexCollider
-	DelegatePropertyName: OnComponentBeginOverlap
-	FunctionNameToBind: BndEvt__ComplexCollider_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature
-	 } ]
-	 } ]
-	Timelines: [ 169 ]
-	SimpleConstructionScript: 165
-	UberGraphFramePointerProperty: UberGraphFrame: {	
-		}
-	UberGraphFunction: ExecuteUbergraph_GasCloudProjectile: {	
-		}
-	}
-bLegacyNeedToPurgeSkelRefs: False
-bLegacyGeneratedClassIsAuthoritative: True
-BlueprintGuid: d3178749-690f-4bbe-869a-4fa60e50b971
+    TimelineLength: 1f
+    bValidatedAsWired: True
+    FloatTracks: [ { 
+        CurveFloat: { 
+            FloatCurve: { 
+                Keys: [ Unreal.ObjectSystem.Structures.RichCurveKey, Unreal.ObjectSystem.Structures.RichCurveKey ]
+                 }
+             }
+        TrackName: Alpha
+        bIsExternalCurve: False
+         } ]
+    TimelineGuid: 9566c96f-bfc8-414b-9c61-bb84e645b0f8
+     } ]
+SimpleConstructionScript: { 
+    RootNodes: [ { 
+        ComponentClass: Class /Script/Engine.ProjectileMovementComponent
+        ComponentTemplate: { 
+            bShouldBounce: True
+            bBounceAngleAffectsFriction: True
+            ProjectileGravityScale: 0f
+            Bounciness: 0f
+            Friction: 0f
+             }
+        VariableGuid: 5d0cc2bc-ac67-4f7a-be09-097619d0defa
+        InternalVariableName: ProjectileMovement
+         }, { 
+        ComponentClass: Class /Script/Engine.SphereComponent
+        ComponentTemplate: { 
+            SphereRadius: 20f
+            ShapeColor: { R: 11, G: 0, B: 255, A: 255 }
+            AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
+            bGenerateOverlapEvents: False
+            DetailLevelBeforeCastShadows: DM_MAX
+            CanCharacterStepUpOn: ECB_No
+            BodyInstance: { 
+                CollisionEnabled: ECollisionEnabled::PhysicsOnly
+                bEnableGravity: False
+                CollisionProfileName: Custom
+                CollisionResponses: { 
+                    ResponseArray: [ { 
+                        Channel: Pawn
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Visibility
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Camera
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: PhysicsBody
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Vehicle
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Destructible
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel2
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel3
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel4
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel5
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel6
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Interactable
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Audio
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Slasher
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Spider
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Traps
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: InteractionDetector
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: BlinkBlocker
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: WorldDynamic
+                        Response: ECR_Ignore
+                         } ]
+                     }
+                 }
+            bHiddenInGame: False
+            bCanEverAffectNavigation: False
+             }
+        ChildNodes: [ { 
+            ComponentClass: Class /Script/Engine.ParticleSystemComponent
+            ComponentTemplate: { 
+                Template: ParticleSystem /Game/Effects/ParticleSystems/Killer12/P_Killer12_SmokeBomb2.P_Killer12_SmokeBomb2
+                InstanceParameters: [ { 
+                    Name: SmokeCloud_Lifetime
+                    ParamType: PSPT_Scalar
+                    Scalar: 1f
+                    Scalar_Low: 0f
+                    Vector: { X: 0, Y: 0, Z: 0 }
+                    Vector_Low: { X: 0, Y: 0, Z: 0 }
+                    Color: { R: 0, G: 0, B: 0, A: 0 }
+                    Actor: 
+                    Material: 
+                     } ]
+                DetailLevelBeforeCastShadows: DM_MAX
+                bAutoActivate: False
+                 }
+            VariableGuid: 58e0cdd9-1a56-4b32-9934-1c866dfebf25
+            InternalVariableName: ParticleSystem
+             }, { 
+            ComponentClass: Class /Script/AkAudio.AkComponent
+            ComponentTemplate: { 
+                OcclusionRefreshInterval: 0.5f
+                OcclusionAffect: 50f
+                MaxOcclusionDistance: 1600f
+                 }
+            VariableGuid: 2cb804f3-bd9c-427a-88c5-64c24facdf54
+            InternalVariableName: Ak_Audio_GasBomb_Cloud
+             }, { 
+            ComponentClass: Class /Script/Engine.SphereComponent
+            ComponentTemplate: { 
+                SphereRadius: 10f
+                AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
+                bGenerateOverlapEvents: False
+                bTraceComplexOnMove: True
+                DetailLevelBeforeCastShadows: DM_MAX
+                CanCharacterStepUpOn: ECB_No
+                BodyInstance: { 
+                    bEnableGravity: False
+                    CollisionProfileName: Custom
+                    CollisionResponses: { 
+                        ResponseArray: [ { 
+                            Channel: Pawn
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Visibility
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Camera
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: PhysicsBody
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Vehicle
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Destructible
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel2
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel3
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel4
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel5
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel6
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Interactable
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Audio
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Slasher
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Spider
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Traps
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: InteractionDetector
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: BlinkBlocker
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: WorldDynamic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: WorldStatic
+                            Response: ECR_Overlap
+                             }, { 
+                            Channel: Ground
+                            Response: ECR_Ignore
+                             } ]
+                         }
+                     }
+                bHiddenInGame: False
+                bCanEverAffectNavigation: False
+                 }
+            VariableGuid: db3a17d7-6fff-44d0-8d69-9806292d07f4
+            InternalVariableName: ComplexCollider
+             }, { 
+            ComponentClass: Class /Script/DeadByDaylight.SpherePlayerOverlapComponent
+            ComponentTemplate: { 
+                SphereRadius: 80f
+                ShapeColor: { R: 0, G: 255, B: 18, A: 255 }
+                DetailLevelBeforeCastShadows: DM_MAX
+                BodyInstance: { 
+                    ObjectType: ECC_GameTraceChannel3
+                    CollisionProfileName: AttackDetector
+                    CollisionResponses: { 
+                        ResponseArray: [ { 
+                            Channel: WorldStatic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: WorldDynamic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Pawn
+                            Response: ECR_Overlap
+                             }, { 
+                            Channel: Visibility
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Camera
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: PhysicsBody
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Vehicle
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Destructible
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel2
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel3
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel4
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel5
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel6
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Interactable
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Audio
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Slasher
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Spider
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Traps
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: InteractionDetector
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: BlinkBlocker
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Ground
+                            Response: ECR_Ignore
+                             } ]
+                         }
+                     }
+                bHiddenInGame: False
+                bCanEverAffectNavigation: False
+                 }
+            VariableGuid: 1565f5e0-e82f-4a5c-8a79-5536ffa814ad
+            InternalVariableName: SurvivorDetector
+             } ]
+        VariableGuid: 5ee42eab-c51c-437f-8695-6d37f8e6084d
+        InternalVariableName: SimpleCollider
+         } ]
+    AllNodes: [ { 
+        ComponentClass: Class /Script/Engine.ProjectileMovementComponent
+        ComponentTemplate: { 
+            bShouldBounce: True
+            bBounceAngleAffectsFriction: True
+            ProjectileGravityScale: 0f
+            Bounciness: 0f
+            Friction: 0f
+             }
+        VariableGuid: 5d0cc2bc-ac67-4f7a-be09-097619d0defa
+        InternalVariableName: ProjectileMovement
+         }, { 
+        ComponentClass: Class /Script/Engine.SphereComponent
+        ComponentTemplate: { 
+            SphereRadius: 20f
+            ShapeColor: { R: 11, G: 0, B: 255, A: 255 }
+            AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
+            bGenerateOverlapEvents: False
+            DetailLevelBeforeCastShadows: DM_MAX
+            CanCharacterStepUpOn: ECB_No
+            BodyInstance: { 
+                CollisionEnabled: ECollisionEnabled::PhysicsOnly
+                bEnableGravity: False
+                CollisionProfileName: Custom
+                CollisionResponses: { 
+                    ResponseArray: [ { 
+                        Channel: Pawn
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Visibility
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Camera
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: PhysicsBody
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Vehicle
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Destructible
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel2
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel3
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel4
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel5
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel6
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Interactable
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Audio
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Slasher
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Spider
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Traps
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: InteractionDetector
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: BlinkBlocker
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: WorldDynamic
+                        Response: ECR_Ignore
+                         } ]
+                     }
+                 }
+            bHiddenInGame: False
+            bCanEverAffectNavigation: False
+             }
+        ChildNodes: [ { 
+            ComponentClass: Class /Script/Engine.ParticleSystemComponent
+            ComponentTemplate: { 
+                Template: ParticleSystem /Game/Effects/ParticleSystems/Killer12/P_Killer12_SmokeBomb2.P_Killer12_SmokeBomb2
+                InstanceParameters: [ { 
+                    Name: SmokeCloud_Lifetime
+                    ParamType: PSPT_Scalar
+                    Scalar: 1f
+                    Scalar_Low: 0f
+                    Vector: { X: 0, Y: 0, Z: 0 }
+                    Vector_Low: { X: 0, Y: 0, Z: 0 }
+                    Color: { R: 0, G: 0, B: 0, A: 0 }
+                    Actor: 
+                    Material: 
+                     } ]
+                DetailLevelBeforeCastShadows: DM_MAX
+                bAutoActivate: False
+                 }
+            VariableGuid: 58e0cdd9-1a56-4b32-9934-1c866dfebf25
+            InternalVariableName: ParticleSystem
+             }, { 
+            ComponentClass: Class /Script/AkAudio.AkComponent
+            ComponentTemplate: { 
+                OcclusionRefreshInterval: 0.5f
+                OcclusionAffect: 50f
+                MaxOcclusionDistance: 1600f
+                 }
+            VariableGuid: 2cb804f3-bd9c-427a-88c5-64c24facdf54
+            InternalVariableName: Ak_Audio_GasBomb_Cloud
+             }, { 
+            ComponentClass: Class /Script/Engine.SphereComponent
+            ComponentTemplate: { 
+                SphereRadius: 10f
+                AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
+                bGenerateOverlapEvents: False
+                bTraceComplexOnMove: True
+                DetailLevelBeforeCastShadows: DM_MAX
+                CanCharacterStepUpOn: ECB_No
+                BodyInstance: { 
+                    bEnableGravity: False
+                    CollisionProfileName: Custom
+                    CollisionResponses: { 
+                        ResponseArray: [ { 
+                            Channel: Pawn
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Visibility
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Camera
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: PhysicsBody
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Vehicle
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Destructible
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel2
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel3
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel4
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel5
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel6
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Interactable
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Audio
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Slasher
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Spider
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Traps
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: InteractionDetector
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: BlinkBlocker
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: WorldDynamic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: WorldStatic
+                            Response: ECR_Overlap
+                             }, { 
+                            Channel: Ground
+                            Response: ECR_Ignore
+                             } ]
+                         }
+                     }
+                bHiddenInGame: False
+                bCanEverAffectNavigation: False
+                 }
+            VariableGuid: db3a17d7-6fff-44d0-8d69-9806292d07f4
+            InternalVariableName: ComplexCollider
+             }, { 
+            ComponentClass: Class /Script/DeadByDaylight.SpherePlayerOverlapComponent
+            ComponentTemplate: { 
+                SphereRadius: 80f
+                ShapeColor: { R: 0, G: 255, B: 18, A: 255 }
+                DetailLevelBeforeCastShadows: DM_MAX
+                BodyInstance: { 
+                    ObjectType: ECC_GameTraceChannel3
+                    CollisionProfileName: AttackDetector
+                    CollisionResponses: { 
+                        ResponseArray: [ { 
+                            Channel: WorldStatic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: WorldDynamic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Pawn
+                            Response: ECR_Overlap
+                             }, { 
+                            Channel: Visibility
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Camera
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: PhysicsBody
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Vehicle
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Destructible
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel2
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel3
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel4
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel5
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel6
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Interactable
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Audio
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Slasher
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Spider
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Traps
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: InteractionDetector
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: BlinkBlocker
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Ground
+                            Response: ECR_Ignore
+                             } ]
+                         }
+                     }
+                bHiddenInGame: False
+                bCanEverAffectNavigation: False
+                 }
+            VariableGuid: 1565f5e0-e82f-4a5c-8a79-5536ffa814ad
+            InternalVariableName: SurvivorDetector
+             } ]
+        VariableGuid: 5ee42eab-c51c-437f-8695-6d37f8e6084d
+        InternalVariableName: SimpleCollider
+         }, { 
+        ComponentClass: Class /Script/Engine.ParticleSystemComponent
+        ComponentTemplate: { 
+            Template: ParticleSystem /Game/Effects/ParticleSystems/Killer12/P_Killer12_SmokeBomb2.P_Killer12_SmokeBomb2
+            InstanceParameters: [ { 
+                Name: SmokeCloud_Lifetime
+                ParamType: PSPT_Scalar
+                Scalar: 1f
+                Scalar_Low: 0f
+                Vector: { X: 0, Y: 0, Z: 0 }
+                Vector_Low: { X: 0, Y: 0, Z: 0 }
+                Color: { R: 0, G: 0, B: 0, A: 0 }
+                Actor: 
+                Material: 
+                 } ]
+            DetailLevelBeforeCastShadows: DM_MAX
+            bAutoActivate: False
+             }
+        VariableGuid: 58e0cdd9-1a56-4b32-9934-1c866dfebf25
+        InternalVariableName: ParticleSystem
+         }, { 
+        ComponentClass: Class /Script/AkAudio.AkComponent
+        ComponentTemplate: { 
+            OcclusionRefreshInterval: 0.5f
+            OcclusionAffect: 50f
+            MaxOcclusionDistance: 1600f
+             }
+        VariableGuid: 2cb804f3-bd9c-427a-88c5-64c24facdf54
+        InternalVariableName: Ak_Audio_GasBomb_Cloud
+         }, { 
+        ComponentClass: Class /Script/Engine.SphereComponent
+        ComponentTemplate: { 
+            SphereRadius: 10f
+            AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
+            bGenerateOverlapEvents: False
+            bTraceComplexOnMove: True
+            DetailLevelBeforeCastShadows: DM_MAX
+            CanCharacterStepUpOn: ECB_No
+            BodyInstance: { 
+                bEnableGravity: False
+                CollisionProfileName: Custom
+                CollisionResponses: { 
+                    ResponseArray: [ { 
+                        Channel: Pawn
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Visibility
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Camera
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: PhysicsBody
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Vehicle
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Destructible
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel2
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel3
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel4
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel5
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel6
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Interactable
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Audio
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Slasher
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Spider
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Traps
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: InteractionDetector
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: BlinkBlocker
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: WorldDynamic
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: WorldStatic
+                        Response: ECR_Overlap
+                         }, { 
+                        Channel: Ground
+                        Response: ECR_Ignore
+                         } ]
+                     }
+                 }
+            bHiddenInGame: False
+            bCanEverAffectNavigation: False
+             }
+        VariableGuid: db3a17d7-6fff-44d0-8d69-9806292d07f4
+        InternalVariableName: ComplexCollider
+         }, { 
+        ComponentClass: Class /Script/DeadByDaylight.SpherePlayerOverlapComponent
+        ComponentTemplate: { 
+            SphereRadius: 80f
+            ShapeColor: { R: 0, G: 255, B: 18, A: 255 }
+            DetailLevelBeforeCastShadows: DM_MAX
+            BodyInstance: { 
+                ObjectType: ECC_GameTraceChannel3
+                CollisionProfileName: AttackDetector
+                CollisionResponses: { 
+                    ResponseArray: [ { 
+                        Channel: WorldStatic
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: WorldDynamic
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Pawn
+                        Response: ECR_Overlap
+                         }, { 
+                        Channel: Visibility
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Camera
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: PhysicsBody
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Vehicle
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Destructible
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel2
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel3
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel4
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel5
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel6
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Interactable
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Audio
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Slasher
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Spider
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Traps
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: InteractionDetector
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: BlinkBlocker
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Ground
+                        Response: ECR_Ignore
+                         } ]
+                     }
+                 }
+            bHiddenInGame: False
+            bCanEverAffectNavigation: False
+             }
+        VariableGuid: 1565f5e0-e82f-4a5c-8a79-5536ffa814ad
+        InternalVariableName: SurvivorDetector
+         } ]
+    DefaultSceneRootNode: { 
+        ComponentClass: Class /Script/Engine.SceneComponent
+        ComponentTemplate: { 
+             }
+        VariableGuid: e1c75bb3-adab-41d0-bc59-fa8b288307e1
+        InternalVariableName: DefaultSceneRoot
+         }
+     }
+UberGraphFunction: { 
+     }
+<--- CDO --->
+UberGraphFrame: 279
+ComplexCollisionBounceVelocityFactor: -0.75f
+PrimaryActorTick: { 
+    bCanEverTick: True
+    bStartWithTickEnabled: False
+     }
+bAlwaysRelevant: True
+bReplicateMovement: True
+bCanBeDamaged: False

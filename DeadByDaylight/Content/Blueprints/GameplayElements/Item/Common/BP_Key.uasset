@@ -1,99 +1,202 @@
-ParentClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/BaseCamperItem.BaseCamperItem_C
-SimpleConstructionScript: SimpleConstructionScript: {	
-	RootNodes: [ { 
-	ComponentTemplate: ChargerA52148EB4ED2A90992E9FC9E9B0BD3C2: {	
-		ChargerComponentID: KeyCharger
-		}
-	VariableName: Charger
-	VariableGuid: 83c1a501-6496-4c0a-9ad4-3b5b03268f02
-	 }, { 
-	ComponentTemplate: MindChannel5811B77D41CADF4FA525E7B7EB48ADF7: {	
-		HideItem: False
-		InteractionDescriptionText: Mind Channel
-		RelativeLocation: Vector [X=0, Y=0, Z=-4.999996]
-		}
-	VariableName: AuraReading
-	ParentComponentOrVariableName: ItemInteractor
-	ParentComponentOwnerClassName: BaseCamperItem_C
-	VariableGuid: f7e60731-fdb7-42af-bc10-6a042c86f9e0
-	 }, { 
-	ComponentTemplate: Chargeable93372E2046D6E803B5F1A39DD8FFDED1: {	
-		ChargeableComponentID: AuraReading
-		}
-	VariableName: Chargeable
-	VariableGuid: 5bd21c32-99f4-4ed3-b6a7-bd1e9308fb81
-	 }, { 
-	ComponentTemplate: Ak_Audio_Key_GEN_VARIABLE: {	
-		OcclusionAffect: 50f
-		RelativeLocation: Vector [X=0, Y=0, Z=10]
-		Mobility: EComponentMobility::Static
-		}
-	VariableName: Ak_Audio_Key
-	ParentComponentOrVariableName: ItemMesh
-	bIsParentComponentNative: True
-	VariableGuid: 42771e30-28cc-4c3e-a1ee-d22bd52e2d32
-	 }, { 
-	ComponentTemplate: MaterialHelper_GEN_VARIABLE: {	
-		Groups: [ { 
-		GroupName: Camper1
-		Maps: [ { 
-		SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper.MI_Camper
-		DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve.MI_CamperDissolve
-		 }, { 
-		SrcMaterial: Material /Game/Characters/Campers/Materials/M_Hair.M_Hair
-		DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_Hair_Dissolve.MI_Hair_Dissolve
-		 }, { 
-		SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_Dither.MI_Camper_Dither
-		DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MV_Camper_Dither.MV_Camper_Dither
-		 }, { 
-		SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_Cust.MI_Camper_Cust
-		DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_Cust.MI_CamperDissolve_Cust
-		 }, { 
-		SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_TransCust.MI_Camper_TransCust
-		DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_TransCust.MI_CamperDissolve_TransCust
-		 } ]
-		 }, { 
-		GroupName: 
-		Maps: [  ]
-		 } ]
-		RelativeLocation: Vector [X=0, Y=0, Z=99.99995]
-		RelativeRotation: Rotator [Pitch=0, Roll=89.99999, Yaw=0]
-		}
-	VariableName: MaterialHelper
-	ParentComponentOrVariableName: ItemMesh
-	bIsParentComponentNative: True
-	VariableGuid: 4eabbcf2-e003-42ba-a83f-88ef12f13f02
-	 } ]
-	AllNodes: [ 49, 47, 48, 45, 50 ]
-	DefaultSceneRootNode: SCS_Node: {	
-		ComponentTemplate: SceneComponent: {	
-			}
-		VariableName: DefaultSceneRoot
-		VariableGuid: 803e0d4e-41fe-4c26-8a81-b096a8f0e125
-		}
-	}
+DynamicBindingObjects: [ { 
+    ComponentDelegateBindings: [ { 
+        ComponentPropertyName: Charger
+        DelegatePropertyName: OnChargeStateChange
+        FunctionNameToBind: BndEvt__Charger_K2Node_ComponentBoundEvent_150_ChargeStateChangeDelegate__DelegateSignature
+         } ]
+     } ]
 ComponentTemplates: [ { 
-Template: ParticleSystem /Game/Effects/ParticleSystems/P_DustRing.P_DustRing
- } ]
-InheritableComponentHandler: InheritableComponentHandler: {	
-	}
-BlueprintSystemVersion: 2
-GeneratedClass: BP_Key_C: {	
-	DynamicBindingObjects: [ { 
-	ComponentDelegateBindings: [ { 
-	ComponentPropertyName: Charger
-	DelegatePropertyName: OnChargeStateChange
-	FunctionNameToBind: BndEvt__Charger_K2Node_ComponentBoundEvent_150_ChargeStateChangeDelegate__DelegateSignature
-	 } ]
-	 } ]
-	ComponentTemplates: [ 42 ]
-	SimpleConstructionScript: 51
-	InheritableComponentHandler: 37
-	UberGraphFramePointerProperty: UberGraphFrame: {	
-		}
-	UberGraphFunction: ExecuteUbergraph_BP_Key: {	
-		}
-	}
-bLegacyNeedToPurgeSkelRefs: False
-bLegacyGeneratedClassIsAuthoritative: True
-BlueprintGuid: 2c8d43dc-9d7d-4860-b36f-8b62d291c65c
+    Template: ParticleSystem /Game/Effects/ParticleSystems/P_DustRing.P_DustRing
+    DetailLevelBeforeCastShadows: DM_MAX
+     } ]
+SimpleConstructionScript: { 
+    RootNodes: [ { 
+        ComponentClass: Class /Script/DeadByDaylight.ChargerComponent
+        ComponentTemplate: { 
+            ChargerComponentID: KeyCharger
+             }
+        VariableGuid: 83c1a501-6496-4c0a-9ad4-3b5b03268f02
+        InternalVariableName: Charger
+         }, { 
+        ComponentClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/Interactions/AuraReading.AuraReading_C
+        ComponentTemplate: { 
+            HideItem: False
+            InteractionDescriptionText: Mind Channel
+            RelativeLocation: { X: 0, Y: 0, Z: -4.999996 }
+             }
+        ParentComponentOrVariableName: ItemInteractor
+        ParentComponentOwnerClassName: BaseCamperItem_C
+        VariableGuid: f7e60731-fdb7-42af-bc10-6a042c86f9e0
+        InternalVariableName: AuraReading
+         }, { 
+        ComponentClass: Class /Script/DeadByDaylight.ChargeableComponent
+        ComponentTemplate: { 
+            ChargeableComponentID: AuraReading
+             }
+        VariableGuid: 5bd21c32-99f4-4ed3-b6a7-bd1e9308fb81
+        InternalVariableName: Chargeable
+         }, { 
+        ComponentClass: Class /Script/AkAudio.AkComponent
+        ComponentTemplate: { 
+            OcclusionAffect: 50f
+            RelativeLocation: { X: 0, Y: 0, Z: 10 }
+            Mobility: EComponentMobility::Static
+             }
+        ParentComponentOrVariableName: ItemMesh
+        bIsParentComponentNative: True
+        VariableGuid: 42771e30-28cc-4c3e-a1ee-d22bd52e2d32
+        InternalVariableName: Ak_Audio_Key
+         }, { 
+        ComponentClass: Class /Script/DeadByDaylight.MaterialHelper
+        ComponentTemplate: { 
+            Groups: [ { 
+                GroupName: Camper1
+                Maps: [ { 
+                    SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper.MI_Camper
+                    DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve.MI_CamperDissolve
+                     }, { 
+                    SrcMaterial: Material /Game/Characters/Campers/Materials/M_Hair.M_Hair
+                    DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_Hair_Dissolve.MI_Hair_Dissolve
+                     }, { 
+                    SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_Dither.MI_Camper_Dither
+                    DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MV_Camper_Dither.MV_Camper_Dither
+                     }, { 
+                    SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_Cust.MI_Camper_Cust
+                    DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_Cust.MI_CamperDissolve_Cust
+                     }, { 
+                    SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_TransCust.MI_Camper_TransCust
+                    DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_TransCust.MI_CamperDissolve_TransCust
+                     } ]
+                 }, { 
+                GroupName: 
+                Maps: [  ]
+                 } ]
+            RelativeLocation: { X: 0, Y: 0, Z: 99.99995 }
+            RelativeRotation: { Pitch: 0, Roll: 89.99999, Yaw: 0 }
+             }
+        ParentComponentOrVariableName: ItemMesh
+        bIsParentComponentNative: True
+        VariableGuid: 4eabbcf2-e003-42ba-a83f-88ef12f13f02
+        InternalVariableName: MaterialHelper
+         } ]
+    AllNodes: [ { 
+        ComponentClass: Class /Script/DeadByDaylight.ChargerComponent
+        ComponentTemplate: { 
+            ChargerComponentID: KeyCharger
+             }
+        VariableGuid: 83c1a501-6496-4c0a-9ad4-3b5b03268f02
+        InternalVariableName: Charger
+         }, { 
+        ComponentClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/Interactions/AuraReading.AuraReading_C
+        ComponentTemplate: { 
+            HideItem: False
+            InteractionDescriptionText: Mind Channel
+            RelativeLocation: { X: 0, Y: 0, Z: -4.999996 }
+             }
+        ParentComponentOrVariableName: ItemInteractor
+        ParentComponentOwnerClassName: BaseCamperItem_C
+        VariableGuid: f7e60731-fdb7-42af-bc10-6a042c86f9e0
+        InternalVariableName: AuraReading
+         }, { 
+        ComponentClass: Class /Script/DeadByDaylight.ChargeableComponent
+        ComponentTemplate: { 
+            ChargeableComponentID: AuraReading
+             }
+        VariableGuid: 5bd21c32-99f4-4ed3-b6a7-bd1e9308fb81
+        InternalVariableName: Chargeable
+         }, { 
+        ComponentClass: Class /Script/AkAudio.AkComponent
+        ComponentTemplate: { 
+            OcclusionAffect: 50f
+            RelativeLocation: { X: 0, Y: 0, Z: 10 }
+            Mobility: EComponentMobility::Static
+             }
+        ParentComponentOrVariableName: ItemMesh
+        bIsParentComponentNative: True
+        VariableGuid: 42771e30-28cc-4c3e-a1ee-d22bd52e2d32
+        InternalVariableName: Ak_Audio_Key
+         }, { 
+        ComponentClass: Class /Script/DeadByDaylight.MaterialHelper
+        ComponentTemplate: { 
+            Groups: [ { 
+                GroupName: Camper1
+                Maps: [ { 
+                    SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper.MI_Camper
+                    DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve.MI_CamperDissolve
+                     }, { 
+                    SrcMaterial: Material /Game/Characters/Campers/Materials/M_Hair.M_Hair
+                    DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_Hair_Dissolve.MI_Hair_Dissolve
+                     }, { 
+                    SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_Dither.MI_Camper_Dither
+                    DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MV_Camper_Dither.MV_Camper_Dither
+                     }, { 
+                    SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_Cust.MI_Camper_Cust
+                    DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_Cust.MI_CamperDissolve_Cust
+                     }, { 
+                    SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_TransCust.MI_Camper_TransCust
+                    DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_TransCust.MI_CamperDissolve_TransCust
+                     } ]
+                 }, { 
+                GroupName: 
+                Maps: [  ]
+                 } ]
+            RelativeLocation: { X: 0, Y: 0, Z: 99.99995 }
+            RelativeRotation: { Pitch: 0, Roll: 89.99999, Yaw: 0 }
+             }
+        ParentComponentOrVariableName: ItemMesh
+        bIsParentComponentNative: True
+        VariableGuid: 4eabbcf2-e003-42ba-a83f-88ef12f13f02
+        InternalVariableName: MaterialHelper
+         } ]
+    DefaultSceneRootNode: { 
+        ComponentClass: Class /Script/Engine.SceneComponent
+        ComponentTemplate: { 
+             }
+        VariableGuid: 803e0d4e-41fe-4c26-8a81-b096a8f0e125
+        InternalVariableName: DefaultSceneRoot
+         }
+     }
+InheritableComponentHandler: { 
+     }
+UberGraphFunction: { 
+     }
+<--- CDO --->
+UberGraphFrame: 156
+HandPosition: EItemHandPosition::SmallItem
+HasUseInteraction: True
+Draft: False
+ItemID: Item_Camper_Key
+BaseItemModifier: { 
+     }
+ItemModifier1: { 
+     }
+ItemModifier2: { 
+     }
+_mesh: { 
+    SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/Skeleton_Key/Skeleton_Key_REF.Skeleton_Key_REF
+    CastShadow: True
+    bCastCinematicShadow: True
+    BodyInstance: { 
+        MassInKgOverride: 1.950295f
+         }
+     }
+_placementOrigin: { 
+    AttachParent: { 
+        SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/Skeleton_Key/Skeleton_Key_REF.Skeleton_Key_REF
+        CastShadow: True
+        bCastCinematicShadow: True
+        BodyInstance: { 
+            MassInKgOverride: 1.950295f
+             }
+         }
+     }
+_objectState: { 
+     }
+RootComponent: { 
+    SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/Skeleton_Key/Skeleton_Key_REF.Skeleton_Key_REF
+    CastShadow: True
+    bCastCinematicShadow: True
+    BodyInstance: { 
+        MassInKgOverride: 1.950295f
+         }
+     }

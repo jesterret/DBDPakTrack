@@ -1,382 +1,750 @@
 Emitters: [ { 
-EmitterName: beam1
-bUseLegacySpawningBehavior: True
-LODLevels: [ { 
-RequiredModule: ParticleModuleRequired: {	
-	Material: Material /Game/Effects/Materials/M_beam_ramp.M_beam_ramp
-	bUseLegacyEmitterTime: False
-	EmitterDuration: 0.2f
-	EmitterLoops: 1
-	SpawnRate: {
-		Distribution: RequiredDistributionSpawnRate: {	
-			}
-		}
-	EmitterDelay: 1f
-	EmitterDelayLow: 0.6f
-	bEmitterDelayUseRange: True
-	bDelayFirstLoopOnly: True
-	RandomImageTime: 1f
-	LODValidity: 1
-	}
-Modules: [ { 
-Lifetime: {
-	MinValue: 0.1f
-	MaxValue: 0.1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 0.1 ]
-		}
-	}
-LODValidity: 1
- }, { 
-StartSize: {
-	MaxValue: 0.01f
-	MinValueVec: Vector [X=0.01, Y=0, Z=0]
-	MaxValueVec: Vector [X=0.01, Y=0, Z=0]
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 0.01, 0, 0 ]
-		}
-	}
-LODValidity: 1
- }, { 
-ColorOverLife: {
-	MinValue: 0.783538f
-	MaxValue: 1f
-	MinValueVec: Vector [X=0.783538, Y=0.871367, Z=1]
-	MaxValueVec: Vector [X=0.783538, Y=0.871367, Z=1]
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 0.783538, 0.871367, 1 ]
-		}
-	}
-AlphaOverLife: {
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 2
-		EntryStride: 1
-		TimeScale: 1f
-		Values: [ 1, 0 ]
-		}
-	}
-LODValidity: 1
- }, { 
-Source: {
-	Distribution: DistributionVectorParticleParameter: {	
-		ParameterName: Lightning_Source
-		MinInput: Vector [X=-1000, Y=-1000, Z=-1000]
-		MaxInput: Vector [X=1000, Y=1000, Z=1000]
-		MinOutput: Vector [X=-1000, Y=-1000, Z=-1000]
-		MaxOutput: Vector [X=1000, Y=1000, Z=1000]
-		bIsDirty: False
-		}
-	Table: {
-		Values: [ 0, 0, 0 ]
-		}
-	}
-SourceTangent: {
-	Distribution: DistributionSourceTangent: {	
-		}
-	}
-SourceStrength: {
-	MinValue: 25f
-	MaxValue: 25f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 25 ]
-		}
-	}
-LODValidity: 1
- }, { 
-Target: {
-	Distribution: DistributionVectorParticleParameter: {	
-		ParameterName: Lightning_Target
-		MinInput: Vector [X=-1000, Y=-1000, Z=-1000]
-		MaxInput: Vector [X=1000, Y=1000, Z=1000]
-		MinOutput: Vector [X=-1000, Y=-1000, Z=-1000]
-		MaxOutput: Vector [X=1000, Y=1000, Z=1000]
-		bIsDirty: False
-		}
-	Table: {
-		Values: [ 0, 0, 0 ]
-		}
-	}
-TargetTangent: {
-	Distribution: DistributionTargetTangent: {	
-		}
-	}
-TargetStrength: {
-	MinValue: 25f
-	MaxValue: 25f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 25 ]
-		}
-	}
-LODValidity: 1
- }, { 
-bLowFreq_Enabled: True
-Frequency: 5
-NoiseRange: {
-	MinValue: -1f
-	MaxValue: 1f
-	MinValueVec: Vector [X=-1, Y=-1, Z=-1]
-	MaxValueVec: Vector [X=1, Y=1, Z=1]
-	Distribution: 0
-	Table: {
-		Op: 2
-		EntryCount: 1
-		EntryStride: 6
-		SubEntryStride: 3
-		Values: [ -1, -1, -1, 1, 1, 1 ]
-		}
-	}
-NoiseRangeScale: {
-	MinValue: 1f
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 1 ]
-		}
-	}
-NoiseSpeed: {
-	MinValue: 1f
-	MaxValue: 1f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 3
-		Values: [ 1, 1, 1 ]
-		}
-	}
-bOscillate: True
-NoiseTangentStrength: {
-	MinValue: 50f
-	MaxValue: 50f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 50 ]
-		}
-	}
-bTargetNoise: True
-NoiseScale: {
-	Distribution: DistributionNoiseScale: {	
-		}
-	}
-LODValidity: 1
- } ]
-TypeDataModule: ParticleModuleTypeDataBeam2: {	
-	MaxBeamCount: 2
-	Speed: 0f
-	Distance: {
-		Distribution: DistributionDistance: {	
-			Constant: 25f
-			}
-		}
-	TaperFactor: {
-		Distribution: DistributionTaperFactor: {	
-			Constant: 1f
-			}
-		}
-	TaperScale: {
-		Distribution: DistributionTaperScale: {	
-			Constant: 1f
-			}
-		}
-	LODValidity: 1
-	}
-SpawnModule: ParticleModuleSpawn: {	
-	Rate: {
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 0 ]
-			}
-		}
-	RateScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	BurstScale: {
-		MinValue: 1f
-		MaxValue: 1f
-		Distribution: 0
-		Table: {
-			Op: 1
-			EntryCount: 1
-			EntryStride: 1
-			Values: [ 1 ]
-			}
-		}
-	LODValidity: 1
-	}
-PeakActiveParticles: 4
- } ]
-DetailModeBitmask: 7
- }, { 
-EmitterName: beam2
-bUseLegacySpawningBehavior: True
-LODLevels: [ { 
-RequiredModule: 30
-Modules: [ 29, 31, 28, 24, { 
-Target: {
-	Distribution: DistributionVectorParticleParameter: {	
-		ParameterName: Lightning_Target2
-		MinInput: Vector [X=-1000, Y=-1000, Z=-1000]
-		MaxInput: Vector [X=1000, Y=1000, Z=1000]
-		MinOutput: Vector [X=-1000, Y=-1000, Z=-1000]
-		MaxOutput: Vector [X=1000, Y=1000, Z=1000]
-		bIsDirty: False
-		}
-	Table: {
-		Values: [ 0, 0, 0 ]
-		}
-	}
-TargetTangent: {
-	Distribution: DistributionTargetTangent: {	
-		}
-	}
-TargetStrength: {
-	MinValue: 25f
-	MaxValue: 25f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 25 ]
-		}
-	}
-LODValidity: 1
- }, 23 ]
-TypeDataModule: ParticleModuleTypeDataBeam2: {	
-	MaxBeamCount: 2
-	Speed: 0f
-	Distance: {
-		Distribution: DistributionDistance: {	
-			Constant: 25f
-			}
-		}
-	TaperFactor: {
-		Distribution: DistributionTaperFactor: {	
-			Constant: 1f
-			}
-		}
-	TaperScale: {
-		Distribution: DistributionTaperScale: {	
-			Constant: 1f
-			}
-		}
-	LODValidity: 1
-	}
-SpawnModule: 32
-PeakActiveParticles: 4
- } ]
-DetailModeBitmask: 7
- }, { 
-EmitterName: beam3
-bUseLegacySpawningBehavior: True
-LODLevels: [ { 
-RequiredModule: 30
-Modules: [ 29, 31, 28, 24, { 
-Target: {
-	Distribution: DistributionVectorParticleParameter: {	
-		ParameterName: Lightning_Target3
-		MinInput: Vector [X=-1000, Y=-1000, Z=-1000]
-		MaxInput: Vector [X=1000, Y=1000, Z=1000]
-		MinOutput: Vector [X=-1000, Y=-1000, Z=-1000]
-		MaxOutput: Vector [X=1000, Y=1000, Z=1000]
-		bIsDirty: False
-		}
-	Table: {
-		Values: [ 0, 0, 0 ]
-		}
-	}
-TargetTangent: {
-	Distribution: DistributionTargetTangent: {	
-		}
-	}
-TargetStrength: {
-	MinValue: 25f
-	MaxValue: 25f
-	Distribution: 0
-	Table: {
-		Op: 1
-		EntryCount: 1
-		EntryStride: 1
-		Values: [ 25 ]
-		}
-	}
-LODValidity: 1
- }, 23 ]
-TypeDataModule: ParticleModuleTypeDataBeam2: {	
-	MaxBeamCount: 2
-	Speed: 0f
-	Distance: {
-		Distribution: DistributionDistance: {	
-			Constant: 25f
-			}
-		}
-	TaperFactor: {
-		Distribution: DistributionTaperFactor: {	
-			Constant: 1f
-			}
-		}
-	TaperScale: {
-		Distribution: DistributionTaperScale: {	
-			Constant: 1f
-			}
-		}
-	LODValidity: 1
-	}
-SpawnModule: 32
-PeakActiveParticles: 4
- } ]
-DetailModeBitmask: 7
- } ]
-CurveEdSetup: 0
-LODDistances: [ 0 ]
+    EmitterName: beam1
+    bUseLegacySpawningBehavior: True
+    LODLevels: [ { 
+        RequiredModule: { 
+            Material: Material /Game/Effects/Materials/M_beam_ramp.M_beam_ramp
+            bUseLegacyEmitterTime: False
+            EmitterDuration: 0.2f
+            EmitterLoops: 1
+            SpawnRate: { 
+                Distribution: { 
+                     }
+                 }
+            EmitterDelay: 1f
+            EmitterDelayLow: 0.6f
+            bEmitterDelayUseRange: True
+            bDelayFirstLoopOnly: True
+            RandomImageTime: 1f
+            LODValidity: 1
+             }
+        Modules: [ { 
+            Lifetime: { 
+                MinValue: 0.1f
+                MaxValue: 0.1f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 1
+                    Values: [ 0.1f ]
+                     }
+                 }
+            LODValidity: 1
+             }, { 
+            StartSize: { 
+                MaxValue: 0.01f
+                MinValueVec: { X: 0.01, Y: 0, Z: 0 }
+                MaxValueVec: { X: 0.01, Y: 0, Z: 0 }
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 3
+                    Values: [ 0.01f, 0f, 0f ]
+                     }
+                 }
+            LODValidity: 1
+             }, { 
+            ColorOverLife: { 
+                MinValue: 0.783538f
+                MaxValue: 1f
+                MinValueVec: { X: 0.783538, Y: 0.871367, Z: 1 }
+                MaxValueVec: { X: 0.783538, Y: 0.871367, Z: 1 }
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 3
+                    Values: [ 0.783538f, 0.871367f, 1f ]
+                     }
+                 }
+            AlphaOverLife: { 
+                MaxValue: 1f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 2
+                    EntryStride: 1
+                    TimeScale: 1f
+                    Values: [ 1f, 0f ]
+                     }
+                 }
+            LODValidity: 1
+             }, { 
+            Source: { 
+                Distribution: { 
+                    ParameterName: Lightning_Source
+                    MinInput: { X: -1000, Y: -1000, Z: -1000 }
+                    MaxInput: { X: 1000, Y: 1000, Z: 1000 }
+                    MinOutput: { X: -1000, Y: -1000, Z: -1000 }
+                    MaxOutput: { X: 1000, Y: 1000, Z: 1000 }
+                    bIsDirty: False
+                     }
+                Table: { 
+                    Values: [ 0f, 0f, 0f ]
+                     }
+                 }
+            SourceTangent: { 
+                Distribution: { 
+                     }
+                 }
+            SourceStrength: { 
+                MinValue: 25f
+                MaxValue: 25f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 1
+                    Values: [ 25f ]
+                     }
+                 }
+            LODValidity: 1
+             }, { 
+            Target: { 
+                Distribution: { 
+                    ParameterName: Lightning_Target
+                    MinInput: { X: -1000, Y: -1000, Z: -1000 }
+                    MaxInput: { X: 1000, Y: 1000, Z: 1000 }
+                    MinOutput: { X: -1000, Y: -1000, Z: -1000 }
+                    MaxOutput: { X: 1000, Y: 1000, Z: 1000 }
+                    bIsDirty: False
+                     }
+                Table: { 
+                    Values: [ 0f, 0f, 0f ]
+                     }
+                 }
+            TargetTangent: { 
+                Distribution: { 
+                     }
+                 }
+            TargetStrength: { 
+                MinValue: 25f
+                MaxValue: 25f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 1
+                    Values: [ 25f ]
+                     }
+                 }
+            LODValidity: 1
+             }, { 
+            bLowFreq_Enabled: True
+            Frequency: 5
+            NoiseRange: { 
+                MinValue: -1f
+                MaxValue: 1f
+                MinValueVec: { X: -1, Y: -1, Z: -1 }
+                MaxValueVec: { X: 1, Y: 1, Z: 1 }
+                Distribution: 
+                Table: { 
+                    Op: 2
+                    EntryCount: 1
+                    EntryStride: 6
+                    SubEntryStride: 3
+                    Values: [ -1f, -1f, -1f, 1f, 1f, 1f ]
+                     }
+                 }
+            NoiseRangeScale: { 
+                MinValue: 1f
+                MaxValue: 1f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 1
+                    Values: [ 1f ]
+                     }
+                 }
+            NoiseSpeed: { 
+                MinValue: 1f
+                MaxValue: 1f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 3
+                    Values: [ 1f, 1f, 1f ]
+                     }
+                 }
+            bOscillate: True
+            NoiseTangentStrength: { 
+                MinValue: 50f
+                MaxValue: 50f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 1
+                    Values: [ 50f ]
+                     }
+                 }
+            bTargetNoise: True
+            NoiseScale: { 
+                Distribution: { 
+                     }
+                 }
+            LODValidity: 1
+             } ]
+        TypeDataModule: { 
+            MaxBeamCount: 2
+            Speed: 0f
+            Distance: { 
+                Distribution: { 
+                    Constant: 25f
+                     }
+                 }
+            TaperFactor: { 
+                Distribution: { 
+                    Constant: 1f
+                     }
+                 }
+            TaperScale: { 
+                Distribution: { 
+                    Constant: 1f
+                     }
+                 }
+            LODValidity: 1
+             }
+        SpawnModule: { 
+            Rate: { 
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 1
+                    Values: [ 0f ]
+                     }
+                 }
+            RateScale: { 
+                MinValue: 1f
+                MaxValue: 1f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 1
+                    Values: [ 1f ]
+                     }
+                 }
+            BurstScale: { 
+                MinValue: 1f
+                MaxValue: 1f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 1
+                    Values: [ 1f ]
+                     }
+                 }
+            LODValidity: 1
+             }
+        PeakActiveParticles: 4
+         } ]
+    DetailModeBitmask: 7
+     }, { 
+    EmitterName: beam2
+    bUseLegacySpawningBehavior: True
+    LODLevels: [ { 
+        RequiredModule: { 
+            Material: Material /Game/Effects/Materials/M_beam_ramp.M_beam_ramp
+            bUseLegacyEmitterTime: False
+            EmitterDuration: 0.2f
+            EmitterLoops: 1
+            SpawnRate: { 
+                Distribution: { 
+                     }
+                 }
+            EmitterDelay: 1f
+            EmitterDelayLow: 0.6f
+            bEmitterDelayUseRange: True
+            bDelayFirstLoopOnly: True
+            RandomImageTime: 1f
+            LODValidity: 1
+             }
+        Modules: [ { 
+            Lifetime: { 
+                MinValue: 0.1f
+                MaxValue: 0.1f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 1
+                    Values: [ 0.1f ]
+                     }
+                 }
+            LODValidity: 1
+             }, { 
+            StartSize: { 
+                MaxValue: 0.01f
+                MinValueVec: { X: 0.01, Y: 0, Z: 0 }
+                MaxValueVec: { X: 0.01, Y: 0, Z: 0 }
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 3
+                    Values: [ 0.01f, 0f, 0f ]
+                     }
+                 }
+            LODValidity: 1
+             }, { 
+            ColorOverLife: { 
+                MinValue: 0.783538f
+                MaxValue: 1f
+                MinValueVec: { X: 0.783538, Y: 0.871367, Z: 1 }
+                MaxValueVec: { X: 0.783538, Y: 0.871367, Z: 1 }
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 3
+                    Values: [ 0.783538f, 0.871367f, 1f ]
+                     }
+                 }
+            AlphaOverLife: { 
+                MaxValue: 1f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 2
+                    EntryStride: 1
+                    TimeScale: 1f
+                    Values: [ 1f, 0f ]
+                     }
+                 }
+            LODValidity: 1
+             }, { 
+            Source: { 
+                Distribution: { 
+                    ParameterName: Lightning_Source
+                    MinInput: { X: -1000, Y: -1000, Z: -1000 }
+                    MaxInput: { X: 1000, Y: 1000, Z: 1000 }
+                    MinOutput: { X: -1000, Y: -1000, Z: -1000 }
+                    MaxOutput: { X: 1000, Y: 1000, Z: 1000 }
+                    bIsDirty: False
+                     }
+                Table: { 
+                    Values: [ 0f, 0f, 0f ]
+                     }
+                 }
+            SourceTangent: { 
+                Distribution: { 
+                     }
+                 }
+            SourceStrength: { 
+                MinValue: 25f
+                MaxValue: 25f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 1
+                    Values: [ 25f ]
+                     }
+                 }
+            LODValidity: 1
+             }, { 
+            Target: { 
+                Distribution: { 
+                    ParameterName: Lightning_Target2
+                    MinInput: { X: -1000, Y: -1000, Z: -1000 }
+                    MaxInput: { X: 1000, Y: 1000, Z: 1000 }
+                    MinOutput: { X: -1000, Y: -1000, Z: -1000 }
+                    MaxOutput: { X: 1000, Y: 1000, Z: 1000 }
+                    bIsDirty: False
+                     }
+                Table: { 
+                    Values: [ 0f, 0f, 0f ]
+                     }
+                 }
+            TargetTangent: { 
+                Distribution: { 
+                     }
+                 }
+            TargetStrength: { 
+                MinValue: 25f
+                MaxValue: 25f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 1
+                    Values: [ 25f ]
+                     }
+                 }
+            LODValidity: 1
+             }, { 
+            bLowFreq_Enabled: True
+            Frequency: 5
+            NoiseRange: { 
+                MinValue: -1f
+                MaxValue: 1f
+                MinValueVec: { X: -1, Y: -1, Z: -1 }
+                MaxValueVec: { X: 1, Y: 1, Z: 1 }
+                Distribution: 
+                Table: { 
+                    Op: 2
+                    EntryCount: 1
+                    EntryStride: 6
+                    SubEntryStride: 3
+                    Values: [ -1f, -1f, -1f, 1f, 1f, 1f ]
+                     }
+                 }
+            NoiseRangeScale: { 
+                MinValue: 1f
+                MaxValue: 1f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 1
+                    Values: [ 1f ]
+                     }
+                 }
+            NoiseSpeed: { 
+                MinValue: 1f
+                MaxValue: 1f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 3
+                    Values: [ 1f, 1f, 1f ]
+                     }
+                 }
+            bOscillate: True
+            NoiseTangentStrength: { 
+                MinValue: 50f
+                MaxValue: 50f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 1
+                    Values: [ 50f ]
+                     }
+                 }
+            bTargetNoise: True
+            NoiseScale: { 
+                Distribution: { 
+                     }
+                 }
+            LODValidity: 1
+             } ]
+        TypeDataModule: { 
+            MaxBeamCount: 2
+            Speed: 0f
+            Distance: { 
+                Distribution: { 
+                    Constant: 25f
+                     }
+                 }
+            TaperFactor: { 
+                Distribution: { 
+                    Constant: 1f
+                     }
+                 }
+            TaperScale: { 
+                Distribution: { 
+                    Constant: 1f
+                     }
+                 }
+            LODValidity: 1
+             }
+        SpawnModule: { 
+            Rate: { 
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 1
+                    Values: [ 0f ]
+                     }
+                 }
+            RateScale: { 
+                MinValue: 1f
+                MaxValue: 1f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 1
+                    Values: [ 1f ]
+                     }
+                 }
+            BurstScale: { 
+                MinValue: 1f
+                MaxValue: 1f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 1
+                    Values: [ 1f ]
+                     }
+                 }
+            LODValidity: 1
+             }
+        PeakActiveParticles: 4
+         } ]
+    DetailModeBitmask: 7
+     }, { 
+    EmitterName: beam3
+    bUseLegacySpawningBehavior: True
+    LODLevels: [ { 
+        RequiredModule: { 
+            Material: Material /Game/Effects/Materials/M_beam_ramp.M_beam_ramp
+            bUseLegacyEmitterTime: False
+            EmitterDuration: 0.2f
+            EmitterLoops: 1
+            SpawnRate: { 
+                Distribution: { 
+                     }
+                 }
+            EmitterDelay: 1f
+            EmitterDelayLow: 0.6f
+            bEmitterDelayUseRange: True
+            bDelayFirstLoopOnly: True
+            RandomImageTime: 1f
+            LODValidity: 1
+             }
+        Modules: [ { 
+            Lifetime: { 
+                MinValue: 0.1f
+                MaxValue: 0.1f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 1
+                    Values: [ 0.1f ]
+                     }
+                 }
+            LODValidity: 1
+             }, { 
+            StartSize: { 
+                MaxValue: 0.01f
+                MinValueVec: { X: 0.01, Y: 0, Z: 0 }
+                MaxValueVec: { X: 0.01, Y: 0, Z: 0 }
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 3
+                    Values: [ 0.01f, 0f, 0f ]
+                     }
+                 }
+            LODValidity: 1
+             }, { 
+            ColorOverLife: { 
+                MinValue: 0.783538f
+                MaxValue: 1f
+                MinValueVec: { X: 0.783538, Y: 0.871367, Z: 1 }
+                MaxValueVec: { X: 0.783538, Y: 0.871367, Z: 1 }
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 3
+                    Values: [ 0.783538f, 0.871367f, 1f ]
+                     }
+                 }
+            AlphaOverLife: { 
+                MaxValue: 1f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 2
+                    EntryStride: 1
+                    TimeScale: 1f
+                    Values: [ 1f, 0f ]
+                     }
+                 }
+            LODValidity: 1
+             }, { 
+            Source: { 
+                Distribution: { 
+                    ParameterName: Lightning_Source
+                    MinInput: { X: -1000, Y: -1000, Z: -1000 }
+                    MaxInput: { X: 1000, Y: 1000, Z: 1000 }
+                    MinOutput: { X: -1000, Y: -1000, Z: -1000 }
+                    MaxOutput: { X: 1000, Y: 1000, Z: 1000 }
+                    bIsDirty: False
+                     }
+                Table: { 
+                    Values: [ 0f, 0f, 0f ]
+                     }
+                 }
+            SourceTangent: { 
+                Distribution: { 
+                     }
+                 }
+            SourceStrength: { 
+                MinValue: 25f
+                MaxValue: 25f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 1
+                    Values: [ 25f ]
+                     }
+                 }
+            LODValidity: 1
+             }, { 
+            Target: { 
+                Distribution: { 
+                    ParameterName: Lightning_Target3
+                    MinInput: { X: -1000, Y: -1000, Z: -1000 }
+                    MaxInput: { X: 1000, Y: 1000, Z: 1000 }
+                    MinOutput: { X: -1000, Y: -1000, Z: -1000 }
+                    MaxOutput: { X: 1000, Y: 1000, Z: 1000 }
+                    bIsDirty: False
+                     }
+                Table: { 
+                    Values: [ 0f, 0f, 0f ]
+                     }
+                 }
+            TargetTangent: { 
+                Distribution: { 
+                     }
+                 }
+            TargetStrength: { 
+                MinValue: 25f
+                MaxValue: 25f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 1
+                    Values: [ 25f ]
+                     }
+                 }
+            LODValidity: 1
+             }, { 
+            bLowFreq_Enabled: True
+            Frequency: 5
+            NoiseRange: { 
+                MinValue: -1f
+                MaxValue: 1f
+                MinValueVec: { X: -1, Y: -1, Z: -1 }
+                MaxValueVec: { X: 1, Y: 1, Z: 1 }
+                Distribution: 
+                Table: { 
+                    Op: 2
+                    EntryCount: 1
+                    EntryStride: 6
+                    SubEntryStride: 3
+                    Values: [ -1f, -1f, -1f, 1f, 1f, 1f ]
+                     }
+                 }
+            NoiseRangeScale: { 
+                MinValue: 1f
+                MaxValue: 1f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 1
+                    Values: [ 1f ]
+                     }
+                 }
+            NoiseSpeed: { 
+                MinValue: 1f
+                MaxValue: 1f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 3
+                    Values: [ 1f, 1f, 1f ]
+                     }
+                 }
+            bOscillate: True
+            NoiseTangentStrength: { 
+                MinValue: 50f
+                MaxValue: 50f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 1
+                    Values: [ 50f ]
+                     }
+                 }
+            bTargetNoise: True
+            NoiseScale: { 
+                Distribution: { 
+                     }
+                 }
+            LODValidity: 1
+             } ]
+        TypeDataModule: { 
+            MaxBeamCount: 2
+            Speed: 0f
+            Distance: { 
+                Distribution: { 
+                    Constant: 25f
+                     }
+                 }
+            TaperFactor: { 
+                Distribution: { 
+                    Constant: 1f
+                     }
+                 }
+            TaperScale: { 
+                Distribution: { 
+                    Constant: 1f
+                     }
+                 }
+            LODValidity: 1
+             }
+        SpawnModule: { 
+            Rate: { 
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 1
+                    Values: [ 0f ]
+                     }
+                 }
+            RateScale: { 
+                MinValue: 1f
+                MaxValue: 1f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 1
+                    Values: [ 1f ]
+                     }
+                 }
+            BurstScale: { 
+                MinValue: 1f
+                MaxValue: 1f
+                Distribution: 
+                Table: { 
+                    Op: 1
+                    EntryCount: 1
+                    EntryStride: 1
+                    Values: [ 1f ]
+                     }
+                 }
+            LODValidity: 1
+             }
+        PeakActiveParticles: 4
+         } ]
+    DetailModeBitmask: 7
+     } ]
+CurveEdSetup: 
+LODDistances: [ 0f ]
 LODSettings: [ 79 ]
 bShouldResetPeakCounts: True
-CustomOcclusionBounds: Box [Min={ 
-X: 0
-Y: 0
-Z: 0
- }, Max={ 
-X: 0
-Y: 0
-Z: 0
- }, IsValid=1]
+CustomOcclusionBounds: { Min: { X: 0, Y: 0, Z: 0 }, Max: { X: 0, Y: 0, Z: 0 } }

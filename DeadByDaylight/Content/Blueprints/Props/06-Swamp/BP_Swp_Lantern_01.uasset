@@ -1,69 +1,237 @@
-ParentClass: Class /Script/Engine.Actor
-SimpleConstructionScript: SimpleConstructionScript: {	
-	RootNodes: [ { 
-	ComponentTemplate: DefaultSceneRoot046C486A418E2D46A9363D9B7F23C000: {	
-		Mobility: EComponentMobility::Static
-		}
-	VariableName: DefaultSceneRoot
-	ChildNodes: [ { 
-	ComponentTemplate: PointLight9E0E03454C91E5B354C788A1C887C299: {	
-		AttenuationRadius: 700f
-		MaxDrawDistance: 0f
-		MaxDistanceFadeRange: 0f
-		LightGuid: 9d8bedf2-eea5-442b-84da-54ef070e4373
-		Intensity: 150f
-		LightColor: Color [B=139, G=195, R=255, A=0]
-		CastShadows: False
-		bPrecomputedLightingIsValid: False
-		RelativeLocation: Vector [X=-1.694438, Y=-0.1549084, Z=40.87234]
-		}
-	VariableName: PointLight
-	AttachToName: Socket_PointLight
-	VariableGuid: 8453e5c9-f7bb-4433-bfeb-c84f9fa5e6c5
-	 }, { 
-	ComponentTemplate: P_FlamesB842AB1C443894E901D6CB9A7C3FAC61: {	
-		Template: ParticleSystem /Game/Effects/ParticleSystems/P_Flames.P_Flames
-		WarmupTime: 5f
-		RelativeLocation: Vector [X=-0.000320521, Y=-4.017066E-05, Z=14.4392]
-		}
-	VariableName: P_Flames
-	AttachToName: FX_Flames
-	VariableGuid: 9a39036c-d434-4c22-9432-b0dfa56b1619
-	 }, { 
-	ComponentTemplate: Ak9D067CBC43477F9CB929939527530FE5: {	
-		ShouldTransmitRelativeAngle: True
-		OcclusionAffect: 60f
-		RelativeLocation: Vector [X=0, Y=-1.000007, Z=96.99999]
-		}
-	VariableName: Ak_Audio_Lantern
-	VariableGuid: 43e5ccdb-04aa-4c75-9a85-eb12074b2d49
-	 }, { 
-	ComponentTemplate: SM_Lantern018A57377B4D966E9560CA41BB95ED9A9E: {	
-		StaticMesh: StaticMesh /Game/Meshes/Props/Light/SM_Lantern01.SM_Lantern01
-		bUseDefaultCollision: False
-		DetailLevelBeforeCastShadows: DM_Medium
-		bCastCinematicShadow: True
-		BodyInstance: {
-			MassInKgOverride: 52.0616f
-			}
-		Mobility: EComponentMobility::Static
-		}
-	VariableName: SM_Lantern01
-	VariableGuid: 863ab85e-9668-4220-aafc-0d2c8ad0a827
-	 } ]
-	VariableGuid: 694312b4-3cec-469e-b323-c3047a7017e7
-	 } ]
-	AllNodes: [ 21, 22, 19, 20, 23 ]
-	DefaultSceneRootNode: 21
-	}
-BlueprintSystemVersion: 2
-GeneratedClass: BP_Swp_Lantern_01_C: {	
-	SimpleConstructionScript: 24
-	UberGraphFramePointerProperty: UberGraphFrame: {	
-		}
-	UberGraphFunction: ExecuteUbergraph_BP_Swp_Lantern_01: {	
-		}
-	}
-bLegacyNeedToPurgeSkelRefs: False
-bLegacyGeneratedClassIsAuthoritative: True
-BlueprintGuid: 8e3e9f23-54b8-48db-81a9-31a0b4e71b7d
+SimpleConstructionScript: { 
+    RootNodes: [ { 
+        ComponentClass: Class /Script/Engine.SceneComponent
+        ComponentTemplate: { 
+            Mobility: EComponentMobility::Static
+             }
+        ChildNodes: [ { 
+            ComponentClass: Class /Script/Engine.PointLightComponent
+            ComponentTemplate: { 
+                AttenuationRadius: 700f
+                MaxDrawDistance: 0f
+                MaxDistanceFadeRange: 0f
+                LightGuid: 9d8bedf2-eea5-442b-84da-54ef070e4373
+                Intensity: 150f
+                LightColor: { R: 255, G: 195, B: 139, A: 0 }
+                CastShadows: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                RelativeLocation: { X: -1.694438, Y: -0.1549084, Z: 40.87234 }
+                 }
+            AttachToName: Socket_PointLight
+            VariableGuid: 8453e5c9-f7bb-4433-bfeb-c84f9fa5e6c5
+            InternalVariableName: PointLight
+             }, { 
+            ComponentClass: Class /Script/Engine.ParticleSystemComponent
+            ComponentTemplate: { 
+                Template: ParticleSystem /Game/Effects/ParticleSystems/P_Flames.P_Flames
+                WarmupTime: 5f
+                DetailLevelBeforeCastShadows: DM_MAX
+                RelativeLocation: { X: -0.000320521, Y: -4.017066E-05, Z: 14.4392 }
+                 }
+            AttachToName: FX_Flames
+            VariableGuid: 9a39036c-d434-4c22-9432-b0dfa56b1619
+            InternalVariableName: P_Flames
+             }, { 
+            ComponentClass: Class /Script/AkAudio.AkComponent
+            ComponentTemplate: { 
+                ShouldTransmitRelativeAngle: True
+                OcclusionAffect: 60f
+                RelativeLocation: { X: 0, Y: -1.000007, Z: 96.99999 }
+                 }
+            VariableGuid: 43e5ccdb-04aa-4c75-9a85-eb12074b2d49
+            InternalVariableName: Ak_Audio_Lantern
+             }, { 
+            ComponentClass: Class /Script/Engine.StaticMeshComponent
+            ComponentTemplate: { 
+                StaticMesh: StaticMesh /Game/Meshes/Props/Light/SM_Lantern01.SM_Lantern01
+                bUseDefaultCollision: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                DetailLevelBeforeCastDynamicShadows: ELightingDetailMode::Medium
+                bCastCinematicShadow: True
+                BodyInstance: { 
+                    MassInKgOverride: 52.0616f
+                     }
+                Mobility: EComponentMobility::Static
+                 }
+            VariableGuid: 863ab85e-9668-4220-aafc-0d2c8ad0a827
+            InternalVariableName: SM_Lantern01
+             } ]
+        VariableGuid: 694312b4-3cec-469e-b323-c3047a7017e7
+        InternalVariableName: DefaultSceneRoot
+         } ]
+    AllNodes: [ { 
+        ComponentClass: Class /Script/Engine.SceneComponent
+        ComponentTemplate: { 
+            Mobility: EComponentMobility::Static
+             }
+        ChildNodes: [ { 
+            ComponentClass: Class /Script/Engine.PointLightComponent
+            ComponentTemplate: { 
+                AttenuationRadius: 700f
+                MaxDrawDistance: 0f
+                MaxDistanceFadeRange: 0f
+                LightGuid: 9d8bedf2-eea5-442b-84da-54ef070e4373
+                Intensity: 150f
+                LightColor: { R: 255, G: 195, B: 139, A: 0 }
+                CastShadows: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                RelativeLocation: { X: -1.694438, Y: -0.1549084, Z: 40.87234 }
+                 }
+            AttachToName: Socket_PointLight
+            VariableGuid: 8453e5c9-f7bb-4433-bfeb-c84f9fa5e6c5
+            InternalVariableName: PointLight
+             }, { 
+            ComponentClass: Class /Script/Engine.ParticleSystemComponent
+            ComponentTemplate: { 
+                Template: ParticleSystem /Game/Effects/ParticleSystems/P_Flames.P_Flames
+                WarmupTime: 5f
+                DetailLevelBeforeCastShadows: DM_MAX
+                RelativeLocation: { X: -0.000320521, Y: -4.017066E-05, Z: 14.4392 }
+                 }
+            AttachToName: FX_Flames
+            VariableGuid: 9a39036c-d434-4c22-9432-b0dfa56b1619
+            InternalVariableName: P_Flames
+             }, { 
+            ComponentClass: Class /Script/AkAudio.AkComponent
+            ComponentTemplate: { 
+                ShouldTransmitRelativeAngle: True
+                OcclusionAffect: 60f
+                RelativeLocation: { X: 0, Y: -1.000007, Z: 96.99999 }
+                 }
+            VariableGuid: 43e5ccdb-04aa-4c75-9a85-eb12074b2d49
+            InternalVariableName: Ak_Audio_Lantern
+             }, { 
+            ComponentClass: Class /Script/Engine.StaticMeshComponent
+            ComponentTemplate: { 
+                StaticMesh: StaticMesh /Game/Meshes/Props/Light/SM_Lantern01.SM_Lantern01
+                bUseDefaultCollision: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                DetailLevelBeforeCastDynamicShadows: ELightingDetailMode::Medium
+                bCastCinematicShadow: True
+                BodyInstance: { 
+                    MassInKgOverride: 52.0616f
+                     }
+                Mobility: EComponentMobility::Static
+                 }
+            VariableGuid: 863ab85e-9668-4220-aafc-0d2c8ad0a827
+            InternalVariableName: SM_Lantern01
+             } ]
+        VariableGuid: 694312b4-3cec-469e-b323-c3047a7017e7
+        InternalVariableName: DefaultSceneRoot
+         }, { 
+        ComponentClass: Class /Script/Engine.PointLightComponent
+        ComponentTemplate: { 
+            AttenuationRadius: 700f
+            MaxDrawDistance: 0f
+            MaxDistanceFadeRange: 0f
+            LightGuid: 9d8bedf2-eea5-442b-84da-54ef070e4373
+            Intensity: 150f
+            LightColor: { R: 255, G: 195, B: 139, A: 0 }
+            CastShadows: False
+            DetailLevelBeforeCastShadows: DM_MAX
+            RelativeLocation: { X: -1.694438, Y: -0.1549084, Z: 40.87234 }
+             }
+        AttachToName: Socket_PointLight
+        VariableGuid: 8453e5c9-f7bb-4433-bfeb-c84f9fa5e6c5
+        InternalVariableName: PointLight
+         }, { 
+        ComponentClass: Class /Script/Engine.ParticleSystemComponent
+        ComponentTemplate: { 
+            Template: ParticleSystem /Game/Effects/ParticleSystems/P_Flames.P_Flames
+            WarmupTime: 5f
+            DetailLevelBeforeCastShadows: DM_MAX
+            RelativeLocation: { X: -0.000320521, Y: -4.017066E-05, Z: 14.4392 }
+             }
+        AttachToName: FX_Flames
+        VariableGuid: 9a39036c-d434-4c22-9432-b0dfa56b1619
+        InternalVariableName: P_Flames
+         }, { 
+        ComponentClass: Class /Script/AkAudio.AkComponent
+        ComponentTemplate: { 
+            ShouldTransmitRelativeAngle: True
+            OcclusionAffect: 60f
+            RelativeLocation: { X: 0, Y: -1.000007, Z: 96.99999 }
+             }
+        VariableGuid: 43e5ccdb-04aa-4c75-9a85-eb12074b2d49
+        InternalVariableName: Ak_Audio_Lantern
+         }, { 
+        ComponentClass: Class /Script/Engine.StaticMeshComponent
+        ComponentTemplate: { 
+            StaticMesh: StaticMesh /Game/Meshes/Props/Light/SM_Lantern01.SM_Lantern01
+            bUseDefaultCollision: False
+            DetailLevelBeforeCastShadows: DM_MAX
+            DetailLevelBeforeCastDynamicShadows: ELightingDetailMode::Medium
+            bCastCinematicShadow: True
+            BodyInstance: { 
+                MassInKgOverride: 52.0616f
+                 }
+            Mobility: EComponentMobility::Static
+             }
+        VariableGuid: 863ab85e-9668-4220-aafc-0d2c8ad0a827
+        InternalVariableName: SM_Lantern01
+         } ]
+    DefaultSceneRootNode: { 
+        ComponentClass: Class /Script/Engine.SceneComponent
+        ComponentTemplate: { 
+            Mobility: EComponentMobility::Static
+             }
+        ChildNodes: [ { 
+            ComponentClass: Class /Script/Engine.PointLightComponent
+            ComponentTemplate: { 
+                AttenuationRadius: 700f
+                MaxDrawDistance: 0f
+                MaxDistanceFadeRange: 0f
+                LightGuid: 9d8bedf2-eea5-442b-84da-54ef070e4373
+                Intensity: 150f
+                LightColor: { R: 255, G: 195, B: 139, A: 0 }
+                CastShadows: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                RelativeLocation: { X: -1.694438, Y: -0.1549084, Z: 40.87234 }
+                 }
+            AttachToName: Socket_PointLight
+            VariableGuid: 8453e5c9-f7bb-4433-bfeb-c84f9fa5e6c5
+            InternalVariableName: PointLight
+             }, { 
+            ComponentClass: Class /Script/Engine.ParticleSystemComponent
+            ComponentTemplate: { 
+                Template: ParticleSystem /Game/Effects/ParticleSystems/P_Flames.P_Flames
+                WarmupTime: 5f
+                DetailLevelBeforeCastShadows: DM_MAX
+                RelativeLocation: { X: -0.000320521, Y: -4.017066E-05, Z: 14.4392 }
+                 }
+            AttachToName: FX_Flames
+            VariableGuid: 9a39036c-d434-4c22-9432-b0dfa56b1619
+            InternalVariableName: P_Flames
+             }, { 
+            ComponentClass: Class /Script/AkAudio.AkComponent
+            ComponentTemplate: { 
+                ShouldTransmitRelativeAngle: True
+                OcclusionAffect: 60f
+                RelativeLocation: { X: 0, Y: -1.000007, Z: 96.99999 }
+                 }
+            VariableGuid: 43e5ccdb-04aa-4c75-9a85-eb12074b2d49
+            InternalVariableName: Ak_Audio_Lantern
+             }, { 
+            ComponentClass: Class /Script/Engine.StaticMeshComponent
+            ComponentTemplate: { 
+                StaticMesh: StaticMesh /Game/Meshes/Props/Light/SM_Lantern01.SM_Lantern01
+                bUseDefaultCollision: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                DetailLevelBeforeCastDynamicShadows: ELightingDetailMode::Medium
+                bCastCinematicShadow: True
+                BodyInstance: { 
+                    MassInKgOverride: 52.0616f
+                     }
+                Mobility: EComponentMobility::Static
+                 }
+            VariableGuid: 863ab85e-9668-4220-aafc-0d2c8ad0a827
+            InternalVariableName: SM_Lantern01
+             } ]
+        VariableGuid: 694312b4-3cec-469e-b323-c3047a7017e7
+        InternalVariableName: DefaultSceneRoot
+         }
+     }
+UberGraphFunction: { 
+     }
+<--- CDO --->
+UberGraphFrame: 72

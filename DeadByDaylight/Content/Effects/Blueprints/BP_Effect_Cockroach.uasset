@@ -1,125 +1,443 @@
-ParentClass: Class /Script/Engine.Actor
-SimpleConstructionScript: SimpleConstructionScript: {	
-	RootNodes: [ { 
-	ComponentTemplate: DefaultSceneRootCA9A2828475C334D5C3826B478D424B4: {	
-		Mobility: EComponentMobility::Static
-		}
-	VariableName: DefaultSceneRoot
-	ChildNodes: [ { 
-	ComponentTemplate: P_Cockroach2A865D094FB5699CDB119D88B5C0F37F: {	
-		Template: ParticleSystem /Game/Effects/ParticleSystems/P_Cockroach.P_Cockroach
-		WarmupTime: 5f
-		RelativeLocation: Vector [X=0, Y=0, Z=5]
-		bAutoActivate: False
-		}
-	VariableName: P_Cockroach
-	VariableGuid: 8f613d50-ee50-4725-a6dc-d3d2311c08a3
-	 }, { 
-	ComponentTemplate: Sphere7870ACC54FEC8A49988E36A6FA28ABE0: {	
-		SphereRadius: 250f
-		BodyInstance: {
-			CollisionProfileName: Custom
-			CollisionResponses: {
-				ResponseArray: [ { 
-				Channel: EngineTraceChannel1
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel2
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel3
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel4
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel5
-				Response: ECR_Ignore
-				 }, { 
-				Channel: EngineTraceChannel6
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Interactable
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Audio
-				Response: ECR_Ignore
-				 }, { 
-				Channel: InteractionDetector
-				Response: ECR_Ignore
-				 }, { 
-				Channel: BlinkBlocker
-				Response: ECR_Ignore
-				 }, { 
-				Channel: WorldStatic
-				Response: ECR_Ignore
-				 }, { 
-				Channel: WorldDynamic
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Pawn
-				Response: ECR_Overlap
-				 }, { 
-				Channel: Visibility
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Camera
-				Response: ECR_Ignore
-				 }, { 
-				Channel: PhysicsBody
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Vehicle
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Destructible
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Spider
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Traps
-				Response: ECR_Ignore
-				 }, { 
-				Channel: Ground
-				Response: ECR_Ignore
-				 } ]
-				}
-			MassInKgOverride: 4091.884f
-			ObjectType: ECC_WorldStatic
-			}
-		CanCharacterStepUpOn: ECB_No
-		Mobility: EComponentMobility::Static
-		}
-	VariableName: Sphere
-	VariableGuid: 04d855a7-94ac-4e51-825f-d7dc6fb13d5b
-	 }, { 
-	ComponentTemplate: Ak1A895ADC4D2100B48CCA4C87A375A1AC: {	
-		OcclusionAffect: 25f
-		}
-	VariableName: Ak_Audio_Coakroach
-	VariableGuid: 4c74363a-3776-4b8f-b8f0-8b2dbd52e891
-	 } ]
-	VariableGuid: 49d38d6e-8809-41be-86e9-751bfe2084ab
-	 } ]
-	AllNodes: [ 41, 44, 42, 43 ]
-	DefaultSceneRootNode: 41
-	}
-BlueprintSystemVersion: 2
-GeneratedClass: BP_Effect_Cockroach_C: {	
-	DynamicBindingObjects: [ { 
-	ComponentDelegateBindings: [ { 
-	ComponentPropertyName: Sphere
-	DelegatePropertyName: OnComponentBeginOverlap
-	FunctionNameToBind: BndEvt__Sphere_K2Node_ComponentBoundEvent_294_ComponentBeginOverlapSignature__DelegateSignature
-	 } ]
-	 } ]
-	SimpleConstructionScript: 45
-	UberGraphFramePointerProperty: UberGraphFrame: {	
-		}
-	UberGraphFunction: ExecuteUbergraph_BP_Effect_Cockroach: {	
-		}
-	}
-bLegacyNeedToPurgeSkelRefs: False
-bLegacyGeneratedClassIsAuthoritative: True
-BlueprintGuid: 35dca084-a08a-4f8c-8014-9ebf439a8880
+DynamicBindingObjects: [ { 
+    ComponentDelegateBindings: [ { 
+        ComponentPropertyName: Sphere
+        DelegatePropertyName: OnComponentBeginOverlap
+        FunctionNameToBind: BndEvt__Sphere_K2Node_ComponentBoundEvent_294_ComponentBeginOverlapSignature__DelegateSignature
+         } ]
+     } ]
+SimpleConstructionScript: { 
+    RootNodes: [ { 
+        ComponentClass: Class /Script/Engine.SceneComponent
+        ComponentTemplate: { 
+            Mobility: EComponentMobility::Static
+             }
+        ChildNodes: [ { 
+            ComponentClass: Class /Script/Engine.ParticleSystemComponent
+            ComponentTemplate: { 
+                Template: ParticleSystem /Game/Effects/ParticleSystems/P_Cockroach.P_Cockroach
+                WarmupTime: 5f
+                DetailLevelBeforeCastShadows: DM_MAX
+                RelativeLocation: { X: 0, Y: 0, Z: 5 }
+                bAutoActivate: False
+                 }
+            VariableGuid: 8f613d50-ee50-4725-a6dc-d3d2311c08a3
+            InternalVariableName: P_Cockroach
+             }, { 
+            ComponentClass: Class /Script/Engine.SphereComponent
+            ComponentTemplate: { 
+                SphereRadius: 250f
+                AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
+                DetailLevelBeforeCastShadows: DM_MAX
+                CanCharacterStepUpOn: ECB_No
+                BodyInstance: { 
+                    ObjectType: ECC_WorldStatic
+                    CollisionProfileName: Custom
+                    CollisionResponses: { 
+                        ResponseArray: [ { 
+                            Channel: EngineTraceChannel1
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel2
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel3
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel4
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel5
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel6
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Interactable
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Audio
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: InteractionDetector
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: BlinkBlocker
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: WorldStatic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: WorldDynamic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Pawn
+                            Response: ECR_Overlap
+                             }, { 
+                            Channel: Visibility
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Camera
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: PhysicsBody
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Vehicle
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Destructible
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Spider
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Traps
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Ground
+                            Response: ECR_Ignore
+                             } ]
+                         }
+                    MassInKgOverride: 4091.884f
+                     }
+                Mobility: EComponentMobility::Static
+                 }
+            VariableGuid: 04d855a7-94ac-4e51-825f-d7dc6fb13d5b
+            InternalVariableName: Sphere
+             }, { 
+            ComponentClass: Class /Script/AkAudio.AkComponent
+            ComponentTemplate: { 
+                OcclusionAffect: 25f
+                 }
+            VariableGuid: 4c74363a-3776-4b8f-b8f0-8b2dbd52e891
+            InternalVariableName: Ak_Audio_Coakroach
+             } ]
+        VariableGuid: 49d38d6e-8809-41be-86e9-751bfe2084ab
+        InternalVariableName: DefaultSceneRoot
+         } ]
+    AllNodes: [ { 
+        ComponentClass: Class /Script/Engine.SceneComponent
+        ComponentTemplate: { 
+            Mobility: EComponentMobility::Static
+             }
+        ChildNodes: [ { 
+            ComponentClass: Class /Script/Engine.ParticleSystemComponent
+            ComponentTemplate: { 
+                Template: ParticleSystem /Game/Effects/ParticleSystems/P_Cockroach.P_Cockroach
+                WarmupTime: 5f
+                DetailLevelBeforeCastShadows: DM_MAX
+                RelativeLocation: { X: 0, Y: 0, Z: 5 }
+                bAutoActivate: False
+                 }
+            VariableGuid: 8f613d50-ee50-4725-a6dc-d3d2311c08a3
+            InternalVariableName: P_Cockroach
+             }, { 
+            ComponentClass: Class /Script/Engine.SphereComponent
+            ComponentTemplate: { 
+                SphereRadius: 250f
+                AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
+                DetailLevelBeforeCastShadows: DM_MAX
+                CanCharacterStepUpOn: ECB_No
+                BodyInstance: { 
+                    ObjectType: ECC_WorldStatic
+                    CollisionProfileName: Custom
+                    CollisionResponses: { 
+                        ResponseArray: [ { 
+                            Channel: EngineTraceChannel1
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel2
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel3
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel4
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel5
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel6
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Interactable
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Audio
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: InteractionDetector
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: BlinkBlocker
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: WorldStatic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: WorldDynamic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Pawn
+                            Response: ECR_Overlap
+                             }, { 
+                            Channel: Visibility
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Camera
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: PhysicsBody
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Vehicle
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Destructible
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Spider
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Traps
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Ground
+                            Response: ECR_Ignore
+                             } ]
+                         }
+                    MassInKgOverride: 4091.884f
+                     }
+                Mobility: EComponentMobility::Static
+                 }
+            VariableGuid: 04d855a7-94ac-4e51-825f-d7dc6fb13d5b
+            InternalVariableName: Sphere
+             }, { 
+            ComponentClass: Class /Script/AkAudio.AkComponent
+            ComponentTemplate: { 
+                OcclusionAffect: 25f
+                 }
+            VariableGuid: 4c74363a-3776-4b8f-b8f0-8b2dbd52e891
+            InternalVariableName: Ak_Audio_Coakroach
+             } ]
+        VariableGuid: 49d38d6e-8809-41be-86e9-751bfe2084ab
+        InternalVariableName: DefaultSceneRoot
+         }, { 
+        ComponentClass: Class /Script/Engine.ParticleSystemComponent
+        ComponentTemplate: { 
+            Template: ParticleSystem /Game/Effects/ParticleSystems/P_Cockroach.P_Cockroach
+            WarmupTime: 5f
+            DetailLevelBeforeCastShadows: DM_MAX
+            RelativeLocation: { X: 0, Y: 0, Z: 5 }
+            bAutoActivate: False
+             }
+        VariableGuid: 8f613d50-ee50-4725-a6dc-d3d2311c08a3
+        InternalVariableName: P_Cockroach
+         }, { 
+        ComponentClass: Class /Script/Engine.SphereComponent
+        ComponentTemplate: { 
+            SphereRadius: 250f
+            AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
+            DetailLevelBeforeCastShadows: DM_MAX
+            CanCharacterStepUpOn: ECB_No
+            BodyInstance: { 
+                ObjectType: ECC_WorldStatic
+                CollisionProfileName: Custom
+                CollisionResponses: { 
+                    ResponseArray: [ { 
+                        Channel: EngineTraceChannel1
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel2
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel3
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel4
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel5
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel6
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Interactable
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Audio
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: InteractionDetector
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: BlinkBlocker
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: WorldStatic
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: WorldDynamic
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Pawn
+                        Response: ECR_Overlap
+                         }, { 
+                        Channel: Visibility
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Camera
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: PhysicsBody
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Vehicle
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Destructible
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Spider
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Traps
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Ground
+                        Response: ECR_Ignore
+                         } ]
+                     }
+                MassInKgOverride: 4091.884f
+                 }
+            Mobility: EComponentMobility::Static
+             }
+        VariableGuid: 04d855a7-94ac-4e51-825f-d7dc6fb13d5b
+        InternalVariableName: Sphere
+         }, { 
+        ComponentClass: Class /Script/AkAudio.AkComponent
+        ComponentTemplate: { 
+            OcclusionAffect: 25f
+             }
+        VariableGuid: 4c74363a-3776-4b8f-b8f0-8b2dbd52e891
+        InternalVariableName: Ak_Audio_Coakroach
+         } ]
+    DefaultSceneRootNode: { 
+        ComponentClass: Class /Script/Engine.SceneComponent
+        ComponentTemplate: { 
+            Mobility: EComponentMobility::Static
+             }
+        ChildNodes: [ { 
+            ComponentClass: Class /Script/Engine.ParticleSystemComponent
+            ComponentTemplate: { 
+                Template: ParticleSystem /Game/Effects/ParticleSystems/P_Cockroach.P_Cockroach
+                WarmupTime: 5f
+                DetailLevelBeforeCastShadows: DM_MAX
+                RelativeLocation: { X: 0, Y: 0, Z: 5 }
+                bAutoActivate: False
+                 }
+            VariableGuid: 8f613d50-ee50-4725-a6dc-d3d2311c08a3
+            InternalVariableName: P_Cockroach
+             }, { 
+            ComponentClass: Class /Script/Engine.SphereComponent
+            ComponentTemplate: { 
+                SphereRadius: 250f
+                AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
+                DetailLevelBeforeCastShadows: DM_MAX
+                CanCharacterStepUpOn: ECB_No
+                BodyInstance: { 
+                    ObjectType: ECC_WorldStatic
+                    CollisionProfileName: Custom
+                    CollisionResponses: { 
+                        ResponseArray: [ { 
+                            Channel: EngineTraceChannel1
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel2
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel3
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel4
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel5
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel6
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Interactable
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Audio
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: InteractionDetector
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: BlinkBlocker
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: WorldStatic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: WorldDynamic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Pawn
+                            Response: ECR_Overlap
+                             }, { 
+                            Channel: Visibility
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Camera
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: PhysicsBody
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Vehicle
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Destructible
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Spider
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Traps
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Ground
+                            Response: ECR_Ignore
+                             } ]
+                         }
+                    MassInKgOverride: 4091.884f
+                     }
+                Mobility: EComponentMobility::Static
+                 }
+            VariableGuid: 04d855a7-94ac-4e51-825f-d7dc6fb13d5b
+            InternalVariableName: Sphere
+             }, { 
+            ComponentClass: Class /Script/AkAudio.AkComponent
+            ComponentTemplate: { 
+                OcclusionAffect: 25f
+                 }
+            VariableGuid: 4c74363a-3776-4b8f-b8f0-8b2dbd52e891
+            InternalVariableName: Ak_Audio_Coakroach
+             } ]
+        VariableGuid: 49d38d6e-8809-41be-86e9-751bfe2084ab
+        InternalVariableName: DefaultSceneRoot
+         }
+     }
+UberGraphFunction: { 
+     }
+<--- CDO --->
+UberGraphFrame: 123
+PrimaryActorTick: { 
+    bCanEverTick: True
+     }

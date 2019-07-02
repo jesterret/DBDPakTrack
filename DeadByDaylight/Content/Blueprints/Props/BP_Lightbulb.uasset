@@ -1,53 +1,181 @@
-ParentClass: Class /Script/Engine.Actor
-SimpleConstructionScript: SimpleConstructionScript: {	
-	RootNodes: [ { 
-	ComponentTemplate: SM_Lightbull_01948FA2174AAC92AC5B5F24B047D8CA34: {	
-		StaticMesh: StaticMesh /Game/Meshes/Props/Misc/SM_Lightbull_01.SM_Lightbull_01
-		bUseDefaultCollision: False
-		BodyInstance: {
-			MassInKgOverride: 0f
-			}
-		Mobility: EComponentMobility::Static
-		}
-	VariableName: SM_Lightbull_01
-	ChildNodes: [ { 
-	ComponentTemplate: ParticleSystem16FF1AB94F1C3589C58D2090DEA5FB84: {	
-		Template: ParticleSystem /Game/Effects/ParticleSystems/P_LightSourceFx.P_LightSourceFx
-		}
-	VariableName: P_LightSourceFX
-	VariableGuid: 0c1e5335-af2e-4988-8ca3-f1f45848859e
-	 }, { 
-	ComponentTemplate: SpotLight0FE6FE9542FD583C4EF7F6A995B9AD71: {	
-		OuterConeAngle: 65.27434f
-		AttenuationRadius: 4872.02f
-		bCastShadowsFromCinematicObjectsOnly: True
-		IESTexture: TextureLightProfile /Game/Effects/IESprofiles/Umbrella.Umbrella
-		IESBrightnessScale: 0.2f
-		LightGuid: d6657c42-8d33-4c83-8798-f336dc2d07d3
-		Intensity: 500f
-		LightColor: Color [B=212, G=197, R=171, A=0]
-		CastStaticShadows: False
-		bAffectTranslucentLighting: False
-		bPrecomputedLightingIsValid: False
-		RelativeRotation: Rotator [Pitch=-90, Roll=0, Yaw=0]
-		}
-	VariableName: SpotLight
-	VariableGuid: 0a81dd50-ed70-4920-8e08-b810e4bca598
-	 } ]
-	VariableGuid: b4a339e8-17d0-45b1-8810-b98d1f44b1c3
-	 } ]
-	AllNodes: [ 13, 11, 10 ]
-	DefaultSceneRootNode: SCS_Node: {	
-		ComponentTemplate: SceneComponent: {	
-			}
-		VariableName: DefaultSceneRoot
-		VariableGuid: 0554c38e-4c6e-436f-bac5-cb0adb7cdd6e
-		}
-	}
-BlueprintSystemVersion: 2
-GeneratedClass: BP_Lightbulb_C: {	
-	SimpleConstructionScript: 14
-	}
-bLegacyNeedToPurgeSkelRefs: False
-bLegacyGeneratedClassIsAuthoritative: True
-BlueprintGuid: c77acca3-abe3-41ad-a0f5-99440d27e9db
+SimpleConstructionScript: { 
+    RootNodes: [ { 
+        ComponentClass: Class /Script/Engine.StaticMeshComponent
+        ComponentTemplate: { 
+            StaticMesh: StaticMesh /Game/Meshes/Props/Misc/SM_Lightbull_01.SM_Lightbull_01
+            bUseDefaultCollision: False
+            DetailLevelBeforeCastShadows: DM_MAX
+            BodyInstance: { 
+                MassInKgOverride: 0f
+                 }
+            Mobility: EComponentMobility::Static
+             }
+        ChildNodes: [ { 
+            ComponentClass: Class /Script/Engine.ParticleSystemComponent
+            ComponentTemplate: { 
+                Template: ParticleSystem /Game/Effects/ParticleSystems/P_LightSourceFx.P_LightSourceFx
+                DetailLevelBeforeCastShadows: DM_MAX
+                 }
+            VariableGuid: 0c1e5335-af2e-4988-8ca3-f1f45848859e
+            InternalVariableName: P_LightSourceFX
+             }, { 
+            ComponentClass: Class /Script/Engine.SpotLightComponent
+            ComponentTemplate: { 
+                OuterConeAngle: 65.27434f
+                AttenuationRadius: 4872.02f
+                bCastShadowsFromCinematicObjectsOnly: True
+                IESTexture: TextureLightProfile /Game/Effects/IESprofiles/Umbrella.Umbrella
+                IESBrightnessScale: 0.2f
+                LightGuid: d6657c42-8d33-4c83-8798-f336dc2d07d3
+                Intensity: 500f
+                LightColor: { R: 171, G: 197, B: 212, A: 0 }
+                CastStaticShadows: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                bAffectTranslucentLighting: False
+                RelativeRotation: { Pitch: -90, Roll: 0, Yaw: 0 }
+                 }
+            VariableGuid: 0a81dd50-ed70-4920-8e08-b810e4bca598
+            InternalVariableName: SpotLight
+             }, { 
+            ComponentClass: Class /Script/Engine.PointLightComponent
+            ComponentTemplate: { 
+                SourceRadius: 4f
+                AttenuationRadius: 500f
+                LightingChannels: { 
+                    bChannel0: False
+                    bChannel1: False
+                     }
+                IESTexture: TextureLightProfile /Game/Effects/IESprofiles/ThreeLobeUmbrella.ThreeLobeUmbrella
+                Intensity: 800f
+                LightColor: { R: 104, G: 142, B: 168, A: 0 }
+                CastShadows: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                RelativeLocation: { X: -0.0007247925, Y: -0.6791686, Z: -95.93377 }
+                RelativeRotation: { Pitch: 0.0001024528, Roll: 89.99993, Yaw: 9.900823E-05 }
+                DetailModeBitMask: -8
+                 }
+            VariableGuid: a50c306c-2c78-47bb-827a-e90b738ed38f
+            InternalVariableName: PointLight_Atlanta
+             } ]
+        VariableGuid: b4a339e8-17d0-45b1-8810-b98d1f44b1c3
+        InternalVariableName: SM_Lightbull_01
+         } ]
+    AllNodes: [ { 
+        ComponentClass: Class /Script/Engine.StaticMeshComponent
+        ComponentTemplate: { 
+            StaticMesh: StaticMesh /Game/Meshes/Props/Misc/SM_Lightbull_01.SM_Lightbull_01
+            bUseDefaultCollision: False
+            DetailLevelBeforeCastShadows: DM_MAX
+            BodyInstance: { 
+                MassInKgOverride: 0f
+                 }
+            Mobility: EComponentMobility::Static
+             }
+        ChildNodes: [ { 
+            ComponentClass: Class /Script/Engine.ParticleSystemComponent
+            ComponentTemplate: { 
+                Template: ParticleSystem /Game/Effects/ParticleSystems/P_LightSourceFx.P_LightSourceFx
+                DetailLevelBeforeCastShadows: DM_MAX
+                 }
+            VariableGuid: 0c1e5335-af2e-4988-8ca3-f1f45848859e
+            InternalVariableName: P_LightSourceFX
+             }, { 
+            ComponentClass: Class /Script/Engine.SpotLightComponent
+            ComponentTemplate: { 
+                OuterConeAngle: 65.27434f
+                AttenuationRadius: 4872.02f
+                bCastShadowsFromCinematicObjectsOnly: True
+                IESTexture: TextureLightProfile /Game/Effects/IESprofiles/Umbrella.Umbrella
+                IESBrightnessScale: 0.2f
+                LightGuid: d6657c42-8d33-4c83-8798-f336dc2d07d3
+                Intensity: 500f
+                LightColor: { R: 171, G: 197, B: 212, A: 0 }
+                CastStaticShadows: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                bAffectTranslucentLighting: False
+                RelativeRotation: { Pitch: -90, Roll: 0, Yaw: 0 }
+                 }
+            VariableGuid: 0a81dd50-ed70-4920-8e08-b810e4bca598
+            InternalVariableName: SpotLight
+             }, { 
+            ComponentClass: Class /Script/Engine.PointLightComponent
+            ComponentTemplate: { 
+                SourceRadius: 4f
+                AttenuationRadius: 500f
+                LightingChannels: { 
+                    bChannel0: False
+                    bChannel1: False
+                     }
+                IESTexture: TextureLightProfile /Game/Effects/IESprofiles/ThreeLobeUmbrella.ThreeLobeUmbrella
+                Intensity: 800f
+                LightColor: { R: 104, G: 142, B: 168, A: 0 }
+                CastShadows: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                RelativeLocation: { X: -0.0007247925, Y: -0.6791686, Z: -95.93377 }
+                RelativeRotation: { Pitch: 0.0001024528, Roll: 89.99993, Yaw: 9.900823E-05 }
+                DetailModeBitMask: -8
+                 }
+            VariableGuid: a50c306c-2c78-47bb-827a-e90b738ed38f
+            InternalVariableName: PointLight_Atlanta
+             } ]
+        VariableGuid: b4a339e8-17d0-45b1-8810-b98d1f44b1c3
+        InternalVariableName: SM_Lightbull_01
+         }, { 
+        ComponentClass: Class /Script/Engine.ParticleSystemComponent
+        ComponentTemplate: { 
+            Template: ParticleSystem /Game/Effects/ParticleSystems/P_LightSourceFx.P_LightSourceFx
+            DetailLevelBeforeCastShadows: DM_MAX
+             }
+        VariableGuid: 0c1e5335-af2e-4988-8ca3-f1f45848859e
+        InternalVariableName: P_LightSourceFX
+         }, { 
+        ComponentClass: Class /Script/Engine.SpotLightComponent
+        ComponentTemplate: { 
+            OuterConeAngle: 65.27434f
+            AttenuationRadius: 4872.02f
+            bCastShadowsFromCinematicObjectsOnly: True
+            IESTexture: TextureLightProfile /Game/Effects/IESprofiles/Umbrella.Umbrella
+            IESBrightnessScale: 0.2f
+            LightGuid: d6657c42-8d33-4c83-8798-f336dc2d07d3
+            Intensity: 500f
+            LightColor: { R: 171, G: 197, B: 212, A: 0 }
+            CastStaticShadows: False
+            DetailLevelBeforeCastShadows: DM_MAX
+            bAffectTranslucentLighting: False
+            RelativeRotation: { Pitch: -90, Roll: 0, Yaw: 0 }
+             }
+        VariableGuid: 0a81dd50-ed70-4920-8e08-b810e4bca598
+        InternalVariableName: SpotLight
+         }, { 
+        ComponentClass: Class /Script/Engine.PointLightComponent
+        ComponentTemplate: { 
+            SourceRadius: 4f
+            AttenuationRadius: 500f
+            LightingChannels: { 
+                bChannel0: False
+                bChannel1: False
+                 }
+            IESTexture: TextureLightProfile /Game/Effects/IESprofiles/ThreeLobeUmbrella.ThreeLobeUmbrella
+            Intensity: 800f
+            LightColor: { R: 104, G: 142, B: 168, A: 0 }
+            CastShadows: False
+            DetailLevelBeforeCastShadows: DM_MAX
+            RelativeLocation: { X: -0.0007247925, Y: -0.6791686, Z: -95.93377 }
+            RelativeRotation: { Pitch: 0.0001024528, Roll: 89.99993, Yaw: 9.900823E-05 }
+            DetailModeBitMask: -8
+             }
+        VariableGuid: a50c306c-2c78-47bb-827a-e90b738ed38f
+        InternalVariableName: PointLight_Atlanta
+         } ]
+    DefaultSceneRootNode: { 
+        ComponentClass: Class /Script/Engine.SceneComponent
+        ComponentTemplate: { 
+             }
+        VariableGuid: 0554c38e-4c6e-436f-bac5-cb0adb7cdd6e
+        InternalVariableName: DefaultSceneRoot
+         }
+     }
+<--- CDO --->
+PrimaryActorTick: { 
+    bStartWithTickEnabled: False
+     }

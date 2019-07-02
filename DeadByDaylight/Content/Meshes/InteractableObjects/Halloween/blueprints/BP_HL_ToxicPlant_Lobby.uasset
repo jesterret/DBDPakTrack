@@ -1,115 +1,425 @@
-ParentClass: Class /Script/Engine.Actor
-SimpleConstructionScript: SimpleConstructionScript: {	
-	RootNodes: [ { 
-	ComponentTemplate: DefaultSceneRoot_GEN_VARIABLE: {	
-		RelativeScale3D: Vector [X=1.2, Y=1.2, Z=1.2]
-		}
-	VariableName: DefaultSceneRoot
-	ChildNodes: [ { 
-	ComponentTemplate: HL_PlantHook_REF_GEN_VARIABLE: {	
-		AnimationMode: EAnimationMode::AnimationSingleNode
-		AnimationData: {
-			AnimToPlay: AnimSequence /Game/Meshes/InteractableObjects/Halloween/Animation/AnimSequences/HL_ToxicPlant_Interact_Idle_Full.HL_ToxicPlant_Interact_Idle_Full
-			}
-		SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_ToxicPlant_REF.HL_ToxicPlant_REF
-		}
-	VariableName: HL_PlantHook_REF
-	ChildNodes: [ { 
-	ComponentTemplate: HL_Petal_02_GEN_VARIABLE: {	
-		StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Petal.HL_Petal
-		bUseDefaultCollision: False
-		BodyInstance: {
-			CollisionProfileName: BlockAllDynamic
-			ObjectType: ECC_WorldDynamic
-			}
-		}
-	VariableName: HL_Petal_02
-	AttachToName: FX_Flower_02
-	VariableGuid: 8fa2ae0b-c3c6-4497-b8c8-05531e038008
-	 }, { 
-	ComponentTemplate: HL_Petal_03_GEN_VARIABLE: {	
-		StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Petal.HL_Petal
-		bUseDefaultCollision: False
-		BodyInstance: {
-			CollisionProfileName: BlockAllDynamic
-			ObjectType: ECC_WorldDynamic
-			}
-		}
-	VariableName: HL_Petal_03
-	AttachToName: FX_Flower_03
-	VariableGuid: d19c0be1-e786-4dd6-8467-db0cf8dd2a41
-	 }, { 
-	ComponentTemplate: HL_Petal_01_GEN_VARIABLE: {	
-		StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Petal.HL_Petal
-		bUseDefaultCollision: False
-		BodyInstance: {
-			CollisionProfileName: BlockAllDynamic
-			ObjectType: ECC_WorldDynamic
-			}
-		}
-	VariableName: HL_Petal_01
-	AttachToName: FX_Flower_01
-	VariableGuid: f05d9db8-2491-49e5-95a8-680744c8f1b3
-	 }, { 
-	ComponentTemplate: HL_Finger_02_GEN_VARIABLE: {	
-		StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Finger.HL_Finger
-		bUseDefaultCollision: False
-		BodyInstance: {
-			CollisionProfileName: BlockAllDynamic
-			ObjectType: ECC_WorldDynamic
-			}
-		}
-	VariableName: HL_Finger_02
-	AttachToName: FX_Flower_02
-	VariableGuid: 4b16479f-d559-4896-9a0e-eb8b8aed6a6a
-	 }, { 
-	ComponentTemplate: HL_Finger_01_GEN_VARIABLE: {	
-		StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Finger.HL_Finger
-		bUseDefaultCollision: False
-		BodyInstance: {
-			CollisionProfileName: BlockAllDynamic
-			ObjectType: ECC_WorldDynamic
-			}
-		}
-	VariableName: HL_Finger_01
-	AttachToName: FX_Flower_01
-	VariableGuid: aaf7720b-675c-4a6c-b044-d69ddb9f8c20
-	 }, { 
-	ComponentTemplate: HL_Finger_03_GEN_VARIABLE: {	
-		StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Finger.HL_Finger
-		bUseDefaultCollision: False
-		BodyInstance: {
-			CollisionProfileName: BlockAllDynamic
-			ObjectType: ECC_WorldDynamic
-			}
-		}
-	VariableName: HL_Finger_03
-	AttachToName: FX_Flower_03
-	VariableGuid: 1c6c5c57-61ec-4e88-a70f-762b3c5fdc89
-	 } ]
-	VariableGuid: ed191854-e1b8-430c-a2fd-1df5997f6f1a
-	 }, { 
-	ComponentTemplate: Ak_Audio_ToxicPlant_Menu_GEN_VARIABLE: {	
-		OcclusionAffect: 0f
-		MaxOcclusionDistance: 0f
-		RelativeLocation: Vector [X=0, Y=15, Z=170]
-		}
-	VariableName: Ak_Audio_ToxicPlant_Menu
-	VariableGuid: 849b4831-14f6-4085-8eb9-d399bb6d7f6c
-	 } ]
-	VariableGuid: 842c93bf-0d54-42fb-b52a-0d88a980a24b
-	 } ]
-	AllNodes: [ 21, 22, 24, 25, 23, 27, 26, 28, 29 ]
-	DefaultSceneRootNode: 21
-	}
-BlueprintSystemVersion: 2
-GeneratedClass: BP_HL_ToxicPlant_Lobby_C: {	
-	SimpleConstructionScript: 30
-	UberGraphFramePointerProperty: UberGraphFrame: {	
-		}
-	UberGraphFunction: ExecuteUbergraph_BP_HL_ToxicPlant_Lobby: {	
-		}
-	}
-bLegacyNeedToPurgeSkelRefs: False
-bLegacyGeneratedClassIsAuthoritative: True
-BlueprintGuid: 95a8c6a3-d8c4-4c57-8912-1b090ddb2794
+SimpleConstructionScript: { 
+    RootNodes: [ { 
+        ComponentClass: Class /Script/Engine.SceneComponent
+        ComponentTemplate: { 
+            RelativeScale3D: { X: 1.2, Y: 1.2, Z: 1.2 }
+             }
+        ChildNodes: [ { 
+            ComponentClass: Class /Script/Engine.SkeletalMeshComponent
+            ComponentTemplate: { 
+                AnimationData: { 
+                    AnimToPlay: AnimSequence /Game/Meshes/InteractableObjects/Halloween/Animation/AnimSequences/HL_ToxicPlant_Interact_Idle_Full.HL_ToxicPlant_Interact_Idle_Full
+                     }
+                AnimationMode: EAnimationMode::AnimationSingleNode
+                ClothingSimulationFactory: Class /Script/ClothingSystemRuntime.ClothingSimulationFactoryNv
+                SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_ToxicPlant_REF.HL_ToxicPlant_REF
+                DetailLevelBeforeCastShadows: DM_MAX
+                 }
+            ChildNodes: [ { 
+                ComponentClass: Class /Script/Engine.StaticMeshComponent
+                ComponentTemplate: { 
+                    StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Petal.HL_Petal
+                    bUseDefaultCollision: False
+                    DetailLevelBeforeCastShadows: DM_MAX
+                     }
+                AttachToName: FX_Flower_02
+                VariableGuid: 8fa2ae0b-c3c6-4497-b8c8-05531e038008
+                InternalVariableName: HL_Petal_02
+                 }, { 
+                ComponentClass: Class /Script/Engine.StaticMeshComponent
+                ComponentTemplate: { 
+                    StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Petal.HL_Petal
+                    bUseDefaultCollision: False
+                    DetailLevelBeforeCastShadows: DM_MAX
+                     }
+                AttachToName: FX_Flower_03
+                VariableGuid: d19c0be1-e786-4dd6-8467-db0cf8dd2a41
+                InternalVariableName: HL_Petal_03
+                 }, { 
+                ComponentClass: Class /Script/Engine.StaticMeshComponent
+                ComponentTemplate: { 
+                    StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Petal.HL_Petal
+                    bUseDefaultCollision: False
+                    DetailLevelBeforeCastShadows: DM_MAX
+                     }
+                AttachToName: FX_Flower_01
+                VariableGuid: f05d9db8-2491-49e5-95a8-680744c8f1b3
+                InternalVariableName: HL_Petal_01
+                 }, { 
+                ComponentClass: Class /Script/Engine.StaticMeshComponent
+                ComponentTemplate: { 
+                    StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Finger.HL_Finger
+                    bUseDefaultCollision: False
+                    DetailLevelBeforeCastShadows: DM_MAX
+                     }
+                AttachToName: FX_Flower_02
+                VariableGuid: 4b16479f-d559-4896-9a0e-eb8b8aed6a6a
+                InternalVariableName: HL_Finger_02
+                 }, { 
+                ComponentClass: Class /Script/Engine.StaticMeshComponent
+                ComponentTemplate: { 
+                    StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Finger.HL_Finger
+                    bUseDefaultCollision: False
+                    DetailLevelBeforeCastShadows: DM_MAX
+                     }
+                AttachToName: FX_Flower_01
+                VariableGuid: aaf7720b-675c-4a6c-b044-d69ddb9f8c20
+                InternalVariableName: HL_Finger_01
+                 }, { 
+                ComponentClass: Class /Script/Engine.StaticMeshComponent
+                ComponentTemplate: { 
+                    StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Finger.HL_Finger
+                    bUseDefaultCollision: False
+                    DetailLevelBeforeCastShadows: DM_MAX
+                     }
+                AttachToName: FX_Flower_03
+                VariableGuid: 1c6c5c57-61ec-4e88-a70f-762b3c5fdc89
+                InternalVariableName: HL_Finger_03
+                 } ]
+            VariableGuid: ed191854-e1b8-430c-a2fd-1df5997f6f1a
+            InternalVariableName: HL_PlantHook_REF
+             }, { 
+            ComponentClass: Class /Script/AkAudio.AkComponent
+            ComponentTemplate: { 
+                OcclusionAffect: 0f
+                MaxOcclusionDistance: 0f
+                RelativeLocation: { X: 0, Y: 15, Z: 170 }
+                 }
+            VariableGuid: 849b4831-14f6-4085-8eb9-d399bb6d7f6c
+            InternalVariableName: Ak_Audio_ToxicPlant_Menu
+             } ]
+        VariableGuid: 842c93bf-0d54-42fb-b52a-0d88a980a24b
+        InternalVariableName: DefaultSceneRoot
+         } ]
+    AllNodes: [ { 
+        ComponentClass: Class /Script/Engine.SceneComponent
+        ComponentTemplate: { 
+            RelativeScale3D: { X: 1.2, Y: 1.2, Z: 1.2 }
+             }
+        ChildNodes: [ { 
+            ComponentClass: Class /Script/Engine.SkeletalMeshComponent
+            ComponentTemplate: { 
+                AnimationData: { 
+                    AnimToPlay: AnimSequence /Game/Meshes/InteractableObjects/Halloween/Animation/AnimSequences/HL_ToxicPlant_Interact_Idle_Full.HL_ToxicPlant_Interact_Idle_Full
+                     }
+                AnimationMode: EAnimationMode::AnimationSingleNode
+                ClothingSimulationFactory: Class /Script/ClothingSystemRuntime.ClothingSimulationFactoryNv
+                SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_ToxicPlant_REF.HL_ToxicPlant_REF
+                DetailLevelBeforeCastShadows: DM_MAX
+                 }
+            ChildNodes: [ { 
+                ComponentClass: Class /Script/Engine.StaticMeshComponent
+                ComponentTemplate: { 
+                    StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Petal.HL_Petal
+                    bUseDefaultCollision: False
+                    DetailLevelBeforeCastShadows: DM_MAX
+                     }
+                AttachToName: FX_Flower_02
+                VariableGuid: 8fa2ae0b-c3c6-4497-b8c8-05531e038008
+                InternalVariableName: HL_Petal_02
+                 }, { 
+                ComponentClass: Class /Script/Engine.StaticMeshComponent
+                ComponentTemplate: { 
+                    StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Petal.HL_Petal
+                    bUseDefaultCollision: False
+                    DetailLevelBeforeCastShadows: DM_MAX
+                     }
+                AttachToName: FX_Flower_03
+                VariableGuid: d19c0be1-e786-4dd6-8467-db0cf8dd2a41
+                InternalVariableName: HL_Petal_03
+                 }, { 
+                ComponentClass: Class /Script/Engine.StaticMeshComponent
+                ComponentTemplate: { 
+                    StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Petal.HL_Petal
+                    bUseDefaultCollision: False
+                    DetailLevelBeforeCastShadows: DM_MAX
+                     }
+                AttachToName: FX_Flower_01
+                VariableGuid: f05d9db8-2491-49e5-95a8-680744c8f1b3
+                InternalVariableName: HL_Petal_01
+                 }, { 
+                ComponentClass: Class /Script/Engine.StaticMeshComponent
+                ComponentTemplate: { 
+                    StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Finger.HL_Finger
+                    bUseDefaultCollision: False
+                    DetailLevelBeforeCastShadows: DM_MAX
+                     }
+                AttachToName: FX_Flower_02
+                VariableGuid: 4b16479f-d559-4896-9a0e-eb8b8aed6a6a
+                InternalVariableName: HL_Finger_02
+                 }, { 
+                ComponentClass: Class /Script/Engine.StaticMeshComponent
+                ComponentTemplate: { 
+                    StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Finger.HL_Finger
+                    bUseDefaultCollision: False
+                    DetailLevelBeforeCastShadows: DM_MAX
+                     }
+                AttachToName: FX_Flower_01
+                VariableGuid: aaf7720b-675c-4a6c-b044-d69ddb9f8c20
+                InternalVariableName: HL_Finger_01
+                 }, { 
+                ComponentClass: Class /Script/Engine.StaticMeshComponent
+                ComponentTemplate: { 
+                    StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Finger.HL_Finger
+                    bUseDefaultCollision: False
+                    DetailLevelBeforeCastShadows: DM_MAX
+                     }
+                AttachToName: FX_Flower_03
+                VariableGuid: 1c6c5c57-61ec-4e88-a70f-762b3c5fdc89
+                InternalVariableName: HL_Finger_03
+                 } ]
+            VariableGuid: ed191854-e1b8-430c-a2fd-1df5997f6f1a
+            InternalVariableName: HL_PlantHook_REF
+             }, { 
+            ComponentClass: Class /Script/AkAudio.AkComponent
+            ComponentTemplate: { 
+                OcclusionAffect: 0f
+                MaxOcclusionDistance: 0f
+                RelativeLocation: { X: 0, Y: 15, Z: 170 }
+                 }
+            VariableGuid: 849b4831-14f6-4085-8eb9-d399bb6d7f6c
+            InternalVariableName: Ak_Audio_ToxicPlant_Menu
+             } ]
+        VariableGuid: 842c93bf-0d54-42fb-b52a-0d88a980a24b
+        InternalVariableName: DefaultSceneRoot
+         }, { 
+        ComponentClass: Class /Script/Engine.SkeletalMeshComponent
+        ComponentTemplate: { 
+            AnimationData: { 
+                AnimToPlay: AnimSequence /Game/Meshes/InteractableObjects/Halloween/Animation/AnimSequences/HL_ToxicPlant_Interact_Idle_Full.HL_ToxicPlant_Interact_Idle_Full
+                 }
+            AnimationMode: EAnimationMode::AnimationSingleNode
+            ClothingSimulationFactory: Class /Script/ClothingSystemRuntime.ClothingSimulationFactoryNv
+            SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_ToxicPlant_REF.HL_ToxicPlant_REF
+            DetailLevelBeforeCastShadows: DM_MAX
+             }
+        ChildNodes: [ { 
+            ComponentClass: Class /Script/Engine.StaticMeshComponent
+            ComponentTemplate: { 
+                StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Petal.HL_Petal
+                bUseDefaultCollision: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                 }
+            AttachToName: FX_Flower_02
+            VariableGuid: 8fa2ae0b-c3c6-4497-b8c8-05531e038008
+            InternalVariableName: HL_Petal_02
+             }, { 
+            ComponentClass: Class /Script/Engine.StaticMeshComponent
+            ComponentTemplate: { 
+                StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Petal.HL_Petal
+                bUseDefaultCollision: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                 }
+            AttachToName: FX_Flower_03
+            VariableGuid: d19c0be1-e786-4dd6-8467-db0cf8dd2a41
+            InternalVariableName: HL_Petal_03
+             }, { 
+            ComponentClass: Class /Script/Engine.StaticMeshComponent
+            ComponentTemplate: { 
+                StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Petal.HL_Petal
+                bUseDefaultCollision: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                 }
+            AttachToName: FX_Flower_01
+            VariableGuid: f05d9db8-2491-49e5-95a8-680744c8f1b3
+            InternalVariableName: HL_Petal_01
+             }, { 
+            ComponentClass: Class /Script/Engine.StaticMeshComponent
+            ComponentTemplate: { 
+                StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Finger.HL_Finger
+                bUseDefaultCollision: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                 }
+            AttachToName: FX_Flower_02
+            VariableGuid: 4b16479f-d559-4896-9a0e-eb8b8aed6a6a
+            InternalVariableName: HL_Finger_02
+             }, { 
+            ComponentClass: Class /Script/Engine.StaticMeshComponent
+            ComponentTemplate: { 
+                StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Finger.HL_Finger
+                bUseDefaultCollision: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                 }
+            AttachToName: FX_Flower_01
+            VariableGuid: aaf7720b-675c-4a6c-b044-d69ddb9f8c20
+            InternalVariableName: HL_Finger_01
+             }, { 
+            ComponentClass: Class /Script/Engine.StaticMeshComponent
+            ComponentTemplate: { 
+                StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Finger.HL_Finger
+                bUseDefaultCollision: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                 }
+            AttachToName: FX_Flower_03
+            VariableGuid: 1c6c5c57-61ec-4e88-a70f-762b3c5fdc89
+            InternalVariableName: HL_Finger_03
+             } ]
+        VariableGuid: ed191854-e1b8-430c-a2fd-1df5997f6f1a
+        InternalVariableName: HL_PlantHook_REF
+         }, { 
+        ComponentClass: Class /Script/Engine.StaticMeshComponent
+        ComponentTemplate: { 
+            StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Petal.HL_Petal
+            bUseDefaultCollision: False
+            DetailLevelBeforeCastShadows: DM_MAX
+             }
+        AttachToName: FX_Flower_02
+        VariableGuid: 8fa2ae0b-c3c6-4497-b8c8-05531e038008
+        InternalVariableName: HL_Petal_02
+         }, { 
+        ComponentClass: Class /Script/Engine.StaticMeshComponent
+        ComponentTemplate: { 
+            StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Petal.HL_Petal
+            bUseDefaultCollision: False
+            DetailLevelBeforeCastShadows: DM_MAX
+             }
+        AttachToName: FX_Flower_03
+        VariableGuid: d19c0be1-e786-4dd6-8467-db0cf8dd2a41
+        InternalVariableName: HL_Petal_03
+         }, { 
+        ComponentClass: Class /Script/Engine.StaticMeshComponent
+        ComponentTemplate: { 
+            StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Petal.HL_Petal
+            bUseDefaultCollision: False
+            DetailLevelBeforeCastShadows: DM_MAX
+             }
+        AttachToName: FX_Flower_01
+        VariableGuid: f05d9db8-2491-49e5-95a8-680744c8f1b3
+        InternalVariableName: HL_Petal_01
+         }, { 
+        ComponentClass: Class /Script/Engine.StaticMeshComponent
+        ComponentTemplate: { 
+            StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Finger.HL_Finger
+            bUseDefaultCollision: False
+            DetailLevelBeforeCastShadows: DM_MAX
+             }
+        AttachToName: FX_Flower_02
+        VariableGuid: 4b16479f-d559-4896-9a0e-eb8b8aed6a6a
+        InternalVariableName: HL_Finger_02
+         }, { 
+        ComponentClass: Class /Script/Engine.StaticMeshComponent
+        ComponentTemplate: { 
+            StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Finger.HL_Finger
+            bUseDefaultCollision: False
+            DetailLevelBeforeCastShadows: DM_MAX
+             }
+        AttachToName: FX_Flower_01
+        VariableGuid: aaf7720b-675c-4a6c-b044-d69ddb9f8c20
+        InternalVariableName: HL_Finger_01
+         }, { 
+        ComponentClass: Class /Script/Engine.StaticMeshComponent
+        ComponentTemplate: { 
+            StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Finger.HL_Finger
+            bUseDefaultCollision: False
+            DetailLevelBeforeCastShadows: DM_MAX
+             }
+        AttachToName: FX_Flower_03
+        VariableGuid: 1c6c5c57-61ec-4e88-a70f-762b3c5fdc89
+        InternalVariableName: HL_Finger_03
+         }, { 
+        ComponentClass: Class /Script/AkAudio.AkComponent
+        ComponentTemplate: { 
+            OcclusionAffect: 0f
+            MaxOcclusionDistance: 0f
+            RelativeLocation: { X: 0, Y: 15, Z: 170 }
+             }
+        VariableGuid: 849b4831-14f6-4085-8eb9-d399bb6d7f6c
+        InternalVariableName: Ak_Audio_ToxicPlant_Menu
+         } ]
+    DefaultSceneRootNode: { 
+        ComponentClass: Class /Script/Engine.SceneComponent
+        ComponentTemplate: { 
+            RelativeScale3D: { X: 1.2, Y: 1.2, Z: 1.2 }
+             }
+        ChildNodes: [ { 
+            ComponentClass: Class /Script/Engine.SkeletalMeshComponent
+            ComponentTemplate: { 
+                AnimationData: { 
+                    AnimToPlay: AnimSequence /Game/Meshes/InteractableObjects/Halloween/Animation/AnimSequences/HL_ToxicPlant_Interact_Idle_Full.HL_ToxicPlant_Interact_Idle_Full
+                     }
+                AnimationMode: EAnimationMode::AnimationSingleNode
+                ClothingSimulationFactory: Class /Script/ClothingSystemRuntime.ClothingSimulationFactoryNv
+                SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_ToxicPlant_REF.HL_ToxicPlant_REF
+                DetailLevelBeforeCastShadows: DM_MAX
+                 }
+            ChildNodes: [ { 
+                ComponentClass: Class /Script/Engine.StaticMeshComponent
+                ComponentTemplate: { 
+                    StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Petal.HL_Petal
+                    bUseDefaultCollision: False
+                    DetailLevelBeforeCastShadows: DM_MAX
+                     }
+                AttachToName: FX_Flower_02
+                VariableGuid: 8fa2ae0b-c3c6-4497-b8c8-05531e038008
+                InternalVariableName: HL_Petal_02
+                 }, { 
+                ComponentClass: Class /Script/Engine.StaticMeshComponent
+                ComponentTemplate: { 
+                    StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Petal.HL_Petal
+                    bUseDefaultCollision: False
+                    DetailLevelBeforeCastShadows: DM_MAX
+                     }
+                AttachToName: FX_Flower_03
+                VariableGuid: d19c0be1-e786-4dd6-8467-db0cf8dd2a41
+                InternalVariableName: HL_Petal_03
+                 }, { 
+                ComponentClass: Class /Script/Engine.StaticMeshComponent
+                ComponentTemplate: { 
+                    StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Petal.HL_Petal
+                    bUseDefaultCollision: False
+                    DetailLevelBeforeCastShadows: DM_MAX
+                     }
+                AttachToName: FX_Flower_01
+                VariableGuid: f05d9db8-2491-49e5-95a8-680744c8f1b3
+                InternalVariableName: HL_Petal_01
+                 }, { 
+                ComponentClass: Class /Script/Engine.StaticMeshComponent
+                ComponentTemplate: { 
+                    StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Finger.HL_Finger
+                    bUseDefaultCollision: False
+                    DetailLevelBeforeCastShadows: DM_MAX
+                     }
+                AttachToName: FX_Flower_02
+                VariableGuid: 4b16479f-d559-4896-9a0e-eb8b8aed6a6a
+                InternalVariableName: HL_Finger_02
+                 }, { 
+                ComponentClass: Class /Script/Engine.StaticMeshComponent
+                ComponentTemplate: { 
+                    StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Finger.HL_Finger
+                    bUseDefaultCollision: False
+                    DetailLevelBeforeCastShadows: DM_MAX
+                     }
+                AttachToName: FX_Flower_01
+                VariableGuid: aaf7720b-675c-4a6c-b044-d69ddb9f8c20
+                InternalVariableName: HL_Finger_01
+                 }, { 
+                ComponentClass: Class /Script/Engine.StaticMeshComponent
+                ComponentTemplate: { 
+                    StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Halloween/Models/HL_Finger.HL_Finger
+                    bUseDefaultCollision: False
+                    DetailLevelBeforeCastShadows: DM_MAX
+                     }
+                AttachToName: FX_Flower_03
+                VariableGuid: 1c6c5c57-61ec-4e88-a70f-762b3c5fdc89
+                InternalVariableName: HL_Finger_03
+                 } ]
+            VariableGuid: ed191854-e1b8-430c-a2fd-1df5997f6f1a
+            InternalVariableName: HL_PlantHook_REF
+             }, { 
+            ComponentClass: Class /Script/AkAudio.AkComponent
+            ComponentTemplate: { 
+                OcclusionAffect: 0f
+                MaxOcclusionDistance: 0f
+                RelativeLocation: { X: 0, Y: 15, Z: 170 }
+                 }
+            VariableGuid: 849b4831-14f6-4085-8eb9-d399bb6d7f6c
+            InternalVariableName: Ak_Audio_ToxicPlant_Menu
+             } ]
+        VariableGuid: 842c93bf-0d54-42fb-b52a-0d88a980a24b
+        InternalVariableName: DefaultSceneRoot
+         }
+     }
+UberGraphFunction: { 
+     }
+<--- CDO --->
+UberGraphFrame: 84
