@@ -10,12 +10,12 @@ ScalarParameterValues: [ {
     ExpressionGUID: 27b6661f-a078-44f7-b8ab-fe4912d6a576
      }, { 
     ParameterInfo: { 
-        Name: EM Noise Distance
+        Name: EmissiveMask Custom
         Association: GlobalParameter
         Index: -1
          }
     ParameterValue: 1f
-    ExpressionGUID: 6025175b-ffcf-40ab-8d63-d60bfeaef2b1
+    ExpressionGUID: 7744a503-8b72-4674-b2e3-e8909fa59c80
      }, { 
     ParameterInfo: { 
         Name: EM Noise Intensity
@@ -24,6 +24,14 @@ ScalarParameterValues: [ {
          }
     ParameterValue: 10f
     ExpressionGUID: 0311cb50-a92c-4a2e-a24e-91baa88bd568
+     }, { 
+    ParameterInfo: { 
+        Name: EM Noise Speed
+        Association: GlobalParameter
+        Index: -1
+         }
+    ParameterValue: 0.2f
+    ExpressionGUID: 91363140-f8e2-446c-b00d-76c8a85dd62f
      }, { 
     ParameterInfo: { 
         Name: EM Noise Scale
@@ -42,28 +50,20 @@ ScalarParameterValues: [ {
     ExpressionGUID: 09d6f5b2-3853-48e2-b35e-61aaf90833bf
      }, { 
     ParameterInfo: { 
-        Name: EM Noise Speed
-        Association: GlobalParameter
-        Index: -1
-         }
-    ParameterValue: 0.2f
-    ExpressionGUID: 91363140-f8e2-446c-b00d-76c8a85dd62f
-     }, { 
-    ParameterInfo: { 
-        Name: EmissiveMask Custom
+        Name: EM Noise Distance
         Association: GlobalParameter
         Index: -1
          }
     ParameterValue: 1f
-    ExpressionGUID: 7744a503-8b72-4674-b2e3-e8909fa59c80
+    ExpressionGUID: 6025175b-ffcf-40ab-8d63-d60bfeaef2b1
      }, { 
     ParameterInfo: { 
-        Name: Crack Base Color TextureTiling
+        Name: Intensity
         Association: GlobalParameter
         Index: -1
          }
-    ParameterValue: 10f
-    ExpressionGUID: 443e43c0-dabe-471f-9e48-8095904eb360
+    ParameterValue: 100f
+    ExpressionGUID: 770d8724-f729-4807-9e62-65cf6a9a4162
      }, { 
     ParameterInfo: { 
         Name: EmmisiveMask TextureTiling
@@ -74,12 +74,20 @@ ScalarParameterValues: [ {
     ExpressionGUID: f6649e14-74fc-4e54-9f4d-a64405b3187f
      }, { 
     ParameterInfo: { 
-        Name: Intensity
+        Name: Atl_EmissiveMultiplier
         Association: GlobalParameter
         Index: -1
          }
-    ParameterValue: 100f
-    ExpressionGUID: 770d8724-f729-4807-9e62-65cf6a9a4162
+    ParameterValue: 2f
+    ExpressionGUID: 6a71022e-c3ed-473e-b0c7-d2e6d488613d
+     }, { 
+    ParameterInfo: { 
+        Name: Atl_EmissiveHueShift
+        Association: GlobalParameter
+        Index: -1
+         }
+    ParameterValue: 0.0005f
+    ExpressionGUID: d405fa9d-18bc-4d9b-9b08-9d089268c508
      }, { 
     ParameterInfo: { 
         Name: Specular
@@ -107,30 +115,22 @@ ScalarParameterValues: [ {
      } ]
 VectorParameterValues: [ { 
     ParameterInfo: { 
-        Name: WrinkleMap Channel
-        Association: GlobalParameter
-        Index: -1
-         }
-    ParameterValue: { R: 1, G: 0, B: 0, A: 0 }
-    ExpressionGUID: aa517bf6-9dac-4e39-b725-874a8e684ba7
-     }, { 
-    ParameterInfo: { 
         Name: Emmisive Color
         Association: GlobalParameter
         Index: -1
          }
     ParameterValue: { R: 1, G: 0, B: 0, A: 1 }
     ExpressionGUID: b267ecf6-450e-4ce9-9180-b304ae8eed7c
-     } ]
-TextureParameterValues: [ { 
+     }, { 
     ParameterInfo: { 
-        Name: Crack Texture
+        Name: WrinkleMap Channel
         Association: GlobalParameter
         Index: -1
          }
-    ParameterValue: Texture2D /Game/Textures/Environment/Boreal/Blockers/T_BRL_Rock01.T_BRL_Rock01
-    ExpressionGUID: 09a30153-ec83-4efe-8e36-3a809042400a
-     }, { 
+    ParameterValue: { R: 1, G: 0, B: 0, A: 0 }
+    ExpressionGUID: aa517bf6-9dac-4e39-b725-874a8e684ba7
+     } ]
+TextureParameterValues: [ { 
     ParameterInfo: { 
         Name: EmmisiveMask Texture
         Association: GlobalParameter
@@ -153,24 +153,6 @@ BasePropertyOverrides: {
 StaticParameters: { 
     StaticSwitchParameters: [ { 
         ParameterInfo: { 
-            Name: Crack CustomTiling
-            Association: GlobalParameter
-            Index: -1
-             }
-        Value: True
-        bOverride: True
-        ExpressionGUID: 40513847-50af-468c-a240-8177dc076cdf
-         }, { 
-        ParameterInfo: { 
-            Name: EmmisiveMask CustomTiling
-            Association: GlobalParameter
-            Index: -1
-             }
-        Value: True
-        bOverride: True
-        ExpressionGUID: cc2bed06-b248-4d91-8df7-a69077284624
-         }, { 
-        ParameterInfo: { 
             Name: CustomTiling
             Association: GlobalParameter
             Index: -1
@@ -184,14 +166,6 @@ TextureStreamingData: [ {
     SamplingScale: 0.3125f
     UVChannelIndex: 0
     TextureName: FlatNormal
-     }, { 
-    SamplingScale: 0.078125f
-    UVChannelIndex: 0
-    TextureName: T_DirtTerrain_Cracks
-     }, { 
-    SamplingScale: 0.15625f
-    UVChannelIndex: 0
-    TextureName: T_DirtTerrain_Cracks_N
      }, { 
     SamplingScale: 15f
     UVChannelIndex: 0

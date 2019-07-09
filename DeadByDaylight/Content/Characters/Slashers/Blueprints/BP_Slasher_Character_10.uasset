@@ -1,8 +1,8 @@
 DynamicBindingObjects: [ { 
     ComponentDelegateBindings: [ { 
-        ComponentPropertyName: _dreamworldComponent
+        ComponentPropertyName: CharacterDreamworld
         DelegatePropertyName: DreamStateChanged
-        FunctionNameToBind: BndEvt___dreamworldComponent_K2Node_ComponentBoundEvent_0_DreamStateChangedDelegate__DelegateSignature
+        FunctionNameToBind: BndEvt__CharacterDreamworld_K2Node_ComponentBoundEvent_0_DreamStateChangedDelegate__DelegateSignature
          } ]
      } ]
 Timelines: [ { 
@@ -19,15 +19,23 @@ Timelines: [ {
          } ]
     TimelineGuid: 5df086db-85bb-47e4-a97b-ebb9610c8537
      }, { 
-    TimelineLength: 2f
+    TimelineLength: 1f
     bValidatedAsWired: True
     FloatTracks: [ { 
         CurveFloat: { 
             FloatCurve: { 
-                Keys: [ Unreal.ObjectSystem.Structures.RichCurveKey, Unreal.ObjectSystem.Structures.RichCurveKey, Unreal.ObjectSystem.Structures.RichCurveKey ]
+                Keys: [ Unreal.ObjectSystem.Structures.RichCurveKey, Unreal.ObjectSystem.Structures.RichCurveKey, Unreal.ObjectSystem.Structures.RichCurveKey, Unreal.ObjectSystem.Structures.RichCurveKey ]
                  }
              }
         TrackName: Dissolve
+        bIsExternalCurve: False
+         }, { 
+        CurveFloat: { 
+            FloatCurve: { 
+                Keys: [ Unreal.ObjectSystem.Structures.RichCurveKey, Unreal.ObjectSystem.Structures.RichCurveKey ]
+                 }
+             }
+        TrackName: RedStainIntensity
         bIsExternalCurve: False
          } ]
     TimelineGuid: 9cc3d8ae-b2d7-4a6b-97fd-2aeed6842742
@@ -46,31 +54,111 @@ SimpleConstructionScript: {
         VariableGuid: 70e12622-d328-43bc-ba6e-c92f60a718e5
         InternalVariableName: P_Dream_Embers
          }, { 
-        ComponentClass: Class /Script/Engine.StaticMeshComponent
+        ComponentClass: Class /Script/DeadByDaylight.CharacterDreamworldComponent
         ComponentTemplate: { 
-            StaticMesh: StaticMesh /Game/Effects/Mesh/SM_Sphere_VignetteDistortion.SM_Sphere_VignetteDistortion
-            bUseDefaultCollision: False
-            OverrideMaterials: [ MaterialInstanceConstant /Game/Effects/Materials/MI_VignetteSandman.MI_VignetteSandman ]
-            DetailLevelBeforeCastShadows: DM_MAX
-            RelativeLocation: { X: 17, Y: 0, Z: 0 }
-            RelativeRotation: { Pitch: -90, Roll: 0, Yaw: 0 }
-            RelativeScale3D: { X: 80, Y: 130, Z: 50 }
-            bVisible: False
+            bReplicates: True
              }
-        ParentComponentOrVariableName: Camera1
-        ParentComponentOwnerClassName: BP_Slasher_Character_C
+        VariableGuid: 196cfdc6-67ab-4970-85e9-fc79b27585b7
+        InternalVariableName: CharacterDreamworld
+         }, { 
+        ComponentClass: Class /Script/DeadByDaylight.TrapPlacerComponent
+        ComponentTemplate: { 
+            _indicatorOffsetY: 100f
+            _trapPlacementRaycastStart: { X: 0, Y: 0, Z: 100 }
+            _trapPlacementRaycastEnd: { X: 0, Y: 0, Z: -50 }
+            _itemTrapId: Item_Slasher_DreamInducer
+            RelativeLocation: { X: 0, Y: 0, Z: 20 }
+            RelativeRotation: { Pitch: 0, Roll: 89.99999, Yaw: 0 }
+             }
+        ParentComponentOrVariableName: CharacterMesh0
+        bIsParentComponentNative: True
         ChildNodes: [ { 
-            ComponentClass: Class /Script/DeadByDaylight.MaterialHelper
+            ComponentClass: Class /Script/Engine.StaticMeshComponent
             ComponentTemplate: { 
-                RelativeLocation: { X: 0, Y: 0, Z: -0.3399999 }
-                RelativeRotation: { Pitch: 90, Roll: 0, Yaw: 0 }
-                RelativeScale3D: { X: 0.0125, Y: 0.007692308, Z: 0.02 }
+                StaticMesh: StaticMesh /Game/Effects/Mesh/Killer10/SM_Dream_Snare.SM_Dream_Snare
+                bUseDefaultCollision: False
+                OverrideMaterials: [ Material /Game/Effects/Materials/Liquid/M_Dream_Snare_Indicator.M_Dream_Snare_Indicator ]
+                DetailLevelBeforeCastShadows: DM_MAX
+                BodyInstance: { 
+                    ObjectType: ECC_WorldStatic
+                    CollisionEnabled: ECollisionEnabled::NoCollision
+                    CollisionProfileName: NoCollision
+                    CollisionResponses: { 
+                        ResponseArray: [ { 
+                            Channel: WorldStatic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: WorldDynamic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Pawn
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Visibility
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Camera
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: PhysicsBody
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Vehicle
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Destructible
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel2
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel3
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel4
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel5
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel6
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Interactable
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Audio
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Slasher
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Spider
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Traps
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: InteractionDetector
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: BlinkBlocker
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Ground
+                            Response: ECR_Ignore
+                             } ]
+                         }
+                     }
+                RelativeLocation: { X: 0, Y: 0, Z: 10 }
+                RelativeScale3D: { X: 1, Y: 1, Z: 2 }
+                bVisible: False
                  }
-            VariableGuid: 73bfaac0-b23a-4c2b-99d5-47dc894d6092
-            InternalVariableName: MaterialHelperForVignette
+            VariableGuid: 554f71dd-885d-44a1-82b0-c54bccd05921
+            InternalVariableName: TrapMesh
              } ]
-        VariableGuid: 1e4fed50-f7ce-4d75-9fac-2f5c6a8200bb
-        InternalVariableName: SM_Sphere_VignetteDistortion
+        VariableGuid: 93fe16e0-9eaa-4e18-bae6-9bc1d629fb9d
+        InternalVariableName: TrapPlacer
          } ]
     AllNodes: [ { 
         ComponentClass: Class /Script/Engine.ParticleSystemComponent
@@ -85,40 +173,195 @@ SimpleConstructionScript: {
         VariableGuid: 70e12622-d328-43bc-ba6e-c92f60a718e5
         InternalVariableName: P_Dream_Embers
          }, { 
+        ComponentClass: Class /Script/DeadByDaylight.CharacterDreamworldComponent
+        ComponentTemplate: { 
+            bReplicates: True
+             }
+        VariableGuid: 196cfdc6-67ab-4970-85e9-fc79b27585b7
+        InternalVariableName: CharacterDreamworld
+         }, { 
+        ComponentClass: Class /Script/DeadByDaylight.TrapPlacerComponent
+        ComponentTemplate: { 
+            _indicatorOffsetY: 100f
+            _trapPlacementRaycastStart: { X: 0, Y: 0, Z: 100 }
+            _trapPlacementRaycastEnd: { X: 0, Y: 0, Z: -50 }
+            _itemTrapId: Item_Slasher_DreamInducer
+            RelativeLocation: { X: 0, Y: 0, Z: 20 }
+            RelativeRotation: { Pitch: 0, Roll: 89.99999, Yaw: 0 }
+             }
+        ParentComponentOrVariableName: CharacterMesh0
+        bIsParentComponentNative: True
+        ChildNodes: [ { 
+            ComponentClass: Class /Script/Engine.StaticMeshComponent
+            ComponentTemplate: { 
+                StaticMesh: StaticMesh /Game/Effects/Mesh/Killer10/SM_Dream_Snare.SM_Dream_Snare
+                bUseDefaultCollision: False
+                OverrideMaterials: [ Material /Game/Effects/Materials/Liquid/M_Dream_Snare_Indicator.M_Dream_Snare_Indicator ]
+                DetailLevelBeforeCastShadows: DM_MAX
+                BodyInstance: { 
+                    ObjectType: ECC_WorldStatic
+                    CollisionEnabled: ECollisionEnabled::NoCollision
+                    CollisionProfileName: NoCollision
+                    CollisionResponses: { 
+                        ResponseArray: [ { 
+                            Channel: WorldStatic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: WorldDynamic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Pawn
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Visibility
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Camera
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: PhysicsBody
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Vehicle
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Destructible
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel2
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel3
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel4
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel5
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel6
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Interactable
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Audio
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Slasher
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Spider
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Traps
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: InteractionDetector
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: BlinkBlocker
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Ground
+                            Response: ECR_Ignore
+                             } ]
+                         }
+                     }
+                RelativeLocation: { X: 0, Y: 0, Z: 10 }
+                RelativeScale3D: { X: 1, Y: 1, Z: 2 }
+                bVisible: False
+                 }
+            VariableGuid: 554f71dd-885d-44a1-82b0-c54bccd05921
+            InternalVariableName: TrapMesh
+             } ]
+        VariableGuid: 93fe16e0-9eaa-4e18-bae6-9bc1d629fb9d
+        InternalVariableName: TrapPlacer
+         }, { 
         ComponentClass: Class /Script/Engine.StaticMeshComponent
         ComponentTemplate: { 
-            StaticMesh: StaticMesh /Game/Effects/Mesh/SM_Sphere_VignetteDistortion.SM_Sphere_VignetteDistortion
+            StaticMesh: StaticMesh /Game/Effects/Mesh/Killer10/SM_Dream_Snare.SM_Dream_Snare
             bUseDefaultCollision: False
-            OverrideMaterials: [ MaterialInstanceConstant /Game/Effects/Materials/MI_VignetteSandman.MI_VignetteSandman ]
+            OverrideMaterials: [ Material /Game/Effects/Materials/Liquid/M_Dream_Snare_Indicator.M_Dream_Snare_Indicator ]
             DetailLevelBeforeCastShadows: DM_MAX
-            RelativeLocation: { X: 17, Y: 0, Z: 0 }
-            RelativeRotation: { Pitch: -90, Roll: 0, Yaw: 0 }
-            RelativeScale3D: { X: 80, Y: 130, Z: 50 }
+            BodyInstance: { 
+                ObjectType: ECC_WorldStatic
+                CollisionEnabled: ECollisionEnabled::NoCollision
+                CollisionProfileName: NoCollision
+                CollisionResponses: { 
+                    ResponseArray: [ { 
+                        Channel: WorldStatic
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: WorldDynamic
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Pawn
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Visibility
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Camera
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: PhysicsBody
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Vehicle
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Destructible
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel2
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel3
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel4
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel5
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel6
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Interactable
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Audio
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Slasher
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Spider
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Traps
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: InteractionDetector
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: BlinkBlocker
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Ground
+                        Response: ECR_Ignore
+                         } ]
+                     }
+                 }
+            RelativeLocation: { X: 0, Y: 0, Z: 10 }
+            RelativeScale3D: { X: 1, Y: 1, Z: 2 }
             bVisible: False
              }
-        ParentComponentOrVariableName: Camera1
-        ParentComponentOwnerClassName: BP_Slasher_Character_C
-        ChildNodes: [ { 
-            ComponentClass: Class /Script/DeadByDaylight.MaterialHelper
-            ComponentTemplate: { 
-                RelativeLocation: { X: 0, Y: 0, Z: -0.3399999 }
-                RelativeRotation: { Pitch: 90, Roll: 0, Yaw: 0 }
-                RelativeScale3D: { X: 0.0125, Y: 0.007692308, Z: 0.02 }
-                 }
-            VariableGuid: 73bfaac0-b23a-4c2b-99d5-47dc894d6092
-            InternalVariableName: MaterialHelperForVignette
-             } ]
-        VariableGuid: 1e4fed50-f7ce-4d75-9fac-2f5c6a8200bb
-        InternalVariableName: SM_Sphere_VignetteDistortion
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.MaterialHelper
-        ComponentTemplate: { 
-            RelativeLocation: { X: 0, Y: 0, Z: -0.3399999 }
-            RelativeRotation: { Pitch: 90, Roll: 0, Yaw: 0 }
-            RelativeScale3D: { X: 0.0125, Y: 0.007692308, Z: 0.02 }
-             }
-        VariableGuid: 73bfaac0-b23a-4c2b-99d5-47dc894d6092
-        InternalVariableName: MaterialHelperForVignette
+        VariableGuid: 554f71dd-885d-44a1-82b0-c54bccd05921
+        InternalVariableName: TrapMesh
          } ]
     DefaultSceneRootNode: { 
         ComponentClass: Class /Script/Engine.SceneComponent
@@ -132,7 +375,7 @@ InheritableComponentHandler: {
     Records: [ { 
         ComponentClass: Class /Script/DeadByDaylight.CustomizedAudioComponent
         ComponentTemplate: { 
-            AudioCharacterNameDefaultSwitchState: SandMan
+            AudioCharacterNameDefaultSwitchState: Sandman_v2
             AudioCharacterClothesDefaultSwitchState: Killer_Tissu
             AudioCharacterShoesDefaultSwitchState: Sneakers
             AudioCharacterWeaponDefaultSwitchState: ClawedGlove
@@ -151,7 +394,8 @@ InheritableComponentHandler: {
 UberGraphFunction: { 
      }
 <--- CDO --->
-UberGraphFrame: 350
+UberGraphFrame: 400
+DissolveState: DissolveState::NewEnumerator2
 DefaultSlasherPower: Item_Slasher_DreamInducer
 KillerMoodInfluence: EKillerMoodInfluence::VE_Chuckles
 KillerAbilities: [ EKillerAbilities::VE_InduceDreams, EKillerAbilities::VE_KillNightmare ]
@@ -215,12 +459,12 @@ _montagePlayer: {
 _perkManager: { 
     _perks: { 
          }
+    _statusEffects: { 
+         }
      }
 _playerData: { 
      }
 _characterSnappingComponent: { 
-     }
-_dreamworldComponent: { 
      }
 _characterChaseVisualComponent: { 
      }
