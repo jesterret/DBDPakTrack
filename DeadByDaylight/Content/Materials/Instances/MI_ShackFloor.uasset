@@ -1,14 +1,30 @@
 PhysMaterial: PhysicalMaterial /Game/Materials/PhysicalMaterials/PM_Wood.PM_Wood
-Parent: Material /Game/Materials/Masters/M_Structures_Alpha.M_Structures_Alpha
+Parent: MaterialInstanceConstant /Game/Materials/Instances/MI_Structures_Masked.MI_Structures_Masked
 bHasStaticPermutationResource: True
 ScalarParameterValues: [ { 
+    ParameterInfo: { 
+        Name: AO_scale
+        Association: GlobalParameter
+        Index: -1
+         }
+    ParameterValue: 2f
+    ExpressionGUID: 25d5c2e0-87fc-41a3-adcc-02c4e54939a7
+     }, { 
+    ParameterInfo: { 
+        Name: AO_Tiling
+        Association: GlobalParameter
+        Index: -1
+         }
+    ParameterValue: 0.125f
+    ExpressionGUID: 1af5714d-fe84-4c4e-9ab5-417da8bb18d0
+     }, { 
     ParameterInfo: { 
         Name: contrast
         Association: GlobalParameter
         Index: -1
          }
     ParameterValue: 0.5f
-    ExpressionGUID: c978d375-5889-4655-8ea9-69e56aa315eb
+    ExpressionGUID: 188edee5-a2c8-4bab-80d4-8726db0e6227
      }, { 
     ParameterInfo: { 
         Name: pixelfade
@@ -16,10 +32,10 @@ ScalarParameterValues: [ {
         Index: -1
          }
     ParameterValue: 3800f
-    ExpressionGUID: 43f4438a-1572-475a-a0b5-a1655e2c1ab2
+    ExpressionGUID: d4c017ca-8c39-4223-8f5c-3ad4cbad5c51
      }, { 
     ParameterInfo: { 
-        Name: leaves blend
+        Name: LeavesBlend
         Association: GlobalParameter
         Index: -1
          }
@@ -27,7 +43,7 @@ ScalarParameterValues: [ {
     ExpressionGUID: bce78113-3718-4dea-9ac3-dea9543c191b
      }, { 
     ParameterInfo: { 
-        Name: Curve of Moss
+        Name: MossCurve
         Association: GlobalParameter
         Index: -1
          }
@@ -35,7 +51,7 @@ ScalarParameterValues: [ {
     ExpressionGUID: b171dd29-ef1a-4467-8e46-0670ac1bfeba
      }, { 
     ParameterInfo: { 
-        Name: Height of Ground
+        Name: GroundHeight
         Association: GlobalParameter
         Index: -1
          }
@@ -43,7 +59,7 @@ ScalarParameterValues: [ {
     ExpressionGUID: 680b1e5b-f6a6-4d38-8e97-0de90f3e0ed5
      }, { 
     ParameterInfo: { 
-        Name: Height of Moss
+        Name: MossHeight
         Association: GlobalParameter
         Index: -1
          }
@@ -51,7 +67,7 @@ ScalarParameterValues: [ {
     ExpressionGUID: d7615e84-d50e-489b-9b1c-de83d3b34c73
      }, { 
     ParameterInfo: { 
-        Name: tile amount moss
+        Name: MossTileAmount
         Association: GlobalParameter
         Index: -1
          }
@@ -68,36 +84,28 @@ ScalarParameterValues: [ {
      } ]
 TextureParameterValues: [ { 
     ParameterInfo: { 
-        Name: Moss Texture
+        Name: Base Color Texture
+        Association: GlobalParameter
+        Index: -1
+         }
+    ParameterValue: Texture2D /Game/Textures/Environment/Structures/T_WoodPlank07_BC.T_WoodPlank07_BC
+    ExpressionGUID: 430841ac-568c-449a-b3db-27563c26e5de
+     }, { 
+    ParameterInfo: { 
+        Name: Base AO Texture
+        Association: GlobalParameter
+        Index: -1
+         }
+    ParameterValue: Texture2D /Game/Textures/Environment/Structures/T_DefaultA_CAO.T_DefaultA_CAO
+    ExpressionGUID: 111dea86-1e75-40e4-a082-4c3353be5249
+     }, { 
+    ParameterInfo: { 
+        Name: MossTexture
         Association: GlobalParameter
         Index: -1
          }
     ParameterValue: Texture2D /Game/Textures/Environment/Vegetations/tree_mud_diffuse.tree_mud_diffuse
     ExpressionGUID: bea60393-4aa3-493a-abca-91997e80ca1e
-     }, { 
-    ParameterInfo: { 
-        Name: alpha
-        Association: GlobalParameter
-        Index: -1
-         }
-    ParameterValue: Texture2D /Game/Textures/Environment/Structures/T_DriftWoodPlank01_M.T_DriftWoodPlank01_M
-    ExpressionGUID: b94c262d-a182-4198-ac34-8c3c4d181f3b
-     }, { 
-    ParameterInfo: { 
-        Name: AO
-        Association: GlobalParameter
-        Index: -1
-         }
-    ParameterValue: Texture2D /Game/Textures/Environment/Structures/T_DefaultA_CAO.T_DefaultA_CAO
-    ExpressionGUID: 5e5ae111-c9f1-4c52-aa09-19146e95965c
-     }, { 
-    ParameterInfo: { 
-        Name: diffuse
-        Association: GlobalParameter
-        Index: -1
-         }
-    ParameterValue: Texture2D /Game/Textures/Environment/Structures/T_WoodPlank07_BC.T_WoodPlank07_BC
-    ExpressionGUID: 99b725d8-a757-498e-b4bc-1c05da8104b0
      } ]
 BasePropertyOverrides: { 
     bOverride_TwoSided: True
@@ -108,7 +116,25 @@ BasePropertyOverrides: {
 StaticParameters: { 
     StaticSwitchParameters: [ { 
         ParameterInfo: { 
-            Name: Moss On Ground
+            Name: UseBaseColor
+            Association: GlobalParameter
+            Index: -1
+             }
+        Value: True
+        bOverride: True
+        ExpressionGUID: 5202d8bc-59e1-4189-a2f9-4c20614f016a
+         }, { 
+        ParameterInfo: { 
+            Name: Use Second UV for CAO
+            Association: GlobalParameter
+            Index: -1
+             }
+        Value: False
+        bOverride: True
+        ExpressionGUID: 3bc55add-6fea-44d9-8960-06eafb205d54
+         }, { 
+        ParameterInfo: { 
+            Name: UseMossOnGround
             Association: GlobalParameter
             Index: -1
              }
@@ -123,40 +149,13 @@ StaticParameters: {
              }
         Value: True
         bOverride: True
-        ExpressionGUID: 76c361fe-4466-48a9-8216-4b93c9eca2f9
-         }, { 
-        ParameterInfo: { 
-            Name: UseAlpha
-            Association: GlobalParameter
-            Index: -1
-             }
-        Value: True
-        bOverride: True
-        ExpressionGUID: c4e55ee9-aea2-494f-b6ea-688a8ab2eec3
-         }, { 
-        ParameterInfo: { 
-            Name: UseAO
-            Association: GlobalParameter
-            Index: -1
-             }
-        Value: False
-        bOverride: True
-        ExpressionGUID: 9172ee7f-a9aa-45d2-af2f-de180eb1dbf5
-         }, { 
-        ParameterInfo: { 
-            Name: UseBaseColor
-            Association: GlobalParameter
-            Index: -1
-             }
-        Value: True
-        bOverride: True
-        ExpressionGUID: 140a6898-5617-46d2-9f83-b51b4df6bf59
+        ExpressionGUID: 10e5678b-56cd-47b2-897d-7c3715b17b07
          } ]
      }
 TextureStreamingData: [ { 
-    SamplingScale: 1f
+    SamplingScale: 0.125f
     UVChannelIndex: 0
-    TextureName: T_DriftWoodPlank01_M
+    TextureName: T_DefaultA_CAO
      }, { 
     SamplingScale: 1f
     UVChannelIndex: 0

@@ -11,15 +11,6 @@ DynamicBindingObjects: [ {
      } ]
 SimpleConstructionScript: { 
     RootNodes: [ { 
-        ComponentClass: Class /Script/Engine.ProjectileMovementComponent
-        ComponentTemplate: { 
-            MaxSpeed: 5000f
-            bInitialVelocityInLocalSpace: False
-            Velocity: { X: 1000, Y: 0, Z: 0 }
-             }
-        VariableGuid: 837dd7d5-168b-4204-adec-5d324bc7875f
-        InternalVariableName: ProjectileMovement
-         }, { 
         ComponentClass: Class /Script/Engine.SphereComponent
         ComponentTemplate: { 
             SphereRadius: 0f
@@ -363,6 +354,12 @@ SimpleConstructionScript: {
              } ]
         VariableGuid: 39dea64e-8077-492e-b5b2-653def62ae85
         InternalVariableName: Collision
+         }, { 
+        ComponentClass: Class /Script/Engine.RotatingMovementComponent
+        ComponentTemplate: { 
+             }
+        VariableGuid: 12e0adea-582d-42e7-9560-22747ea7a187
+        InternalVariableName: RotatingMovement
          } ]
     AllNodes: [ { 
         ComponentClass: Class /Script/AkAudio.AkComponent
@@ -380,15 +377,6 @@ SimpleConstructionScript: {
              }
         VariableGuid: 9e3f617e-f9a3-44d9-9267-6345ce1df188
         InternalVariableName: Root
-         }, { 
-        ComponentClass: Class /Script/Engine.ProjectileMovementComponent
-        ComponentTemplate: { 
-            MaxSpeed: 5000f
-            bInitialVelocityInLocalSpace: False
-            Velocity: { X: 1000, Y: 0, Z: 0 }
-             }
-        VariableGuid: 837dd7d5-168b-4204-adec-5d324bc7875f
-        InternalVariableName: ProjectileMovement
          }, { 
         ComponentClass: Class /Script/Engine.SceneComponent
         ComponentTemplate: { 
@@ -1066,6 +1054,12 @@ SimpleConstructionScript: {
              }
         VariableGuid: d58847c6-f760-42b1-a197-94400a822056
         InternalVariableName: TargetDetector
+         }, { 
+        ComponentClass: Class /Script/Engine.RotatingMovementComponent
+        ComponentTemplate: { 
+             }
+        VariableGuid: 12e0adea-582d-42e7-9560-22747ea7a187
+        InternalVariableName: RotatingMovement
          } ]
     DefaultSceneRootNode: { 
         ComponentClass: Class /Script/Engine.SceneComponent
@@ -1078,14 +1072,18 @@ SimpleConstructionScript: {
 UberGraphFunction: { 
      }
 <--- CDO --->
-UberGraphFrame: 439
+UberGraphFrame: 428
 ExplosionHitClass: BlueprintGeneratedClass /Game/Effects/Blueprints/Killer12/Gameplay/BP_Effect_Killer12_BombImpact_01.BP_Effect_Killer12_BombImpact_01_C
-HatchetImpactClass: BlueprintGeneratedClass /Game/Effects/Blueprints/Killer12/Gameplay/BP_Effect_Killer12_BombDestructible_01.BP_Effect_Killer12_BombDestructible_01_C
+ImpactClass: BlueprintGeneratedClass /Game/Effects/Blueprints/Killer12/Gameplay/BP_Effect_Killer12_BombDestructible_01.BP_Effect_Killer12_BombDestructible_01_C
 EarlyHitDetectionBackwardDistance: 125f
-ActorLocationInPreviousTick: { X: 0, Y: 0, Z: 0 }
-PrimaryActorTick: { 
-    bCanEverTick: True
+Movement: { 
+    MaxSpeed: 5000f
+    bInterpMovement: True
+    bInterpRotation: True
+    BounceAdditionalIterations: 0
+    Velocity: { X: 1000, Y: 0, Z: 0 }
      }
+_multicastLaunch: True
 bAlwaysRelevant: True
 bReplicateMovement: True
 bCanBeDamaged: False

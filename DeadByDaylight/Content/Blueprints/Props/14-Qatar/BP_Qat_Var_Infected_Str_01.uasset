@@ -1,0 +1,765 @@
+SimpleConstructionScript: { 
+    RootNodes: [ { 
+        ComponentClass: Class /Script/Engine.SceneComponent
+        ComponentTemplate: { 
+            Mobility: EComponentMobility::Static
+             }
+        ChildNodes: [ { 
+            ComponentClass: Class /Script/Engine.BoxComponent
+            ComponentTemplate: { 
+                BoxExtent: { X: 50, Y: 50, Z: 50 }
+                AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
+                DetailLevelBeforeCastShadows: DM_MAX
+                BodyInstance: { 
+                    ObjectType: ECC_GameTraceChannel10
+                    CollisionProfileName: Custom
+                    CollisionResponses: { 
+                        ResponseArray: [ { 
+                            Channel: WorldStatic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: WorldDynamic
+                            Response: ECR_Overlap
+                             }, { 
+                            Channel: Pawn
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Visibility
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Camera
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: PhysicsBody
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Vehicle
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Destructible
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel2
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel3
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel4
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel5
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel6
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Interactable
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Audio
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Slasher
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Spider
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Traps
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: InteractionDetector
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: PawnDetector
+                            Response: ECR_Overlap
+                             }, { 
+                            Channel: BlinkBlocker
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Ground
+                            Response: ECR_Ignore
+                             } ]
+                         }
+                    MassInKgOverride: 32941.85f
+                     }
+                RelativeLocation: { X: 0, Y: 0, Z: 200 }
+                RelativeScale3D: { X: 4, Y: 20, Z: 4 }
+                Mobility: EComponentMobility::Static
+                 }
+            ChildNodes: [ { 
+                ComponentClass: Class /Script/Engine.PostProcessComponent
+                ComponentTemplate: { 
+                    Settings: { 
+                        bOverride_ColorContrast: True
+                        bOverride_SceneColorTint: True
+                        bOverride_BloomMethod: True
+                        bOverride_BloomIntensity: True
+                        bOverride_IndirectLightingIntensity: True
+                        ColorContrast: { X: 1.4, Y: 1.4, Z: 1.4, W: 1 }
+                        SceneColorTint: { R: 0.502882, G: 0.955973, B: 0.832611, A: 1 }
+                        BloomIntensity: 1f
+                        AmbientOcclusionIntensity: 1f
+                        AmbientOcclusionPower: 6f
+                        AmbientOcclusionBias: 1f
+                        AmbientOcclusionQuality: 80f
+                        AmbientOcclusionMipScale: 2f
+                        AmbientOcclusionMipThreshold: 0.1f
+                        IndirectLightingIntensity: 0.5f
+                        ColorGradingLUT: Texture2D /Game/Textures/Environment/Suburbs/LUT/T_SubHouse01_LUT.T_SubHouse01_LUT
+                         }
+                    Priority: 4f
+                    bUnbound: False
+                    RelativeLocation: { X: 0, Y: 1.875, Z: -62.5 }
+                    RelativeScale3D: { X: 0.0625, Y: 0.00625, Z: 0.0625 }
+                    Mobility: EComponentMobility::Static
+                     }
+                VariableGuid: 34bb2a4a-8b06-47b3-8cd3-828e3573da6a
+                InternalVariableName: PostProcess
+                 } ]
+            VariableGuid: b0514c3e-d868-4469-826c-8390870be555
+            InternalVariableName: Box1
+             }, { 
+            ComponentClass: Class /Script/Engine.ParticleSystemComponent
+            ComponentTemplate: { 
+                Template: ParticleSystem /Game/Effects/ParticleSystems/Environment/Qatar/UpsideDown/P_QAT_Infected_Straight.P_QAT_Infected_Straight
+                DetailLevelBeforeCastShadows: DM_MAX
+                 }
+            VariableGuid: c8a55336-6a49-4072-a8d2-25fc88c5c966
+            InternalVariableName: P_QAT_Infected_Straight
+             }, { 
+            ComponentClass: Class /Script/Engine.StaticMeshComponent
+            ComponentTemplate: { 
+                StaticMesh: StaticMesh /Game/Meshes/Environment/Qatar/Structures/Hallways/SM_Qat_Straight_01.SM_Qat_Straight_01
+                bUseDefaultCollision: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                BodyInstance: { 
+                    ObjectType: ECC_WorldStatic
+                    CollisionProfileName: BlockAll
+                     }
+                RelativeRotation: { Pitch: 0, Roll: -89.99998, Yaw: 0 }
+                bHiddenInGame: True
+                Mobility: EComponentMobility::Static
+                 }
+            ChildNodes: [ { 
+                ComponentClass: Class /Script/Engine.StaticMeshComponent
+                ComponentTemplate: { 
+                    StaticMesh: StaticMesh /Game/Meshes/Environment/Qatar/Props/SM_Qat_Entity_Straight01.SM_Qat_Entity_Straight01
+                    DetailLevelBeforeCastShadows: DM_MAX
+                    RelativeLocation: { X: -41.32666, Y: 3.814697E-06, Z: 0.2333069 }
+                    RelativeRotation: { Pitch: 0, Roll: 180, Yaw: 0 }
+                    Mobility: EComponentMobility::Static
+                     }
+                VariableGuid: d8d0cc5c-a1c9-474d-8b2a-90a032f8a049
+                InternalVariableName: SM_Qat_Entity_Straight01
+                 } ]
+            VariableGuid: 8cd4f31f-df97-4f0f-946a-56460b74907c
+            InternalVariableName: StaticMesh46
+             }, { 
+            ComponentClass: Class /Script/Engine.PointLightComponent
+            ComponentTemplate: { 
+                SourceRadius: 5f
+                SourceLength: 1600f
+                AttenuationRadius: 400f
+                MaxDrawDistance: 5000f
+                MaxDistanceFadeRange: 3000f
+                LightGuid: 803ca4b9-7707-47a8-a1f6-1095adb315fe
+                Intensity: 500f
+                LightColor: { R: 92, G: 181, B: 165, A: 1 }
+                CastShadows: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                bAffectTranslucentLighting: False
+                RelativeLocation: { X: 0, Y: 0, Z: 300 }
+                RelativeRotation: { Pitch: 0, Roll: 0, Yaw: 90 }
+                RelativeScale3D: { X: 3, Y: 0.3, Z: 0.3 }
+                Mobility: EComponentMobility::Static
+                 }
+            VariableGuid: 6fde544a-1655-4407-a040-7d32917820b2
+            InternalVariableName: PointLight
+             } ]
+        VariableGuid: b169b7ff-6c69-4037-9321-b4134da989e2
+        InternalVariableName: DefaultSceneRoot
+         } ]
+    AllNodes: [ { 
+        ComponentClass: Class /Script/Engine.SceneComponent
+        ComponentTemplate: { 
+            Mobility: EComponentMobility::Static
+             }
+        ChildNodes: [ { 
+            ComponentClass: Class /Script/Engine.BoxComponent
+            ComponentTemplate: { 
+                BoxExtent: { X: 50, Y: 50, Z: 50 }
+                AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
+                DetailLevelBeforeCastShadows: DM_MAX
+                BodyInstance: { 
+                    ObjectType: ECC_GameTraceChannel10
+                    CollisionProfileName: Custom
+                    CollisionResponses: { 
+                        ResponseArray: [ { 
+                            Channel: WorldStatic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: WorldDynamic
+                            Response: ECR_Overlap
+                             }, { 
+                            Channel: Pawn
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Visibility
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Camera
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: PhysicsBody
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Vehicle
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Destructible
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel2
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel3
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel4
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel5
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel6
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Interactable
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Audio
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Slasher
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Spider
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Traps
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: InteractionDetector
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: PawnDetector
+                            Response: ECR_Overlap
+                             }, { 
+                            Channel: BlinkBlocker
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Ground
+                            Response: ECR_Ignore
+                             } ]
+                         }
+                    MassInKgOverride: 32941.85f
+                     }
+                RelativeLocation: { X: 0, Y: 0, Z: 200 }
+                RelativeScale3D: { X: 4, Y: 20, Z: 4 }
+                Mobility: EComponentMobility::Static
+                 }
+            ChildNodes: [ { 
+                ComponentClass: Class /Script/Engine.PostProcessComponent
+                ComponentTemplate: { 
+                    Settings: { 
+                        bOverride_ColorContrast: True
+                        bOverride_SceneColorTint: True
+                        bOverride_BloomMethod: True
+                        bOverride_BloomIntensity: True
+                        bOverride_IndirectLightingIntensity: True
+                        ColorContrast: { X: 1.4, Y: 1.4, Z: 1.4, W: 1 }
+                        SceneColorTint: { R: 0.502882, G: 0.955973, B: 0.832611, A: 1 }
+                        BloomIntensity: 1f
+                        AmbientOcclusionIntensity: 1f
+                        AmbientOcclusionPower: 6f
+                        AmbientOcclusionBias: 1f
+                        AmbientOcclusionQuality: 80f
+                        AmbientOcclusionMipScale: 2f
+                        AmbientOcclusionMipThreshold: 0.1f
+                        IndirectLightingIntensity: 0.5f
+                        ColorGradingLUT: Texture2D /Game/Textures/Environment/Suburbs/LUT/T_SubHouse01_LUT.T_SubHouse01_LUT
+                         }
+                    Priority: 4f
+                    bUnbound: False
+                    RelativeLocation: { X: 0, Y: 1.875, Z: -62.5 }
+                    RelativeScale3D: { X: 0.0625, Y: 0.00625, Z: 0.0625 }
+                    Mobility: EComponentMobility::Static
+                     }
+                VariableGuid: 34bb2a4a-8b06-47b3-8cd3-828e3573da6a
+                InternalVariableName: PostProcess
+                 } ]
+            VariableGuid: b0514c3e-d868-4469-826c-8390870be555
+            InternalVariableName: Box1
+             }, { 
+            ComponentClass: Class /Script/Engine.ParticleSystemComponent
+            ComponentTemplate: { 
+                Template: ParticleSystem /Game/Effects/ParticleSystems/Environment/Qatar/UpsideDown/P_QAT_Infected_Straight.P_QAT_Infected_Straight
+                DetailLevelBeforeCastShadows: DM_MAX
+                 }
+            VariableGuid: c8a55336-6a49-4072-a8d2-25fc88c5c966
+            InternalVariableName: P_QAT_Infected_Straight
+             }, { 
+            ComponentClass: Class /Script/Engine.StaticMeshComponent
+            ComponentTemplate: { 
+                StaticMesh: StaticMesh /Game/Meshes/Environment/Qatar/Structures/Hallways/SM_Qat_Straight_01.SM_Qat_Straight_01
+                bUseDefaultCollision: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                BodyInstance: { 
+                    ObjectType: ECC_WorldStatic
+                    CollisionProfileName: BlockAll
+                     }
+                RelativeRotation: { Pitch: 0, Roll: -89.99998, Yaw: 0 }
+                bHiddenInGame: True
+                Mobility: EComponentMobility::Static
+                 }
+            ChildNodes: [ { 
+                ComponentClass: Class /Script/Engine.StaticMeshComponent
+                ComponentTemplate: { 
+                    StaticMesh: StaticMesh /Game/Meshes/Environment/Qatar/Props/SM_Qat_Entity_Straight01.SM_Qat_Entity_Straight01
+                    DetailLevelBeforeCastShadows: DM_MAX
+                    RelativeLocation: { X: -41.32666, Y: 3.814697E-06, Z: 0.2333069 }
+                    RelativeRotation: { Pitch: 0, Roll: 180, Yaw: 0 }
+                    Mobility: EComponentMobility::Static
+                     }
+                VariableGuid: d8d0cc5c-a1c9-474d-8b2a-90a032f8a049
+                InternalVariableName: SM_Qat_Entity_Straight01
+                 } ]
+            VariableGuid: 8cd4f31f-df97-4f0f-946a-56460b74907c
+            InternalVariableName: StaticMesh46
+             }, { 
+            ComponentClass: Class /Script/Engine.PointLightComponent
+            ComponentTemplate: { 
+                SourceRadius: 5f
+                SourceLength: 1600f
+                AttenuationRadius: 400f
+                MaxDrawDistance: 5000f
+                MaxDistanceFadeRange: 3000f
+                LightGuid: 803ca4b9-7707-47a8-a1f6-1095adb315fe
+                Intensity: 500f
+                LightColor: { R: 92, G: 181, B: 165, A: 1 }
+                CastShadows: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                bAffectTranslucentLighting: False
+                RelativeLocation: { X: 0, Y: 0, Z: 300 }
+                RelativeRotation: { Pitch: 0, Roll: 0, Yaw: 90 }
+                RelativeScale3D: { X: 3, Y: 0.3, Z: 0.3 }
+                Mobility: EComponentMobility::Static
+                 }
+            VariableGuid: 6fde544a-1655-4407-a040-7d32917820b2
+            InternalVariableName: PointLight
+             } ]
+        VariableGuid: b169b7ff-6c69-4037-9321-b4134da989e2
+        InternalVariableName: DefaultSceneRoot
+         }, { 
+        ComponentClass: Class /Script/Engine.BoxComponent
+        ComponentTemplate: { 
+            BoxExtent: { X: 50, Y: 50, Z: 50 }
+            AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
+            DetailLevelBeforeCastShadows: DM_MAX
+            BodyInstance: { 
+                ObjectType: ECC_GameTraceChannel10
+                CollisionProfileName: Custom
+                CollisionResponses: { 
+                    ResponseArray: [ { 
+                        Channel: WorldStatic
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: WorldDynamic
+                        Response: ECR_Overlap
+                         }, { 
+                        Channel: Pawn
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Visibility
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Camera
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: PhysicsBody
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Vehicle
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Destructible
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel2
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel3
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel4
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel5
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel6
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Interactable
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Audio
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Slasher
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Spider
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Traps
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: InteractionDetector
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: PawnDetector
+                        Response: ECR_Overlap
+                         }, { 
+                        Channel: BlinkBlocker
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Ground
+                        Response: ECR_Ignore
+                         } ]
+                     }
+                MassInKgOverride: 32941.85f
+                 }
+            RelativeLocation: { X: 0, Y: 0, Z: 200 }
+            RelativeScale3D: { X: 4, Y: 20, Z: 4 }
+            Mobility: EComponentMobility::Static
+             }
+        ChildNodes: [ { 
+            ComponentClass: Class /Script/Engine.PostProcessComponent
+            ComponentTemplate: { 
+                Settings: { 
+                    bOverride_ColorContrast: True
+                    bOverride_SceneColorTint: True
+                    bOverride_BloomMethod: True
+                    bOverride_BloomIntensity: True
+                    bOverride_IndirectLightingIntensity: True
+                    ColorContrast: { X: 1.4, Y: 1.4, Z: 1.4, W: 1 }
+                    SceneColorTint: { R: 0.502882, G: 0.955973, B: 0.832611, A: 1 }
+                    BloomIntensity: 1f
+                    AmbientOcclusionIntensity: 1f
+                    AmbientOcclusionPower: 6f
+                    AmbientOcclusionBias: 1f
+                    AmbientOcclusionQuality: 80f
+                    AmbientOcclusionMipScale: 2f
+                    AmbientOcclusionMipThreshold: 0.1f
+                    IndirectLightingIntensity: 0.5f
+                    ColorGradingLUT: Texture2D /Game/Textures/Environment/Suburbs/LUT/T_SubHouse01_LUT.T_SubHouse01_LUT
+                     }
+                Priority: 4f
+                bUnbound: False
+                RelativeLocation: { X: 0, Y: 1.875, Z: -62.5 }
+                RelativeScale3D: { X: 0.0625, Y: 0.00625, Z: 0.0625 }
+                Mobility: EComponentMobility::Static
+                 }
+            VariableGuid: 34bb2a4a-8b06-47b3-8cd3-828e3573da6a
+            InternalVariableName: PostProcess
+             } ]
+        VariableGuid: b0514c3e-d868-4469-826c-8390870be555
+        InternalVariableName: Box1
+         }, { 
+        ComponentClass: Class /Script/Engine.ParticleSystemComponent
+        ComponentTemplate: { 
+            Template: ParticleSystem /Game/Effects/ParticleSystems/Environment/Qatar/UpsideDown/P_QAT_Infected_Straight.P_QAT_Infected_Straight
+            DetailLevelBeforeCastShadows: DM_MAX
+             }
+        VariableGuid: c8a55336-6a49-4072-a8d2-25fc88c5c966
+        InternalVariableName: P_QAT_Infected_Straight
+         }, { 
+        ComponentClass: Class /Script/Engine.StaticMeshComponent
+        ComponentTemplate: { 
+            StaticMesh: StaticMesh /Game/Meshes/Environment/Qatar/Structures/Hallways/SM_Qat_Straight_01.SM_Qat_Straight_01
+            bUseDefaultCollision: False
+            DetailLevelBeforeCastShadows: DM_MAX
+            BodyInstance: { 
+                ObjectType: ECC_WorldStatic
+                CollisionProfileName: BlockAll
+                 }
+            RelativeRotation: { Pitch: 0, Roll: -89.99998, Yaw: 0 }
+            bHiddenInGame: True
+            Mobility: EComponentMobility::Static
+             }
+        ChildNodes: [ { 
+            ComponentClass: Class /Script/Engine.StaticMeshComponent
+            ComponentTemplate: { 
+                StaticMesh: StaticMesh /Game/Meshes/Environment/Qatar/Props/SM_Qat_Entity_Straight01.SM_Qat_Entity_Straight01
+                DetailLevelBeforeCastShadows: DM_MAX
+                RelativeLocation: { X: -41.32666, Y: 3.814697E-06, Z: 0.2333069 }
+                RelativeRotation: { Pitch: 0, Roll: 180, Yaw: 0 }
+                Mobility: EComponentMobility::Static
+                 }
+            VariableGuid: d8d0cc5c-a1c9-474d-8b2a-90a032f8a049
+            InternalVariableName: SM_Qat_Entity_Straight01
+             } ]
+        VariableGuid: 8cd4f31f-df97-4f0f-946a-56460b74907c
+        InternalVariableName: StaticMesh46
+         }, { 
+        ComponentClass: Class /Script/Engine.PostProcessComponent
+        ComponentTemplate: { 
+            Settings: { 
+                bOverride_ColorContrast: True
+                bOverride_SceneColorTint: True
+                bOverride_BloomMethod: True
+                bOverride_BloomIntensity: True
+                bOverride_IndirectLightingIntensity: True
+                ColorContrast: { X: 1.4, Y: 1.4, Z: 1.4, W: 1 }
+                SceneColorTint: { R: 0.502882, G: 0.955973, B: 0.832611, A: 1 }
+                BloomIntensity: 1f
+                AmbientOcclusionIntensity: 1f
+                AmbientOcclusionPower: 6f
+                AmbientOcclusionBias: 1f
+                AmbientOcclusionQuality: 80f
+                AmbientOcclusionMipScale: 2f
+                AmbientOcclusionMipThreshold: 0.1f
+                IndirectLightingIntensity: 0.5f
+                ColorGradingLUT: Texture2D /Game/Textures/Environment/Suburbs/LUT/T_SubHouse01_LUT.T_SubHouse01_LUT
+                 }
+            Priority: 4f
+            bUnbound: False
+            RelativeLocation: { X: 0, Y: 1.875, Z: -62.5 }
+            RelativeScale3D: { X: 0.0625, Y: 0.00625, Z: 0.0625 }
+            Mobility: EComponentMobility::Static
+             }
+        VariableGuid: 34bb2a4a-8b06-47b3-8cd3-828e3573da6a
+        InternalVariableName: PostProcess
+         }, { 
+        ComponentClass: Class /Script/Engine.PointLightComponent
+        ComponentTemplate: { 
+            SourceRadius: 5f
+            SourceLength: 1600f
+            AttenuationRadius: 400f
+            MaxDrawDistance: 5000f
+            MaxDistanceFadeRange: 3000f
+            LightGuid: 803ca4b9-7707-47a8-a1f6-1095adb315fe
+            Intensity: 500f
+            LightColor: { R: 92, G: 181, B: 165, A: 1 }
+            CastShadows: False
+            DetailLevelBeforeCastShadows: DM_MAX
+            bAffectTranslucentLighting: False
+            RelativeLocation: { X: 0, Y: 0, Z: 300 }
+            RelativeRotation: { Pitch: 0, Roll: 0, Yaw: 90 }
+            RelativeScale3D: { X: 3, Y: 0.3, Z: 0.3 }
+            Mobility: EComponentMobility::Static
+             }
+        VariableGuid: 6fde544a-1655-4407-a040-7d32917820b2
+        InternalVariableName: PointLight
+         }, { 
+        ComponentClass: Class /Script/Engine.StaticMeshComponent
+        ComponentTemplate: { 
+            StaticMesh: StaticMesh /Game/Meshes/Environment/Qatar/Props/SM_Qat_Entity_Straight01.SM_Qat_Entity_Straight01
+            DetailLevelBeforeCastShadows: DM_MAX
+            RelativeLocation: { X: -41.32666, Y: 3.814697E-06, Z: 0.2333069 }
+            RelativeRotation: { Pitch: 0, Roll: 180, Yaw: 0 }
+            Mobility: EComponentMobility::Static
+             }
+        VariableGuid: d8d0cc5c-a1c9-474d-8b2a-90a032f8a049
+        InternalVariableName: SM_Qat_Entity_Straight01
+         } ]
+    DefaultSceneRootNode: { 
+        ComponentClass: Class /Script/Engine.SceneComponent
+        ComponentTemplate: { 
+            Mobility: EComponentMobility::Static
+             }
+        ChildNodes: [ { 
+            ComponentClass: Class /Script/Engine.BoxComponent
+            ComponentTemplate: { 
+                BoxExtent: { X: 50, Y: 50, Z: 50 }
+                AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
+                DetailLevelBeforeCastShadows: DM_MAX
+                BodyInstance: { 
+                    ObjectType: ECC_GameTraceChannel10
+                    CollisionProfileName: Custom
+                    CollisionResponses: { 
+                        ResponseArray: [ { 
+                            Channel: WorldStatic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: WorldDynamic
+                            Response: ECR_Overlap
+                             }, { 
+                            Channel: Pawn
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Visibility
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Camera
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: PhysicsBody
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Vehicle
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Destructible
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel2
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel3
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel4
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel5
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel6
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Interactable
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Audio
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Slasher
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Spider
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Traps
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: InteractionDetector
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: PawnDetector
+                            Response: ECR_Overlap
+                             }, { 
+                            Channel: BlinkBlocker
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Ground
+                            Response: ECR_Ignore
+                             } ]
+                         }
+                    MassInKgOverride: 32941.85f
+                     }
+                RelativeLocation: { X: 0, Y: 0, Z: 200 }
+                RelativeScale3D: { X: 4, Y: 20, Z: 4 }
+                Mobility: EComponentMobility::Static
+                 }
+            ChildNodes: [ { 
+                ComponentClass: Class /Script/Engine.PostProcessComponent
+                ComponentTemplate: { 
+                    Settings: { 
+                        bOverride_ColorContrast: True
+                        bOverride_SceneColorTint: True
+                        bOverride_BloomMethod: True
+                        bOverride_BloomIntensity: True
+                        bOverride_IndirectLightingIntensity: True
+                        ColorContrast: { X: 1.4, Y: 1.4, Z: 1.4, W: 1 }
+                        SceneColorTint: { R: 0.502882, G: 0.955973, B: 0.832611, A: 1 }
+                        BloomIntensity: 1f
+                        AmbientOcclusionIntensity: 1f
+                        AmbientOcclusionPower: 6f
+                        AmbientOcclusionBias: 1f
+                        AmbientOcclusionQuality: 80f
+                        AmbientOcclusionMipScale: 2f
+                        AmbientOcclusionMipThreshold: 0.1f
+                        IndirectLightingIntensity: 0.5f
+                        ColorGradingLUT: Texture2D /Game/Textures/Environment/Suburbs/LUT/T_SubHouse01_LUT.T_SubHouse01_LUT
+                         }
+                    Priority: 4f
+                    bUnbound: False
+                    RelativeLocation: { X: 0, Y: 1.875, Z: -62.5 }
+                    RelativeScale3D: { X: 0.0625, Y: 0.00625, Z: 0.0625 }
+                    Mobility: EComponentMobility::Static
+                     }
+                VariableGuid: 34bb2a4a-8b06-47b3-8cd3-828e3573da6a
+                InternalVariableName: PostProcess
+                 } ]
+            VariableGuid: b0514c3e-d868-4469-826c-8390870be555
+            InternalVariableName: Box1
+             }, { 
+            ComponentClass: Class /Script/Engine.ParticleSystemComponent
+            ComponentTemplate: { 
+                Template: ParticleSystem /Game/Effects/ParticleSystems/Environment/Qatar/UpsideDown/P_QAT_Infected_Straight.P_QAT_Infected_Straight
+                DetailLevelBeforeCastShadows: DM_MAX
+                 }
+            VariableGuid: c8a55336-6a49-4072-a8d2-25fc88c5c966
+            InternalVariableName: P_QAT_Infected_Straight
+             }, { 
+            ComponentClass: Class /Script/Engine.StaticMeshComponent
+            ComponentTemplate: { 
+                StaticMesh: StaticMesh /Game/Meshes/Environment/Qatar/Structures/Hallways/SM_Qat_Straight_01.SM_Qat_Straight_01
+                bUseDefaultCollision: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                BodyInstance: { 
+                    ObjectType: ECC_WorldStatic
+                    CollisionProfileName: BlockAll
+                     }
+                RelativeRotation: { Pitch: 0, Roll: -89.99998, Yaw: 0 }
+                bHiddenInGame: True
+                Mobility: EComponentMobility::Static
+                 }
+            ChildNodes: [ { 
+                ComponentClass: Class /Script/Engine.StaticMeshComponent
+                ComponentTemplate: { 
+                    StaticMesh: StaticMesh /Game/Meshes/Environment/Qatar/Props/SM_Qat_Entity_Straight01.SM_Qat_Entity_Straight01
+                    DetailLevelBeforeCastShadows: DM_MAX
+                    RelativeLocation: { X: -41.32666, Y: 3.814697E-06, Z: 0.2333069 }
+                    RelativeRotation: { Pitch: 0, Roll: 180, Yaw: 0 }
+                    Mobility: EComponentMobility::Static
+                     }
+                VariableGuid: d8d0cc5c-a1c9-474d-8b2a-90a032f8a049
+                InternalVariableName: SM_Qat_Entity_Straight01
+                 } ]
+            VariableGuid: 8cd4f31f-df97-4f0f-946a-56460b74907c
+            InternalVariableName: StaticMesh46
+             }, { 
+            ComponentClass: Class /Script/Engine.PointLightComponent
+            ComponentTemplate: { 
+                SourceRadius: 5f
+                SourceLength: 1600f
+                AttenuationRadius: 400f
+                MaxDrawDistance: 5000f
+                MaxDistanceFadeRange: 3000f
+                LightGuid: 803ca4b9-7707-47a8-a1f6-1095adb315fe
+                Intensity: 500f
+                LightColor: { R: 92, G: 181, B: 165, A: 1 }
+                CastShadows: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                bAffectTranslucentLighting: False
+                RelativeLocation: { X: 0, Y: 0, Z: 300 }
+                RelativeRotation: { Pitch: 0, Roll: 0, Yaw: 90 }
+                RelativeScale3D: { X: 3, Y: 0.3, Z: 0.3 }
+                Mobility: EComponentMobility::Static
+                 }
+            VariableGuid: 6fde544a-1655-4407-a040-7d32917820b2
+            InternalVariableName: PointLight
+             } ]
+        VariableGuid: b169b7ff-6c69-4037-9321-b4134da989e2
+        InternalVariableName: DefaultSceneRoot
+         }
+     }
+<--- CDO --->
+PrimaryActorTick: { 
+    bStartWithTickEnabled: False
+     }

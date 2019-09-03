@@ -1,37 +1,61 @@
-Parent: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_Dither.MI_Camper_Dither
+Parent: MaterialInstanceConstant /Game/Characters/Campers/Materials/Instances/MI_HairTAA.MI_HairTAA
 bHasStaticPermutationResource: True
 ScalarParameterValues: [ { 
     ParameterInfo: { 
-        Name: Dither Tiling
+        Name: Dither Amount
+        Association: GlobalParameter
+        Index: -1
+         }
+    ParameterValue: 0.32381f
+    ExpressionGUID: a9b17786-6658-4ddd-92a3-6ccbf9b3dede
+     }, { 
+    ParameterInfo: { 
+        Name: EdgeMaskContrast
         Association: GlobalParameter
         Index: -1
          }
     ParameterValue: 1f
-    ExpressionGUID: 9e7bfe57-ef80-4043-9381-86b5c67df98a
+    ExpressionGUID: 3fd82db0-efa1-460c-a9f5-1fc3df9587fe
      }, { 
     ParameterInfo: { 
-        Name: DitherIntensity
+        Name: EdgeMaskMin
         Association: GlobalParameter
         Index: -1
          }
-    ParameterValue: 0f
-    ExpressionGUID: fcc7aec2-9690-4ff5-96de-4b5e417f7f12
+    ParameterValue: 0.351171f
+    ExpressionGUID: 9b1bdc59-faef-4e3f-b9f4-aac0fd1641d2
      }, { 
     ParameterInfo: { 
-        Name: DitherNoiseIntensity
+        Name: MipBias
         Association: GlobalParameter
         Index: -1
          }
-    ParameterValue: -0.277907f
-    ExpressionGUID: 7f7f1308-ddb5-4274-80a9-fae9f0cc70be
+    ParameterValue: -1f
+    ExpressionGUID: ca4d6774-1a7e-4dfa-a60b-b1b17e68a49b
      }, { 
     ParameterInfo: { 
-        Name: DitherNoiseOffset
+        Name: DiffuseTintMix
         Association: GlobalParameter
         Index: -1
          }
-    ParameterValue: 0.308614f
-    ExpressionGUID: e6a283b1-26f1-414f-8dec-6ed142b62f5e
+    ParameterValue: 1f
+    ExpressionGUID: 2a1e6e0b-9f86-425c-a34a-074967ce330f
+     }, { 
+    ParameterInfo: { 
+        Name: RoughnessValue
+        Association: GlobalParameter
+        Index: -1
+         }
+    ParameterValue: 0.98f
+    ExpressionGUID: 9a5e564c-2e78-436d-a8ad-18f677b15802
+     }, { 
+    ParameterInfo: { 
+        Name: SpecularValue
+        Association: GlobalParameter
+        Index: -1
+         }
+    ParameterValue: 0.05f
+    ExpressionGUID: d18675fd-3556-4a4b-add9-e88d46cc4b75
      }, { 
     ParameterInfo: { 
         Name: RefractionDepthBias
@@ -43,12 +67,12 @@ ScalarParameterValues: [ {
      } ]
 TextureParameterValues: [ { 
     ParameterInfo: { 
-        Name: Pointilism Source Texture
+        Name: Alpha_Mask
         Association: GlobalParameter
         Index: -1
          }
     ParameterValue: Texture2D /Game/Characters/Campers/David/Textures/Outfit01/T_DKHair01_M.T_DKHair01_M
-    ExpressionGUID: e6a07edf-3134-4e98-a6bf-9100d1fdaf19
+    ExpressionGUID: 39a9c32c-e00d-46e2-bdb3-8a56153a939f
      }, { 
     ParameterInfo: { 
         Name: Diffuse
@@ -56,15 +80,7 @@ TextureParameterValues: [ {
         Index: -1
          }
     ParameterValue: Texture2D /Game/Characters/Campers/David/Textures/Outfit02/T_DKHair02_BC.T_DKHair02_BC
-    ExpressionGUID: cfe713c8-b97b-4b47-ad90-fcbe386b3ebb
-     }, { 
-    ParameterInfo: { 
-        Name: MetallicMap Texture
-        Association: GlobalParameter
-        Index: -1
-         }
-    ParameterValue: Texture2D /Game/Textures/Environment/Tiles/Black.Black
-    ExpressionGUID: 2fa0acdb-7399-40f2-bb73-8cce1fabd0e9
+    ExpressionGUID: 3c31a915-aeab-4e36-96b2-59160ff0b26c
      }, { 
     ParameterInfo: { 
         Name: Normal
@@ -72,23 +88,7 @@ TextureParameterValues: [ {
         Index: -1
          }
     ParameterValue: Texture2D /Game/Characters/Campers/David/Textures/Outfit01/T_DKHair01_N.T_DKHair01_N
-    ExpressionGUID: 84bd0aff-d7a9-414a-974e-cc5a9ca42cb7
-     }, { 
-    ParameterInfo: { 
-        Name: RoughnessMap Texture
-        Association: GlobalParameter
-        Index: -1
-         }
-    ParameterValue: Texture2D /Game/Textures/Environment/Tiles/White.White
-    ExpressionGUID: 696a1c8b-4fe9-4b4f-8fdb-1ad0dc1c55cc
-     }, { 
-    ParameterInfo: { 
-        Name: Specular
-        Association: GlobalParameter
-        Index: -1
-         }
-    ParameterValue: Texture2D /Game/Characters/Campers/David/Textures/Outfit01/T_DKHair01_R.T_DKHair01_R
-    ExpressionGUID: 79607a00-e24b-42e5-9a1d-0b85316bcee9
+    ExpressionGUID: 50de2b57-2bb8-46c8-a0ac-48dabcec468e
      } ]
 BasePropertyOverrides: { 
     bOverride_OpacityMaskClipValue: True
@@ -99,15 +99,24 @@ BasePropertyOverrides: {
     BlendMode: BLEND_Masked
     TwoSided: True
      }
-StaticParameters: { 
-    StaticSwitchParameters: [ { 
-        ParameterInfo: { 
-            Name: UseAlphaDither
-            Association: GlobalParameter
-            Index: -1
-             }
-        Value: True
-        bOverride: True
-        ExpressionGUID: cb94749f-2858-4c6e-8ac7-b28e54409389
-         } ]
-     }
+TextureStreamingData: [ { 
+    SamplingScale: 1f
+    UVChannelIndex: 0
+    TextureName: Black
+     }, { 
+    SamplingScale: 1f
+    UVChannelIndex: 0
+    TextureName: Fxt_verticalGradient
+     }, { 
+    SamplingScale: 1f
+    UVChannelIndex: 0
+    TextureName: T_DKHair01_M
+     }, { 
+    SamplingScale: 1f
+    UVChannelIndex: 0
+    TextureName: T_DKHair01_N
+     }, { 
+    SamplingScale: 1f
+    UVChannelIndex: 0
+    TextureName: T_Noise_04
+     } ]

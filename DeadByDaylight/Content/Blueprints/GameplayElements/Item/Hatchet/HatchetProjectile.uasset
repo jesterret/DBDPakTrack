@@ -1,12 +1,12 @@
 DynamicBindingObjects: [ { 
     ComponentDelegateBindings: [ { 
-        ComponentPropertyName: Collision
-        DelegatePropertyName: OnComponentHit
-        FunctionNameToBind: BndEvt__Collision_K2Node_ComponentBoundEvent_0_ComponentHitSignature__DelegateSignature
-         }, { 
         ComponentPropertyName: TargetDetector
         DelegatePropertyName: OnComponentBeginOverlap
         FunctionNameToBind: BndEvt__TargetDetector_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature
+         }, { 
+        ComponentPropertyName: Collision
+        DelegatePropertyName: OnComponentHit
+        FunctionNameToBind: BndEvt__Collision_K2Node_ComponentBoundEvent_0_ComponentHitSignature__DelegateSignature
          } ]
      } ]
 ComponentTemplates: [ { 
@@ -31,7 +31,7 @@ Timelines: [ {
             FloatCurves: { 
                 Keys: [ { Time: -0.006193973, Value: 0, InterpMode: RCIM_Linear }, { Time: 1.000987, Value: 0.02468997, InterpMode: RCIM_Linear } ]
                  }
-            FloatCurves: 432
+            FloatCurves: 423
              }
         TrackName: Curve OP Glow
         bIsExternalCurve: False
@@ -46,7 +46,7 @@ Timelines: [ {
             FloatCurves: { 
                 Keys: [ { Time: -0.002244249, Value: 0, InterpMode: RCIM_Linear }, { Time: 0.9970374, Value: 0.006331749, InterpMode: RCIM_Linear } ]
                  }
-            FloatCurves: 432
+            FloatCurves: 423
              }
         TrackName: Curve Normal Glow
         bIsExternalCurve: False
@@ -55,15 +55,6 @@ Timelines: [ {
      } ]
 SimpleConstructionScript: { 
     RootNodes: [ { 
-        ComponentClass: Class /Script/Engine.ProjectileMovementComponent
-        ComponentTemplate: { 
-            MaxSpeed: 5000f
-            bInitialVelocityInLocalSpace: False
-            Velocity: { X: 1000, Y: 0, Z: 0 }
-             }
-        VariableGuid: 837dd7d5-168b-4204-adec-5d324bc7875f
-        InternalVariableName: ProjectileMovement
-         }, { 
         ComponentClass: Class /Script/Engine.SphereComponent
         ComponentTemplate: { 
             SphereRadius: 10f
@@ -144,6 +135,7 @@ SimpleConstructionScript: {
                 SphereRadius: 40f
                 AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
                 DetailLevelBeforeCastShadows: DM_MAX
+                CanCharacterStepUpOn: ECB_No
                 BodyInstance: { 
                     ObjectType: ECC_GameTraceChannel3
                     bUseCCD: True
@@ -337,6 +329,12 @@ SimpleConstructionScript: {
              } ]
         VariableGuid: 39dea64e-8077-492e-b5b2-653def62ae85
         InternalVariableName: Collision
+         }, { 
+        ComponentClass: Class /Script/Engine.RotatingMovementComponent
+        ComponentTemplate: { 
+             }
+        VariableGuid: cb1844bf-c6a8-4ea0-bbf3-7316a304f6d6
+        InternalVariableName: RotatingMovement
          } ]
     AllNodes: [ { 
         ComponentClass: Class /Script/Engine.SphereComponent
@@ -344,6 +342,7 @@ SimpleConstructionScript: {
             SphereRadius: 40f
             AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
             DetailLevelBeforeCastShadows: DM_MAX
+            CanCharacterStepUpOn: ECB_No
             BodyInstance: { 
                 ObjectType: ECC_GameTraceChannel3
                 bUseCCD: True
@@ -445,15 +444,6 @@ SimpleConstructionScript: {
         VariableGuid: 9e3f617e-f9a3-44d9-9267-6345ce1df188
         InternalVariableName: Root
          }, { 
-        ComponentClass: Class /Script/Engine.ProjectileMovementComponent
-        ComponentTemplate: { 
-            MaxSpeed: 5000f
-            bInitialVelocityInLocalSpace: False
-            Velocity: { X: 1000, Y: 0, Z: 0 }
-             }
-        VariableGuid: 837dd7d5-168b-4204-adec-5d324bc7875f
-        InternalVariableName: ProjectileMovement
-         }, { 
         ComponentClass: Class /Script/Engine.SphereComponent
         ComponentTemplate: { 
             SphereRadius: 10f
@@ -534,6 +524,7 @@ SimpleConstructionScript: {
                 SphereRadius: 40f
                 AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
                 DetailLevelBeforeCastShadows: DM_MAX
+                CanCharacterStepUpOn: ECB_No
                 BodyInstance: { 
                     ObjectType: ECC_GameTraceChannel3
                     bUseCCD: True
@@ -900,6 +891,12 @@ SimpleConstructionScript: {
              }
         VariableGuid: c0986e3e-9f93-4287-a7e1-01b05b322be7
         InternalVariableName: StaticMesh
+         }, { 
+        ComponentClass: Class /Script/Engine.RotatingMovementComponent
+        ComponentTemplate: { 
+             }
+        VariableGuid: cb1844bf-c6a8-4ea0-bbf3-7316a304f6d6
+        InternalVariableName: RotatingMovement
          } ]
     DefaultSceneRootNode: { 
         ComponentClass: Class /Script/Engine.SceneComponent
@@ -912,7 +909,7 @@ SimpleConstructionScript: {
 UberGraphFunction: { 
      }
 <--- CDO --->
-UberGraphFrame: 432
+UberGraphFrame: 423
 WeaponGlow_Curve_Normal_Glow_73FC0E4541D18FBF1770809A5CB77BC4: { R: 0, G: 0, B: 0, A: 0 }
 WeaponGlow_Curve_OP_Glow_73FC0E4541D18FBF1770809A5CB77BC4: { R: 0, G: 0, B: 0, A: 0 }
 RotationSpeed: -1000f
@@ -922,11 +919,16 @@ ExplosionHitOPClass: BlueprintGeneratedClass /Game/Effects/Blueprints/Killer08/B
 ExplosionMissOPClass: BlueprintGeneratedClass /Game/Effects/Blueprints/Killer08/BP_Effect_DustImpactOP.BP_Effect_DustImpactOP_C
 HatchetImpactClass: BlueprintGeneratedClass /Game/Effects/Blueprints/Killer08/BP_Effect_HatchetImpact.BP_Effect_HatchetImpact_C
 EarlyHitDetectionBackwardDistance: 75f
-ActorLocationInPreviousTick: { X: 0, Y: 0, Z: 0 }
 MaxDistanceForHitValidation: 80f
-PrimaryActorTick: { 
-    bCanEverTick: True
+Movement: { 
+    MaxSpeed: 5000f
+    bInitialVelocityInLocalSpace: False
+    bInterpMovement: True
+    bInterpRotation: True
+    Velocity: { X: 1000, Y: 0, Z: 0 }
+    bAutoActivate: False
      }
+_multicastLaunch: True
 bAlwaysRelevant: True
 bReplicateMovement: True
 bCanBeDamaged: False
