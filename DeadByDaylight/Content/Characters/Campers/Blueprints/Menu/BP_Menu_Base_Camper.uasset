@@ -8,10 +8,15 @@ Timelines: [ {
                 Keys: [ { Time: 0, Value: 0, InterpMode: RCIM_Cubic }, { Time: 0.7, Value: 0.9, InterpMode: RCIM_Linear } ]
                  }
              }
+        PropertyName: Dissolve_Dissolve_596272B14FBF23BFE861F687F86F9EB1
         TrackName: Dissolve
         bIsExternalCurve: False
          } ]
     TimelineGuid: 596272b1-23bf-4fbf-87f6-61e8b19e6ff8
+    VariableName: Dissolve
+    DirectionPropertyName: Dissolve__Direction_596272B14FBF23BFE861F687F86F9EB1
+    UpdateFunctionName: Dissolve__UpdateFunc
+    FinishedFunctionName: Dissolve__FinishedFunc
      } ]
 SimpleConstructionScript: { 
     RootNodes: [ { 
@@ -32,7 +37,7 @@ SimpleConstructionScript: {
         VariableGuid: b7e1b9d5-0132-4661-abcc-6a670e6b858b
         InternalVariableName: Ak_Audio_Menu_Base_Camper
          }, { 
-        ComponentClass: Class /Script/DeadByDaylight.MaterialHelper
+        ComponentClass: Class /Script/GFXUtilities.MaterialHelper
         ComponentTemplate: { 
             Groups: [ { 
                 GroupName: Camper1
@@ -82,6 +87,9 @@ SimpleConstructionScript: {
                     SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_TransCust.MI_Camper_TransCust
                     DstMaterial: MaterialInstanceConstant /Game/Materials/Variants/MV_Camper_TransCust_DesaturateForLobby.MV_Camper_TransCust_DesaturateForLobby
                      }, { 
+                    SrcMaterial: Material /Game/Characters/Campers/Materials/M_Camper_Liquid.M_Camper_Liquid
+                    DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MV_Camper_Liquid_Desaturate.MV_Camper_Liquid_Desaturate
+                     }, { 
                     SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_Dither.MI_Camper_Dither
                     DstMaterial: MaterialInstanceConstant /Game/Materials/Variants/MV_Camper_Dither_DesaturateForLobby.MV_Camper_Dither_DesaturateForLobby
                      } ]
@@ -106,26 +114,35 @@ SimpleConstructionScript: {
             CharmSlots: [ { 
                 SlotIndex: 0
                 CharmAttacherClass: /Game/Blueprints/Customization/Charms/CamperCharmAttacher3.CamperCharmAttacher3_C
-                AnimationTweak: { 
+                DefaultAnimationTweak: { 
                     AttachPointTranslation: { X: 0, Y: 0, Z: 0 }
                     AttachPointRotation: { Pitch: 0, Roll: 0, Yaw: 0 }
+                    ConstraintType: 0
+                    MagicTweakingFloat: 0f
                      }
+                AnimationTweakByTag: Unreal.ObjectSystem.PropertyTypes.MapProperty
                  }, { 
                 SlotIndex: 1
                 CharmAttacherClass: /Game/Blueprints/Customization/Charms/CamperCharmAttacher4.CamperCharmAttacher4_C
-                AnimationTweak: { 
+                DefaultAnimationTweak: { 
                     AttachPointTranslation: { X: 0, Y: 0, Z: 0 }
                     AttachPointRotation: { Pitch: 0, Roll: 0, Yaw: 0 }
+                    ConstraintType: 0
+                    MagicTweakingFloat: 0f
                      }
+                AnimationTweakByTag: Unreal.ObjectSystem.PropertyTypes.MapProperty
                  }, { 
                 SlotIndex: 2
                 CharmAttacherClass: /Game/Blueprints/Customization/Charms/CamperCharmAttacher5.CamperCharmAttacher5_C
-                AnimationTweak: { 
+                DefaultAnimationTweak: { 
                     AttachPointTranslation: { X: 0, Y: 0, Z: 0 }
                     AttachPointRotation: { Pitch: 0, Roll: 0, Yaw: 0 }
+                    ConstraintType: 0
+                    MagicTweakingFloat: 0f
                      }
+                AnimationTweakByTag: Unreal.ObjectSystem.PropertyTypes.MapProperty
                  } ]
-            ScaleCharm: { X: 0.3, Y: 0.3, Z: 0.3 }
+            ScaleCharm: { X: 0.07, Y: 0.07, Z: 0.07 }
              }
         VariableGuid: 9673bb35-f865-4f8f-b4fc-d45b1b7de2b0
         InternalVariableName: CharmSpawner
@@ -148,7 +165,7 @@ SimpleConstructionScript: {
         VariableGuid: b7e1b9d5-0132-4661-abcc-6a670e6b858b
         InternalVariableName: Ak_Audio_Menu_Base_Camper
          }, { 
-        ComponentClass: Class /Script/DeadByDaylight.MaterialHelper
+        ComponentClass: Class /Script/GFXUtilities.MaterialHelper
         ComponentTemplate: { 
             Groups: [ { 
                 GroupName: Camper1
@@ -198,6 +215,9 @@ SimpleConstructionScript: {
                     SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_TransCust.MI_Camper_TransCust
                     DstMaterial: MaterialInstanceConstant /Game/Materials/Variants/MV_Camper_TransCust_DesaturateForLobby.MV_Camper_TransCust_DesaturateForLobby
                      }, { 
+                    SrcMaterial: Material /Game/Characters/Campers/Materials/M_Camper_Liquid.M_Camper_Liquid
+                    DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MV_Camper_Liquid_Desaturate.MV_Camper_Liquid_Desaturate
+                     }, { 
                     SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_Dither.MI_Camper_Dither
                     DstMaterial: MaterialInstanceConstant /Game/Materials/Variants/MV_Camper_Dither_DesaturateForLobby.MV_Camper_Dither_DesaturateForLobby
                      } ]
@@ -222,26 +242,35 @@ SimpleConstructionScript: {
             CharmSlots: [ { 
                 SlotIndex: 0
                 CharmAttacherClass: /Game/Blueprints/Customization/Charms/CamperCharmAttacher3.CamperCharmAttacher3_C
-                AnimationTweak: { 
+                DefaultAnimationTweak: { 
                     AttachPointTranslation: { X: 0, Y: 0, Z: 0 }
                     AttachPointRotation: { Pitch: 0, Roll: 0, Yaw: 0 }
+                    ConstraintType: 0
+                    MagicTweakingFloat: 0f
                      }
+                AnimationTweakByTag: Unreal.ObjectSystem.PropertyTypes.MapProperty
                  }, { 
                 SlotIndex: 1
                 CharmAttacherClass: /Game/Blueprints/Customization/Charms/CamperCharmAttacher4.CamperCharmAttacher4_C
-                AnimationTweak: { 
+                DefaultAnimationTweak: { 
                     AttachPointTranslation: { X: 0, Y: 0, Z: 0 }
                     AttachPointRotation: { Pitch: 0, Roll: 0, Yaw: 0 }
+                    ConstraintType: 0
+                    MagicTweakingFloat: 0f
                      }
+                AnimationTweakByTag: Unreal.ObjectSystem.PropertyTypes.MapProperty
                  }, { 
                 SlotIndex: 2
                 CharmAttacherClass: /Game/Blueprints/Customization/Charms/CamperCharmAttacher5.CamperCharmAttacher5_C
-                AnimationTweak: { 
+                DefaultAnimationTweak: { 
                     AttachPointTranslation: { X: 0, Y: 0, Z: 0 }
                     AttachPointRotation: { Pitch: 0, Roll: 0, Yaw: 0 }
+                    ConstraintType: 0
+                    MagicTweakingFloat: 0f
                      }
+                AnimationTweakByTag: Unreal.ObjectSystem.PropertyTypes.MapProperty
                  } ]
-            ScaleCharm: { X: 0.3, Y: 0.3, Z: 0.3 }
+            ScaleCharm: { X: 0.07, Y: 0.07, Z: 0.07 }
              }
         VariableGuid: 9673bb35-f865-4f8f-b4fc-d45b1b7de2b0
         InternalVariableName: CharmSpawner
@@ -258,10 +287,12 @@ SimpleConstructionScript: {
         InternalVariableName: DefaultSceneRoot
          }
      }
+UberGraphFramePointerProperty: { 
+     }
 UberGraphFunction: { 
      }
 <--- CDO --->
-UberGraphFrame: 246
+UberGraphFrame: 256
 DarkMaterial: /Game/Characters/Campers/Materials/Instances/MI_BlackGlass.MI_BlackGlass
 ItemMesh: { 
     DetailLevelBeforeCastShadows: DM_MAX
@@ -272,7 +303,6 @@ ItemMesh: {
         bUseRefPoseOnInitAnim: True
         ForcedLodModel: 1
         VisibilityBasedAnimTickOption: EVisibilityBasedAnimTickOption::AlwaysTickPoseAndRefreshBones
-        bEnableUpdateRateOptimizations: True
         DetailLevelBeforeCastShadows: DM_MAX
         bCastCinematicShadow: True
         BodyInstance: { 
@@ -352,7 +382,6 @@ Mesh: {
     bUseRefPoseOnInitAnim: True
     ForcedLodModel: 1
     VisibilityBasedAnimTickOption: EVisibilityBasedAnimTickOption::AlwaysTickPoseAndRefreshBones
-    bEnableUpdateRateOptimizations: True
     DetailLevelBeforeCastShadows: DM_MAX
     bCastCinematicShadow: True
     BodyInstance: { 

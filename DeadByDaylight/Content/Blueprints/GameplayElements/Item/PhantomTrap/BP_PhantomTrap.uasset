@@ -23,6 +23,7 @@ Timelines: [ {
                 Keys: [ { Time: 0, Value: 0.7, InterpMode: RCIM_Cubic }, { Time: 1, Value: 0.1, InterpMode: RCIM_Cubic } ]
                  }
              }
+        PropertyName: Melt_Dissolve_31EDCED94C9AC05D9F81058A77E6E007
         TrackName: Dissolve
         bIsExternalCurve: False
          }, { 
@@ -31,10 +32,15 @@ Timelines: [ {
                 Keys: [ { Time: 0, Value: 0, InterpMode: RCIM_Cubic }, { Time: 0.3, Value: 0.5, InterpMode: RCIM_Linear } ]
                  }
              }
+        PropertyName: Melt_Mud_31EDCED94C9AC05D9F81058A77E6E007
         TrackName: Mud
         bIsExternalCurve: False
          } ]
     TimelineGuid: 31edced9-c05d-4c9a-8a05-819f07e0e677
+    VariableName: Melt
+    DirectionPropertyName: Melt__Direction_31EDCED94C9AC05D9F81058A77E6E007
+    UpdateFunctionName: Melt__UpdateFunc
+    FinishedFunctionName: Melt__FinishedFunc
      }, { 
     TimelineLength: 1f
     bValidatedAsWired: True
@@ -44,10 +50,15 @@ Timelines: [ {
                 Keys: [ { Time: 0, Value: 0.7, InterpMode: RCIM_Cubic }, { Time: 0.3, Value: 0.1, InterpMode: RCIM_Cubic } ]
                  }
              }
+        PropertyName: Dust_Dissolve_264E979A4F8E1BEDB1D6B2A24F498BDC
         TrackName: Dissolve
         bIsExternalCurve: False
          } ]
     TimelineGuid: 264e979a-1bed-4f8e-a2b2-d6b1dc8b494f
+    VariableName: Dust
+    DirectionPropertyName: Dust__Direction_264E979A4F8E1BEDB1D6B2A24F498BDC
+    UpdateFunctionName: Dust__UpdateFunc
+    FinishedFunctionName: Dust__FinishedFunc
      }, { 
     TimelineLength: 0.5f
     bValidatedAsWired: True
@@ -57,10 +68,15 @@ Timelines: [ {
                 Keys: [ { Time: 0, Value: 1.1, InterpMode: RCIM_Linear }, { Time: 0.5, Value: 0, InterpMode: RCIM_Linear } ]
                  }
              }
+        PropertyName: TrapDecalDestroy_01_A03E0AD14F6AA345821A4298715A9B38
         TrackName: 01
         bIsExternalCurve: False
          } ]
     TimelineGuid: a03e0ad1-a345-4f6a-9842-1a82389b5a71
+    VariableName: TrapDecalDestroy
+    DirectionPropertyName: TrapDecalDestroy__Direction_A03E0AD14F6AA345821A4298715A9B38
+    UpdateFunctionName: TrapDecalDestroy__UpdateFunc
+    FinishedFunctionName: TrapDecalDestroy__FinishedFunc
      } ]
 SimpleConstructionScript: { 
     RootNodes: [ { 
@@ -272,7 +288,7 @@ SimpleConstructionScript: {
                 bVisible: False
                  }
             ChildNodes: [ { 
-                ComponentClass: Class /Script/DeadByDaylight.MaterialHelper
+                ComponentClass: Class /Script/GFXUtilities.MaterialHelper
                 ComponentTemplate: { 
                     Groups: [ { 
                         GroupName: Dissolve
@@ -315,6 +331,9 @@ SimpleConstructionScript: {
                          } ]
                     WarmupTime: 5f
                     DetailLevelBeforeCastShadows: DM_MAX
+                    PrimaryComponentTick: { 
+                        bStartWithTickEnabled: False
+                         }
                     bAutoActivate: False
                      }
                 VariableGuid: edab443e-72c7-417e-9797-0c75bf746d7f
@@ -324,6 +343,9 @@ SimpleConstructionScript: {
                 ComponentTemplate: { 
                     Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_MudFalling.P_MudFalling
                     DetailLevelBeforeCastShadows: DM_MAX
+                    PrimaryComponentTick: { 
+                        bStartWithTickEnabled: False
+                         }
                     bAutoActivate: False
                      }
                 VariableGuid: 3886e5db-1bc8-498d-a565-b2ee8ab5ad0a
@@ -333,6 +355,9 @@ SimpleConstructionScript: {
                 ComponentTemplate: { 
                     Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_MudBlast.P_MudBlast
                     DetailLevelBeforeCastShadows: DM_MAX
+                    PrimaryComponentTick: { 
+                        bStartWithTickEnabled: False
+                         }
                     bAutoActivate: False
                      }
                 VariableGuid: ae3593a4-b6fd-48ab-9d93-1c0577183d73
@@ -396,6 +421,9 @@ SimpleConstructionScript: {
             DetailLevelBeforeCastShadows: DM_MAX
             bAbsoluteRotation: True
             bVisible: False
+            PrimaryComponentTick: { 
+                bStartWithTickEnabled: False
+                 }
              }
         ParentComponentOrVariableName: Terror Radius Component
         bIsParentComponentNative: True
@@ -504,6 +532,9 @@ SimpleConstructionScript: {
             Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_TrapDestroy.P_TrapDestroy
             DetailLevelBeforeCastShadows: DM_MAX
             RelativeRotation: { Pitch: -10, Roll: 90, Yaw: -90 }
+            PrimaryComponentTick: { 
+                bStartWithTickEnabled: False
+                 }
             bAutoActivate: False
              }
         ParentComponentOrVariableName: Terror Radius Component
@@ -909,7 +940,7 @@ SimpleConstructionScript: {
                 bVisible: False
                  }
             ChildNodes: [ { 
-                ComponentClass: Class /Script/DeadByDaylight.MaterialHelper
+                ComponentClass: Class /Script/GFXUtilities.MaterialHelper
                 ComponentTemplate: { 
                     Groups: [ { 
                         GroupName: Dissolve
@@ -952,6 +983,9 @@ SimpleConstructionScript: {
                          } ]
                     WarmupTime: 5f
                     DetailLevelBeforeCastShadows: DM_MAX
+                    PrimaryComponentTick: { 
+                        bStartWithTickEnabled: False
+                         }
                     bAutoActivate: False
                      }
                 VariableGuid: edab443e-72c7-417e-9797-0c75bf746d7f
@@ -961,6 +995,9 @@ SimpleConstructionScript: {
                 ComponentTemplate: { 
                     Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_MudFalling.P_MudFalling
                     DetailLevelBeforeCastShadows: DM_MAX
+                    PrimaryComponentTick: { 
+                        bStartWithTickEnabled: False
+                         }
                     bAutoActivate: False
                      }
                 VariableGuid: 3886e5db-1bc8-498d-a565-b2ee8ab5ad0a
@@ -970,6 +1007,9 @@ SimpleConstructionScript: {
                 ComponentTemplate: { 
                     Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_MudBlast.P_MudBlast
                     DetailLevelBeforeCastShadows: DM_MAX
+                    PrimaryComponentTick: { 
+                        bStartWithTickEnabled: False
+                         }
                     bAutoActivate: False
                      }
                 VariableGuid: ae3593a4-b6fd-48ab-9d93-1c0577183d73
@@ -1093,7 +1133,7 @@ SimpleConstructionScript: {
             bVisible: False
              }
         ChildNodes: [ { 
-            ComponentClass: Class /Script/DeadByDaylight.MaterialHelper
+            ComponentClass: Class /Script/GFXUtilities.MaterialHelper
             ComponentTemplate: { 
                 Groups: [ { 
                     GroupName: Dissolve
@@ -1136,6 +1176,9 @@ SimpleConstructionScript: {
                      } ]
                 WarmupTime: 5f
                 DetailLevelBeforeCastShadows: DM_MAX
+                PrimaryComponentTick: { 
+                    bStartWithTickEnabled: False
+                     }
                 bAutoActivate: False
                  }
             VariableGuid: edab443e-72c7-417e-9797-0c75bf746d7f
@@ -1145,6 +1188,9 @@ SimpleConstructionScript: {
             ComponentTemplate: { 
                 Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_MudFalling.P_MudFalling
                 DetailLevelBeforeCastShadows: DM_MAX
+                PrimaryComponentTick: { 
+                    bStartWithTickEnabled: False
+                     }
                 bAutoActivate: False
                  }
             VariableGuid: 3886e5db-1bc8-498d-a565-b2ee8ab5ad0a
@@ -1154,6 +1200,9 @@ SimpleConstructionScript: {
             ComponentTemplate: { 
                 Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_MudBlast.P_MudBlast
                 DetailLevelBeforeCastShadows: DM_MAX
+                PrimaryComponentTick: { 
+                    bStartWithTickEnabled: False
+                     }
                 bAutoActivate: False
                  }
             VariableGuid: ae3593a4-b6fd-48ab-9d93-1c0577183d73
@@ -1188,7 +1237,7 @@ SimpleConstructionScript: {
         VariableGuid: d751e393-161f-447e-9879-0c538754c1ec
         InternalVariableName: Phantom
          }, { 
-        ComponentClass: Class /Script/DeadByDaylight.MaterialHelper
+        ComponentClass: Class /Script/GFXUtilities.MaterialHelper
         ComponentTemplate: { 
             Groups: [ { 
                 GroupName: Dissolve
@@ -1231,6 +1280,9 @@ SimpleConstructionScript: {
                  } ]
             WarmupTime: 5f
             DetailLevelBeforeCastShadows: DM_MAX
+            PrimaryComponentTick: { 
+                bStartWithTickEnabled: False
+                 }
             bAutoActivate: False
              }
         VariableGuid: edab443e-72c7-417e-9797-0c75bf746d7f
@@ -1240,6 +1292,9 @@ SimpleConstructionScript: {
         ComponentTemplate: { 
             Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_MudFalling.P_MudFalling
             DetailLevelBeforeCastShadows: DM_MAX
+            PrimaryComponentTick: { 
+                bStartWithTickEnabled: False
+                 }
             bAutoActivate: False
              }
         VariableGuid: 3886e5db-1bc8-498d-a565-b2ee8ab5ad0a
@@ -1291,6 +1346,9 @@ SimpleConstructionScript: {
             DetailLevelBeforeCastShadows: DM_MAX
             bAbsoluteRotation: True
             bVisible: False
+            PrimaryComponentTick: { 
+                bStartWithTickEnabled: False
+                 }
              }
         ParentComponentOrVariableName: Terror Radius Component
         bIsParentComponentNative: True
@@ -1406,6 +1464,9 @@ SimpleConstructionScript: {
             Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_TrapDestroy.P_TrapDestroy
             DetailLevelBeforeCastShadows: DM_MAX
             RelativeRotation: { Pitch: -10, Roll: 90, Yaw: -90 }
+            PrimaryComponentTick: { 
+                bStartWithTickEnabled: False
+                 }
             bAutoActivate: False
              }
         ParentComponentOrVariableName: Terror Radius Component
@@ -1636,6 +1697,9 @@ SimpleConstructionScript: {
         ComponentTemplate: { 
             Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_MudBlast.P_MudBlast
             DetailLevelBeforeCastShadows: DM_MAX
+            PrimaryComponentTick: { 
+                bStartWithTickEnabled: False
+                 }
             bAutoActivate: False
              }
         VariableGuid: ae3593a4-b6fd-48ab-9d93-1c0577183d73
@@ -1681,10 +1745,12 @@ SimpleConstructionScript: {
         InternalVariableName: DefaultSceneRoot
          }
      }
+UberGraphFramePointerProperty: { 
+     }
 UberGraphFunction: { 
      }
 <--- CDO --->
-UberGraphFrame: 620
+UberGraphFrame: 625
 ActiveTimer: { 
     _startTime: 0f
     _startTimeDirty: True

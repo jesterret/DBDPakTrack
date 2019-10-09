@@ -16,6 +16,9 @@ DynamicBindingObjects: [ {
 ComponentTemplates: [ { 
     Template: ParticleSystem /Game/Effects/ParticleSystems/P_DustRing.P_DustRing
     DetailLevelBeforeCastShadows: DM_MAX
+    PrimaryComponentTick: { 
+        bStartWithTickEnabled: False
+         }
      } ]
 Timelines: [ { 
     TimelineLength: 0.5f
@@ -26,10 +29,15 @@ Timelines: [ {
                 Keys: [ { Time: -0.001682423, Value: 0.003666639, InterpMode: RCIM_Linear }, { Time: 0.2484175, Value: 1.0046, InterpMode: RCIM_Linear }, { Time: 0.4999824, Value: 0, InterpMode: RCIM_Linear } ]
                  }
              }
+        PropertyName: BeamFlashEffectTimeline_Intensity_143005B14E130F3FD7835C90B0D7573E
         TrackName: Intensity
         bIsExternalCurve: False
          } ]
     TimelineGuid: 143005b1-0f3f-4e13-905c-83d73e57d7b0
+    VariableName: BeamFlashEffectTimeline
+    DirectionPropertyName: BeamFlashEffectTimeline__Direction_143005B14E130F3FD7835C90B0D7573E
+    UpdateFunctionName: BeamFlashEffectTimeline__UpdateFunc
+    FinishedFunctionName: BeamFlashEffectTimeline__FinishedFunc
      } ]
 SimpleConstructionScript: { 
     RootNodes: [ { 
@@ -267,7 +275,7 @@ SimpleConstructionScript: {
                 bCanEverAffectNavigation: False
                  }
             ChildNodes: [ { 
-                ComponentClass: Class /Script/DeadByDaylight.MaterialHelper
+                ComponentClass: Class /Script/GFXUtilities.MaterialHelper
                 ComponentTemplate: { 
                     RelativeLocation: { X: 9.536743E-07, Y: 5.722046E-06, Z: 24.10511 }
                     RelativeRotation: { Pitch: 6.830189E-06, Roll: -89.99998, Yaw: 89.99998 }
@@ -372,6 +380,9 @@ SimpleConstructionScript: {
                 RelativeLocation: { X: 29.9841, Y: -0.0002757534, Z: -5.220709E-06 }
                 RelativeRotation: { Pitch: 90, Roll: -19.47119, Yaw: -19.47119 }
                 RelativeScale3D: { X: 25, Y: 25, Z: 25 }
+                PrimaryComponentTick: { 
+                    bStartWithTickEnabled: False
+                     }
                 bAutoActivate: False
                  }
             VariableGuid: 988c37be-73c7-41bb-98f3-a3a81bda1c7a
@@ -711,7 +722,7 @@ SimpleConstructionScript: {
                 bCanEverAffectNavigation: False
                  }
             ChildNodes: [ { 
-                ComponentClass: Class /Script/DeadByDaylight.MaterialHelper
+                ComponentClass: Class /Script/GFXUtilities.MaterialHelper
                 ComponentTemplate: { 
                     RelativeLocation: { X: 9.536743E-07, Y: 5.722046E-06, Z: 24.10511 }
                     RelativeRotation: { Pitch: 6.830189E-06, Roll: -89.99998, Yaw: 89.99998 }
@@ -816,6 +827,9 @@ SimpleConstructionScript: {
                 RelativeLocation: { X: 29.9841, Y: -0.0002757534, Z: -5.220709E-06 }
                 RelativeRotation: { Pitch: 90, Roll: -19.47119, Yaw: -19.47119 }
                 RelativeScale3D: { X: 25, Y: 25, Z: 25 }
+                PrimaryComponentTick: { 
+                    bStartWithTickEnabled: False
+                     }
                 bAutoActivate: False
                  }
             VariableGuid: 988c37be-73c7-41bb-98f3-a3a81bda1c7a
@@ -1011,7 +1025,7 @@ SimpleConstructionScript: {
             bCanEverAffectNavigation: False
              }
         ChildNodes: [ { 
-            ComponentClass: Class /Script/DeadByDaylight.MaterialHelper
+            ComponentClass: Class /Script/GFXUtilities.MaterialHelper
             ComponentTemplate: { 
                 RelativeLocation: { X: 9.536743E-07, Y: 5.722046E-06, Z: 24.10511 }
                 RelativeRotation: { Pitch: 6.830189E-06, Roll: -89.99998, Yaw: 89.99998 }
@@ -1205,7 +1219,7 @@ SimpleConstructionScript: {
         VariableGuid: 3c48e7d3-9f21-49c5-b740-3c1de034b660
         InternalVariableName: FlashlightDetectionZone
          }, { 
-        ComponentClass: Class /Script/DeadByDaylight.MaterialHelper
+        ComponentClass: Class /Script/GFXUtilities.MaterialHelper
         ComponentTemplate: { 
             RelativeLocation: { X: 9.536743E-07, Y: 5.722046E-06, Z: 24.10511 }
             RelativeRotation: { Pitch: 6.830189E-06, Roll: -89.99998, Yaw: 89.99998 }
@@ -1220,6 +1234,9 @@ SimpleConstructionScript: {
             RelativeLocation: { X: 29.9841, Y: -0.0002757534, Z: -5.220709E-06 }
             RelativeRotation: { Pitch: 90, Roll: -19.47119, Yaw: -19.47119 }
             RelativeScale3D: { X: 25, Y: 25, Z: 25 }
+            PrimaryComponentTick: { 
+                bStartWithTickEnabled: False
+                 }
             bAutoActivate: False
              }
         VariableGuid: 988c37be-73c7-41bb-98f3-a3a81bda1c7a
@@ -1235,10 +1252,12 @@ SimpleConstructionScript: {
      }
 InheritableComponentHandler: { 
      }
+UberGraphFramePointerProperty: { 
+     }
 UberGraphFunction: { 
      }
 <--- CDO --->
-UberGraphFrame: 460
+UberGraphFrame: 468
 CenterGlowWidthScaleNormal: 12.5f
 CenterGlowWidthScaleBlinding: 5f
 BlindingSuccessRatioCurve: CurveFloat /Game/Blueprints/GameplayElements/Item/FlashLight/FlashLightBlindingSuccessRatio.FlashLightBlindingSuccessRatio
@@ -1296,6 +1315,7 @@ _placementOrigin: {
      }
 _objectState: { 
      }
+_itemType: ELoadoutItemType::Flashlight
 PrimaryActorTick: { 
     TickInterval: 0.05f
      }

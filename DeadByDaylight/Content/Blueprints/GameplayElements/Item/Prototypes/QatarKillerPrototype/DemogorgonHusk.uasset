@@ -3,6 +3,7 @@ Timelines: [ {
     TimelineLength: 3f
     bValidatedAsWired: True
     EventTracks: [ { 
+        FunctionName: TML_Membrane__ActivatePartivle__EventFunc
         CurveKeys: { 
             FloatCurve: { 
                 Keys: [ { Time: 1.495025, Value: 0.002767682, InterpMode: RCIM_Linear } ]
@@ -18,6 +19,7 @@ Timelines: [ {
                 Keys: [ { Time: 0, Value: 0, InterpMode: RCIM_Cubic }, { Time: 3, Value: 1, InterpMode: RCIM_Cubic } ]
                  }
              }
+        PropertyName: TML_Membrane_Frame_499DB89146D4F7D6DDF73DBB6AE41936
         TrackName: Frame
         bIsExternalCurve: False
          }, { 
@@ -26,6 +28,7 @@ Timelines: [ {
                 Keys: [ { Time: 0.01745892, Value: 5, InterpMode: RCIM_Linear }, { Time: 0.25, Value: -0.9264776, InterpMode: RCIM_Linear }, { Time: 1.719933, Value: -0.2610595, InterpMode: RCIM_Cubic }, { Time: 2.03893, Value: 4.042902, InterpMode: RCIM_Cubic } ]
                  }
              }
+        PropertyName: TML_Membrane_SphereMasj_499DB89146D4F7D6DDF73DBB6AE41936
         TrackName: SphereMasj
         bIsExternalCurve: False
          }, { 
@@ -34,10 +37,15 @@ Timelines: [ {
                 Keys: [ { Time: 0.00420475, Value: 0, InterpMode: RCIM_Cubic }, { Time: 0.2, Value: 5.810324E-05, InterpMode: RCIM_Linear }, { Time: 0.945919, Value: 0.1673566, InterpMode: RCIM_Cubic }, { Time: 1.699486, Value: 1.00454, InterpMode: RCIM_Cubic } ]
                  }
              }
+        PropertyName: TML_Membrane_Membrane_Thickness_499DB89146D4F7D6DDF73DBB6AE41936
         TrackName: Membrane Thickness
         bIsExternalCurve: False
          } ]
     TimelineGuid: 499db891-f7d6-46d4-bb3d-f7dd3619e46a
+    VariableName: TML_Membrane
+    DirectionPropertyName: TML_Membrane__Direction_499DB89146D4F7D6DDF73DBB6AE41936
+    UpdateFunctionName: TML_Membrane__UpdateFunc
+    FinishedFunctionName: TML_Membrane__FinishedFunc
      } ]
 SimpleConstructionScript: { 
     RootNodes: [ { 
@@ -45,6 +53,9 @@ SimpleConstructionScript: {
         ComponentTemplate: { 
             Template: ParticleSystem /Game/Effects/ParticleSystems/Killer17/Portal/P_Portal_Membrane.P_Portal_Membrane
             DetailLevelBeforeCastShadows: DM_MAX
+            PrimaryComponentTick: { 
+                bStartWithTickEnabled: False
+                 }
             bAutoActivate: False
              }
         ParentComponentOrVariableName: CollisionCylinder
@@ -64,7 +75,7 @@ SimpleConstructionScript: {
         VariableGuid: 734ab100-b883-4736-8366-c920424b4590
         InternalVariableName: SM_Portal_Membrane
          }, { 
-        ComponentClass: Class /Script/DeadByDaylight.MaterialHelper
+        ComponentClass: Class /Script/GFXUtilities.MaterialHelper
         ComponentTemplate: { 
             Groups: [ { 
                 GroupName: FirstPerson
@@ -181,6 +192,9 @@ SimpleConstructionScript: {
         ComponentTemplate: { 
             Template: ParticleSystem /Game/Effects/ParticleSystems/Killer17/Portal/P_Portal_Membrane.P_Portal_Membrane
             DetailLevelBeforeCastShadows: DM_MAX
+            PrimaryComponentTick: { 
+                bStartWithTickEnabled: False
+                 }
             bAutoActivate: False
              }
         ParentComponentOrVariableName: CollisionCylinder
@@ -200,7 +214,7 @@ SimpleConstructionScript: {
         VariableGuid: 734ab100-b883-4736-8366-c920424b4590
         InternalVariableName: SM_Portal_Membrane
          }, { 
-        ComponentClass: Class /Script/DeadByDaylight.MaterialHelper
+        ComponentClass: Class /Script/GFXUtilities.MaterialHelper
         ComponentTemplate: { 
             Groups: [ { 
                 GroupName: FirstPerson
@@ -337,10 +351,12 @@ InheritableComponentHandler: {
              }
          } ]
      }
+UberGraphFramePointerProperty: { 
+     }
 UberGraphFunction: { 
      }
 <--- CDO --->
-UberGraphFrame: 196
+UberGraphFrame: 202
 Mesh: { 
     AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Qatar/Blueprints/AB_Qatar_Husk.AB_Qatar_Husk_C
     SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Qatar/Models/QK_DSkeleton_REF.QK_DSkeleton_REF

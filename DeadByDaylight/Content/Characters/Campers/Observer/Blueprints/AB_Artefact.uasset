@@ -1,0 +1,108 @@
+BakedStateMachines: [ { 
+    MachineName: Base
+    InitialState: 0
+    States: [ { 
+        StateName: Idle
+        Transitions: [ { 
+            CanTakeDelegateIndex: 5
+            CustomResultNodeIndex: -1
+            TransitionIndex: 0
+            bDesiredTransitionReturnValue: True
+            bAutomaticRemainingTimeRule: False
+            PoseEvaluatorLinks: [  ]
+             } ]
+        StateRootNodeIndex: 1
+        StartNotify: -1
+        EndNotify: -1
+        FullyBlendedNotify: -1
+        bIsAConduit: False
+        EntryRuleNodeIndex: -1
+        PlayerNodeIndices: [ 2 ]
+        bAlwaysResetOnEntry: False
+         }, { 
+        StateName: Interrupt01
+        Transitions: [ { 
+            CanTakeDelegateIndex: 6
+            CustomResultNodeIndex: -1
+            TransitionIndex: 1
+            bDesiredTransitionReturnValue: True
+            bAutomaticRemainingTimeRule: False
+            PoseEvaluatorLinks: [  ]
+             } ]
+        StateRootNodeIndex: 3
+        StartNotify: -1
+        EndNotify: -1
+        FullyBlendedNotify: -1
+        bIsAConduit: False
+        EntryRuleNodeIndex: -1
+        PlayerNodeIndices: [ 4 ]
+        bAlwaysResetOnEntry: False
+         } ]
+    Transitions: [ { 
+        PreviousState: 0
+        NextState: 1
+        CrossfadeDuration: 0.2f
+        StartNotify: -1
+        EndNotify: -1
+        InterruptNotify: -1
+        BlendMode: EAlphaBlendOption::HermiteCubic
+        CustomCurve: 
+        BlendProfile: 
+        LogicType: ETransitionLogicType::TLT_StandardBlend
+        StateName: None
+         }, { 
+        PreviousState: 1
+        NextState: 0
+        CrossfadeDuration: 0.2f
+        StartNotify: -1
+        EndNotify: -1
+        InterruptNotify: -1
+        BlendMode: EAlphaBlendOption::HermiteCubic
+        CustomCurve: 
+        BlendProfile: 
+        LogicType: ETransitionLogicType::TLT_StandardBlend
+        StateName: None
+         } ]
+     } ]
+TargetSkeleton: Skeleton /Game/Characters/Campers/Observer/Models/OB_Artefact_REF_Skeleton.OB_Artefact_REF_Skeleton
+EvaluateGraphExposedInputs: [ { 
+    BoundFunction: None
+    CopyRecords: [ { 
+        SourcePropertyName: Interrupt01
+        SourceSubPropertyName: None
+        SourceArrayIndex: 0
+        bInstanceIsTarget: False
+        PostCopyOperation: EPostCopyOperation::None
+        DestProperty: BoolProperty /Script/Engine.AnimNode_TransitionResult.bCanEnterTransition
+        DestArrayIndex: 0
+        Size: 1
+        CachedSourceProperty: { 
+             }
+        CachedSourceStructSubProperty: 
+         } ]
+    Function: 
+    ValueHandlerNodeProperty: { 
+         }
+     }, { 
+    BoundFunction: None
+    CopyRecords: [ { 
+        SourcePropertyName: Interrupt01
+        SourceSubPropertyName: None
+        SourceArrayIndex: 0
+        bInstanceIsTarget: False
+        PostCopyOperation: EPostCopyOperation::LogicalNegateBool
+        DestProperty: BoolProperty /Script/Engine.AnimNode_TransitionResult.bCanEnterTransition
+        DestArrayIndex: 0
+        Size: 1
+        CachedSourceProperty: { 
+             }
+        CachedSourceStructSubProperty: 
+         } ]
+    Function: 
+    ValueHandlerNodeProperty: { 
+         }
+     } ]
+UberGraphFramePointerProperty: { 
+     }
+UberGraphFunction: { 
+     }

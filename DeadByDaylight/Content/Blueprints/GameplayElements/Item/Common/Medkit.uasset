@@ -8,6 +8,9 @@ DynamicBindingObjects: [ {
 ComponentTemplates: [ { 
     Template: ParticleSystem /Game/Effects/ParticleSystems/P_DustRing.P_DustRing
     DetailLevelBeforeCastShadows: DM_MAX
+    PrimaryComponentTick: { 
+        bStartWithTickEnabled: False
+         }
      } ]
 SimpleConstructionScript: { 
     RootNodes: [ { 
@@ -164,7 +167,7 @@ SimpleConstructionScript: {
         VariableGuid: 6d44c1b3-5f92-4c81-a27e-1f64ddd67765
         InternalVariableName: MedkitInteractionZone
          }, { 
-        ComponentClass: Class /Script/DeadByDaylight.MaterialHelper
+        ComponentClass: Class /Script/GFXUtilities.MaterialHelper
         ComponentTemplate: { 
             Groups: [ { 
                 GroupName: Camper1
@@ -261,6 +264,21 @@ SimpleConstructionScript: {
         bIsParentComponentNative: True
         VariableGuid: 4d830f7c-01fe-4c31-bd4b-2f30266d828e
         InternalVariableName: InfectableSphere
+         }, { 
+        ComponentClass: Class /Script/DeadByDaylight.DBDOutlineComponent
+        ComponentTemplate: { 
+            OutlineName: collectable
+             }
+        ParentComponentOrVariableName: ItemMesh
+        bIsParentComponentNative: True
+        VariableGuid: 276ef081-72ce-48db-ac05-cdc11155faf7
+        InternalVariableName: DBDOutline
+         }, { 
+        ComponentClass: Class /Script/DeadByDaylight.SurvivorCollectableOutlineUpdateStrategy
+        ComponentTemplate: { 
+             }
+        VariableGuid: 3154e4a5-6622-4719-bce7-99b442052ee0
+        InternalVariableName: SurvivorCollectableOutlineUpdateStrategy
          } ]
     AllNodes: [ { 
         ComponentClass: Class /Script/DeadByDaylight.InterruptionDefinition
@@ -484,7 +502,7 @@ SimpleConstructionScript: {
         VariableGuid: 064a4dd2-33a6-4097-b386-6faef666b393
         InternalVariableName: CollectItem
          }, { 
-        ComponentClass: Class /Script/DeadByDaylight.MaterialHelper
+        ComponentClass: Class /Script/GFXUtilities.MaterialHelper
         ComponentTemplate: { 
             Groups: [ { 
                 GroupName: Camper1
@@ -581,6 +599,21 @@ SimpleConstructionScript: {
         bIsParentComponentNative: True
         VariableGuid: 4d830f7c-01fe-4c31-bd4b-2f30266d828e
         InternalVariableName: InfectableSphere
+         }, { 
+        ComponentClass: Class /Script/DeadByDaylight.DBDOutlineComponent
+        ComponentTemplate: { 
+            OutlineName: collectable
+             }
+        ParentComponentOrVariableName: ItemMesh
+        bIsParentComponentNative: True
+        VariableGuid: 276ef081-72ce-48db-ac05-cdc11155faf7
+        InternalVariableName: DBDOutline
+         }, { 
+        ComponentClass: Class /Script/DeadByDaylight.SurvivorCollectableOutlineUpdateStrategy
+        ComponentTemplate: { 
+             }
+        VariableGuid: 3154e4a5-6622-4719-bce7-99b442052ee0
+        InternalVariableName: SurvivorCollectableOutlineUpdateStrategy
          } ]
     DefaultSceneRootNode: { 
         ComponentClass: Class /Script/Engine.SceneComponent
@@ -592,10 +625,12 @@ SimpleConstructionScript: {
      }
 InheritableComponentHandler: { 
      }
+UberGraphFramePointerProperty: { 
+     }
 UberGraphFunction: { 
      }
 <--- CDO --->
-UberGraphFrame: 233
+UberGraphFrame: 243
 HealOtherChargeMultiplier: 2f
 HandPosition: EItemHandPosition::HandleItem
 HasUseInteraction: True
@@ -742,6 +777,7 @@ _placementOrigin: {
      }
 _objectState: { 
      }
+_itemType: ELoadoutItemType::Medkit
 RootComponent: { 
     SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/MedKit/SK_MedKit01.SK_MedKit01
     bRenderCustomColourNoDepth: True
