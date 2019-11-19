@@ -3,19 +3,51 @@ Parent: Material /Game/Materials/Masters/M_Structures.M_Structures
 bHasStaticPermutationResource: True
 ScalarParameterValues: [ { 
     ParameterInfo: { 
-        Name: contrast
+        Name: CustomMetallic
         Association: GlobalParameter
         Index: -1
          }
-    ParameterValue: 0.59292f
+    ParameterValue: 0.6f
+    ExpressionGUID: 3d435934-90a7-44d0-9596-22c3b05cfd7b
+     }, { 
+    ParameterInfo: { 
+        Name: CustomRoughness
+        Association: GlobalParameter
+        Index: -1
+         }
+    ParameterValue: 0.3f
+    ExpressionGUID: 66f774ac-cefb-4ab2-be8c-da5d123201c7
+     }, { 
+    ParameterInfo: { 
+        Name: LeavesBlend
+        Association: GlobalParameter
+        Index: -1
+         }
+    ParameterValue: 0.7f
+    ExpressionGUID: bce78113-3718-4dea-9ac3-dea9543c191b
+     }, { 
+    ParameterInfo: { 
+        Name: LeavesTileAmount
+        Association: GlobalParameter
+        Index: -1
+         }
+    ParameterValue: 3f
+    ExpressionGUID: bb41b63f-adf1-4ede-9694-2a8b2166dbfc
+     }, { 
+    ParameterInfo: { 
+        Name: CAOBlendContrast
+        Association: GlobalParameter
+        Index: -1
+         }
+    ParameterValue: 0.2f
     ExpressionGUID: 188edee5-a2c8-4bab-80d4-8726db0e6227
      }, { 
     ParameterInfo: { 
-        Name: pixelfade
+        Name: CAOBlendDistance
         Association: GlobalParameter
         Index: -1
          }
-    ParameterValue: 3376.546f
+    ParameterValue: 4800f
     ExpressionGUID: d4c017ca-8c39-4223-8f5c-3ad4cbad5c51
      }, { 
     ParameterInfo: { 
@@ -37,20 +69,20 @@ VectorParameterValues: [ {
      } ]
 TextureParameterValues: [ { 
     ParameterInfo: { 
-        Name: Base AO Texture
-        Association: GlobalParameter
-        Index: -1
-         }
-    ParameterValue: Texture2D /Game/Textures/Environment/Blockers/SM_PickupTruck_01.SM_PickupTruck_01
-    ExpressionGUID: 111dea86-1e75-40e4-a082-4c3353be5249
-     }, { 
-    ParameterInfo: { 
-        Name: Base Color Texture
+        Name: BaseColorTexture
         Association: GlobalParameter
         Index: -1
          }
     ParameterValue: Texture2D /Game/Textures/Props/T_glass_BC.T_glass_BC
     ExpressionGUID: 430841ac-568c-449a-b3db-27563c26e5de
+     }, { 
+    ParameterInfo: { 
+        Name: CAOBlendTexture
+        Association: GlobalParameter
+        Index: -1
+         }
+    ParameterValue: Texture2D /Game/Textures/Environment/Blockers/SM_PickupTruck_01.SM_PickupTruck_01
+    ExpressionGUID: 111dea86-1e75-40e4-a082-4c3353be5249
      } ]
 BasePropertyOverrides: { 
     OpacityMaskClipValue: 0.3333f
@@ -58,31 +90,22 @@ BasePropertyOverrides: {
 StaticParameters: { 
     StaticSwitchParameters: [ { 
         ParameterInfo: { 
-            Name: Tint AO Only
-            Association: GlobalParameter
-            Index: -1
-             }
-        Value: False
-        bOverride: True
-        ExpressionGUID: c9c91bc0-ba37-47b9-9096-1038741f02e8
-         }, { 
-        ParameterInfo: { 
-            Name: UseColorTint
+            Name: UseBaseColor
             Association: GlobalParameter
             Index: -1
              }
         Value: True
         bOverride: True
-        ExpressionGUID: d5016d77-ad3e-488d-a994-b2546d3fe6b9
+        ExpressionGUID: 5202d8bc-59e1-4189-a2f9-4c20614f016a
          }, { 
         ParameterInfo: { 
-            Name: Blend AO Into Diffuse
+            Name: UseCAOBlend
             Association: GlobalParameter
             Index: -1
              }
         Value: False
         bOverride: True
-        ExpressionGUID: 10e5678b-56cd-47b2-897d-7c3715b17b07
+        ExpressionGUID: 85b5d809-e366-48fd-a4ff-ba98aca7cef3
          }, { 
         ParameterInfo: { 
             Name: Use Second UV for CAO
@@ -94,21 +117,48 @@ StaticParameters: {
         ExpressionGUID: 3bc55add-6fea-44d9-8960-06eafb205d54
          }, { 
         ParameterInfo: { 
-            Name: UseAO
+            Name: UseColorTint
             Association: GlobalParameter
             Index: -1
              }
         Value: True
         bOverride: True
-        ExpressionGUID: 85b5d809-e366-48fd-a4ff-ba98aca7cef3
+        ExpressionGUID: d5016d77-ad3e-488d-a994-b2546d3fe6b9
          }, { 
         ParameterInfo: { 
-            Name: UseBaseColor
+            Name: UseLeavesOnTop
             Association: GlobalParameter
             Index: -1
              }
-        Value: True
+        Value: False
         bOverride: True
-        ExpressionGUID: 5202d8bc-59e1-4189-a2f9-4c20614f016a
+        ExpressionGUID: 30cd360a-bd05-4dc3-b8c7-1586ec18ebca
+         }, { 
+        ParameterInfo: { 
+            Name: Tint AO Only
+            Association: GlobalParameter
+            Index: -1
+             }
+        Value: False
+        bOverride: True
+        ExpressionGUID: c9c91bc0-ba37-47b9-9096-1038741f02e8
+         }, { 
+        ParameterInfo: { 
+            Name: Blend AO Into Diffuse
+            Association: GlobalParameter
+            Index: -1
+             }
+        Value: False
+        bOverride: True
+        ExpressionGUID: 10e5678b-56cd-47b2-897d-7c3715b17b07
          } ]
      }
+TextureStreamingData: [ { 
+    SamplingScale: 1f
+    UVChannelIndex: 0
+    TextureName: T_glass_BC
+     }, { 
+    SamplingScale: 1f
+    UVChannelIndex: 0
+    TextureName: T_Noise_04
+     } ]

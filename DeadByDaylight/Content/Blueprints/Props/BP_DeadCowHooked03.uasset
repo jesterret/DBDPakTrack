@@ -11,43 +11,150 @@ SimpleConstructionScript: {
                 bUseDefaultCollision: False
                 DetailLevelBeforeCastShadows: DM_MAX
                 BodyInstance: { 
+                    ObjectType: ECC_WorldStatic
+                    CollisionProfileName: BlockAll
                     MassInKgOverride: 0f
                      }
-                RelativeLocation: { X: -0.3375472, Y: -11.81656, Z: 307.3476 }
-                RelativeRotation: { Pitch: 0, Roll: 81.31765, Yaw: 0 }
+                RelativeLocation: { X: 0, Y: 0, Z: -51.04143 }
+                RelativeRotation: { Pitch: 0, Roll: 81, Yaw: 0 }
+                Mobility: EComponentMobility::Static
                  }
+            ChildNodes: [ { 
+                ComponentClass: Class /Script/Engine.StaticMeshComponent
+                ComponentTemplate: { 
+                    StaticMesh: StaticMesh /Game/Meshes/Props/DeadCow/SM_DeadCow_03.SM_DeadCow_03
+                    bGenerateOverlapEvents: False
+                    bReceivesDecals: False
+                    DetailLevelBeforeCastShadows: DM_MAX
+                    bApplyImpulseOnDamage: False
+                    CanCharacterStepUpOn: ECB_No
+                    BodyInstance: { 
+                        ObjectType: ECC_PhysicsBody
+                        SleepFamily: ESleepFamily::Custom
+                        bSimulatePhysics: True
+                        bOverrideMass: True
+                        bLockXTranslation: True
+                        bLockYTranslation: True
+                        bLockZTranslation: True
+                        bLockZRotation: True
+                        CollisionProfileName: PhysicsActor
+                        CollisionResponses: { 
+                            ResponseArray: [ { 
+                                Channel: Interactable
+                                Response: ECR_Block
+                                 }, { 
+                                Channel: Audio
+                                Response: ECR_Block
+                                 }, { 
+                                Channel: Slasher
+                                Response: ECR_Block
+                                 }, { 
+                                Channel: InteractionDetector
+                                Response: ECR_Ignore
+                                 } ]
+                             }
+                        MassInKgOverride: 3000f
+                        LinearDamping: 0.06f
+                        AngularDamping: 0.1f
+                        COMNudge: { X: 10, Y: 15, Z: 0 }
+                        InertiaTensorScale: { X: 1.5, Y: 1.5, Z: 1 }
+                        MaxAngularVelocity: 50f
+                        CustomSleepThresholdMultiplier: 0f
+                        StabilizationThresholdMultiplier: 0f
+                         }
+                    RelativeLocation: { X: 8.233279, Y: -0.4197111, Z: -52.84174 }
+                    RelativeRotation: { Pitch: 0, Roll: -106, Yaw: -20.99999 }
+                    DetailModeBitMask: -5
+                    bCanEverAffectNavigation: False
+                     }
+                VariableGuid: 40f8952a-9bfa-4055-a54a-9322bdf6a9da
+                InternalVariableName: SM_DeadCow_03
+                 } ]
             VariableGuid: 8de3d8ca-b07d-41b7-b7ae-8fa48f5ba031
             InternalVariableName: SM_SlaugtherHook02
              }, { 
             ComponentClass: Class /Script/Engine.StaticMeshComponent
             ComponentTemplate: { 
                 StaticMesh: StaticMesh /Game/Meshes/Props/DeadCow/SM_DeadCow_03.SM_DeadCow_03
+                bUseDefaultCollision: False
                 bGenerateOverlapEvents: False
                 bReceivesDecals: False
                 DetailLevelBeforeCastShadows: DM_MAX
+                bApplyImpulseOnDamage: False
                 CanCharacterStepUpOn: ECB_No
                 BodyInstance: { 
-                    ObjectType: ECC_PhysicsBody
+                    ObjectType: ECC_WorldStatic
+                    CollisionEnabled: ECollisionEnabled::NoCollision
                     SleepFamily: ESleepFamily::Custom
-                    bSimulatePhysics: True
                     bOverrideMass: True
                     bLockXTranslation: True
                     bLockYTranslation: True
                     bLockZTranslation: True
                     bLockZRotation: True
-                    CollisionProfileName: PhysicsActor
+                    CollisionProfileName: NoCollision
                     CollisionResponses: { 
                         ResponseArray: [ { 
+                            Channel: WorldStatic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: WorldDynamic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Pawn
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Visibility
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Camera
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: PhysicsBody
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Vehicle
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Destructible
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel2
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel3
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel4
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel5
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel6
+                            Response: ECR_Ignore
+                             }, { 
                             Channel: Interactable
-                            Response: ECR_Block
+                            Response: ECR_Ignore
                              }, { 
                             Channel: Audio
-                            Response: ECR_Block
+                            Response: ECR_Ignore
                              }, { 
                             Channel: Slasher
-                            Response: ECR_Block
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Spider
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Traps
+                            Response: ECR_Ignore
                              }, { 
                             Channel: InteractionDetector
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: BlinkBlocker
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Ground
                             Response: ECR_Ignore
                              } ]
                          }
@@ -60,12 +167,14 @@ SimpleConstructionScript: {
                     CustomSleepThresholdMultiplier: 0f
                     StabilizationThresholdMultiplier: 0f
                      }
-                RelativeLocation: { X: 1.364965, Y: -3.750299, Z: 254.5059 }
-                RelativeRotation: { Pitch: 1.366038E-05, Roll: -25.26135, Yaw: -21.4603 }
+                RelativeLocation: { X: 1.702513, Y: 8.066256, Z: -103.8832 }
+                RelativeRotation: { Pitch: 0, Roll: -25, Yaw: 0 }
+                Mobility: EComponentMobility::Static
+                DetailModeBitMask: -12
                 bCanEverAffectNavigation: False
                  }
-            VariableGuid: 40f8952a-9bfa-4055-a54a-9322bdf6a9da
-            InternalVariableName: SM_DeadCow_03
+            VariableGuid: 1f57ac61-73c9-4b28-a135-7b760c222e6a
+            InternalVariableName: SM_DeadCow_03_Atl
              } ]
         VariableGuid: f82cc206-4f89-40b8-8688-3d9101e2194c
         InternalVariableName: Root
@@ -82,20 +191,196 @@ SimpleConstructionScript: {
                 bUseDefaultCollision: False
                 DetailLevelBeforeCastShadows: DM_MAX
                 BodyInstance: { 
+                    ObjectType: ECC_WorldStatic
+                    CollisionProfileName: BlockAll
                     MassInKgOverride: 0f
                      }
-                RelativeLocation: { X: -0.3375472, Y: -11.81656, Z: 307.3476 }
-                RelativeRotation: { Pitch: 0, Roll: 81.31765, Yaw: 0 }
+                RelativeLocation: { X: 0, Y: 0, Z: -51.04143 }
+                RelativeRotation: { Pitch: 0, Roll: 81, Yaw: 0 }
+                Mobility: EComponentMobility::Static
                  }
+            ChildNodes: [ { 
+                ComponentClass: Class /Script/Engine.StaticMeshComponent
+                ComponentTemplate: { 
+                    StaticMesh: StaticMesh /Game/Meshes/Props/DeadCow/SM_DeadCow_03.SM_DeadCow_03
+                    bGenerateOverlapEvents: False
+                    bReceivesDecals: False
+                    DetailLevelBeforeCastShadows: DM_MAX
+                    bApplyImpulseOnDamage: False
+                    CanCharacterStepUpOn: ECB_No
+                    BodyInstance: { 
+                        ObjectType: ECC_PhysicsBody
+                        SleepFamily: ESleepFamily::Custom
+                        bSimulatePhysics: True
+                        bOverrideMass: True
+                        bLockXTranslation: True
+                        bLockYTranslation: True
+                        bLockZTranslation: True
+                        bLockZRotation: True
+                        CollisionProfileName: PhysicsActor
+                        CollisionResponses: { 
+                            ResponseArray: [ { 
+                                Channel: Interactable
+                                Response: ECR_Block
+                                 }, { 
+                                Channel: Audio
+                                Response: ECR_Block
+                                 }, { 
+                                Channel: Slasher
+                                Response: ECR_Block
+                                 }, { 
+                                Channel: InteractionDetector
+                                Response: ECR_Ignore
+                                 } ]
+                             }
+                        MassInKgOverride: 3000f
+                        LinearDamping: 0.06f
+                        AngularDamping: 0.1f
+                        COMNudge: { X: 10, Y: 15, Z: 0 }
+                        InertiaTensorScale: { X: 1.5, Y: 1.5, Z: 1 }
+                        MaxAngularVelocity: 50f
+                        CustomSleepThresholdMultiplier: 0f
+                        StabilizationThresholdMultiplier: 0f
+                         }
+                    RelativeLocation: { X: 8.233279, Y: -0.4197111, Z: -52.84174 }
+                    RelativeRotation: { Pitch: 0, Roll: -106, Yaw: -20.99999 }
+                    DetailModeBitMask: -5
+                    bCanEverAffectNavigation: False
+                     }
+                VariableGuid: 40f8952a-9bfa-4055-a54a-9322bdf6a9da
+                InternalVariableName: SM_DeadCow_03
+                 } ]
             VariableGuid: 8de3d8ca-b07d-41b7-b7ae-8fa48f5ba031
             InternalVariableName: SM_SlaugtherHook02
              }, { 
             ComponentClass: Class /Script/Engine.StaticMeshComponent
             ComponentTemplate: { 
                 StaticMesh: StaticMesh /Game/Meshes/Props/DeadCow/SM_DeadCow_03.SM_DeadCow_03
+                bUseDefaultCollision: False
                 bGenerateOverlapEvents: False
                 bReceivesDecals: False
                 DetailLevelBeforeCastShadows: DM_MAX
+                bApplyImpulseOnDamage: False
+                CanCharacterStepUpOn: ECB_No
+                BodyInstance: { 
+                    ObjectType: ECC_WorldStatic
+                    CollisionEnabled: ECollisionEnabled::NoCollision
+                    SleepFamily: ESleepFamily::Custom
+                    bOverrideMass: True
+                    bLockXTranslation: True
+                    bLockYTranslation: True
+                    bLockZTranslation: True
+                    bLockZRotation: True
+                    CollisionProfileName: NoCollision
+                    CollisionResponses: { 
+                        ResponseArray: [ { 
+                            Channel: WorldStatic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: WorldDynamic
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Pawn
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Visibility
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Camera
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: PhysicsBody
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Vehicle
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Destructible
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel2
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel3
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel4
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel5
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: EngineTraceChannel6
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Interactable
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Audio
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Slasher
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Spider
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Traps
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: InteractionDetector
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: BlinkBlocker
+                            Response: ECR_Ignore
+                             }, { 
+                            Channel: Ground
+                            Response: ECR_Ignore
+                             } ]
+                         }
+                    MassInKgOverride: 3000f
+                    LinearDamping: 0.06f
+                    AngularDamping: 0.1f
+                    COMNudge: { X: 10, Y: 15, Z: 0 }
+                    InertiaTensorScale: { X: 1.5, Y: 1.5, Z: 1 }
+                    MaxAngularVelocity: 50f
+                    CustomSleepThresholdMultiplier: 0f
+                    StabilizationThresholdMultiplier: 0f
+                     }
+                RelativeLocation: { X: 1.702513, Y: 8.066256, Z: -103.8832 }
+                RelativeRotation: { Pitch: 0, Roll: -25, Yaw: 0 }
+                Mobility: EComponentMobility::Static
+                DetailModeBitMask: -12
+                bCanEverAffectNavigation: False
+                 }
+            VariableGuid: 1f57ac61-73c9-4b28-a135-7b760c222e6a
+            InternalVariableName: SM_DeadCow_03_Atl
+             } ]
+        VariableGuid: f82cc206-4f89-40b8-8688-3d9101e2194c
+        InternalVariableName: Root
+         }, { 
+        ComponentClass: Class /Script/Engine.StaticMeshComponent
+        ComponentTemplate: { 
+            StaticMesh: StaticMesh /Game/Meshes/Props/DeadCow/SM_SlaugtherHook02.SM_SlaugtherHook02
+            bUseDefaultCollision: False
+            DetailLevelBeforeCastShadows: DM_MAX
+            BodyInstance: { 
+                ObjectType: ECC_WorldStatic
+                CollisionProfileName: BlockAll
+                MassInKgOverride: 0f
+                 }
+            RelativeLocation: { X: 0, Y: 0, Z: -51.04143 }
+            RelativeRotation: { Pitch: 0, Roll: 81, Yaw: 0 }
+            Mobility: EComponentMobility::Static
+             }
+        ChildNodes: [ { 
+            ComponentClass: Class /Script/Engine.StaticMeshComponent
+            ComponentTemplate: { 
+                StaticMesh: StaticMesh /Game/Meshes/Props/DeadCow/SM_DeadCow_03.SM_DeadCow_03
+                bGenerateOverlapEvents: False
+                bReceivesDecals: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                bApplyImpulseOnDamage: False
                 CanCharacterStepUpOn: ECB_No
                 BodyInstance: { 
                     ObjectType: ECC_PhysicsBody
@@ -131,27 +416,14 @@ SimpleConstructionScript: {
                     CustomSleepThresholdMultiplier: 0f
                     StabilizationThresholdMultiplier: 0f
                      }
-                RelativeLocation: { X: 1.364965, Y: -3.750299, Z: 254.5059 }
-                RelativeRotation: { Pitch: 1.366038E-05, Roll: -25.26135, Yaw: -21.4603 }
+                RelativeLocation: { X: 8.233279, Y: -0.4197111, Z: -52.84174 }
+                RelativeRotation: { Pitch: 0, Roll: -106, Yaw: -20.99999 }
+                DetailModeBitMask: -5
                 bCanEverAffectNavigation: False
                  }
             VariableGuid: 40f8952a-9bfa-4055-a54a-9322bdf6a9da
             InternalVariableName: SM_DeadCow_03
              } ]
-        VariableGuid: f82cc206-4f89-40b8-8688-3d9101e2194c
-        InternalVariableName: Root
-         }, { 
-        ComponentClass: Class /Script/Engine.StaticMeshComponent
-        ComponentTemplate: { 
-            StaticMesh: StaticMesh /Game/Meshes/Props/DeadCow/SM_SlaugtherHook02.SM_SlaugtherHook02
-            bUseDefaultCollision: False
-            DetailLevelBeforeCastShadows: DM_MAX
-            BodyInstance: { 
-                MassInKgOverride: 0f
-                 }
-            RelativeLocation: { X: -0.3375472, Y: -11.81656, Z: 307.3476 }
-            RelativeRotation: { Pitch: 0, Roll: 81.31765, Yaw: 0 }
-             }
         VariableGuid: 8de3d8ca-b07d-41b7-b7ae-8fa48f5ba031
         InternalVariableName: SM_SlaugtherHook02
          }, { 
@@ -161,6 +433,7 @@ SimpleConstructionScript: {
             bGenerateOverlapEvents: False
             bReceivesDecals: False
             DetailLevelBeforeCastShadows: DM_MAX
+            bApplyImpulseOnDamage: False
             CanCharacterStepUpOn: ECB_No
             BodyInstance: { 
                 ObjectType: ECC_PhysicsBody
@@ -196,12 +469,116 @@ SimpleConstructionScript: {
                 CustomSleepThresholdMultiplier: 0f
                 StabilizationThresholdMultiplier: 0f
                  }
-            RelativeLocation: { X: 1.364965, Y: -3.750299, Z: 254.5059 }
-            RelativeRotation: { Pitch: 1.366038E-05, Roll: -25.26135, Yaw: -21.4603 }
+            RelativeLocation: { X: 8.233279, Y: -0.4197111, Z: -52.84174 }
+            RelativeRotation: { Pitch: 0, Roll: -106, Yaw: -20.99999 }
+            DetailModeBitMask: -5
             bCanEverAffectNavigation: False
              }
         VariableGuid: 40f8952a-9bfa-4055-a54a-9322bdf6a9da
         InternalVariableName: SM_DeadCow_03
+         }, { 
+        ComponentClass: Class /Script/Engine.StaticMeshComponent
+        ComponentTemplate: { 
+            StaticMesh: StaticMesh /Game/Meshes/Props/DeadCow/SM_DeadCow_03.SM_DeadCow_03
+            bUseDefaultCollision: False
+            bGenerateOverlapEvents: False
+            bReceivesDecals: False
+            DetailLevelBeforeCastShadows: DM_MAX
+            bApplyImpulseOnDamage: False
+            CanCharacterStepUpOn: ECB_No
+            BodyInstance: { 
+                ObjectType: ECC_WorldStatic
+                CollisionEnabled: ECollisionEnabled::NoCollision
+                SleepFamily: ESleepFamily::Custom
+                bOverrideMass: True
+                bLockXTranslation: True
+                bLockYTranslation: True
+                bLockZTranslation: True
+                bLockZRotation: True
+                CollisionProfileName: NoCollision
+                CollisionResponses: { 
+                    ResponseArray: [ { 
+                        Channel: WorldStatic
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: WorldDynamic
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Pawn
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Visibility
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Camera
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: PhysicsBody
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Vehicle
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Destructible
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel2
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel3
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel4
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel5
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: EngineTraceChannel6
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Interactable
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Audio
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Slasher
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Spider
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Traps
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: InteractionDetector
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: BlinkBlocker
+                        Response: ECR_Ignore
+                         }, { 
+                        Channel: Ground
+                        Response: ECR_Ignore
+                         } ]
+                     }
+                MassInKgOverride: 3000f
+                LinearDamping: 0.06f
+                AngularDamping: 0.1f
+                COMNudge: { X: 10, Y: 15, Z: 0 }
+                InertiaTensorScale: { X: 1.5, Y: 1.5, Z: 1 }
+                MaxAngularVelocity: 50f
+                CustomSleepThresholdMultiplier: 0f
+                StabilizationThresholdMultiplier: 0f
+                 }
+            RelativeLocation: { X: 1.702513, Y: 8.066256, Z: -103.8832 }
+            RelativeRotation: { Pitch: 0, Roll: -25, Yaw: 0 }
+            Mobility: EComponentMobility::Static
+            DetailModeBitMask: -12
+            bCanEverAffectNavigation: False
+             }
+        VariableGuid: 1f57ac61-73c9-4b28-a135-7b760c222e6a
+        InternalVariableName: SM_DeadCow_03_Atl
          } ]
     DefaultSceneRootNode: { 
         ComponentClass: Class /Script/Engine.SceneComponent
