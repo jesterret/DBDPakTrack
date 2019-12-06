@@ -1,4 +1,4 @@
-RowStruct: ScriptStruct /Script/DeadByDaylight.TunableValue
+RowStruct: { null }
 
 Row TerrorRadius:
 Value: 3200f
@@ -56,6 +56,13 @@ Description: Range, in centimeters, at which survivors should be forced to drop 
 DescriptorTags: +BloodOrb +BloodOrbAbsorb +BloodOrbDrop
 OverriddenInAtlanta: False
 
+Row BloodOrbDropAfterCrouchBuffer:
+Value: 1f
+AtlantaOverriddenValue: 0f
+Description: Time, in seconds, since the last time the survivor dropped a Blood Orb from crouching before he can drop another one. This exists so survivors cannot spam Blood Orbs by crouching repeatedly.
+DescriptorTags: +BloodOrb +BloodOrbDrop
+OverriddenInAtlanta: False
+
 Row BloodOrbDropNumOnCrouch:
 Value: 1f
 AtlantaOverriddenValue: 0f
@@ -64,9 +71,16 @@ DescriptorTags: +BloodOrb +BloodOrbDrop
 OverriddenInAtlanta: False
 
 Row BloodOrbDropNumOnGameEvent:
-Value: 3f
+Value: 2f
 AtlantaOverriddenValue: 0f
 Description: Number of Blood Orbs to drop when an injured player performs one of the game events that drop orbs, e.g. vault, dropping a pallet, exiting a locker
+DescriptorTags: +BloodOrb +BloodOrbDrop
+OverriddenInAtlanta: False
+
+Row BloodOrbDropNumOnHook:
+Value: 2f
+AtlantaOverriddenValue: 0f
+Description: Number of Blood Orbs to drop when the camper is hooked.
 DescriptorTags: +BloodOrb +BloodOrbDrop
 OverriddenInAtlanta: False
 
@@ -182,6 +196,27 @@ Description: Amount of Demon Mode charge to gain when attacking a healthy surviv
 DescriptorTags: +DemonMode
 OverriddenInAtlanta: False
 
+Row DemonModeAutoChargeThreshold:
+Value: 98f
+AtlantaOverriddenValue: 0f
+Description: If the Demon Mode charge goes above this amount when not in Demon Mode, we stop the passive charge so that we can't go all the way just on passive charge.
+DescriptorTags: 
+OverriddenInAtlanta: False
+
+Row DemonModeSecondsToRemoveOnPickUp:
+Value: 0f
+AtlantaOverriddenValue: 0f
+Description: Amount of Demon Mode seconds to remove when the killer pick up a survivor
+DescriptorTags: +PickUp+Survivor+DemonMode+Charge
+OverriddenInAtlanta: False
+
+Row DemonModeSecondsToRemoveOnDownSurvivor:
+Value: -7f
+AtlantaOverriddenValue: 0f
+Description: Amount of Demon Mode seconds to remove when the killer pick up a survivor while in Demon Mode.
+DescriptorTags: 
+OverriddenInAtlanta: False
+
 Row DemonModeDespawnBloodOrbs:
 Value: 0f
 AtlantaOverriddenValue: 0f
@@ -217,6 +252,13 @@ Description: Duration, in seconds, of the Demon Mode cooldown.
 DescriptorTags: 
 OverriddenInAtlanta: False
 
+Row DemonModeEndOnStunByPalletThreshold:
+Value: 5f
+AtlantaOverriddenValue: 0f
+Description: If the Oni gets stunned by a pallet with less than this much Demon Mode charge, it will end the Demon Mode, so that we can play the Demon Mode to Idle stun animation
+DescriptorTags: +DemonMode
+OverriddenInAtlanta: False
+
 Row OniDemonAttack_SecondsToCharge:
 Value: 2f
 AtlantaOverriddenValue: 0f
@@ -225,14 +267,14 @@ DescriptorTags:
 OverriddenInAtlanta: False
 
 Row OniDemonModeThresholdForPowerAttack:
-Value: 0.3f
+Value: 0.35f
 AtlantaOverriddenValue: 0f
 Description: Percent through the charge before a basic attack becomes the power attack.
 DescriptorTags: 
 OverriddenInAtlanta: False
 
 Row OniDemonModeThresholdForCompletePowerAttack:
-Value: 0.3f
+Value: 0.35f
 AtlantaOverriddenValue: 0f
 Description: 
 DescriptorTags: 
@@ -301,10 +343,17 @@ Description: Scales the pitch during the cooldown phase.
 DescriptorTags: 
 OverriddenInAtlanta: False
 
-Row OniPowerAttackOpenYawLimitValue:
+Row OniPowerAttackOpenTurnLimit:
 Value: 2f
 AtlantaOverriddenValue: 0f
-Description: Set's a limit on how much the oni can turn during the open phase of his attack. Set to -1 to disable.
+Description: Set's a limit on how much the oni can turn during the open phase of his attack. Applies to mouse input. Set to -1 to disable.
+DescriptorTags: 
+OverriddenInAtlanta: False
+
+Row OniPowerAttackOpenTurnAtRateLimit:
+Value: 0.3f
+AtlantaOverriddenValue: 0f
+Description: Set's a limit on how much the oni can turn during the open phase of his attack. Applies to keyboard or gamepad input. Set to -1 to disable.
 DescriptorTags: 
 OverriddenInAtlanta: False
 
@@ -316,7 +365,7 @@ DescriptorTags: +Dash
 OverriddenInAtlanta: False
 
 Row DemonModeDashYawScale:
-Value: 0.85f
+Value: 0.8f
 AtlantaOverriddenValue: 0f
 Description: Yaw scale during the Oni's dash. Doesn't apply when charging.
 DescriptorTags: +Dash
@@ -329,9 +378,9 @@ Description: Amount of Demon Mode charge to lose per second while dashing.
 DescriptorTags: +Dash
 OverriddenInAtlanta: False
 
-Row DemonModeSecondsToRemoveOnPickUp:
-Value: -20f
+Row DemonModeDashCooldownDuration:
+Value: 1f
 AtlantaOverriddenValue: 0f
-Description: Amount of Demon Mode seconds to remove when the killer pick up a survivor
-DescriptorTags: +PickUp+Survivor+DemonMode+Charge
+Description: Duration, in seconds, of the cooldown after the Oni's Dash, if not chaining to an attack.
+DescriptorTags: 
 OverriddenInAtlanta: False
