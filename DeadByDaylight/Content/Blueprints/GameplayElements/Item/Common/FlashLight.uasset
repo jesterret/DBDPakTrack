@@ -1,1266 +1,1186 @@
-DynamicBindingObjects: [ { 
-    ComponentDelegateBindings: [ { 
-        ComponentPropertyName: Charger
-        DelegatePropertyName: OnChargeStateChange
-        FunctionNameToBind: BndEvt__Charger_K2Node_ComponentBoundEvent_0_ChargeStateChangeDelegate__DelegateSignature
-         }, { 
-        ComponentPropertyName: FlashlightDetectionZone
-        DelegatePropertyName: OnComponentEndOverlap
-        FunctionNameToBind: BndEvt__DecloakCone_K2Node_ComponentBoundEvent_206_ComponentEndOverlapSignature__DelegateSignature
-         }, { 
-        ComponentPropertyName: FlashlightDetectionZone
-        DelegatePropertyName: OnComponentBeginOverlap
-        FunctionNameToBind: BndEvt__DecloakCone_K2Node_ComponentBoundEvent_198_ComponentBeginOverlapSignature__DelegateSignature
-         } ]
-     } ]
-ComponentTemplates: [ { 
-    Template: ParticleSystem /Game/Effects/ParticleSystems/P_DustRing.P_DustRing
-    DetailLevelBeforeCastShadows: DM_MAX
-    PrimaryComponentTick: { 
-        bStartWithTickEnabled: False
-         }
-     } ]
-Timelines: [ { 
-    TimelineLength: 0.5f
-    bValidatedAsWired: True
-    FloatTracks: [ { 
-        CurveFloat: { 
-            FloatCurve: { 
-                Keys: [ { Time: -0.001682423, Value: 0.003666639, InterpMode: RCIM_Linear }, { Time: 0.2484175, Value: 1.0046, InterpMode: RCIM_Linear }, { Time: 0.4999824, Value: 0, InterpMode: RCIM_Linear } ]
-                 }
-             }
-        PropertyName: BeamFlashEffectTimeline_Intensity_143005B14E130F3FD7835C90B0D7573E
-        TrackName: Intensity
-        bIsExternalCurve: False
-         } ]
-    TimelineGuid: 143005b1-0f3f-4e13-905c-83d73e57d7b0
-    VariableName: BeamFlashEffectTimeline
-    DirectionPropertyName: BeamFlashEffectTimeline__Direction_143005B14E130F3FD7835C90B0D7573E
-    UpdateFunctionName: BeamFlashEffectTimeline__UpdateFunc
-    FinishedFunctionName: BeamFlashEffectTimeline__FinishedFunc
-     } ]
-SimpleConstructionScript: { 
-    RootNodes: [ { 
-        ComponentClass: Class /Script/DeadByDaylight.ScreenCenterAimingStrategy
-        ComponentTemplate: { 
-             }
-        VariableGuid: 98ce48a7-4d5f-480f-a82d-18d78bff8041
-        InternalVariableName: ScreenCenterAimingStrategy
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.FlashLightComponent
-        ComponentTemplate: { 
-             }
-        VariableGuid: ec84364e-d685-4c4d-a3fa-96ed18d40966
-        InternalVariableName: FlashLight
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.InterruptionDefinition
-        ComponentTemplate: { 
-            RelativeLocation: { X: 0, Y: 0, Z: -4.999997 }
-             }
-        ParentComponentOrVariableName: ItemMesh
-        bIsParentComponentNative: True
-        VariableGuid: 9c64db8b-2f29-4933-ae4c-be33f30e133e
-        InternalVariableName: DropInterrupt
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.InterruptionDefinition
-        ComponentTemplate: { 
-            RelativeLocation: { X: 0, Y: 0, Z: -4.999997 }
-             }
-        ParentComponentOrVariableName: ItemMesh
-        bIsParentComponentNative: True
-        VariableGuid: 0483be31-29fa-4c87-a317-f0a7c80928af
-        InternalVariableName: CollectInterrupt
-         }, { 
-        ComponentClass: Class /Script/AkAudio.AkComponent
-        ComponentTemplate: { 
-            RelativeLocation: { X: 0, Y: 20, Z: 20 }
-             }
-        ParentComponentOrVariableName: ItemMesh
-        bIsParentComponentNative: True
-        VariableGuid: b46d1717-c9ff-4f43-9c9d-d9399d992722
-        InternalVariableName: Ak_Audio_Flashlight
-         }, { 
-        ComponentClass: Class /Script/Engine.SceneComponent
-        ComponentTemplate: { 
-            RelativeLocation: { X: 0, Y: 1.28615, Z: 0 }
-            RelativeRotation: { Pitch: 0, Roll: 90, Yaw: 0 }
-             }
-        ParentComponentOrVariableName: ItemMesh
-        bIsParentComponentNative: True
-        ChildNodes: [ { 
-            ComponentClass: Class /Script/Engine.SpotLightComponent
-            ComponentTemplate: { 
-                InnerConeAngle: 5f
-                OuterConeAngle: 20f
-                AttenuationRadius: 10000f
-                MaxDrawDistance: 7000f
-                LightFunctionMaterial: Material /Game/Effects/Materials/M_FlashlightMask.M_FlashlightMask
-                LightFunctionScale: { X: 1024, Y: 1024, Z: 1024 }
-                LightGuid: 77e2ff50-8b80-43bf-bc31-ee2ccb9ee109
-                Intensity: 10000f
-                LightColor: { R: 255, G: 249, B: 169, A: 0 }
-                DetailLevelBeforeCastShadows: DM_MAX
-                CascadeShadowMapQualityReductionBHVR: 3
-                RelativeLocation: { X: 23.96284, Y: -3.85195E-06, Z: 1.192091E-06 }
-                 }
-            VariableGuid: 061d6438-cf3c-47ad-a5bd-0571a8b1d70f
-            InternalVariableName: SpotLight
-             }, { 
-            ComponentClass: Class /Script/Engine.StaticMeshComponent
-            ComponentTemplate: { 
-                bUseDefaultCollision: False
-                OverrideMaterials: [ Material /Game/AdvancedDissolveFX/Materials/M_Floor.M_Floor ]
-                bGenerateOverlapEvents: False
-                DetailLevelBeforeCastShadows: DM_MAX
-                BodyInstance: { 
-                    ObjectType: ECC_WorldStatic
-                    CollisionEnabled: ECollisionEnabled::NoCollision
-                    CollisionProfileName: NoCollision
-                    CollisionResponses: { 
-                        ResponseArray: [ { 
-                            Channel: WorldStatic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: WorldDynamic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Pawn
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Visibility
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Camera
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: PhysicsBody
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Vehicle
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Destructible
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel2
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel3
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel4
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel5
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel6
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Interactable
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Audio
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Slasher
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Spider
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Traps
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: InteractionDetector
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: BlinkBlocker
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Ground
-                            Response: ECR_Ignore
-                             } ]
-                         }
-                    MassInKgOverride: 0f
-                     }
-                RelativeLocation: { X: 43.91069, Y: 0.0001887418, Z: 0.0003437371 }
-                RelativeRotation: { Pitch: 0, Roll: 90.00015, Yaw: 89.99923 }
-                RelativeScale3D: { X: 1, Y: 1, Z: 20 }
-                 }
-            VariableGuid: c129b97e-7d26-4c23-a575-b030bcecb39a
-            InternalVariableName: LightConeBig
-             }, { 
-            ComponentClass: Class /Script/Engine.StaticMeshComponent
-            ComponentTemplate: { 
-                StaticMesh: StaticMesh /Game/Effects/Mesh/FlashLightConeBig.FlashLightConeBig
-                bUseDefaultCollision: False
-                OverrideMaterials: [ Material /Game/Effects/Materials/M_FlashLight.M_FlashLight ]
-                bGenerateOverlapEvents: False
-                DetailLevelBeforeCastShadows: DM_MAX
-                BodyInstance: { 
-                    ObjectType: ECC_WorldStatic
-                    CollisionEnabled: ECollisionEnabled::NoCollision
-                    CollisionProfileName: NoCollision
-                    CollisionResponses: { 
-                        ResponseArray: [ { 
-                            Channel: WorldStatic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: WorldDynamic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Pawn
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Visibility
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Camera
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: PhysicsBody
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Vehicle
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Destructible
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel2
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel3
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel4
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel5
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel6
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Interactable
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Audio
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Slasher
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Spider
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Traps
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: InteractionDetector
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: BlinkBlocker
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Ground
-                            Response: ECR_Ignore
-                             } ]
-                         }
-                    MassInKgOverride: 117.0646f
-                     }
-                RelativeLocation: { X: 22.81897, Y: -1.049042E-05, Z: -5.962062E-07 }
-                RelativeRotation: { Pitch: 90, Roll: 0, Yaw: 0 }
-                bCanEverAffectNavigation: False
-                 }
-            ChildNodes: [ { 
-                ComponentClass: Class /Script/GFXUtilities.MaterialHelper
-                ComponentTemplate: { 
-                    RelativeLocation: { X: 9.536743E-07, Y: 5.722046E-06, Z: 24.10511 }
-                    RelativeRotation: { Pitch: 6.830189E-06, Roll: -89.99998, Yaw: 89.99998 }
-                     }
-                VariableGuid: 63fa3554-8c94-4c22-bcf4-c4bfe541ac35
-                InternalVariableName: MaterialHelper
-                 } ]
-            VariableGuid: f2bb214a-6eac-4f10-acad-fa99c23845bc
-            InternalVariableName: SM_Flashlight_Cone
-             }, { 
-            ComponentClass: Class /Script/Engine.StaticMeshComponent
-            ComponentTemplate: { 
-                StaticMesh: StaticMesh /Game/Effects/Mesh/FlashLightCone.FlashLightCone
-                bUseDefaultCollision: False
-                OverrideMaterials: [ MaterialInstanceConstant /Game/Effects/Materials/MI_FlashlightCenter.MI_FlashlightCenter ]
-                bGenerateOverlapEvents: False
-                CastShadow: False
-                DetailLevelBeforeCastShadows: DM_MAX
-                BodyInstance: { 
-                    ObjectType: ECC_WorldStatic
-                    CollisionEnabled: ECollisionEnabled::NoCollision
-                    CollisionProfileName: NoCollision
-                    CollisionResponses: { 
-                        ResponseArray: [ { 
-                            Channel: WorldStatic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: WorldDynamic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Pawn
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Visibility
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Camera
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: PhysicsBody
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Vehicle
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Destructible
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel2
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel3
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel4
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel5
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel6
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Interactable
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Audio
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Slasher
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Spider
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Traps
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: InteractionDetector
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: BlinkBlocker
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Ground
-                            Response: ECR_Ignore
-                             } ]
-                         }
-                    MassInKgOverride: 0f
-                     }
-                RelativeLocation: { X: 23.16271, Y: 0.0001077652, Z: 0.002520615 }
-                RelativeRotation: { Pitch: 0, Roll: 90.00016, Yaw: 89.99928 }
-                RelativeScale3D: { X: 12.5, Y: 12.5, Z: 500 }
-                 }
-            VariableGuid: 3d64ca2e-592d-4c90-a87c-1ba02fec2b0a
-            InternalVariableName: CenterGlow
-             }, { 
-            ComponentClass: Class /Script/Engine.ParticleSystemComponent
-            ComponentTemplate: { 
-                Template: ParticleSystem /Game/Effects/ParticleSystems/Fx_FlashlightMuzzle.Fx_FlashlightMuzzle
-                DetailLevelBeforeCastShadows: DM_MAX
-                RelativeLocation: { X: 29.9841, Y: -0.0002757534, Z: -5.220709E-06 }
-                RelativeRotation: { Pitch: 90, Roll: -19.47119, Yaw: -19.47119 }
-                RelativeScale3D: { X: 25, Y: 25, Z: 25 }
-                PrimaryComponentTick: { 
-                    bStartWithTickEnabled: False
-                     }
-                bAutoActivate: False
-                 }
-            VariableGuid: 988c37be-73c7-41bb-98f3-a3a81bda1c7a
-            InternalVariableName: CenterGlowFX
-             } ]
-        VariableGuid: 52a96e6d-a314-43e7-ba74-2f82c0f1e495
-        InternalVariableName: Tip
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.ChargerComponent
-        ComponentTemplate: { 
-            ChargerComponentID: FlashlightCharger
-             }
-        VariableGuid: 2f93c528-6631-4835-aaf7-259ba36da3be
-        InternalVariableName: Charger
-         }, { 
-        ComponentClass: Class /Script/Engine.StaticMeshComponent
-        ComponentTemplate: { 
-            StaticMesh: StaticMesh /Engine/BasicShapes/Cone.Cone
-            bUseDefaultCollision: False
-            OverrideMaterials: [ Material /Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial ]
-            CastShadow: False
-            DetailLevelBeforeCastShadows: DM_MAX
-            BodyInstance: { 
-                CollisionEnabled: ECollisionEnabled::QueryOnly
-                CollisionProfileName: Flashlight
-                CollisionResponses: { 
-                    ResponseArray: [ { 
-                        Channel: WorldStatic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: WorldDynamic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Pawn
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Visibility
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Camera
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: PhysicsBody
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Vehicle
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Destructible
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel2
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel3
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel4
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel5
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel6
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Interactable
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Audio
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Spider
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Traps
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: InteractionDetector
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: PawnDetector
-                        Response: ECR_Overlap
-                         }, { 
-                        Channel: BlinkBlocker
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Ground
-                        Response: ECR_Ignore
-                         } ]
-                     }
-                MassInKgOverride: 64.52784f
-                 }
-            RelativeLocation: { X: 0, Y: 504.867, Z: 9.365375E-06 }
-            RelativeRotation: { Pitch: 0, Roll: 0, Yaw: -89.99997 }
-            RelativeScale3D: { X: 0.5, Y: 0.5, Z: 10 }
-            bVisible: False
-            bHiddenInGame: True
-             }
-        ParentComponentOrVariableName: ItemMesh
-        bIsParentComponentNative: True
-        VariableGuid: 3c48e7d3-9f21-49c5-b740-3c1de034b660
-        InternalVariableName: FlashlightDetectionZone
-         } ]
-    AllNodes: [ { 
-        ComponentClass: Class /Script/DeadByDaylight.ScreenCenterAimingStrategy
-        ComponentTemplate: { 
-             }
-        VariableGuid: 98ce48a7-4d5f-480f-a82d-18d78bff8041
-        InternalVariableName: ScreenCenterAimingStrategy
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.FlashLightComponent
-        ComponentTemplate: { 
-             }
-        VariableGuid: ec84364e-d685-4c4d-a3fa-96ed18d40966
-        InternalVariableName: FlashLight
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.InterruptionDefinition
-        ComponentTemplate: { 
-            RelativeLocation: { X: 0, Y: 0, Z: -4.999997 }
-             }
-        ParentComponentOrVariableName: ItemMesh
-        bIsParentComponentNative: True
-        VariableGuid: 9c64db8b-2f29-4933-ae4c-be33f30e133e
-        InternalVariableName: DropInterrupt
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.InterruptionDefinition
-        ComponentTemplate: { 
-            RelativeLocation: { X: 0, Y: 0, Z: -4.999997 }
-             }
-        ParentComponentOrVariableName: ItemMesh
-        bIsParentComponentNative: True
-        VariableGuid: 0483be31-29fa-4c87-a317-f0a7c80928af
-        InternalVariableName: CollectInterrupt
-         }, { 
-        ComponentClass: Class /Script/AkAudio.AkComponent
-        ComponentTemplate: { 
-            RelativeLocation: { X: 0, Y: 20, Z: 20 }
-             }
-        ParentComponentOrVariableName: ItemMesh
-        bIsParentComponentNative: True
-        VariableGuid: b46d1717-c9ff-4f43-9c9d-d9399d992722
-        InternalVariableName: Ak_Audio_Flashlight
-         }, { 
-        ComponentClass: Class /Script/Engine.SceneComponent
-        ComponentTemplate: { 
-            RelativeLocation: { X: 0, Y: 1.28615, Z: 0 }
-            RelativeRotation: { Pitch: 0, Roll: 90, Yaw: 0 }
-             }
-        ParentComponentOrVariableName: ItemMesh
-        bIsParentComponentNative: True
-        ChildNodes: [ { 
-            ComponentClass: Class /Script/Engine.SpotLightComponent
-            ComponentTemplate: { 
-                InnerConeAngle: 5f
-                OuterConeAngle: 20f
-                AttenuationRadius: 10000f
-                MaxDrawDistance: 7000f
-                LightFunctionMaterial: Material /Game/Effects/Materials/M_FlashlightMask.M_FlashlightMask
-                LightFunctionScale: { X: 1024, Y: 1024, Z: 1024 }
-                LightGuid: 77e2ff50-8b80-43bf-bc31-ee2ccb9ee109
-                Intensity: 10000f
-                LightColor: { R: 255, G: 249, B: 169, A: 0 }
-                DetailLevelBeforeCastShadows: DM_MAX
-                CascadeShadowMapQualityReductionBHVR: 3
-                RelativeLocation: { X: 23.96284, Y: -3.85195E-06, Z: 1.192091E-06 }
-                 }
-            VariableGuid: 061d6438-cf3c-47ad-a5bd-0571a8b1d70f
-            InternalVariableName: SpotLight
-             }, { 
-            ComponentClass: Class /Script/Engine.StaticMeshComponent
-            ComponentTemplate: { 
-                bUseDefaultCollision: False
-                OverrideMaterials: [ Material /Game/AdvancedDissolveFX/Materials/M_Floor.M_Floor ]
-                bGenerateOverlapEvents: False
-                DetailLevelBeforeCastShadows: DM_MAX
-                BodyInstance: { 
-                    ObjectType: ECC_WorldStatic
-                    CollisionEnabled: ECollisionEnabled::NoCollision
-                    CollisionProfileName: NoCollision
-                    CollisionResponses: { 
-                        ResponseArray: [ { 
-                            Channel: WorldStatic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: WorldDynamic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Pawn
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Visibility
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Camera
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: PhysicsBody
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Vehicle
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Destructible
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel2
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel3
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel4
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel5
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel6
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Interactable
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Audio
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Slasher
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Spider
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Traps
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: InteractionDetector
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: BlinkBlocker
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Ground
-                            Response: ECR_Ignore
-                             } ]
-                         }
-                    MassInKgOverride: 0f
-                     }
-                RelativeLocation: { X: 43.91069, Y: 0.0001887418, Z: 0.0003437371 }
-                RelativeRotation: { Pitch: 0, Roll: 90.00015, Yaw: 89.99923 }
-                RelativeScale3D: { X: 1, Y: 1, Z: 20 }
-                 }
-            VariableGuid: c129b97e-7d26-4c23-a575-b030bcecb39a
-            InternalVariableName: LightConeBig
-             }, { 
-            ComponentClass: Class /Script/Engine.StaticMeshComponent
-            ComponentTemplate: { 
-                StaticMesh: StaticMesh /Game/Effects/Mesh/FlashLightConeBig.FlashLightConeBig
-                bUseDefaultCollision: False
-                OverrideMaterials: [ Material /Game/Effects/Materials/M_FlashLight.M_FlashLight ]
-                bGenerateOverlapEvents: False
-                DetailLevelBeforeCastShadows: DM_MAX
-                BodyInstance: { 
-                    ObjectType: ECC_WorldStatic
-                    CollisionEnabled: ECollisionEnabled::NoCollision
-                    CollisionProfileName: NoCollision
-                    CollisionResponses: { 
-                        ResponseArray: [ { 
-                            Channel: WorldStatic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: WorldDynamic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Pawn
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Visibility
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Camera
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: PhysicsBody
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Vehicle
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Destructible
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel2
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel3
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel4
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel5
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel6
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Interactable
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Audio
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Slasher
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Spider
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Traps
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: InteractionDetector
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: BlinkBlocker
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Ground
-                            Response: ECR_Ignore
-                             } ]
-                         }
-                    MassInKgOverride: 117.0646f
-                     }
-                RelativeLocation: { X: 22.81897, Y: -1.049042E-05, Z: -5.962062E-07 }
-                RelativeRotation: { Pitch: 90, Roll: 0, Yaw: 0 }
-                bCanEverAffectNavigation: False
-                 }
-            ChildNodes: [ { 
-                ComponentClass: Class /Script/GFXUtilities.MaterialHelper
-                ComponentTemplate: { 
-                    RelativeLocation: { X: 9.536743E-07, Y: 5.722046E-06, Z: 24.10511 }
-                    RelativeRotation: { Pitch: 6.830189E-06, Roll: -89.99998, Yaw: 89.99998 }
-                     }
-                VariableGuid: 63fa3554-8c94-4c22-bcf4-c4bfe541ac35
-                InternalVariableName: MaterialHelper
-                 } ]
-            VariableGuid: f2bb214a-6eac-4f10-acad-fa99c23845bc
-            InternalVariableName: SM_Flashlight_Cone
-             }, { 
-            ComponentClass: Class /Script/Engine.StaticMeshComponent
-            ComponentTemplate: { 
-                StaticMesh: StaticMesh /Game/Effects/Mesh/FlashLightCone.FlashLightCone
-                bUseDefaultCollision: False
-                OverrideMaterials: [ MaterialInstanceConstant /Game/Effects/Materials/MI_FlashlightCenter.MI_FlashlightCenter ]
-                bGenerateOverlapEvents: False
-                CastShadow: False
-                DetailLevelBeforeCastShadows: DM_MAX
-                BodyInstance: { 
-                    ObjectType: ECC_WorldStatic
-                    CollisionEnabled: ECollisionEnabled::NoCollision
-                    CollisionProfileName: NoCollision
-                    CollisionResponses: { 
-                        ResponseArray: [ { 
-                            Channel: WorldStatic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: WorldDynamic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Pawn
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Visibility
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Camera
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: PhysicsBody
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Vehicle
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Destructible
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel2
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel3
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel4
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel5
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel6
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Interactable
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Audio
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Slasher
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Spider
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Traps
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: InteractionDetector
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: BlinkBlocker
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Ground
-                            Response: ECR_Ignore
-                             } ]
-                         }
-                    MassInKgOverride: 0f
-                     }
-                RelativeLocation: { X: 23.16271, Y: 0.0001077652, Z: 0.002520615 }
-                RelativeRotation: { Pitch: 0, Roll: 90.00016, Yaw: 89.99928 }
-                RelativeScale3D: { X: 12.5, Y: 12.5, Z: 500 }
-                 }
-            VariableGuid: 3d64ca2e-592d-4c90-a87c-1ba02fec2b0a
-            InternalVariableName: CenterGlow
-             }, { 
-            ComponentClass: Class /Script/Engine.ParticleSystemComponent
-            ComponentTemplate: { 
-                Template: ParticleSystem /Game/Effects/ParticleSystems/Fx_FlashlightMuzzle.Fx_FlashlightMuzzle
-                DetailLevelBeforeCastShadows: DM_MAX
-                RelativeLocation: { X: 29.9841, Y: -0.0002757534, Z: -5.220709E-06 }
-                RelativeRotation: { Pitch: 90, Roll: -19.47119, Yaw: -19.47119 }
-                RelativeScale3D: { X: 25, Y: 25, Z: 25 }
-                PrimaryComponentTick: { 
-                    bStartWithTickEnabled: False
-                     }
-                bAutoActivate: False
-                 }
-            VariableGuid: 988c37be-73c7-41bb-98f3-a3a81bda1c7a
-            InternalVariableName: CenterGlowFX
-             } ]
-        VariableGuid: 52a96e6d-a314-43e7-ba74-2f82c0f1e495
-        InternalVariableName: Tip
-         }, { 
-        ComponentClass: Class /Script/Engine.SpotLightComponent
-        ComponentTemplate: { 
-            InnerConeAngle: 5f
-            OuterConeAngle: 20f
-            AttenuationRadius: 10000f
-            MaxDrawDistance: 7000f
-            LightFunctionMaterial: Material /Game/Effects/Materials/M_FlashlightMask.M_FlashlightMask
-            LightFunctionScale: { X: 1024, Y: 1024, Z: 1024 }
-            LightGuid: 77e2ff50-8b80-43bf-bc31-ee2ccb9ee109
-            Intensity: 10000f
-            LightColor: { R: 255, G: 249, B: 169, A: 0 }
-            DetailLevelBeforeCastShadows: DM_MAX
-            CascadeShadowMapQualityReductionBHVR: 3
-            RelativeLocation: { X: 23.96284, Y: -3.85195E-06, Z: 1.192091E-06 }
-             }
-        VariableGuid: 061d6438-cf3c-47ad-a5bd-0571a8b1d70f
-        InternalVariableName: SpotLight
-         }, { 
-        ComponentClass: Class /Script/Engine.StaticMeshComponent
-        ComponentTemplate: { 
-            bUseDefaultCollision: False
-            OverrideMaterials: [ Material /Game/AdvancedDissolveFX/Materials/M_Floor.M_Floor ]
-            bGenerateOverlapEvents: False
-            DetailLevelBeforeCastShadows: DM_MAX
-            BodyInstance: { 
-                ObjectType: ECC_WorldStatic
-                CollisionEnabled: ECollisionEnabled::NoCollision
-                CollisionProfileName: NoCollision
-                CollisionResponses: { 
-                    ResponseArray: [ { 
-                        Channel: WorldStatic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: WorldDynamic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Pawn
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Visibility
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Camera
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: PhysicsBody
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Vehicle
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Destructible
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel2
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel3
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel4
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel5
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel6
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Interactable
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Audio
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Slasher
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Spider
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Traps
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: InteractionDetector
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: BlinkBlocker
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Ground
-                        Response: ECR_Ignore
-                         } ]
-                     }
-                MassInKgOverride: 0f
-                 }
-            RelativeLocation: { X: 43.91069, Y: 0.0001887418, Z: 0.0003437371 }
-            RelativeRotation: { Pitch: 0, Roll: 90.00015, Yaw: 89.99923 }
-            RelativeScale3D: { X: 1, Y: 1, Z: 20 }
-             }
-        VariableGuid: c129b97e-7d26-4c23-a575-b030bcecb39a
-        InternalVariableName: LightConeBig
-         }, { 
-        ComponentClass: Class /Script/Engine.StaticMeshComponent
-        ComponentTemplate: { 
-            StaticMesh: StaticMesh /Game/Effects/Mesh/FlashLightConeBig.FlashLightConeBig
-            bUseDefaultCollision: False
-            OverrideMaterials: [ Material /Game/Effects/Materials/M_FlashLight.M_FlashLight ]
-            bGenerateOverlapEvents: False
-            DetailLevelBeforeCastShadows: DM_MAX
-            BodyInstance: { 
-                ObjectType: ECC_WorldStatic
-                CollisionEnabled: ECollisionEnabled::NoCollision
-                CollisionProfileName: NoCollision
-                CollisionResponses: { 
-                    ResponseArray: [ { 
-                        Channel: WorldStatic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: WorldDynamic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Pawn
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Visibility
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Camera
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: PhysicsBody
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Vehicle
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Destructible
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel2
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel3
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel4
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel5
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel6
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Interactable
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Audio
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Slasher
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Spider
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Traps
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: InteractionDetector
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: BlinkBlocker
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Ground
-                        Response: ECR_Ignore
-                         } ]
-                     }
-                MassInKgOverride: 117.0646f
-                 }
-            RelativeLocation: { X: 22.81897, Y: -1.049042E-05, Z: -5.962062E-07 }
-            RelativeRotation: { Pitch: 90, Roll: 0, Yaw: 0 }
-            bCanEverAffectNavigation: False
-             }
-        ChildNodes: [ { 
-            ComponentClass: Class /Script/GFXUtilities.MaterialHelper
-            ComponentTemplate: { 
-                RelativeLocation: { X: 9.536743E-07, Y: 5.722046E-06, Z: 24.10511 }
-                RelativeRotation: { Pitch: 6.830189E-06, Roll: -89.99998, Yaw: 89.99998 }
-                 }
-            VariableGuid: 63fa3554-8c94-4c22-bcf4-c4bfe541ac35
-            InternalVariableName: MaterialHelper
-             } ]
-        VariableGuid: f2bb214a-6eac-4f10-acad-fa99c23845bc
-        InternalVariableName: SM_Flashlight_Cone
-         }, { 
-        ComponentClass: Class /Script/Engine.StaticMeshComponent
-        ComponentTemplate: { 
-            StaticMesh: StaticMesh /Game/Effects/Mesh/FlashLightCone.FlashLightCone
-            bUseDefaultCollision: False
-            OverrideMaterials: [ MaterialInstanceConstant /Game/Effects/Materials/MI_FlashlightCenter.MI_FlashlightCenter ]
-            bGenerateOverlapEvents: False
-            CastShadow: False
-            DetailLevelBeforeCastShadows: DM_MAX
-            BodyInstance: { 
-                ObjectType: ECC_WorldStatic
-                CollisionEnabled: ECollisionEnabled::NoCollision
-                CollisionProfileName: NoCollision
-                CollisionResponses: { 
-                    ResponseArray: [ { 
-                        Channel: WorldStatic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: WorldDynamic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Pawn
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Visibility
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Camera
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: PhysicsBody
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Vehicle
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Destructible
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel2
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel3
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel4
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel5
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel6
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Interactable
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Audio
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Slasher
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Spider
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Traps
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: InteractionDetector
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: BlinkBlocker
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Ground
-                        Response: ECR_Ignore
-                         } ]
-                     }
-                MassInKgOverride: 0f
-                 }
-            RelativeLocation: { X: 23.16271, Y: 0.0001077652, Z: 0.002520615 }
-            RelativeRotation: { Pitch: 0, Roll: 90.00016, Yaw: 89.99928 }
-            RelativeScale3D: { X: 12.5, Y: 12.5, Z: 500 }
-             }
-        VariableGuid: 3d64ca2e-592d-4c90-a87c-1ba02fec2b0a
-        InternalVariableName: CenterGlow
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.ChargerComponent
-        ComponentTemplate: { 
-            ChargerComponentID: FlashlightCharger
-             }
-        VariableGuid: 2f93c528-6631-4835-aaf7-259ba36da3be
-        InternalVariableName: Charger
-         }, { 
-        ComponentClass: Class /Script/Engine.StaticMeshComponent
-        ComponentTemplate: { 
-            StaticMesh: StaticMesh /Engine/BasicShapes/Cone.Cone
-            bUseDefaultCollision: False
-            OverrideMaterials: [ Material /Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial ]
-            CastShadow: False
-            DetailLevelBeforeCastShadows: DM_MAX
-            BodyInstance: { 
-                CollisionEnabled: ECollisionEnabled::QueryOnly
-                CollisionProfileName: Flashlight
-                CollisionResponses: { 
-                    ResponseArray: [ { 
-                        Channel: WorldStatic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: WorldDynamic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Pawn
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Visibility
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Camera
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: PhysicsBody
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Vehicle
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Destructible
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel2
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel3
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel4
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel5
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel6
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Interactable
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Audio
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Spider
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Traps
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: InteractionDetector
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: PawnDetector
-                        Response: ECR_Overlap
-                         }, { 
-                        Channel: BlinkBlocker
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Ground
-                        Response: ECR_Ignore
-                         } ]
-                     }
-                MassInKgOverride: 64.52784f
-                 }
-            RelativeLocation: { X: 0, Y: 504.867, Z: 9.365375E-06 }
-            RelativeRotation: { Pitch: 0, Roll: 0, Yaw: -89.99997 }
-            RelativeScale3D: { X: 0.5, Y: 0.5, Z: 10 }
-            bVisible: False
-            bHiddenInGame: True
-             }
-        ParentComponentOrVariableName: ItemMesh
-        bIsParentComponentNative: True
-        VariableGuid: 3c48e7d3-9f21-49c5-b740-3c1de034b660
-        InternalVariableName: FlashlightDetectionZone
-         }, { 
-        ComponentClass: Class /Script/GFXUtilities.MaterialHelper
-        ComponentTemplate: { 
-            RelativeLocation: { X: 9.536743E-07, Y: 5.722046E-06, Z: 24.10511 }
-            RelativeRotation: { Pitch: 6.830189E-06, Roll: -89.99998, Yaw: 89.99998 }
-             }
-        VariableGuid: 63fa3554-8c94-4c22-bcf4-c4bfe541ac35
-        InternalVariableName: MaterialHelper
-         }, { 
-        ComponentClass: Class /Script/Engine.ParticleSystemComponent
-        ComponentTemplate: { 
-            Template: ParticleSystem /Game/Effects/ParticleSystems/Fx_FlashlightMuzzle.Fx_FlashlightMuzzle
-            DetailLevelBeforeCastShadows: DM_MAX
-            RelativeLocation: { X: 29.9841, Y: -0.0002757534, Z: -5.220709E-06 }
-            RelativeRotation: { Pitch: 90, Roll: -19.47119, Yaw: -19.47119 }
-            RelativeScale3D: { X: 25, Y: 25, Z: 25 }
-            PrimaryComponentTick: { 
-                bStartWithTickEnabled: False
-                 }
-            bAutoActivate: False
-             }
-        VariableGuid: 988c37be-73c7-41bb-98f3-a3a81bda1c7a
-        InternalVariableName: CenterGlowFX
-         } ]
-    DefaultSceneRootNode: { 
-        ComponentClass: Class /Script/Engine.SceneComponent
-        ComponentTemplate: { 
-             }
-        VariableGuid: 950a1c9c-3584-46d8-ad39-922c8e593984
-        InternalVariableName: DefaultSceneRoot
-         }
-     }
-InheritableComponentHandler: { 
-     }
-UberGraphFramePointerProperty: { 
-     }
-UberGraphFunction: { 
-     }
+DynamicBindingObjects: [ ComponentDelegateBindings: [ {
+	ComponentPropertyName: Charger
+	DelegatePropertyName: OnChargeStateChange
+	FunctionNameToBind: BndEvt__Charger_K2Node_ComponentBoundEvent_0_ChargeStateChangeDelegate__DelegateSignature
+	}, {
+	ComponentPropertyName: FlashlightDetectionZone
+	DelegatePropertyName: OnComponentEndOverlap
+	FunctionNameToBind: BndEvt__DecloakCone_K2Node_ComponentBoundEvent_206_ComponentEndOverlapSignature__DelegateSignature
+	}, {
+	ComponentPropertyName: FlashlightDetectionZone
+	DelegatePropertyName: OnComponentBeginOverlap
+	FunctionNameToBind: BndEvt__DecloakCone_K2Node_ComponentBoundEvent_198_ComponentBeginOverlapSignature__DelegateSignature
+	} ]
+ ]
+ComponentTemplates: [ Template: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+ ]
+Timelines: [ TimelineLength: 0.5f
+bValidatedAsWired: True
+FloatTracks: [ {
+	CurveFloat: FloatCurve: {
+		Keys: [ { Time: -0.001682423, Value: 0.003666639, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] }, { Time: 0.2484175, Value: 1.0046, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] }, { Time: 0.4999824, Value: 0, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] } ]
+		}
+	
+	PropertyName: BeamFlashEffectTimeline_Intensity_143005B14E130F3FD7835C90B0D7573E
+	TrackName: Intensity
+	bIsExternalCurve: False
+	} ]
+TimelineGuid: 143005b1-0f3f-4e13-905c-83d73e57d7b0
+VariableName: BeamFlashEffectTimeline
+DirectionPropertyName: BeamFlashEffectTimeline__Direction_143005B14E130F3FD7835C90B0D7573E
+UpdateFunctionName: BeamFlashEffectTimeline__UpdateFunc
+FinishedFunctionName: BeamFlashEffectTimeline__FinishedFunc
+ ]
+SimpleConstructionScript: RootNodes: [ ComponentClass: { null }
+ComponentTemplate: 
+VariableGuid: 98ce48a7-4d5f-480f-a82d-18d78bff8041
+InternalVariableName: ScreenCenterAimingStrategy
+, ComponentClass: { null }
+ComponentTemplate: 
+VariableGuid: ec84364e-d685-4c4d-a3fa-96ed18d40966
+InternalVariableName: FlashLight
+, ComponentClass: { null }
+ComponentTemplate: RelativeLocation: { X: 0, Y: 0, Z: -4.999997 }
+
+ParentComponentOrVariableName: ItemMesh
+bIsParentComponentNative: True
+VariableGuid: 9c64db8b-2f29-4933-ae4c-be33f30e133e
+InternalVariableName: DropInterrupt
+, ComponentClass: { null }
+ComponentTemplate: RelativeLocation: { X: 0, Y: 0, Z: -4.999997 }
+
+ParentComponentOrVariableName: ItemMesh
+bIsParentComponentNative: True
+VariableGuid: 0483be31-29fa-4c87-a317-f0a7c80928af
+InternalVariableName: CollectInterrupt
+, ComponentClass: { null }
+ComponentTemplate: RelativeLocation: { X: 0, Y: 20, Z: 20 }
+
+ParentComponentOrVariableName: ItemMesh
+bIsParentComponentNative: True
+VariableGuid: b46d1717-c9ff-4f43-9c9d-d9399d992722
+InternalVariableName: Ak_Audio_Flashlight
+, ComponentClass: { null }
+ComponentTemplate: RelativeLocation: { X: 0, Y: 1.28615, Z: 0 }
+RelativeRotation: { Pitch: 0, Roll: 90, Yaw: 0 }
+
+ParentComponentOrVariableName: ItemMesh
+bIsParentComponentNative: True
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: InnerConeAngle: 5f
+OuterConeAngle: 20f
+AttenuationRadius: 10000f
+MaxDrawDistance: 7000f
+LightFunctionMaterial: { null }
+LightFunctionScale: { X: 1024, Y: 1024, Z: 1024 }
+LightGuid: 77e2ff50-8b80-43bf-bc31-ee2ccb9ee109
+Intensity: 10000f
+LightColor: { R: 255, G: 249, B: 169, A: 0 }
+DetailLevelBeforeCastShadows: DM_MAX
+CascadeShadowMapQualityReductionBHVR: 3
+RelativeLocation: { X: 23.96284, Y: -3.85195E-06, Z: 1.192091E-06 }
+
+VariableGuid: 061d6438-cf3c-47ad-a5bd-0571a8b1d70f
+InternalVariableName: SpotLight
+, ComponentClass: { null }
+ComponentTemplate: bUseDefaultCollision: False
+OverrideMaterials: [ { null } ]
+bGenerateOverlapEvents: False
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	ObjectType: ECC_WorldStatic
+	CollisionEnabled: ECollisionEnabled::NoCollision
+	CollisionProfileName: NoCollision
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	MassInKgOverride: 0f
+	}
+RelativeLocation: { X: 43.91069, Y: 0.0001887418, Z: 0.0003437371 }
+RelativeRotation: { Pitch: 0, Roll: 90.00015, Yaw: 89.99923 }
+RelativeScale3D: { X: 1, Y: 1, Z: 20 }
+
+VariableGuid: c129b97e-7d26-4c23-a575-b030bcecb39a
+InternalVariableName: LightConeBig
+, ComponentClass: { null }
+ComponentTemplate: StaticMesh: { null }
+bUseDefaultCollision: False
+OverrideMaterials: [ { null } ]
+bGenerateOverlapEvents: False
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	ObjectType: ECC_WorldStatic
+	CollisionEnabled: ECollisionEnabled::NoCollision
+	CollisionProfileName: NoCollision
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	MassInKgOverride: 117.0646f
+	}
+RelativeLocation: { X: 22.81897, Y: -1.049042E-05, Z: -5.962062E-07 }
+RelativeRotation: { Pitch: 90, Roll: 0, Yaw: 0 }
+bCanEverAffectNavigation: False
+
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: RelativeLocation: { X: 9.536743E-07, Y: 5.722046E-06, Z: 24.10511 }
+RelativeRotation: { Pitch: 6.830189E-06, Roll: -89.99998, Yaw: 89.99998 }
+
+VariableGuid: 63fa3554-8c94-4c22-bcf4-c4bfe541ac35
+InternalVariableName: MaterialHelper
+ ]
+VariableGuid: f2bb214a-6eac-4f10-acad-fa99c23845bc
+InternalVariableName: SM_Flashlight_Cone
+, ComponentClass: { null }
+ComponentTemplate: StaticMesh: { null }
+bUseDefaultCollision: False
+OverrideMaterials: [ { null } ]
+bGenerateOverlapEvents: False
+CastShadow: False
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	ObjectType: ECC_WorldStatic
+	CollisionEnabled: ECollisionEnabled::NoCollision
+	CollisionProfileName: NoCollision
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	MassInKgOverride: 0f
+	}
+RelativeLocation: { X: 23.16271, Y: 0.0001077652, Z: 0.002520615 }
+RelativeRotation: { Pitch: 0, Roll: 90.00016, Yaw: 89.99928 }
+RelativeScale3D: { X: 12.5, Y: 12.5, Z: 500 }
+
+VariableGuid: 3d64ca2e-592d-4c90-a87c-1ba02fec2b0a
+InternalVariableName: CenterGlow
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+RelativeLocation: { X: 29.9841, Y: -0.0002757534, Z: -5.220709E-06 }
+RelativeRotation: { Pitch: 90, Roll: -19.47119, Yaw: -19.47119 }
+RelativeScale3D: { X: 25, Y: 25, Z: 25 }
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: 988c37be-73c7-41bb-98f3-a3a81bda1c7a
+InternalVariableName: CenterGlowFX
+ ]
+VariableGuid: 52a96e6d-a314-43e7-ba74-2f82c0f1e495
+InternalVariableName: Tip
+, ComponentClass: { null }
+ComponentTemplate: ChargerComponentID: FlashlightCharger
+
+VariableGuid: 2f93c528-6631-4835-aaf7-259ba36da3be
+InternalVariableName: Charger
+, ComponentClass: { null }
+ComponentTemplate: StaticMesh: { null }
+bUseDefaultCollision: False
+OverrideMaterials: [ { null } ]
+CastShadow: False
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	CollisionEnabled: ECollisionEnabled::QueryOnly
+	CollisionProfileName: Flashlight
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: PawnDetector
+			Response: ECR_Overlap
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	MassInKgOverride: 64.52784f
+	}
+RelativeLocation: { X: 0, Y: 504.867, Z: 9.365375E-06 }
+RelativeRotation: { Pitch: 0, Roll: 0, Yaw: -89.99997 }
+RelativeScale3D: { X: 0.5, Y: 0.5, Z: 10 }
+bVisible: False
+bHiddenInGame: True
+
+ParentComponentOrVariableName: ItemMesh
+bIsParentComponentNative: True
+VariableGuid: 3c48e7d3-9f21-49c5-b740-3c1de034b660
+InternalVariableName: FlashlightDetectionZone
+ ]
+AllNodes: [ ComponentClass: { null }
+ComponentTemplate: 
+VariableGuid: 98ce48a7-4d5f-480f-a82d-18d78bff8041
+InternalVariableName: ScreenCenterAimingStrategy
+, ComponentClass: { null }
+ComponentTemplate: 
+VariableGuid: ec84364e-d685-4c4d-a3fa-96ed18d40966
+InternalVariableName: FlashLight
+, ComponentClass: { null }
+ComponentTemplate: RelativeLocation: { X: 0, Y: 0, Z: -4.999997 }
+
+ParentComponentOrVariableName: ItemMesh
+bIsParentComponentNative: True
+VariableGuid: 9c64db8b-2f29-4933-ae4c-be33f30e133e
+InternalVariableName: DropInterrupt
+, ComponentClass: { null }
+ComponentTemplate: RelativeLocation: { X: 0, Y: 0, Z: -4.999997 }
+
+ParentComponentOrVariableName: ItemMesh
+bIsParentComponentNative: True
+VariableGuid: 0483be31-29fa-4c87-a317-f0a7c80928af
+InternalVariableName: CollectInterrupt
+, ComponentClass: { null }
+ComponentTemplate: RelativeLocation: { X: 0, Y: 20, Z: 20 }
+
+ParentComponentOrVariableName: ItemMesh
+bIsParentComponentNative: True
+VariableGuid: b46d1717-c9ff-4f43-9c9d-d9399d992722
+InternalVariableName: Ak_Audio_Flashlight
+, ComponentClass: { null }
+ComponentTemplate: RelativeLocation: { X: 0, Y: 1.28615, Z: 0 }
+RelativeRotation: { Pitch: 0, Roll: 90, Yaw: 0 }
+
+ParentComponentOrVariableName: ItemMesh
+bIsParentComponentNative: True
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: InnerConeAngle: 5f
+OuterConeAngle: 20f
+AttenuationRadius: 10000f
+MaxDrawDistance: 7000f
+LightFunctionMaterial: { null }
+LightFunctionScale: { X: 1024, Y: 1024, Z: 1024 }
+LightGuid: 77e2ff50-8b80-43bf-bc31-ee2ccb9ee109
+Intensity: 10000f
+LightColor: { R: 255, G: 249, B: 169, A: 0 }
+DetailLevelBeforeCastShadows: DM_MAX
+CascadeShadowMapQualityReductionBHVR: 3
+RelativeLocation: { X: 23.96284, Y: -3.85195E-06, Z: 1.192091E-06 }
+
+VariableGuid: 061d6438-cf3c-47ad-a5bd-0571a8b1d70f
+InternalVariableName: SpotLight
+, ComponentClass: { null }
+ComponentTemplate: bUseDefaultCollision: False
+OverrideMaterials: [ { null } ]
+bGenerateOverlapEvents: False
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	ObjectType: ECC_WorldStatic
+	CollisionEnabled: ECollisionEnabled::NoCollision
+	CollisionProfileName: NoCollision
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	MassInKgOverride: 0f
+	}
+RelativeLocation: { X: 43.91069, Y: 0.0001887418, Z: 0.0003437371 }
+RelativeRotation: { Pitch: 0, Roll: 90.00015, Yaw: 89.99923 }
+RelativeScale3D: { X: 1, Y: 1, Z: 20 }
+
+VariableGuid: c129b97e-7d26-4c23-a575-b030bcecb39a
+InternalVariableName: LightConeBig
+, ComponentClass: { null }
+ComponentTemplate: StaticMesh: { null }
+bUseDefaultCollision: False
+OverrideMaterials: [ { null } ]
+bGenerateOverlapEvents: False
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	ObjectType: ECC_WorldStatic
+	CollisionEnabled: ECollisionEnabled::NoCollision
+	CollisionProfileName: NoCollision
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	MassInKgOverride: 117.0646f
+	}
+RelativeLocation: { X: 22.81897, Y: -1.049042E-05, Z: -5.962062E-07 }
+RelativeRotation: { Pitch: 90, Roll: 0, Yaw: 0 }
+bCanEverAffectNavigation: False
+
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: RelativeLocation: { X: 9.536743E-07, Y: 5.722046E-06, Z: 24.10511 }
+RelativeRotation: { Pitch: 6.830189E-06, Roll: -89.99998, Yaw: 89.99998 }
+
+VariableGuid: 63fa3554-8c94-4c22-bcf4-c4bfe541ac35
+InternalVariableName: MaterialHelper
+ ]
+VariableGuid: f2bb214a-6eac-4f10-acad-fa99c23845bc
+InternalVariableName: SM_Flashlight_Cone
+, ComponentClass: { null }
+ComponentTemplate: StaticMesh: { null }
+bUseDefaultCollision: False
+OverrideMaterials: [ { null } ]
+bGenerateOverlapEvents: False
+CastShadow: False
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	ObjectType: ECC_WorldStatic
+	CollisionEnabled: ECollisionEnabled::NoCollision
+	CollisionProfileName: NoCollision
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	MassInKgOverride: 0f
+	}
+RelativeLocation: { X: 23.16271, Y: 0.0001077652, Z: 0.002520615 }
+RelativeRotation: { Pitch: 0, Roll: 90.00016, Yaw: 89.99928 }
+RelativeScale3D: { X: 12.5, Y: 12.5, Z: 500 }
+
+VariableGuid: 3d64ca2e-592d-4c90-a87c-1ba02fec2b0a
+InternalVariableName: CenterGlow
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+RelativeLocation: { X: 29.9841, Y: -0.0002757534, Z: -5.220709E-06 }
+RelativeRotation: { Pitch: 90, Roll: -19.47119, Yaw: -19.47119 }
+RelativeScale3D: { X: 25, Y: 25, Z: 25 }
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: 988c37be-73c7-41bb-98f3-a3a81bda1c7a
+InternalVariableName: CenterGlowFX
+ ]
+VariableGuid: 52a96e6d-a314-43e7-ba74-2f82c0f1e495
+InternalVariableName: Tip
+, ComponentClass: { null }
+ComponentTemplate: InnerConeAngle: 5f
+OuterConeAngle: 20f
+AttenuationRadius: 10000f
+MaxDrawDistance: 7000f
+LightFunctionMaterial: { null }
+LightFunctionScale: { X: 1024, Y: 1024, Z: 1024 }
+LightGuid: 77e2ff50-8b80-43bf-bc31-ee2ccb9ee109
+Intensity: 10000f
+LightColor: { R: 255, G: 249, B: 169, A: 0 }
+DetailLevelBeforeCastShadows: DM_MAX
+CascadeShadowMapQualityReductionBHVR: 3
+RelativeLocation: { X: 23.96284, Y: -3.85195E-06, Z: 1.192091E-06 }
+
+VariableGuid: 061d6438-cf3c-47ad-a5bd-0571a8b1d70f
+InternalVariableName: SpotLight
+, ComponentClass: { null }
+ComponentTemplate: bUseDefaultCollision: False
+OverrideMaterials: [ { null } ]
+bGenerateOverlapEvents: False
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	ObjectType: ECC_WorldStatic
+	CollisionEnabled: ECollisionEnabled::NoCollision
+	CollisionProfileName: NoCollision
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	MassInKgOverride: 0f
+	}
+RelativeLocation: { X: 43.91069, Y: 0.0001887418, Z: 0.0003437371 }
+RelativeRotation: { Pitch: 0, Roll: 90.00015, Yaw: 89.99923 }
+RelativeScale3D: { X: 1, Y: 1, Z: 20 }
+
+VariableGuid: c129b97e-7d26-4c23-a575-b030bcecb39a
+InternalVariableName: LightConeBig
+, ComponentClass: { null }
+ComponentTemplate: StaticMesh: { null }
+bUseDefaultCollision: False
+OverrideMaterials: [ { null } ]
+bGenerateOverlapEvents: False
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	ObjectType: ECC_WorldStatic
+	CollisionEnabled: ECollisionEnabled::NoCollision
+	CollisionProfileName: NoCollision
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	MassInKgOverride: 117.0646f
+	}
+RelativeLocation: { X: 22.81897, Y: -1.049042E-05, Z: -5.962062E-07 }
+RelativeRotation: { Pitch: 90, Roll: 0, Yaw: 0 }
+bCanEverAffectNavigation: False
+
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: RelativeLocation: { X: 9.536743E-07, Y: 5.722046E-06, Z: 24.10511 }
+RelativeRotation: { Pitch: 6.830189E-06, Roll: -89.99998, Yaw: 89.99998 }
+
+VariableGuid: 63fa3554-8c94-4c22-bcf4-c4bfe541ac35
+InternalVariableName: MaterialHelper
+ ]
+VariableGuid: f2bb214a-6eac-4f10-acad-fa99c23845bc
+InternalVariableName: SM_Flashlight_Cone
+, ComponentClass: { null }
+ComponentTemplate: StaticMesh: { null }
+bUseDefaultCollision: False
+OverrideMaterials: [ { null } ]
+bGenerateOverlapEvents: False
+CastShadow: False
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	ObjectType: ECC_WorldStatic
+	CollisionEnabled: ECollisionEnabled::NoCollision
+	CollisionProfileName: NoCollision
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	MassInKgOverride: 0f
+	}
+RelativeLocation: { X: 23.16271, Y: 0.0001077652, Z: 0.002520615 }
+RelativeRotation: { Pitch: 0, Roll: 90.00016, Yaw: 89.99928 }
+RelativeScale3D: { X: 12.5, Y: 12.5, Z: 500 }
+
+VariableGuid: 3d64ca2e-592d-4c90-a87c-1ba02fec2b0a
+InternalVariableName: CenterGlow
+, ComponentClass: { null }
+ComponentTemplate: ChargerComponentID: FlashlightCharger
+
+VariableGuid: 2f93c528-6631-4835-aaf7-259ba36da3be
+InternalVariableName: Charger
+, ComponentClass: { null }
+ComponentTemplate: StaticMesh: { null }
+bUseDefaultCollision: False
+OverrideMaterials: [ { null } ]
+CastShadow: False
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	CollisionEnabled: ECollisionEnabled::QueryOnly
+	CollisionProfileName: Flashlight
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: PawnDetector
+			Response: ECR_Overlap
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	MassInKgOverride: 64.52784f
+	}
+RelativeLocation: { X: 0, Y: 504.867, Z: 9.365375E-06 }
+RelativeRotation: { Pitch: 0, Roll: 0, Yaw: -89.99997 }
+RelativeScale3D: { X: 0.5, Y: 0.5, Z: 10 }
+bVisible: False
+bHiddenInGame: True
+
+ParentComponentOrVariableName: ItemMesh
+bIsParentComponentNative: True
+VariableGuid: 3c48e7d3-9f21-49c5-b740-3c1de034b660
+InternalVariableName: FlashlightDetectionZone
+, ComponentClass: { null }
+ComponentTemplate: RelativeLocation: { X: 9.536743E-07, Y: 5.722046E-06, Z: 24.10511 }
+RelativeRotation: { Pitch: 6.830189E-06, Roll: -89.99998, Yaw: 89.99998 }
+
+VariableGuid: 63fa3554-8c94-4c22-bcf4-c4bfe541ac35
+InternalVariableName: MaterialHelper
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+RelativeLocation: { X: 29.9841, Y: -0.0002757534, Z: -5.220709E-06 }
+RelativeRotation: { Pitch: 90, Roll: -19.47119, Yaw: -19.47119 }
+RelativeScale3D: { X: 25, Y: 25, Z: 25 }
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: 988c37be-73c7-41bb-98f3-a3a81bda1c7a
+InternalVariableName: CenterGlowFX
+ ]
+DefaultSceneRootNode: ComponentClass: { null }
+ComponentTemplate: 
+VariableGuid: 950a1c9c-3584-46d8-ad39-922c8e593984
+InternalVariableName: DefaultSceneRoot
+
+
+InheritableComponentHandler: 
+UberGraphFramePointerProperty: 
+UberGraphFunction: 
 <--- CDO --->
 UberGraphFrame: 467
 CenterGlowWidthScaleNormal: 12.5f
 CenterGlowWidthScaleBlinding: 5f
-BlindingSuccessRatioCurve: CurveFloat /Game/Blueprints/GameplayElements/Item/FlashLight/FlashLightBlindingSuccessRatio.FlashLightBlindingSuccessRatio
+BlindingSuccessRatioCurve: { null }
 CenterGlowLengthMaxScale: 500f
 CenterGlowShrinkDistance: 300f
 BeamHalfAngleWhenBlinding: 2f
@@ -1274,56 +1194,48 @@ AimOnUse: True
 StopRunningOnUse: True
 HandPosition: EItemHandPosition::AimItem
 ItemID: Item_Camper_Flashlight
-BaseItemModifier: { 
-    ModifierData: { 
-        Modifiers: [ { 
-            Type: { 
-                TagName: GameplayModifierType.IncreaseItemCharge
-                 }
-            ModifierValue: 5f
-             }, { 
-            Type: { 
-                TagName: GameplayModifierType.ModifyItemMaxCharge
-                 }
-            ModifierValue: 5f
-             } ]
-         }
-     }
-ItemModifier1: { 
-     }
-ItemModifier2: { 
-     }
-_mesh: { 
-    SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/FlashLight/SK_FlashLight01.SK_FlashLight01
-    CastShadow: True
-    bCastCinematicShadow: True
-    BodyInstance: { 
-        MassInKgOverride: 1.308796f
-         }
-     }
-_placementOrigin: { 
-    AttachParent: { 
-        SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/FlashLight/SK_FlashLight01.SK_FlashLight01
-        CastShadow: True
-        bCastCinematicShadow: True
-        BodyInstance: { 
-            MassInKgOverride: 1.308796f
-             }
-         }
-    RelativeLocation: { X: 0, Y: 0, Z: -4 }
-     }
-_objectState: { 
-     }
+BaseItemModifier: ModifierData: {
+	Modifiers: [ {
+		Type: {
+			TagName: GameplayModifierType.IncreaseItemCharge
+			}
+		ModifierValue: 5f
+		}, {
+		Type: {
+			TagName: GameplayModifierType.ModifyItemMaxCharge
+			}
+		ModifierValue: 5f
+		} ]
+	}
+
+ItemModifier1: 
+ItemModifier2: 
+_mesh: SkeletalMesh: { null }
+CastShadow: True
+bCastCinematicShadow: True
+BodyInstance: {
+	MassInKgOverride: 1.308796f
+	}
+
+_placementOrigin: AttachParent: SkeletalMesh: { null }
+CastShadow: True
+bCastCinematicShadow: True
+BodyInstance: {
+	MassInKgOverride: 1.308796f
+	}
+
+RelativeLocation: { X: 0, Y: 0, Z: -4 }
+
+_objectState: 
 _itemType: ELoadoutItemType::Flashlight
-PrimaryActorTick: { 
-    TickInterval: 0.05f
-     }
+PrimaryActorTick: {
+	TickInterval: 0.05f
+	}
 bReplicateMovement: False
-RootComponent: { 
-    SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/FlashLight/SK_FlashLight01.SK_FlashLight01
-    CastShadow: True
-    bCastCinematicShadow: True
-    BodyInstance: { 
-        MassInKgOverride: 1.308796f
-         }
-     }
+RootComponent: SkeletalMesh: { null }
+CastShadow: True
+bCastCinematicShadow: True
+BodyInstance: {
+	MassInKgOverride: 1.308796f
+	}
+

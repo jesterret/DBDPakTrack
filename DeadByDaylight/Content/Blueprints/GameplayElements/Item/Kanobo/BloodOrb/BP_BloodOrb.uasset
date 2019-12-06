@@ -1,583 +1,483 @@
-DynamicBindingObjects: [ { 
-    ComponentDelegateBindings: [ { 
-        ComponentPropertyName: _fadeComponent
-        DelegatePropertyName: OnFadePercentChanged
-        FunctionNameToBind: BndEvt___fadeComponent_K2Node_ComponentBoundEvent_0_OnFadePercentChangedDelegate__DelegateSignature
-         } ]
-     } ]
-Timelines: [ { 
-    TimelineLength: 0.4f
-    bValidatedAsWired: True
-    FloatTracks: [ { 
-        CurveFloat: { 
-            FloatCurve: { 
-                Keys: [ { Time: 0, Value: 1, InterpMode: RCIM_Cubic }, { Time: 0.4, Value: 0, InterpMode: RCIM_Cubic } ]
-                 }
-             }
-        PropertyName: TMK_MakeBloodOrbAppear_Movement_9826630945677D431530F2B807CDA0C8
-        TrackName: Movement
-        bIsExternalCurve: False
-         } ]
-    VectorTracks: [ { 
-        CurveVector: { 
-            FloatCurves: { 
-                Keys: [ { Time: 0, Value: 0, InterpMode: RCIM_Cubic }, { Time: 0.25, Value: 0.4, InterpMode: RCIM_Cubic } ]
-                 }
-            FloatCurves: { 
-                Keys: [ { Time: 0, Value: 0, InterpMode: RCIM_Cubic }, { Time: 0.25, Value: 0.4, InterpMode: RCIM_Cubic } ]
-                 }
-            FloatCurves: { 
-                Keys: [ { Time: 0, Value: 0, InterpMode: RCIM_Cubic }, { Time: 0.25, Value: 0.4, InterpMode: RCIM_Linear } ]
-                 }
-             }
-        PropertyName: TMK_MakeBloodOrbAppear_Scale_9826630945677D431530F2B807CDA0C8
-        TrackName: Scale
-        bIsExternalCurve: False
-         } ]
-    TimelineGuid: 98266309-7d43-4567-b8f2-3015c8a0cd07
-    VariableName: TMK_MakeBloodOrbAppear
-    DirectionPropertyName: TMK_MakeBloodOrbAppear__Direction_9826630945677D431530F2B807CDA0C8
-    UpdateFunctionName: TMK_MakeBloodOrbAppear__UpdateFunc
-    FinishedFunctionName: TMK_MakeBloodOrbAppear__FinishedFunc
-     }, { 
-    TimelineLength: 0.5f
-    bValidatedAsWired: True
-    FloatTracks: [ { 
-        CurveFloat: { 
-            FloatCurve: { 
-                Keys: [ { Time: 0.003200486, Value: -0.003552794, InterpMode: RCIM_Cubic }, { Time: 0.25, Value: 1, InterpMode: RCIM_Cubic } ]
-                 }
-             }
-        PropertyName: TML_ChangeBloodOrbColor_Intensity_F7A5924046A50F42C1537B868D765343
-        TrackName: Intensity
-        bIsExternalCurve: False
-         } ]
-    TimelineGuid: f7a59240-0f42-46a5-867b-53c14353768d
-    VariableName: TML_ChangeBloodOrbColor
-    DirectionPropertyName: TML_ChangeBloodOrbColor__Direction_F7A5924046A50F42C1537B868D765343
-    UpdateFunctionName: TML_ChangeBloodOrbColor__UpdateFunc
-    FinishedFunctionName: TML_ChangeBloodOrbColor__FinishedFunc
-     } ]
-SimpleConstructionScript: { 
-    RootNodes: [ { 
-        ComponentClass: Class /Script/Engine.StaticMeshComponent
-        ComponentTemplate: { 
-            StaticMesh: StaticMesh /Game/AdvancedDissolveFX/Meshes/SM_Sphere.SM_Sphere
-            bUseDefaultCollision: False
-            OverrideMaterials: [ MaterialInstanceConstant /Game/Effects/Materials/Slasher18/MI_BloodOrb.MI_BloodOrb ]
-            bRenderCustomColourNoDepth: True
-            DetailLevelBeforeCastShadows: DM_MAX
-            bRenderCustomDepth: True
-            BodyInstance: { 
-                ObjectType: ECC_WorldStatic
-                CollisionEnabled: ECollisionEnabled::NoCollision
-                CollisionProfileName: NoCollision
-                CollisionResponses: { 
-                    ResponseArray: [ { 
-                        Channel: WorldStatic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: WorldDynamic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Pawn
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Visibility
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Camera
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: PhysicsBody
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Vehicle
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Destructible
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel2
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel3
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel4
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel5
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel6
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Interactable
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Audio
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Slasher
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Spider
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Traps
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: InteractionDetector
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: BlinkBlocker
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Ground
-                        Response: ECR_Ignore
-                         } ]
-                     }
-                 }
-            RelativeScale3D: { X: 0.4, Y: 0.4, Z: 0.4 }
-             }
-        ParentComponentOrVariableName: BloodOrbRoot
-        bIsParentComponentNative: True
-        ChildNodes: [ { 
-            ComponentClass: Class /Script/Engine.ParticleSystemComponent
-            ComponentTemplate: { 
-                Template: ParticleSystem /Game/Effects/ParticleSystems/Killer18/BloodOrb/P_BloodOrb_Idle.P_BloodOrb_Idle
-                DetailLevelBeforeCastShadows: DM_MAX
-                PrimaryComponentTick: { 
-                    bStartWithTickEnabled: False
-                     }
-                 }
-            ChildNodes: [ { 
-                ComponentClass: Class /Script/DeadByDaylight.SpherePlayerOverlapComponent
-                ComponentTemplate: { 
-                    SphereRadius: 35f
-                    DetailLevelBeforeCastShadows: DM_MAX
-                    CanCharacterStepUpOn: ECB_No
-                    BodyInstance: { 
-                        ObjectType: ECC_GameTraceChannel1
-                        CollisionEnabled: ECollisionEnabled::NoCollision
-                        CollisionProfileName: Custom
-                        CollisionResponses: { 
-                            ResponseArray: [ { 
-                                Channel: WorldStatic
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: WorldDynamic
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: Pawn
-                                Response: ECR_Overlap
-                                 }, { 
-                                Channel: Visibility
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: Camera
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: PhysicsBody
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: Vehicle
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: Destructible
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: Ground
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: Spider
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: Traps
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: Interactable
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: Audio
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: Slasher
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: BlinkBlocker
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: InteractionDetector
-                                Response: ECR_Ignore
-                                 } ]
-                             }
-                         }
-                    RelativeLocation: { X: 0, Y: 10, Z: 0 }
-                     }
-                VariableGuid: e4c55bfe-1afb-4b69-a3a8-b17c979400f4
-                InternalVariableName: SpherePlayerOverlap
-                 } ]
-            VariableGuid: 0268e32f-2d7d-4c90-91bd-261470a7b35d
-            InternalVariableName: P_BloodOrb_Idle
-             }, { 
-            ComponentClass: Class /Script/DeadByDaylight.DBDOutlineComponent
-            ComponentTemplate: { 
-                RelativeScale3D: { X: 5, Y: 5, Z: 5 }
-                 }
-            VariableGuid: 10dbcb89-c429-43ca-a9fd-7f3252b7270d
-            InternalVariableName: Outline
-             } ]
-        VariableGuid: ad851437-ea11-4d2c-aa4b-0370d173cbf3
-        InternalVariableName: StaticMesh
-         } ]
-    AllNodes: [ { 
-        ComponentClass: Class /Script/Engine.ParticleSystemComponent
-        ComponentTemplate: { 
-            Template: ParticleSystem /Game/Effects/ParticleSystems/Killer18/BloodOrb/P_BloodOrb_Idle.P_BloodOrb_Idle
-            DetailLevelBeforeCastShadows: DM_MAX
-            PrimaryComponentTick: { 
-                bStartWithTickEnabled: False
-                 }
-             }
-        ChildNodes: [ { 
-            ComponentClass: Class /Script/DeadByDaylight.SpherePlayerOverlapComponent
-            ComponentTemplate: { 
-                SphereRadius: 35f
-                DetailLevelBeforeCastShadows: DM_MAX
-                CanCharacterStepUpOn: ECB_No
-                BodyInstance: { 
-                    ObjectType: ECC_GameTraceChannel1
-                    CollisionEnabled: ECollisionEnabled::NoCollision
-                    CollisionProfileName: Custom
-                    CollisionResponses: { 
-                        ResponseArray: [ { 
-                            Channel: WorldStatic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: WorldDynamic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Pawn
-                            Response: ECR_Overlap
-                             }, { 
-                            Channel: Visibility
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Camera
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: PhysicsBody
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Vehicle
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Destructible
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Ground
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Spider
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Traps
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Interactable
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Audio
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Slasher
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: BlinkBlocker
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: InteractionDetector
-                            Response: ECR_Ignore
-                             } ]
-                         }
-                     }
-                RelativeLocation: { X: 0, Y: 10, Z: 0 }
-                 }
-            VariableGuid: e4c55bfe-1afb-4b69-a3a8-b17c979400f4
-            InternalVariableName: SpherePlayerOverlap
-             } ]
-        VariableGuid: 0268e32f-2d7d-4c90-91bd-261470a7b35d
-        InternalVariableName: P_BloodOrb_Idle
-         }, { 
-        ComponentClass: Class /Script/Engine.StaticMeshComponent
-        ComponentTemplate: { 
-            StaticMesh: StaticMesh /Game/AdvancedDissolveFX/Meshes/SM_Sphere.SM_Sphere
-            bUseDefaultCollision: False
-            OverrideMaterials: [ MaterialInstanceConstant /Game/Effects/Materials/Slasher18/MI_BloodOrb.MI_BloodOrb ]
-            bRenderCustomColourNoDepth: True
-            DetailLevelBeforeCastShadows: DM_MAX
-            bRenderCustomDepth: True
-            BodyInstance: { 
-                ObjectType: ECC_WorldStatic
-                CollisionEnabled: ECollisionEnabled::NoCollision
-                CollisionProfileName: NoCollision
-                CollisionResponses: { 
-                    ResponseArray: [ { 
-                        Channel: WorldStatic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: WorldDynamic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Pawn
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Visibility
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Camera
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: PhysicsBody
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Vehicle
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Destructible
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel2
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel3
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel4
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel5
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel6
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Interactable
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Audio
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Slasher
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Spider
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Traps
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: InteractionDetector
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: BlinkBlocker
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Ground
-                        Response: ECR_Ignore
-                         } ]
-                     }
-                 }
-            RelativeScale3D: { X: 0.4, Y: 0.4, Z: 0.4 }
-             }
-        ParentComponentOrVariableName: BloodOrbRoot
-        bIsParentComponentNative: True
-        ChildNodes: [ { 
-            ComponentClass: Class /Script/Engine.ParticleSystemComponent
-            ComponentTemplate: { 
-                Template: ParticleSystem /Game/Effects/ParticleSystems/Killer18/BloodOrb/P_BloodOrb_Idle.P_BloodOrb_Idle
-                DetailLevelBeforeCastShadows: DM_MAX
-                PrimaryComponentTick: { 
-                    bStartWithTickEnabled: False
-                     }
-                 }
-            ChildNodes: [ { 
-                ComponentClass: Class /Script/DeadByDaylight.SpherePlayerOverlapComponent
-                ComponentTemplate: { 
-                    SphereRadius: 35f
-                    DetailLevelBeforeCastShadows: DM_MAX
-                    CanCharacterStepUpOn: ECB_No
-                    BodyInstance: { 
-                        ObjectType: ECC_GameTraceChannel1
-                        CollisionEnabled: ECollisionEnabled::NoCollision
-                        CollisionProfileName: Custom
-                        CollisionResponses: { 
-                            ResponseArray: [ { 
-                                Channel: WorldStatic
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: WorldDynamic
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: Pawn
-                                Response: ECR_Overlap
-                                 }, { 
-                                Channel: Visibility
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: Camera
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: PhysicsBody
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: Vehicle
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: Destructible
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: Ground
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: Spider
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: Traps
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: Interactable
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: Audio
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: Slasher
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: BlinkBlocker
-                                Response: ECR_Ignore
-                                 }, { 
-                                Channel: InteractionDetector
-                                Response: ECR_Ignore
-                                 } ]
-                             }
-                         }
-                    RelativeLocation: { X: 0, Y: 10, Z: 0 }
-                     }
-                VariableGuid: e4c55bfe-1afb-4b69-a3a8-b17c979400f4
-                InternalVariableName: SpherePlayerOverlap
-                 } ]
-            VariableGuid: 0268e32f-2d7d-4c90-91bd-261470a7b35d
-            InternalVariableName: P_BloodOrb_Idle
-             }, { 
-            ComponentClass: Class /Script/DeadByDaylight.DBDOutlineComponent
-            ComponentTemplate: { 
-                RelativeScale3D: { X: 5, Y: 5, Z: 5 }
-                 }
-            VariableGuid: 10dbcb89-c429-43ca-a9fd-7f3252b7270d
-            InternalVariableName: Outline
-             } ]
-        VariableGuid: ad851437-ea11-4d2c-aa4b-0370d173cbf3
-        InternalVariableName: StaticMesh
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.DBDOutlineComponent
-        ComponentTemplate: { 
-            RelativeScale3D: { X: 5, Y: 5, Z: 5 }
-             }
-        VariableGuid: 10dbcb89-c429-43ca-a9fd-7f3252b7270d
-        InternalVariableName: Outline
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.SpherePlayerOverlapComponent
-        ComponentTemplate: { 
-            SphereRadius: 35f
-            DetailLevelBeforeCastShadows: DM_MAX
-            CanCharacterStepUpOn: ECB_No
-            BodyInstance: { 
-                ObjectType: ECC_GameTraceChannel1
-                CollisionEnabled: ECollisionEnabled::NoCollision
-                CollisionProfileName: Custom
-                CollisionResponses: { 
-                    ResponseArray: [ { 
-                        Channel: WorldStatic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: WorldDynamic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Pawn
-                        Response: ECR_Overlap
-                         }, { 
-                        Channel: Visibility
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Camera
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: PhysicsBody
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Vehicle
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Destructible
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Ground
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Spider
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Traps
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Interactable
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Audio
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Slasher
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: BlinkBlocker
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: InteractionDetector
-                        Response: ECR_Ignore
-                         } ]
-                     }
-                 }
-            RelativeLocation: { X: 0, Y: 10, Z: 0 }
-             }
-        VariableGuid: e4c55bfe-1afb-4b69-a3a8-b17c979400f4
-        InternalVariableName: SpherePlayerOverlap
-         } ]
-    DefaultSceneRootNode: { 
-        ComponentClass: Class /Script/Engine.SceneComponent
-        ComponentTemplate: { 
-             }
-        VariableGuid: 8fb8dec4-4066-4653-b2bc-4ca32679b542
-        InternalVariableName: DefaultSceneRoot
-         }
-     }
-UberGraphFramePointerProperty: { 
-     }
-UberGraphFunction: { 
-     }
+DynamicBindingObjects: [ ComponentDelegateBindings: [ {
+	ComponentPropertyName: _fadeComponent
+	DelegatePropertyName: OnFadePercentChanged
+	FunctionNameToBind: BndEvt___fadeComponent_K2Node_ComponentBoundEvent_0_OnFadePercentChangedDelegate__DelegateSignature
+	} ]
+ ]
+Timelines: [ TimelineLength: 0.4f
+bValidatedAsWired: True
+FloatTracks: [ {
+	CurveFloat: FloatCurve: {
+		Keys: [ { Time: 0, Value: 1, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] }, { Time: 0.4, Value: 0, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] } ]
+		}
+	
+	PropertyName: TMK_MakeBloodOrbAppear_Movement_9826630945677D431530F2B807CDA0C8
+	TrackName: Movement
+	bIsExternalCurve: False
+	} ]
+VectorTracks: [ {
+	CurveVector: FloatCurves: {
+		Keys: [ { Time: 0, Value: 0, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] }, { Time: 0.25, Value: 0.25, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] } ]
+		}
+	FloatCurves: {
+		Keys: [ { Time: 0, Value: 0, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] }, { Time: 0.25, Value: 0.25, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] } ]
+		}
+	FloatCurves: {
+		Keys: [ { Time: 0, Value: 0, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] }, { Time: 0.25, Value: 0.25, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] } ]
+		}
+	
+	PropertyName: TMK_MakeBloodOrbAppear_Scale_9826630945677D431530F2B807CDA0C8
+	TrackName: Scale
+	bIsExternalCurve: False
+	} ]
+TimelineGuid: 98266309-7d43-4567-b8f2-3015c8a0cd07
+VariableName: TMK_MakeBloodOrbAppear
+DirectionPropertyName: TMK_MakeBloodOrbAppear__Direction_9826630945677D431530F2B807CDA0C8
+UpdateFunctionName: TMK_MakeBloodOrbAppear__UpdateFunc
+FinishedFunctionName: TMK_MakeBloodOrbAppear__FinishedFunc
+, TimelineLength: 0.5f
+bValidatedAsWired: True
+FloatTracks: [ {
+	CurveFloat: FloatCurve: {
+		Keys: [ { Time: 0.003200486, Value: -0.003552794, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] }, { Time: 0.25, Value: 1, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] } ]
+		}
+	
+	PropertyName: TML_ChangeBloodOrbColor_Intensity_F7A5924046A50F42C1537B868D765343
+	TrackName: Intensity
+	bIsExternalCurve: False
+	} ]
+TimelineGuid: f7a59240-0f42-46a5-867b-53c14353768d
+VariableName: TML_ChangeBloodOrbColor
+DirectionPropertyName: TML_ChangeBloodOrbColor__Direction_F7A5924046A50F42C1537B868D765343
+UpdateFunctionName: TML_ChangeBloodOrbColor__UpdateFunc
+FinishedFunctionName: TML_ChangeBloodOrbColor__FinishedFunc
+ ]
+SimpleConstructionScript: RootNodes: [ ComponentClass: { null }
+ComponentTemplate: StaticMesh: { null }
+bUseDefaultCollision: False
+OverrideMaterials: [ { null } ]
+bRenderCustomColourNoDepth: True
+DetailLevelBeforeCastShadows: DM_MAX
+bRenderCustomDepth: True
+BodyInstance: {
+	ObjectType: ECC_WorldStatic
+	CollisionEnabled: ECollisionEnabled::NoCollision
+	CollisionProfileName: NoCollision
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	}
+RelativeScale3D: { X: 0.25, Y: 0.25, Z: 0.25 }
+
+ParentComponentOrVariableName: BloodOrbRoot
+bIsParentComponentNative: True
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: Template: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+
+VariableGuid: 0268e32f-2d7d-4c90-91bd-261470a7b35d
+InternalVariableName: P_BloodOrb_Idle
+, ComponentClass: { null }
+ComponentTemplate: RelativeScale3D: { X: 5, Y: 5, Z: 5 }
+
+VariableGuid: 10dbcb89-c429-43ca-a9fd-7f3252b7270d
+InternalVariableName: Outline
+, ComponentClass: { null }
+ComponentTemplate: SphereRadius: 53f
+AreaClass: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+CanCharacterStepUpOn: ECB_No
+BodyInstance: {
+	CollisionEnabled: ECollisionEnabled::NoCollision
+	CollisionProfileName: Custom
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Overlap
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			} ]
+		}
+	}
+RelativeLocation: { X: 0, Y: 17, Z: -3 }
+bCanEverAffectNavigation: False
+
+VariableGuid: c8bef1b7-ebec-4497-b4e9-064e358f4270
+InternalVariableName: SphereOverlap
+ ]
+VariableGuid: ad851437-ea11-4d2c-aa4b-0370d173cbf3
+InternalVariableName: StaticMesh
+ ]
+AllNodes: [ ComponentClass: { null }
+ComponentTemplate: Template: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+
+VariableGuid: 0268e32f-2d7d-4c90-91bd-261470a7b35d
+InternalVariableName: P_BloodOrb_Idle
+, ComponentClass: { null }
+ComponentTemplate: StaticMesh: { null }
+bUseDefaultCollision: False
+OverrideMaterials: [ { null } ]
+bRenderCustomColourNoDepth: True
+DetailLevelBeforeCastShadows: DM_MAX
+bRenderCustomDepth: True
+BodyInstance: {
+	ObjectType: ECC_WorldStatic
+	CollisionEnabled: ECollisionEnabled::NoCollision
+	CollisionProfileName: NoCollision
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	}
+RelativeScale3D: { X: 0.25, Y: 0.25, Z: 0.25 }
+
+ParentComponentOrVariableName: BloodOrbRoot
+bIsParentComponentNative: True
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: Template: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+
+VariableGuid: 0268e32f-2d7d-4c90-91bd-261470a7b35d
+InternalVariableName: P_BloodOrb_Idle
+, ComponentClass: { null }
+ComponentTemplate: RelativeScale3D: { X: 5, Y: 5, Z: 5 }
+
+VariableGuid: 10dbcb89-c429-43ca-a9fd-7f3252b7270d
+InternalVariableName: Outline
+, ComponentClass: { null }
+ComponentTemplate: SphereRadius: 53f
+AreaClass: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+CanCharacterStepUpOn: ECB_No
+BodyInstance: {
+	CollisionEnabled: ECollisionEnabled::NoCollision
+	CollisionProfileName: Custom
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Overlap
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			} ]
+		}
+	}
+RelativeLocation: { X: 0, Y: 17, Z: -3 }
+bCanEverAffectNavigation: False
+
+VariableGuid: c8bef1b7-ebec-4497-b4e9-064e358f4270
+InternalVariableName: SphereOverlap
+ ]
+VariableGuid: ad851437-ea11-4d2c-aa4b-0370d173cbf3
+InternalVariableName: StaticMesh
+, ComponentClass: { null }
+ComponentTemplate: RelativeScale3D: { X: 5, Y: 5, Z: 5 }
+
+VariableGuid: 10dbcb89-c429-43ca-a9fd-7f3252b7270d
+InternalVariableName: Outline
+, ComponentClass: { null }
+ComponentTemplate: SphereRadius: 53f
+AreaClass: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+CanCharacterStepUpOn: ECB_No
+BodyInstance: {
+	CollisionEnabled: ECollisionEnabled::NoCollision
+	CollisionProfileName: Custom
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Overlap
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			} ]
+		}
+	}
+RelativeLocation: { X: 0, Y: 17, Z: -3 }
+bCanEverAffectNavigation: False
+
+VariableGuid: c8bef1b7-ebec-4497-b4e9-064e358f4270
+InternalVariableName: SphereOverlap
+ ]
+DefaultSceneRootNode: ComponentClass: { null }
+ComponentTemplate: 
+VariableGuid: 8fb8dec4-4066-4653-b2bc-4ca32679b542
+InternalVariableName: DefaultSceneRoot
+
+
+UberGraphFramePointerProperty: 
+UberGraphFunction: 
 <--- CDO --->
-UberGraphFrame: 185
+UberGraphFrame: 197
 TMK_MakeBloodOrbAppear_Scale_9826630945677D431530F2B807CDA0C8: { X: 0, Y: 0, Z: 0 }
-_randomMoveDelayInterval: { 
-    Min: 0f
-    Max: 0.5f
-     }
+BloodOrbScaleAmount: { X: 0.25, Y: 0.25, Z: 0.25 }
+_randomMoveDelayInterval: {
+	Min: 0f
+	Max: 0.5f
+	}
 _despawnDelay: 1f
-_fadeComponent: { 
-     }
+_fadeComponent: 
 bReplicateMovement: True
-RootComponent: { 
-     }
+RootComponent: 

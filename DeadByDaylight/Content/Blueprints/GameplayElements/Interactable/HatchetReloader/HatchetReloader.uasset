@@ -1,643 +1,582 @@
-SimpleConstructionScript: { 
-    RootNodes: [ { 
-        ComponentClass: Class /Script/Engine.SceneComponent
-        ComponentTemplate: { 
-             }
-        ChildNodes: [ { 
-            ComponentClass: Class /Script/Engine.SkeletalMeshComponent
-            ComponentTemplate: { 
-                AnimClass: AnimBlueprintGeneratedClass /Game/Blueprints/GameplayElements/Interactable/Closet/ClosetStandardAnimBP.ClosetStandardAnimBP_C
-                ClothingSimulationFactory: Class /Script/ClothingSystemRuntime.ClothingSimulationFactoryNv
-                SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/Closets/Models/SK_Closet01_REF.SK_Closet01_REF
-                OverrideMaterials: [ Material /Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial, Material /Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial ]
-                DetailLevelBeforeCastShadows: DM_MAX
-                 }
-            VariableGuid: aad1009f-0edc-48c8-9865-e83c99ce134a
-            InternalVariableName: Model
-             }, { 
-            ComponentClass: Class /Script/Engine.BoxComponent
-            ComponentTemplate: { 
-                BoxExtent: { X: 65, Y: 40, Z: 100 }
-                AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
-                DetailLevelBeforeCastShadows: DM_MAX
-                BodyInstance: { 
-                    CollisionEnabled: ECollisionEnabled::QueryAndPhysics
-                    CollisionProfileName: BlockAllDynamic
-                    CollisionResponses: { 
-                        ResponseArray: [ { 
-                            Channel: Interactable
-                            Response: ECR_Block
-                             }, { 
-                            Channel: Slasher
-                            Response: ECR_Block
-                             }, { 
-                            Channel: Blood
-                            Response: ECR_Block
-                             }, { 
-                            Channel: InteractionDetector
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: BlinkBlocker
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Ground
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Walkable
-                            Response: ECR_Block
-                             } ]
-                         }
-                     }
-                RelativeLocation: { X: 0, Y: -5, Z: 102 }
-                 }
-            VariableGuid: 36d043f0-eb97-4566-9e77-cbf664807a9c
-            InternalVariableName: Collision
-             }, { 
-            ComponentClass: Class /Script/Engine.BoxComponent
-            ComponentTemplate: { 
-                BoxExtent: { X: 50, Y: 50, Z: 100 }
-                AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
-                DetailLevelBeforeCastShadows: DM_MAX
-                BodyInstance: { 
-                    ObjectType: ECC_GameTraceChannel1
-                    CollisionProfileName: Interactable
-                    CollisionResponses: { 
-                        ResponseArray: [ { 
-                            Channel: WorldStatic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: WorldDynamic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Pawn
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Visibility
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Camera
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: PhysicsBody
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Vehicle
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Destructible
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel2
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel3
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel4
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel5
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel6
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Interactable
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Audio
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Slasher
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Spider
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Traps
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: BlinkBlocker
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Ground
-                            Response: ECR_Ignore
-                             } ]
-                         }
-                     }
-                RelativeLocation: { X: 0, Y: -90, Z: 100 }
-                 }
-            ChildNodes: [ { 
-                ComponentClass: Class /Script/DeadByDaylight.Interactor
-                ComponentTemplate: { 
-                    RelativeLocation: { X: 0, Y: 0, Z: -100 }
-                     }
-                ChildNodes: [ { 
-                    ComponentClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Interactable/HatchetReloader/ReloadHatchet.ReloadHatchet_C
-                    ComponentTemplate: { 
-                        RelativeRotation: { Pitch: 0, Roll: 90, Yaw: 0 }
-                         }
-                    VariableGuid: 87193cd8-1f29-4328-8ec0-6a88f69c24c2
-                    InternalVariableName: ReloadHatchet
-                     } ]
-                VariableGuid: 0ab5ab8b-237d-40a2-b101-df478d98cd17
-                InternalVariableName: MainInteractor
-                 } ]
-            VariableGuid: 77c22061-7d55-4718-b1e1-92f4bdf2086d
-            InternalVariableName: InteractionZone
-             } ]
-        VariableGuid: e6982fa2-43b2-4ed1-98e8-e55efc4c126b
-        InternalVariableName: DefaultSceneRoot
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.MontagePlayer
-        ComponentTemplate: { 
-            _animationMappingsTable: DataTable /Game/Blueprints/GameplayElements/Interactable/HatchetReloader/HatchetReloaderMappings.HatchetReloaderMappings
-             }
-        VariableGuid: a876fb79-7103-43ad-9e84-702a1203b196
-        InternalVariableName: MontagePlayer
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.AnimationMontageSlave
-        ComponentTemplate: { 
-             }
-        VariableGuid: 0a52d43f-cfaf-4ec9-8df9-aed1e0780f93
-        InternalVariableName: AnimationMontageSlave
-         } ]
-    AllNodes: [ { 
-        ComponentClass: Class /Script/Engine.SceneComponent
-        ComponentTemplate: { 
-             }
-        ChildNodes: [ { 
-            ComponentClass: Class /Script/Engine.SkeletalMeshComponent
-            ComponentTemplate: { 
-                AnimClass: AnimBlueprintGeneratedClass /Game/Blueprints/GameplayElements/Interactable/Closet/ClosetStandardAnimBP.ClosetStandardAnimBP_C
-                ClothingSimulationFactory: Class /Script/ClothingSystemRuntime.ClothingSimulationFactoryNv
-                SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/Closets/Models/SK_Closet01_REF.SK_Closet01_REF
-                OverrideMaterials: [ Material /Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial, Material /Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial ]
-                DetailLevelBeforeCastShadows: DM_MAX
-                 }
-            VariableGuid: aad1009f-0edc-48c8-9865-e83c99ce134a
-            InternalVariableName: Model
-             }, { 
-            ComponentClass: Class /Script/Engine.BoxComponent
-            ComponentTemplate: { 
-                BoxExtent: { X: 65, Y: 40, Z: 100 }
-                AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
-                DetailLevelBeforeCastShadows: DM_MAX
-                BodyInstance: { 
-                    CollisionEnabled: ECollisionEnabled::QueryAndPhysics
-                    CollisionProfileName: BlockAllDynamic
-                    CollisionResponses: { 
-                        ResponseArray: [ { 
-                            Channel: Interactable
-                            Response: ECR_Block
-                             }, { 
-                            Channel: Slasher
-                            Response: ECR_Block
-                             }, { 
-                            Channel: Blood
-                            Response: ECR_Block
-                             }, { 
-                            Channel: InteractionDetector
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: BlinkBlocker
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Ground
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Walkable
-                            Response: ECR_Block
-                             } ]
-                         }
-                     }
-                RelativeLocation: { X: 0, Y: -5, Z: 102 }
-                 }
-            VariableGuid: 36d043f0-eb97-4566-9e77-cbf664807a9c
-            InternalVariableName: Collision
-             }, { 
-            ComponentClass: Class /Script/Engine.BoxComponent
-            ComponentTemplate: { 
-                BoxExtent: { X: 50, Y: 50, Z: 100 }
-                AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
-                DetailLevelBeforeCastShadows: DM_MAX
-                BodyInstance: { 
-                    ObjectType: ECC_GameTraceChannel1
-                    CollisionProfileName: Interactable
-                    CollisionResponses: { 
-                        ResponseArray: [ { 
-                            Channel: WorldStatic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: WorldDynamic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Pawn
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Visibility
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Camera
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: PhysicsBody
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Vehicle
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Destructible
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel2
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel3
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel4
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel5
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel6
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Interactable
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Audio
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Slasher
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Spider
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Traps
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: BlinkBlocker
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Ground
-                            Response: ECR_Ignore
-                             } ]
-                         }
-                     }
-                RelativeLocation: { X: 0, Y: -90, Z: 100 }
-                 }
-            ChildNodes: [ { 
-                ComponentClass: Class /Script/DeadByDaylight.Interactor
-                ComponentTemplate: { 
-                    RelativeLocation: { X: 0, Y: 0, Z: -100 }
-                     }
-                ChildNodes: [ { 
-                    ComponentClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Interactable/HatchetReloader/ReloadHatchet.ReloadHatchet_C
-                    ComponentTemplate: { 
-                        RelativeRotation: { Pitch: 0, Roll: 90, Yaw: 0 }
-                         }
-                    VariableGuid: 87193cd8-1f29-4328-8ec0-6a88f69c24c2
-                    InternalVariableName: ReloadHatchet
-                     } ]
-                VariableGuid: 0ab5ab8b-237d-40a2-b101-df478d98cd17
-                InternalVariableName: MainInteractor
-                 } ]
-            VariableGuid: 77c22061-7d55-4718-b1e1-92f4bdf2086d
-            InternalVariableName: InteractionZone
-             } ]
-        VariableGuid: e6982fa2-43b2-4ed1-98e8-e55efc4c126b
-        InternalVariableName: DefaultSceneRoot
-         }, { 
-        ComponentClass: Class /Script/Engine.SkeletalMeshComponent
-        ComponentTemplate: { 
-            AnimClass: AnimBlueprintGeneratedClass /Game/Blueprints/GameplayElements/Interactable/Closet/ClosetStandardAnimBP.ClosetStandardAnimBP_C
-            ClothingSimulationFactory: Class /Script/ClothingSystemRuntime.ClothingSimulationFactoryNv
-            SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/Closets/Models/SK_Closet01_REF.SK_Closet01_REF
-            OverrideMaterials: [ Material /Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial, Material /Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial ]
-            DetailLevelBeforeCastShadows: DM_MAX
-             }
-        VariableGuid: aad1009f-0edc-48c8-9865-e83c99ce134a
-        InternalVariableName: Model
-         }, { 
-        ComponentClass: Class /Script/Engine.BoxComponent
-        ComponentTemplate: { 
-            BoxExtent: { X: 65, Y: 40, Z: 100 }
-            AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
-            DetailLevelBeforeCastShadows: DM_MAX
-            BodyInstance: { 
-                CollisionEnabled: ECollisionEnabled::QueryAndPhysics
-                CollisionProfileName: BlockAllDynamic
-                CollisionResponses: { 
-                    ResponseArray: [ { 
-                        Channel: Interactable
-                        Response: ECR_Block
-                         }, { 
-                        Channel: Slasher
-                        Response: ECR_Block
-                         }, { 
-                        Channel: Blood
-                        Response: ECR_Block
-                         }, { 
-                        Channel: InteractionDetector
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: BlinkBlocker
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Ground
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Walkable
-                        Response: ECR_Block
-                         } ]
-                     }
-                 }
-            RelativeLocation: { X: 0, Y: -5, Z: 102 }
-             }
-        VariableGuid: 36d043f0-eb97-4566-9e77-cbf664807a9c
-        InternalVariableName: Collision
-         }, { 
-        ComponentClass: Class /Script/Engine.BoxComponent
-        ComponentTemplate: { 
-            BoxExtent: { X: 50, Y: 50, Z: 100 }
-            AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
-            DetailLevelBeforeCastShadows: DM_MAX
-            BodyInstance: { 
-                ObjectType: ECC_GameTraceChannel1
-                CollisionProfileName: Interactable
-                CollisionResponses: { 
-                    ResponseArray: [ { 
-                        Channel: WorldStatic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: WorldDynamic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Pawn
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Visibility
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Camera
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: PhysicsBody
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Vehicle
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Destructible
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel2
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel3
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel4
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel5
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel6
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Interactable
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Audio
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Slasher
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Spider
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Traps
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: BlinkBlocker
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Ground
-                        Response: ECR_Ignore
-                         } ]
-                     }
-                 }
-            RelativeLocation: { X: 0, Y: -90, Z: 100 }
-             }
-        ChildNodes: [ { 
-            ComponentClass: Class /Script/DeadByDaylight.Interactor
-            ComponentTemplate: { 
-                RelativeLocation: { X: 0, Y: 0, Z: -100 }
-                 }
-            ChildNodes: [ { 
-                ComponentClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Interactable/HatchetReloader/ReloadHatchet.ReloadHatchet_C
-                ComponentTemplate: { 
-                    RelativeRotation: { Pitch: 0, Roll: 90, Yaw: 0 }
-                     }
-                VariableGuid: 87193cd8-1f29-4328-8ec0-6a88f69c24c2
-                InternalVariableName: ReloadHatchet
-                 } ]
-            VariableGuid: 0ab5ab8b-237d-40a2-b101-df478d98cd17
-            InternalVariableName: MainInteractor
-             } ]
-        VariableGuid: 77c22061-7d55-4718-b1e1-92f4bdf2086d
-        InternalVariableName: InteractionZone
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.Interactor
-        ComponentTemplate: { 
-            RelativeLocation: { X: 0, Y: 0, Z: -100 }
-             }
-        ChildNodes: [ { 
-            ComponentClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Interactable/HatchetReloader/ReloadHatchet.ReloadHatchet_C
-            ComponentTemplate: { 
-                RelativeRotation: { Pitch: 0, Roll: 90, Yaw: 0 }
-                 }
-            VariableGuid: 87193cd8-1f29-4328-8ec0-6a88f69c24c2
-            InternalVariableName: ReloadHatchet
-             } ]
-        VariableGuid: 0ab5ab8b-237d-40a2-b101-df478d98cd17
-        InternalVariableName: MainInteractor
-         }, { 
-        ComponentClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Interactable/HatchetReloader/ReloadHatchet.ReloadHatchet_C
-        ComponentTemplate: { 
-            RelativeRotation: { Pitch: 0, Roll: 90, Yaw: 0 }
-             }
-        VariableGuid: 87193cd8-1f29-4328-8ec0-6a88f69c24c2
-        InternalVariableName: ReloadHatchet
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.MontagePlayer
-        ComponentTemplate: { 
-            _animationMappingsTable: DataTable /Game/Blueprints/GameplayElements/Interactable/HatchetReloader/HatchetReloaderMappings.HatchetReloaderMappings
-             }
-        VariableGuid: a876fb79-7103-43ad-9e84-702a1203b196
-        InternalVariableName: MontagePlayer
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.AnimationMontageSlave
-        ComponentTemplate: { 
-             }
-        VariableGuid: 0a52d43f-cfaf-4ec9-8df9-aed1e0780f93
-        InternalVariableName: AnimationMontageSlave
-         } ]
-    DefaultSceneRootNode: { 
-        ComponentClass: Class /Script/Engine.SceneComponent
-        ComponentTemplate: { 
-             }
-        ChildNodes: [ { 
-            ComponentClass: Class /Script/Engine.SkeletalMeshComponent
-            ComponentTemplate: { 
-                AnimClass: AnimBlueprintGeneratedClass /Game/Blueprints/GameplayElements/Interactable/Closet/ClosetStandardAnimBP.ClosetStandardAnimBP_C
-                ClothingSimulationFactory: Class /Script/ClothingSystemRuntime.ClothingSimulationFactoryNv
-                SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/Closets/Models/SK_Closet01_REF.SK_Closet01_REF
-                OverrideMaterials: [ Material /Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial, Material /Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial ]
-                DetailLevelBeforeCastShadows: DM_MAX
-                 }
-            VariableGuid: aad1009f-0edc-48c8-9865-e83c99ce134a
-            InternalVariableName: Model
-             }, { 
-            ComponentClass: Class /Script/Engine.BoxComponent
-            ComponentTemplate: { 
-                BoxExtent: { X: 65, Y: 40, Z: 100 }
-                AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
-                DetailLevelBeforeCastShadows: DM_MAX
-                BodyInstance: { 
-                    CollisionEnabled: ECollisionEnabled::QueryAndPhysics
-                    CollisionProfileName: BlockAllDynamic
-                    CollisionResponses: { 
-                        ResponseArray: [ { 
-                            Channel: Interactable
-                            Response: ECR_Block
-                             }, { 
-                            Channel: Slasher
-                            Response: ECR_Block
-                             }, { 
-                            Channel: Blood
-                            Response: ECR_Block
-                             }, { 
-                            Channel: InteractionDetector
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: BlinkBlocker
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Ground
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Walkable
-                            Response: ECR_Block
-                             } ]
-                         }
-                     }
-                RelativeLocation: { X: 0, Y: -5, Z: 102 }
-                 }
-            VariableGuid: 36d043f0-eb97-4566-9e77-cbf664807a9c
-            InternalVariableName: Collision
-             }, { 
-            ComponentClass: Class /Script/Engine.BoxComponent
-            ComponentTemplate: { 
-                BoxExtent: { X: 50, Y: 50, Z: 100 }
-                AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
-                DetailLevelBeforeCastShadows: DM_MAX
-                BodyInstance: { 
-                    ObjectType: ECC_GameTraceChannel1
-                    CollisionProfileName: Interactable
-                    CollisionResponses: { 
-                        ResponseArray: [ { 
-                            Channel: WorldStatic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: WorldDynamic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Pawn
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Visibility
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Camera
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: PhysicsBody
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Vehicle
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Destructible
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel2
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel3
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel4
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel5
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel6
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Interactable
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Audio
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Slasher
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Spider
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Traps
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: BlinkBlocker
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Ground
-                            Response: ECR_Ignore
-                             } ]
-                         }
-                     }
-                RelativeLocation: { X: 0, Y: -90, Z: 100 }
-                 }
-            ChildNodes: [ { 
-                ComponentClass: Class /Script/DeadByDaylight.Interactor
-                ComponentTemplate: { 
-                    RelativeLocation: { X: 0, Y: 0, Z: -100 }
-                     }
-                ChildNodes: [ { 
-                    ComponentClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Interactable/HatchetReloader/ReloadHatchet.ReloadHatchet_C
-                    ComponentTemplate: { 
-                        RelativeRotation: { Pitch: 0, Roll: 90, Yaw: 0 }
-                         }
-                    VariableGuid: 87193cd8-1f29-4328-8ec0-6a88f69c24c2
-                    InternalVariableName: ReloadHatchet
-                     } ]
-                VariableGuid: 0ab5ab8b-237d-40a2-b101-df478d98cd17
-                InternalVariableName: MainInteractor
-                 } ]
-            VariableGuid: 77c22061-7d55-4718-b1e1-92f4bdf2086d
-            InternalVariableName: InteractionZone
-             } ]
-        VariableGuid: e6982fa2-43b2-4ed1-98e8-e55efc4c126b
-        InternalVariableName: DefaultSceneRoot
-         }
-     }
+SimpleConstructionScript: RootNodes: [ ComponentClass: { null }
+ComponentTemplate: 
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: AnimClass: { null }
+ClothingSimulationFactory: { null }
+SkeletalMesh: { null }
+OverrideMaterials: [ { null }, { null } ]
+DetailLevelBeforeCastShadows: DM_MAX
+
+VariableGuid: aad1009f-0edc-48c8-9865-e83c99ce134a
+InternalVariableName: Model
+, ComponentClass: { null }
+ComponentTemplate: BoxExtent: { X: 65, Y: 40, Z: 100 }
+AreaClass: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	CollisionEnabled: ECollisionEnabled::QueryAndPhysics
+	CollisionProfileName: BlockAllDynamic
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: Interactable
+			Response: ECR_Block
+			}, {
+			Channel: Slasher
+			Response: ECR_Block
+			}, {
+			Channel: Blood
+			Response: ECR_Block
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			}, {
+			Channel: Walkable
+			Response: ECR_Block
+			} ]
+		}
+	}
+RelativeLocation: { X: 0, Y: -5, Z: 102 }
+
+VariableGuid: 36d043f0-eb97-4566-9e77-cbf664807a9c
+InternalVariableName: Collision
+, ComponentClass: { null }
+ComponentTemplate: BoxExtent: { X: 50, Y: 50, Z: 100 }
+AreaClass: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	ObjectType: ECC_GameTraceChannel1
+	CollisionProfileName: Interactable
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	}
+RelativeLocation: { X: 0, Y: -90, Z: 100 }
+
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: RelativeLocation: { X: 0, Y: 0, Z: -100 }
+
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: RelativeRotation: { Pitch: 0, Roll: 90, Yaw: 0 }
+
+VariableGuid: 87193cd8-1f29-4328-8ec0-6a88f69c24c2
+InternalVariableName: ReloadHatchet
+ ]
+VariableGuid: 0ab5ab8b-237d-40a2-b101-df478d98cd17
+InternalVariableName: MainInteractor
+ ]
+VariableGuid: 77c22061-7d55-4718-b1e1-92f4bdf2086d
+InternalVariableName: InteractionZone
+ ]
+VariableGuid: e6982fa2-43b2-4ed1-98e8-e55efc4c126b
+InternalVariableName: DefaultSceneRoot
+, ComponentClass: { null }
+ComponentTemplate: _animationMappingsTable: { null }
+
+VariableGuid: a876fb79-7103-43ad-9e84-702a1203b196
+InternalVariableName: MontagePlayer
+, ComponentClass: { null }
+ComponentTemplate: 
+VariableGuid: 0a52d43f-cfaf-4ec9-8df9-aed1e0780f93
+InternalVariableName: AnimationMontageSlave
+ ]
+AllNodes: [ ComponentClass: { null }
+ComponentTemplate: 
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: AnimClass: { null }
+ClothingSimulationFactory: { null }
+SkeletalMesh: { null }
+OverrideMaterials: [ { null }, { null } ]
+DetailLevelBeforeCastShadows: DM_MAX
+
+VariableGuid: aad1009f-0edc-48c8-9865-e83c99ce134a
+InternalVariableName: Model
+, ComponentClass: { null }
+ComponentTemplate: BoxExtent: { X: 65, Y: 40, Z: 100 }
+AreaClass: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	CollisionEnabled: ECollisionEnabled::QueryAndPhysics
+	CollisionProfileName: BlockAllDynamic
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: Interactable
+			Response: ECR_Block
+			}, {
+			Channel: Slasher
+			Response: ECR_Block
+			}, {
+			Channel: Blood
+			Response: ECR_Block
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			}, {
+			Channel: Walkable
+			Response: ECR_Block
+			} ]
+		}
+	}
+RelativeLocation: { X: 0, Y: -5, Z: 102 }
+
+VariableGuid: 36d043f0-eb97-4566-9e77-cbf664807a9c
+InternalVariableName: Collision
+, ComponentClass: { null }
+ComponentTemplate: BoxExtent: { X: 50, Y: 50, Z: 100 }
+AreaClass: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	ObjectType: ECC_GameTraceChannel1
+	CollisionProfileName: Interactable
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	}
+RelativeLocation: { X: 0, Y: -90, Z: 100 }
+
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: RelativeLocation: { X: 0, Y: 0, Z: -100 }
+
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: RelativeRotation: { Pitch: 0, Roll: 90, Yaw: 0 }
+
+VariableGuid: 87193cd8-1f29-4328-8ec0-6a88f69c24c2
+InternalVariableName: ReloadHatchet
+ ]
+VariableGuid: 0ab5ab8b-237d-40a2-b101-df478d98cd17
+InternalVariableName: MainInteractor
+ ]
+VariableGuid: 77c22061-7d55-4718-b1e1-92f4bdf2086d
+InternalVariableName: InteractionZone
+ ]
+VariableGuid: e6982fa2-43b2-4ed1-98e8-e55efc4c126b
+InternalVariableName: DefaultSceneRoot
+, ComponentClass: { null }
+ComponentTemplate: AnimClass: { null }
+ClothingSimulationFactory: { null }
+SkeletalMesh: { null }
+OverrideMaterials: [ { null }, { null } ]
+DetailLevelBeforeCastShadows: DM_MAX
+
+VariableGuid: aad1009f-0edc-48c8-9865-e83c99ce134a
+InternalVariableName: Model
+, ComponentClass: { null }
+ComponentTemplate: BoxExtent: { X: 65, Y: 40, Z: 100 }
+AreaClass: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	CollisionEnabled: ECollisionEnabled::QueryAndPhysics
+	CollisionProfileName: BlockAllDynamic
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: Interactable
+			Response: ECR_Block
+			}, {
+			Channel: Slasher
+			Response: ECR_Block
+			}, {
+			Channel: Blood
+			Response: ECR_Block
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			}, {
+			Channel: Walkable
+			Response: ECR_Block
+			} ]
+		}
+	}
+RelativeLocation: { X: 0, Y: -5, Z: 102 }
+
+VariableGuid: 36d043f0-eb97-4566-9e77-cbf664807a9c
+InternalVariableName: Collision
+, ComponentClass: { null }
+ComponentTemplate: BoxExtent: { X: 50, Y: 50, Z: 100 }
+AreaClass: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	ObjectType: ECC_GameTraceChannel1
+	CollisionProfileName: Interactable
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	}
+RelativeLocation: { X: 0, Y: -90, Z: 100 }
+
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: RelativeLocation: { X: 0, Y: 0, Z: -100 }
+
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: RelativeRotation: { Pitch: 0, Roll: 90, Yaw: 0 }
+
+VariableGuid: 87193cd8-1f29-4328-8ec0-6a88f69c24c2
+InternalVariableName: ReloadHatchet
+ ]
+VariableGuid: 0ab5ab8b-237d-40a2-b101-df478d98cd17
+InternalVariableName: MainInteractor
+ ]
+VariableGuid: 77c22061-7d55-4718-b1e1-92f4bdf2086d
+InternalVariableName: InteractionZone
+, ComponentClass: { null }
+ComponentTemplate: RelativeLocation: { X: 0, Y: 0, Z: -100 }
+
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: RelativeRotation: { Pitch: 0, Roll: 90, Yaw: 0 }
+
+VariableGuid: 87193cd8-1f29-4328-8ec0-6a88f69c24c2
+InternalVariableName: ReloadHatchet
+ ]
+VariableGuid: 0ab5ab8b-237d-40a2-b101-df478d98cd17
+InternalVariableName: MainInteractor
+, ComponentClass: { null }
+ComponentTemplate: RelativeRotation: { Pitch: 0, Roll: 90, Yaw: 0 }
+
+VariableGuid: 87193cd8-1f29-4328-8ec0-6a88f69c24c2
+InternalVariableName: ReloadHatchet
+, ComponentClass: { null }
+ComponentTemplate: _animationMappingsTable: { null }
+
+VariableGuid: a876fb79-7103-43ad-9e84-702a1203b196
+InternalVariableName: MontagePlayer
+, ComponentClass: { null }
+ComponentTemplate: 
+VariableGuid: 0a52d43f-cfaf-4ec9-8df9-aed1e0780f93
+InternalVariableName: AnimationMontageSlave
+ ]
+DefaultSceneRootNode: ComponentClass: { null }
+ComponentTemplate: 
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: AnimClass: { null }
+ClothingSimulationFactory: { null }
+SkeletalMesh: { null }
+OverrideMaterials: [ { null }, { null } ]
+DetailLevelBeforeCastShadows: DM_MAX
+
+VariableGuid: aad1009f-0edc-48c8-9865-e83c99ce134a
+InternalVariableName: Model
+, ComponentClass: { null }
+ComponentTemplate: BoxExtent: { X: 65, Y: 40, Z: 100 }
+AreaClass: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	CollisionEnabled: ECollisionEnabled::QueryAndPhysics
+	CollisionProfileName: BlockAllDynamic
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: Interactable
+			Response: ECR_Block
+			}, {
+			Channel: Slasher
+			Response: ECR_Block
+			}, {
+			Channel: Blood
+			Response: ECR_Block
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			}, {
+			Channel: Walkable
+			Response: ECR_Block
+			} ]
+		}
+	}
+RelativeLocation: { X: 0, Y: -5, Z: 102 }
+
+VariableGuid: 36d043f0-eb97-4566-9e77-cbf664807a9c
+InternalVariableName: Collision
+, ComponentClass: { null }
+ComponentTemplate: BoxExtent: { X: 50, Y: 50, Z: 100 }
+AreaClass: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	ObjectType: ECC_GameTraceChannel1
+	CollisionProfileName: Interactable
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	}
+RelativeLocation: { X: 0, Y: -90, Z: 100 }
+
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: RelativeLocation: { X: 0, Y: 0, Z: -100 }
+
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: RelativeRotation: { Pitch: 0, Roll: 90, Yaw: 0 }
+
+VariableGuid: 87193cd8-1f29-4328-8ec0-6a88f69c24c2
+InternalVariableName: ReloadHatchet
+ ]
+VariableGuid: 0ab5ab8b-237d-40a2-b101-df478d98cd17
+InternalVariableName: MainInteractor
+ ]
+VariableGuid: 77c22061-7d55-4718-b1e1-92f4bdf2086d
+InternalVariableName: InteractionZone
+ ]
+VariableGuid: e6982fa2-43b2-4ed1-98e8-e55efc4c126b
+InternalVariableName: DefaultSceneRoot
+
+
 <--- CDO --->

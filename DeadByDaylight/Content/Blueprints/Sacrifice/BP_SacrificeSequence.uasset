@@ -1,682 +1,613 @@
-Timelines: [ { 
-    TimelineLength: 9f
-    bValidatedAsWired: True
-    FloatTracks: [ { 
-        CurveFloat: { 
-            FloatCurve: { 
-                Keys: [ { Time: 0.00317727, Value: 0, InterpMode: RCIM_Cubic }, { Time: 0.6, Value: 0.6, InterpMode: RCIM_Cubic }, { Time: 9, Value: 1, InterpMode: RCIM_Cubic } ]
-                 }
-             }
-        PropertyName: Dissolve_DissolveSize_B5CF30784FF84A856E00158ED96D0314
-        TrackName: DissolveSize
-        bIsExternalCurve: False
-         }, { 
-        CurveFloat: { 
-            FloatCurve: { 
-                Keys: [ { Time: 8, Value: 0.5, InterpMode: RCIM_Cubic }, { Time: 9, Value: 0, InterpMode: RCIM_Cubic } ]
-                 }
-             }
-        PropertyName: Dissolve_Fade_B5CF30784FF84A856E00158ED96D0314
-        TrackName: Fade
-        bIsExternalCurve: False
-         }, { 
-        CurveFloat: { 
-            FloatCurve: { 
-                Keys: [ { Time: 7.5, Value: 1, InterpMode: RCIM_Cubic }, { Time: 8, Value: 0, InterpMode: RCIM_Cubic } ]
-                 }
-             }
-        PropertyName: Dissolve_FadeColor_B5CF30784FF84A856E00158ED96D0314
-        TrackName: FadeColor
-        bIsExternalCurve: False
-         } ]
-    TimelineGuid: b5cf3078-4a85-4ff8-8e15-006e14036dd9
-    VariableName: Dissolve
-    DirectionPropertyName: Dissolve__Direction_B5CF30784FF84A856E00158ED96D0314
-    UpdateFunctionName: Dissolve__UpdateFunc
-    FinishedFunctionName: Dissolve__FinishedFunc
-     } ]
-SimpleConstructionScript: { 
-    RootNodes: [ { 
-        ComponentClass: Class /Script/Engine.SceneComponent
-        ComponentTemplate: { 
-             }
-        ChildNodes: [ { 
-            ComponentClass: Class /Script/Engine.PointLightComponent
-            ComponentTemplate: { 
-                AttenuationRadius: 50000f
-                MaxDrawDistance: 0f
-                MaxDistanceFadeRange: 0f
-                LightGuid: c6bfcba5-5742-42fa-b4ab-7e19462bb953
-                LightColor: { R: 254, G: 17, B: 0, A: 0 }
-                CastShadows: False
-                DetailLevelBeforeCastShadows: DM_MAX
-                DetailLevelBeforeCastDynamicShadows: ELightingDetailMode::High
-                bVisible: False
-                 }
-            VariableGuid: e18deb24-2402-4f3d-a694-2a980dbf11ee
-            InternalVariableName: PointLight
-             }, { 
-            ComponentClass: Class /Script/Engine.StaticMeshComponent
-            ComponentTemplate: { 
-                StaticMesh: StaticMesh /Engine/BasicShapes/Sphere.Sphere
-                bUseDefaultCollision: False
-                OverrideMaterials: [ Material /Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial ]
-                bGenerateOverlapEvents: False
-                CastShadow: False
-                DetailLevelBeforeCastShadows: DM_MAX
-                BodyInstance: { 
-                    ObjectType: ECC_WorldStatic
-                    CollisionEnabled: ECollisionEnabled::NoCollision
-                    CollisionProfileName: NoCollision
-                    CollisionResponses: { 
-                        ResponseArray: [ { 
-                            Channel: WorldStatic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: WorldDynamic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Pawn
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Visibility
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Camera
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: PhysicsBody
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Vehicle
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Destructible
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel2
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel3
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel4
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel5
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel6
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Interactable
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Audio
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Slasher
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Spider
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Traps
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: InteractionDetector
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: BlinkBlocker
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Ground
-                            Response: ECR_Ignore
-                             } ]
-                         }
-                    MassInKgOverride: 109.4563f
-                     }
-                bVisible: False
-                 }
-            VariableGuid: 5308be2a-7994-4f0a-8b32-24285fc9a912
-            InternalVariableName: Sphere
-             }, { 
-            ComponentClass: Class /Script/Engine.ParticleSystemComponent
-            ComponentTemplate: { 
-                Template: ParticleSystem /Game/Effects/ParticleSystems/Fx_MeatHookActivation.Fx_MeatHookActivation
-                DetailLevelBeforeCastShadows: DM_MAX
-                RelativeLocation: { X: 0, Y: 0, Z: 100 }
-                PrimaryComponentTick: { 
-                    bStartWithTickEnabled: False
-                     }
-                bAutoActivate: False
-                 }
-            VariableGuid: 85135dbe-4b49-4c99-a3e0-99799ee5a400
-            InternalVariableName: Fx_SacrificeActivation
-             }, { 
-            ComponentClass: Class /Script/Engine.ParticleSystemComponent
-            ComponentTemplate: { 
-                Template: ParticleSystem /Game/Effects/ParticleSystems/P_SacrificeDistortion.P_SacrificeDistortion
-                bOverrideLODMethod: True
-                DetailLevelBeforeCastShadows: DM_MAX
-                PrimaryComponentTick: { 
-                    bStartWithTickEnabled: False
-                     }
-                bAutoActivate: False
-                 }
-            VariableGuid: c9d87060-3560-4a48-9ca5-320661fa7a4c
-            InternalVariableName: P_SacrificeDistortion
-             }, { 
-            ComponentClass: Class /Script/Engine.ParticleSystemComponent
-            ComponentTemplate: { 
-                Template: ParticleSystem /Game/Effects/ParticleSystems/P_Sacrifice.P_Sacrifice
-                DetailLevelBeforeCastShadows: DM_MAX
-                PrimaryComponentTick: { 
-                    bStartWithTickEnabled: False
-                     }
-                bAutoActivate: False
-                 }
-            VariableGuid: 5efd36a2-9ada-4fa2-8297-746f175d0064
-            InternalVariableName: P_Sacrifice
-             }, { 
-            ComponentClass: Class /Script/GFXUtilities.MaterialHelper
-            ComponentTemplate: { 
-                 }
-            VariableGuid: e31f11e9-2188-4e1c-8e09-a7fb02044ec3
-            InternalVariableName: MaterialHelper
-             }, { 
-            ComponentClass: Class /Script/AkAudio.AkComponent
-            ComponentTemplate: { 
-                OcclusionRefreshInterval: 0.5f
-                ShouldTransmitRelativeAngle: True
-                OcclusionAffect: 30f
-                 }
-            VariableGuid: 94860228-a84f-4619-a5c9-80082884ffe0
-            InternalVariableName: Ak_Audio_Sacrifice
-             } ]
-        VariableGuid: 0dce9a2b-fa12-4940-b8e8-eebfb3a8ff8a
-        InternalVariableName: DefaultSceneRoot
-         } ]
-    AllNodes: [ { 
-        ComponentClass: Class /Script/Engine.SceneComponent
-        ComponentTemplate: { 
-             }
-        ChildNodes: [ { 
-            ComponentClass: Class /Script/Engine.PointLightComponent
-            ComponentTemplate: { 
-                AttenuationRadius: 50000f
-                MaxDrawDistance: 0f
-                MaxDistanceFadeRange: 0f
-                LightGuid: c6bfcba5-5742-42fa-b4ab-7e19462bb953
-                LightColor: { R: 254, G: 17, B: 0, A: 0 }
-                CastShadows: False
-                DetailLevelBeforeCastShadows: DM_MAX
-                DetailLevelBeforeCastDynamicShadows: ELightingDetailMode::High
-                bVisible: False
-                 }
-            VariableGuid: e18deb24-2402-4f3d-a694-2a980dbf11ee
-            InternalVariableName: PointLight
-             }, { 
-            ComponentClass: Class /Script/Engine.StaticMeshComponent
-            ComponentTemplate: { 
-                StaticMesh: StaticMesh /Engine/BasicShapes/Sphere.Sphere
-                bUseDefaultCollision: False
-                OverrideMaterials: [ Material /Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial ]
-                bGenerateOverlapEvents: False
-                CastShadow: False
-                DetailLevelBeforeCastShadows: DM_MAX
-                BodyInstance: { 
-                    ObjectType: ECC_WorldStatic
-                    CollisionEnabled: ECollisionEnabled::NoCollision
-                    CollisionProfileName: NoCollision
-                    CollisionResponses: { 
-                        ResponseArray: [ { 
-                            Channel: WorldStatic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: WorldDynamic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Pawn
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Visibility
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Camera
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: PhysicsBody
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Vehicle
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Destructible
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel2
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel3
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel4
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel5
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel6
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Interactable
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Audio
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Slasher
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Spider
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Traps
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: InteractionDetector
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: BlinkBlocker
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Ground
-                            Response: ECR_Ignore
-                             } ]
-                         }
-                    MassInKgOverride: 109.4563f
-                     }
-                bVisible: False
-                 }
-            VariableGuid: 5308be2a-7994-4f0a-8b32-24285fc9a912
-            InternalVariableName: Sphere
-             }, { 
-            ComponentClass: Class /Script/Engine.ParticleSystemComponent
-            ComponentTemplate: { 
-                Template: ParticleSystem /Game/Effects/ParticleSystems/Fx_MeatHookActivation.Fx_MeatHookActivation
-                DetailLevelBeforeCastShadows: DM_MAX
-                RelativeLocation: { X: 0, Y: 0, Z: 100 }
-                PrimaryComponentTick: { 
-                    bStartWithTickEnabled: False
-                     }
-                bAutoActivate: False
-                 }
-            VariableGuid: 85135dbe-4b49-4c99-a3e0-99799ee5a400
-            InternalVariableName: Fx_SacrificeActivation
-             }, { 
-            ComponentClass: Class /Script/Engine.ParticleSystemComponent
-            ComponentTemplate: { 
-                Template: ParticleSystem /Game/Effects/ParticleSystems/P_SacrificeDistortion.P_SacrificeDistortion
-                bOverrideLODMethod: True
-                DetailLevelBeforeCastShadows: DM_MAX
-                PrimaryComponentTick: { 
-                    bStartWithTickEnabled: False
-                     }
-                bAutoActivate: False
-                 }
-            VariableGuid: c9d87060-3560-4a48-9ca5-320661fa7a4c
-            InternalVariableName: P_SacrificeDistortion
-             }, { 
-            ComponentClass: Class /Script/Engine.ParticleSystemComponent
-            ComponentTemplate: { 
-                Template: ParticleSystem /Game/Effects/ParticleSystems/P_Sacrifice.P_Sacrifice
-                DetailLevelBeforeCastShadows: DM_MAX
-                PrimaryComponentTick: { 
-                    bStartWithTickEnabled: False
-                     }
-                bAutoActivate: False
-                 }
-            VariableGuid: 5efd36a2-9ada-4fa2-8297-746f175d0064
-            InternalVariableName: P_Sacrifice
-             }, { 
-            ComponentClass: Class /Script/GFXUtilities.MaterialHelper
-            ComponentTemplate: { 
-                 }
-            VariableGuid: e31f11e9-2188-4e1c-8e09-a7fb02044ec3
-            InternalVariableName: MaterialHelper
-             }, { 
-            ComponentClass: Class /Script/AkAudio.AkComponent
-            ComponentTemplate: { 
-                OcclusionRefreshInterval: 0.5f
-                ShouldTransmitRelativeAngle: True
-                OcclusionAffect: 30f
-                 }
-            VariableGuid: 94860228-a84f-4619-a5c9-80082884ffe0
-            InternalVariableName: Ak_Audio_Sacrifice
-             } ]
-        VariableGuid: 0dce9a2b-fa12-4940-b8e8-eebfb3a8ff8a
-        InternalVariableName: DefaultSceneRoot
-         }, { 
-        ComponentClass: Class /Script/Engine.PointLightComponent
-        ComponentTemplate: { 
-            AttenuationRadius: 50000f
-            MaxDrawDistance: 0f
-            MaxDistanceFadeRange: 0f
-            LightGuid: c6bfcba5-5742-42fa-b4ab-7e19462bb953
-            LightColor: { R: 254, G: 17, B: 0, A: 0 }
-            CastShadows: False
-            DetailLevelBeforeCastShadows: DM_MAX
-            DetailLevelBeforeCastDynamicShadows: ELightingDetailMode::High
-            bVisible: False
-             }
-        VariableGuid: e18deb24-2402-4f3d-a694-2a980dbf11ee
-        InternalVariableName: PointLight
-         }, { 
-        ComponentClass: Class /Script/Engine.StaticMeshComponent
-        ComponentTemplate: { 
-            StaticMesh: StaticMesh /Engine/BasicShapes/Sphere.Sphere
-            bUseDefaultCollision: False
-            OverrideMaterials: [ Material /Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial ]
-            bGenerateOverlapEvents: False
-            CastShadow: False
-            DetailLevelBeforeCastShadows: DM_MAX
-            BodyInstance: { 
-                ObjectType: ECC_WorldStatic
-                CollisionEnabled: ECollisionEnabled::NoCollision
-                CollisionProfileName: NoCollision
-                CollisionResponses: { 
-                    ResponseArray: [ { 
-                        Channel: WorldStatic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: WorldDynamic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Pawn
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Visibility
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Camera
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: PhysicsBody
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Vehicle
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Destructible
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel2
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel3
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel4
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel5
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel6
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Interactable
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Audio
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Slasher
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Spider
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Traps
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: InteractionDetector
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: BlinkBlocker
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Ground
-                        Response: ECR_Ignore
-                         } ]
-                     }
-                MassInKgOverride: 109.4563f
-                 }
-            bVisible: False
-             }
-        VariableGuid: 5308be2a-7994-4f0a-8b32-24285fc9a912
-        InternalVariableName: Sphere
-         }, { 
-        ComponentClass: Class /Script/Engine.ParticleSystemComponent
-        ComponentTemplate: { 
-            Template: ParticleSystem /Game/Effects/ParticleSystems/Fx_MeatHookActivation.Fx_MeatHookActivation
-            DetailLevelBeforeCastShadows: DM_MAX
-            RelativeLocation: { X: 0, Y: 0, Z: 100 }
-            PrimaryComponentTick: { 
-                bStartWithTickEnabled: False
-                 }
-            bAutoActivate: False
-             }
-        VariableGuid: 85135dbe-4b49-4c99-a3e0-99799ee5a400
-        InternalVariableName: Fx_SacrificeActivation
-         }, { 
-        ComponentClass: Class /Script/Engine.ParticleSystemComponent
-        ComponentTemplate: { 
-            Template: ParticleSystem /Game/Effects/ParticleSystems/P_SacrificeDistortion.P_SacrificeDistortion
-            bOverrideLODMethod: True
-            DetailLevelBeforeCastShadows: DM_MAX
-            PrimaryComponentTick: { 
-                bStartWithTickEnabled: False
-                 }
-            bAutoActivate: False
-             }
-        VariableGuid: c9d87060-3560-4a48-9ca5-320661fa7a4c
-        InternalVariableName: P_SacrificeDistortion
-         }, { 
-        ComponentClass: Class /Script/Engine.ParticleSystemComponent
-        ComponentTemplate: { 
-            Template: ParticleSystem /Game/Effects/ParticleSystems/P_Sacrifice.P_Sacrifice
-            DetailLevelBeforeCastShadows: DM_MAX
-            PrimaryComponentTick: { 
-                bStartWithTickEnabled: False
-                 }
-            bAutoActivate: False
-             }
-        VariableGuid: 5efd36a2-9ada-4fa2-8297-746f175d0064
-        InternalVariableName: P_Sacrifice
-         }, { 
-        ComponentClass: Class /Script/GFXUtilities.MaterialHelper
-        ComponentTemplate: { 
-             }
-        VariableGuid: e31f11e9-2188-4e1c-8e09-a7fb02044ec3
-        InternalVariableName: MaterialHelper
-         }, { 
-        ComponentClass: Class /Script/AkAudio.AkComponent
-        ComponentTemplate: { 
-            OcclusionRefreshInterval: 0.5f
-            ShouldTransmitRelativeAngle: True
-            OcclusionAffect: 30f
-             }
-        VariableGuid: 94860228-a84f-4619-a5c9-80082884ffe0
-        InternalVariableName: Ak_Audio_Sacrifice
-         } ]
-    DefaultSceneRootNode: { 
-        ComponentClass: Class /Script/Engine.SceneComponent
-        ComponentTemplate: { 
-             }
-        ChildNodes: [ { 
-            ComponentClass: Class /Script/Engine.PointLightComponent
-            ComponentTemplate: { 
-                AttenuationRadius: 50000f
-                MaxDrawDistance: 0f
-                MaxDistanceFadeRange: 0f
-                LightGuid: c6bfcba5-5742-42fa-b4ab-7e19462bb953
-                LightColor: { R: 254, G: 17, B: 0, A: 0 }
-                CastShadows: False
-                DetailLevelBeforeCastShadows: DM_MAX
-                DetailLevelBeforeCastDynamicShadows: ELightingDetailMode::High
-                bVisible: False
-                 }
-            VariableGuid: e18deb24-2402-4f3d-a694-2a980dbf11ee
-            InternalVariableName: PointLight
-             }, { 
-            ComponentClass: Class /Script/Engine.StaticMeshComponent
-            ComponentTemplate: { 
-                StaticMesh: StaticMesh /Engine/BasicShapes/Sphere.Sphere
-                bUseDefaultCollision: False
-                OverrideMaterials: [ Material /Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial ]
-                bGenerateOverlapEvents: False
-                CastShadow: False
-                DetailLevelBeforeCastShadows: DM_MAX
-                BodyInstance: { 
-                    ObjectType: ECC_WorldStatic
-                    CollisionEnabled: ECollisionEnabled::NoCollision
-                    CollisionProfileName: NoCollision
-                    CollisionResponses: { 
-                        ResponseArray: [ { 
-                            Channel: WorldStatic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: WorldDynamic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Pawn
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Visibility
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Camera
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: PhysicsBody
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Vehicle
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Destructible
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel2
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel3
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel4
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel5
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel6
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Interactable
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Audio
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Slasher
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Spider
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Traps
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: InteractionDetector
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: BlinkBlocker
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Ground
-                            Response: ECR_Ignore
-                             } ]
-                         }
-                    MassInKgOverride: 109.4563f
-                     }
-                bVisible: False
-                 }
-            VariableGuid: 5308be2a-7994-4f0a-8b32-24285fc9a912
-            InternalVariableName: Sphere
-             }, { 
-            ComponentClass: Class /Script/Engine.ParticleSystemComponent
-            ComponentTemplate: { 
-                Template: ParticleSystem /Game/Effects/ParticleSystems/Fx_MeatHookActivation.Fx_MeatHookActivation
-                DetailLevelBeforeCastShadows: DM_MAX
-                RelativeLocation: { X: 0, Y: 0, Z: 100 }
-                PrimaryComponentTick: { 
-                    bStartWithTickEnabled: False
-                     }
-                bAutoActivate: False
-                 }
-            VariableGuid: 85135dbe-4b49-4c99-a3e0-99799ee5a400
-            InternalVariableName: Fx_SacrificeActivation
-             }, { 
-            ComponentClass: Class /Script/Engine.ParticleSystemComponent
-            ComponentTemplate: { 
-                Template: ParticleSystem /Game/Effects/ParticleSystems/P_SacrificeDistortion.P_SacrificeDistortion
-                bOverrideLODMethod: True
-                DetailLevelBeforeCastShadows: DM_MAX
-                PrimaryComponentTick: { 
-                    bStartWithTickEnabled: False
-                     }
-                bAutoActivate: False
-                 }
-            VariableGuid: c9d87060-3560-4a48-9ca5-320661fa7a4c
-            InternalVariableName: P_SacrificeDistortion
-             }, { 
-            ComponentClass: Class /Script/Engine.ParticleSystemComponent
-            ComponentTemplate: { 
-                Template: ParticleSystem /Game/Effects/ParticleSystems/P_Sacrifice.P_Sacrifice
-                DetailLevelBeforeCastShadows: DM_MAX
-                PrimaryComponentTick: { 
-                    bStartWithTickEnabled: False
-                     }
-                bAutoActivate: False
-                 }
-            VariableGuid: 5efd36a2-9ada-4fa2-8297-746f175d0064
-            InternalVariableName: P_Sacrifice
-             }, { 
-            ComponentClass: Class /Script/GFXUtilities.MaterialHelper
-            ComponentTemplate: { 
-                 }
-            VariableGuid: e31f11e9-2188-4e1c-8e09-a7fb02044ec3
-            InternalVariableName: MaterialHelper
-             }, { 
-            ComponentClass: Class /Script/AkAudio.AkComponent
-            ComponentTemplate: { 
-                OcclusionRefreshInterval: 0.5f
-                ShouldTransmitRelativeAngle: True
-                OcclusionAffect: 30f
-                 }
-            VariableGuid: 94860228-a84f-4619-a5c9-80082884ffe0
-            InternalVariableName: Ak_Audio_Sacrifice
-             } ]
-        VariableGuid: 0dce9a2b-fa12-4940-b8e8-eebfb3a8ff8a
-        InternalVariableName: DefaultSceneRoot
-         }
-     }
-UberGraphFramePointerProperty: { 
-     }
-UberGraphFunction: { 
-     }
+Timelines: [ TimelineLength: 9f
+bValidatedAsWired: True
+FloatTracks: [ {
+	CurveFloat: FloatCurve: {
+		Keys: [ { Time: 0.00317727, Value: 0, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] }, { Time: 0.6, Value: 0.6, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] }, { Time: 9, Value: 1, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] } ]
+		}
+	
+	PropertyName: Dissolve_DissolveSize_B5CF30784FF84A856E00158ED96D0314
+	TrackName: DissolveSize
+	bIsExternalCurve: False
+	}, {
+	CurveFloat: FloatCurve: {
+		Keys: [ { Time: 8, Value: 0.5, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] }, { Time: 9, Value: 0, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] } ]
+		}
+	
+	PropertyName: Dissolve_Fade_B5CF30784FF84A856E00158ED96D0314
+	TrackName: Fade
+	bIsExternalCurve: False
+	}, {
+	CurveFloat: FloatCurve: {
+		Keys: [ { Time: 7.5, Value: 1, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] }, { Time: 8, Value: 0, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] } ]
+		}
+	
+	PropertyName: Dissolve_FadeColor_B5CF30784FF84A856E00158ED96D0314
+	TrackName: FadeColor
+	bIsExternalCurve: False
+	} ]
+TimelineGuid: b5cf3078-4a85-4ff8-8e15-006e14036dd9
+VariableName: Dissolve
+DirectionPropertyName: Dissolve__Direction_B5CF30784FF84A856E00158ED96D0314
+UpdateFunctionName: Dissolve__UpdateFunc
+FinishedFunctionName: Dissolve__FinishedFunc
+ ]
+SimpleConstructionScript: RootNodes: [ ComponentClass: { null }
+ComponentTemplate: 
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: AttenuationRadius: 50000f
+MaxDrawDistance: 0f
+MaxDistanceFadeRange: 0f
+LightGuid: c6bfcba5-5742-42fa-b4ab-7e19462bb953
+LightColor: { R: 254, G: 17, B: 0, A: 0 }
+CastShadows: False
+DetailLevelBeforeCastShadows: DM_MAX
+DetailLevelBeforeCastDynamicShadows: ELightingDetailMode::High
+bVisible: False
+
+VariableGuid: e18deb24-2402-4f3d-a694-2a980dbf11ee
+InternalVariableName: PointLight
+, ComponentClass: { null }
+ComponentTemplate: StaticMesh: { null }
+bUseDefaultCollision: False
+OverrideMaterials: [ { null } ]
+bGenerateOverlapEvents: False
+CastShadow: False
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	ObjectType: ECC_WorldStatic
+	CollisionEnabled: ECollisionEnabled::NoCollision
+	CollisionProfileName: NoCollision
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	MassInKgOverride: 109.4563f
+	}
+bVisible: False
+
+VariableGuid: 5308be2a-7994-4f0a-8b32-24285fc9a912
+InternalVariableName: Sphere
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+RelativeLocation: { X: 0, Y: 0, Z: 100 }
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: 85135dbe-4b49-4c99-a3e0-99799ee5a400
+InternalVariableName: Fx_SacrificeActivation
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+bOverrideLODMethod: True
+DetailLevelBeforeCastShadows: DM_MAX
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: c9d87060-3560-4a48-9ca5-320661fa7a4c
+InternalVariableName: P_SacrificeDistortion
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: 5efd36a2-9ada-4fa2-8297-746f175d0064
+InternalVariableName: P_Sacrifice
+, ComponentClass: { null }
+ComponentTemplate: 
+VariableGuid: e31f11e9-2188-4e1c-8e09-a7fb02044ec3
+InternalVariableName: MaterialHelper
+, ComponentClass: { null }
+ComponentTemplate: OcclusionRefreshInterval: 0.5f
+ShouldTransmitRelativeAngle: True
+OcclusionAffect: 30f
+
+VariableGuid: 94860228-a84f-4619-a5c9-80082884ffe0
+InternalVariableName: Ak_Audio_Sacrifice
+ ]
+VariableGuid: 0dce9a2b-fa12-4940-b8e8-eebfb3a8ff8a
+InternalVariableName: DefaultSceneRoot
+ ]
+AllNodes: [ ComponentClass: { null }
+ComponentTemplate: 
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: AttenuationRadius: 50000f
+MaxDrawDistance: 0f
+MaxDistanceFadeRange: 0f
+LightGuid: c6bfcba5-5742-42fa-b4ab-7e19462bb953
+LightColor: { R: 254, G: 17, B: 0, A: 0 }
+CastShadows: False
+DetailLevelBeforeCastShadows: DM_MAX
+DetailLevelBeforeCastDynamicShadows: ELightingDetailMode::High
+bVisible: False
+
+VariableGuid: e18deb24-2402-4f3d-a694-2a980dbf11ee
+InternalVariableName: PointLight
+, ComponentClass: { null }
+ComponentTemplate: StaticMesh: { null }
+bUseDefaultCollision: False
+OverrideMaterials: [ { null } ]
+bGenerateOverlapEvents: False
+CastShadow: False
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	ObjectType: ECC_WorldStatic
+	CollisionEnabled: ECollisionEnabled::NoCollision
+	CollisionProfileName: NoCollision
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	MassInKgOverride: 109.4563f
+	}
+bVisible: False
+
+VariableGuid: 5308be2a-7994-4f0a-8b32-24285fc9a912
+InternalVariableName: Sphere
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+RelativeLocation: { X: 0, Y: 0, Z: 100 }
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: 85135dbe-4b49-4c99-a3e0-99799ee5a400
+InternalVariableName: Fx_SacrificeActivation
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+bOverrideLODMethod: True
+DetailLevelBeforeCastShadows: DM_MAX
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: c9d87060-3560-4a48-9ca5-320661fa7a4c
+InternalVariableName: P_SacrificeDistortion
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: 5efd36a2-9ada-4fa2-8297-746f175d0064
+InternalVariableName: P_Sacrifice
+, ComponentClass: { null }
+ComponentTemplate: 
+VariableGuid: e31f11e9-2188-4e1c-8e09-a7fb02044ec3
+InternalVariableName: MaterialHelper
+, ComponentClass: { null }
+ComponentTemplate: OcclusionRefreshInterval: 0.5f
+ShouldTransmitRelativeAngle: True
+OcclusionAffect: 30f
+
+VariableGuid: 94860228-a84f-4619-a5c9-80082884ffe0
+InternalVariableName: Ak_Audio_Sacrifice
+ ]
+VariableGuid: 0dce9a2b-fa12-4940-b8e8-eebfb3a8ff8a
+InternalVariableName: DefaultSceneRoot
+, ComponentClass: { null }
+ComponentTemplate: AttenuationRadius: 50000f
+MaxDrawDistance: 0f
+MaxDistanceFadeRange: 0f
+LightGuid: c6bfcba5-5742-42fa-b4ab-7e19462bb953
+LightColor: { R: 254, G: 17, B: 0, A: 0 }
+CastShadows: False
+DetailLevelBeforeCastShadows: DM_MAX
+DetailLevelBeforeCastDynamicShadows: ELightingDetailMode::High
+bVisible: False
+
+VariableGuid: e18deb24-2402-4f3d-a694-2a980dbf11ee
+InternalVariableName: PointLight
+, ComponentClass: { null }
+ComponentTemplate: StaticMesh: { null }
+bUseDefaultCollision: False
+OverrideMaterials: [ { null } ]
+bGenerateOverlapEvents: False
+CastShadow: False
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	ObjectType: ECC_WorldStatic
+	CollisionEnabled: ECollisionEnabled::NoCollision
+	CollisionProfileName: NoCollision
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	MassInKgOverride: 109.4563f
+	}
+bVisible: False
+
+VariableGuid: 5308be2a-7994-4f0a-8b32-24285fc9a912
+InternalVariableName: Sphere
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+RelativeLocation: { X: 0, Y: 0, Z: 100 }
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: 85135dbe-4b49-4c99-a3e0-99799ee5a400
+InternalVariableName: Fx_SacrificeActivation
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+bOverrideLODMethod: True
+DetailLevelBeforeCastShadows: DM_MAX
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: c9d87060-3560-4a48-9ca5-320661fa7a4c
+InternalVariableName: P_SacrificeDistortion
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: 5efd36a2-9ada-4fa2-8297-746f175d0064
+InternalVariableName: P_Sacrifice
+, ComponentClass: { null }
+ComponentTemplate: 
+VariableGuid: e31f11e9-2188-4e1c-8e09-a7fb02044ec3
+InternalVariableName: MaterialHelper
+, ComponentClass: { null }
+ComponentTemplate: OcclusionRefreshInterval: 0.5f
+ShouldTransmitRelativeAngle: True
+OcclusionAffect: 30f
+
+VariableGuid: 94860228-a84f-4619-a5c9-80082884ffe0
+InternalVariableName: Ak_Audio_Sacrifice
+ ]
+DefaultSceneRootNode: ComponentClass: { null }
+ComponentTemplate: 
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: AttenuationRadius: 50000f
+MaxDrawDistance: 0f
+MaxDistanceFadeRange: 0f
+LightGuid: c6bfcba5-5742-42fa-b4ab-7e19462bb953
+LightColor: { R: 254, G: 17, B: 0, A: 0 }
+CastShadows: False
+DetailLevelBeforeCastShadows: DM_MAX
+DetailLevelBeforeCastDynamicShadows: ELightingDetailMode::High
+bVisible: False
+
+VariableGuid: e18deb24-2402-4f3d-a694-2a980dbf11ee
+InternalVariableName: PointLight
+, ComponentClass: { null }
+ComponentTemplate: StaticMesh: { null }
+bUseDefaultCollision: False
+OverrideMaterials: [ { null } ]
+bGenerateOverlapEvents: False
+CastShadow: False
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	ObjectType: ECC_WorldStatic
+	CollisionEnabled: ECollisionEnabled::NoCollision
+	CollisionProfileName: NoCollision
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	MassInKgOverride: 109.4563f
+	}
+bVisible: False
+
+VariableGuid: 5308be2a-7994-4f0a-8b32-24285fc9a912
+InternalVariableName: Sphere
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+RelativeLocation: { X: 0, Y: 0, Z: 100 }
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: 85135dbe-4b49-4c99-a3e0-99799ee5a400
+InternalVariableName: Fx_SacrificeActivation
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+bOverrideLODMethod: True
+DetailLevelBeforeCastShadows: DM_MAX
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: c9d87060-3560-4a48-9ca5-320661fa7a4c
+InternalVariableName: P_SacrificeDistortion
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: 5efd36a2-9ada-4fa2-8297-746f175d0064
+InternalVariableName: P_Sacrifice
+, ComponentClass: { null }
+ComponentTemplate: 
+VariableGuid: e31f11e9-2188-4e1c-8e09-a7fb02044ec3
+InternalVariableName: MaterialHelper
+, ComponentClass: { null }
+ComponentTemplate: OcclusionRefreshInterval: 0.5f
+ShouldTransmitRelativeAngle: True
+OcclusionAffect: 30f
+
+VariableGuid: 94860228-a84f-4619-a5c9-80082884ffe0
+InternalVariableName: Ak_Audio_Sacrifice
+ ]
+VariableGuid: 0dce9a2b-fa12-4940-b8e8-eebfb3a8ff8a
+InternalVariableName: DefaultSceneRoot
+
+
+UberGraphFramePointerProperty: 
+UberGraphFunction: 
 <--- CDO --->
 UberGraphFrame: 168
 MaxGlowIntensity: 5000000f

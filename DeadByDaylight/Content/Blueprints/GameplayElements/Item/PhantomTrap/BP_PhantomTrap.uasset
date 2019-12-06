@@ -1,2162 +1,1998 @@
 NumReplicatedProperties: 1
-DynamicBindingObjects: [ { 
-    ComponentDelegateBindings: [ { 
-        ComponentPropertyName: FlashLightable
-        DelegatePropertyName: OnAuthorityChargeComplete
-        FunctionNameToBind: BndEvt__FlashLightable_K2Node_ComponentBoundEvent_0_OnLitChargeComplete__DelegateSignature
-         }, { 
-        ComponentPropertyName: TriggerZone
-        DelegatePropertyName: OnComponentEndOverlap
-        FunctionNameToBind: BndEvt__TriggerZone_K2Node_ComponentBoundEvent_171_ComponentEndOverlapSignature__DelegateSignature
-         }, { 
-        ComponentPropertyName: TriggerZone
-        DelegatePropertyName: OnComponentBeginOverlap
-        FunctionNameToBind: BndEvt__TriggerZone_K2Node_ComponentBoundEvent_168_ComponentBeginOverlapSignature__DelegateSignature
-         } ]
-     } ]
-Timelines: [ { 
-    TimelineLength: 1f
-    bValidatedAsWired: True
-    FloatTracks: [ { 
-        CurveFloat: { 
-            FloatCurve: { 
-                Keys: [ { Time: 0, Value: 0.7, InterpMode: RCIM_Cubic }, { Time: 1, Value: 0.1, InterpMode: RCIM_Cubic } ]
-                 }
-             }
-        PropertyName: Melt_Dissolve_31EDCED94C9AC05D9F81058A77E6E007
-        TrackName: Dissolve
-        bIsExternalCurve: False
-         }, { 
-        CurveFloat: { 
-            FloatCurve: { 
-                Keys: [ { Time: 0, Value: 0, InterpMode: RCIM_Cubic }, { Time: 0.3, Value: 0.5, InterpMode: RCIM_Linear } ]
-                 }
-             }
-        PropertyName: Melt_Mud_31EDCED94C9AC05D9F81058A77E6E007
-        TrackName: Mud
-        bIsExternalCurve: False
-         } ]
-    TimelineGuid: 31edced9-c05d-4c9a-8a05-819f07e0e677
-    VariableName: Melt
-    DirectionPropertyName: Melt__Direction_31EDCED94C9AC05D9F81058A77E6E007
-    UpdateFunctionName: Melt__UpdateFunc
-    FinishedFunctionName: Melt__FinishedFunc
-     }, { 
-    TimelineLength: 1f
-    bValidatedAsWired: True
-    FloatTracks: [ { 
-        CurveFloat: { 
-            FloatCurve: { 
-                Keys: [ { Time: 0, Value: 0.7, InterpMode: RCIM_Cubic }, { Time: 0.3, Value: 0.1, InterpMode: RCIM_Cubic } ]
-                 }
-             }
-        PropertyName: Dust_Dissolve_264E979A4F8E1BEDB1D6B2A24F498BDC
-        TrackName: Dissolve
-        bIsExternalCurve: False
-         } ]
-    TimelineGuid: 264e979a-1bed-4f8e-a2b2-d6b1dc8b494f
-    VariableName: Dust
-    DirectionPropertyName: Dust__Direction_264E979A4F8E1BEDB1D6B2A24F498BDC
-    UpdateFunctionName: Dust__UpdateFunc
-    FinishedFunctionName: Dust__FinishedFunc
-     }, { 
-    TimelineLength: 0.5f
-    bValidatedAsWired: True
-    FloatTracks: [ { 
-        CurveFloat: { 
-            FloatCurve: { 
-                Keys: [ { Time: 0, Value: 1.1, InterpMode: RCIM_Linear }, { Time: 0.5, Value: 0, InterpMode: RCIM_Linear } ]
-                 }
-             }
-        PropertyName: TrapDecalDestroy_01_A03E0AD14F6AA345821A4298715A9B38
-        TrackName: 01
-        bIsExternalCurve: False
-         } ]
-    TimelineGuid: a03e0ad1-a345-4f6a-9842-1a82389b5a71
-    VariableName: TrapDecalDestroy
-    DirectionPropertyName: TrapDecalDestroy__Direction_A03E0AD14F6AA345821A4298715A9B38
-    UpdateFunctionName: TrapDecalDestroy__UpdateFunc
-    FinishedFunctionName: TrapDecalDestroy__FinishedFunc
-     } ]
-SimpleConstructionScript: { 
-    RootNodes: [ { 
-        ComponentClass: Class /Script/DeadByDaylight.MapActorComponent
-        ComponentTemplate: { 
-            Category: EMapActorCategory::KillerObject
-             }
-        VariableGuid: 9833165f-f0c8-4563-8193-83663fd00597
-        InternalVariableName: MapActor
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.CustomizedSkeletalMesh
-        ComponentTemplate: { 
-            SlaveAnimInstanceClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Animations/SlasherAnimSlaveFemale.SlasherAnimSlaveFemale_C
-            _characterIdOverride: 268435460
-             }
-        VariableGuid: 0bb17cd4-e39b-4c36-834d-282fb0307239
-        InternalVariableName: CustomizedSkeletalMesh
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.FirecrackerEffectHandlerComponent
-        ComponentTemplate: { 
-             }
-        VariableGuid: a103a032-37ad-41e0-aa40-2fe45bb5e147
-        InternalVariableName: FirecrackerEffectHandler
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.Interactor
-        ComponentTemplate: { 
-             }
-        ParentComponentOrVariableName: Terror Radius Component
-        bIsParentComponentNative: True
-        ChildNodes: [ { 
-            ComponentClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.TeleportToPhantomTrap_C
-            ComponentTemplate: { 
-                 }
-            VariableGuid: b4662e43-d352-41d3-b3c3-bd92f3e07f3a
-            InternalVariableName: TeleportToPhantomTrap
-             } ]
-        VariableGuid: fab55c3e-61b2-4312-9046-7ce306c4cdb3
-        InternalVariableName: SlasherInteractor
-         }, { 
-        ComponentClass: Class /Script/Engine.SphereComponent
-        ComponentTemplate: { 
-            SphereRadius: 300f
-            AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
-            DetailLevelBeforeCastShadows: DM_MAX
-            CanCharacterStepUpOn: ECB_No
-            BodyInstance: { 
-                ObjectType: ECC_GameTraceChannel1
-                CollisionProfileName: Custom
-                CollisionResponses: { 
-                    ResponseArray: [ { 
-                        Channel: EngineTraceChannel2
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel3
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel4
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel5
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel6
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: InteractionDetector
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Pawn
-                        Response: ECR_Overlap
-                         }, { 
-                        Channel: Vehicle
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Interactable
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Audio
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Camera
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: WorldStatic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: WorldDynamic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Visibility
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: PhysicsBody
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Destructible
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Slasher
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Spider
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Traps
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: BlinkBlocker
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Ground
-                        Response: ECR_Ignore
-                         } ]
-                     }
-                MassInKgOverride: 6167.102f
-                 }
-            bCanEverAffectNavigation: False
-             }
-        ParentComponentOrVariableName: Terror Radius Component
-        bIsParentComponentNative: True
-        VariableGuid: fd4c4f6c-cbec-48e2-950e-31883a4478aa
-        InternalVariableName: TriggerZone
-         }, { 
-        ComponentClass: Class /Script/Engine.SceneComponent
-        ComponentTemplate: { 
-             }
-        ParentComponentOrVariableName: Terror Radius Component
-        bIsParentComponentNative: True
-        ChildNodes: [ { 
-            ComponentClass: Class /Script/Engine.SkeletalMeshComponent
-            ComponentTemplate: { 
-                AnimClass: AnimBlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/PhantomTrap/AB_Phantom.AB_Phantom_C
-                ClothingSimulationFactory: Class /Script/ClothingSystemRuntime.ClothingSimulationFactoryNv
-                SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Witch/Models/WI_DSkeleton_REF.WI_DSkeleton_REF
-                DetailLevelBeforeCastShadows: DM_MAX
-                bRenderCustomDepth: True
-                BodyInstance: { 
-                    ObjectType: ECC_Pawn
-                    CollisionProfileName: Custom
-                    CollisionResponses: { 
-                        ResponseArray: [ { 
-                            Channel: WorldStatic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: WorldDynamic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Visibility
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Camera
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: PhysicsBody
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Vehicle
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Destructible
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel1
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel2
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel3
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel4
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel5
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel6
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Interactable
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Audio
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Slasher
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Spider
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Traps
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: InteractionDetector
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: BlinkBlocker
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Ground
-                            Response: ECR_Ignore
-                             } ]
-                         }
-                    MassInKgOverride: 59.77126f
-                     }
-                RelativeRotation: { Pitch: 0, Roll: -90, Yaw: 0 }
-                bVisible: False
-                 }
-            ChildNodes: [ { 
-                ComponentClass: Class /Script/GFXUtilities.MaterialHelper
-                ComponentTemplate: { 
-                    Groups: [ { 
-                        GroupName: Dissolve
-                        Maps: [ { 
-                            SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher.M_Slasher
-                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Dissolve.MV_Slasher_Dissolve
-                             }, { 
-                            SrcMaterial: Material /Game/Characters/Campers/Materials/M_Hair.M_Hair
-                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_Hair_Dissolve.MI_Hair_Dissolve
-                             }, { 
-                            SrcMaterial: Material /Game/Characters/Slashers/Materials/M_SlasherBlood.M_SlasherBlood
-                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_SlasherBlood_Dissolve.MV_SlasherBlood_Dissolve
-                             }, { 
-                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Dither.MI_Slasher_Dither
-                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Dissolve.MV_Slasher_Dissolve
-                             }, { 
-                            SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher_Cust.M_Slasher_Cust
-                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Cust_Dissolve.MV_Slasher_Cust_Dissolve
-                             } ]
-                         } ]
-                    RelativeLocation: { X: 0, Y: 0, Z: 101.7689 }
-                    RelativeRotation: { Pitch: 0, Roll: 180, Yaw: 0 }
-                     }
-                VariableGuid: cd586391-097c-4c18-aa72-3e8b6c4a09c7
-                InternalVariableName: MaterialHelper
-                 }, { 
-                ComponentClass: Class /Script/Engine.ParticleSystemComponent
-                ComponentTemplate: { 
-                    Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_MudParts.P_MudParts
-                    InstanceParameters: [ { 
-                        Name: VertSurfaceActor
-                        ParamType: PSPT_Actor
-                        Scalar: 0f
-                        Scalar_Low: 0f
-                        Vector: { X: 0, Y: 0, Z: 0 }
-                        Vector_Low: { X: 0, Y: 0, Z: 0 }
-                        Color: { R: 0, G: 0, B: 0, A: 0 }
-                        Actor: 
-                        Material: 
-                         } ]
-                    WarmupTime: 5f
-                    DetailLevelBeforeCastShadows: DM_MAX
-                    PrimaryComponentTick: { 
-                        bStartWithTickEnabled: False
-                         }
-                    bAutoActivate: False
-                     }
-                VariableGuid: edab443e-72c7-417e-9797-0c75bf746d7f
-                InternalVariableName: P_MudParts
-                 }, { 
-                ComponentClass: Class /Script/Engine.ParticleSystemComponent
-                ComponentTemplate: { 
-                    Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_MudFalling.P_MudFalling
-                    DetailLevelBeforeCastShadows: DM_MAX
-                    PrimaryComponentTick: { 
-                        bStartWithTickEnabled: False
-                         }
-                    bAutoActivate: False
-                     }
-                VariableGuid: 3886e5db-1bc8-498d-a565-b2ee8ab5ad0a
-                InternalVariableName: P_MudFalling
-                 }, { 
-                ComponentClass: Class /Script/Engine.ParticleSystemComponent
-                ComponentTemplate: { 
-                    Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_MudBlast.P_MudBlast
-                    DetailLevelBeforeCastShadows: DM_MAX
-                    PrimaryComponentTick: { 
-                        bStartWithTickEnabled: False
-                         }
-                    bAutoActivate: False
-                     }
-                VariableGuid: ae3593a4-b6fd-48ab-9d93-1c0577183d73
-                InternalVariableName: P_MudBlast
-                 }, { 
-                ComponentClass: Class /Script/Engine.SceneComponent
-                ComponentTemplate: { 
-                    RelativeRotation: { Pitch: 0, Roll: 89.99999, Yaw: 0 }
-                     }
-                ChildNodes: [ { 
-                    ComponentClass: Class /Script/Engine.SpotLightComponent
-                    ComponentTemplate: { 
-                        InnerConeAngle: 11f
-                        OuterConeAngle: 40f
-                        MaxDrawDistance: 0f
-                        MaxDistanceFadeRange: 0f
-                        LightFunctionMaterial: Material /Game/Materials/M_Lightfunc_KillerGlow.M_Lightfunc_KillerGlow
-                        LightGuid: 20b9658c-9965-4d28-9bba-aa4989c9475f
-                        Intensity: 34000f
-                        LightColor: { R: 194, G: 0, B: 0, A: 0 }
-                        DetailLevelBeforeCastShadows: DM_MAX
-                        RelativeLocation: { X: 57.88479, Y: 10.81992, Z: 136.8826 }
-                        RelativeRotation: { Pitch: -44.99985, Roll: 1.317337E-06, Yaw: 1.488504E-05 }
-                        bVisible: False
-                         }
-                    VariableGuid: 7123a4e1-33d2-4a43-b906-df3000cbf6b4
-                    InternalVariableName: RedGlow
-                     } ]
-                VariableGuid: f5ddacb5-2b68-4995-8794-77f9225743b9
-                InternalVariableName: RedGlowTransform
-                 } ]
-            VariableGuid: d751e393-161f-447e-9879-0c538754c1ec
-            InternalVariableName: Phantom
-             }, { 
-            ComponentClass: Class /Script/Engine.CapsuleComponent
-            ComponentTemplate: { 
-                CapsuleHalfHeight: 100f
-                CapsuleRadius: 60f
-                AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
-                DetailLevelBeforeCastShadows: DM_MAX
-                BodyInstance: { 
-                    CollisionProfileName: Custom
-                    CollisionResponses: { 
-                        ResponseArray: [ { 
-                            Channel: Camera
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: PhysicsBody
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: InteractionDetector
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Slasher
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Spider
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Traps
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: WorldStatic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: WorldDynamic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Vehicle
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Destructible
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Interactable
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Audio
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Visibility
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: BlinkBlocker
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Ground
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Pawn
-                            Response: ECR_Overlap
-                             } ]
-                         }
-                     }
-                bVisible: False
-                 }
-            VariableGuid: be7dbd38-9a63-4584-8df5-26cdd4367fc9
-            InternalVariableName: CollisionCheckCapsule
-             }, { 
-            ComponentClass: Class /Script/Engine.CapsuleComponent
-            ComponentTemplate: { 
-                CapsuleHalfHeight: 80f
-                CapsuleRadius: 35f
-                AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
-                DetailLevelBeforeCastShadows: DM_MAX
-                BodyInstance: { 
-                    CollisionEnabled: ECollisionEnabled::NoCollision
-                    CollisionProfileName: Custom
-                    CollisionResponses: { 
-                        ResponseArray: [ { 
-                            Channel: Camera
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: PhysicsBody
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: InteractionDetector
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Slasher
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Spider
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Traps
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: WorldStatic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: WorldDynamic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Vehicle
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Destructible
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Interactable
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Audio
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Visibility
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: BlinkBlocker
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Ground
-                            Response: ECR_Ignore
-                             } ]
-                         }
-                     }
-                RelativeLocation: { X: 0, Y: 0, Z: 80 }
-                RelativeRotation: { Pitch: 0, Roll: -1.024528E-05, Yaw: 0 }
-                bVisible: False
-                 }
-            VariableGuid: 1cc31b4c-e612-447e-84dd-8c9cb2a824f5
-            InternalVariableName: PhantomCollision
-             } ]
-        MetaDataArray: [ { 
-            DataKey: tooltip
-            DataValue: To set phantom foward vector in front of him
-             } ]
-        VariableGuid: f8c38036-4dca-4c99-b745-0c9b51f11367
-        InternalVariableName: PhantomTransform
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.Interactor
-        ComponentTemplate: { 
-             }
-        ParentComponentOrVariableName: Terror Radius Component
-        bIsParentComponentNative: True
-        ChildNodes: [ { 
-            ComponentClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/PhantomTrap/CamperStun.CamperStun_C
-            ComponentTemplate: { 
-                 }
-            VariableGuid: 4c8c4377-8958-4ffa-81d1-b58aea52411f
-            InternalVariableName: CamperStun
-             } ]
-        VariableGuid: 98c97e10-1391-4eb4-a734-9e5f0fdd8ed9
-        InternalVariableName: CamperInteractor
-         }, { 
-        ComponentClass: Class /Script/Engine.ParticleSystemComponent
-        ComponentTemplate: { 
-            Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_TrapRadius.P_TrapRadius
-            WarmupTime: 5f
-            DetailLevelBeforeCastShadows: DM_MAX
-            bAbsoluteRotation: True
-            bVisible: False
-            PrimaryComponentTick: { 
-                bStartWithTickEnabled: False
-                 }
-             }
-        ParentComponentOrVariableName: Terror Radius Component
-        bIsParentComponentNative: True
-        VariableGuid: 681818d7-1f74-40a7-9454-36cca4aac8fb
-        InternalVariableName: P_TrapRadius
-         }, { 
-        ComponentClass: Class /Script/Engine.SceneComponent
-        ComponentTemplate: { 
-            RelativeLocation: { X: -10, Y: 0, Z: 0 }
-             }
-        ParentComponentOrVariableName: Terror Radius Component
-        bIsParentComponentNative: True
-        ChildNodes: [ { 
-            ComponentClass: Class /Script/AkAudio.AkComponent
-            ComponentTemplate: { 
-                RelativeRotation: { Pitch: 90, Roll: 0, Yaw: 0 }
-                 }
-            VariableGuid: 356727a0-19bd-4125-8b81-c35ef8ee575d
-            InternalVariableName: Ak_Audio_PhantomTrap
-             } ]
-        MetaDataArray: [ { 
-            DataKey: tooltip
-            DataValue: Used for line of sight raycasts
-             } ]
-        VariableGuid: c9aa8773-9f8e-475e-8193-f9246e41f395
-        InternalVariableName: TrapLocation
-         }, { 
-        ComponentClass: Class /Script/Engine.SphereComponent
-        ComponentTemplate: { 
-            SphereRadius: 150f
-            AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
-            DetailLevelBeforeCastShadows: DM_MAX
-            BodyInstance: { 
-                ObjectType: ECC_WorldStatic
-                CollisionProfileName: TrapBlocker
-                CollisionResponses: { 
-                    ResponseArray: [ { 
-                        Channel: WorldStatic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: WorldDynamic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Pawn
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Visibility
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Camera
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: PhysicsBody
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Vehicle
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Destructible
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel2
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel3
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel4
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel5
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel6
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Interactable
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Audio
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Slasher
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Spider
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: InteractionDetector
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: BlinkBlocker
-                        Response: ECR_Ignore
-                         } ]
-                     }
-                MassInKgOverride: 1296.474f
-                 }
-             }
-        ParentComponentOrVariableName: Terror Radius Component
-        bIsParentComponentNative: True
-        VariableGuid: 019767e5-d20e-4f23-bf08-e3876f688f29
-        InternalVariableName: TrapBlocker
-         }, { 
-        ComponentClass: Class /Script/Engine.ParticleSystemComponent
-        ComponentTemplate: { 
-            Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_TrapDestroy.P_TrapDestroy
-            DetailLevelBeforeCastShadows: DM_MAX
-            RelativeRotation: { Pitch: -10, Roll: 90, Yaw: -90 }
-            PrimaryComponentTick: { 
-                bStartWithTickEnabled: False
-                 }
-            bAutoActivate: False
-             }
-        ParentComponentOrVariableName: Terror Radius Component
-        bIsParentComponentNative: True
-        VariableGuid: 4939b8f3-d610-49e3-b6e9-d9e3cdfb46b9
-        InternalVariableName: P_TrapDestroy
-         }, { 
-        ComponentClass: Class /Script/Engine.SphereComponent
-        ComponentTemplate: { 
-            SphereRadius: 300f
-            AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
-            DetailLevelBeforeCastShadows: DM_MAX
-            CanCharacterStepUpOn: ECB_No
-            BodyInstance: { 
-                ObjectType: ECC_GameTraceChannel7
-                CollisionProfileName: MapActor
-                CollisionResponses: { 
-                    ResponseArray: [ { 
-                        Channel: WorldStatic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: WorldDynamic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Pawn
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Visibility
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Camera
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: PhysicsBody
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Vehicle
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Destructible
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel2
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel3
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel4
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel5
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel6
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Interactable
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Audio
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Slasher
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Spider
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Traps
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: MapActor
-                        Response: ECR_Overlap
-                         }, { 
-                        Channel: InteractionDetector
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: BlinkBlocker
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Ground
-                        Response: ECR_Ignore
-                         } ]
-                     }
-                MassInKgOverride: 6167.102f
-                 }
-             }
-        ParentComponentOrVariableName: Terror Radius Component
-        bIsParentComponentNative: True
-        VariableGuid: 8fcca50b-2152-4be5-a8e4-a5ccb0175651
-        InternalVariableName: MapActorPrimitive
-         }, { 
-        ComponentClass: Class /Script/Engine.ArrowComponent
-        ComponentTemplate: { 
-            DetailLevelBeforeCastShadows: DM_MAX
-            RelativeLocation: { X: 0, Y: 0, Z: 50 }
-            Mobility: EComponentMobility::Static
-             }
-        ParentComponentOrVariableName: Terror Radius Component
-        bIsParentComponentNative: True
-        VariableGuid: ea6b0998-d1c5-4461-bbe4-4ddf7b6ca50e
-        InternalVariableName: LineTraceWallCheckPositionArrow
-         }, { 
-        ComponentClass: Class /Script/Engine.StaticMeshComponent
-        ComponentTemplate: { 
-            StaticMesh: StaticMesh /Game/Blueprints/GameplayElements/Item/PhantomTrap/SM_PhantomTrap.SM_PhantomTrap
-            bUseDefaultCollision: False
-            OverrideMaterials: [ MaterialInstanceConstant /Game/Materials/Instances/MI_PhantomTrap.MI_PhantomTrap ]
-            bRenderInMainPass: False
-            bReceivesDecals: False
-            DetailLevelBeforeCastShadows: DM_MAX
-            bRenderCustomDepth: True
-            BodyInstance: { 
-                ObjectType: ECC_WorldStatic
-                CollisionEnabled: ECollisionEnabled::NoCollision
-                CollisionProfileName: NoCollision
-                CollisionResponses: { 
-                    ResponseArray: [ { 
-                        Channel: WorldStatic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: WorldDynamic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Pawn
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Visibility
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Camera
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: PhysicsBody
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Vehicle
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Destructible
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel2
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel3
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel4
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel5
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel6
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Interactable
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Audio
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Slasher
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Spider
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Traps
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: InteractionDetector
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: BlinkBlocker
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Ground
-                        Response: ECR_Ignore
-                         } ]
-                     }
-                MassInKgOverride: 0f
-                 }
-            RelativeRotation: { Pitch: -49.99982, Roll: 89.99994, Yaw: -89.99982 }
-            bVisible: False
-             }
-        ParentComponentOrVariableName: Terror Radius Component
-        bIsParentComponentNative: True
-        VariableGuid: 2708f2b0-40c8-45dd-a612-ffc79e1b15c1
-        InternalVariableName: OutlineMesh
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.DBDOutlineComponent
-        ComponentTemplate: { 
-            LimitToCustomDepthObjects: True
-            OutlineName: Phantom
-            RelativeLocation: { X: 4.982948E-05, Y: 63.69761, Z: 22.26494 }
-            RelativeRotation: { Pitch: 8.879245E-05, Roll: 0.0001024527, Yaw: -0.0001831055 }
-             }
-        ParentComponentOrVariableName: Terror Radius Component
-        bIsParentComponentNative: True
-        VariableGuid: d7ca6c67-e677-4e55-a1b0-2a4066c6c7f7
-        InternalVariableName: DBDOutline
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.FlashLightableComponent
-        ComponentTemplate: { 
-             }
-        VariableGuid: f2c0c4b4-9f11-4e23-8a60-e9f1cbe0bceb
-        InternalVariableName: FlashLightable
-         } ]
-    AllNodes: [ { 
-        ComponentClass: Class /Script/DeadByDaylight.Interactor
-        ComponentTemplate: { 
-             }
-        ParentComponentOrVariableName: Terror Radius Component
-        bIsParentComponentNative: True
-        ChildNodes: [ { 
-            ComponentClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.TeleportToPhantomTrap_C
-            ComponentTemplate: { 
-                 }
-            VariableGuid: b4662e43-d352-41d3-b3c3-bd92f3e07f3a
-            InternalVariableName: TeleportToPhantomTrap
-             } ]
-        VariableGuid: fab55c3e-61b2-4312-9046-7ce306c4cdb3
-        InternalVariableName: SlasherInteractor
-         }, { 
-        ComponentClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/PhantomTrap/TeleportToPhantomTrap.TeleportToPhantomTrap_C
-        ComponentTemplate: { 
-             }
-        VariableGuid: b4662e43-d352-41d3-b3c3-bd92f3e07f3a
-        InternalVariableName: TeleportToPhantomTrap
-         }, { 
-        ComponentClass: Class /Script/Engine.SphereComponent
-        ComponentTemplate: { 
-            SphereRadius: 300f
-            AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
-            DetailLevelBeforeCastShadows: DM_MAX
-            CanCharacterStepUpOn: ECB_No
-            BodyInstance: { 
-                ObjectType: ECC_GameTraceChannel1
-                CollisionProfileName: Custom
-                CollisionResponses: { 
-                    ResponseArray: [ { 
-                        Channel: EngineTraceChannel2
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel3
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel4
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel5
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel6
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: InteractionDetector
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Pawn
-                        Response: ECR_Overlap
-                         }, { 
-                        Channel: Vehicle
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Interactable
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Audio
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Camera
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: WorldStatic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: WorldDynamic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Visibility
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: PhysicsBody
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Destructible
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Slasher
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Spider
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Traps
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: BlinkBlocker
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Ground
-                        Response: ECR_Ignore
-                         } ]
-                     }
-                MassInKgOverride: 6167.102f
-                 }
-            bCanEverAffectNavigation: False
-             }
-        ParentComponentOrVariableName: Terror Radius Component
-        bIsParentComponentNative: True
-        VariableGuid: fd4c4f6c-cbec-48e2-950e-31883a4478aa
-        InternalVariableName: TriggerZone
-         }, { 
-        ComponentClass: Class /Script/Engine.SceneComponent
-        ComponentTemplate: { 
-             }
-        ParentComponentOrVariableName: Terror Radius Component
-        bIsParentComponentNative: True
-        ChildNodes: [ { 
-            ComponentClass: Class /Script/Engine.SkeletalMeshComponent
-            ComponentTemplate: { 
-                AnimClass: AnimBlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/PhantomTrap/AB_Phantom.AB_Phantom_C
-                ClothingSimulationFactory: Class /Script/ClothingSystemRuntime.ClothingSimulationFactoryNv
-                SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Witch/Models/WI_DSkeleton_REF.WI_DSkeleton_REF
-                DetailLevelBeforeCastShadows: DM_MAX
-                bRenderCustomDepth: True
-                BodyInstance: { 
-                    ObjectType: ECC_Pawn
-                    CollisionProfileName: Custom
-                    CollisionResponses: { 
-                        ResponseArray: [ { 
-                            Channel: WorldStatic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: WorldDynamic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Visibility
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Camera
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: PhysicsBody
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Vehicle
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Destructible
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel1
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel2
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel3
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel4
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel5
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: EngineTraceChannel6
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Interactable
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Audio
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Slasher
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Spider
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Traps
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: InteractionDetector
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: BlinkBlocker
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Ground
-                            Response: ECR_Ignore
-                             } ]
-                         }
-                    MassInKgOverride: 59.77126f
-                     }
-                RelativeRotation: { Pitch: 0, Roll: -90, Yaw: 0 }
-                bVisible: False
-                 }
-            ChildNodes: [ { 
-                ComponentClass: Class /Script/GFXUtilities.MaterialHelper
-                ComponentTemplate: { 
-                    Groups: [ { 
-                        GroupName: Dissolve
-                        Maps: [ { 
-                            SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher.M_Slasher
-                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Dissolve.MV_Slasher_Dissolve
-                             }, { 
-                            SrcMaterial: Material /Game/Characters/Campers/Materials/M_Hair.M_Hair
-                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_Hair_Dissolve.MI_Hair_Dissolve
-                             }, { 
-                            SrcMaterial: Material /Game/Characters/Slashers/Materials/M_SlasherBlood.M_SlasherBlood
-                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_SlasherBlood_Dissolve.MV_SlasherBlood_Dissolve
-                             }, { 
-                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Dither.MI_Slasher_Dither
-                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Dissolve.MV_Slasher_Dissolve
-                             }, { 
-                            SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher_Cust.M_Slasher_Cust
-                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Cust_Dissolve.MV_Slasher_Cust_Dissolve
-                             } ]
-                         } ]
-                    RelativeLocation: { X: 0, Y: 0, Z: 101.7689 }
-                    RelativeRotation: { Pitch: 0, Roll: 180, Yaw: 0 }
-                     }
-                VariableGuid: cd586391-097c-4c18-aa72-3e8b6c4a09c7
-                InternalVariableName: MaterialHelper
-                 }, { 
-                ComponentClass: Class /Script/Engine.ParticleSystemComponent
-                ComponentTemplate: { 
-                    Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_MudParts.P_MudParts
-                    InstanceParameters: [ { 
-                        Name: VertSurfaceActor
-                        ParamType: PSPT_Actor
-                        Scalar: 0f
-                        Scalar_Low: 0f
-                        Vector: { X: 0, Y: 0, Z: 0 }
-                        Vector_Low: { X: 0, Y: 0, Z: 0 }
-                        Color: { R: 0, G: 0, B: 0, A: 0 }
-                        Actor: 
-                        Material: 
-                         } ]
-                    WarmupTime: 5f
-                    DetailLevelBeforeCastShadows: DM_MAX
-                    PrimaryComponentTick: { 
-                        bStartWithTickEnabled: False
-                         }
-                    bAutoActivate: False
-                     }
-                VariableGuid: edab443e-72c7-417e-9797-0c75bf746d7f
-                InternalVariableName: P_MudParts
-                 }, { 
-                ComponentClass: Class /Script/Engine.ParticleSystemComponent
-                ComponentTemplate: { 
-                    Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_MudFalling.P_MudFalling
-                    DetailLevelBeforeCastShadows: DM_MAX
-                    PrimaryComponentTick: { 
-                        bStartWithTickEnabled: False
-                         }
-                    bAutoActivate: False
-                     }
-                VariableGuid: 3886e5db-1bc8-498d-a565-b2ee8ab5ad0a
-                InternalVariableName: P_MudFalling
-                 }, { 
-                ComponentClass: Class /Script/Engine.ParticleSystemComponent
-                ComponentTemplate: { 
-                    Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_MudBlast.P_MudBlast
-                    DetailLevelBeforeCastShadows: DM_MAX
-                    PrimaryComponentTick: { 
-                        bStartWithTickEnabled: False
-                         }
-                    bAutoActivate: False
-                     }
-                VariableGuid: ae3593a4-b6fd-48ab-9d93-1c0577183d73
-                InternalVariableName: P_MudBlast
-                 }, { 
-                ComponentClass: Class /Script/Engine.SceneComponent
-                ComponentTemplate: { 
-                    RelativeRotation: { Pitch: 0, Roll: 89.99999, Yaw: 0 }
-                     }
-                ChildNodes: [ { 
-                    ComponentClass: Class /Script/Engine.SpotLightComponent
-                    ComponentTemplate: { 
-                        InnerConeAngle: 11f
-                        OuterConeAngle: 40f
-                        MaxDrawDistance: 0f
-                        MaxDistanceFadeRange: 0f
-                        LightFunctionMaterial: Material /Game/Materials/M_Lightfunc_KillerGlow.M_Lightfunc_KillerGlow
-                        LightGuid: 20b9658c-9965-4d28-9bba-aa4989c9475f
-                        Intensity: 34000f
-                        LightColor: { R: 194, G: 0, B: 0, A: 0 }
-                        DetailLevelBeforeCastShadows: DM_MAX
-                        RelativeLocation: { X: 57.88479, Y: 10.81992, Z: 136.8826 }
-                        RelativeRotation: { Pitch: -44.99985, Roll: 1.317337E-06, Yaw: 1.488504E-05 }
-                        bVisible: False
-                         }
-                    VariableGuid: 7123a4e1-33d2-4a43-b906-df3000cbf6b4
-                    InternalVariableName: RedGlow
-                     } ]
-                VariableGuid: f5ddacb5-2b68-4995-8794-77f9225743b9
-                InternalVariableName: RedGlowTransform
-                 } ]
-            VariableGuid: d751e393-161f-447e-9879-0c538754c1ec
-            InternalVariableName: Phantom
-             }, { 
-            ComponentClass: Class /Script/Engine.CapsuleComponent
-            ComponentTemplate: { 
-                CapsuleHalfHeight: 100f
-                CapsuleRadius: 60f
-                AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
-                DetailLevelBeforeCastShadows: DM_MAX
-                BodyInstance: { 
-                    CollisionProfileName: Custom
-                    CollisionResponses: { 
-                        ResponseArray: [ { 
-                            Channel: Camera
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: PhysicsBody
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: InteractionDetector
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Slasher
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Spider
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Traps
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: WorldStatic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: WorldDynamic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Vehicle
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Destructible
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Interactable
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Audio
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Visibility
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: BlinkBlocker
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Ground
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Pawn
-                            Response: ECR_Overlap
-                             } ]
-                         }
-                     }
-                bVisible: False
-                 }
-            VariableGuid: be7dbd38-9a63-4584-8df5-26cdd4367fc9
-            InternalVariableName: CollisionCheckCapsule
-             }, { 
-            ComponentClass: Class /Script/Engine.CapsuleComponent
-            ComponentTemplate: { 
-                CapsuleHalfHeight: 80f
-                CapsuleRadius: 35f
-                AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
-                DetailLevelBeforeCastShadows: DM_MAX
-                BodyInstance: { 
-                    CollisionEnabled: ECollisionEnabled::NoCollision
-                    CollisionProfileName: Custom
-                    CollisionResponses: { 
-                        ResponseArray: [ { 
-                            Channel: Camera
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: PhysicsBody
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: InteractionDetector
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Slasher
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Spider
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Traps
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: WorldStatic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: WorldDynamic
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Vehicle
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Destructible
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Interactable
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Audio
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Visibility
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: BlinkBlocker
-                            Response: ECR_Ignore
-                             }, { 
-                            Channel: Ground
-                            Response: ECR_Ignore
-                             } ]
-                         }
-                     }
-                RelativeLocation: { X: 0, Y: 0, Z: 80 }
-                RelativeRotation: { Pitch: 0, Roll: -1.024528E-05, Yaw: 0 }
-                bVisible: False
-                 }
-            VariableGuid: 1cc31b4c-e612-447e-84dd-8c9cb2a824f5
-            InternalVariableName: PhantomCollision
-             } ]
-        MetaDataArray: [ { 
-            DataKey: tooltip
-            DataValue: To set phantom foward vector in front of him
-             } ]
-        VariableGuid: f8c38036-4dca-4c99-b745-0c9b51f11367
-        InternalVariableName: PhantomTransform
-         }, { 
-        ComponentClass: Class /Script/Engine.SkeletalMeshComponent
-        ComponentTemplate: { 
-            AnimClass: AnimBlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/PhantomTrap/AB_Phantom.AB_Phantom_C
-            ClothingSimulationFactory: Class /Script/ClothingSystemRuntime.ClothingSimulationFactoryNv
-            SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Witch/Models/WI_DSkeleton_REF.WI_DSkeleton_REF
-            DetailLevelBeforeCastShadows: DM_MAX
-            bRenderCustomDepth: True
-            BodyInstance: { 
-                ObjectType: ECC_Pawn
-                CollisionProfileName: Custom
-                CollisionResponses: { 
-                    ResponseArray: [ { 
-                        Channel: WorldStatic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: WorldDynamic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Visibility
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Camera
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: PhysicsBody
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Vehicle
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Destructible
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel1
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel2
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel3
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel4
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel5
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel6
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Interactable
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Audio
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Slasher
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Spider
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Traps
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: InteractionDetector
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: BlinkBlocker
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Ground
-                        Response: ECR_Ignore
-                         } ]
-                     }
-                MassInKgOverride: 59.77126f
-                 }
-            RelativeRotation: { Pitch: 0, Roll: -90, Yaw: 0 }
-            bVisible: False
-             }
-        ChildNodes: [ { 
-            ComponentClass: Class /Script/GFXUtilities.MaterialHelper
-            ComponentTemplate: { 
-                Groups: [ { 
-                    GroupName: Dissolve
-                    Maps: [ { 
-                        SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher.M_Slasher
-                        DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Dissolve.MV_Slasher_Dissolve
-                         }, { 
-                        SrcMaterial: Material /Game/Characters/Campers/Materials/M_Hair.M_Hair
-                        DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_Hair_Dissolve.MI_Hair_Dissolve
-                         }, { 
-                        SrcMaterial: Material /Game/Characters/Slashers/Materials/M_SlasherBlood.M_SlasherBlood
-                        DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_SlasherBlood_Dissolve.MV_SlasherBlood_Dissolve
-                         }, { 
-                        SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Dither.MI_Slasher_Dither
-                        DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Dissolve.MV_Slasher_Dissolve
-                         }, { 
-                        SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher_Cust.M_Slasher_Cust
-                        DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Cust_Dissolve.MV_Slasher_Cust_Dissolve
-                         } ]
-                     } ]
-                RelativeLocation: { X: 0, Y: 0, Z: 101.7689 }
-                RelativeRotation: { Pitch: 0, Roll: 180, Yaw: 0 }
-                 }
-            VariableGuid: cd586391-097c-4c18-aa72-3e8b6c4a09c7
-            InternalVariableName: MaterialHelper
-             }, { 
-            ComponentClass: Class /Script/Engine.ParticleSystemComponent
-            ComponentTemplate: { 
-                Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_MudParts.P_MudParts
-                InstanceParameters: [ { 
-                    Name: VertSurfaceActor
-                    ParamType: PSPT_Actor
-                    Scalar: 0f
-                    Scalar_Low: 0f
-                    Vector: { X: 0, Y: 0, Z: 0 }
-                    Vector_Low: { X: 0, Y: 0, Z: 0 }
-                    Color: { R: 0, G: 0, B: 0, A: 0 }
-                    Actor: 
-                    Material: 
-                     } ]
-                WarmupTime: 5f
-                DetailLevelBeforeCastShadows: DM_MAX
-                PrimaryComponentTick: { 
-                    bStartWithTickEnabled: False
-                     }
-                bAutoActivate: False
-                 }
-            VariableGuid: edab443e-72c7-417e-9797-0c75bf746d7f
-            InternalVariableName: P_MudParts
-             }, { 
-            ComponentClass: Class /Script/Engine.ParticleSystemComponent
-            ComponentTemplate: { 
-                Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_MudFalling.P_MudFalling
-                DetailLevelBeforeCastShadows: DM_MAX
-                PrimaryComponentTick: { 
-                    bStartWithTickEnabled: False
-                     }
-                bAutoActivate: False
-                 }
-            VariableGuid: 3886e5db-1bc8-498d-a565-b2ee8ab5ad0a
-            InternalVariableName: P_MudFalling
-             }, { 
-            ComponentClass: Class /Script/Engine.ParticleSystemComponent
-            ComponentTemplate: { 
-                Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_MudBlast.P_MudBlast
-                DetailLevelBeforeCastShadows: DM_MAX
-                PrimaryComponentTick: { 
-                    bStartWithTickEnabled: False
-                     }
-                bAutoActivate: False
-                 }
-            VariableGuid: ae3593a4-b6fd-48ab-9d93-1c0577183d73
-            InternalVariableName: P_MudBlast
-             }, { 
-            ComponentClass: Class /Script/Engine.SceneComponent
-            ComponentTemplate: { 
-                RelativeRotation: { Pitch: 0, Roll: 89.99999, Yaw: 0 }
-                 }
-            ChildNodes: [ { 
-                ComponentClass: Class /Script/Engine.SpotLightComponent
-                ComponentTemplate: { 
-                    InnerConeAngle: 11f
-                    OuterConeAngle: 40f
-                    MaxDrawDistance: 0f
-                    MaxDistanceFadeRange: 0f
-                    LightFunctionMaterial: Material /Game/Materials/M_Lightfunc_KillerGlow.M_Lightfunc_KillerGlow
-                    LightGuid: 20b9658c-9965-4d28-9bba-aa4989c9475f
-                    Intensity: 34000f
-                    LightColor: { R: 194, G: 0, B: 0, A: 0 }
-                    DetailLevelBeforeCastShadows: DM_MAX
-                    RelativeLocation: { X: 57.88479, Y: 10.81992, Z: 136.8826 }
-                    RelativeRotation: { Pitch: -44.99985, Roll: 1.317337E-06, Yaw: 1.488504E-05 }
-                    bVisible: False
-                     }
-                VariableGuid: 7123a4e1-33d2-4a43-b906-df3000cbf6b4
-                InternalVariableName: RedGlow
-                 } ]
-            VariableGuid: f5ddacb5-2b68-4995-8794-77f9225743b9
-            InternalVariableName: RedGlowTransform
-             } ]
-        VariableGuid: d751e393-161f-447e-9879-0c538754c1ec
-        InternalVariableName: Phantom
-         }, { 
-        ComponentClass: Class /Script/GFXUtilities.MaterialHelper
-        ComponentTemplate: { 
-            Groups: [ { 
-                GroupName: Dissolve
-                Maps: [ { 
-                    SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher.M_Slasher
-                    DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Dissolve.MV_Slasher_Dissolve
-                     }, { 
-                    SrcMaterial: Material /Game/Characters/Campers/Materials/M_Hair.M_Hair
-                    DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_Hair_Dissolve.MI_Hair_Dissolve
-                     }, { 
-                    SrcMaterial: Material /Game/Characters/Slashers/Materials/M_SlasherBlood.M_SlasherBlood
-                    DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_SlasherBlood_Dissolve.MV_SlasherBlood_Dissolve
-                     }, { 
-                    SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Dither.MI_Slasher_Dither
-                    DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Dissolve.MV_Slasher_Dissolve
-                     }, { 
-                    SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher_Cust.M_Slasher_Cust
-                    DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Cust_Dissolve.MV_Slasher_Cust_Dissolve
-                     } ]
-                 } ]
-            RelativeLocation: { X: 0, Y: 0, Z: 101.7689 }
-            RelativeRotation: { Pitch: 0, Roll: 180, Yaw: 0 }
-             }
-        VariableGuid: cd586391-097c-4c18-aa72-3e8b6c4a09c7
-        InternalVariableName: MaterialHelper
-         }, { 
-        ComponentClass: Class /Script/Engine.ParticleSystemComponent
-        ComponentTemplate: { 
-            Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_MudParts.P_MudParts
-            InstanceParameters: [ { 
-                Name: VertSurfaceActor
-                ParamType: PSPT_Actor
-                Scalar: 0f
-                Scalar_Low: 0f
-                Vector: { X: 0, Y: 0, Z: 0 }
-                Vector_Low: { X: 0, Y: 0, Z: 0 }
-                Color: { R: 0, G: 0, B: 0, A: 0 }
-                Actor: 
-                Material: 
-                 } ]
-            WarmupTime: 5f
-            DetailLevelBeforeCastShadows: DM_MAX
-            PrimaryComponentTick: { 
-                bStartWithTickEnabled: False
-                 }
-            bAutoActivate: False
-             }
-        VariableGuid: edab443e-72c7-417e-9797-0c75bf746d7f
-        InternalVariableName: P_MudParts
-         }, { 
-        ComponentClass: Class /Script/Engine.ParticleSystemComponent
-        ComponentTemplate: { 
-            Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_MudFalling.P_MudFalling
-            DetailLevelBeforeCastShadows: DM_MAX
-            PrimaryComponentTick: { 
-                bStartWithTickEnabled: False
-                 }
-            bAutoActivate: False
-             }
-        VariableGuid: 3886e5db-1bc8-498d-a565-b2ee8ab5ad0a
-        InternalVariableName: P_MudFalling
-         }, { 
-        ComponentClass: Class /Script/Engine.SpotLightComponent
-        ComponentTemplate: { 
-            InnerConeAngle: 11f
-            OuterConeAngle: 40f
-            MaxDrawDistance: 0f
-            MaxDistanceFadeRange: 0f
-            LightFunctionMaterial: Material /Game/Materials/M_Lightfunc_KillerGlow.M_Lightfunc_KillerGlow
-            LightGuid: 20b9658c-9965-4d28-9bba-aa4989c9475f
-            Intensity: 34000f
-            LightColor: { R: 194, G: 0, B: 0, A: 0 }
-            DetailLevelBeforeCastShadows: DM_MAX
-            RelativeLocation: { X: 57.88479, Y: 10.81992, Z: 136.8826 }
-            RelativeRotation: { Pitch: -44.99985, Roll: 1.317337E-06, Yaw: 1.488504E-05 }
-            bVisible: False
-             }
-        VariableGuid: 7123a4e1-33d2-4a43-b906-df3000cbf6b4
-        InternalVariableName: RedGlow
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.Interactor
-        ComponentTemplate: { 
-             }
-        ParentComponentOrVariableName: Terror Radius Component
-        bIsParentComponentNative: True
-        ChildNodes: [ { 
-            ComponentClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/PhantomTrap/CamperStun.CamperStun_C
-            ComponentTemplate: { 
-                 }
-            VariableGuid: 4c8c4377-8958-4ffa-81d1-b58aea52411f
-            InternalVariableName: CamperStun
-             } ]
-        VariableGuid: 98c97e10-1391-4eb4-a734-9e5f0fdd8ed9
-        InternalVariableName: CamperInteractor
-         }, { 
-        ComponentClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/PhantomTrap/CamperStun.CamperStun_C
-        ComponentTemplate: { 
-             }
-        VariableGuid: 4c8c4377-8958-4ffa-81d1-b58aea52411f
-        InternalVariableName: CamperStun
-         }, { 
-        ComponentClass: Class /Script/Engine.ParticleSystemComponent
-        ComponentTemplate: { 
-            Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_TrapRadius.P_TrapRadius
-            WarmupTime: 5f
-            DetailLevelBeforeCastShadows: DM_MAX
-            bAbsoluteRotation: True
-            bVisible: False
-            PrimaryComponentTick: { 
-                bStartWithTickEnabled: False
-                 }
-             }
-        ParentComponentOrVariableName: Terror Radius Component
-        bIsParentComponentNative: True
-        VariableGuid: 681818d7-1f74-40a7-9454-36cca4aac8fb
-        InternalVariableName: P_TrapRadius
-         }, { 
-        ComponentClass: Class /Script/Engine.SceneComponent
-        ComponentTemplate: { 
-            RelativeLocation: { X: -10, Y: 0, Z: 0 }
-             }
-        ParentComponentOrVariableName: Terror Radius Component
-        bIsParentComponentNative: True
-        ChildNodes: [ { 
-            ComponentClass: Class /Script/AkAudio.AkComponent
-            ComponentTemplate: { 
-                RelativeRotation: { Pitch: 90, Roll: 0, Yaw: 0 }
-                 }
-            VariableGuid: 356727a0-19bd-4125-8b81-c35ef8ee575d
-            InternalVariableName: Ak_Audio_PhantomTrap
-             } ]
-        MetaDataArray: [ { 
-            DataKey: tooltip
-            DataValue: Used for line of sight raycasts
-             } ]
-        VariableGuid: c9aa8773-9f8e-475e-8193-f9246e41f395
-        InternalVariableName: TrapLocation
-         }, { 
-        ComponentClass: Class /Script/AkAudio.AkComponent
-        ComponentTemplate: { 
-            RelativeRotation: { Pitch: 90, Roll: 0, Yaw: 0 }
-             }
-        VariableGuid: 356727a0-19bd-4125-8b81-c35ef8ee575d
-        InternalVariableName: Ak_Audio_PhantomTrap
-         }, { 
-        ComponentClass: Class /Script/Engine.SphereComponent
-        ComponentTemplate: { 
-            SphereRadius: 150f
-            AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
-            DetailLevelBeforeCastShadows: DM_MAX
-            BodyInstance: { 
-                ObjectType: ECC_WorldStatic
-                CollisionProfileName: TrapBlocker
-                CollisionResponses: { 
-                    ResponseArray: [ { 
-                        Channel: WorldStatic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: WorldDynamic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Pawn
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Visibility
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Camera
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: PhysicsBody
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Vehicle
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Destructible
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel2
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel3
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel4
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel5
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel6
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Interactable
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Audio
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Slasher
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Spider
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: InteractionDetector
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: BlinkBlocker
-                        Response: ECR_Ignore
-                         } ]
-                     }
-                MassInKgOverride: 1296.474f
-                 }
-             }
-        ParentComponentOrVariableName: Terror Radius Component
-        bIsParentComponentNative: True
-        VariableGuid: 019767e5-d20e-4f23-bf08-e3876f688f29
-        InternalVariableName: TrapBlocker
-         }, { 
-        ComponentClass: Class /Script/Engine.ParticleSystemComponent
-        ComponentTemplate: { 
-            Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_TrapDestroy.P_TrapDestroy
-            DetailLevelBeforeCastShadows: DM_MAX
-            RelativeRotation: { Pitch: -10, Roll: 90, Yaw: -90 }
-            PrimaryComponentTick: { 
-                bStartWithTickEnabled: False
-                 }
-            bAutoActivate: False
-             }
-        ParentComponentOrVariableName: Terror Radius Component
-        bIsParentComponentNative: True
-        VariableGuid: 4939b8f3-d610-49e3-b6e9-d9e3cdfb46b9
-        InternalVariableName: P_TrapDestroy
-         }, { 
-        ComponentClass: Class /Script/Engine.SphereComponent
-        ComponentTemplate: { 
-            SphereRadius: 300f
-            AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
-            DetailLevelBeforeCastShadows: DM_MAX
-            CanCharacterStepUpOn: ECB_No
-            BodyInstance: { 
-                ObjectType: ECC_GameTraceChannel7
-                CollisionProfileName: MapActor
-                CollisionResponses: { 
-                    ResponseArray: [ { 
-                        Channel: WorldStatic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: WorldDynamic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Pawn
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Visibility
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Camera
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: PhysicsBody
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Vehicle
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Destructible
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel2
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel3
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel4
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel5
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel6
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Interactable
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Audio
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Slasher
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Spider
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Traps
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: MapActor
-                        Response: ECR_Overlap
-                         }, { 
-                        Channel: InteractionDetector
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: BlinkBlocker
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Ground
-                        Response: ECR_Ignore
-                         } ]
-                     }
-                MassInKgOverride: 6167.102f
-                 }
-             }
-        ParentComponentOrVariableName: Terror Radius Component
-        bIsParentComponentNative: True
-        VariableGuid: 8fcca50b-2152-4be5-a8e4-a5ccb0175651
-        InternalVariableName: MapActorPrimitive
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.MapActorComponent
-        ComponentTemplate: { 
-            Category: EMapActorCategory::KillerObject
-             }
-        VariableGuid: 9833165f-f0c8-4563-8193-83663fd00597
-        InternalVariableName: MapActor
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.CustomizedSkeletalMesh
-        ComponentTemplate: { 
-            SlaveAnimInstanceClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Animations/SlasherAnimSlaveFemale.SlasherAnimSlaveFemale_C
-            _characterIdOverride: 268435460
-             }
-        VariableGuid: 0bb17cd4-e39b-4c36-834d-282fb0307239
-        InternalVariableName: CustomizedSkeletalMesh
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.FirecrackerEffectHandlerComponent
-        ComponentTemplate: { 
-             }
-        VariableGuid: a103a032-37ad-41e0-aa40-2fe45bb5e147
-        InternalVariableName: FirecrackerEffectHandler
-         }, { 
-        ComponentClass: Class /Script/Engine.ArrowComponent
-        ComponentTemplate: { 
-            DetailLevelBeforeCastShadows: DM_MAX
-            RelativeLocation: { X: 0, Y: 0, Z: 50 }
-            Mobility: EComponentMobility::Static
-             }
-        ParentComponentOrVariableName: Terror Radius Component
-        bIsParentComponentNative: True
-        VariableGuid: ea6b0998-d1c5-4461-bbe4-4ddf7b6ca50e
-        InternalVariableName: LineTraceWallCheckPositionArrow
-         }, { 
-        ComponentClass: Class /Script/Engine.StaticMeshComponent
-        ComponentTemplate: { 
-            StaticMesh: StaticMesh /Game/Blueprints/GameplayElements/Item/PhantomTrap/SM_PhantomTrap.SM_PhantomTrap
-            bUseDefaultCollision: False
-            OverrideMaterials: [ MaterialInstanceConstant /Game/Materials/Instances/MI_PhantomTrap.MI_PhantomTrap ]
-            bRenderInMainPass: False
-            bReceivesDecals: False
-            DetailLevelBeforeCastShadows: DM_MAX
-            bRenderCustomDepth: True
-            BodyInstance: { 
-                ObjectType: ECC_WorldStatic
-                CollisionEnabled: ECollisionEnabled::NoCollision
-                CollisionProfileName: NoCollision
-                CollisionResponses: { 
-                    ResponseArray: [ { 
-                        Channel: WorldStatic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: WorldDynamic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Pawn
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Visibility
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Camera
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: PhysicsBody
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Vehicle
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Destructible
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel2
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel3
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel4
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel5
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: EngineTraceChannel6
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Interactable
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Audio
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Slasher
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Spider
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Traps
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: InteractionDetector
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: BlinkBlocker
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Ground
-                        Response: ECR_Ignore
-                         } ]
-                     }
-                MassInKgOverride: 0f
-                 }
-            RelativeRotation: { Pitch: -49.99982, Roll: 89.99994, Yaw: -89.99982 }
-            bVisible: False
-             }
-        ParentComponentOrVariableName: Terror Radius Component
-        bIsParentComponentNative: True
-        VariableGuid: 2708f2b0-40c8-45dd-a612-ffc79e1b15c1
-        InternalVariableName: OutlineMesh
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.DBDOutlineComponent
-        ComponentTemplate: { 
-            LimitToCustomDepthObjects: True
-            OutlineName: Phantom
-            RelativeLocation: { X: 4.982948E-05, Y: 63.69761, Z: 22.26494 }
-            RelativeRotation: { Pitch: 8.879245E-05, Roll: 0.0001024527, Yaw: -0.0001831055 }
-             }
-        ParentComponentOrVariableName: Terror Radius Component
-        bIsParentComponentNative: True
-        VariableGuid: d7ca6c67-e677-4e55-a1b0-2a4066c6c7f7
-        InternalVariableName: DBDOutline
-         }, { 
-        ComponentClass: Class /Script/Engine.ParticleSystemComponent
-        ComponentTemplate: { 
-            Template: ParticleSystem /Game/Effects/ParticleSystems/Phantom/P_MudBlast.P_MudBlast
-            DetailLevelBeforeCastShadows: DM_MAX
-            PrimaryComponentTick: { 
-                bStartWithTickEnabled: False
-                 }
-            bAutoActivate: False
-             }
-        VariableGuid: ae3593a4-b6fd-48ab-9d93-1c0577183d73
-        InternalVariableName: P_MudBlast
-         }, { 
-        ComponentClass: Class /Script/Engine.SceneComponent
-        ComponentTemplate: { 
-            RelativeRotation: { Pitch: 0, Roll: 89.99999, Yaw: 0 }
-             }
-        ChildNodes: [ { 
-            ComponentClass: Class /Script/Engine.SpotLightComponent
-            ComponentTemplate: { 
-                InnerConeAngle: 11f
-                OuterConeAngle: 40f
-                MaxDrawDistance: 0f
-                MaxDistanceFadeRange: 0f
-                LightFunctionMaterial: Material /Game/Materials/M_Lightfunc_KillerGlow.M_Lightfunc_KillerGlow
-                LightGuid: 20b9658c-9965-4d28-9bba-aa4989c9475f
-                Intensity: 34000f
-                LightColor: { R: 194, G: 0, B: 0, A: 0 }
-                DetailLevelBeforeCastShadows: DM_MAX
-                RelativeLocation: { X: 57.88479, Y: 10.81992, Z: 136.8826 }
-                RelativeRotation: { Pitch: -44.99985, Roll: 1.317337E-06, Yaw: 1.488504E-05 }
-                bVisible: False
-                 }
-            VariableGuid: 7123a4e1-33d2-4a43-b906-df3000cbf6b4
-            InternalVariableName: RedGlow
-             } ]
-        VariableGuid: f5ddacb5-2b68-4995-8794-77f9225743b9
-        InternalVariableName: RedGlowTransform
-         }, { 
-        ComponentClass: Class /Script/DeadByDaylight.FlashLightableComponent
-        ComponentTemplate: { 
-             }
-        VariableGuid: f2c0c4b4-9f11-4e23-8a60-e9f1cbe0bceb
-        InternalVariableName: FlashLightable
-         }, { 
-        ComponentClass: Class /Script/Engine.CapsuleComponent
-        ComponentTemplate: { 
-            CapsuleHalfHeight: 100f
-            CapsuleRadius: 60f
-            AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
-            DetailLevelBeforeCastShadows: DM_MAX
-            BodyInstance: { 
-                CollisionProfileName: Custom
-                CollisionResponses: { 
-                    ResponseArray: [ { 
-                        Channel: Camera
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: PhysicsBody
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: InteractionDetector
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Slasher
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Spider
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Traps
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: WorldStatic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: WorldDynamic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Vehicle
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Destructible
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Interactable
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Audio
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Visibility
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: BlinkBlocker
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Ground
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Pawn
-                        Response: ECR_Overlap
-                         } ]
-                     }
-                 }
-            bVisible: False
-             }
-        VariableGuid: be7dbd38-9a63-4584-8df5-26cdd4367fc9
-        InternalVariableName: CollisionCheckCapsule
-         }, { 
-        ComponentClass: Class /Script/Engine.CapsuleComponent
-        ComponentTemplate: { 
-            CapsuleHalfHeight: 80f
-            CapsuleRadius: 35f
-            AreaClass: Class /Script/NavigationSystem.NavArea_Obstacle
-            DetailLevelBeforeCastShadows: DM_MAX
-            BodyInstance: { 
-                CollisionEnabled: ECollisionEnabled::NoCollision
-                CollisionProfileName: Custom
-                CollisionResponses: { 
-                    ResponseArray: [ { 
-                        Channel: Camera
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: PhysicsBody
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: InteractionDetector
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Slasher
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Spider
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Traps
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: WorldStatic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: WorldDynamic
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Vehicle
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Destructible
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Interactable
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Audio
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Visibility
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: BlinkBlocker
-                        Response: ECR_Ignore
-                         }, { 
-                        Channel: Ground
-                        Response: ECR_Ignore
-                         } ]
-                     }
-                 }
-            RelativeLocation: { X: 0, Y: 0, Z: 80 }
-            RelativeRotation: { Pitch: 0, Roll: -1.024528E-05, Yaw: 0 }
-            bVisible: False
-             }
-        VariableGuid: 1cc31b4c-e612-447e-84dd-8c9cb2a824f5
-        InternalVariableName: PhantomCollision
-         } ]
-    DefaultSceneRootNode: { 
-        ComponentClass: Class /Script/Engine.SceneComponent
-        ComponentTemplate: { 
-             }
-        VariableGuid: 608e5b6f-5d71-4b32-896a-d917a97462e2
-        InternalVariableName: DefaultSceneRoot
-         }
-     }
-UberGraphFramePointerProperty: { 
-     }
-UberGraphFunction: { 
-     }
+DynamicBindingObjects: [ ComponentDelegateBindings: [ {
+	ComponentPropertyName: FlashLightable
+	DelegatePropertyName: OnAuthorityChargeComplete
+	FunctionNameToBind: BndEvt__FlashLightable_K2Node_ComponentBoundEvent_0_OnLitChargeComplete__DelegateSignature
+	}, {
+	ComponentPropertyName: TriggerZone
+	DelegatePropertyName: OnComponentEndOverlap
+	FunctionNameToBind: BndEvt__TriggerZone_K2Node_ComponentBoundEvent_171_ComponentEndOverlapSignature__DelegateSignature
+	}, {
+	ComponentPropertyName: TriggerZone
+	DelegatePropertyName: OnComponentBeginOverlap
+	FunctionNameToBind: BndEvt__TriggerZone_K2Node_ComponentBoundEvent_168_ComponentBeginOverlapSignature__DelegateSignature
+	} ]
+ ]
+Timelines: [ TimelineLength: 1f
+bValidatedAsWired: True
+FloatTracks: [ {
+	CurveFloat: FloatCurve: {
+		Keys: [ { Time: 0, Value: 0.7, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] }, { Time: 1, Value: 0.1, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] } ]
+		}
+	
+	PropertyName: Melt_Dissolve_31EDCED94C9AC05D9F81058A77E6E007
+	TrackName: Dissolve
+	bIsExternalCurve: False
+	}, {
+	CurveFloat: FloatCurve: {
+		Keys: [ { Time: 0, Value: 0, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] }, { Time: 0.3, Value: 0.5, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] } ]
+		}
+	
+	PropertyName: Melt_Mud_31EDCED94C9AC05D9F81058A77E6E007
+	TrackName: Mud
+	bIsExternalCurve: False
+	} ]
+TimelineGuid: 31edced9-c05d-4c9a-8a05-819f07e0e677
+VariableName: Melt
+DirectionPropertyName: Melt__Direction_31EDCED94C9AC05D9F81058A77E6E007
+UpdateFunctionName: Melt__UpdateFunc
+FinishedFunctionName: Melt__FinishedFunc
+, TimelineLength: 1f
+bValidatedAsWired: True
+FloatTracks: [ {
+	CurveFloat: FloatCurve: {
+		Keys: [ { Time: 0, Value: 0.7, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] }, { Time: 0.3, Value: 0.1, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] } ]
+		}
+	
+	PropertyName: Dust_Dissolve_264E979A4F8E1BEDB1D6B2A24F498BDC
+	TrackName: Dissolve
+	bIsExternalCurve: False
+	} ]
+TimelineGuid: 264e979a-1bed-4f8e-a2b2-d6b1dc8b494f
+VariableName: Dust
+DirectionPropertyName: Dust__Direction_264E979A4F8E1BEDB1D6B2A24F498BDC
+UpdateFunctionName: Dust__UpdateFunc
+FinishedFunctionName: Dust__FinishedFunc
+, TimelineLength: 0.5f
+bValidatedAsWired: True
+FloatTracks: [ {
+	CurveFloat: FloatCurve: {
+		Keys: [ { Time: 0, Value: 1.1, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] }, { Time: 0.5, Value: 0, InterpMode: Unreal.Core.Serialization.Enums.TEnumAsByte`1[Unreal.ObjectSystem.Structures.RichCurveKey+ERichCurveInterpMode] } ]
+		}
+	
+	PropertyName: TrapDecalDestroy_01_A03E0AD14F6AA345821A4298715A9B38
+	TrackName: 01
+	bIsExternalCurve: False
+	} ]
+TimelineGuid: a03e0ad1-a345-4f6a-9842-1a82389b5a71
+VariableName: TrapDecalDestroy
+DirectionPropertyName: TrapDecalDestroy__Direction_A03E0AD14F6AA345821A4298715A9B38
+UpdateFunctionName: TrapDecalDestroy__UpdateFunc
+FinishedFunctionName: TrapDecalDestroy__FinishedFunc
+ ]
+SimpleConstructionScript: RootNodes: [ ComponentClass: { null }
+ComponentTemplate: Category: EMapActorCategory::KillerObject
+
+VariableGuid: 9833165f-f0c8-4563-8193-83663fd00597
+InternalVariableName: MapActor
+, ComponentClass: { null }
+ComponentTemplate: SlaveAnimInstanceClass: { null }
+_characterIdOverride: 268435460
+
+VariableGuid: 0bb17cd4-e39b-4c36-834d-282fb0307239
+InternalVariableName: CustomizedSkeletalMesh
+, ComponentClass: { null }
+ComponentTemplate: 
+VariableGuid: a103a032-37ad-41e0-aa40-2fe45bb5e147
+InternalVariableName: FirecrackerEffectHandler
+, ComponentClass: { null }
+ComponentTemplate: 
+ParentComponentOrVariableName: Terror Radius Component
+bIsParentComponentNative: True
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: 
+VariableGuid: b4662e43-d352-41d3-b3c3-bd92f3e07f3a
+InternalVariableName: TeleportToPhantomTrap
+ ]
+VariableGuid: fab55c3e-61b2-4312-9046-7ce306c4cdb3
+InternalVariableName: SlasherInteractor
+, ComponentClass: { null }
+ComponentTemplate: SphereRadius: 300f
+AreaClass: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+CanCharacterStepUpOn: ECB_No
+BodyInstance: {
+	ObjectType: ECC_GameTraceChannel1
+	CollisionProfileName: Custom
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Overlap
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	MassInKgOverride: 6167.102f
+	}
+bCanEverAffectNavigation: False
+
+ParentComponentOrVariableName: Terror Radius Component
+bIsParentComponentNative: True
+VariableGuid: fd4c4f6c-cbec-48e2-950e-31883a4478aa
+InternalVariableName: TriggerZone
+, ComponentClass: { null }
+ComponentTemplate: 
+ParentComponentOrVariableName: Terror Radius Component
+bIsParentComponentNative: True
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: AnimClass: { null }
+ClothingSimulationFactory: { null }
+SkeletalMesh: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+bRenderCustomDepth: True
+BodyInstance: {
+	ObjectType: ECC_Pawn
+	CollisionProfileName: Custom
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel1
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	MassInKgOverride: 59.77126f
+	}
+RelativeRotation: { Pitch: 0, Roll: -90, Yaw: 0 }
+bVisible: False
+
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: Groups: [ {
+	GroupName: Dissolve
+	Maps: [ {
+		SrcMaterial: { null }
+		DstMaterial: { null }
+		}, {
+		SrcMaterial: { null }
+		DstMaterial: { null }
+		}, {
+		SrcMaterial: { null }
+		DstMaterial: { null }
+		}, {
+		SrcMaterial: { null }
+		DstMaterial: { null }
+		}, {
+		SrcMaterial: { null }
+		DstMaterial: { null }
+		} ]
+	} ]
+RelativeLocation: { X: 0, Y: 0, Z: 101.7689 }
+RelativeRotation: { Pitch: 0, Roll: 180, Yaw: 0 }
+
+VariableGuid: cd586391-097c-4c18-aa72-3e8b6c4a09c7
+InternalVariableName: MaterialHelper
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+InstanceParameters: [ {
+	Name: VertSurfaceActor
+	ParamType: PSPT_Actor
+	Scalar: 0f
+	Scalar_Low: 0f
+	Vector: { X: 0, Y: 0, Z: 0 }
+	Vector_Low: { X: 0, Y: 0, Z: 0 }
+	Color: { R: 0, G: 0, B: 0, A: 0 }
+	Actor: { null }
+	Material: { null }
+	} ]
+WarmupTime: 5f
+DetailLevelBeforeCastShadows: DM_MAX
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: edab443e-72c7-417e-9797-0c75bf746d7f
+InternalVariableName: P_MudParts
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: 3886e5db-1bc8-498d-a565-b2ee8ab5ad0a
+InternalVariableName: P_MudFalling
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: ae3593a4-b6fd-48ab-9d93-1c0577183d73
+InternalVariableName: P_MudBlast
+, ComponentClass: { null }
+ComponentTemplate: RelativeRotation: { Pitch: 0, Roll: 89.99999, Yaw: 0 }
+
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: InnerConeAngle: 11f
+OuterConeAngle: 40f
+MaxDrawDistance: 0f
+MaxDistanceFadeRange: 0f
+LightFunctionMaterial: { null }
+LightGuid: 20b9658c-9965-4d28-9bba-aa4989c9475f
+Intensity: 34000f
+LightColor: { R: 194, G: 0, B: 0, A: 0 }
+DetailLevelBeforeCastShadows: DM_MAX
+RelativeLocation: { X: 57.88479, Y: 10.81992, Z: 136.8826 }
+RelativeRotation: { Pitch: -44.99985, Roll: 1.317337E-06, Yaw: 1.488504E-05 }
+bVisible: False
+
+VariableGuid: 7123a4e1-33d2-4a43-b906-df3000cbf6b4
+InternalVariableName: RedGlow
+ ]
+VariableGuid: f5ddacb5-2b68-4995-8794-77f9225743b9
+InternalVariableName: RedGlowTransform
+ ]
+VariableGuid: d751e393-161f-447e-9879-0c538754c1ec
+InternalVariableName: Phantom
+, ComponentClass: { null }
+ComponentTemplate: CapsuleHalfHeight: 100f
+CapsuleRadius: 60f
+AreaClass: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	CollisionProfileName: Custom
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Overlap
+			} ]
+		}
+	}
+bVisible: False
+
+VariableGuid: be7dbd38-9a63-4584-8df5-26cdd4367fc9
+InternalVariableName: CollisionCheckCapsule
+, ComponentClass: { null }
+ComponentTemplate: CapsuleHalfHeight: 80f
+CapsuleRadius: 35f
+AreaClass: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	CollisionEnabled: ECollisionEnabled::NoCollision
+	CollisionProfileName: Custom
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	}
+RelativeLocation: { X: 0, Y: 0, Z: 80 }
+RelativeRotation: { Pitch: 0, Roll: -1.024528E-05, Yaw: 0 }
+bVisible: False
+
+VariableGuid: 1cc31b4c-e612-447e-84dd-8c9cb2a824f5
+InternalVariableName: PhantomCollision
+ ]
+MetaDataArray: [ {
+	DataKey: tooltip
+	DataValue: To set phantom foward vector in front of him
+	} ]
+VariableGuid: f8c38036-4dca-4c99-b745-0c9b51f11367
+InternalVariableName: PhantomTransform
+, ComponentClass: { null }
+ComponentTemplate: 
+ParentComponentOrVariableName: Terror Radius Component
+bIsParentComponentNative: True
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: 
+VariableGuid: 4c8c4377-8958-4ffa-81d1-b58aea52411f
+InternalVariableName: CamperStun
+ ]
+VariableGuid: 98c97e10-1391-4eb4-a734-9e5f0fdd8ed9
+InternalVariableName: CamperInteractor
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+WarmupTime: 5f
+DetailLevelBeforeCastShadows: DM_MAX
+bAbsoluteRotation: True
+bVisible: False
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+
+ParentComponentOrVariableName: Terror Radius Component
+bIsParentComponentNative: True
+VariableGuid: 681818d7-1f74-40a7-9454-36cca4aac8fb
+InternalVariableName: P_TrapRadius
+, ComponentClass: { null }
+ComponentTemplate: RelativeLocation: { X: -10, Y: 0, Z: 0 }
+
+ParentComponentOrVariableName: Terror Radius Component
+bIsParentComponentNative: True
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: RelativeRotation: { Pitch: 90, Roll: 0, Yaw: 0 }
+
+VariableGuid: 356727a0-19bd-4125-8b81-c35ef8ee575d
+InternalVariableName: Ak_Audio_PhantomTrap
+ ]
+MetaDataArray: [ {
+	DataKey: tooltip
+	DataValue: Used for line of sight raycasts
+	} ]
+VariableGuid: c9aa8773-9f8e-475e-8193-f9246e41f395
+InternalVariableName: TrapLocation
+, ComponentClass: { null }
+ComponentTemplate: SphereRadius: 150f
+AreaClass: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	ObjectType: ECC_WorldStatic
+	CollisionProfileName: TrapBlocker
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			} ]
+		}
+	MassInKgOverride: 1296.474f
+	}
+
+ParentComponentOrVariableName: Terror Radius Component
+bIsParentComponentNative: True
+VariableGuid: 019767e5-d20e-4f23-bf08-e3876f688f29
+InternalVariableName: TrapBlocker
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+RelativeRotation: { Pitch: -10, Roll: 90, Yaw: -90 }
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+ParentComponentOrVariableName: Terror Radius Component
+bIsParentComponentNative: True
+VariableGuid: 4939b8f3-d610-49e3-b6e9-d9e3cdfb46b9
+InternalVariableName: P_TrapDestroy
+, ComponentClass: { null }
+ComponentTemplate: SphereRadius: 300f
+AreaClass: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+CanCharacterStepUpOn: ECB_No
+BodyInstance: {
+	ObjectType: ECC_GameTraceChannel7
+	CollisionProfileName: MapActor
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: MapActor
+			Response: ECR_Overlap
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	MassInKgOverride: 6167.102f
+	}
+
+ParentComponentOrVariableName: Terror Radius Component
+bIsParentComponentNative: True
+VariableGuid: 8fcca50b-2152-4be5-a8e4-a5ccb0175651
+InternalVariableName: MapActorPrimitive
+, ComponentClass: { null }
+ComponentTemplate: DetailLevelBeforeCastShadows: DM_MAX
+RelativeLocation: { X: 0, Y: 0, Z: 50 }
+Mobility: EComponentMobility::Static
+
+ParentComponentOrVariableName: Terror Radius Component
+bIsParentComponentNative: True
+VariableGuid: ea6b0998-d1c5-4461-bbe4-4ddf7b6ca50e
+InternalVariableName: LineTraceWallCheckPositionArrow
+, ComponentClass: { null }
+ComponentTemplate: StaticMesh: { null }
+bUseDefaultCollision: False
+OverrideMaterials: [ { null } ]
+bRenderInMainPass: False
+bReceivesDecals: False
+DetailLevelBeforeCastShadows: DM_MAX
+bRenderCustomDepth: True
+BodyInstance: {
+	ObjectType: ECC_WorldStatic
+	CollisionEnabled: ECollisionEnabled::NoCollision
+	CollisionProfileName: NoCollision
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	MassInKgOverride: 0f
+	}
+RelativeRotation: { Pitch: -49.99982, Roll: 89.99994, Yaw: -89.99982 }
+bVisible: False
+
+ParentComponentOrVariableName: Terror Radius Component
+bIsParentComponentNative: True
+VariableGuid: 2708f2b0-40c8-45dd-a612-ffc79e1b15c1
+InternalVariableName: OutlineMesh
+, ComponentClass: { null }
+ComponentTemplate: LimitToCustomDepthObjects: True
+OutlineName: Phantom
+RelativeLocation: { X: 4.982948E-05, Y: 63.69761, Z: 22.26494 }
+RelativeRotation: { Pitch: 8.879245E-05, Roll: 0.0001024527, Yaw: -0.0001831055 }
+
+ParentComponentOrVariableName: Terror Radius Component
+bIsParentComponentNative: True
+VariableGuid: d7ca6c67-e677-4e55-a1b0-2a4066c6c7f7
+InternalVariableName: DBDOutline
+, ComponentClass: { null }
+ComponentTemplate: 
+VariableGuid: f2c0c4b4-9f11-4e23-8a60-e9f1cbe0bceb
+InternalVariableName: FlashLightable
+ ]
+AllNodes: [ ComponentClass: { null }
+ComponentTemplate: 
+ParentComponentOrVariableName: Terror Radius Component
+bIsParentComponentNative: True
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: 
+VariableGuid: b4662e43-d352-41d3-b3c3-bd92f3e07f3a
+InternalVariableName: TeleportToPhantomTrap
+ ]
+VariableGuid: fab55c3e-61b2-4312-9046-7ce306c4cdb3
+InternalVariableName: SlasherInteractor
+, ComponentClass: { null }
+ComponentTemplate: 
+VariableGuid: b4662e43-d352-41d3-b3c3-bd92f3e07f3a
+InternalVariableName: TeleportToPhantomTrap
+, ComponentClass: { null }
+ComponentTemplate: SphereRadius: 300f
+AreaClass: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+CanCharacterStepUpOn: ECB_No
+BodyInstance: {
+	ObjectType: ECC_GameTraceChannel1
+	CollisionProfileName: Custom
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Overlap
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	MassInKgOverride: 6167.102f
+	}
+bCanEverAffectNavigation: False
+
+ParentComponentOrVariableName: Terror Radius Component
+bIsParentComponentNative: True
+VariableGuid: fd4c4f6c-cbec-48e2-950e-31883a4478aa
+InternalVariableName: TriggerZone
+, ComponentClass: { null }
+ComponentTemplate: 
+ParentComponentOrVariableName: Terror Radius Component
+bIsParentComponentNative: True
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: AnimClass: { null }
+ClothingSimulationFactory: { null }
+SkeletalMesh: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+bRenderCustomDepth: True
+BodyInstance: {
+	ObjectType: ECC_Pawn
+	CollisionProfileName: Custom
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel1
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	MassInKgOverride: 59.77126f
+	}
+RelativeRotation: { Pitch: 0, Roll: -90, Yaw: 0 }
+bVisible: False
+
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: Groups: [ {
+	GroupName: Dissolve
+	Maps: [ {
+		SrcMaterial: { null }
+		DstMaterial: { null }
+		}, {
+		SrcMaterial: { null }
+		DstMaterial: { null }
+		}, {
+		SrcMaterial: { null }
+		DstMaterial: { null }
+		}, {
+		SrcMaterial: { null }
+		DstMaterial: { null }
+		}, {
+		SrcMaterial: { null }
+		DstMaterial: { null }
+		} ]
+	} ]
+RelativeLocation: { X: 0, Y: 0, Z: 101.7689 }
+RelativeRotation: { Pitch: 0, Roll: 180, Yaw: 0 }
+
+VariableGuid: cd586391-097c-4c18-aa72-3e8b6c4a09c7
+InternalVariableName: MaterialHelper
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+InstanceParameters: [ {
+	Name: VertSurfaceActor
+	ParamType: PSPT_Actor
+	Scalar: 0f
+	Scalar_Low: 0f
+	Vector: { X: 0, Y: 0, Z: 0 }
+	Vector_Low: { X: 0, Y: 0, Z: 0 }
+	Color: { R: 0, G: 0, B: 0, A: 0 }
+	Actor: { null }
+	Material: { null }
+	} ]
+WarmupTime: 5f
+DetailLevelBeforeCastShadows: DM_MAX
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: edab443e-72c7-417e-9797-0c75bf746d7f
+InternalVariableName: P_MudParts
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: 3886e5db-1bc8-498d-a565-b2ee8ab5ad0a
+InternalVariableName: P_MudFalling
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: ae3593a4-b6fd-48ab-9d93-1c0577183d73
+InternalVariableName: P_MudBlast
+, ComponentClass: { null }
+ComponentTemplate: RelativeRotation: { Pitch: 0, Roll: 89.99999, Yaw: 0 }
+
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: InnerConeAngle: 11f
+OuterConeAngle: 40f
+MaxDrawDistance: 0f
+MaxDistanceFadeRange: 0f
+LightFunctionMaterial: { null }
+LightGuid: 20b9658c-9965-4d28-9bba-aa4989c9475f
+Intensity: 34000f
+LightColor: { R: 194, G: 0, B: 0, A: 0 }
+DetailLevelBeforeCastShadows: DM_MAX
+RelativeLocation: { X: 57.88479, Y: 10.81992, Z: 136.8826 }
+RelativeRotation: { Pitch: -44.99985, Roll: 1.317337E-06, Yaw: 1.488504E-05 }
+bVisible: False
+
+VariableGuid: 7123a4e1-33d2-4a43-b906-df3000cbf6b4
+InternalVariableName: RedGlow
+ ]
+VariableGuid: f5ddacb5-2b68-4995-8794-77f9225743b9
+InternalVariableName: RedGlowTransform
+ ]
+VariableGuid: d751e393-161f-447e-9879-0c538754c1ec
+InternalVariableName: Phantom
+, ComponentClass: { null }
+ComponentTemplate: CapsuleHalfHeight: 100f
+CapsuleRadius: 60f
+AreaClass: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	CollisionProfileName: Custom
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Overlap
+			} ]
+		}
+	}
+bVisible: False
+
+VariableGuid: be7dbd38-9a63-4584-8df5-26cdd4367fc9
+InternalVariableName: CollisionCheckCapsule
+, ComponentClass: { null }
+ComponentTemplate: CapsuleHalfHeight: 80f
+CapsuleRadius: 35f
+AreaClass: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	CollisionEnabled: ECollisionEnabled::NoCollision
+	CollisionProfileName: Custom
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	}
+RelativeLocation: { X: 0, Y: 0, Z: 80 }
+RelativeRotation: { Pitch: 0, Roll: -1.024528E-05, Yaw: 0 }
+bVisible: False
+
+VariableGuid: 1cc31b4c-e612-447e-84dd-8c9cb2a824f5
+InternalVariableName: PhantomCollision
+ ]
+MetaDataArray: [ {
+	DataKey: tooltip
+	DataValue: To set phantom foward vector in front of him
+	} ]
+VariableGuid: f8c38036-4dca-4c99-b745-0c9b51f11367
+InternalVariableName: PhantomTransform
+, ComponentClass: { null }
+ComponentTemplate: AnimClass: { null }
+ClothingSimulationFactory: { null }
+SkeletalMesh: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+bRenderCustomDepth: True
+BodyInstance: {
+	ObjectType: ECC_Pawn
+	CollisionProfileName: Custom
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel1
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	MassInKgOverride: 59.77126f
+	}
+RelativeRotation: { Pitch: 0, Roll: -90, Yaw: 0 }
+bVisible: False
+
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: Groups: [ {
+	GroupName: Dissolve
+	Maps: [ {
+		SrcMaterial: { null }
+		DstMaterial: { null }
+		}, {
+		SrcMaterial: { null }
+		DstMaterial: { null }
+		}, {
+		SrcMaterial: { null }
+		DstMaterial: { null }
+		}, {
+		SrcMaterial: { null }
+		DstMaterial: { null }
+		}, {
+		SrcMaterial: { null }
+		DstMaterial: { null }
+		} ]
+	} ]
+RelativeLocation: { X: 0, Y: 0, Z: 101.7689 }
+RelativeRotation: { Pitch: 0, Roll: 180, Yaw: 0 }
+
+VariableGuid: cd586391-097c-4c18-aa72-3e8b6c4a09c7
+InternalVariableName: MaterialHelper
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+InstanceParameters: [ {
+	Name: VertSurfaceActor
+	ParamType: PSPT_Actor
+	Scalar: 0f
+	Scalar_Low: 0f
+	Vector: { X: 0, Y: 0, Z: 0 }
+	Vector_Low: { X: 0, Y: 0, Z: 0 }
+	Color: { R: 0, G: 0, B: 0, A: 0 }
+	Actor: { null }
+	Material: { null }
+	} ]
+WarmupTime: 5f
+DetailLevelBeforeCastShadows: DM_MAX
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: edab443e-72c7-417e-9797-0c75bf746d7f
+InternalVariableName: P_MudParts
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: 3886e5db-1bc8-498d-a565-b2ee8ab5ad0a
+InternalVariableName: P_MudFalling
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: ae3593a4-b6fd-48ab-9d93-1c0577183d73
+InternalVariableName: P_MudBlast
+, ComponentClass: { null }
+ComponentTemplate: RelativeRotation: { Pitch: 0, Roll: 89.99999, Yaw: 0 }
+
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: InnerConeAngle: 11f
+OuterConeAngle: 40f
+MaxDrawDistance: 0f
+MaxDistanceFadeRange: 0f
+LightFunctionMaterial: { null }
+LightGuid: 20b9658c-9965-4d28-9bba-aa4989c9475f
+Intensity: 34000f
+LightColor: { R: 194, G: 0, B: 0, A: 0 }
+DetailLevelBeforeCastShadows: DM_MAX
+RelativeLocation: { X: 57.88479, Y: 10.81992, Z: 136.8826 }
+RelativeRotation: { Pitch: -44.99985, Roll: 1.317337E-06, Yaw: 1.488504E-05 }
+bVisible: False
+
+VariableGuid: 7123a4e1-33d2-4a43-b906-df3000cbf6b4
+InternalVariableName: RedGlow
+ ]
+VariableGuid: f5ddacb5-2b68-4995-8794-77f9225743b9
+InternalVariableName: RedGlowTransform
+ ]
+VariableGuid: d751e393-161f-447e-9879-0c538754c1ec
+InternalVariableName: Phantom
+, ComponentClass: { null }
+ComponentTemplate: Groups: [ {
+	GroupName: Dissolve
+	Maps: [ {
+		SrcMaterial: { null }
+		DstMaterial: { null }
+		}, {
+		SrcMaterial: { null }
+		DstMaterial: { null }
+		}, {
+		SrcMaterial: { null }
+		DstMaterial: { null }
+		}, {
+		SrcMaterial: { null }
+		DstMaterial: { null }
+		}, {
+		SrcMaterial: { null }
+		DstMaterial: { null }
+		} ]
+	} ]
+RelativeLocation: { X: 0, Y: 0, Z: 101.7689 }
+RelativeRotation: { Pitch: 0, Roll: 180, Yaw: 0 }
+
+VariableGuid: cd586391-097c-4c18-aa72-3e8b6c4a09c7
+InternalVariableName: MaterialHelper
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+InstanceParameters: [ {
+	Name: VertSurfaceActor
+	ParamType: PSPT_Actor
+	Scalar: 0f
+	Scalar_Low: 0f
+	Vector: { X: 0, Y: 0, Z: 0 }
+	Vector_Low: { X: 0, Y: 0, Z: 0 }
+	Color: { R: 0, G: 0, B: 0, A: 0 }
+	Actor: { null }
+	Material: { null }
+	} ]
+WarmupTime: 5f
+DetailLevelBeforeCastShadows: DM_MAX
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: edab443e-72c7-417e-9797-0c75bf746d7f
+InternalVariableName: P_MudParts
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: 3886e5db-1bc8-498d-a565-b2ee8ab5ad0a
+InternalVariableName: P_MudFalling
+, ComponentClass: { null }
+ComponentTemplate: InnerConeAngle: 11f
+OuterConeAngle: 40f
+MaxDrawDistance: 0f
+MaxDistanceFadeRange: 0f
+LightFunctionMaterial: { null }
+LightGuid: 20b9658c-9965-4d28-9bba-aa4989c9475f
+Intensity: 34000f
+LightColor: { R: 194, G: 0, B: 0, A: 0 }
+DetailLevelBeforeCastShadows: DM_MAX
+RelativeLocation: { X: 57.88479, Y: 10.81992, Z: 136.8826 }
+RelativeRotation: { Pitch: -44.99985, Roll: 1.317337E-06, Yaw: 1.488504E-05 }
+bVisible: False
+
+VariableGuid: 7123a4e1-33d2-4a43-b906-df3000cbf6b4
+InternalVariableName: RedGlow
+, ComponentClass: { null }
+ComponentTemplate: 
+ParentComponentOrVariableName: Terror Radius Component
+bIsParentComponentNative: True
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: 
+VariableGuid: 4c8c4377-8958-4ffa-81d1-b58aea52411f
+InternalVariableName: CamperStun
+ ]
+VariableGuid: 98c97e10-1391-4eb4-a734-9e5f0fdd8ed9
+InternalVariableName: CamperInteractor
+, ComponentClass: { null }
+ComponentTemplate: 
+VariableGuid: 4c8c4377-8958-4ffa-81d1-b58aea52411f
+InternalVariableName: CamperStun
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+WarmupTime: 5f
+DetailLevelBeforeCastShadows: DM_MAX
+bAbsoluteRotation: True
+bVisible: False
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+
+ParentComponentOrVariableName: Terror Radius Component
+bIsParentComponentNative: True
+VariableGuid: 681818d7-1f74-40a7-9454-36cca4aac8fb
+InternalVariableName: P_TrapRadius
+, ComponentClass: { null }
+ComponentTemplate: RelativeLocation: { X: -10, Y: 0, Z: 0 }
+
+ParentComponentOrVariableName: Terror Radius Component
+bIsParentComponentNative: True
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: RelativeRotation: { Pitch: 90, Roll: 0, Yaw: 0 }
+
+VariableGuid: 356727a0-19bd-4125-8b81-c35ef8ee575d
+InternalVariableName: Ak_Audio_PhantomTrap
+ ]
+MetaDataArray: [ {
+	DataKey: tooltip
+	DataValue: Used for line of sight raycasts
+	} ]
+VariableGuid: c9aa8773-9f8e-475e-8193-f9246e41f395
+InternalVariableName: TrapLocation
+, ComponentClass: { null }
+ComponentTemplate: RelativeRotation: { Pitch: 90, Roll: 0, Yaw: 0 }
+
+VariableGuid: 356727a0-19bd-4125-8b81-c35ef8ee575d
+InternalVariableName: Ak_Audio_PhantomTrap
+, ComponentClass: { null }
+ComponentTemplate: SphereRadius: 150f
+AreaClass: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	ObjectType: ECC_WorldStatic
+	CollisionProfileName: TrapBlocker
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			} ]
+		}
+	MassInKgOverride: 1296.474f
+	}
+
+ParentComponentOrVariableName: Terror Radius Component
+bIsParentComponentNative: True
+VariableGuid: 019767e5-d20e-4f23-bf08-e3876f688f29
+InternalVariableName: TrapBlocker
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+RelativeRotation: { Pitch: -10, Roll: 90, Yaw: -90 }
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+ParentComponentOrVariableName: Terror Radius Component
+bIsParentComponentNative: True
+VariableGuid: 4939b8f3-d610-49e3-b6e9-d9e3cdfb46b9
+InternalVariableName: P_TrapDestroy
+, ComponentClass: { null }
+ComponentTemplate: SphereRadius: 300f
+AreaClass: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+CanCharacterStepUpOn: ECB_No
+BodyInstance: {
+	ObjectType: ECC_GameTraceChannel7
+	CollisionProfileName: MapActor
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: MapActor
+			Response: ECR_Overlap
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	MassInKgOverride: 6167.102f
+	}
+
+ParentComponentOrVariableName: Terror Radius Component
+bIsParentComponentNative: True
+VariableGuid: 8fcca50b-2152-4be5-a8e4-a5ccb0175651
+InternalVariableName: MapActorPrimitive
+, ComponentClass: { null }
+ComponentTemplate: Category: EMapActorCategory::KillerObject
+
+VariableGuid: 9833165f-f0c8-4563-8193-83663fd00597
+InternalVariableName: MapActor
+, ComponentClass: { null }
+ComponentTemplate: SlaveAnimInstanceClass: { null }
+_characterIdOverride: 268435460
+
+VariableGuid: 0bb17cd4-e39b-4c36-834d-282fb0307239
+InternalVariableName: CustomizedSkeletalMesh
+, ComponentClass: { null }
+ComponentTemplate: 
+VariableGuid: a103a032-37ad-41e0-aa40-2fe45bb5e147
+InternalVariableName: FirecrackerEffectHandler
+, ComponentClass: { null }
+ComponentTemplate: DetailLevelBeforeCastShadows: DM_MAX
+RelativeLocation: { X: 0, Y: 0, Z: 50 }
+Mobility: EComponentMobility::Static
+
+ParentComponentOrVariableName: Terror Radius Component
+bIsParentComponentNative: True
+VariableGuid: ea6b0998-d1c5-4461-bbe4-4ddf7b6ca50e
+InternalVariableName: LineTraceWallCheckPositionArrow
+, ComponentClass: { null }
+ComponentTemplate: StaticMesh: { null }
+bUseDefaultCollision: False
+OverrideMaterials: [ { null } ]
+bRenderInMainPass: False
+bReceivesDecals: False
+DetailLevelBeforeCastShadows: DM_MAX
+bRenderCustomDepth: True
+BodyInstance: {
+	ObjectType: ECC_WorldStatic
+	CollisionEnabled: ECollisionEnabled::NoCollision
+	CollisionProfileName: NoCollision
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel2
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel3
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel4
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel5
+			Response: ECR_Ignore
+			}, {
+			Channel: EngineTraceChannel6
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	MassInKgOverride: 0f
+	}
+RelativeRotation: { Pitch: -49.99982, Roll: 89.99994, Yaw: -89.99982 }
+bVisible: False
+
+ParentComponentOrVariableName: Terror Radius Component
+bIsParentComponentNative: True
+VariableGuid: 2708f2b0-40c8-45dd-a612-ffc79e1b15c1
+InternalVariableName: OutlineMesh
+, ComponentClass: { null }
+ComponentTemplate: LimitToCustomDepthObjects: True
+OutlineName: Phantom
+RelativeLocation: { X: 4.982948E-05, Y: 63.69761, Z: 22.26494 }
+RelativeRotation: { Pitch: 8.879245E-05, Roll: 0.0001024527, Yaw: -0.0001831055 }
+
+ParentComponentOrVariableName: Terror Radius Component
+bIsParentComponentNative: True
+VariableGuid: d7ca6c67-e677-4e55-a1b0-2a4066c6c7f7
+InternalVariableName: DBDOutline
+, ComponentClass: { null }
+ComponentTemplate: Template: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+PrimaryComponentTick: {
+	bStartWithTickEnabled: False
+	}
+bAutoActivate: False
+
+VariableGuid: ae3593a4-b6fd-48ab-9d93-1c0577183d73
+InternalVariableName: P_MudBlast
+, ComponentClass: { null }
+ComponentTemplate: RelativeRotation: { Pitch: 0, Roll: 89.99999, Yaw: 0 }
+
+ChildNodes: [ ComponentClass: { null }
+ComponentTemplate: InnerConeAngle: 11f
+OuterConeAngle: 40f
+MaxDrawDistance: 0f
+MaxDistanceFadeRange: 0f
+LightFunctionMaterial: { null }
+LightGuid: 20b9658c-9965-4d28-9bba-aa4989c9475f
+Intensity: 34000f
+LightColor: { R: 194, G: 0, B: 0, A: 0 }
+DetailLevelBeforeCastShadows: DM_MAX
+RelativeLocation: { X: 57.88479, Y: 10.81992, Z: 136.8826 }
+RelativeRotation: { Pitch: -44.99985, Roll: 1.317337E-06, Yaw: 1.488504E-05 }
+bVisible: False
+
+VariableGuid: 7123a4e1-33d2-4a43-b906-df3000cbf6b4
+InternalVariableName: RedGlow
+ ]
+VariableGuid: f5ddacb5-2b68-4995-8794-77f9225743b9
+InternalVariableName: RedGlowTransform
+, ComponentClass: { null }
+ComponentTemplate: 
+VariableGuid: f2c0c4b4-9f11-4e23-8a60-e9f1cbe0bceb
+InternalVariableName: FlashLightable
+, ComponentClass: { null }
+ComponentTemplate: CapsuleHalfHeight: 100f
+CapsuleRadius: 60f
+AreaClass: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	CollisionProfileName: Custom
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			}, {
+			Channel: Pawn
+			Response: ECR_Overlap
+			} ]
+		}
+	}
+bVisible: False
+
+VariableGuid: be7dbd38-9a63-4584-8df5-26cdd4367fc9
+InternalVariableName: CollisionCheckCapsule
+, ComponentClass: { null }
+ComponentTemplate: CapsuleHalfHeight: 80f
+CapsuleRadius: 35f
+AreaClass: { null }
+DetailLevelBeforeCastShadows: DM_MAX
+BodyInstance: {
+	CollisionEnabled: ECollisionEnabled::NoCollision
+	CollisionProfileName: Custom
+	CollisionResponses: {
+		ResponseArray: [ {
+			Channel: Camera
+			Response: ECR_Ignore
+			}, {
+			Channel: PhysicsBody
+			Response: ECR_Ignore
+			}, {
+			Channel: InteractionDetector
+			Response: ECR_Ignore
+			}, {
+			Channel: Slasher
+			Response: ECR_Ignore
+			}, {
+			Channel: Spider
+			Response: ECR_Ignore
+			}, {
+			Channel: Traps
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldStatic
+			Response: ECR_Ignore
+			}, {
+			Channel: WorldDynamic
+			Response: ECR_Ignore
+			}, {
+			Channel: Vehicle
+			Response: ECR_Ignore
+			}, {
+			Channel: Destructible
+			Response: ECR_Ignore
+			}, {
+			Channel: Interactable
+			Response: ECR_Ignore
+			}, {
+			Channel: Audio
+			Response: ECR_Ignore
+			}, {
+			Channel: Visibility
+			Response: ECR_Ignore
+			}, {
+			Channel: BlinkBlocker
+			Response: ECR_Ignore
+			}, {
+			Channel: Ground
+			Response: ECR_Ignore
+			} ]
+		}
+	}
+RelativeLocation: { X: 0, Y: 0, Z: 80 }
+RelativeRotation: { Pitch: 0, Roll: -1.024528E-05, Yaw: 0 }
+bVisible: False
+
+VariableGuid: 1cc31b4c-e612-447e-84dd-8c9cb2a824f5
+InternalVariableName: PhantomCollision
+ ]
+DefaultSceneRootNode: ComponentClass: { null }
+ComponentTemplate: 
+VariableGuid: 608e5b6f-5d71-4b32-896a-d917a97462e2
+InternalVariableName: DefaultSceneRoot
+
+
+UberGraphFramePointerProperty: 
+UberGraphFunction: 
 <--- CDO --->
-UberGraphFrame: 624
-ActiveTimer: { 
-    _startTime: 0f
-    _startTimeDirty: True
-    _timeLeft: { 
-        _value: 0f
-         }
-    _replicateTimeLeft: False
-    _interpSpeed: 1f
-     }
+UberGraphFrame: 626
+ActiveTimer: {
+	_startTime: 0f
+	_startTimeDirty: True
+	_timeLeft: {
+		_value: 0f
+		}
+	_replicateTimeLeft: False
+	_interpSpeed: 1f
+	}
 DissolveGroupName: Dissolve
-OutlineColourForSlasher: CurveLinearColor /Game/Blueprints/GameplayElements/Item/PhantomTrap/PhantomTrapOutlineForSlasher.PhantomTrapOutlineForSlasher
+OutlineColourForSlasher: { null }
 InitialColourForCamper: { R: 0, G: 0, B: 0, A: 0 }
 RevealedColourForCamper: { R: 0.882353, G: 0.164706, B: 0.070588, A: 1 }
-TrapScale: CurveFloat /Game/Blueprints/GameplayElements/Item/PhantomTrap/PhantomTrapScale.PhantomTrapScale
-_terrorRadiusEmitter: { 
-     }
-PrimaryActorTick: { 
-    bCanEverTick: True
-     }
+TrapScale: { null }
+_terrorRadiusEmitter: 
+PrimaryActorTick: {
+	bCanEverTick: True
+	}

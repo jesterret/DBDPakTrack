@@ -1,1363 +1,1270 @@
-Emitters: [ { 
-    EmitterName: FireworkStarter_Middle
-    bUseLegacySpawningBehavior: True
-    LODLevels: [ { 
-        RequiredModule: { 
-            Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Spark.MI_Spark
-            bUseLegacyEmitterTime: False
-            EmitterLoops: 1
-            SpawnRate: { 
-                Distribution: { 
-                     }
-                 }
-            RandomImageTime: 1f
-            LODValidity: 1
-             }
-        Modules: [ { 
-            Events: [ { 
-                Type: EPET_Death
-                Frequency: 0
-                ParticleFrequency: 0
-                FirstTimeOnly: False
-                LastTimeOnly: False
-                UseReflectedImpactVector: False
-                bUseOrbitOffset: False
-                CustomName: DeathM
-                ParticleModuleEventsToSendToGame: [  ]
-                 }, { 
-                Type: EPET_Burst
-                Frequency: 0
-                ParticleFrequency: 0
-                FirstTimeOnly: False
-                LastTimeOnly: False
-                UseReflectedImpactVector: False
-                bUseOrbitOffset: False
-                CustomName: Spawn
-                ParticleModuleEventsToSendToGame: [  ]
-                 } ]
-            LODValidity: 1
-             }, { 
-            Lifetime: { 
-                MinValue: 0.8f
-                MaxValue: 0.8f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 0.8f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            StartSize: { 
-                MinValue: 5f
-                MaxValue: 5f
-                MinValueVec: { X: 5, Y: 5, Z: 5 }
-                MaxValueVec: { X: 5, Y: 5, Z: 5 }
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 3
-                    Values: [ 5f, 5f, 5f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            Acceleration: { 
-                MinValue: -300f
-                MinValueVec: { X: 0, Y: 0, Z: -300 }
-                MaxValueVec: { X: 0, Y: 0, Z: -300 }
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 3
-                    Values: [ 0f, 0f, -300f ]
-                     }
-                 }
-            bAlwaysInWorldSpace: True
-            LODValidity: 1
-             }, { 
-            StartVelocity: { 
-                MaxValue: 650f
-                MinValueVec: { X: 0, Y: 0, Z: 600 }
-                MaxValueVec: { X: 0, Y: 0, Z: 650 }
-                Distribution: { 
-                    ParameterName: Velocity
-                    MaxInput: { X: 1, Y: 1, Z: 1000 }
-                    MaxOutput: { X: 1, Y: 1, Z: 1000 }
-                    Constant: { X: 0, Y: 0, Z: 500 }
-                    bIsDirty: False
-                     }
-                Table: { 
-                    Values: [ 0f, 0f, 600f, 0f, 0f, 650f ]
-                     }
-                 }
-            StartVelocityRadial: { 
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 0f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            ColorOverLife: { 
-                MinValue: 0.5f
-                MaxValue: 20f
-                MinValueVec: { X: 20, Y: 5, Z: 0.5 }
-                MaxValueVec: { X: 20, Y: 5, Z: 0.5 }
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 3
-                    Values: [ 20f, 5f, 0.5f ]
-                     }
-                 }
-            AlphaOverLife: { 
-                MaxValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 2
-                    EntryStride: 1
-                    TimeScale: 1f
-                    Values: [ 1f, 0f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            LifeMultiplier: { 
-                MaxValue: 1f
-                MaxValueVec: { X: 1, Y: 1, Z: 1 }
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 2
-                    EntryStride: 3
-                    TimeScale: 1f
-                    Values: [ 0f, 0f, 0f, 1f, 1f, 1f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            StartRotationRate: { 
-                MaxValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 2
-                    EntryCount: 1
-                    EntryStride: 2
-                    SubEntryStride: 1
-                    Values: [ 0f, 1f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            DragCoefficientRaw: { 
-                MinValue: 1.2f
-                MaxValue: 1.2f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 1.2f ]
-                     }
-                 }
-            bAlwaysInWorldSpace: True
-            LODValidity: 1
-             } ]
-        SpawnModule: { 
-            Rate: { 
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 0f ]
-                     }
-                 }
-            RateScale: { 
-                MinValue: 1f
-                MaxValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 1f ]
-                     }
-                 }
-            BurstList: [ { 
-                Count: 1
-                CountLow: 1
-                Time: 0.5f
-                 } ]
-            BurstScale: { 
-                MinValue: 1f
-                MaxValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 1f ]
-                     }
-                 }
-            LODValidity: 1
-             }
-        EventGenerator: { 
-            Events: [ { 
-                Type: EPET_Death
-                Frequency: 0
-                ParticleFrequency: 0
-                FirstTimeOnly: False
-                LastTimeOnly: False
-                UseReflectedImpactVector: False
-                bUseOrbitOffset: False
-                CustomName: DeathM
-                ParticleModuleEventsToSendToGame: [  ]
-                 }, { 
-                Type: EPET_Burst
-                Frequency: 0
-                ParticleFrequency: 0
-                FirstTimeOnly: False
-                LastTimeOnly: False
-                UseReflectedImpactVector: False
-                bUseOrbitOffset: False
-                CustomName: Spawn
-                ParticleModuleEventsToSendToGame: [  ]
-                 } ]
-            LODValidity: 1
-             }
-        PeakActiveParticles: 3
-         } ]
-    DetailModeBitmask: 63
-     }, { 
-    EmitterName: Smoke_Middle
-    bUseLegacySpawningBehavior: True
-    LODLevels: [ { 
-        RequiredModule: { 
-            Material: MaterialInstanceConstant /Game/Effects/Materials/MI_SmokeSubUV2_Fade10.MI_SmokeSubUV2_Fade10
-            bUseLegacyEmitterTime: False
-            EmitterLoops: 1
-            SpawnRate: { 
-                Distribution: { 
-                     }
-                 }
-            InterpolationMethod: PSUVIM_Linear_Blend
-            SubImages_Horizontal: 8
-            SubImages_Vertical: 8
-            RandomImageTime: 1f
-            LODValidity: 1
-             }
-        Modules: [ { 
-            EmitterName: FireworkStarter_Middle
-            InheritSourceVelocity: True
-            InheritSourceVelocityScale: 0.35f
-            LODValidity: 1
-             }, { 
-            Lifetime: { 
-                MinValue: 1f
-                MaxValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 1f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            StartSize: { 
-                MinValue: 15f
-                MaxValue: 15f
-                MinValueVec: { X: 15, Y: 15, Z: 15 }
-                MaxValueVec: { X: 15, Y: 15, Z: 15 }
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 3
-                    Values: [ 15f, 15f, 15f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            ColorOverLife: { 
-                MaxValue: 10f
-                MaxValueVec: { X: 10, Y: 1, Z: 0.04165 }
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 128
-                    EntryStride: 3
-                    TimeScale: 127f
-                    Values: [ 10f, 1f, 0f, 9.692756f, 0.9704562f, 0.001311811f, 9.385511f, 0.9409124f, 0.002623622f, 9.078268f, 0.9113687f, 0.003935433f, 8.771024f, 0.8818249f, 0.005247244f, 8.463779f, 0.8522811f, 0.006559055f, 8.156535f, 0.8227373f, 0.007870866f, 7.849291f, 0.7931936f, 0.009182678f, 7.542048f, 0.7636498f, 0.01049449f, 7.234803f, 0.734106f, 0.0118063f, 6.927559f, 0.7045622f, 0.01311811f, 6.620315f, 0.6750184f, 0.01442992f, 6.313071f, 0.6454747f, 0.01574173f, 6.005827f, 0.6159309f, 0.01705354f, 5.698583f, 0.5863871f, 0.01836536f, 5.391338f, 0.5568433f, 0.01967717f, 5.084095f, 0.5272995f, 0.02098898f, 4.776851f, 0.4977558f, 0.02230079f, 4.469606f, 0.468212f, 0.0236126f, 4.162362f, 0.4386682f, 0.02492441f, 3.855118f, 0.4091244f, 0.02623622f, 3.547874f, 0.3795807f, 0.02754803f, 3.24063f, 0.3500369f, 0.02885984f, 2.933386f, 0.320493f, 0.03017166f, 2.626142f, 0.2909493f, 0.03148346f, 2.318898f, 0.2614055f, 0.03279528f, 2.011654f, 0.2318618f, 0.03410709f, 1.70441f, 0.202318f, 0.0354189f, 1.397165f, 0.1727742f, 0.03673071f, 1.089921f, 0.1432304f, 0.03804252f, 0.7826767f, 0.1136866f, 0.03935433f, 0.4754324f, 0.08414286f, 0.04066614f, 0.244357f, 0.06182231f, 0.04154068f, 0.2417848f, 0.06117155f, 0.04110341f, 0.2392126f, 0.06052079f, 0.04066614f, 0.2366404f, 0.05987003f, 0.04022887f, 0.2340682f, 0.05921927f, 0.0397916f, 0.2314961f, 0.0585685f, 0.03935433f, 0.2289239f, 0.05791774f, 0.03891706f, 0.2263517f, 0.05726698f, 0.03847979f, 0.2237795f, 0.05661622f, 0.03804252f, 0.2212074f, 0.05596546f, 0.03760525f, 0.2186352f, 0.0553147f, 0.03716798f, 0.216063f, 0.05466394f, 0.03673071f, 0.2134908f, 0.05401318f, 0.03629344f, 0.2109186f, 0.05336241f, 0.03585617f, 0.2083465f, 0.05271165f, 0.0354189f, 0.2057743f, 0.05206089f, 0.03498163f, 0.2032021f, 0.05141013f, 0.03454436f, 0.2006299f, 0.05075937f, 0.03410709f, 0.1980577f, 0.05010861f, 0.03366982f, 0.1954856f, 0.04945785f, 0.03323255f, 0.1929134f, 0.04880709f, 0.03279528f, 0.1903412f, 0.04815632f, 0.03235801f, 0.187769f, 0.04750556f, 0.03192073f, 0.1851968f, 0.0468548f, 0.03148346f, 0.1826247f, 0.04620405f, 0.0310462f, 0.1800525f, 0.04555328f, 0.03060892f, 0.1774803f, 0.04490252f, 0.03017166f, 0.1749081f, 0.04425176f, 0.02973438f, 0.172336f, 0.043601f, 0.02929711f, 0.1697638f, 0.04295024f, 0.02885984f, 0.1671916f, 0.04229948f, 0.02842257f, 0.1646194f, 0.04164872f, 0.0279853f, 0.1620473f, 0.04099795f, 0.02754803f, 0.1594751f, 0.04034719f, 0.02711076f, 0.1569029f, 0.03969643f, 0.02667349f, 0.1543307f, 0.03904567f, 0.02623622f, 0.1517585f, 0.03839491f, 0.02579895f, 0.1491864f, 0.03774415f, 0.02536168f, 0.1466142f, 0.03709339f, 0.02492441f, 0.144042f, 0.03644263f, 0.02448714f, 0.1414698f, 0.03579187f, 0.02404987f, 0.1388976f, 0.0351411f, 0.0236126f, 0.1363254f, 0.03449034f, 0.02317533f, 0.1337533f, 0.03383958f, 0.02273806f, 0.1311811f, 0.03318882f, 0.02230079f, 0.1286089f, 0.03253806f, 0.02186352f, 0.1260367f, 0.0318873f, 0.02142625f, 0.1234646f, 0.03123653f, 0.02098898f, 0.1208924f, 0.03058577f, 0.02055171f, 0.1183202f, 0.02993501f, 0.02011444f, 0.115748f, 0.02928425f, 0.01967717f, 0.1131759f, 0.02863349f, 0.0192399f, 0.1106037f, 0.02798273f, 0.01880263f, 0.1080315f, 0.02733197f, 0.01836536f, 0.1054593f, 0.02668121f, 0.01792808f, 0.1028872f, 0.02603045f, 0.01749082f, 0.100315f, 0.02537968f, 0.01705354f, 0.09774278f, 0.02472892f, 0.01661627f, 0.09517059f, 0.02407816f, 0.016179f, 0.09259842f, 0.0234274f, 0.01574173f, 0.09002624f, 0.02277664f, 0.01530446f, 0.08745407f, 0.02212588f, 0.01486719f, 0.0848819f, 0.02147512f, 0.01442992f, 0.08230971f, 0.02082436f, 0.01399265f, 0.07973753f, 0.02017359f, 0.01355538f, 0.07716537f, 0.01952284f, 0.01311811f, 0.07459319f, 0.01887207f, 0.01268084f, 0.07202099f, 0.01822131f, 0.01224357f, 0.06944883f, 0.01757056f, 0.0118063f, 0.06687665f, 0.01691979f, 0.01136903f, 0.06430447f, 0.01626903f, 0.01093176f, 0.06173229f, 0.01561827f, 0.01049449f, 0.05916011f, 0.01496751f, 0.01005722f, 0.05658792f, 0.01431675f, 0.009619948f, 0.05401574f, 0.01366598f, 0.009182677f, 0.05144358f, 0.01301522f, 0.008745406f, 0.04887138f, 0.01236446f, 0.008308135f, 0.0462992f, 0.0117137f, 0.007870864f, 0.04372704f, 0.01106294f, 0.007433597f, 0.04115486f, 0.01041218f, 0.006996326f, 0.03858267f, 0.009761415f, 0.006559055f, 0.0360105f, 0.009110659f, 0.006121784f, 0.03343832f, 0.008459896f, 0.005684514f, 0.03086615f, 0.007809132f, 0.005247243f, 0.02829397f, 0.007158376f, 0.004809976f, 0.02572179f, 0.006507613f, 0.004372705f, 0.02314961f, 0.005856853f, 0.003935434f, 0.02057745f, 0.005206093f, 0.003498167f, 0.01800525f, 0.004555326f, 0.003060892f, 0.01543306f, 0.003904566f, 0.002623621f, 0.01286088f, 0.003253803f, 0.002186351f, 0.01028872f, 0.002603043f, 0.00174908f, 0.007716537f, 0.001952283f, 0.001311809f, 0.005144343f, 0.00130152f, 0.000874538f, 0.002572179f, 0.0006507635f, 0.0004372708f, 0f, 0f, 0f ]
-                     }
-                 }
-            AlphaOverLife: { 
-                MaxValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 2
-                    EntryStride: 1
-                    TimeScale: 1f
-                    Values: [ 1f, 0f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            LifeMultiplier: { 
-                MinValue: 0.5f
-                MaxValue: 1f
-                MinValueVec: { X: 0.5, Y: 0.5, Z: 0.5 }
-                MaxValueVec: { X: 1, Y: 1, Z: 1 }
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 2
-                    EntryStride: 3
-                    TimeScale: 1f
-                    Values: [ 1f, 1f, 1f, 0.5f, 0.5f, 0.5f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            StartRadius: { 
-                MinValue: 2f
-                MaxValue: 2f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 2f ]
-                     }
-                 }
-            VelocityScale: { 
-                Distribution: { 
-                    Constant: 1f
-                     }
-                 }
-            StartLocation: { 
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 3
-                    Values: [ 0f, 0f, 0f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            StartRotation: { 
-                MaxValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 2
-                    EntryCount: 1
-                    EntryStride: 2
-                    SubEntryStride: 1
-                    Values: [ 0f, 1f ]
-                     }
-                 }
-            LODValidity: 1
-             } ]
-        SpawnModule: { 
-            Rate: { 
-                MinValue: 50f
-                MaxValue: 50f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 50f ]
-                     }
-                 }
-            RateScale: { 
-                MinValue: 1f
-                MaxValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 1f ]
-                     }
-                 }
-            BurstScale: { 
-                MinValue: 1f
-                MaxValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 1f ]
-                     }
-                 }
-            LODValidity: 1
-             }
-        PeakActiveParticles: 51
-         } ]
-    DetailModeBitmask: 63
-     }, { 
-    EmitterName: Sparks_Middle
-    bUseLegacySpawningBehavior: True
-    LODLevels: [ { 
-        RequiredModule: { 
-            Material: MaterialInstanceConstant /Game/Effects/Materials/MI_RadialGradient.MI_RadialGradient
-            ScreenAlignment: PSA_Velocity
-            bUseLegacyEmitterTime: False
-            EmitterLoops: 1
-            SpawnRate: { 
-                Distribution: { 
-                     }
-                 }
-            RandomImageTime: 1f
-            LODValidity: 1
-             }
-        Modules: [ { 
-            EmitterName: FireworkStarter_Middle
-            InheritSourceVelocity: True
-            InheritSourceVelocityScale: 0.5f
-            LODValidity: 1
-             }, { 
-            Lifetime: { 
-                MinValue: 0.5f
-                MaxValue: 0.7f
-                Distribution: 
-                Table: { 
-                    Op: 2
-                    EntryCount: 1
-                    EntryStride: 2
-                    SubEntryStride: 1
-                    Values: [ 0.5f, 0.7f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            StartSize: { 
-                MinValue: 4f
-                MaxValue: 3f
-                MinValueVec: { X: 4, Y: 4, Z: 4 }
-                MaxValueVec: { X: 3, Y: 3, Z: 3 }
-                Distribution: 
-                Table: { 
-                    Op: 2
-                    EntryCount: 1
-                    EntryStride: 6
-                    SubEntryStride: 3
-                    Values: [ 4f, 4f, 4f, 3f, 3f, 3f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            ColorOverLife: { 
-                MaxValue: 10f
-                MinValueVec: { X: 1, Y: 0.5, Z: 0 }
-                MaxValueVec: { X: 10, Y: 1, Z: 1 }
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 128
-                    EntryStride: 3
-                    TimeScale: 254f
-                    Values: [ 1f, 1f, 1f, 1.354331f, 1f, 0.9606299f, 1.708661f, 1f, 0.9212598f, 2.062992f, 1f, 0.8818898f, 2.417323f, 1f, 0.8425197f, 2.771654f, 1f, 0.8031496f, 3.125984f, 1f, 0.7637795f, 3.480315f, 1f, 0.7244095f, 3.834646f, 1f, 0.6850394f, 4.188976f, 1f, 0.6456693f, 4.543307f, 1f, 0.6062992f, 4.897638f, 1f, 0.5669291f, 5.251968f, 1f, 0.527559f, 5.606299f, 1f, 0.488189f, 5.960629f, 1f, 0.4488189f, 6.314961f, 1f, 0.4094488f, 6.669291f, 1f, 0.3700787f, 7.023622f, 1f, 0.3307087f, 7.377953f, 1f, 0.2913386f, 7.732284f, 1f, 0.2519685f, 8.086615f, 1f, 0.2125984f, 8.440945f, 1f, 0.1732284f, 8.795276f, 1f, 0.1338583f, 9.149606f, 1f, 0.0944882f, 9.503937f, 1f, 0.05511814f, 9.858267f, 1f, 0.01574808f, 10f, 0.9970472f, 0f, 10f, 0.992126f, 0f, 10f, 0.9872047f, 0f, 10f, 0.9822835f, 0f, 10f, 0.9773622f, 0f, 10f, 0.972441f, 0f, 10f, 0.9675197f, 0f, 10f, 0.9625984f, 0f, 10f, 0.9576772f, 0f, 10f, 0.9527559f, 0f, 10f, 0.9478347f, 0f, 10f, 0.9429134f, 0f, 10f, 0.9379921f, 0f, 10f, 0.9330709f, 0f, 10f, 0.9281496f, 0f, 10f, 0.9232284f, 0f, 10f, 0.9183071f, 0f, 10f, 0.9133859f, 0f, 10f, 0.9084646f, 0f, 10f, 0.9035433f, 0f, 10f, 0.898622f, 0f, 10f, 0.8937008f, 0f, 10f, 0.8887795f, 0f, 10f, 0.8838583f, 0f, 10f, 0.878937f, 0f, 10f, 0.8740157f, 0f, 10f, 0.8690945f, 0f, 10f, 0.8641732f, 0f, 10f, 0.859252f, 0f, 10f, 0.8543307f, 0f, 10f, 0.8494095f, 0f, 10f, 0.8444882f, 0f, 10f, 0.8395669f, 0f, 10f, 0.8346457f, 0f, 10f, 0.8297244f, 0f, 10f, 0.8248031f, 0f, 10f, 0.8198819f, 0f, 10f, 0.8149606f, 0f, 10f, 0.8100394f, 0f, 10f, 0.8051181f, 0f, 10f, 0.8001969f, 0f, 10f, 0.7952756f, 0f, 10f, 0.7903544f, 0f, 10f, 0.7854331f, 0f, 10f, 0.7805119f, 0f, 10f, 0.7755905f, 0f, 10f, 0.7706693f, 0f, 10f, 0.765748f, 0f, 10f, 0.7608268f, 0f, 10f, 0.7559055f, 0f, 10f, 0.7509843f, 0f, 10f, 0.746063f, 0f, 10f, 0.7411417f, 0f, 10f, 0.7362205f, 0f, 10f, 0.7312992f, 0f, 10f, 0.726378f, 0f, 10f, 0.7214567f, 0f, 10f, 0.7165354f, 0f, 10f, 0.7116142f, 0f, 10f, 0.7066929f, 0f, 10f, 0.7017717f, 0f, 10f, 0.6968504f, 0f, 10f, 0.6919291f, 0f, 10f, 0.6870078f, 0f, 10f, 0.6820866f, 0f, 10f, 0.6771653f, 0f, 10f, 0.6722441f, 0f, 10f, 0.6673228f, 0f, 10f, 0.6624016f, 0f, 10f, 0.6574803f, 0f, 10f, 0.652559f, 0f, 10f, 0.6476378f, 0f, 10f, 0.6427165f, 0f, 10f, 0.6377953f, 0f, 10f, 0.632874f, 0f, 10f, 0.6279528f, 0f, 10f, 0.6230315f, 0f, 10f, 0.6181102f, 0f, 10f, 0.613189f, 0f, 10f, 0.6082677f, 0f, 10f, 0.6033465f, 0f, 10f, 0.5984251f, 0f, 10f, 0.593504f, 0f, 10f, 0.5885826f, 0f, 10f, 0.5836614f, 0f, 10f, 0.5787401f, 0f, 10f, 0.5738189f, 0f, 10f, 0.5688976f, 0f, 10f, 0.5639764f, 0f, 10f, 0.5590551f, 0f, 10f, 0.5541339f, 0f, 10f, 0.5492126f, 0f, 10f, 0.5442914f, 0f, 10f, 0.5393701f, 0f, 10f, 0.5344488f, 0f, 10f, 0.5295275f, 0f, 10f, 0.5246063f, 0f, 10f, 0.519685f, 0f, 10f, 0.5147638f, 0f, 10f, 0.5098425f, 0f, 10f, 0.5049213f, 0f, 10f, 0.5f, 0f ]
-                     }
-                 }
-            AlphaOverLife: { 
-                MaxValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 32
-                    EntryStride: 1
-                    TimeScale: 31f
-                    Values: [ 0f, 0.3225806f, 0.6451613f, 0.9601219f, 0.9677419f, 0.9318997f, 0.8960574f, 0.8602151f, 0.8243728f, 0.7885305f, 0.7526882f, 0.7168459f, 0.6810036f, 0.6451613f, 0.609319f, 0.5734767f, 0.5376344f, 0.5017922f, 0.4659498f, 0.4301075f, 0.3942653f, 0.3584231f, 0.3225807f, 0.2867384f, 0.2508961f, 0.2150539f, 0.1792115f, 0.1433692f, 0.107527f, 0.0716847f, 0.03584232f, 0f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            LifeMultiplier: { 
-                MaxValue: 1f
-                MaxValueVec: { X: 1, Y: 1, Z: 1 }
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 2
-                    EntryStride: 3
-                    TimeScale: 1f
-                    Values: [ 1f, 1f, 1f, 0f, 0f, 0f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            StartRadius: { 
-                MinValue: 2f
-                MaxValue: 3f
-                Distribution: 
-                Table: { 
-                    Op: 2
-                    EntryCount: 1
-                    EntryStride: 2
-                    SubEntryStride: 1
-                    Values: [ 2f, 3f ]
-                     }
-                 }
-            Velocity: True
-            VelocityScale: { 
-                MinValue: 5f
-                MaxValue: 5f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 5f ]
-                     }
-                 }
-            StartLocation: { 
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 3
-                    Values: [ 0f, 0f, 0f ]
-                     }
-                 }
-            LODValidity: 1
-             } ]
-        SpawnModule: { 
-            Rate: { 
-                MinValue: 250f
-                MaxValue: 250f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 250f ]
-                     }
-                 }
-            RateScale: { 
-                MinValue: 1f
-                MaxValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 1f ]
-                     }
-                 }
-            BurstList: [ { 
-                Count: 1
-                CountLow: -1
-                Time: 0f
-                 } ]
-            BurstScale: { 
-                MinValue: 1f
-                MaxValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 1f ]
-                     }
-                 }
-            LODValidity: 1
-             }
-        PeakActiveParticles: 177
-         } ]
-    DetailModeBitmask: 63
-     }, { 
-    EmitterName: Explosion_Middle
-    bUseLegacySpawningBehavior: True
-    LODLevels: [ { 
-        RequiredModule: { 
-            Material: MaterialInstanceConstant /Game/Effects/Materials/MI_RadialGradient.MI_RadialGradient
-            bUseLegacyEmitterTime: False
-            EmitterLoops: 1
-            SpawnRate: { 
-                Distribution: { 
-                     }
-                 }
-            RandomImageTime: 1f
-            LODValidity: 1
-             }
-        Modules: [ { 
-            Lifetime: { 
-                MinValue: 0.5f
-                MaxValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 2
-                    EntryCount: 1
-                    EntryStride: 2
-                    SubEntryStride: 1
-                    Values: [ 0.5f, 1f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            StartSize: { 
-                MinValue: 20f
-                MaxValue: 20f
-                MinValueVec: { X: 20, Y: 20, Z: 20 }
-                MaxValueVec: { X: 20, Y: 20, Z: 20 }
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 3
-                    Values: [ 20f, 20f, 20f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            StartVelocity: { 
-                MinValue: -100f
-                MaxValue: 100f
-                MinValueVec: { X: -100, Y: -100, Z: -100 }
-                MaxValueVec: { X: 100, Y: 100, Z: 100 }
-                Distribution: 
-                Table: { 
-                    Op: 2
-                    EntryCount: 1
-                    EntryStride: 6
-                    SubEntryStride: 3
-                    Values: [ -100f, -100f, -100f, 100f, 100f, 100f ]
-                     }
-                 }
-            StartVelocityRadial: { 
-                MinValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 2
-                    EntryCount: 1
-                    EntryStride: 2
-                    SubEntryStride: 1
-                    Values: [ 1f, 0f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            ColorOverLife: { 
-                MaxValue: 10f
-                MinValueVec: { X: 1, Y: 0.5, Z: 0 }
-                MaxValueVec: { X: 10, Y: 1, Z: 1 }
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 128
-                    EntryStride: 3
-                    TimeScale: 127f
-                    Values: [ 1f, 1f, 1f, 1.23622f, 1f, 0.9737533f, 1.472441f, 1f, 0.9475065f, 1.708661f, 1f, 0.9212598f, 1.944882f, 1f, 0.8950132f, 2.181102f, 1f, 0.8687664f, 2.417323f, 1f, 0.8425197f, 2.653543f, 1f, 0.816273f, 2.889764f, 1f, 0.7900262f, 3.125984f, 1f, 0.7637795f, 3.362205f, 1f, 0.7375329f, 3.598425f, 1f, 0.7112861f, 3.834646f, 1f, 0.6850394f, 4.070866f, 1f, 0.6587927f, 4.307086f, 1f, 0.6325459f, 4.543307f, 1f, 0.6062992f, 4.779527f, 1f, 0.5800525f, 5.015748f, 1f, 0.5538058f, 5.251968f, 1f, 0.5275591f, 5.488189f, 1f, 0.5013124f, 5.724409f, 1f, 0.4750656f, 5.960629f, 1f, 0.4488189f, 6.19685f, 1f, 0.4225722f, 6.433071f, 1f, 0.3963255f, 6.669291f, 1f, 0.3700787f, 6.905511f, 1f, 0.3438321f, 7.141732f, 1f, 0.3175853f, 7.377953f, 1f, 0.2913386f, 7.614173f, 1f, 0.2650919f, 7.850393f, 1f, 0.2388452f, 8.086615f, 1f, 0.2125984f, 8.322834f, 1f, 0.1863517f, 8.559054f, 1f, 0.160105f, 8.795275f, 1f, 0.1338583f, 9.031496f, 1f, 0.1076116f, 9.267715f, 1f, 0.08136493f, 9.503936f, 1f, 0.0551182f, 9.740157f, 1f, 0.02887142f, 9.976377f, 1f, 0.002624691f, 9.949382f, 0.9949381f, 0f, 9.893139f, 0.9893138f, 0f, 9.836896f, 0.9836895f, 0f, 9.780653f, 0.9780653f, 0f, 9.72441f, 0.972441f, 0f, 9.668166f, 0.9668167f, 0f, 9.611923f, 0.9611924f, 0f, 9.55568f, 0.9555681f, 0f, 9.499437f, 0.9499438f, 0f, 9.443194f, 0.9443195f, 0f, 9.386951f, 0.9386952f, 0f, 9.330709f, 0.9330709f, 0f, 9.274466f, 0.9274466f, 0f, 9.218223f, 0.9218223f, 0f, 9.16198f, 0.916198f, 0f, 9.105737f, 0.9105737f, 0f, 9.049494f, 0.9049494f, 0f, 8.993251f, 0.8993251f, 0f, 8.937008f, 0.8937008f, 0f, 8.880765f, 0.8880765f, 0f, 8.824522f, 0.8824522f, 0f, 8.768279f, 0.8768279f, 0f, 8.712036f, 0.8712036f, 0f, 8.655793f, 0.8655793f, 0f, 8.59955f, 0.859955f, 0f, 8.543307f, 0.8543307f, 0f, 8.487064f, 0.8487064f, 0f, 8.430821f, 0.8430821f, 0f, 8.374578f, 0.8374578f, 0f, 8.318336f, 0.8318335f, 0f, 8.262093f, 0.8262092f, 0f, 8.20585f, 0.820585f, 0f, 8.149607f, 0.8149607f, 0f, 8.093364f, 0.8093364f, 0f, 8.03712f, 0.803712f, 0f, 7.980877f, 0.7980877f, 0f, 7.924634f, 0.7924634f, 0f, 7.868392f, 0.7868391f, 0f, 7.812149f, 0.7812148f, 0f, 7.755906f, 0.7755905f, 0f, 7.699663f, 0.7699662f, 0f, 7.64342f, 0.764342f, 0f, 7.587177f, 0.7587177f, 0f, 7.530934f, 0.7530934f, 0f, 7.47469f, 0.7474691f, 0f, 7.418447f, 0.7418448f, 0f, 7.362205f, 0.7362205f, 0f, 7.305962f, 0.7305962f, 0f, 7.249719f, 0.7249719f, 0f, 7.193476f, 0.7193476f, 0f, 7.137233f, 0.7137233f, 0f, 7.08099f, 0.708099f, 0f, 7.024747f, 0.7024747f, 0f, 6.968504f, 0.6968504f, 0f, 6.912261f, 0.6912261f, 0f, 6.856018f, 0.6856018f, 0f, 6.799775f, 0.6799775f, 0f, 6.743532f, 0.6743532f, 0f, 6.687289f, 0.6687289f, 0f, 6.631046f, 0.6631047f, 0f, 6.574803f, 0.6574804f, 0f, 6.51856f, 0.6518561f, 0f, 6.462317f, 0.6462318f, 0f, 6.406075f, 0.6406075f, 0f, 6.349832f, 0.6349832f, 0f, 6.293589f, 0.6293589f, 0f, 6.237345f, 0.6237345f, 0f, 6.181102f, 0.6181102f, 0f, 6.124859f, 0.6124859f, 0f, 6.068616f, 0.6068616f, 0f, 6.012373f, 0.6012373f, 0f, 5.956131f, 0.595613f, 0f, 5.899888f, 0.5899887f, 0f, 5.843645f, 0.5843644f, 0f, 5.787402f, 0.5787401f, 0f, 5.731159f, 0.5731158f, 0f, 5.674916f, 0.5674915f, 0f, 5.618673f, 0.5618672f, 0f, 5.56243f, 0.5562429f, 0f, 5.506187f, 0.5506186f, 0f, 5.449944f, 0.5449944f, 0f, 5.393701f, 0.5393701f, 0f, 5.337458f, 0.5337458f, 0f, 5.281215f, 0.5281215f, 0f, 5.224972f, 0.5224972f, 0f, 5.168729f, 0.5168729f, 0f, 5.112486f, 0.5112486f, 0f, 5.056243f, 0.5056243f, 0f, 5f, 0.5f, 0f ]
-                     }
-                 }
-            AlphaOverLife: { 
-                MaxValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 2
-                    EntryStride: 1
-                    TimeScale: 1f
-                    Values: [ 1f, 0f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            LifeMultiplier: { 
-                MaxValue: 1f
-                MaxValueVec: { X: 1, Y: 1, Z: 1 }
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 32
-                    EntryStride: 3
-                    TimeScale: 31f
-                    Values: [ 1f, 1f, 1f, 0.8517631f, 0.8517631f, 0.8517631f, 0.6274786f, 0.6274786f, 0.6274785f, 0.3986532f, 0.3986532f, 0.3986532f, 0.2367943f, 0.2367943f, 0.2367943f, 0.1998826f, 0.1998826f, 0.1998826f, 0.1984676f, 0.1984676f, 0.1984676f, 0.1955022f, 0.1955022f, 0.1955022f, 0.1911173f, 0.1911173f, 0.1911173f, 0.1854438f, 0.1854438f, 0.1854438f, 0.1786128f, 0.1786128f, 0.1786128f, 0.1707517f, 0.1707517f, 0.1707517f, 0.1619945f, 0.1619945f, 0.1619945f, 0.1524741f, 0.1524741f, 0.1524741f, 0.1423215f, 0.1423215f, 0.1423215f, 0.1316676f, 0.1316676f, 0.1316676f, 0.1206433f, 0.1206433f, 0.1206433f, 0.1093798f, 0.1093798f, 0.1093798f, 0.09800781f, 0.09800781f, 0.09800781f, 0.08665843f, 0.08665843f, 0.08665843f, 0.07546266f, 0.07546266f, 0.07546266f, 0.06455221f, 0.06455221f, 0.06455221f, 0.05405971f, 0.05405971f, 0.05405971f, 0.0441152f, 0.0441152f, 0.0441152f, 0.03484959f, 0.03484959f, 0.03484959f, 0.02639382f, 0.02639382f, 0.02639382f, 0.01887885f, 0.01887885f, 0.01887885f, 0.01243565f, 0.01243565f, 0.01243565f, 0.007195265f, 0.007195265f, 0.007195265f, 0.003288487f, 0.003288487f, 0.003288487f, 0.0008464365f, 0.0008464365f, 0.0008464365f, 0f, 0f, 0f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            SpawnCount: { 
-                MinValue: 50f
-                MaxValue: 100f
-                Distribution: 
-                Table: { 
-                    Op: 2
-                    EntryCount: 1
-                    EntryStride: 2
-                    SubEntryStride: 1
-                    Values: [ 50f, 100f ]
-                     }
-                 }
-            InheritVelocityScale: { 
-                Distribution: { 
-                    Constant: { X: 1, Y: 1, Z: 1 }
-                     }
-                 }
-            EventGeneratorType: EPET_Death
-            EventName: DeathM
-            LODValidity: 1
-             }, { 
-            Height: { 
-                MinValue: 50f
-                MaxValue: 50f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 50f ]
-                     }
-                 }
-            bFloor: True
-            bApplyPSysScale: True
-            LODValidity: 1
-             }, { 
-            DragCoefficientRaw: { 
-                MinValue: 2f
-                MaxValue: 2f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 2f ]
-                     }
-                 }
-            bAlwaysInWorldSpace: True
-            LODValidity: 1
-             }, { 
-            Acceleration: { 
-                MinValue: -200f
-                MinValueVec: { X: 0, Y: 0, Z: -200 }
-                MaxValueVec: { X: 0, Y: 0, Z: -200 }
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 3
-                    Values: [ 0f, 0f, -200f ]
-                     }
-                 }
-            bAlwaysInWorldSpace: True
-            LODValidity: 1
-             } ]
-        SpawnModule: { 
-            Rate: { 
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 0f ]
-                     }
-                 }
-            RateScale: { 
-                MinValue: 1f
-                MaxValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 1f ]
-                     }
-                 }
-            BurstScale: { 
-                Distribution: { 
-                    Constant: 1f
-                     }
-                 }
-            LODValidity: 1
-             }
-        PeakActiveParticles: 103
-         } ]
-    DetailModeBitmask: 63
-     }, { 
-    EmitterName: Flash_Middle
-    bUseLegacySpawningBehavior: True
-    LODLevels: [ { 
-        RequiredModule: { 
-            Material: MaterialInstanceConstant /Game/Effects/Materials/MI_RadialGradient.MI_RadialGradient
-            bUseLegacyEmitterTime: False
-            EmitterLoops: 1
-            SpawnRate: { 
-                Distribution: { 
-                     }
-                 }
-            RandomImageTime: 1f
-            LODValidity: 1
-             }
-        Modules: [ { 
-            Lifetime: { 
-                MinValue: 0.05f
-                MaxValue: 0.05f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 0.05f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            StartSize: { 
-                MinValue: 50f
-                MaxValue: 50f
-                MinValueVec: { X: 50, Y: 50, Z: 50 }
-                MaxValueVec: { X: 50, Y: 50, Z: 50 }
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 3
-                    Values: [ 50f, 50f, 50f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            ColorOverLife: { 
-                MaxValue: 10f
-                MinValueVec: { X: 1, Y: 1, Z: 0 }
-                MaxValueVec: { X: 10, Y: 1, Z: 1 }
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 2
-                    EntryStride: 3
-                    TimeScale: 1f
-                    Values: [ 1f, 1f, 1f, 10f, 1f, 0f ]
-                     }
-                 }
-            AlphaOverLife: { 
-                MaxValue: 0.1f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 2
-                    EntryStride: 1
-                    TimeScale: 1f
-                    Values: [ 0.1f, 0f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            LifeMultiplier: { 
-                MaxValue: 1f
-                MaxValueVec: { X: 1, Y: 1, Z: 1 }
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 2
-                    EntryStride: 3
-                    TimeScale: 1f
-                    Values: [ 0f, 0f, 0f, 1f, 1f, 1f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            SpawnCount: { 
-                MinValue: 1f
-                MaxValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 1f ]
-                     }
-                 }
-            InheritVelocityScale: { 
-                Distribution: { 
-                    Constant: { X: 1, Y: 1, Z: 1 }
-                     }
-                 }
-            EventGeneratorType: EPET_Death
-            EventName: DeathM
-            LODValidity: 1
-             } ]
-        SpawnModule: { 
-            Rate: { 
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 0f ]
-                     }
-                 }
-            RateScale: { 
-                MinValue: 1f
-                MaxValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 1f ]
-                     }
-                 }
-            BurstScale: { 
-                Distribution: { 
-                    Constant: 1f
-                     }
-                 }
-            LODValidity: 1
-             }
-        PeakActiveParticles: 3
-         } ]
-    DetailModeBitmask: 63
-     }, { 
-    EmitterName: Flash
-    bUseLegacySpawningBehavior: True
-    LODLevels: [ { 
-        bEnabled: False
-        RequiredModule: { 
-            Material: MaterialInstanceConstant /Game/Effects/Materials/MI_Spark.MI_Spark
-            bUseLegacyEmitterTime: False
-            EmitterLoops: 1
-            SpawnRate: { 
-                Distribution: { 
-                     }
-                 }
-            RandomImageTime: 1f
-            bEnabled: False
-            LODValidity: 1
-             }
-        Modules: [ { 
-            Lifetime: { 
-                MinValue: 0.15f
-                MaxValue: 0.15f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 0.15f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            StartSize: { 
-                MinValue: 25f
-                MaxValue: 25f
-                MinValueVec: { X: 25, Y: 25, Z: 25 }
-                MaxValueVec: { X: 25, Y: 25, Z: 25 }
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 3
-                    Values: [ 25f, 25f, 25f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            ColorOverLife: { 
-                MaxValue: 20f
-                MaxValueVec: { X: 20, Y: 12.99098, Z: 7.422118 }
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 2
-                    EntryStride: 3
-                    TimeScale: 1f
-                    Values: [ 20f, 12.99098f, 7.422118f, 0f, 0f, 0f ]
-                     }
-                 }
-            AlphaOverLife: { 
-                MinValue: 0.1f
-                MaxValue: 0.1f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 0.1f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            StartRotation: { 
-                MinValue: -1f
-                MaxValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 2
-                    EntryCount: 1
-                    EntryStride: 2
-                    SubEntryStride: 1
-                    Values: [ -1f, 1f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            LifeMultiplier: { 
-                MinValue: 1f
-                MaxValue: 4f
-                MinValueVec: { X: 1, Y: 1, Z: 1 }
-                MaxValueVec: { X: 4, Y: 4, Z: 4 }
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 2
-                    EntryStride: 3
-                    TimeScale: 1f
-                    Values: [ 1f, 1f, 1f, 4f, 4f, 4f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            ColorScaleOverLife: { 
-                MinValue: 1f
-                MaxValue: 1f
-                MinValueVec: { X: 1, Y: 1, Z: 1 }
-                MaxValueVec: { X: 1, Y: 1, Z: 1 }
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 3
-                    Values: [ 1f, 1f, 1f ]
-                     }
-                 }
-            BrightnessOverLife: { 
-                MinValue: 5000f
-                MaxValue: 5000f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 5000f ]
-                     }
-                 }
-            RadiusScale: { 
-                MinValue: 10f
-                MaxValue: 10f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 10f ]
-                     }
-                 }
-            LightExponent: { 
-                MinValue: 1f
-                MaxValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 1f ]
-                     }
-                 }
-            LODValidity: 1
-             } ]
-        SpawnModule: { 
-            Rate: { 
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 0f ]
-                     }
-                 }
-            RateScale: { 
-                MinValue: 1f
-                MaxValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 1f ]
-                     }
-                 }
-            BurstList: [ { 
-                Count: 5
-                CountLow: 3
-                Time: 0f
-                 } ]
-            BurstScale: { 
-                MinValue: 1f
-                MaxValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 1f ]
-                     }
-                 }
-            LODValidity: 1
-             }
-        PeakActiveParticles: 7
-         } ]
-    DetailModeBitmask: 63
-     }, { 
-    EmitterName: Smoke
-    bUseLegacySpawningBehavior: True
-    LODLevels: [ { 
-        RequiredModule: { 
-            Material: Material /Game/Effects/Materials/M_smoke_subUV2.M_smoke_subUV2
-            SortMode: PSORTMODE_Age_OldestFirst
-            bUseLegacyEmitterTime: False
-            EmitterLoops: 1
-            SpawnRate: { 
-                Distribution: { 
-                     }
-                 }
-            InterpolationMethod: PSUVIM_Linear_Blend
-            SubImages_Horizontal: 8
-            SubImages_Vertical: 8
-            RandomImageTime: 1f
-            LODValidity: 1
-             }
-        Modules: [ { 
-            Lifetime: { 
-                MinValue: 0.5f
-                MaxValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 2
-                    EntryCount: 1
-                    EntryStride: 2
-                    SubEntryStride: 1
-                    Values: [ 0.5f, 1f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            StartSize: { 
-                MinValue: 50f
-                MaxValue: 75f
-                MinValueVec: { X: 50, Y: 50, Z: 50 }
-                MaxValueVec: { X: 75, Y: 75, Z: 75 }
-                Distribution: 
-                Table: { 
-                    Op: 2
-                    EntryCount: 1
-                    EntryStride: 6
-                    SubEntryStride: 3
-                    Values: [ 50f, 50f, 50f, 75f, 75f, 75f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            ColorOverLife: { 
-                MinValue: 0.45f
-                MaxValue: 10f
-                MinValueVec: { X: 0.45, Y: 0.45, Z: 0.45 }
-                MaxValueVec: { X: 10, Y: 10, Z: 10 }
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 64
-                    EntryStride: 3
-                    TimeScale: 63f
-                    Values: [ 10f, 10f, 10f, 9.764344f, 9.764344f, 9.764344f, 9.364044f, 9.364044f, 9.364044f, 8.824392f, 8.824392f, 8.824392f, 8.170682f, 8.170682f, 8.170682f, 7.428207f, 7.428207f, 7.428207f, 6.622263f, 6.622263f, 6.622263f, 5.778143f, 5.778143f, 5.778143f, 4.921141f, 4.921141f, 4.921141f, 4.076551f, 4.076551f, 4.076551f, 3.269665f, 3.269665f, 3.269665f, 2.525779f, 2.525779f, 2.525779f, 1.870188f, 1.870188f, 1.870188f, 1.328183f, 1.328183f, 1.328183f, 0.9250585f, 0.9250585f, 0.9250585f, 0.6861106f, 0.6861106f, 0.6861106f, 0.6249746f, 0.6249746f, 0.6249746f, 0.6246282f, 0.6246282f, 0.6246282f, 0.6238367f, 0.6238367f, 0.6238367f, 0.6226196f, 0.6226196f, 0.6226196f, 0.620997f, 0.620997f, 0.620997f, 0.6189886f, 0.6189886f, 0.6189886f, 0.6166146f, 0.6166146f, 0.6166146f, 0.6138948f, 0.6138948f, 0.6138948f, 0.6108489f, 0.6108489f, 0.6108489f, 0.607497f, 0.607497f, 0.607497f, 0.603859f, 0.603859f, 0.603859f, 0.5999548f, 0.5999548f, 0.5999548f, 0.5958042f, 0.5958042f, 0.5958042f, 0.5914272f, 0.5914272f, 0.5914272f, 0.5868437f, 0.5868437f, 0.5868437f, 0.5820736f, 0.5820736f, 0.5820736f, 0.5771368f, 0.5771368f, 0.5771368f, 0.5720532f, 0.5720532f, 0.5720532f, 0.5668426f, 0.5668426f, 0.5668426f, 0.561525f, 0.561525f, 0.561525f, 0.5561204f, 0.5561204f, 0.5561204f, 0.5506485f, 0.5506485f, 0.5506485f, 0.5451294f, 0.5451294f, 0.5451294f, 0.5395829f, 0.5395829f, 0.5395829f, 0.5340289f, 0.5340289f, 0.5340289f, 0.5284873f, 0.5284873f, 0.5284873f, 0.5229781f, 0.5229781f, 0.5229781f, 0.5175211f, 0.5175211f, 0.5175211f, 0.5121362f, 0.5121362f, 0.5121362f, 0.5068433f, 0.5068433f, 0.5068433f, 0.5016623f, 0.5016623f, 0.5016623f, 0.4966133f, 0.4966133f, 0.4966133f, 0.4917159f, 0.4917159f, 0.4917159f, 0.4869902f, 0.4869902f, 0.4869902f, 0.4824561f, 0.4824561f, 0.4824561f, 0.4781334f, 0.4781334f, 0.4781334f, 0.4740421f, 0.4740421f, 0.4740421f, 0.4702021f, 0.4702021f, 0.4702021f, 0.4666332f, 0.4666332f, 0.4666332f, 0.4633554f, 0.4633554f, 0.4633554f, 0.4603886f, 0.4603886f, 0.4603886f, 0.4577526f, 0.4577526f, 0.4577526f, 0.4554675f, 0.4554675f, 0.4554675f, 0.453553f, 0.453553f, 0.453553f, 0.4520291f, 0.4520291f, 0.4520291f, 0.4509157f, 0.4509157f, 0.4509157f, 0.4502327f, 0.4502327f, 0.4502327f, 0.45f, 0.45f, 0.45f ]
-                     }
-                 }
-            AlphaOverLife: { 
-                MaxValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 32
-                    EntryStride: 1
-                    TimeScale: 31f
-                    Values: [ 1f, 0.9370732f, 0.7792423f, 0.5717483f, 0.3598323f, 0.1887353f, 0.1036982f, 0.09968858f, 0.09849172f, 0.09646115f, 0.09367542f, 0.09021074f, 0.08614758f, 0.08156577f, 0.07654385f, 0.07116035f, 0.06549384f, 0.05962285f, 0.05362591f, 0.04758159f, 0.04156844f, 0.03566534f, 0.02995176f, 0.02450586f, 0.01940618f, 0.01473127f, 0.01055963f, 0.006969844f, 0.004040447f, 0.001849987f, 0.000476981f, 0f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            LifeMultiplier: { 
-                MinValue: 0.25f
-                MaxValue: 2.5f
-                MinValueVec: { X: 0.25, Y: 0.25, Z: 0.25 }
-                MaxValueVec: { X: 2.5, Y: 2.5, Z: 2.5 }
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 8
-                    EntryStride: 3
-                    TimeScale: 7f
-                    Values: [ 0.25f, 0.25f, 0.25f, 0.6296233f, 0.6296233f, 0.6296233f, 1.035802f, 1.035802f, 1.035802f, 1.440965f, 1.440965f, 1.440965f, 1.817538f, 1.817538f, 1.817538f, 2.137951f, 2.137951f, 2.137951f, 2.374628f, 2.374628f, 2.374628f, 2.5f, 2.5f, 2.5f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            StartRadius: { 
-                MinValue: 2.5f
-                MaxValue: 5f
-                Distribution: 
-                Table: { 
-                    Op: 2
-                    EntryCount: 1
-                    EntryStride: 2
-                    SubEntryStride: 1
-                    Values: [ 2.5f, 5f ]
-                     }
-                 }
-            Negative_Z: False
-            Velocity: True
-            VelocityScale: { 
-                MinValue: 25f
-                MaxValue: 25f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 25f ]
-                     }
-                 }
-            StartLocation: { 
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 3
-                    Values: [ 0f, 0f, 0f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            StartRotation: { 
-                MaxValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 2
-                    EntryCount: 1
-                    EntryStride: 2
-                    SubEntryStride: 1
-                    Values: [ 0f, 1f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            StartRotationRate: { 
-                MinValue: 0.1f
-                MaxValue: -0.1f
-                Distribution: 
-                Table: { 
-                    Op: 2
-                    EntryCount: 1
-                    EntryStride: 2
-                    SubEntryStride: 1
-                    Values: [ 0.1f, -0.1f ]
-                     }
-                 }
-            LODValidity: 1
-             }, { 
-            DragCoefficientRaw: { 
-                MinValue: 1.5f
-                MaxValue: 1.5f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 1.5f ]
-                     }
-                 }
-            bAlwaysInWorldSpace: True
-            LODValidity: 1
-             }, { 
-            StartVelocity: { 
-                MinValue: -30f
-                MaxValue: 30f
-                MinValueVec: { X: -30, Y: -30, Z: 5 }
-                MaxValueVec: { X: 30, Y: 30, Z: 10 }
-                Distribution: 
-                Table: { 
-                    Op: 2
-                    EntryCount: 1
-                    EntryStride: 6
-                    SubEntryStride: 3
-                    Values: [ -30f, -30f, 5f, 30f, 30f, 10f ]
-                     }
-                 }
-            StartVelocityRadial: { 
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 0f ]
-                     }
-                 }
-            LODValidity: 1
-             } ]
-        SpawnModule: { 
-            Rate: { 
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 0f ]
-                     }
-                 }
-            RateScale: { 
-                MinValue: 1f
-                MaxValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 1f ]
-                     }
-                 }
-            BurstList: [ { 
-                Count: 5
-                CountLow: 2
-                Time: 0f
-                 } ]
-            BurstScale: { 
-                MinValue: 1f
-                MaxValue: 1f
-                Distribution: 
-                Table: { 
-                    Op: 1
-                    EntryCount: 1
-                    EntryStride: 1
-                    Values: [ 1f ]
-                     }
-                 }
-            LODValidity: 1
-             }
-        PeakActiveParticles: 6
-         } ]
-    DetailModeBitmask: 63
-     } ]
-CurveEdSetup: 
+Emitters: [ EmitterName: FireworkStarter_Middle
+bUseLegacySpawningBehavior: True
+LODLevels: [ RequiredModule: Material: { null }
+bUseLegacyEmitterTime: False
+EmitterLoops: 1
+SpawnRate: {
+	Distribution: 
+	}
+RandomImageTime: 1f
+LODValidity: 1
+
+Modules: [ Events: [ {
+	Type: EPET_Death
+	Frequency: 0
+	ParticleFrequency: 0
+	FirstTimeOnly: False
+	LastTimeOnly: False
+	UseReflectedImpactVector: False
+	bUseOrbitOffset: False
+	CustomName: DeathM
+	ParticleModuleEventsToSendToGame: [  ]
+	}, {
+	Type: EPET_Burst
+	Frequency: 0
+	ParticleFrequency: 0
+	FirstTimeOnly: False
+	LastTimeOnly: False
+	UseReflectedImpactVector: False
+	bUseOrbitOffset: False
+	CustomName: Spawn
+	ParticleModuleEventsToSendToGame: [  ]
+	} ]
+LODValidity: 1
+, Lifetime: {
+	MinValue: 0.8f
+	MaxValue: 0.8f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 0.8f ]
+		}
+	}
+LODValidity: 1
+, StartSize: {
+	MinValue: 5f
+	MaxValue: 5f
+	MinValueVec: { X: 5, Y: 5, Z: 5 }
+	MaxValueVec: { X: 5, Y: 5, Z: 5 }
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 5f, 5f, 5f ]
+		}
+	}
+LODValidity: 1
+, Acceleration: {
+	MinValue: -300f
+	MinValueVec: { X: 0, Y: 0, Z: -300 }
+	MaxValueVec: { X: 0, Y: 0, Z: -300 }
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0f, 0f, -300f ]
+		}
+	}
+bAlwaysInWorldSpace: True
+LODValidity: 1
+, StartVelocity: {
+	MaxValue: 650f
+	MinValueVec: { X: 0, Y: 0, Z: 600 }
+	MaxValueVec: { X: 0, Y: 0, Z: 650 }
+	Distribution: ParameterName: Velocity
+	MaxInput: { X: 1, Y: 1, Z: 1000 }
+	MaxOutput: { X: 1, Y: 1, Z: 1000 }
+	Constant: { X: 0, Y: 0, Z: 500 }
+	bIsDirty: False
+	
+	Table: {
+		Values: [ 0f, 0f, 600f, 0f, 0f, 650f ]
+		}
+	}
+StartVelocityRadial: {
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 0f ]
+		}
+	}
+LODValidity: 1
+, ColorOverLife: {
+	MinValue: 0.5f
+	MaxValue: 20f
+	MinValueVec: { X: 20, Y: 5, Z: 0.5 }
+	MaxValueVec: { X: 20, Y: 5, Z: 0.5 }
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 20f, 5f, 0.5f ]
+		}
+	}
+AlphaOverLife: {
+	MaxValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 1
+		TimeScale: 1f
+		Values: [ 1f, 0f ]
+		}
+	}
+LODValidity: 1
+, LifeMultiplier: {
+	MaxValue: 1f
+	MaxValueVec: { X: 1, Y: 1, Z: 1 }
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1f
+		Values: [ 0f, 0f, 0f, 1f, 1f, 1f ]
+		}
+	}
+LODValidity: 1
+, StartRotationRate: {
+	MaxValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0f, 1f ]
+		}
+	}
+LODValidity: 1
+, DragCoefficientRaw: {
+	MinValue: 1.2f
+	MaxValue: 1.2f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1.2f ]
+		}
+	}
+bAlwaysInWorldSpace: True
+LODValidity: 1
+ ]
+SpawnModule: Rate: {
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 0f ]
+		}
+	}
+RateScale: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1f ]
+		}
+	}
+BurstList: [ {
+	Count: 1
+	CountLow: 1
+	Time: 0.5f
+	} ]
+BurstScale: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1f ]
+		}
+	}
+LODValidity: 1
+
+EventGenerator: Events: [ {
+	Type: EPET_Death
+	Frequency: 0
+	ParticleFrequency: 0
+	FirstTimeOnly: False
+	LastTimeOnly: False
+	UseReflectedImpactVector: False
+	bUseOrbitOffset: False
+	CustomName: DeathM
+	ParticleModuleEventsToSendToGame: [  ]
+	}, {
+	Type: EPET_Burst
+	Frequency: 0
+	ParticleFrequency: 0
+	FirstTimeOnly: False
+	LastTimeOnly: False
+	UseReflectedImpactVector: False
+	bUseOrbitOffset: False
+	CustomName: Spawn
+	ParticleModuleEventsToSendToGame: [  ]
+	} ]
+LODValidity: 1
+
+PeakActiveParticles: 3
+ ]
+DetailModeBitmask: 63
+, EmitterName: Smoke_Middle
+bUseLegacySpawningBehavior: True
+LODLevels: [ RequiredModule: Material: { null }
+bUseLegacyEmitterTime: False
+EmitterLoops: 1
+SpawnRate: {
+	Distribution: 
+	}
+InterpolationMethod: PSUVIM_Linear_Blend
+SubImages_Horizontal: 8
+SubImages_Vertical: 8
+RandomImageTime: 1f
+LODValidity: 1
+
+Modules: [ EmitterName: FireworkStarter_Middle
+InheritSourceVelocity: True
+InheritSourceVelocityScale: 0.35f
+LODValidity: 1
+, Lifetime: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1f ]
+		}
+	}
+LODValidity: 1
+, StartSize: {
+	MinValue: 15f
+	MaxValue: 15f
+	MinValueVec: { X: 15, Y: 15, Z: 15 }
+	MaxValueVec: { X: 15, Y: 15, Z: 15 }
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 15f, 15f, 15f ]
+		}
+	}
+LODValidity: 1
+, ColorOverLife: {
+	MaxValue: 10f
+	MaxValueVec: { X: 10, Y: 1, Z: 0.04165 }
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 128
+		EntryStride: 3
+		TimeScale: 127f
+		Values: [ 10f, 1f, 0f, 9.692756f, 0.9704562f, 0.001311811f, 9.385511f, 0.9409124f, 0.002623622f, 9.078268f, 0.9113687f, 0.003935433f, 8.771024f, 0.8818249f, 0.005247244f, 8.463779f, 0.8522811f, 0.006559055f, 8.156535f, 0.8227373f, 0.007870866f, 7.849291f, 0.7931936f, 0.009182678f, 7.542048f, 0.7636498f, 0.01049449f, 7.234803f, 0.734106f, 0.0118063f, 6.927559f, 0.7045622f, 0.01311811f, 6.620315f, 0.6750184f, 0.01442992f, 6.313071f, 0.6454747f, 0.01574173f, 6.005827f, 0.6159309f, 0.01705354f, 5.698583f, 0.5863871f, 0.01836536f, 5.391338f, 0.5568433f, 0.01967717f, 5.084095f, 0.5272995f, 0.02098898f, 4.776851f, 0.4977558f, 0.02230079f, 4.469606f, 0.468212f, 0.0236126f, 4.162362f, 0.4386682f, 0.02492441f, 3.855118f, 0.4091244f, 0.02623622f, 3.547874f, 0.3795807f, 0.02754803f, 3.24063f, 0.3500369f, 0.02885984f, 2.933386f, 0.320493f, 0.03017166f, 2.626142f, 0.2909493f, 0.03148346f, 2.318898f, 0.2614055f, 0.03279528f, 2.011654f, 0.2318618f, 0.03410709f, 1.70441f, 0.202318f, 0.0354189f, 1.397165f, 0.1727742f, 0.03673071f, 1.089921f, 0.1432304f, 0.03804252f, 0.7826767f, 0.1136866f, 0.03935433f, 0.4754324f, 0.08414286f, 0.04066614f, 0.244357f, 0.06182231f, 0.04154068f, 0.2417848f, 0.06117155f, 0.04110341f, 0.2392126f, 0.06052079f, 0.04066614f, 0.2366404f, 0.05987003f, 0.04022887f, 0.2340682f, 0.05921927f, 0.0397916f, 0.2314961f, 0.0585685f, 0.03935433f, 0.2289239f, 0.05791774f, 0.03891706f, 0.2263517f, 0.05726698f, 0.03847979f, 0.2237795f, 0.05661622f, 0.03804252f, 0.2212074f, 0.05596546f, 0.03760525f, 0.2186352f, 0.0553147f, 0.03716798f, 0.216063f, 0.05466394f, 0.03673071f, 0.2134908f, 0.05401318f, 0.03629344f, 0.2109186f, 0.05336241f, 0.03585617f, 0.2083465f, 0.05271165f, 0.0354189f, 0.2057743f, 0.05206089f, 0.03498163f, 0.2032021f, 0.05141013f, 0.03454436f, 0.2006299f, 0.05075937f, 0.03410709f, 0.1980577f, 0.05010861f, 0.03366982f, 0.1954856f, 0.04945785f, 0.03323255f, 0.1929134f, 0.04880709f, 0.03279528f, 0.1903412f, 0.04815632f, 0.03235801f, 0.187769f, 0.04750556f, 0.03192073f, 0.1851968f, 0.0468548f, 0.03148346f, 0.1826247f, 0.04620405f, 0.0310462f, 0.1800525f, 0.04555328f, 0.03060892f, 0.1774803f, 0.04490252f, 0.03017166f, 0.1749081f, 0.04425176f, 0.02973438f, 0.172336f, 0.043601f, 0.02929711f, 0.1697638f, 0.04295024f, 0.02885984f, 0.1671916f, 0.04229948f, 0.02842257f, 0.1646194f, 0.04164872f, 0.0279853f, 0.1620473f, 0.04099795f, 0.02754803f, 0.1594751f, 0.04034719f, 0.02711076f, 0.1569029f, 0.03969643f, 0.02667349f, 0.1543307f, 0.03904567f, 0.02623622f, 0.1517585f, 0.03839491f, 0.02579895f, 0.1491864f, 0.03774415f, 0.02536168f, 0.1466142f, 0.03709339f, 0.02492441f, 0.144042f, 0.03644263f, 0.02448714f, 0.1414698f, 0.03579187f, 0.02404987f, 0.1388976f, 0.0351411f, 0.0236126f, 0.1363254f, 0.03449034f, 0.02317533f, 0.1337533f, 0.03383958f, 0.02273806f, 0.1311811f, 0.03318882f, 0.02230079f, 0.1286089f, 0.03253806f, 0.02186352f, 0.1260367f, 0.0318873f, 0.02142625f, 0.1234646f, 0.03123653f, 0.02098898f, 0.1208924f, 0.03058577f, 0.02055171f, 0.1183202f, 0.02993501f, 0.02011444f, 0.115748f, 0.02928425f, 0.01967717f, 0.1131759f, 0.02863349f, 0.0192399f, 0.1106037f, 0.02798273f, 0.01880263f, 0.1080315f, 0.02733197f, 0.01836536f, 0.1054593f, 0.02668121f, 0.01792808f, 0.1028872f, 0.02603045f, 0.01749082f, 0.100315f, 0.02537968f, 0.01705354f, 0.09774278f, 0.02472892f, 0.01661627f, 0.09517059f, 0.02407816f, 0.016179f, 0.09259842f, 0.0234274f, 0.01574173f, 0.09002624f, 0.02277664f, 0.01530446f, 0.08745407f, 0.02212588f, 0.01486719f, 0.0848819f, 0.02147512f, 0.01442992f, 0.08230971f, 0.02082436f, 0.01399265f, 0.07973753f, 0.02017359f, 0.01355538f, 0.07716537f, 0.01952284f, 0.01311811f, 0.07459319f, 0.01887207f, 0.01268084f, 0.07202099f, 0.01822131f, 0.01224357f, 0.06944883f, 0.01757056f, 0.0118063f, 0.06687665f, 0.01691979f, 0.01136903f, 0.06430447f, 0.01626903f, 0.01093176f, 0.06173229f, 0.01561827f, 0.01049449f, 0.05916011f, 0.01496751f, 0.01005722f, 0.05658792f, 0.01431675f, 0.009619948f, 0.05401574f, 0.01366598f, 0.009182677f, 0.05144358f, 0.01301522f, 0.008745406f, 0.04887138f, 0.01236446f, 0.008308135f, 0.0462992f, 0.0117137f, 0.007870864f, 0.04372704f, 0.01106294f, 0.007433597f, 0.04115486f, 0.01041218f, 0.006996326f, 0.03858267f, 0.009761415f, 0.006559055f, 0.0360105f, 0.009110659f, 0.006121784f, 0.03343832f, 0.008459896f, 0.005684514f, 0.03086615f, 0.007809132f, 0.005247243f, 0.02829397f, 0.007158376f, 0.004809976f, 0.02572179f, 0.006507613f, 0.004372705f, 0.02314961f, 0.005856853f, 0.003935434f, 0.02057745f, 0.005206093f, 0.003498167f, 0.01800525f, 0.004555326f, 0.003060892f, 0.01543306f, 0.003904566f, 0.002623621f, 0.01286088f, 0.003253803f, 0.002186351f, 0.01028872f, 0.002603043f, 0.00174908f, 0.007716537f, 0.001952283f, 0.001311809f, 0.005144343f, 0.00130152f, 0.000874538f, 0.002572179f, 0.0006507635f, 0.0004372708f, 0f, 0f, 0f ]
+		}
+	}
+AlphaOverLife: {
+	MaxValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 1
+		TimeScale: 1f
+		Values: [ 1f, 0f ]
+		}
+	}
+LODValidity: 1
+, LifeMultiplier: {
+	MinValue: 0.5f
+	MaxValue: 1f
+	MinValueVec: { X: 0.5, Y: 0.5, Z: 0.5 }
+	MaxValueVec: { X: 1, Y: 1, Z: 1 }
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1f
+		Values: [ 1f, 1f, 1f, 0.5f, 0.5f, 0.5f ]
+		}
+	}
+LODValidity: 1
+, StartRadius: {
+	MinValue: 2f
+	MaxValue: 2f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 2f ]
+		}
+	}
+VelocityScale: {
+	Distribution: Constant: 1f
+	
+	}
+StartLocation: {
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0f, 0f, 0f ]
+		}
+	}
+LODValidity: 1
+, StartRotation: {
+	MaxValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0f, 1f ]
+		}
+	}
+LODValidity: 1
+ ]
+SpawnModule: Rate: {
+	MinValue: 50f
+	MaxValue: 50f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 50f ]
+		}
+	}
+RateScale: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1f ]
+		}
+	}
+BurstScale: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1f ]
+		}
+	}
+LODValidity: 1
+
+PeakActiveParticles: 51
+ ]
+DetailModeBitmask: 63
+, EmitterName: Sparks_Middle
+bUseLegacySpawningBehavior: True
+LODLevels: [ RequiredModule: Material: { null }
+ScreenAlignment: PSA_Velocity
+bUseLegacyEmitterTime: False
+EmitterLoops: 1
+SpawnRate: {
+	Distribution: 
+	}
+RandomImageTime: 1f
+LODValidity: 1
+
+Modules: [ EmitterName: FireworkStarter_Middle
+InheritSourceVelocity: True
+InheritSourceVelocityScale: 0.5f
+LODValidity: 1
+, Lifetime: {
+	MinValue: 0.5f
+	MaxValue: 0.7f
+	Distribution: { null }
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0.5f, 0.7f ]
+		}
+	}
+LODValidity: 1
+, StartSize: {
+	MinValue: 4f
+	MaxValue: 3f
+	MinValueVec: { X: 4, Y: 4, Z: 4 }
+	MaxValueVec: { X: 3, Y: 3, Z: 3 }
+	Distribution: { null }
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 4f, 4f, 4f, 3f, 3f, 3f ]
+		}
+	}
+LODValidity: 1
+, ColorOverLife: {
+	MaxValue: 10f
+	MinValueVec: { X: 1, Y: 0.5, Z: 0 }
+	MaxValueVec: { X: 10, Y: 1, Z: 1 }
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 128
+		EntryStride: 3
+		TimeScale: 254f
+		Values: [ 1f, 1f, 1f, 1.354331f, 1f, 0.9606299f, 1.708661f, 1f, 0.9212598f, 2.062992f, 1f, 0.8818898f, 2.417323f, 1f, 0.8425197f, 2.771654f, 1f, 0.8031496f, 3.125984f, 1f, 0.7637795f, 3.480315f, 1f, 0.7244095f, 3.834646f, 1f, 0.6850394f, 4.188976f, 1f, 0.6456693f, 4.543307f, 1f, 0.6062992f, 4.897638f, 1f, 0.5669291f, 5.251968f, 1f, 0.527559f, 5.606299f, 1f, 0.488189f, 5.960629f, 1f, 0.4488189f, 6.314961f, 1f, 0.4094488f, 6.669291f, 1f, 0.3700787f, 7.023622f, 1f, 0.3307087f, 7.377953f, 1f, 0.2913386f, 7.732284f, 1f, 0.2519685f, 8.086615f, 1f, 0.2125984f, 8.440945f, 1f, 0.1732284f, 8.795276f, 1f, 0.1338583f, 9.149606f, 1f, 0.0944882f, 9.503937f, 1f, 0.05511814f, 9.858267f, 1f, 0.01574808f, 10f, 0.9970472f, 0f, 10f, 0.992126f, 0f, 10f, 0.9872047f, 0f, 10f, 0.9822835f, 0f, 10f, 0.9773622f, 0f, 10f, 0.972441f, 0f, 10f, 0.9675197f, 0f, 10f, 0.9625984f, 0f, 10f, 0.9576772f, 0f, 10f, 0.9527559f, 0f, 10f, 0.9478347f, 0f, 10f, 0.9429134f, 0f, 10f, 0.9379921f, 0f, 10f, 0.9330709f, 0f, 10f, 0.9281496f, 0f, 10f, 0.9232284f, 0f, 10f, 0.9183071f, 0f, 10f, 0.9133859f, 0f, 10f, 0.9084646f, 0f, 10f, 0.9035433f, 0f, 10f, 0.898622f, 0f, 10f, 0.8937008f, 0f, 10f, 0.8887795f, 0f, 10f, 0.8838583f, 0f, 10f, 0.878937f, 0f, 10f, 0.8740157f, 0f, 10f, 0.8690945f, 0f, 10f, 0.8641732f, 0f, 10f, 0.859252f, 0f, 10f, 0.8543307f, 0f, 10f, 0.8494095f, 0f, 10f, 0.8444882f, 0f, 10f, 0.8395669f, 0f, 10f, 0.8346457f, 0f, 10f, 0.8297244f, 0f, 10f, 0.8248031f, 0f, 10f, 0.8198819f, 0f, 10f, 0.8149606f, 0f, 10f, 0.8100394f, 0f, 10f, 0.8051181f, 0f, 10f, 0.8001969f, 0f, 10f, 0.7952756f, 0f, 10f, 0.7903544f, 0f, 10f, 0.7854331f, 0f, 10f, 0.7805119f, 0f, 10f, 0.7755905f, 0f, 10f, 0.7706693f, 0f, 10f, 0.765748f, 0f, 10f, 0.7608268f, 0f, 10f, 0.7559055f, 0f, 10f, 0.7509843f, 0f, 10f, 0.746063f, 0f, 10f, 0.7411417f, 0f, 10f, 0.7362205f, 0f, 10f, 0.7312992f, 0f, 10f, 0.726378f, 0f, 10f, 0.7214567f, 0f, 10f, 0.7165354f, 0f, 10f, 0.7116142f, 0f, 10f, 0.7066929f, 0f, 10f, 0.7017717f, 0f, 10f, 0.6968504f, 0f, 10f, 0.6919291f, 0f, 10f, 0.6870078f, 0f, 10f, 0.6820866f, 0f, 10f, 0.6771653f, 0f, 10f, 0.6722441f, 0f, 10f, 0.6673228f, 0f, 10f, 0.6624016f, 0f, 10f, 0.6574803f, 0f, 10f, 0.652559f, 0f, 10f, 0.6476378f, 0f, 10f, 0.6427165f, 0f, 10f, 0.6377953f, 0f, 10f, 0.632874f, 0f, 10f, 0.6279528f, 0f, 10f, 0.6230315f, 0f, 10f, 0.6181102f, 0f, 10f, 0.613189f, 0f, 10f, 0.6082677f, 0f, 10f, 0.6033465f, 0f, 10f, 0.5984251f, 0f, 10f, 0.593504f, 0f, 10f, 0.5885826f, 0f, 10f, 0.5836614f, 0f, 10f, 0.5787401f, 0f, 10f, 0.5738189f, 0f, 10f, 0.5688976f, 0f, 10f, 0.5639764f, 0f, 10f, 0.5590551f, 0f, 10f, 0.5541339f, 0f, 10f, 0.5492126f, 0f, 10f, 0.5442914f, 0f, 10f, 0.5393701f, 0f, 10f, 0.5344488f, 0f, 10f, 0.5295275f, 0f, 10f, 0.5246063f, 0f, 10f, 0.519685f, 0f, 10f, 0.5147638f, 0f, 10f, 0.5098425f, 0f, 10f, 0.5049213f, 0f, 10f, 0.5f, 0f ]
+		}
+	}
+AlphaOverLife: {
+	MaxValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 32
+		EntryStride: 1
+		TimeScale: 31f
+		Values: [ 0f, 0.3225806f, 0.6451613f, 0.9601219f, 0.9677419f, 0.9318997f, 0.8960574f, 0.8602151f, 0.8243728f, 0.7885305f, 0.7526882f, 0.7168459f, 0.6810036f, 0.6451613f, 0.609319f, 0.5734767f, 0.5376344f, 0.5017922f, 0.4659498f, 0.4301075f, 0.3942653f, 0.3584231f, 0.3225807f, 0.2867384f, 0.2508961f, 0.2150539f, 0.1792115f, 0.1433692f, 0.107527f, 0.0716847f, 0.03584232f, 0f ]
+		}
+	}
+LODValidity: 1
+, LifeMultiplier: {
+	MaxValue: 1f
+	MaxValueVec: { X: 1, Y: 1, Z: 1 }
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1f
+		Values: [ 1f, 1f, 1f, 0f, 0f, 0f ]
+		}
+	}
+LODValidity: 1
+, StartRadius: {
+	MinValue: 2f
+	MaxValue: 3f
+	Distribution: { null }
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 2f, 3f ]
+		}
+	}
+Velocity: True
+VelocityScale: {
+	MinValue: 5f
+	MaxValue: 5f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 5f ]
+		}
+	}
+StartLocation: {
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0f, 0f, 0f ]
+		}
+	}
+LODValidity: 1
+ ]
+SpawnModule: Rate: {
+	MinValue: 250f
+	MaxValue: 250f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 250f ]
+		}
+	}
+RateScale: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1f ]
+		}
+	}
+BurstList: [ {
+	Count: 1
+	CountLow: -1
+	Time: 0f
+	} ]
+BurstScale: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1f ]
+		}
+	}
+LODValidity: 1
+
+PeakActiveParticles: 177
+ ]
+DetailModeBitmask: 63
+, EmitterName: Explosion_Middle
+bUseLegacySpawningBehavior: True
+LODLevels: [ RequiredModule: Material: { null }
+bUseLegacyEmitterTime: False
+EmitterLoops: 1
+SpawnRate: {
+	Distribution: 
+	}
+RandomImageTime: 1f
+LODValidity: 1
+
+Modules: [ Lifetime: {
+	MinValue: 0.5f
+	MaxValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0.5f, 1f ]
+		}
+	}
+LODValidity: 1
+, StartSize: {
+	MinValue: 20f
+	MaxValue: 20f
+	MinValueVec: { X: 20, Y: 20, Z: 20 }
+	MaxValueVec: { X: 20, Y: 20, Z: 20 }
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 20f, 20f, 20f ]
+		}
+	}
+LODValidity: 1
+, StartVelocity: {
+	MinValue: -100f
+	MaxValue: 100f
+	MinValueVec: { X: -100, Y: -100, Z: -100 }
+	MaxValueVec: { X: 100, Y: 100, Z: 100 }
+	Distribution: { null }
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ -100f, -100f, -100f, 100f, 100f, 100f ]
+		}
+	}
+StartVelocityRadial: {
+	MinValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 1f, 0f ]
+		}
+	}
+LODValidity: 1
+, ColorOverLife: {
+	MaxValue: 10f
+	MinValueVec: { X: 1, Y: 0.5, Z: 0 }
+	MaxValueVec: { X: 10, Y: 1, Z: 1 }
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 128
+		EntryStride: 3
+		TimeScale: 127f
+		Values: [ 1f, 1f, 1f, 1.23622f, 1f, 0.9737533f, 1.472441f, 1f, 0.9475065f, 1.708661f, 1f, 0.9212598f, 1.944882f, 1f, 0.8950132f, 2.181102f, 1f, 0.8687664f, 2.417323f, 1f, 0.8425197f, 2.653543f, 1f, 0.816273f, 2.889764f, 1f, 0.7900262f, 3.125984f, 1f, 0.7637795f, 3.362205f, 1f, 0.7375329f, 3.598425f, 1f, 0.7112861f, 3.834646f, 1f, 0.6850394f, 4.070866f, 1f, 0.6587927f, 4.307086f, 1f, 0.6325459f, 4.543307f, 1f, 0.6062992f, 4.779527f, 1f, 0.5800525f, 5.015748f, 1f, 0.5538058f, 5.251968f, 1f, 0.5275591f, 5.488189f, 1f, 0.5013124f, 5.724409f, 1f, 0.4750656f, 5.960629f, 1f, 0.4488189f, 6.19685f, 1f, 0.4225722f, 6.433071f, 1f, 0.3963255f, 6.669291f, 1f, 0.3700787f, 6.905511f, 1f, 0.3438321f, 7.141732f, 1f, 0.3175853f, 7.377953f, 1f, 0.2913386f, 7.614173f, 1f, 0.2650919f, 7.850393f, 1f, 0.2388452f, 8.086615f, 1f, 0.2125984f, 8.322834f, 1f, 0.1863517f, 8.559054f, 1f, 0.160105f, 8.795275f, 1f, 0.1338583f, 9.031496f, 1f, 0.1076116f, 9.267715f, 1f, 0.08136493f, 9.503936f, 1f, 0.0551182f, 9.740157f, 1f, 0.02887142f, 9.976377f, 1f, 0.002624691f, 9.949382f, 0.9949381f, 0f, 9.893139f, 0.9893138f, 0f, 9.836896f, 0.9836895f, 0f, 9.780653f, 0.9780653f, 0f, 9.72441f, 0.972441f, 0f, 9.668166f, 0.9668167f, 0f, 9.611923f, 0.9611924f, 0f, 9.55568f, 0.9555681f, 0f, 9.499437f, 0.9499438f, 0f, 9.443194f, 0.9443195f, 0f, 9.386951f, 0.9386952f, 0f, 9.330709f, 0.9330709f, 0f, 9.274466f, 0.9274466f, 0f, 9.218223f, 0.9218223f, 0f, 9.16198f, 0.916198f, 0f, 9.105737f, 0.9105737f, 0f, 9.049494f, 0.9049494f, 0f, 8.993251f, 0.8993251f, 0f, 8.937008f, 0.8937008f, 0f, 8.880765f, 0.8880765f, 0f, 8.824522f, 0.8824522f, 0f, 8.768279f, 0.8768279f, 0f, 8.712036f, 0.8712036f, 0f, 8.655793f, 0.8655793f, 0f, 8.59955f, 0.859955f, 0f, 8.543307f, 0.8543307f, 0f, 8.487064f, 0.8487064f, 0f, 8.430821f, 0.8430821f, 0f, 8.374578f, 0.8374578f, 0f, 8.318336f, 0.8318335f, 0f, 8.262093f, 0.8262092f, 0f, 8.20585f, 0.820585f, 0f, 8.149607f, 0.8149607f, 0f, 8.093364f, 0.8093364f, 0f, 8.03712f, 0.803712f, 0f, 7.980877f, 0.7980877f, 0f, 7.924634f, 0.7924634f, 0f, 7.868392f, 0.7868391f, 0f, 7.812149f, 0.7812148f, 0f, 7.755906f, 0.7755905f, 0f, 7.699663f, 0.7699662f, 0f, 7.64342f, 0.764342f, 0f, 7.587177f, 0.7587177f, 0f, 7.530934f, 0.7530934f, 0f, 7.47469f, 0.7474691f, 0f, 7.418447f, 0.7418448f, 0f, 7.362205f, 0.7362205f, 0f, 7.305962f, 0.7305962f, 0f, 7.249719f, 0.7249719f, 0f, 7.193476f, 0.7193476f, 0f, 7.137233f, 0.7137233f, 0f, 7.08099f, 0.708099f, 0f, 7.024747f, 0.7024747f, 0f, 6.968504f, 0.6968504f, 0f, 6.912261f, 0.6912261f, 0f, 6.856018f, 0.6856018f, 0f, 6.799775f, 0.6799775f, 0f, 6.743532f, 0.6743532f, 0f, 6.687289f, 0.6687289f, 0f, 6.631046f, 0.6631047f, 0f, 6.574803f, 0.6574804f, 0f, 6.51856f, 0.6518561f, 0f, 6.462317f, 0.6462318f, 0f, 6.406075f, 0.6406075f, 0f, 6.349832f, 0.6349832f, 0f, 6.293589f, 0.6293589f, 0f, 6.237345f, 0.6237345f, 0f, 6.181102f, 0.6181102f, 0f, 6.124859f, 0.6124859f, 0f, 6.068616f, 0.6068616f, 0f, 6.012373f, 0.6012373f, 0f, 5.956131f, 0.595613f, 0f, 5.899888f, 0.5899887f, 0f, 5.843645f, 0.5843644f, 0f, 5.787402f, 0.5787401f, 0f, 5.731159f, 0.5731158f, 0f, 5.674916f, 0.5674915f, 0f, 5.618673f, 0.5618672f, 0f, 5.56243f, 0.5562429f, 0f, 5.506187f, 0.5506186f, 0f, 5.449944f, 0.5449944f, 0f, 5.393701f, 0.5393701f, 0f, 5.337458f, 0.5337458f, 0f, 5.281215f, 0.5281215f, 0f, 5.224972f, 0.5224972f, 0f, 5.168729f, 0.5168729f, 0f, 5.112486f, 0.5112486f, 0f, 5.056243f, 0.5056243f, 0f, 5f, 0.5f, 0f ]
+		}
+	}
+AlphaOverLife: {
+	MaxValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 1
+		TimeScale: 1f
+		Values: [ 1f, 0f ]
+		}
+	}
+LODValidity: 1
+, LifeMultiplier: {
+	MaxValue: 1f
+	MaxValueVec: { X: 1, Y: 1, Z: 1 }
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 32
+		EntryStride: 3
+		TimeScale: 31f
+		Values: [ 1f, 1f, 1f, 0.8517631f, 0.8517631f, 0.8517631f, 0.6274786f, 0.6274786f, 0.6274785f, 0.3986532f, 0.3986532f, 0.3986532f, 0.2367943f, 0.2367943f, 0.2367943f, 0.1998826f, 0.1998826f, 0.1998826f, 0.1984676f, 0.1984676f, 0.1984676f, 0.1955022f, 0.1955022f, 0.1955022f, 0.1911173f, 0.1911173f, 0.1911173f, 0.1854438f, 0.1854438f, 0.1854438f, 0.1786128f, 0.1786128f, 0.1786128f, 0.1707517f, 0.1707517f, 0.1707517f, 0.1619945f, 0.1619945f, 0.1619945f, 0.1524741f, 0.1524741f, 0.1524741f, 0.1423215f, 0.1423215f, 0.1423215f, 0.1316676f, 0.1316676f, 0.1316676f, 0.1206433f, 0.1206433f, 0.1206433f, 0.1093798f, 0.1093798f, 0.1093798f, 0.09800781f, 0.09800781f, 0.09800781f, 0.08665843f, 0.08665843f, 0.08665843f, 0.07546266f, 0.07546266f, 0.07546266f, 0.06455221f, 0.06455221f, 0.06455221f, 0.05405971f, 0.05405971f, 0.05405971f, 0.0441152f, 0.0441152f, 0.0441152f, 0.03484959f, 0.03484959f, 0.03484959f, 0.02639382f, 0.02639382f, 0.02639382f, 0.01887885f, 0.01887885f, 0.01887885f, 0.01243565f, 0.01243565f, 0.01243565f, 0.007195265f, 0.007195265f, 0.007195265f, 0.003288487f, 0.003288487f, 0.003288487f, 0.0008464365f, 0.0008464365f, 0.0008464365f, 0f, 0f, 0f ]
+		}
+	}
+LODValidity: 1
+, SpawnCount: {
+	MinValue: 50f
+	MaxValue: 100f
+	Distribution: { null }
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 50f, 100f ]
+		}
+	}
+InheritVelocityScale: {
+	Distribution: Constant: { X: 1, Y: 1, Z: 1 }
+	
+	}
+EventGeneratorType: EPET_Death
+EventName: DeathM
+LODValidity: 1
+, Height: {
+	MinValue: 50f
+	MaxValue: 50f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 50f ]
+		}
+	}
+bFloor: True
+bApplyPSysScale: True
+LODValidity: 1
+, DragCoefficientRaw: {
+	MinValue: 2f
+	MaxValue: 2f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 2f ]
+		}
+	}
+bAlwaysInWorldSpace: True
+LODValidity: 1
+, Acceleration: {
+	MinValue: -200f
+	MinValueVec: { X: 0, Y: 0, Z: -200 }
+	MaxValueVec: { X: 0, Y: 0, Z: -200 }
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0f, 0f, -200f ]
+		}
+	}
+bAlwaysInWorldSpace: True
+LODValidity: 1
+ ]
+SpawnModule: Rate: {
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 0f ]
+		}
+	}
+RateScale: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1f ]
+		}
+	}
+BurstScale: {
+	Distribution: Constant: 1f
+	
+	}
+LODValidity: 1
+
+PeakActiveParticles: 103
+ ]
+DetailModeBitmask: 63
+, EmitterName: Flash_Middle
+bUseLegacySpawningBehavior: True
+LODLevels: [ RequiredModule: Material: { null }
+bUseLegacyEmitterTime: False
+EmitterLoops: 1
+SpawnRate: {
+	Distribution: 
+	}
+RandomImageTime: 1f
+LODValidity: 1
+
+Modules: [ Lifetime: {
+	MinValue: 0.05f
+	MaxValue: 0.05f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 0.05f ]
+		}
+	}
+LODValidity: 1
+, StartSize: {
+	MinValue: 50f
+	MaxValue: 50f
+	MinValueVec: { X: 50, Y: 50, Z: 50 }
+	MaxValueVec: { X: 50, Y: 50, Z: 50 }
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 50f, 50f, 50f ]
+		}
+	}
+LODValidity: 1
+, ColorOverLife: {
+	MaxValue: 10f
+	MinValueVec: { X: 1, Y: 1, Z: 0 }
+	MaxValueVec: { X: 10, Y: 1, Z: 1 }
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1f
+		Values: [ 1f, 1f, 1f, 10f, 1f, 0f ]
+		}
+	}
+AlphaOverLife: {
+	MaxValue: 0.1f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 1
+		TimeScale: 1f
+		Values: [ 0.1f, 0f ]
+		}
+	}
+LODValidity: 1
+, LifeMultiplier: {
+	MaxValue: 1f
+	MaxValueVec: { X: 1, Y: 1, Z: 1 }
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1f
+		Values: [ 0f, 0f, 0f, 1f, 1f, 1f ]
+		}
+	}
+LODValidity: 1
+, SpawnCount: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1f ]
+		}
+	}
+InheritVelocityScale: {
+	Distribution: Constant: { X: 1, Y: 1, Z: 1 }
+	
+	}
+EventGeneratorType: EPET_Death
+EventName: DeathM
+LODValidity: 1
+ ]
+SpawnModule: Rate: {
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 0f ]
+		}
+	}
+RateScale: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1f ]
+		}
+	}
+BurstScale: {
+	Distribution: Constant: 1f
+	
+	}
+LODValidity: 1
+
+PeakActiveParticles: 3
+ ]
+DetailModeBitmask: 63
+, EmitterName: Flash
+bUseLegacySpawningBehavior: True
+LODLevels: [ bEnabled: False
+RequiredModule: Material: { null }
+bUseLegacyEmitterTime: False
+EmitterLoops: 1
+SpawnRate: {
+	Distribution: 
+	}
+RandomImageTime: 1f
+bEnabled: False
+LODValidity: 1
+
+Modules: [ Lifetime: {
+	MinValue: 0.15f
+	MaxValue: 0.15f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 0.15f ]
+		}
+	}
+LODValidity: 1
+, StartSize: {
+	MinValue: 25f
+	MaxValue: 25f
+	MinValueVec: { X: 25, Y: 25, Z: 25 }
+	MaxValueVec: { X: 25, Y: 25, Z: 25 }
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 25f, 25f, 25f ]
+		}
+	}
+LODValidity: 1
+, ColorOverLife: {
+	MaxValue: 20f
+	MaxValueVec: { X: 20, Y: 12.99098, Z: 7.422118 }
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1f
+		Values: [ 20f, 12.99098f, 7.422118f, 0f, 0f, 0f ]
+		}
+	}
+AlphaOverLife: {
+	MinValue: 0.1f
+	MaxValue: 0.1f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 0.1f ]
+		}
+	}
+LODValidity: 1
+, StartRotation: {
+	MinValue: -1f
+	MaxValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ -1f, 1f ]
+		}
+	}
+LODValidity: 1
+, LifeMultiplier: {
+	MinValue: 1f
+	MaxValue: 4f
+	MinValueVec: { X: 1, Y: 1, Z: 1 }
+	MaxValueVec: { X: 4, Y: 4, Z: 4 }
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 2
+		EntryStride: 3
+		TimeScale: 1f
+		Values: [ 1f, 1f, 1f, 4f, 4f, 4f ]
+		}
+	}
+LODValidity: 1
+, ColorScaleOverLife: {
+	MinValue: 1f
+	MaxValue: 1f
+	MinValueVec: { X: 1, Y: 1, Z: 1 }
+	MaxValueVec: { X: 1, Y: 1, Z: 1 }
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 1f, 1f, 1f ]
+		}
+	}
+BrightnessOverLife: {
+	MinValue: 5000f
+	MaxValue: 5000f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 5000f ]
+		}
+	}
+RadiusScale: {
+	MinValue: 10f
+	MaxValue: 10f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 10f ]
+		}
+	}
+LightExponent: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1f ]
+		}
+	}
+LODValidity: 1
+ ]
+SpawnModule: Rate: {
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 0f ]
+		}
+	}
+RateScale: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1f ]
+		}
+	}
+BurstList: [ {
+	Count: 5
+	CountLow: 3
+	Time: 0f
+	} ]
+BurstScale: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1f ]
+		}
+	}
+LODValidity: 1
+
+PeakActiveParticles: 7
+ ]
+DetailModeBitmask: 63
+, EmitterName: Smoke
+bUseLegacySpawningBehavior: True
+LODLevels: [ RequiredModule: Material: { null }
+SortMode: PSORTMODE_Age_OldestFirst
+bUseLegacyEmitterTime: False
+EmitterLoops: 1
+SpawnRate: {
+	Distribution: 
+	}
+InterpolationMethod: PSUVIM_Linear_Blend
+SubImages_Horizontal: 8
+SubImages_Vertical: 8
+RandomImageTime: 1f
+LODValidity: 1
+
+Modules: [ Lifetime: {
+	MinValue: 0.5f
+	MaxValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0.5f, 1f ]
+		}
+	}
+LODValidity: 1
+, StartSize: {
+	MinValue: 50f
+	MaxValue: 75f
+	MinValueVec: { X: 50, Y: 50, Z: 50 }
+	MaxValueVec: { X: 75, Y: 75, Z: 75 }
+	Distribution: { null }
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ 50f, 50f, 50f, 75f, 75f, 75f ]
+		}
+	}
+LODValidity: 1
+, ColorOverLife: {
+	MinValue: 0.45f
+	MaxValue: 10f
+	MinValueVec: { X: 0.45, Y: 0.45, Z: 0.45 }
+	MaxValueVec: { X: 10, Y: 10, Z: 10 }
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 64
+		EntryStride: 3
+		TimeScale: 63f
+		Values: [ 10f, 10f, 10f, 9.764344f, 9.764344f, 9.764344f, 9.364044f, 9.364044f, 9.364044f, 8.824392f, 8.824392f, 8.824392f, 8.170682f, 8.170682f, 8.170682f, 7.428207f, 7.428207f, 7.428207f, 6.622263f, 6.622263f, 6.622263f, 5.778143f, 5.778143f, 5.778143f, 4.921141f, 4.921141f, 4.921141f, 4.076551f, 4.076551f, 4.076551f, 3.269665f, 3.269665f, 3.269665f, 2.525779f, 2.525779f, 2.525779f, 1.870188f, 1.870188f, 1.870188f, 1.328183f, 1.328183f, 1.328183f, 0.9250585f, 0.9250585f, 0.9250585f, 0.6861106f, 0.6861106f, 0.6861106f, 0.6249746f, 0.6249746f, 0.6249746f, 0.6246282f, 0.6246282f, 0.6246282f, 0.6238367f, 0.6238367f, 0.6238367f, 0.6226196f, 0.6226196f, 0.6226196f, 0.620997f, 0.620997f, 0.620997f, 0.6189886f, 0.6189886f, 0.6189886f, 0.6166146f, 0.6166146f, 0.6166146f, 0.6138948f, 0.6138948f, 0.6138948f, 0.6108489f, 0.6108489f, 0.6108489f, 0.607497f, 0.607497f, 0.607497f, 0.603859f, 0.603859f, 0.603859f, 0.5999548f, 0.5999548f, 0.5999548f, 0.5958042f, 0.5958042f, 0.5958042f, 0.5914272f, 0.5914272f, 0.5914272f, 0.5868437f, 0.5868437f, 0.5868437f, 0.5820736f, 0.5820736f, 0.5820736f, 0.5771368f, 0.5771368f, 0.5771368f, 0.5720532f, 0.5720532f, 0.5720532f, 0.5668426f, 0.5668426f, 0.5668426f, 0.561525f, 0.561525f, 0.561525f, 0.5561204f, 0.5561204f, 0.5561204f, 0.5506485f, 0.5506485f, 0.5506485f, 0.5451294f, 0.5451294f, 0.5451294f, 0.5395829f, 0.5395829f, 0.5395829f, 0.5340289f, 0.5340289f, 0.5340289f, 0.5284873f, 0.5284873f, 0.5284873f, 0.5229781f, 0.5229781f, 0.5229781f, 0.5175211f, 0.5175211f, 0.5175211f, 0.5121362f, 0.5121362f, 0.5121362f, 0.5068433f, 0.5068433f, 0.5068433f, 0.5016623f, 0.5016623f, 0.5016623f, 0.4966133f, 0.4966133f, 0.4966133f, 0.4917159f, 0.4917159f, 0.4917159f, 0.4869902f, 0.4869902f, 0.4869902f, 0.4824561f, 0.4824561f, 0.4824561f, 0.4781334f, 0.4781334f, 0.4781334f, 0.4740421f, 0.4740421f, 0.4740421f, 0.4702021f, 0.4702021f, 0.4702021f, 0.4666332f, 0.4666332f, 0.4666332f, 0.4633554f, 0.4633554f, 0.4633554f, 0.4603886f, 0.4603886f, 0.4603886f, 0.4577526f, 0.4577526f, 0.4577526f, 0.4554675f, 0.4554675f, 0.4554675f, 0.453553f, 0.453553f, 0.453553f, 0.4520291f, 0.4520291f, 0.4520291f, 0.4509157f, 0.4509157f, 0.4509157f, 0.4502327f, 0.4502327f, 0.4502327f, 0.45f, 0.45f, 0.45f ]
+		}
+	}
+AlphaOverLife: {
+	MaxValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 32
+		EntryStride: 1
+		TimeScale: 31f
+		Values: [ 1f, 0.9370732f, 0.7792423f, 0.5717483f, 0.3598323f, 0.1887353f, 0.1036982f, 0.09968858f, 0.09849172f, 0.09646115f, 0.09367542f, 0.09021074f, 0.08614758f, 0.08156577f, 0.07654385f, 0.07116035f, 0.06549384f, 0.05962285f, 0.05362591f, 0.04758159f, 0.04156844f, 0.03566534f, 0.02995176f, 0.02450586f, 0.01940618f, 0.01473127f, 0.01055963f, 0.006969844f, 0.004040447f, 0.001849987f, 0.000476981f, 0f ]
+		}
+	}
+LODValidity: 1
+, LifeMultiplier: {
+	MinValue: 0.25f
+	MaxValue: 2.5f
+	MinValueVec: { X: 0.25, Y: 0.25, Z: 0.25 }
+	MaxValueVec: { X: 2.5, Y: 2.5, Z: 2.5 }
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 8
+		EntryStride: 3
+		TimeScale: 7f
+		Values: [ 0.25f, 0.25f, 0.25f, 0.6296233f, 0.6296233f, 0.6296233f, 1.035802f, 1.035802f, 1.035802f, 1.440965f, 1.440965f, 1.440965f, 1.817538f, 1.817538f, 1.817538f, 2.137951f, 2.137951f, 2.137951f, 2.374628f, 2.374628f, 2.374628f, 2.5f, 2.5f, 2.5f ]
+		}
+	}
+LODValidity: 1
+, StartRadius: {
+	MinValue: 2.5f
+	MaxValue: 5f
+	Distribution: { null }
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 2.5f, 5f ]
+		}
+	}
+Negative_Z: False
+Velocity: True
+VelocityScale: {
+	MinValue: 25f
+	MaxValue: 25f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 25f ]
+		}
+	}
+StartLocation: {
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 3
+		Values: [ 0f, 0f, 0f ]
+		}
+	}
+LODValidity: 1
+, StartRotation: {
+	MaxValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0f, 1f ]
+		}
+	}
+LODValidity: 1
+, StartRotationRate: {
+	MinValue: 0.1f
+	MaxValue: -0.1f
+	Distribution: { null }
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 2
+		SubEntryStride: 1
+		Values: [ 0.1f, -0.1f ]
+		}
+	}
+LODValidity: 1
+, DragCoefficientRaw: {
+	MinValue: 1.5f
+	MaxValue: 1.5f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1.5f ]
+		}
+	}
+bAlwaysInWorldSpace: True
+LODValidity: 1
+, StartVelocity: {
+	MinValue: -30f
+	MaxValue: 30f
+	MinValueVec: { X: -30, Y: -30, Z: 5 }
+	MaxValueVec: { X: 30, Y: 30, Z: 10 }
+	Distribution: { null }
+	Table: {
+		Op: 2
+		EntryCount: 1
+		EntryStride: 6
+		SubEntryStride: 3
+		Values: [ -30f, -30f, 5f, 30f, 30f, 10f ]
+		}
+	}
+StartVelocityRadial: {
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 0f ]
+		}
+	}
+LODValidity: 1
+ ]
+SpawnModule: Rate: {
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 0f ]
+		}
+	}
+RateScale: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1f ]
+		}
+	}
+BurstList: [ {
+	Count: 5
+	CountLow: 2
+	Time: 0f
+	} ]
+BurstScale: {
+	MinValue: 1f
+	MaxValue: 1f
+	Distribution: { null }
+	Table: {
+		Op: 1
+		EntryCount: 1
+		EntryStride: 1
+		Values: [ 1f ]
+		}
+	}
+LODValidity: 1
+
+PeakActiveParticles: 6
+ ]
+DetailModeBitmask: 63
+ ]
+CurveEdSetup: { null }
 LODDistances: [ 0f ]
 LODSettings: [ 97 ]
 bUseFixedRelativeBoundingBox: True
-FixedRelativeBoundingBox: { Min: { X: -100000, Y: -100000, Z: -10000 }, Max: { X: 100000, Y: 100000, Z: 10000 } }
+FixedRelativeBoundingBox: Unreal.ObjectSystem.Structures.Box
 bShouldResetPeakCounts: True
-CustomOcclusionBounds: { Min: { X: 0, Y: 0, Z: 0 }, Max: { X: 0, Y: 0, Z: 0 } }
+CustomOcclusionBounds: Unreal.ObjectSystem.Structures.Box
