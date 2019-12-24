@@ -1,20 +1,22 @@
-UberGraphFramePointerProperty: { 
-     }
-UberGraphFunction: { 
-     }
+{
+    UberGraphFramePointerProperty: StructProperty Heal_C.UberGraphFrame
+    UberGraphFunction: Function Heal_C.ExecuteUbergraph_Heal
+}
 <--- CDO --->
-UberGraphFrame: 122
-InteractionID: Heal
-StopInteractionOnInputRelease: True
-CamperCanInteract: True
-UseAuthoritativeMovement: False
-InteractionDescriptionText: Heal
-InteractionHeightDeltaMax: 20f
-_tags: 
-_activationDefinition: { 
-    _activationStrategy: EActivationStrategy::ActivateIfAnyTagMatches
-    _activationTags: 
-     }
-PrimaryComponentTick: { 
-    bStartWithTickEnabled: False
-     }
+{
+    UberGraphFrame: None
+    InteractionID: Heal
+    StopInteractionOnInputRelease: True
+    CamperCanInteract: True
+    UseAuthoritativeMovement: False
+    InteractionDescriptionText: Heal
+    InteractionHeightDeltaMax: 20
+    _tags: { Semantics.Interaction.Healing, Semantics.Interaction.Id.Survivor.Heal }
+    _activationDefinition: {
+        _activationStrategy: EActivationStrategy::ActivateIfAnyTagMatches
+        _activationTags: { State.Damage.Injured, State.Damage.KO }
+    }
+    PrimaryComponentTick: {
+        bStartWithTickEnabled: False
+    }
+}
