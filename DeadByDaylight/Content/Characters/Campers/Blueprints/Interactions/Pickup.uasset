@@ -1,0 +1,34 @@
+{
+    UberGraphFramePointerProperty: StructProperty Pickup_C.UberGraphFrame
+    UberGraphFunction: Function Pickup_C.ExecuteUbergraph_Pickup
+}
+<--- CDO --->
+{
+    UberGraphFrame: None
+    NonOverrideableInteractionsOnTargetPlayer: [
+        RBTExecute
+    ]
+    FocalPointOffset: -30
+    InteractionID: PickupCamper
+    SnapTime: 0
+    StopInteractionOnTimerExpire: True
+    StopEnterMontageOnExit: False
+    StopUpdateMontageOnExit: True
+    SlasherCanInteract: True
+    SnapRotation: False
+    TestPlayerOrientationOnSnap: False
+    ScaleMainAnimationToTime: True
+    InteractionTime: 2.7
+    InteractionDescriptionText: Pick up
+    EnterMontage: {
+        MontageID: SurvivorPickup_In
+    }
+    UpdateMontage: {
+        MontageID: SurvivorPickup
+    }
+    _tags: { Semantics.Interaction.Id.PickupSurvivor }
+    _activationDefinition: {
+        _activationStrategy: EActivationStrategy::ActivateIfAnyTagMatches
+        _activationTags: { State.ImmobilizeState.Trapped, State.Damage.KO }
+    }
+}
