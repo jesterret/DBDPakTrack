@@ -1,0 +1,54 @@
+{
+}
+<--- CDO --->
+{
+    _maxTensionCharge: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Ukraine/UkraineKillerTunableDB.UkraineKillerTunableDB
+            RowName: Chain_Tension_MaxCharge
+        }
+        _defaultValue: 100
+    }
+    _baseTensionRate: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Ukraine/UkraineKillerTunableDB.UkraineKillerTunableDB
+            RowName: Chain_Tension_BaseRate
+        }
+    }
+    _collisionTensionRate: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Ukraine/UkraineKillerTunableDB.UkraineKillerTunableDB
+            RowName: Chain_Tension_CollisionRate
+        }
+    }
+    _survivorPullingTensionRate: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Ukraine/UkraineKillerTunableDB.UkraineKillerTunableDB
+                RowName: Chain_Tension_PullRate
+            }
+            _defaultValue: 20
+        }
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Add
+                ModifierTag: {
+                    TagName: GameplayModifierType.ModifySurvivorsChainTensionPullRate
+                }
+                CompoundStrategy: EModifierCompoundStrategy::Add
+            }
+        ]
+    }
+    _currentTensionRate: {
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Mult
+                ModifierTag: {
+                    TagName: GameplayModifierType.ModifyHarpoonTensionChargeRate
+                }
+                CompoundStrategy: EModifierCompoundStrategy::Mult
+            }
+        ]
+    }
+    _chargeProgressDescriptionText: Chain
+}
