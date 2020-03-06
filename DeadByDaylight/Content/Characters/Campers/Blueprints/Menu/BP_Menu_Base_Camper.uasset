@@ -13,10 +13,218 @@
 {
     UberGraphFrame: None
     DarkMaterial: /Game/Characters/Campers/Materials/Instances/MI_BlackGlass.MI_BlackGlass
-    ItemMesh: SkeletalMeshComponent Default__BP_Menu_Base_Camper_C.ItemMesh
-    MaterialHelper: MaterialHelper Default__BP_Menu_Base_Camper_C.MaterialHelper
+    ItemMesh: {
+            DetailLevelBeforeCastShadows: DM_MAX
+            BodyInstance: {
+                MassInKgOverride: 0
+            }
+            AttachParent: {
+                    bUseRefPoseOnInitAnim: True
+                    ForcedLodModel: 1
+                    VisibilityBasedAnimTickOption: EVisibilityBasedAnimTickOption::AlwaysTickPoseAndRefreshBones
+                    DetailLevelBeforeCastShadows: DM_MAX
+                    bCastCinematicShadow: True
+                    BodyInstance: {
+                        CollisionEnabled: ECollisionEnabled::QueryAndPhysics
+                        bNotifyRigidBodyCollision: True
+                        CollisionProfileName: Ragdoll
+                        CollisionResponses: {
+                            ResponseArray: [
+                                {
+                                    Channel: Pawn
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Visibility
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Camera
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Interactable
+                                    Response: ECR_Block
+                                }
+                                , 
+                                {
+                                    Channel: Audio
+                                    Response: ECR_Block
+                                }
+                                , 
+                                {
+                                    Channel: Slasher
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Spider
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Traps
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: InteractionDetector
+                                    Response: ECR_Ignore
+                                }
+                            ]
+                        }
+                        MassInKgOverride: 0
+                    }
+                    AttachParent: {
+                            CapsuleHalfHeight: 100
+                            bGenerateOverlapEvents: False
+                            DetailLevelBeforeCastShadows: DM_MAX
+                            BodyInstance: {
+                                ObjectType: ECC_WorldDynamic
+                                CollisionEnabled: ECollisionEnabled::QueryOnly
+                                bEnableGravity: False
+                                CollisionProfileName: IgnoreOnlyPawn
+                                CollisionResponses: {
+                                    ResponseArray: [
+                                        {
+                                            Channel: Pawn
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Vehicle
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Interactable
+                                            Response: ECR_Block
+                                        }
+                                        , 
+                                        {
+                                            Channel: Audio
+                                            Response: ECR_Block
+                                        }
+                                        , 
+                                        {
+                                            Channel: Slasher
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: InteractionDetector
+                                            Response: ECR_Ignore
+                                        }
+                                    ]
+                                }
+                                MassInKgOverride: 127.84139
+                            }
+                        }
+                    RelativeLocation: { X: 0, Y: 0, Z: -100 }
+                    RelativeRotation: { Pitch: 0, Roll: -90, Yaw: -0 }
+                }
+        }
+    MaterialHelper: {
+            Groups: [
+                {
+                    GroupName: Camper1
+                    Maps: [
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper.MI_Camper
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve.MI_CamperDissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: Material /Game/Characters/Campers/Materials/M_Hair.M_Hair
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_Hair_Dissolve.MI_Hair_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_Dither.MI_Camper_Dither
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MV_Camper_Dither.MV_Camper_Dither
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_Cust.MI_Camper_Cust
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_Cust.MI_CamperDissolve_Cust
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_TransCust.MI_Camper_TransCust
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_TransCust.MI_CamperDissolve_TransCust
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Instances/MI_HairTAA.MI_HairTAA
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_HairTAA_Dissolve.MI_HairTAA_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Materials/Instances/MI_Fur.MI_Fur
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Fur_Dissolve.MV_Fur_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Materials/Instances/MI_Fabric.MI_Fabric
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Fabric_Dissolve.MV_Fabric_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Materials/Instances/MI_FabricMask.MI_FabricMask
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_FabricMask_Dissolve.MV_FabricMask_Dissolve
+                        }
+                    ]
+                }
+                , 
+                {
+                    GroupName: Desaturate
+                    Maps: [
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_Cust.MI_Camper_Cust
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MV_Camper_Cust_DesaturateForLobby.MV_Camper_Cust_DesaturateForLobby
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper.MI_Camper
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MV_Camper_DesaturateForLobby.MV_Camper_DesaturateForLobby
+                        }
+                        , 
+                        {
+                            SrcMaterial: Material /Game/Characters/Campers/Materials/M_Hair.M_Hair
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MV_Hair_DesaturateForLobby.MV_Hair_DesaturateForLobby
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Instances/MI_HairTAA.MI_HairTAA
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MV_HairTAA_DestaurateForLobby.MV_HairTAA_DestaurateForLobby
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_TransCust.MI_Camper_TransCust
+                            DstMaterial: MaterialInstanceConstant /Game/Materials/Variants/MV_Camper_TransCust_DesaturateForLobby.MV_Camper_TransCust_DesaturateForLobby
+                        }
+                        , 
+                        {
+                            SrcMaterial: Material /Game/Characters/Campers/Materials/M_Camper_Liquid.M_Camper_Liquid
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MV_Camper_Liquid_Desaturate.MV_Camper_Liquid_Desaturate
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_Dither.MI_Camper_Dither
+                            DstMaterial: MaterialInstanceConstant /Game/Materials/Variants/MV_Camper_Dither_DesaturateForLobby.MV_Camper_Dither_DesaturateForLobby
+                        }
+                    ]
+                }
+            ]
+            AttachParent: SkeletalMeshComponent Default__BP_Menu_Base_Camper_C.CharacterMesh0
+        }
     Mesh: SkeletalMeshComponent Default__BP_Menu_Base_Camper_C.CharacterMesh0
-    CharacterMovement: CharacterMovementComponent Default__BP_Menu_Base_Camper_C.CharMoveComp
+    CharacterMovement: {
+            GravityScale: 0
+        }
     CapsuleComponent: CapsuleComponent Default__BP_Menu_Base_Camper_C.CollisionCylinder
     RootComponent: CapsuleComponent Default__BP_Menu_Base_Camper_C.CollisionCylinder
     OnDestroyed: WrappedOnDestroyed

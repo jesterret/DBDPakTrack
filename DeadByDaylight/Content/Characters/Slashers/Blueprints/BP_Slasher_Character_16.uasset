@@ -1,6 +1,7 @@
 {
     ComponentTemplates: [
-        GhostKillerAnalyticsComponent BP_Slasher_Character_16_C.NODE_AddGhostKillerAnalyticsComponent-0
+            {
+            }
     ]
     Timelines: [
         TimelineTemplate BP_Slasher_Character_16_C.Stalking Vignette_Template
@@ -28,21 +29,243 @@
         , 
         EKillerAbilities::VE_MAX
     ]
-    KillerSoundCuesComponent: KillerSoundCuesComponent Default__BP_Slasher_Character_16_C.Killer Sound Cues Component
-    _stillnessTracker: StillnessTrackerComponent Default__BP_Slasher_Character_16_C.StillnessTracker
-    _terrorRadiusEmitter: SlasherTREmitterComponent Default__BP_Slasher_Character_16_C.Terror Radius Component
-    _fullBodyFlashLightReceiver: FlashLightReceiverComponent Default__BP_Slasher_Character_16_C.FullBodyFlashLightReceiver
-    _invisibilityBurnoutChargeableComponent: ChargeableComponent Default__BP_Slasher_Character_16_C.InvisibilityBurnoutChargeableComponent
-    _hitsWhileCarryingTracker: SlasherHitsWhileCarryingTrackerComponent Default__BP_Slasher_Character_16_C.HitsWhileCarryingTracker
+    KillerSoundCuesComponent: {
+        }
+    _stillnessTracker: {
+        }
+    _terrorRadiusEmitter: {
+            AttachParent: {
+                }
+        }
+    _fullBodyFlashLightReceiver: {
+        }
+    _invisibilityBurnoutChargeableComponent: {
+            OnInteractionEmptiedEvent: OnInvisibilityChargeEmptied
+            ChargeAppliedAuthorityDelegate: Authority_OnInvisibilityBurnoutChargeApplied
+        }
+    _hitsWhileCarryingTracker: {
+        }
     _presenceTag: {
         TagName: State.Presence.TheGhostFace
     }
     _enableKillerCrouchInput: True
     _canStartAttackWhileCrouched: True
-    _moriComponent: MoriComponent Default__BP_Slasher_Character_16_C.MoriComponent
-    _armIKSensorComponent: ArmIKSensorComponent Default__BP_Slasher_Character_16_C.ArmIKSensor
-    MaterialHelper: MaterialHelper Default__BP_Slasher_Character_16_C.MaterialHelperNative
-    _characterInventoryComponent: CharacterInventoryComponent Default__BP_Slasher_Character_16_C.CharacterInventoryComponent
+    _moriComponent: {
+            _moriInteractionClasses: [
+                BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/Interactions/GhostFaceKill.GhostFaceKill_C
+            ]
+        }
+    _armIKSensorComponent: {
+        }
+    MaterialHelper: {
+            Groups: [
+                {
+                    GroupName: FirstPerson
+                    Maps: [
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Weapon.MI_Slasher_Weapon
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Weapon_FPS.MV_Slasher_Weapon_FPS
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_SlasherBlood_Weapon.MI_SlasherBlood_Weapon
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_SlasherBlood_Weapon_FPS.MV_SlasherBlood_Weapon_FPS
+                        }
+                    ]
+                }
+                , 
+                {
+                    GroupName: Dissolve
+                    Maps: [
+                        {
+                            SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher.M_Slasher
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Dissolve.MV_Slasher_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: Material /Game/Characters/Campers/Materials/M_Hair.M_Hair
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_Hair_Dissolve.MI_Hair_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: Material /Game/Characters/Slashers/Materials/M_SlasherBlood.M_SlasherBlood
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_SlasherBlood_Dissolve.MV_SlasherBlood_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Dither.MI_Slasher_Dither
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Dissolve.MV_Slasher_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher_Cust.M_Slasher_Cust
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Cust_Dissolve.MV_Slasher_Cust_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher_Burn.M_Slasher_Burn
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Burn_Dissolve.MV_Slasher_Burn_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher_Blend.M_Slasher_Blend
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Blend_Dissolve.MV_Slasher_Blend_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Cust_Dither.MI_Slasher_Cust_Dither
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Cust_Dissolve_Dither.MV_Slasher_Cust_Dissolve_Dither
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Instances/MI_HairTAA.MI_HairTAA
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_HairTAA_Dissolve.MI_HairTAA_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Materials/Instances/MI_Fur.MI_Fur
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Fabric_Dissolve.MV_Fabric_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Materials/Instances/MI_Fabric.MI_Fabric
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Fabric_Dissolve.MV_Fabric_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Materials/Instances/MI_FabricMask.MI_FabricMask
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Fabric_Dissolve.MV_Fabric_Dissolve
+                        }
+                    ]
+                }
+                , 
+                {
+                    GroupName: SlasherInvisible
+                    Maps: [
+                        {
+                            SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher.M_Slasher
+                            DstMaterial: Material /Game/Characters/Slashers/Materials/M_Basicdistortion.M_Basicdistortion
+                        }
+                        , 
+                        {
+                            SrcMaterial: Material /Game/Characters/Slashers/Materials/M_SlasherBlood.M_SlasherBlood
+                            DstMaterial: Material /Game/Characters/Slashers/Materials/M_Basicdistortion.M_Basicdistortion
+                        }
+                        , 
+                        {
+                            SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher_Cust.M_Slasher_Cust
+                            DstMaterial: Material /Game/Characters/Slashers/Materials/M_Basicdistortion.M_Basicdistortion
+                        }
+                    ]
+                }
+                , 
+                {
+                    GroupName: FirstPerson_Dissolve
+                    Maps: [
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Weapon.MI_Slasher_Weapon
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Weapon_FPS_Dissolve.MV_Slasher_Weapon_FPS_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_SlasherBlood_Weapon.MI_SlasherBlood_Weapon
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_SlasherBlood_Weapon_FPS_Dissolve.MV_SlasherBlood_Weapon_FPS_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher.M_Slasher
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Dissolve.MV_Slasher_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Cust.MI_Slasher_Cust
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Cust_Dissolve.MV_Slasher_Cust_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher_Burn.M_Slasher_Burn
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Burn_Dissolve.MV_Slasher_Burn_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: Material /Game/Characters/Slashers/Materials/M_GlassIce.M_GlassIce
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_GlassIce_Dissolve.MV_GlassIce_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: Material /Game/Characters/Slashers/Materials/M_Slasher_Blend.M_Slasher_Blend
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_Blend_Dissolve.MV_Slasher_Blend_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Instances/MI_HairTAA.MI_HairTAA
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_HairTAA_Dissolve.MI_HairTAA_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Materials/Instances/MI_Fur.MI_Fur
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Fur_Dissolve.MV_Fur_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Materials/Instances/MI_Fabric.MI_Fabric
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Fabric_Dissolve.MV_Fabric_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Materials/Instances/MI_FabricMask.MI_FabricMask
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_FabricMask_Dissolve.MV_FabricMask_Dissolve
+                        }
+                    ]
+                }
+                , 
+                {
+                    GroupName: Highlight
+                    Maps: [
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Cust.MI_Slasher_Cust
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Cust_OK.MI_Slasher_Cust_OK
+                        }
+                    ]
+                }
+            ]
+            AttachParent: {
+                    AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Oman/Blueprints/AB_Slasher16.AB_Slasher16_C
+                    SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/Oman/Models/OK_DSkeleton_REF.OK_DSkeleton_REF
+                    OverrideMaterials: [
+                        MaterialInstanceConstant /Game/Materials/Instances/MI_Basic_FullAlpha.MI_Basic_FullAlpha
+                    ]
+                    BodyInstance: {
+                        CollisionResponses: {
+                            ResponseArray: [
+                                {
+                                    Channel: Pawn
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Vehicle
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Camera
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Audio
+                                    Response: ECR_Ignore
+                                }
+                            ]
+                        }
+                        MassInKgOverride: 16.399227
+                    }
+                    AttachParent: CapsuleComponent Default__BP_Slasher_Character_16_C.CollisionCylinder
+                }
+        }
+    _characterInventoryComponent: {
+        }
     AttackPounceCurves_StalkTier0: [
         CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceOpenMaxSpeed.PounceOpenMaxSpeed
         , 
@@ -54,39 +277,91 @@
         , 
         CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceObstructedMaxSpeed.PounceObstructedMaxSpeed
     ]
-    _renderedPixelCounter: BoxOcclusionQueryComponent Default__BP_Slasher_Character_16_C.RenderedPixelCounter
-    _SM: SlasherStateMachine Default__BP_Slasher_Character_16_C.SlasherStateMachine
-    _interactionHandler: PlayerInteractionHandler Default__BP_Slasher_Character_16_C.InteractionHandler
-    _montagePlayer: MontagePlayer Default__BP_Slasher_Character_16_C.MontagePlayer
-    _perkManager: PerkManager Default__BP_Slasher_Character_16_C.PerkManager
-    _playerData: DBDSlasherData Default__BP_Slasher_Character_16_C.PlayerData
-    _characterChaseVisualComponent: CharacterChaseVisualComponent Default__BP_Slasher_Character_16_C.CharacterChaseVisualComponent
-    _cameraHandlerComponent: CameraHandlerComponent Default__BP_Slasher_Character_16_C.CameraHandlerComponent
-    _specialEventSpawnerComponent: SpecialEventSpawnerComponent Default__BP_Slasher_Character_16_C.SpecialEventSpawnerComponent
-    _itemDropOffPosition: SceneComponent Default__BP_Slasher_Character_16_C.ItemDropOffPosition
-    _blindingChargeableComponent: ChargeableComponent Default__BP_Slasher_Character_16_C.BlindnessChargeableComponent
-    _eventListener: PollableEventListener Default__BP_Slasher_Character_16_C.EventListener
-    _chaseComponent: ChaserCharacterComponent Default__BP_Slasher_Character_16_C.Chase Component
-    _meatHookZoneDetector: ZoneDetectorComponent Default__BP_Slasher_Character_16_C.MeatHookZoneDetector
-    _basementZoneDetector: ZoneDetectorComponent Default__BP_Slasher_Character_16_C.BasementZoneDetector
-    _authoritativeMovementComponent: AuthoritativeMovementComponent Default__BP_Slasher_Character_16_C.AuthoritativeMovement
-    _objectState: GameplayTagContainerComponent Default__BP_Slasher_Character_16_C.ObjectState
-    _audioFXComponent: AudioFXComponent Default__BP_Slasher_Character_16_C.AudioFXComponent
-    _blindableComponent: BlindableComponent Default__BP_Slasher_Character_16_C.BlindableComponent
-    _blindFxComponent: BlindingFXComponent Default__BP_Slasher_Character_16_C.BlindingFXComponent
-    _playerPerspectiveComponent: PlayerPerspectiveComponent Default__BP_Slasher_Character_16_C.PlayerPerspectiveComponent
-    _characterSightComponent: CharacterSightComponent Default__BP_Slasher_Character_16_C.CharacterSightComponent
-    _characterSightableComponent: CharacterSightableComponent Default__BP_Slasher_Character_16_C.CharacterSightableComponent
-    _interactionDetectorComponent: InteractionDetectorComponent Default__BP_Slasher_Character_16_C.InteractionDetectorComponent
-    _clippablePrimitivesRegistererComponent: PrimitivesRegistererComponent Default__BP_Slasher_Character_16_C.PrimitiveRegistererComponent
-    _clippableProviderComponent: ClippableProviderComponent Default__BP_Slasher_Character_16_C.ClippableProviderComponent
-    _dynCapsuleResizer: DynamicCapsuleResizerComponent Default__BP_Slasher_Character_16_C.Dyn Capsule Resizer
-    _playerGameRelevancyComponent: PlayerGameRelevancyComponent Default__BP_Slasher_Character_16_C.PlayerGameRelevancyComponent
-    _movementInputStrategy: InterpolatedMovementInputStrategy Default__BP_Slasher_Character_16_C.MovementInputStrategy
-    _presentationChargeableProgressComponent: ChargeableProgressProviderComponent Default__BP_Slasher_Character_16_C.Presentation Chargeable Progress
+    _renderedPixelCounter: {
+        }
+    _SM: {
+        }
+    _interactionHandler: {
+        }
+    _montagePlayer: {
+            _playerSpecificMappingsTable: DataTable /Game/Characters/Slashers/Animations/MontageMappings/Slasher016_AnimMappings.Slasher016_AnimMappings
+        }
+    _perkManager: {
+            _perks: {
+                }
+            _statusEffects: {
+                }
+        }
+    _playerData: {
+        }
+    _characterChaseVisualComponent: {
+        }
+    _cameraHandlerComponent: {
+        }
+    _specialEventSpawnerComponent: {
+        }
+    _itemDropOffPosition: {
+            AttachParent: CapsuleComponent Default__BP_Slasher_Character_16_C.CollisionCylinder
+        }
+    _blindingChargeableComponent: {
+            OnInteractionEmptiedEvent: OnBlindChargeEmptied
+            ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
+            ChargeableCompletionPercentChangeCosmeticDelegate: OnChargeableCompletionPercent
+        }
+    _eventListener: {
+        }
+    _chaseComponent: {
+        }
+    _meatHookZoneDetector: {
+        }
+    _basementZoneDetector: {
+        }
+    _authoritativeMovementComponent: {
+        }
+    _objectState: {
+        }
+    _audioFXComponent: {
+        }
+    _blindableComponent: {
+            _chargeableComponent: ChargeableComponent Default__BP_Slasher_Character_16_C.BlindnessChargeableComponent
+        }
+    _blindFxComponent: {
+            _blindableComponent: BlindableComponent Default__BP_Slasher_Character_16_C.BlindableComponent
+        }
+    _playerPerspectiveComponent: {
+        }
+    _characterSightComponent: {
+            _minimumCharacterScreenPercent: 0.000125
+            _minimumCharacterVisiblePixelsPercent: 0.2
+            _maximumSightDistance: 4000
+            _activationDefinition: {
+                _activationStrategy: EActivationStrategy::DeactivateIfAnyTagMatches
+            }
+        }
+    _characterSightableComponent: {
+        }
+    _interactionDetectorComponent: {
+        }
+    _clippablePrimitivesRegistererComponent: {
+        }
+    _clippableProviderComponent: {
+        }
+    _dynCapsuleResizer: {
+        }
+    _playerGameRelevancyComponent: {
+        }
+    _movementInputStrategy: {
+        }
     _characterIndex: 268435471
     Mesh: SkeletalMeshComponent Default__BP_Slasher_Character_16_C.CharacterMesh0
-    CharacterMovement: SlasherMovementComponent Default__BP_Slasher_Character_16_C.CharMoveComp
+    CharacterMovement: {
+            MaxWalkSpeed: 460
+            CrouchedHalfHeight: 103
+            bCanWalkOffLedgesWhenCrouching: True
+            NavAgentProps: {
+                bCanCrouch: True
+            }
+        }
     CapsuleComponent: CapsuleComponent Default__BP_Slasher_Character_16_C.CollisionCylinder
     RootComponent: CapsuleComponent Default__BP_Slasher_Character_16_C.CollisionCylinder
 }

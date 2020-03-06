@@ -3,11 +3,24 @@
         ComponentDelegateBinding HatchetProjectile_C.ComponentDelegateBinding
     ]
     ComponentTemplates: [
-        ParticleSystemComponent HatchetProjectile_C.NODE_AddParticleSystemComponent-2
+            {
+                Template: ParticleSystem /Game/Effects/ParticleSystems/Killer08/P_Hatchet_Trail.P_Hatchet_Trail
+                DetailLevelBeforeCastShadows: DM_MAX
+                PrimaryComponentTick: {
+                    bStartWithTickEnabled: False
+                }
+            }
         , 
-        ParticleSystemComponent HatchetProjectile_C.NODE_AddParticleSystemComponent-3
+            {
+                Template: ParticleSystem /Game/Effects/ParticleSystems/Killer08/P_Hatchet_TrailOP.P_Hatchet_TrailOP
+                DetailLevelBeforeCastShadows: DM_MAX
+                PrimaryComponentTick: {
+                    bStartWithTickEnabled: False
+                }
+            }
         , 
-        AkComponent HatchetProjectile_C.NODE_AddAkComponent-0
+            {
+            }
     ]
     Timelines: [
         TimelineTemplate HatchetProjectile_C.WeaponGlow_Template
@@ -29,7 +42,13 @@
     HatchetImpactClass: BlueprintGeneratedClass /Game/Effects/Blueprints/Killer08/BP_Effect_HatchetImpact.BP_Effect_HatchetImpact_C
     EarlyHitDetectionBackwardDistance: 75
     MaxDistanceForHitValidation: 80
-    Movement: PhysicsBasedProjectileMovementComponent Default__HatchetProjectile_C.Movement
+    Movement: {
+            MaxSpeed: 5000
+            bInitialVelocityInLocalSpace: False
+            Velocity: { X: 1000, Y: 0, Z: 0 }
+            bAutoUpdateTickRegistration: False
+            bAutoActivate: False
+        }
     _multicastLaunch: True
     bCanBeDamaged: False
 }

@@ -3,7 +3,14 @@
         ComponentDelegateBinding ToolBox_C.ComponentDelegateBinding
     ]
     ComponentTemplates: [
-        ParticleSystemComponent ToolBox_C.NODE_AddParticleSystemComponent-0
+            {
+                Template: ParticleSystem /Game/Effects/ParticleSystems/P_DustRing.P_DustRing
+                DetailLevelBeforeCastShadows: DM_MAX
+                RelativeLocation: { X: 0, Y: 0, Z: -10 }
+                PrimaryComponentTick: {
+                    bStartWithTickEnabled: False
+                }
+            }
     ]
     SimpleConstructionScript: SimpleConstructionScript ToolBox_C.SimpleConstructionScript
     InheritableComponentHandler: InheritableComponentHandler ToolBox_C.InheritableComponentHandler
@@ -16,13 +23,154 @@
     HandPosition: EItemHandPosition::HandleItem
     HasUseInteraction: True
     ItemID: Item_Camper_Toolbox
-    BaseItemModifier: ItemModifier Default__ToolBox_C.ItemModifier
-    ItemModifier1: ItemModifier Default__ToolBox_C.ItemModifier1
-    ItemModifier2: ItemModifier Default__ToolBox_C.ItemModifier2
-    _mesh: SkeletalMeshComponent Default__ToolBox_C.ItemMesh
-    _placementOrigin: SceneComponent Default__ToolBox_C.PlacementOrigin
-    _objectState: GameplayTagContainerComponent Default__ToolBox_C.ObjectState
+    BaseItemModifier: {
+            ModifierData: {
+                Modifiers: [
+                    {
+                        Type: {
+                            TagName: GameplayModifierType.IncreaseItemCharge
+                        }
+                        ModifierValue: 90
+                    }
+                    , 
+                    {
+                        Type: {
+                            TagName: GameplayModifierType.ModifyItemMaxCharge
+                        }
+                        ModifierValue: 90
+                    }
+                ]
+            }
+        }
+    ItemModifier1: {
+        }
+    ItemModifier2: {
+            ModifierData: {
+                Conditions: [
+                    BlueprintGeneratedClass /Game/Blueprints/Perks/PerkConditions/PlayerIsSabotagingWithToolbox.PlayerIsSabotagingWithToolbox_C
+                ]
+                Modifiers: [
+                    {
+                        Type: {
+                            TagName: GameplayModifierType.ModifyItemEfficiency
+                        }
+                        ModifierValue: -0.66667
+                    }
+                ]
+            }
+        }
+    _mesh: {
+            SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/ToolBox/Models/SK_Toolbox01_REF.SK_Toolbox01_REF
+            CastShadow: True
+            bCastCinematicShadow: True
+            BodyInstance: {
+                CollisionResponses: {
+                    ResponseArray: [
+                        {
+                            Channel: WorldStatic
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: WorldDynamic
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Pawn
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Visibility
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Camera
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: PhysicsBody
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Vehicle
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Destructible
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: EngineTraceChannel1
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: EngineTraceChannel2
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: EngineTraceChannel3
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: EngineTraceChannel4
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: EngineTraceChannel5
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: EngineTraceChannel6
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Interactable
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Audio
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Slasher
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Spider
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Traps
+                            Response: ECR_Ignore
+                        }
+                    ]
+                }
+                MassInKgOverride: 23.033546
+            }
+        }
+    _placementOrigin: {
+            AttachParent: SkeletalMeshComponent Default__ToolBox_C.ItemMesh
+            RelativeLocation: { X: 0, Y: 0, Z: -20 }
+        }
+    _objectState: {
+        }
     _itemType: ELoadoutItemType::Toolbox
-    _discardWhenConsumed: False
     RootComponent: SkeletalMeshComponent Default__ToolBox_C.ItemMesh
 }
