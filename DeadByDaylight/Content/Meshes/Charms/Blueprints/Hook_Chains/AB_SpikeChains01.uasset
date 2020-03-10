@@ -8,7 +8,7 @@
                     StateName: Base
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 61
+                            CanTakeDelegateIndex: 66
                             CustomResultNodeIndex: -1
                             TransitionIndex: 5
                             bDesiredTransitionReturnValue: True
@@ -17,7 +17,7 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 62
+                            CanTakeDelegateIndex: 67
                             CustomResultNodeIndex: -1
                             TransitionIndex: 1
                             bDesiredTransitionReturnValue: True
@@ -26,7 +26,7 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 63
+                            CanTakeDelegateIndex: 68
                             CustomResultNodeIndex: -1
                             TransitionIndex: 2
                             bDesiredTransitionReturnValue: True
@@ -35,7 +35,7 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 64
+                            CanTakeDelegateIndex: 69
                             CustomResultNodeIndex: -1
                             TransitionIndex: 3
                             bDesiredTransitionReturnValue: True
@@ -44,7 +44,7 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 65
+                            CanTakeDelegateIndex: 70
                             CustomResultNodeIndex: -1
                             TransitionIndex: 4
                             bDesiredTransitionReturnValue: True
@@ -53,7 +53,7 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 66
+                            CanTakeDelegateIndex: 71
                             CustomResultNodeIndex: -1
                             TransitionIndex: 0
                             bDesiredTransitionReturnValue: True
@@ -62,7 +62,7 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 67
+                            CanTakeDelegateIndex: 72
                             CustomResultNodeIndex: -1
                             TransitionIndex: 6
                             bDesiredTransitionReturnValue: True
@@ -71,7 +71,7 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 68
+                            CanTakeDelegateIndex: 73
                             CustomResultNodeIndex: -1
                             TransitionIndex: 7
                             bDesiredTransitionReturnValue: True
@@ -80,7 +80,7 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 69
+                            CanTakeDelegateIndex: 74
                             CustomResultNodeIndex: -1
                             TransitionIndex: 8
                             bDesiredTransitionReturnValue: True
@@ -89,9 +89,18 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 70
+                            CanTakeDelegateIndex: 75
                             CustomResultNodeIndex: -1
                             TransitionIndex: 9
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                        , 
+                        {
+                            CanTakeDelegateIndex: 76
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 10
                             bDesiredTransitionReturnValue: True
                             bAutomaticRemainingTimeRule: False
                             PoseEvaluatorLinks: [ ]
@@ -228,6 +237,19 @@
                     StateName: Doctor
                     Transitions: [ ]
                     StateRootNodeIndex: 56
+                    StartNotify: -1
+                    EndNotify: -1
+                    FullyBlendedNotify: -1
+                    bIsAConduit: False
+                    EntryRuleNodeIndex: -1
+                    PlayerNodeIndices: [ ]
+                    bAlwaysResetOnEntry: False
+                }
+                , 
+                {
+                    StateName: GunSlinger
+                    Transitions: [ ]
+                    StateRootNodeIndex: 61
                     StartNotify: -1
                     EndNotify: -1
                     FullyBlendedNotify: -1
@@ -377,12 +399,26 @@
                     LogicType: ETransitionLogicType::TLT_StandardBlend
                     StateName: None
                 }
+                , 
+                {
+                    PreviousState: 0
+                    NextState: 11
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
             ]
         }
     ]
     TargetSkeleton: Skeleton /Game/Meshes/Charms/Skeleton/Hook_Chains/SpikeChains01_REF_Skeleton.SpikeChains01_REF_Skeleton
     OrderedSavedPoseIndices: [
-        71
+        77
     ]
     EvaluateGraphExposedInputs: [
         {
@@ -689,6 +725,26 @@
             BoundFunction: None
             CopyRecords: [
                 {
+                    SourcePropertyName: IsGunSlingerHook
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: BoolProperty /Script/Engine.AnimNode_TransitionResult.bCanEnterTransition
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: BoolProperty AB_SpikeChains01_C.IsGunSlingerHook
+                    CachedSourceStructSubProperty: null
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: StructProperty AB_SpikeChains01_C.AnimGraphNode_TransitionResult_FC0DC5A647AD7912E22649997E73E4B1
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
                     SourcePropertyName: OwningSkeletalMesh
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
@@ -713,7 +769,7 @@
     UberGraphFrame: None
     AnimGraphNode_Root_B829F1ED40DD9D5EDE57288996ED5264: {
         Result: {
-            LinkID: 73
+            LinkID: 79
         }
     }
     AnimGraphNode_CopyPoseFromMesh_F702F4D34AAEF1BFC9304794E1A9C7EA: {
@@ -726,6 +782,9 @@
             LinkID: 1
         }
         CachePoseName: CopyMesh
+    }
+    AnimGraphNode_TransitionResult_FC0DC5A647AD7912E22649997E73E4B1: {
+        bCanEnterTransition: False
     }
     AnimGraphNode_TransitionResult_CF4D0D12463E15DD7CEA16B507FEBC49: {
         bCanEnterTransition: False
@@ -757,14 +816,93 @@
     AnimGraphNode_TransitionResult_30B36B834A94646BD5EF18BA8B184C5B: {
         bCanEnterTransition: False
     }
+    AnimGraphNode_LocalToComponentSpace_7BFBE9384B7A71B2211B2FBE8778F79A: {
+        LocalPose: {
+            LinkID: 17
+        }
+    }
+    AnimGraphNode_ComponentToLocalSpace_49AA2EDC4DEDF852C88A5091851F3AB8: {
+        ComponentPose: {
+            LinkID: 16
+        }
+    }
+    AnimGraphNode_ModifyBone_49C1F13D4963D0DAAFD83BA764D64AD2: {
+        BoneToModify: {
+            BoneName: joint_Spike01
+        }
+        Translation: { X: 14.979, Y: 9.281, Z: -22.82 }
+        Rotation: { Pitch: 0, Roll: 0, Yaw: 0 }
+        Scale: { X: 1, Y: 1, Z: 1 }
+        TranslationMode: BMM_Additive
+        RotationMode: BMM_Ignore
+        ScaleMode: BMM_Ignore
+        TranslationSpace: BCS_ComponentSpace
+        RotationSpace: BCS_ComponentSpace
+        ScaleSpace: BCS_ComponentSpace
+        ComponentPose: {
+            LinkID: 14
+        }
+        LODThreshold: -1
+        ActualAlpha: 0
+        AlphaInputType: EAnimAlphaInputType::Float
+        bAlphaBoolEnabled: True
+        Alpha: 1
+        AlphaScaleBias: {
+            Scale: 1
+            Bias: 0
+        }
+        AlphaBoolBlend: {
+            BlendInTime: 0
+            BlendOutTime: 0
+            BlendOption: EAlphaBlendOption::Linear
+            bInitialized: False
+            CustomCurve: null
+            AlphaBlend: {
+                CustomCurve: null
+                BlendTime: 0.2
+                BlendOption: EAlphaBlendOption::Linear
+            }
+        }
+        AlphaCurveName: None
+        AlphaScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+    }
+    AnimGraphNode_UseCachedPose_71273BDE4343858452D9EEA7A048DBBF: {
+        LinkToCachingNode: {
+            LinkID: 2
+        }
+        CachePoseName: CopyMesh
+    }
+    AnimGraphNode_StateResult_AE4E75654D15906C7B166D804137A2FD: {
+        Result: {
+            LinkID: 15
+        }
+    }
     AnimGraphNode_LocalToComponentSpace_2B4B2E1B48A2CC3866C6C6B20A7551E3: {
         LocalPose: {
-            LinkID: 16
+            LinkID: 22
         }
     }
     AnimGraphNode_ComponentToLocalSpace_F22241CB44FC212D800098A986E629AC: {
         ComponentPose: {
-            LinkID: 15
+            LinkID: 21
         }
     }
     AnimGraphNode_ModifyBone_C4D653BF49EA992C0667289E47EC79E4: {
@@ -781,7 +919,7 @@
         RotationSpace: BCS_ComponentSpace
         ScaleSpace: BCS_ComponentSpace
         ComponentPose: {
-            LinkID: 13
+            LinkID: 19
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -833,17 +971,17 @@
     }
     AnimGraphNode_StateResult_C88ED6D44A106DCAC3449CAEBDA867C9: {
         Result: {
-            LinkID: 14
+            LinkID: 20
         }
     }
     AnimGraphNode_LocalToComponentSpace_67E4FFCD44FB67A1C5960A989602390E: {
         LocalPose: {
-            LinkID: 21
+            LinkID: 27
         }
     }
     AnimGraphNode_ComponentToLocalSpace_508ACBD74A06D9EE712AD7A002E8A101: {
         ComponentPose: {
-            LinkID: 20
+            LinkID: 26
         }
     }
     AnimGraphNode_ModifyBone_7EA3146C48E2AA4CBA289EAEEA2E6429: {
@@ -851,85 +989,6 @@
             BoneName: joint_Spike01
         }
         Translation: { X: -13.623, Y: 9.638, Z: 0 }
-        Rotation: { Pitch: 0, Roll: 0, Yaw: 0 }
-        Scale: { X: 1, Y: 1, Z: 1 }
-        TranslationMode: BMM_Additive
-        RotationMode: BMM_Ignore
-        ScaleMode: BMM_Ignore
-        TranslationSpace: BCS_ComponentSpace
-        RotationSpace: BCS_ComponentSpace
-        ScaleSpace: BCS_ComponentSpace
-        ComponentPose: {
-            LinkID: 18
-        }
-        LODThreshold: -1
-        ActualAlpha: 0
-        AlphaInputType: EAnimAlphaInputType::Float
-        bAlphaBoolEnabled: True
-        Alpha: 1
-        AlphaScaleBias: {
-            Scale: 1
-            Bias: 0
-        }
-        AlphaBoolBlend: {
-            BlendInTime: 0
-            BlendOutTime: 0
-            BlendOption: EAlphaBlendOption::Linear
-            bInitialized: False
-            CustomCurve: null
-            AlphaBlend: {
-                CustomCurve: null
-                BlendTime: 0.2
-                BlendOption: EAlphaBlendOption::Linear
-            }
-        }
-        AlphaCurveName: None
-        AlphaScaleBiasClamp: {
-            bMapRange: False
-            bClampResult: False
-            bInterpResult: False
-            InRange: {
-                Min: 0
-                Max: 1
-            }
-            OutRange: {
-                Min: 0
-                Max: 1
-            }
-            Scale: 1
-            Bias: 0
-            ClampMin: 0
-            ClampMax: 1
-            InterpSpeedIncreasing: 10
-            InterpSpeedDecreasing: 10
-        }
-    }
-    AnimGraphNode_UseCachedPose_18DDF3C5471606C5DC9D539D5334110D: {
-        LinkToCachingNode: {
-            LinkID: 2
-        }
-        CachePoseName: CopyMesh
-    }
-    AnimGraphNode_StateResult_1FF7A795443769662566809BDC1F0D21: {
-        Result: {
-            LinkID: 19
-        }
-    }
-    AnimGraphNode_ComponentToLocalSpace_EA0446C146E995894BFBA190AE475D4A: {
-        ComponentPose: {
-            LinkID: 25
-        }
-    }
-    AnimGraphNode_LocalToComponentSpace_2673F48A4A45972E01B2EBB64DBF0840: {
-        LocalPose: {
-            LinkID: 26
-        }
-    }
-    AnimGraphNode_ModifyBone_39B8F35445DA7283701237B73370C81D: {
-        BoneToModify: {
-            BoneName: joint_Spike01
-        }
-        Translation: { X: 9.465, Y: 23.148, Z: 26.509 }
         Rotation: { Pitch: 0, Roll: 0, Yaw: 0 }
         Scale: { X: 1, Y: 1, Z: 1 }
         TranslationMode: BMM_Additive
@@ -983,6 +1042,85 @@
             InterpSpeedDecreasing: 10
         }
     }
+    AnimGraphNode_UseCachedPose_18DDF3C5471606C5DC9D539D5334110D: {
+        LinkToCachingNode: {
+            LinkID: 2
+        }
+        CachePoseName: CopyMesh
+    }
+    AnimGraphNode_StateResult_1FF7A795443769662566809BDC1F0D21: {
+        Result: {
+            LinkID: 25
+        }
+    }
+    AnimGraphNode_ComponentToLocalSpace_EA0446C146E995894BFBA190AE475D4A: {
+        ComponentPose: {
+            LinkID: 31
+        }
+    }
+    AnimGraphNode_LocalToComponentSpace_2673F48A4A45972E01B2EBB64DBF0840: {
+        LocalPose: {
+            LinkID: 32
+        }
+    }
+    AnimGraphNode_ModifyBone_39B8F35445DA7283701237B73370C81D: {
+        BoneToModify: {
+            BoneName: joint_Spike01
+        }
+        Translation: { X: 9.465, Y: 23.148, Z: 26.509 }
+        Rotation: { Pitch: 0, Roll: 0, Yaw: 0 }
+        Scale: { X: 1, Y: 1, Z: 1 }
+        TranslationMode: BMM_Additive
+        RotationMode: BMM_Ignore
+        ScaleMode: BMM_Ignore
+        TranslationSpace: BCS_ComponentSpace
+        RotationSpace: BCS_ComponentSpace
+        ScaleSpace: BCS_ComponentSpace
+        ComponentPose: {
+            LinkID: 30
+        }
+        LODThreshold: -1
+        ActualAlpha: 0
+        AlphaInputType: EAnimAlphaInputType::Float
+        bAlphaBoolEnabled: True
+        Alpha: 1
+        AlphaScaleBias: {
+            Scale: 1
+            Bias: 0
+        }
+        AlphaBoolBlend: {
+            BlendInTime: 0
+            BlendOutTime: 0
+            BlendOption: EAlphaBlendOption::Linear
+            bInitialized: False
+            CustomCurve: null
+            AlphaBlend: {
+                CustomCurve: null
+                BlendTime: 0.2
+                BlendOption: EAlphaBlendOption::Linear
+            }
+        }
+        AlphaCurveName: None
+        AlphaScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+    }
     AnimGraphNode_UseCachedPose_B6386EF1466459B9A874DFAC330FFABA: {
         LinkToCachingNode: {
             LinkID: 2
@@ -991,17 +1129,17 @@
     }
     AnimGraphNode_StateResult_CE7B6BB8489504A009DEE5B2F0A53136: {
         Result: {
-            LinkID: 23
+            LinkID: 29
         }
     }
     AnimGraphNode_LocalToComponentSpace_6C7A70934D66F5E2869149A839958BEB: {
         LocalPose: {
-            LinkID: 30
+            LinkID: 36
         }
     }
     AnimGraphNode_ComponentToLocalSpace_89F7AC2F4C8912EB56EA0994E5E8D6F3: {
         ComponentPose: {
-            LinkID: 28
+            LinkID: 34
         }
     }
     AnimGraphNode_UseCachedPose_54B2873C43C4F808E592D79A5F836012: {
@@ -1012,7 +1150,7 @@
     }
     AnimGraphNode_StateResult_4CA2DC75495714F79BABD3A87C3DCB73: {
         Result: {
-            LinkID: 29
+            LinkID: 35
         }
     }
     AnimGraphNode_ModifyBone_09CFADC040339AF4BA2B289C0FFA72B8: {
@@ -1029,7 +1167,7 @@
         RotationSpace: BCS_ComponentSpace
         ScaleSpace: BCS_ComponentSpace
         ComponentPose: {
-            LinkID: 34
+            LinkID: 40
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -1075,12 +1213,12 @@
     }
     AnimGraphNode_ComponentToLocalSpace_B38FD57E4228D20AB78E43A58A540043: {
         ComponentPose: {
-            LinkID: 32
+            LinkID: 38
         }
     }
     AnimGraphNode_LocalToComponentSpace_D29C5A964AD88F7878D755B3A6AE69A1: {
         LocalPose: {
-            LinkID: 35
+            LinkID: 41
         }
     }
     AnimGraphNode_UseCachedPose_6D211C44474F354DB25F57A8820D9F05: {
@@ -1091,7 +1229,7 @@
     }
     AnimGraphNode_StateResult_00D585A241B8868FDB7B84A30115BFD5: {
         Result: {
-            LinkID: 33
+            LinkID: 39
         }
     }
     AnimGraphNode_ModifyBone_DBABAB814AE5B19F7B2C4B9E806F96E1: {
@@ -1108,7 +1246,7 @@
         RotationSpace: BCS_ComponentSpace
         ScaleSpace: BCS_ComponentSpace
         ComponentPose: {
-            LinkID: 38
+            LinkID: 44
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -1154,12 +1292,12 @@
     }
     AnimGraphNode_LocalToComponentSpace_8C2E9E364475F8329D7C7389ABB9FA37: {
         LocalPose: {
-            LinkID: 40
+            LinkID: 46
         }
     }
     AnimGraphNode_ComponentToLocalSpace_CE5A29BA4DAF80C2386192B427F820E8: {
         ComponentPose: {
-            LinkID: 37
+            LinkID: 43
         }
     }
     AnimGraphNode_UseCachedPose_23AB9DF64FAD250A486B1D9608CC2CB9: {
@@ -1170,7 +1308,7 @@
     }
     AnimGraphNode_StateResult_15A3F70C4DDDCE276D53E7BA265D167C: {
         Result: {
-            LinkID: 39
+            LinkID: 45
         }
     }
     AnimGraphNode_ModifyBone_5A1DE7EA494A329D3FDAE4A658E2B068: {
@@ -1178,85 +1316,6 @@
             BoneName: joint_Spike01
         }
         Translation: { X: 1.112, Y: 11.389, Z: 0 }
-        Rotation: { Pitch: 0, Roll: 0, Yaw: 0 }
-        Scale: { X: 1, Y: 1, Z: 1 }
-        TranslationMode: BMM_Additive
-        RotationMode: BMM_Ignore
-        ScaleMode: BMM_Ignore
-        TranslationSpace: BCS_ComponentSpace
-        RotationSpace: BCS_ComponentSpace
-        ScaleSpace: BCS_ComponentSpace
-        ComponentPose: {
-            LinkID: 43
-        }
-        LODThreshold: -1
-        ActualAlpha: 0
-        AlphaInputType: EAnimAlphaInputType::Float
-        bAlphaBoolEnabled: True
-        Alpha: 1
-        AlphaScaleBias: {
-            Scale: 1
-            Bias: 0
-        }
-        AlphaBoolBlend: {
-            BlendInTime: 0
-            BlendOutTime: 0
-            BlendOption: EAlphaBlendOption::Linear
-            bInitialized: False
-            CustomCurve: null
-            AlphaBlend: {
-                CustomCurve: null
-                BlendTime: 0.2
-                BlendOption: EAlphaBlendOption::Linear
-            }
-        }
-        AlphaCurveName: None
-        AlphaScaleBiasClamp: {
-            bMapRange: False
-            bClampResult: False
-            bInterpResult: False
-            InRange: {
-                Min: 0
-                Max: 1
-            }
-            OutRange: {
-                Min: 0
-                Max: 1
-            }
-            Scale: 1
-            Bias: 0
-            ClampMin: 0
-            ClampMax: 1
-            InterpSpeedIncreasing: 10
-            InterpSpeedDecreasing: 10
-        }
-    }
-    AnimGraphNode_LocalToComponentSpace_5E36D4754B9893AA5EF0D890990EDCC5: {
-        LocalPose: {
-            LinkID: 45
-        }
-    }
-    AnimGraphNode_ComponentToLocalSpace_D897BF1A4886BDCE4DD70D90696CFBB1: {
-        ComponentPose: {
-            LinkID: 42
-        }
-    }
-    AnimGraphNode_UseCachedPose_3301F4D244F471B49E1597AE8B83F085: {
-        LinkToCachingNode: {
-            LinkID: 2
-        }
-        CachePoseName: CopyMesh
-    }
-    AnimGraphNode_StateResult_E49C835E43C91DCAAC3BEAAB9D4A21B3: {
-        Result: {
-            LinkID: 44
-        }
-    }
-    AnimGraphNode_ModifyBone_63E0307A41A362EBB76839B9329AC759: {
-        BoneToModify: {
-            BoneName: joint_Spike01
-        }
-        Translation: { X: -3.541, Y: 0, Z: 0 }
         Rotation: { Pitch: 0, Roll: 0, Yaw: 0 }
         Scale: { X: 1, Y: 1, Z: 1 }
         TranslationMode: BMM_Additive
@@ -1310,14 +1369,93 @@
             InterpSpeedDecreasing: 10
         }
     }
+    AnimGraphNode_LocalToComponentSpace_5E36D4754B9893AA5EF0D890990EDCC5: {
+        LocalPose: {
+            LinkID: 51
+        }
+    }
+    AnimGraphNode_ComponentToLocalSpace_D897BF1A4886BDCE4DD70D90696CFBB1: {
+        ComponentPose: {
+            LinkID: 48
+        }
+    }
+    AnimGraphNode_UseCachedPose_3301F4D244F471B49E1597AE8B83F085: {
+        LinkToCachingNode: {
+            LinkID: 2
+        }
+        CachePoseName: CopyMesh
+    }
+    AnimGraphNode_StateResult_E49C835E43C91DCAAC3BEAAB9D4A21B3: {
+        Result: {
+            LinkID: 50
+        }
+    }
+    AnimGraphNode_ModifyBone_63E0307A41A362EBB76839B9329AC759: {
+        BoneToModify: {
+            BoneName: joint_Spike01
+        }
+        Translation: { X: -3.541, Y: 0, Z: 0 }
+        Rotation: { Pitch: 0, Roll: 0, Yaw: 0 }
+        Scale: { X: 1, Y: 1, Z: 1 }
+        TranslationMode: BMM_Additive
+        RotationMode: BMM_Ignore
+        ScaleMode: BMM_Ignore
+        TranslationSpace: BCS_ComponentSpace
+        RotationSpace: BCS_ComponentSpace
+        ScaleSpace: BCS_ComponentSpace
+        ComponentPose: {
+            LinkID: 55
+        }
+        LODThreshold: -1
+        ActualAlpha: 0
+        AlphaInputType: EAnimAlphaInputType::Float
+        bAlphaBoolEnabled: True
+        Alpha: 1
+        AlphaScaleBias: {
+            Scale: 1
+            Bias: 0
+        }
+        AlphaBoolBlend: {
+            BlendInTime: 0
+            BlendOutTime: 0
+            BlendOption: EAlphaBlendOption::Linear
+            bInitialized: False
+            CustomCurve: null
+            AlphaBlend: {
+                CustomCurve: null
+                BlendTime: 0.2
+                BlendOption: EAlphaBlendOption::Linear
+            }
+        }
+        AlphaCurveName: None
+        AlphaScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+    }
     AnimGraphNode_ComponentToLocalSpace_8DAD5C964356314725FE8E8C8FE67BF2: {
         ComponentPose: {
-            LinkID: 47
+            LinkID: 53
         }
     }
     AnimGraphNode_LocalToComponentSpace_68E7BA6048B904B63EC83AB4DD0FDD28: {
         LocalPose: {
-            LinkID: 50
+            LinkID: 56
         }
     }
     AnimGraphNode_UseCachedPose_7C7C4C4142EFC9A45D47DFA2F30294EE: {
@@ -1328,7 +1466,7 @@
     }
     AnimGraphNode_StateResult_3398C9EF48F528F296DC7BB7BBEEC6BA: {
         Result: {
-            LinkID: 48
+            LinkID: 54
         }
     }
     AnimGraphNode_ModifyBone_5BC29C5A4E4BA7FC8F59189660466253: {
@@ -1345,7 +1483,7 @@
         RotationSpace: BCS_ComponentSpace
         ScaleSpace: BCS_ComponentSpace
         ComponentPose: {
-            LinkID: 54
+            LinkID: 60
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -1391,12 +1529,12 @@
     }
     AnimGraphNode_ComponentToLocalSpace_7013AFA242F143A8C2B809BC19997940: {
         ComponentPose: {
-            LinkID: 52
+            LinkID: 58
         }
     }
     AnimGraphNode_LocalToComponentSpace_D9FED09B415A624D6A60DDA42185E36D: {
         LocalPose: {
-            LinkID: 55
+            LinkID: 61
         }
     }
     AnimGraphNode_UseCachedPose_31190F0D4479595C1142F880AC89A5ED: {
@@ -1407,7 +1545,7 @@
     }
     AnimGraphNode_StateResult_961B02D445C171E566421EB9DC27D2A8: {
         Result: {
-            LinkID: 53
+            LinkID: 59
         }
     }
     AnimGraphNode_ModifyBone_12E714D348C0AC8B58FAAD9435DF94BD: {
@@ -1424,7 +1562,7 @@
         RotationSpace: BCS_ComponentSpace
         ScaleSpace: BCS_ComponentSpace
         ComponentPose: {
-            LinkID: 58
+            LinkID: 64
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -1470,12 +1608,12 @@
     }
     AnimGraphNode_LocalToComponentSpace_4E96E73C464890065FAE0ABFFBA5534F: {
         LocalPose: {
-            LinkID: 60
+            LinkID: 66
         }
     }
     AnimGraphNode_ComponentToLocalSpace_F41C863E4DA07B64DA2F808118F93028: {
         ComponentPose: {
-            LinkID: 57
+            LinkID: 63
         }
     }
     AnimGraphNode_UseCachedPose_10CF831F4BE82CDF645E518CF49E1C31: {
@@ -1486,7 +1624,7 @@
     }
     AnimGraphNode_StateResult_D7CCD10D49C342F25D96A4907E0AB2BC: {
         Result: {
-            LinkID: 59
+            LinkID: 65
         }
     }
     AnimGraphNode_UseCachedPose_58E2EA6B4A57B7A5CF66588A0CCC34AF: {
@@ -1497,7 +1635,7 @@
     }
     AnimGraphNode_StateResult_9650DE58482D8D47229C648E6A4B8CCE: {
         Result: {
-            LinkID: 62
+            LinkID: 68
         }
     }
     AnimGraphNode_StateMachine_1C06BAED4CA92C98EAB06DA0AC103565: {
@@ -1565,7 +1703,7 @@
         bAngularSpring: False
         bChain: False
         ComponentPose: {
-            LinkID: 69
+            LinkID: 75
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -1668,7 +1806,7 @@
         bAngularSpring: False
         bChain: False
         ComponentPose: {
-            LinkID: 65
+            LinkID: 71
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -1771,7 +1909,7 @@
         bAngularSpring: False
         bChain: False
         ComponentPose: {
-            LinkID: 66
+            LinkID: 72
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -1874,7 +2012,7 @@
         bAngularSpring: False
         bChain: False
         ComponentPose: {
-            LinkID: 67
+            LinkID: 73
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -1920,12 +2058,12 @@
     }
     AnimGraphNode_LocalToComponentSpace_9C83A8454B206B6B8DBBAA8B19E9596F: {
         LocalPose: {
-            LinkID: 64
+            LinkID: 70
         }
     }
     AnimGraphNode_ComponentToLocalSpace_37E2A6084A0B3B26360C8FB9F032BE00: {
         ComponentPose: {
-            LinkID: 68
+            LinkID: 74
         }
     }
     AnimGraphNode_ModifyBone_3E43BC0A414EBAA48921E4816E4BF80F: {
@@ -1942,7 +2080,7 @@
         RotationSpace: BCS_ComponentSpace
         ScaleSpace: BCS_ComponentSpace
         ComponentPose: {
-            LinkID: 72
+            LinkID: 78
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -1988,12 +2126,12 @@
     }
     AnimGraphNode_LocalToComponentSpace_92979EA94851690BAD1F81A764566E4A: {
         LocalPose: {
-            LinkID: 70
+            LinkID: 76
         }
     }
     AnimGraphNode_ComponentToLocalSpace_EE7C9E294444CBB77D5C70BFF242BABE: {
         ComponentPose: {
-            LinkID: 71
+            LinkID: 77
         }
     }
     ForceMuli: { X: -0.5, Y: -0.5, Z: -0.5 }

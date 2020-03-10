@@ -67,6 +67,15 @@
                         {
                             CanTakeDelegateIndex: 13
                             CustomResultNodeIndex: -1
+                            TransitionIndex: 5
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                        , 
+                        {
+                            CanTakeDelegateIndex: 14
+                            CustomResultNodeIndex: -1
                             TransitionIndex: 3
                             bDesiredTransitionReturnValue: True
                             bAutomaticRemainingTimeRule: False
@@ -89,7 +98,7 @@
                     StateName: Appear OUT
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 14
+                            CanTakeDelegateIndex: 15
                             CustomResultNodeIndex: -1
                             TransitionIndex: 4
                             bDesiredTransitionReturnValue: True
@@ -179,6 +188,20 @@
                     LogicType: ETransitionLogicType::TLT_StandardBlend
                     StateName: None
                 }
+                , 
+                {
+                    PreviousState: 2
+                    NextState: 0
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
             ]
         }
     ]
@@ -222,15 +245,35 @@
             BoundFunction: None
             CopyRecords: [
                 {
-                    SourcePropertyName: IsPhantomTrapActive
+                    SourcePropertyName: HasKillerTeleported
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
-                    PostCopyOperation: EPostCopyOperation::LogicalNegateBool
+                    PostCopyOperation: EPostCopyOperation::None
                     DestProperty: BoolProperty /Script/Engine.AnimNode_TransitionResult.bCanEnterTransition
                     DestArrayIndex: 0
                     Size: 1
-                    CachedSourceProperty: BoolProperty AB_Phantom_C.IsPhantomTrapActive
+                    CachedSourceProperty: BoolProperty AB_Phantom_C.HasKillerTeleported
+                    CachedSourceStructSubProperty: null
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: StructProperty AB_Phantom_C.AnimGraphNode_TransitionResult_D54A641E492247228BACA99170562058
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: IsPhantomTrapDesactivating
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: BoolProperty /Script/Engine.AnimNode_TransitionResult.bCanEnterTransition
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: BoolProperty AB_Phantom_C.IsPhantomTrapDesactivating
                     CachedSourceStructSubProperty: null
                 }
             ]
@@ -253,13 +296,16 @@
     UberGraphFrame: None
     AnimGraphNode_Root_6143DA28434720BD0A96A1AB23C384FB: {
         Result: {
-            LinkID: 15
+            LinkID: 16
         }
     }
     AnimGraphNode_TransitionResult_1FF997D14088F5412ABCAFB5F78F2D74: {
         bCanEnterTransition: False
     }
     AnimGraphNode_TransitionResult_B7B28F2C4A1A74534C23B6AEA2748439: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_TransitionResult_D54A641E492247228BACA99170562058: {
         bCanEnterTransition: False
     }
     AnimGraphNode_TransitionResult_843CEC1345735FB05E3217A7A63D357D: {
@@ -304,7 +350,7 @@
     }
     AnimGraphNode_StateResult_AA0F6CB74073686CFEFDFA8D368F5AE8: {
         Result: {
-            LinkID: 6
+            LinkID: 7
         }
     }
     AnimGraphNode_SequencePlayer_D10F05D9441AFBA010790A80C07AD3C2: {
@@ -340,7 +386,7 @@
     }
     AnimGraphNode_StateResult_E48DD1C745EA516E396D0E860DB55626: {
         Result: {
-            LinkID: 8
+            LinkID: 9
         }
     }
     AnimGraphNode_SequencePlayer_C467080F4C7CB470F1A7F49E1457A0D1: {
@@ -376,7 +422,7 @@
     }
     AnimGraphNode_StateResult_D8EC2EB04C9B1B84B0FDF795EFA2AD0B: {
         Result: {
-            LinkID: 10
+            LinkID: 11
         }
     }
     AnimGraphNode_SequencePlayer_9DD0D36D47DA00F72449C7BB9B5A2DB5: {
@@ -412,7 +458,7 @@
     }
     AnimGraphNode_StateResult_EDBF2C404DC04B48C78CA988D683D9AB: {
         Result: {
-            LinkID: 12
+            LinkID: 13
         }
     }
     AnimGraphNode_StateMachine_C70B1FC44EDE3C5026ADF6B79E22BF39: {
@@ -423,7 +469,7 @@
     }
     AnimGraphNode_Slot_45830EC948BFF9B5A0F6E891B6CCC4D2: {
         Source: {
-            LinkID: 14
+            LinkID: 15
         }
         SlotName: AttackSlot
         bAlwaysUpdateSourcePose: False

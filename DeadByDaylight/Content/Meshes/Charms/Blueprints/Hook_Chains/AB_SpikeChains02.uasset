@@ -8,7 +8,7 @@
                     StateName: Base
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 62
+                            CanTakeDelegateIndex: 64
                             CustomResultNodeIndex: -1
                             TransitionIndex: 5
                             bDesiredTransitionReturnValue: True
@@ -17,7 +17,7 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 63
+                            CanTakeDelegateIndex: 65
                             CustomResultNodeIndex: -1
                             TransitionIndex: 1
                             bDesiredTransitionReturnValue: True
@@ -26,7 +26,7 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 64
+                            CanTakeDelegateIndex: 66
                             CustomResultNodeIndex: -1
                             TransitionIndex: 2
                             bDesiredTransitionReturnValue: True
@@ -35,7 +35,7 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 65
+                            CanTakeDelegateIndex: 67
                             CustomResultNodeIndex: -1
                             TransitionIndex: 3
                             bDesiredTransitionReturnValue: True
@@ -44,7 +44,7 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 66
+                            CanTakeDelegateIndex: 68
                             CustomResultNodeIndex: -1
                             TransitionIndex: 4
                             bDesiredTransitionReturnValue: True
@@ -53,7 +53,7 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 67
+                            CanTakeDelegateIndex: 69
                             CustomResultNodeIndex: -1
                             TransitionIndex: 0
                             bDesiredTransitionReturnValue: True
@@ -62,7 +62,7 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 68
+                            CanTakeDelegateIndex: 70
                             CustomResultNodeIndex: -1
                             TransitionIndex: 6
                             bDesiredTransitionReturnValue: True
@@ -71,7 +71,7 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 69
+                            CanTakeDelegateIndex: 71
                             CustomResultNodeIndex: -1
                             TransitionIndex: 7
                             bDesiredTransitionReturnValue: True
@@ -80,7 +80,7 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 70
+                            CanTakeDelegateIndex: 72
                             CustomResultNodeIndex: -1
                             TransitionIndex: 8
                             bDesiredTransitionReturnValue: True
@@ -89,9 +89,18 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 71
+                            CanTakeDelegateIndex: 73
                             CustomResultNodeIndex: -1
                             TransitionIndex: 9
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                        , 
+                        {
+                            CanTakeDelegateIndex: 74
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 10
                             bDesiredTransitionReturnValue: True
                             bAutomaticRemainingTimeRule: False
                             PoseEvaluatorLinks: [ ]
@@ -228,6 +237,19 @@
                     StateName: Doctor
                     Transitions: [ ]
                     StateRootNodeIndex: 57
+                    StartNotify: -1
+                    EndNotify: -1
+                    FullyBlendedNotify: -1
+                    bIsAConduit: False
+                    EntryRuleNodeIndex: -1
+                    PlayerNodeIndices: [ ]
+                    bAlwaysResetOnEntry: False
+                }
+                , 
+                {
+                    StateName: GunSlinger
+                    Transitions: [ ]
+                    StateRootNodeIndex: 62
                     StartNotify: -1
                     EndNotify: -1
                     FullyBlendedNotify: -1
@@ -377,12 +399,26 @@
                     LogicType: ETransitionLogicType::TLT_StandardBlend
                     StateName: None
                 }
+                , 
+                {
+                    PreviousState: 0
+                    NextState: 11
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
             ]
         }
     ]
     TargetSkeleton: Skeleton /Game/Meshes/Charms/Skeleton/Hook_Chains/SpikeChains02_REF_Skeleton.SpikeChains02_REF_Skeleton
     OrderedSavedPoseIndices: [
-        72
+        75
     ]
     EvaluateGraphExposedInputs: [
         {
@@ -689,6 +725,26 @@
             BoundFunction: None
             CopyRecords: [
                 {
+                    SourcePropertyName: IsGunSlingerHook
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: BoolProperty /Script/Engine.AnimNode_TransitionResult.bCanEnterTransition
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: BoolProperty AB_SpikeChains02_C.IsGunSlingerHook
+                    CachedSourceStructSubProperty: null
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: StructProperty AB_SpikeChains02_C.AnimGraphNode_TransitionResult_D68FCC844EF9D1BE787467B7939A470E
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
                     SourcePropertyName: OwningSkeletalMesh
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
@@ -713,7 +769,7 @@
     UberGraphFrame: None
     AnimGraphNode_Root_D5075E9945FBEDD6D3DE4D97DB38DEF8: {
         Result: {
-            LinkID: 74
+            LinkID: 77
         }
     }
     AnimGraphNode_CopyPoseFromMesh_129CA8EB44390825946238B63BBA1B9E: {
@@ -726,6 +782,9 @@
             LinkID: 1
         }
         CachePoseName: CopyMesh
+    }
+    AnimGraphNode_TransitionResult_D68FCC844EF9D1BE787467B7939A470E: {
+        bCanEnterTransition: False
     }
     AnimGraphNode_TransitionResult_E0A62AE141F88A08C44AF08CE3B5964C: {
         bCanEnterTransition: False
@@ -757,14 +816,25 @@
     AnimGraphNode_TransitionResult_FB6CC8294F4A98C4778732BC16C59C66: {
         bCanEnterTransition: False
     }
+    AnimGraphNode_UseCachedPose_7E5896C247FC0445D508629DF3417B01: {
+        LinkToCachingNode: {
+            LinkID: 2
+        }
+        CachePoseName: CopyMesh
+    }
+    AnimGraphNode_StateResult_271B256D474DA8F5B374429B5E4389AF: {
+        Result: {
+            LinkID: 14
+        }
+    }
     AnimGraphNode_LocalToComponentSpace_C4C8AC7241C93D9380337EB281778A61: {
         LocalPose: {
-            LinkID: 16
+            LinkID: 19
         }
     }
     AnimGraphNode_ComponentToLocalSpace_53E6A2F44864281FC139699E2A2010ED: {
         ComponentPose: {
-            LinkID: 15
+            LinkID: 18
         }
     }
     AnimGraphNode_ModifyBone_40DE6667450D064703CDB6AF9C66F1BC: {
@@ -781,7 +851,7 @@
         RotationSpace: BCS_ComponentSpace
         ScaleSpace: BCS_ComponentSpace
         ComponentPose: {
-            LinkID: 13
+            LinkID: 16
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -833,17 +903,17 @@
     }
     AnimGraphNode_StateResult_96D1191348FC9276F70B15A324F46029: {
         Result: {
-            LinkID: 14
+            LinkID: 17
         }
     }
     AnimGraphNode_LocalToComponentSpace_980666F44E82F848224E67B1D9879C3C: {
         LocalPose: {
-            LinkID: 21
+            LinkID: 24
         }
     }
     AnimGraphNode_ComponentToLocalSpace_A2C0B4BD4088C85477129F9687AAAB3D: {
         ComponentPose: {
-            LinkID: 20
+            LinkID: 23
         }
     }
     AnimGraphNode_ModifyBone_2A7D724F4B93BADA733153998B77012A: {
@@ -860,7 +930,7 @@
         RotationSpace: BCS_ComponentSpace
         ScaleSpace: BCS_ComponentSpace
         ComponentPose: {
-            LinkID: 18
+            LinkID: 21
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -912,17 +982,17 @@
     }
     AnimGraphNode_StateResult_E7644331458D65E69E89F2BA6C241BF6: {
         Result: {
-            LinkID: 19
+            LinkID: 22
         }
     }
     AnimGraphNode_ComponentToLocalSpace_52E0DBF946F5208FB4F158B3FA6CC644: {
         ComponentPose: {
-            LinkID: 25
+            LinkID: 28
         }
     }
     AnimGraphNode_LocalToComponentSpace_7AC7EF0E47435424B607D9B2355F6720: {
         LocalPose: {
-            LinkID: 26
+            LinkID: 29
         }
     }
     AnimGraphNode_ModifyBone_8C278F614A815639E65F81B2D084BB75: {
@@ -939,7 +1009,7 @@
         RotationSpace: BCS_ComponentSpace
         ScaleSpace: BCS_ComponentSpace
         ComponentPose: {
-            LinkID: 24
+            LinkID: 27
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -991,7 +1061,7 @@
     }
     AnimGraphNode_StateResult_A8C5348D4F067E54AAD3A186C65D28A5: {
         Result: {
-            LinkID: 23
+            LinkID: 26
         }
     }
     AnimGraphNode_ModifyBone_0F39F69B4C49BAD6F2DDB594F1B20C17: {
@@ -1008,7 +1078,7 @@
         RotationSpace: BCS_ComponentSpace
         ScaleSpace: BCS_ComponentSpace
         ComponentPose: {
-            LinkID: 29
+            LinkID: 32
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -1054,12 +1124,12 @@
     }
     AnimGraphNode_LocalToComponentSpace_08CDE3EB48A4BA6537AFB68E5ED7223C: {
         LocalPose: {
-            LinkID: 31
+            LinkID: 34
         }
     }
     AnimGraphNode_ComponentToLocalSpace_A2674B654B76154F1F7874BDBBD32044: {
         ComponentPose: {
-            LinkID: 28
+            LinkID: 31
         }
     }
     AnimGraphNode_UseCachedPose_179E0D8F4ADCDDAB9F06F09134712DA9: {
@@ -1070,7 +1140,7 @@
     }
     AnimGraphNode_StateResult_DABE12074D3BAFC0B1E7E6B8B7CAA3E7: {
         Result: {
-            LinkID: 30
+            LinkID: 33
         }
     }
     AnimGraphNode_ModifyBone_DE64C40C41F33F2C58C04EB0837C83CA: {
@@ -1087,7 +1157,7 @@
         RotationSpace: BCS_ComponentSpace
         ScaleSpace: BCS_ComponentSpace
         ComponentPose: {
-            LinkID: 35
+            LinkID: 38
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -1133,12 +1203,12 @@
     }
     AnimGraphNode_ComponentToLocalSpace_066EE94E41249F230D5BFBBDA77C9C3C: {
         ComponentPose: {
-            LinkID: 33
+            LinkID: 36
         }
     }
     AnimGraphNode_LocalToComponentSpace_49F1E5FF43BE4AF9DE6BFBB396691AC0: {
         LocalPose: {
-            LinkID: 36
+            LinkID: 39
         }
     }
     AnimGraphNode_UseCachedPose_5849C9744A6D8B077B55F9A99B4B53C4: {
@@ -1149,7 +1219,7 @@
     }
     AnimGraphNode_StateResult_8285667C42E864F9373CF69507FFDE48: {
         Result: {
-            LinkID: 34
+            LinkID: 37
         }
     }
     AnimGraphNode_ModifyBone_8760E0064768E34B859032AA231C5E59: {
@@ -1166,7 +1236,7 @@
         RotationSpace: BCS_ComponentSpace
         ScaleSpace: BCS_ComponentSpace
         ComponentPose: {
-            LinkID: 39
+            LinkID: 42
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -1212,12 +1282,12 @@
     }
     AnimGraphNode_LocalToComponentSpace_DD90FD154E76B2CE4A5887BBAD1142B8: {
         LocalPose: {
-            LinkID: 41
+            LinkID: 44
         }
     }
     AnimGraphNode_ComponentToLocalSpace_734D41EB480A76707AF636A39F891997: {
         ComponentPose: {
-            LinkID: 38
+            LinkID: 41
         }
     }
     AnimGraphNode_UseCachedPose_958BC71A4B991A6DEF984FBAB68A33A5: {
@@ -1228,7 +1298,7 @@
     }
     AnimGraphNode_StateResult_54E91F0A4FFB555CFA8D3C97C48CE544: {
         Result: {
-            LinkID: 40
+            LinkID: 43
         }
     }
     AnimGraphNode_ModifyBone_D73AFCB34CBB82C6626D9C9B7507B806: {
@@ -1245,7 +1315,7 @@
         RotationSpace: BCS_ComponentSpace
         ScaleSpace: BCS_ComponentSpace
         ComponentPose: {
-            LinkID: 44
+            LinkID: 47
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -1291,12 +1361,12 @@
     }
     AnimGraphNode_LocalToComponentSpace_4E9661AA44FF93B4969F6194BFD75778: {
         LocalPose: {
-            LinkID: 46
+            LinkID: 49
         }
     }
     AnimGraphNode_ComponentToLocalSpace_1CB831404EBBE9A65D724EBEFD7F121B: {
         ComponentPose: {
-            LinkID: 43
+            LinkID: 46
         }
     }
     AnimGraphNode_UseCachedPose_D868441A4521DBFA01A14A813778DA6B: {
@@ -1307,7 +1377,7 @@
     }
     AnimGraphNode_StateResult_D7E8EDB64663B1C48F2721B76750825F: {
         Result: {
-            LinkID: 45
+            LinkID: 48
         }
     }
     AnimGraphNode_ModifyBone_BEFA02B04811136FF6468B9C902293BA: {
@@ -1324,7 +1394,7 @@
         RotationSpace: BCS_ComponentSpace
         ScaleSpace: BCS_ComponentSpace
         ComponentPose: {
-            LinkID: 50
+            LinkID: 53
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -1370,12 +1440,12 @@
     }
     AnimGraphNode_ComponentToLocalSpace_C9DE608F408DAE2A266DE494D8E2BF5C: {
         ComponentPose: {
-            LinkID: 48
+            LinkID: 51
         }
     }
     AnimGraphNode_LocalToComponentSpace_C06A64D746FEDEB3D65766B462A0675C: {
         LocalPose: {
-            LinkID: 51
+            LinkID: 54
         }
     }
     AnimGraphNode_UseCachedPose_544326F444633BF12C2477AF0D1096B3: {
@@ -1386,7 +1456,7 @@
     }
     AnimGraphNode_StateResult_EB47174B48FFCEFD3AD91F8D7783C2B1: {
         Result: {
-            LinkID: 49
+            LinkID: 52
         }
     }
     AnimGraphNode_ModifyBone_350973A443F1CB2743BAF99CBD6DF5C5: {
@@ -1403,7 +1473,7 @@
         RotationSpace: BCS_ComponentSpace
         ScaleSpace: BCS_ComponentSpace
         ComponentPose: {
-            LinkID: 55
+            LinkID: 58
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -1449,12 +1519,12 @@
     }
     AnimGraphNode_ComponentToLocalSpace_C8C25A1C46482B1D0060EE979904D633: {
         ComponentPose: {
-            LinkID: 53
+            LinkID: 56
         }
     }
     AnimGraphNode_LocalToComponentSpace_5A7526024F5F516D9F10B98DAB8830E1: {
         LocalPose: {
-            LinkID: 56
+            LinkID: 59
         }
     }
     AnimGraphNode_UseCachedPose_F29B5B4A4BBF7262C4DF5CAE02D68BE7: {
@@ -1465,7 +1535,7 @@
     }
     AnimGraphNode_StateResult_214395EA42A4B87396FF13A5E71C50FC: {
         Result: {
-            LinkID: 54
+            LinkID: 57
         }
     }
     AnimGraphNode_ModifyBone_9705FB964A737C6E259218A0339B4140: {
@@ -1482,7 +1552,7 @@
         RotationSpace: BCS_ComponentSpace
         ScaleSpace: BCS_ComponentSpace
         ComponentPose: {
-            LinkID: 59
+            LinkID: 62
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -1528,12 +1598,12 @@
     }
     AnimGraphNode_LocalToComponentSpace_BC6F00CB4457230DAEC35F9BD93668EF: {
         LocalPose: {
-            LinkID: 61
+            LinkID: 64
         }
     }
     AnimGraphNode_ComponentToLocalSpace_B56D59934663575EE557ACABFED5CCD6: {
         ComponentPose: {
-            LinkID: 58
+            LinkID: 61
         }
     }
     AnimGraphNode_UseCachedPose_39ADA5E94A3B287B516757BF6FCF926F: {
@@ -1544,7 +1614,7 @@
     }
     AnimGraphNode_StateResult_5BF7633748DE100868097A9A50A7F405: {
         Result: {
-            LinkID: 60
+            LinkID: 63
         }
     }
     AnimGraphNode_UseCachedPose_545EAFFE49F14BFFE3E1EB8AD2353A69: {
@@ -1555,7 +1625,7 @@
     }
     AnimGraphNode_StateResult_51FC8DAB40F8EB140B6677A91EDF300B: {
         Result: {
-            LinkID: 63
+            LinkID: 66
         }
     }
     AnimGraphNode_StateMachine_A47DACE944B52E6EC2FAA1B2D6BBF36D: {
@@ -1623,7 +1693,7 @@
         bAngularSpring: False
         bChain: False
         ComponentPose: {
-            LinkID: 70
+            LinkID: 73
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -1726,7 +1796,7 @@
         bAngularSpring: False
         bChain: False
         ComponentPose: {
-            LinkID: 66
+            LinkID: 69
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -1829,7 +1899,7 @@
         bAngularSpring: False
         bChain: False
         ComponentPose: {
-            LinkID: 67
+            LinkID: 70
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -1932,7 +2002,7 @@
         bAngularSpring: False
         bChain: False
         ComponentPose: {
-            LinkID: 68
+            LinkID: 71
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -1978,12 +2048,12 @@
     }
     AnimGraphNode_LocalToComponentSpace_6C2DF48E406D5305BD3D648009CC9435: {
         LocalPose: {
-            LinkID: 65
+            LinkID: 68
         }
     }
     AnimGraphNode_ComponentToLocalSpace_A8E7529A4DB725DEAA7DB695E956634C: {
         ComponentPose: {
-            LinkID: 69
+            LinkID: 72
         }
     }
     AnimGraphNode_ModifyBone_1E47BDFC49FD18900C1DA79CF22D34B3: {
@@ -2000,7 +2070,7 @@
         RotationSpace: BCS_ComponentSpace
         ScaleSpace: BCS_ComponentSpace
         ComponentPose: {
-            LinkID: 73
+            LinkID: 76
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -2046,12 +2116,12 @@
     }
     AnimGraphNode_LocalToComponentSpace_A4ED06B24A7A0BCB72614E848A39F0B6: {
         LocalPose: {
-            LinkID: 71
+            LinkID: 74
         }
     }
     AnimGraphNode_ComponentToLocalSpace_0A8CAD884858B356149FB685F8F611A0: {
         ComponentPose: {
-            LinkID: 72
+            LinkID: 75
         }
     }
     ForceMuli: { X: -0.75, Y: -0.4, Z: -0.3 }
