@@ -14,6 +14,17 @@ Row QuestEvent.AddItemToMap:
     Id: QuestEvent.AddItemToMap
 }
 
+Row QuestEvent.AdrenalineTriggered:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Perk.Activate.Adrenaline
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.AdrenalineTriggered
+}
+
 Row QuestEvent.Blind:
 {
     TrackedGameEvents: [
@@ -56,6 +67,17 @@ Row QuestEvent.BreakGens:
     ]
     QuestEventEvaluator: None
     Id: QuestEvent.BreakGens
+}
+
+Row QuestEvent.BreakGensDifferent:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.DamageGenerator
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.UniqueTargetIncrementQEEvaluator
+    Id: QuestEvent.BreakGensDifferent
 }
 
 Row QuestEvent.BreakPallets:
@@ -170,6 +192,17 @@ Row QuestEvent.ConsumeItem:
     TrackedGameEvents: [ ]
     QuestEventEvaluator: /Script/Archives.ItemConsumedQEEvaluator
     Id: QuestEvent.ConsumeItem
+}
+
+Row QuestEvent.CoopAction:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Camper.CoopAction
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.CustomValueQEEvaluator
+    Id: QuestEvent.CoopAction
 }
 
 Row QuestEvent.Crow:
@@ -293,10 +326,14 @@ Row QuestEvent.EscapeAfterBeingOnDeathHook:
 {
     TrackedGameEvents: [
         {
-            TagName: GameEvent.ScoreEvent.Camper.Escape
+            TagName: GameEvent.CamperEscape
+        }
+        , 
+        {
+            TagName: GameEvent.GameEnd.Reason.Killer.Disconnected
         }
     ]
-    QuestEventEvaluator: /Script/Archives.InstigatorHookCountQEEvaluator
+    QuestEventEvaluator: /Script/Archives.SecondHookStageReachedQEEvaluator
     Id: QuestEvent.EscapeAfterBeingOnDeathHook
 }
 
@@ -331,6 +368,47 @@ Row QuestEvent.EscapeHatch:
     ]
     QuestEventEvaluator: None
     Id: QuestEvent.EscapeHatch
+}
+
+Row QuestEvent.EscapeOther:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.CamperEscape
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.DoBeforeEscapeQEEvaluator
+    Id: QuestEvent.EscapeOther
+}
+
+Row QuestEvent.EscapeWithItemNoCharges:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.CamperEscape
+        }
+        , 
+        {
+            TagName: GameEvent.GameEnd.Reason.Killer.Disconnected
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.HasItemNoChargesQEEvaluator
+    Id: QuestEvent.EscapeWithItemNoCharges
+}
+
+Row QuestEvent.EscapeWithItemRarity:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.CamperEscape
+        }
+        , 
+        {
+            TagName: GameEvent.GameEnd.Reason.Killer.Disconnected
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.HasItemRarityQEEvaluator
+    Id: QuestEvent.EscapeWithItemRarity
 }
 
 Row QuestEvent.EscapeWithoutHooked:
@@ -395,6 +473,17 @@ Row QuestEvent.Grab:
     Id: QuestEvent.Grab
 }
 
+Row QuestEvent.GrabGenerator:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.InterruptGenerator
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.GrabGenerator
+}
+
 Row QuestEvent.GrabLocker:
 {
     TrackedGameEvents: [
@@ -451,6 +540,17 @@ Row QuestEvent.HealAfterGate:
     Id: QuestEvent.HealAfterGate
 }
 
+Row QuestEvent.HealCoop:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Camper.CoopAltruism
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.CustomValueQEEvaluator
+    Id: QuestEvent.HealCoop
+}
+
 Row QuestEvent.HealFinish:
 {
     TrackedGameEvents: [
@@ -479,6 +579,17 @@ Row QuestEvent.HealFinishAfterGate:
     ]
     QuestEventEvaluator: /Script/Archives.AfterExitOpenQEEvaluator
     Id: QuestEvent.HealFinishAfterGate
+}
+
+Row QuestEvent.HealMedkit:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Camper.Heal.Other.Medkit.Percent
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.CustomValuePercentQEEvaluator
+    Id: QuestEvent.HealMedkit
 }
 
 Row QuestEvent.HealMedkitFinish:
@@ -543,6 +654,17 @@ Row QuestEvent.Hit:
     Id: QuestEvent.Hit
 }
 
+Row QuestEvent.HitDifferent:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.AttackSuccess
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.UniqueTargetIncrementQEEvaluator
+    Id: QuestEvent.HitDifferent
+}
+
 Row QuestEvent.HitExposed:
 {
     TrackedGameEvents: [
@@ -599,6 +721,17 @@ Row QuestEvent.HookDifferent:
     Id: QuestEvent.HookDifferent
 }
 
+Row QuestEvent.HookEndgame:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.EndGame.Slasher.HookSurvivor
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.DuringEndGameCollapseQEEvaluator
+    Id: QuestEvent.HookEndgame
+}
+
 Row QuestEvent.HookMultiple:
 {
     TrackedGameEvents: [
@@ -644,6 +777,54 @@ Row QuestEvent.HookObsession:
     Id: QuestEvent.HookObsession
 }
 
+Row QuestEvent.HuntressHatchetChargedHit:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Slasher.Huntress.HatchetSkillShotHit
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.HuntressHatchetChargedHit
+}
+
+Row QuestEvent.HuntressHatchetDistanceHit:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Slasher.Huntress.HatchetHit
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/CustomDistanceQuestEvaluator.CustomDistanceQuestEvaluator_C
+    Id: QuestEvent.HuntressHatchetDistanceHit
+}
+
+Row QuestEvent.HuntressHatchetHit:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Slasher.Huntress.HatchetHit
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.HuntressHatchetHit
+}
+
+Row QuestEvent.InflictDeepWound:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.ApplyDeepWound
+        }
+        , 
+        {
+            TagName: GameEvent.EnduranceApplyDeepWound
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.InflictDeepWound
+}
+
 Row QuestEvent.Kill:
 {
     TrackedGameEvents: [
@@ -684,6 +865,20 @@ Row QuestEvent.KillObsession:
     ]
     QuestEventEvaluator: /Script/Archives.TargetIsObsessionQEEvaluator
     Id: QuestEvent.KillObsession
+}
+
+Row QuestEvent.LegionHitDifferentInFrenzy:
+{
+    TrackedGameEvents: [ ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/HitDifferentInFrenzyQuestEvaluator.HitDifferentInFrenzyQuestEvaluator_C
+    Id: QuestEvent.LegionHitDifferentInFrenzy
+}
+
+Row QuestEvent.LegionHitMultipleInFrenzy:
+{
+    TrackedGameEvents: [ ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/HitMultipleInFrenzyQuestEvaluator.HitMultipleInFrenzyQuestEvaluator_C
+    Id: QuestEvent.LegionHitMultipleInFrenzy
 }
 
 Row QuestEvent.LivingAtEndTrial:
@@ -829,6 +1024,28 @@ Row QuestEvent.Repair:
     Id: QuestEvent.Repair
 }
 
+Row QuestEvent.RepairCoop:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Camper.Generator.RepairCoop
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.RepairCoopQEEvaluator
+    Id: QuestEvent.RepairCoop
+}
+
+Row QuestEvent.RepairDifferent:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.PlayerStoppedGeneratorRepair
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.UniqueTargetIncrementQEEvaluator
+    Id: QuestEvent.RepairDifferent
+}
+
 Row QuestEvent.RepairFinish:
 {
     TrackedGameEvents: [
@@ -840,11 +1057,22 @@ Row QuestEvent.RepairFinish:
     Id: QuestEvent.RepairFinish
 }
 
-Row QuestEvent.RepairInTerrorRadius:
+Row QuestEvent.RepairFinishInTerrorRadius:
 {
     TrackedGameEvents: [
         {
             TagName: GameEvent.Camper.Generator.RepairFinish
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/InstigatorInTerrorRadiusQuestEvaluator.InstigatorInTerrorRadiusQuestEvaluator_C
+    Id: QuestEvent.RepairFinishInTerrorRadius
+}
+
+Row QuestEvent.RepairInTerrorRadius:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Camper.GeneratorPercent
         }
     ]
     QuestEventEvaluator: /Game/Blueprints/Archives/Quests/InstigatorInTerrorRadiusQuestEvaluator.InstigatorInTerrorRadiusQuestEvaluator_C
@@ -860,6 +1088,17 @@ Row QuestEvent.SabotageFinish:
     ]
     QuestEventEvaluator: None
     Id: QuestEvent.SabotageFinish
+}
+
+Row QuestEvent.SabotageFinishInTerrorRadius:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Camper.SabotageHook.Complete
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/InstigatorInTerrorRadiusQuestEvaluator.InstigatorInTerrorRadiusQuestEvaluator_C
+    Id: QuestEvent.SabotageFinishInTerrorRadius
 }
 
 Row QuestEvent.Sacrifice:
@@ -899,7 +1138,7 @@ Row QuestEvent.SacrificeEndgame:
     Id: QuestEvent.SacrificeEndgame
 }
 
-Row QuestEvent.SaveSurvivorWhileOnDeathHook:
+Row QuestEvent.UnhookSurvivorWhileOnDeathHook:
 {
     TrackedGameEvents: [
         {
@@ -907,7 +1146,7 @@ Row QuestEvent.SaveSurvivorWhileOnDeathHook:
         }
     ]
     QuestEventEvaluator: /Script/Archives.InstigatorHookCountQEEvaluator
-    Id: QuestEvent.SaveSurvivorWhileOnDeathHook
+    Id: QuestEvent.UnhookSurvivorWhileOnDeathHook
 }
 
 Row QuestEvent.Scream:
@@ -952,6 +1191,13 @@ Row QuestEvent.SearchBasementFinish:
     ]
     QuestEventEvaluator: None
     Id: QuestEvent.SearchBasementFinish
+}
+
+Row QuestEvent.SearchFindItemRarity:
+{
+    TrackedGameEvents: [ ]
+    QuestEventEvaluator: /Script/Archives.SearchItemRarityQEEvaluator
+    Id: QuestEvent.SearchFindItemRarity
 }
 
 Row QuestEvent.SearchFinish:
@@ -1042,6 +1288,17 @@ Row QuestEvent.SpiritStartChasePostPhase:
     Id: QuestEvent.SpiritStartChasePostPhase
 }
 
+Row QuestEvent.SprintBurstTriggeredInChase:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Perk.Activate.SprintBurst
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/InChaseQuestEvaluator.InChaseQuestEvaluator_C
+    Id: QuestEvent.SprintBurstTriggeredInChase
+}
+
 Row QuestEvent.Stun:
 {
     TrackedGameEvents: [
@@ -1092,6 +1349,13 @@ Row QuestEvent.Test:
     ]
     QuestEventEvaluator: None
     Id: QuestEvent.Test
+}
+
+Row QuestEvent.TotemsAtEndTrial:
+{
+    TrackedGameEvents: [ ]
+    QuestEventEvaluator: /Script/Archives.TotemsAtEndTrialCountQEEvaluator
+    Id: QuestEvent.TotemsAtEndTrial
 }
 
 Row QuestEvent.TrapperCatch:
@@ -1190,6 +1454,17 @@ Row QuestEvent.UnhookUnsafe:
     Id: QuestEvent.UnhookUnsafe
 }
 
+Row QuestEvent.UnhookDifferent:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Camper.SafeUnhook
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.UniqueTargetIncrementQEEvaluator
+    Id: QuestEvent.UnhookDifferent
+}
+
 Row QuestEvent.UnhookWhoUnhooked:
 {
     TrackedGameEvents: [
@@ -1227,11 +1502,22 @@ Row QuestEvent.VaultInChase:
 {
     TrackedGameEvents: [
         {
-            TagName: GameEvent.ScoreEvent.Camper.Vault.InChase
+            TagName: GameEvent.Camper.Vault.InChase
         }
     ]
     QuestEventEvaluator: None
     Id: QuestEvent.VaultInChase
+}
+
+Row QuestEvent.VaultKiller:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.SlasherVault
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.VaultKiller
 }
 
 Row QuestEvent.WiggleFree:

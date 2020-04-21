@@ -1,37 +1,37 @@
 Asset: MaterialInstanceConstant MI_Boreal_Ground01
 {
     PhysMaterial: PhysicalMaterial /Game/Materials/PhysicalMaterials/PM_Mud.PM_Mud
-    Parent: MaterialInstanceConstant /Game/Materials/Substance/MI_Sbsar_Ground.MI_Sbsar_Ground
+    Parent: MaterialInstanceConstant /Game/Materials/Master_Instances/MI_Ground_v2.MI_Ground_v2
     bHasStaticPermutationResource: True
     ScalarParameterValues: [
         {
             ParameterInfo: {
-                Name: 00_MasterTiling
+                Name: Main_SpecValue
                 Association: GlobalParameter
                 Index: -1
             }
-            ParameterValue: 5
-            ExpressionGUID: 06c89fd4-13ba-42b0-b4a2-496ad15f5664
+            ParameterValue: 0.5
+            ExpressionGUID: 928dfd00-d096-4854-81a0-d98b8edb214b
         }
         , 
         {
             ParameterInfo: {
-                Name: 00_HeightAmount
+                Name: Main_RoughValue
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: 0.5
+            ExpressionGUID: c8b7f4f0-9ca9-4484-bf86-5b0734173cca
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: WPO_MainScale
                 Association: GlobalParameter
                 Index: -1
             }
             ParameterValue: 8
-            ExpressionGUID: 21913504-8519-4b86-a50f-11e742c66a23
-        }
-        , 
-        {
-            ParameterInfo: {
-                Name: 06_CustomSpecular
-                Association: GlobalParameter
-                Index: -1
-            }
-            ParameterValue: 0.3
-            ExpressionGUID: 1c3af07e-578e-488f-a6f0-422a689c9096
+            ExpressionGUID: b86a021d-3e35-4df4-b48d-f3f5e6341d7d
         }
         , 
         {
@@ -94,45 +94,56 @@ Asset: MaterialInstanceConstant MI_Boreal_Ground01
             ExpressionGUID: 00000000-0000-0000-0000-000000000000
         }
     ]
+    VectorParameterValues: [
+        {
+            ParameterInfo: {
+                Name: Main_Tiling
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: { R: 0, G: 5, B: 5, A: 0 }
+            ExpressionGUID: b9a038c5-ea9e-4884-ae8a-6094423f5cba
+        }
+    ]
     TextureParameterValues: [
         {
             ParameterInfo: {
-                Name: 00_BaseColorTexture
+                Name: Main_BaseColor
                 Association: GlobalParameter
                 Index: -1
             }
             ParameterValue: Texture2D /Game/Materials/Substance/Textures/T_ForestTerrain01_BC.T_ForestTerrain01_BC
-            ExpressionGUID: f81b9a17-11de-4d4b-8b63-fe1960593bcb
+            ExpressionGUID: 19f0818f-17bf-4513-ac6e-cb6e64a3f07d
         }
         , 
         {
             ParameterInfo: {
-                Name: 00_NormalTexture
+                Name: Main_Normal
                 Association: GlobalParameter
                 Index: -1
             }
             ParameterValue: Texture2D /Game/Materials/Substance/Textures/T_ForestTerrain01_N.T_ForestTerrain01_N
-            ExpressionGUID: 7668bac9-465c-4b23-96a4-d0ca0ba9112f
+            ExpressionGUID: 6048e55e-3122-4142-9e25-c3bf259e0dfb
         }
         , 
         {
             ParameterInfo: {
-                Name: 00_HeightTexture
+                Name: Main_ORM
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: Texture2D /Game/Materials/Substance/Textures/T_ForestTerrain01_ORM.T_ForestTerrain01_ORM
+            ExpressionGUID: b4e7009f-dbc2-4336-8046-c6eea59efad9
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: Blend_MainHeight
                 Association: GlobalParameter
                 Index: -1
             }
             ParameterValue: Texture2D /Game/Materials/Substance/Textures/T_ForestTerrain01_H.T_ForestTerrain01_H
-            ExpressionGUID: 7ce0cc5d-c857-4c53-a464-fa637e58f5ae
-        }
-        , 
-        {
-            ParameterInfo: {
-                Name: 06_RoughnessTexture
-                Association: GlobalParameter
-                Index: -1
-            }
-            ParameterValue: Texture2D /Game/Materials/Substance/Textures/T_ForestTerrain01_R.T_ForestTerrain01_R
-            ExpressionGUID: a0994212-a72a-4f57-aabc-965530570651
+            ExpressionGUID: fe9b2874-e127-4ca0-935b-68ff88e790c9
         }
         , 
         {
@@ -152,13 +163,24 @@ Asset: MaterialInstanceConstant MI_Boreal_Ground01
         StaticSwitchParameters: [
             {
                 ParameterInfo: {
-                    Name: 06_TextureRoughness
+                    Name: Use_Blend_MainHeight
                     Association: GlobalParameter
                     Index: -1
                 }
                 Value: True
                 bOverride: True
-                ExpressionGUID: 750b5821-8b07-4724-9b5c-9dd515b80261
+                ExpressionGUID: 360b4d26-7f29-43bd-a908-f49eb44716e3
+            }
+            , 
+            {
+                ParameterInfo: {
+                    Name: Use_WPO_Main
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                Value: True
+                bOverride: True
+                ExpressionGUID: ae6d7395-5888-4b32-97c2-a1cdb4a0941d
             }
             , 
             {
@@ -167,7 +189,7 @@ Asset: MaterialInstanceConstant MI_Boreal_Ground01
                     Association: GlobalParameter
                     Index: -1
                 }
-                Value: True
+                Value: False
                 bOverride: True
                 ExpressionGUID: 38dc155e-70e9-40fe-88af-b4f0dc3dacc8
             }
@@ -197,21 +219,21 @@ Asset: MaterialInstanceConstant MI_Boreal_Ground01
     }
     TextureStreamingData: [
         {
+            SamplingScale: 0.078125
+            UVChannelIndex: 0
+            TextureName: T_DirtTerrain_Cracks
+        }
+        , 
+        {
             SamplingScale: 0.15625
             UVChannelIndex: 0
             TextureName: T_DirtTerrain_Cracks_N
         }
         , 
         {
-            SamplingScale: 0.40625
+            SamplingScale: 1
             UVChannelIndex: 0
             TextureName: T_ForestTerrain01_BC
-        }
-        , 
-        {
-            SamplingScale: 0.078125
-            UVChannelIndex: 0
-            TextureName: T_ForestTerrain01_H
         }
         , 
         {
@@ -223,25 +245,13 @@ Asset: MaterialInstanceConstant MI_Boreal_Ground01
         {
             SamplingScale: 1
             UVChannelIndex: 0
-            TextureName: T_ForestTerrain01_R
+            TextureName: T_ForestTerrain01_ORM
         }
         , 
         {
             SamplingScale: 15
             UVChannelIndex: 0
             TextureName: T_NoiseNormal_01
-        }
-        , 
-        {
-            SamplingScale: 71.875
-            UVChannelIndex: 0
-            TextureName: T_Normal_Noise
-        }
-        , 
-        {
-            SamplingScale: 0.0625
-            UVChannelIndex: 0
-            TextureName: T_Perlin_Noise_M
         }
         , 
         {

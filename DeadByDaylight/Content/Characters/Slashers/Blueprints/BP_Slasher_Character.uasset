@@ -118,7 +118,6 @@
         }
     _invisibilityBurnoutChargeableComponent: {
             OnInteractionEmptiedEvent: OnInvisibilityChargeEmptied
-            ChargeAppliedAuthorityDelegate: Authority_OnInvisibilityBurnoutChargeApplied
         }
     _hitsWhileCarryingTracker: {
         }
@@ -384,6 +383,12 @@
     PitchLimitLower: -80
     PitchLimitUpper: 80
     BlinkFOVCurve: CurveFloat /Game/Blueprints/GameplayElements/Item/Blinker/BlinkFOVCurve.BlinkFOVCurve
+    GamepadYawCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/SlasherGamepadYawCurve.SlasherGamepadYawCurve
+    GamepadPitchCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/SlasherGamepadPitchCurve.SlasherGamepadPitchCurve
+    GamepadSettingToYawRateCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/SlasherGamepadSettingToYawRateCurve.SlasherGamepadSettingToYawRateCurve
+    GamepadSettingToPitchRateCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/SlasherGamepadSettingToPitchRateCurve.SlasherGamepadSettingToPitchRateCurve
+    JoyconSettingToYawRateCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/SlasherGamepadSettingToYawRateCurve.SlasherGamepadSettingToYawRateCurve
+    JoyconSettingToPitchRateCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/SlasherGamepadSettingToPitchRateCurve.SlasherGamepadSettingToPitchRateCurve
     _characterInventoryComponent: {
         }
     CarryJointName: CamperCarry
@@ -397,17 +402,6 @@
         CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceMissMaxSpeed.PounceMissMaxSpeed
         , 
         CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/PounceObstructedMaxSpeed.PounceObstructedMaxSpeed
-    ]
-    AttackLungeCurves: [
-        CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/LungeOpenMaxSpeed.LungeOpenMaxSpeed
-        , 
-        CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/LungeHittingMaxSpeed.LungeHittingMaxSpeed
-        , 
-        CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/LungeSucceedMaxSpeed.LungeSucceedMaxSpeed
-        , 
-        CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/LungeMissMaxSpeed.LungeMissMaxSpeed
-        , 
-        CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/LungeObstructedMaxSpeed.LungeObstructedMaxSpeed
     ]
     AttackSlashCurves: [
         CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/SlashHittingMaxSpeed.SlashHittingMaxSpeed
@@ -478,8 +472,184 @@
     _renderedPixelCounter: {
             DetailLevelBeforeCastShadows: DM_MAX
         }
-    GamePadTurnRate: 55
-    GamePadLookUpRate: 55
+    _standingOcclusionBox: {
+            DetailLevelBeforeCastShadows: DM_MAX
+            BodyInstance: {
+                CollisionResponses: {
+                    ResponseArray: [
+                        {
+                            Channel: WorldStatic
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: WorldDynamic
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Pawn
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Visibility
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Camera
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: PhysicsBody
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Vehicle
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Destructible
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: InteractionDetector
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: BlinkBlocker
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Ground
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Interactable
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Audio
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Slasher
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Spider
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Traps
+                            Response: ECR_Ignore
+                        }
+                    ]
+                }
+            }
+            AttachParent: CapsuleComponent Default__BP_Slasher_Character_C.CollisionCylinder
+        }
+    _crouchingOcclusionBox: {
+            DetailLevelBeforeCastShadows: DM_MAX
+            BodyInstance: {
+                CollisionResponses: {
+                    ResponseArray: [
+                        {
+                            Channel: WorldStatic
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: WorldDynamic
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Pawn
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Visibility
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Camera
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: PhysicsBody
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Vehicle
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Destructible
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: InteractionDetector
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: BlinkBlocker
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Ground
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Interactable
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Audio
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Slasher
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Spider
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Traps
+                            Response: ECR_Ignore
+                        }
+                    ]
+                }
+            }
+            AttachParent: CapsuleComponent Default__BP_Slasher_Character_C.CollisionCylinder
+        }
     MouseTurnSpeedMultiplier: 0.7
     MouseLookUpSpeedMultiplier: 0.7
     CollectableAttachPoint: Weapon_SocketLT
@@ -525,7 +695,6 @@
     ]
     _blindingChargeableComponent: {
             OnInteractionEmptiedEvent: OnBlindChargeEmptied
-            ChargeAppliedAuthorityDelegate: Authority_OnBlindChargeApplied
             ChargeableCompletionPercentChangeCosmeticDelegate: OnChargeableCompletionPercent
         }
     _eventListener: {
@@ -546,7 +715,7 @@
             _chargeableComponent: ChargeableComponent Default__BP_Slasher_Character_C.BlindnessChargeableComponent
         }
     _blindFxComponent: {
-            _blendWeightParameter: M_FlashLight_BlendWeight
+            _blindnessIntensityParameter: FlashlightIntensity
             _blindnessMaterialCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/BlindnessCurve_Material.BlindnessCurve_Material
             _blindnessCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/BlindnessCurve.BlindnessCurve
             _blindableComponent: BlindableComponent Default__BP_Slasher_Character_C.BlindableComponent

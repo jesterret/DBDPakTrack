@@ -1,9 +1,29 @@
 Asset: MaterialInstanceConstant MI_rockHill_All_BRL
 {
     PhysMaterial: PhysicalMaterial /Game/Materials/PhysicalMaterials/PM_Rock.PM_Rock
-    Parent: Material /Game/Materials/Masters/M_Structures.M_Structures
+    Parent: MaterialInstanceConstant /Game/Materials/Masters/MI_Structures_v2.MI_Structures_v2
     bHasStaticPermutationResource: True
     ScalarParameterValues: [
+        {
+            ParameterInfo: {
+                Name: Main_SpecValue
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: 0
+            ExpressionGUID: 928dfd00-d096-4854-81a0-d98b8edb214b
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: Red_RoughValue
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: 0.3
+            ExpressionGUID: e6b82562-3268-49b7-91d3-edb19d553b7d
+        }
+        , 
         {
             ParameterInfo: {
                 Name: TilingAmount
@@ -16,12 +36,12 @@ Asset: MaterialInstanceConstant MI_rockHill_All_BRL
         , 
         {
             ParameterInfo: {
-                Name: CAOBlendDistance
+                Name: 21_SpecularValue
                 Association: GlobalParameter
                 Index: -1
             }
-            ParameterValue: 3800
-            ExpressionGUID: d4c017ca-8c39-4223-8f5c-3ad4cbad5c51
+            ParameterValue: 0.5
+            ExpressionGUID: 4c2db4cf-4fa8-413e-ac05-2dee82909d0e
         }
         , 
         {
@@ -30,8 +50,18 @@ Asset: MaterialInstanceConstant MI_rockHill_All_BRL
                 Association: GlobalParameter
                 Index: -1
             }
-            ParameterValue: 3
+            ParameterValue: 1
             ExpressionGUID: 23268630-86cf-46c4-9be0-a8602735e821
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: 21_RoughnessValue
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: 0.5
+            ExpressionGUID: 00583270-af7e-407f-b83b-243d6d60c6ae
         }
         , 
         {
@@ -40,7 +70,7 @@ Asset: MaterialInstanceConstant MI_rockHill_All_BRL
                 Association: GlobalParameter
                 Index: -1
             }
-            ParameterValue: 0.5
+            ParameterValue: 1.628159
             ExpressionGUID: b171dd29-ef1a-4467-8e46-0670ac1bfeba
         }
         , 
@@ -50,7 +80,7 @@ Asset: MaterialInstanceConstant MI_rockHill_All_BRL
                 Association: GlobalParameter
                 Index: -1
             }
-            ParameterValue: 100
+            ParameterValue: 20
             ExpressionGUID: d7615e84-d50e-489b-9b1c-de83d3b34c73
         }
         , 
@@ -97,12 +127,22 @@ Asset: MaterialInstanceConstant MI_rockHill_All_BRL
     VectorParameterValues: [
         {
             ParameterInfo: {
-                Name: ColorTintColour
+                Name: Main_Tiling
                 Association: GlobalParameter
                 Index: -1
             }
-            ParameterValue: { R: 0.5, G: 0.5, B: 0.5, A: 0 }
-            ExpressionGUID: b81dd6f2-8164-4f60-b8c9-73d2efb48d34
+            ParameterValue: { R: 0, G: 3, B: 3, A: 0 }
+            ExpressionGUID: b9a038c5-ea9e-4884-ae8a-6094423f5cba
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: Red_BaseColorTint
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: { R: 0.33, G: 0.33, B: 0.33, A: 0 }
+            ExpressionGUID: 3a7b5135-a571-425a-b1d7-ec65a984c5c3
         }
         , 
         {
@@ -118,32 +158,22 @@ Asset: MaterialInstanceConstant MI_rockHill_All_BRL
     TextureParameterValues: [
         {
             ParameterInfo: {
-                Name: BaseColorTexture
+                Name: Main_BaseColor
                 Association: GlobalParameter
                 Index: -1
             }
             ParameterValue: Texture2D /Game/Textures/Environment/Vegetations/tree_mud_diffuse.tree_mud_diffuse
-            ExpressionGUID: 430841ac-568c-449a-b3db-27563c26e5de
+            ExpressionGUID: 19f0818f-17bf-4513-ac6e-cb6e64a3f07d
         }
         , 
         {
             ParameterInfo: {
-                Name: NormalTexture
+                Name: Main_Normal
                 Association: GlobalParameter
                 Index: -1
             }
             ParameterValue: Texture2D /Game/Textures/Environment/Vegetations/tree_mud_N.tree_mud_N
-            ExpressionGUID: fa312e0c-faa1-4a8a-877e-6407286196c7
-        }
-        , 
-        {
-            ParameterInfo: {
-                Name: CAOBlendTexture
-                Association: GlobalParameter
-                Index: -1
-            }
-            ParameterValue: Texture2D /Game/Textures/Environment/Swamp/Structures/T_SwampRock01_AO.T_SwampRock01_AO
-            ExpressionGUID: 111dea86-1e75-40e4-a082-4c3353be5249
+            ExpressionGUID: 6048e55e-3122-4142-9e25-c3bf259e0dfb
         }
         , 
         {
@@ -152,8 +182,28 @@ Asset: MaterialInstanceConstant MI_rockHill_All_BRL
                 Association: GlobalParameter
                 Index: -1
             }
-            ParameterValue: Texture2D /Game/Textures/Environment/Vegetations/Moss_diffuse.Moss_diffuse
+            ParameterValue: Texture2D /Game/Materials/Substance/Textures/T_ForestTerrain01_BC.T_ForestTerrain01_BC
             ExpressionGUID: bea60393-4aa3-493a-abca-91997e80ca1e
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: 21_MossNormalTexture
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: Texture2D /Game/Materials/Substance/Textures/T_ForestTerrain01_N.T_ForestTerrain01_N
+            ExpressionGUID: 44587e94-1290-468e-bc4f-3e931461b31c
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: 21_MossORMTexture
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: Texture2D /Game/Materials/Substance/Textures/T_ForestTerrain01_ORM.T_ForestTerrain01_ORM
+            ExpressionGUID: 68591e5b-08dc-4684-9099-ef2faa63b1d9
         }
     ]
     BasePropertyOverrides: {
@@ -163,90 +213,13 @@ Asset: MaterialInstanceConstant MI_rockHill_All_BRL
         StaticSwitchParameters: [
             {
                 ParameterInfo: {
-                    Name: UseBaseColor
+                    Name: Use_Red_MainVar
                     Association: GlobalParameter
                     Index: -1
                 }
                 Value: True
                 bOverride: True
-                ExpressionGUID: 5202d8bc-59e1-4189-a2f9-4c20614f016a
-            }
-            , 
-            {
-                ParameterInfo: {
-                    Name: UseTiling
-                    Association: GlobalParameter
-                    Index: -1
-                }
-                Value: True
-                bOverride: True
-                ExpressionGUID: ebdd7a07-2b6f-4066-bf51-bffe62a743fb
-            }
-            , 
-            {
-                ParameterInfo: {
-                    Name: UseNormal
-                    Association: GlobalParameter
-                    Index: -1
-                }
-                Value: True
-                bOverride: True
-                ExpressionGUID: 15ef761b-50a6-4a05-b99b-6a77fcc6b996
-            }
-            , 
-            {
-                ParameterInfo: {
-                    Name: UseCAOBlend
-                    Association: GlobalParameter
-                    Index: -1
-                }
-                Value: False
-                bOverride: True
-                ExpressionGUID: 85b5d809-e366-48fd-a4ff-ba98aca7cef3
-            }
-            , 
-            {
-                ParameterInfo: {
-                    Name: Blend AO Into Diffuse
-                    Association: GlobalParameter
-                    Index: -1
-                }
-                Value: True
-                bOverride: True
-                ExpressionGUID: 10e5678b-56cd-47b2-897d-7c3715b17b07
-            }
-            , 
-            {
-                ParameterInfo: {
-                    Name: Tint AO Only
-                    Association: GlobalParameter
-                    Index: -1
-                }
-                Value: False
-                bOverride: True
-                ExpressionGUID: c9c91bc0-ba37-47b9-9096-1038741f02e8
-            }
-            , 
-            {
-                ParameterInfo: {
-                    Name: Use Second UV for CAO
-                    Association: GlobalParameter
-                    Index: -1
-                }
-                Value: True
-                bOverride: True
-                ExpressionGUID: 3bc55add-6fea-44d9-8960-06eafb205d54
-            }
-            , 
-            {
-                ParameterInfo: {
-                    Name: UseColorTint
-                    Association: GlobalParameter
-                    Index: -1
-                }
-                Value: True
-                bOverride: True
-                ExpressionGUID: d5016d77-ad3e-488d-a994-b2546d3fe6b9
+                ExpressionGUID: 28ff8495-4d53-46b0-a0c4-27f1962d7208
             }
             , 
             {
@@ -255,9 +228,31 @@ Asset: MaterialInstanceConstant MI_rockHill_All_BRL
                     Association: GlobalParameter
                     Index: -1
                 }
-                Value: True
+                Value: False
                 bOverride: True
                 ExpressionGUID: 38dc155e-70e9-40fe-88af-b4f0dc3dacc8
+            }
+            , 
+            {
+                ParameterInfo: {
+                    Name: 21_TextureNormal
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                Value: True
+                bOverride: True
+                ExpressionGUID: 4234c8ef-f24e-4369-8c91-db2039fe8e53
+            }
+            , 
+            {
+                ParameterInfo: {
+                    Name: 21_TextureORM
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                Value: True
+                bOverride: True
+                ExpressionGUID: 29d61516-710e-4d34-ae1e-e3a01073ca0e
             }
             , 
             {
@@ -274,12 +269,6 @@ Asset: MaterialInstanceConstant MI_rockHill_All_BRL
     }
     TextureStreamingData: [
         {
-            SamplingScale: 2
-            UVChannelIndex: 0
-            TextureName: Moss_diffuse
-        }
-        , 
-        {
             SamplingScale: 1
             UVChannelIndex: 0
             TextureName: T_Noise_04
@@ -288,7 +277,19 @@ Asset: MaterialInstanceConstant MI_rockHill_All_BRL
         {
             SamplingScale: 1
             UVChannelIndex: 0
+            TextureName: tree_mud_diffuse
+        }
+        , 
+        {
+            SamplingScale: 1
+            UVChannelIndex: 0
             TextureName: tree_mud_N
+        }
+        , 
+        {
+            SamplingScale: 1
+            UVChannelIndex: 0
+            TextureName: Yellow_Linear
         }
     ]
 }
