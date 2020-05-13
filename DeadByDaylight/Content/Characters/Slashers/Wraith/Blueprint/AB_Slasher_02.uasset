@@ -8,7 +8,16 @@
                     StateName: Idle_State
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 30
+                            CanTakeDelegateIndex: 42
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 6
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                        , 
+                        {
+                            CanTakeDelegateIndex: 43
                             CustomResultNodeIndex: -1
                             TransitionIndex: 0
                             bDesiredTransitionReturnValue: True
@@ -27,19 +36,10 @@
                 }
                 , 
                 {
-                    StateName: RingBell1
+                    StateName: Cloaking_UPDATE
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 31
-                            CustomResultNodeIndex: -1
-                            TransitionIndex: 4
-                            bDesiredTransitionReturnValue: True
-                            bAutomaticRemainingTimeRule: False
-                            PoseEvaluatorLinks: [ ]
-                        }
-                        , 
-                        {
-                            CanTakeDelegateIndex: 32
+                            CanTakeDelegateIndex: 44
                             CustomResultNodeIndex: -1
                             TransitionIndex: 3
                             bDesiredTransitionReturnValue: True
@@ -62,14 +62,14 @@
                 }
                 , 
                 {
-                    StateName: RingingBell_IN
+                    StateName: Cloaking_IN
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 33
+                            CanTakeDelegateIndex: 45
                             CustomResultNodeIndex: -1
                             TransitionIndex: 1
                             bDesiredTransitionReturnValue: True
-                            bAutomaticRemainingTimeRule: False
+                            bAutomaticRemainingTimeRule: True
                             PoseEvaluatorLinks: [ ]
                         }
                     ]
@@ -88,14 +88,14 @@
                 }
                 , 
                 {
-                    StateName: RingingBell_OUT
+                    StateName: Cloaking_OUT
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 34
+                            CanTakeDelegateIndex: 46
                             CustomResultNodeIndex: -1
                             TransitionIndex: 2
                             bDesiredTransitionReturnValue: True
-                            bAutomaticRemainingTimeRule: False
+                            bAutomaticRemainingTimeRule: True
                             PoseEvaluatorLinks: [ ]
                         }
                     ]
@@ -114,14 +114,14 @@
                 }
                 , 
                 {
-                    StateName: RingBell2
+                    StateName: Uncloaking_UPDATE
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 35
+                            CanTakeDelegateIndex: 47
                             CustomResultNodeIndex: -1
                             TransitionIndex: 5
                             bDesiredTransitionReturnValue: True
-                            bAutomaticRemainingTimeRule: False
+                            bAutomaticRemainingTimeRule: True
                             PoseEvaluatorLinks: [ ]
                         }
                     ]
@@ -135,6 +135,58 @@
                         27
                         , 
                         29
+                    ]
+                    bAlwaysResetOnEntry: False
+                }
+                , 
+                {
+                    StateName: Uncloaking_IN
+                    Transitions: [
+                        {
+                            CanTakeDelegateIndex: 48
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 4
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: True
+                            PoseEvaluatorLinks: [ ]
+                        }
+                    ]
+                    StateRootNodeIndex: 30
+                    StartNotify: -1
+                    EndNotify: -1
+                    FullyBlendedNotify: -1
+                    bIsAConduit: False
+                    EntryRuleNodeIndex: -1
+                    PlayerNodeIndices: [
+                        34
+                        , 
+                        35
+                    ]
+                    bAlwaysResetOnEntry: False
+                }
+                , 
+                {
+                    StateName: Uncloaking_OUT
+                    Transitions: [
+                        {
+                            CanTakeDelegateIndex: 49
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 7
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                    ]
+                    StateRootNodeIndex: 36
+                    StartNotify: -1
+                    EndNotify: -1
+                    FullyBlendedNotify: -1
+                    bIsAConduit: False
+                    EntryRuleNodeIndex: -1
+                    PlayerNodeIndices: [
+                        40
+                        , 
+                        41
                     ]
                     bAlwaysResetOnEntry: False
                 }
@@ -157,7 +209,7 @@
                 {
                     PreviousState: 2
                     NextState: 1
-                    CrossfadeDuration: 0.2
+                    CrossfadeDuration: 0
                     StartNotify: -1
                     EndNotify: -1
                     InterruptNotify: -1
@@ -184,7 +236,7 @@
                 , 
                 {
                     PreviousState: 1
-                    NextState: 4
+                    NextState: 3
                     CrossfadeDuration: 0.2
                     StartNotify: -1
                     EndNotify: -1
@@ -197,9 +249,9 @@
                 }
                 , 
                 {
-                    PreviousState: 1
-                    NextState: 3
-                    CrossfadeDuration: 0.2
+                    PreviousState: 5
+                    NextState: 4
+                    CrossfadeDuration: 0
                     StartNotify: -1
                     EndNotify: -1
                     InterruptNotify: -1
@@ -212,7 +264,35 @@
                 , 
                 {
                     PreviousState: 4
-                    NextState: 3
+                    NextState: 6
+                    CrossfadeDuration: 0
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+                , 
+                {
+                    PreviousState: 0
+                    NextState: 5
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+                , 
+                {
+                    PreviousState: 6
+                    NextState: 0
                     CrossfadeDuration: 0.2
                     StartNotify: -1
                     EndNotify: -1
@@ -228,7 +308,7 @@
     ]
     TargetSkeleton: Skeleton /Game/Characters/Slashers/Models/SlasherMale_REF_Skeleton.SlasherMale_REF_Skeleton
     OrderedSavedPoseIndices: [
-        36
+        50
     ]
     SyncGroupNames: [
         Peeking
@@ -529,25 +609,18 @@
             BoundFunction: None
             CopyRecords: [
                 {
-                    SourcePropertyName: _cloakingPlayRate
-                    SourceSubPropertyName: None
+                    SourcePropertyName: _cloakingInSelector
+                    SourceSubPropertyName: _current
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: FloatProperty /Script/Engine.AnimNode_SequencePlayer.PlayRate
+                    DestProperty: ObjectProperty /Script/Engine.AnimNode_SequencePlayer.Sequence
                     DestArrayIndex: 0
-                    Size: 4
-                    CachedSourceProperty: FloatProperty /Script/TheWraith.WraithAnimInstance._cloakingPlayRate
-                    CachedSourceStructSubProperty: null
+                    Size: 8
+                    CachedSourceProperty: StructProperty /Script/TheWraith.WraithAnimInstance._cloakingInSelector
+                    CachedSourceStructSubProperty: ObjectProperty /Script/DBDAnimation.PerspectiveDependentAnimSequenceSelector._current
                 }
-            ]
-            Function: null
-            ValueHandlerNodeProperty: StructProperty AB_Slasher_02_C.AnimGraphNode_SequencePlayer_B220EDED40397859B597A7AAD1C6D1D4
-        }
-        , 
-        {
-            BoundFunction: None
-            CopyRecords: [
+                , 
                 {
                     SourcePropertyName: _cloakingPlayRate
                     SourceSubPropertyName: None
@@ -562,7 +635,40 @@
                 }
             ]
             Function: null
-            ValueHandlerNodeProperty: StructProperty AB_Slasher_02_C.AnimGraphNode_SequencePlayer_1DEB58B74FC76EE3EB0E6397B61DC057
+            ValueHandlerNodeProperty: StructProperty AB_Slasher_02_C.AnimGraphNode_SequencePlayer_F5C815674969458ADA69E6A6F1C74834
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _cloakingInSelector
+                    SourceSubPropertyName: _current
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: ObjectProperty /Script/Engine.AnimNode_SequencePlayer.Sequence
+                    DestArrayIndex: 0
+                    Size: 8
+                    CachedSourceProperty: StructProperty /Script/TheWraith.WraithAnimInstance._cloakingInSelector
+                    CachedSourceStructSubProperty: ObjectProperty /Script/DBDAnimation.PerspectiveDependentAnimSequenceSelector._current
+                }
+                , 
+                {
+                    SourcePropertyName: _cloakingPlayRate
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: FloatProperty /Script/Engine.AnimNode_SequencePlayer.PlayRate
+                    DestArrayIndex: 0
+                    Size: 4
+                    CachedSourceProperty: FloatProperty /Script/TheWraith.WraithAnimInstance._cloakingPlayRate
+                    CachedSourceStructSubProperty: null
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: StructProperty AB_Slasher_02_C.AnimGraphNode_SequencePlayer_B2F0A711474B5BCBC835D089DA7991FE
         }
         , 
         {
@@ -589,47 +695,7 @@
             BoundFunction: None
             CopyRecords: [
                 {
-                    SourcePropertyName: _cloakingPlayRate
-                    SourceSubPropertyName: None
-                    SourceArrayIndex: 0
-                    bInstanceIsTarget: False
-                    PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: FloatProperty /Script/Engine.AnimNode_SequencePlayer.PlayRate
-                    DestArrayIndex: 0
-                    Size: 4
-                    CachedSourceProperty: FloatProperty /Script/TheWraith.WraithAnimInstance._cloakingPlayRate
-                    CachedSourceStructSubProperty: null
-                }
-            ]
-            Function: null
-            ValueHandlerNodeProperty: StructProperty AB_Slasher_02_C.AnimGraphNode_SequencePlayer_20037F244CA6CC67403BA7986F327D46
-        }
-        , 
-        {
-            BoundFunction: None
-            CopyRecords: [
-                {
-                    SourcePropertyName: _cloakingPlayRate
-                    SourceSubPropertyName: None
-                    SourceArrayIndex: 0
-                    bInstanceIsTarget: False
-                    PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: FloatProperty /Script/Engine.AnimNode_SequencePlayer.PlayRate
-                    DestArrayIndex: 0
-                    Size: 4
-                    CachedSourceProperty: FloatProperty /Script/TheWraith.WraithAnimInstance._cloakingPlayRate
-                    CachedSourceStructSubProperty: null
-                }
-            ]
-            Function: null
-            ValueHandlerNodeProperty: StructProperty AB_Slasher_02_C.AnimGraphNode_SequencePlayer_71AF13C749779DD3E9F57496A8AD91F0
-        }
-        , 
-        {
-            BoundFunction: None
-            CopyRecords: [
-                {
-                    SourcePropertyName: _cloakingSelector
+                    SourcePropertyName: _cloakingOutSelector
                     SourceSubPropertyName: _current
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
@@ -637,7 +703,47 @@
                     DestProperty: ObjectProperty /Script/Engine.AnimNode_SequencePlayer.Sequence
                     DestArrayIndex: 0
                     Size: 8
-                    CachedSourceProperty: StructProperty /Script/TheWraith.WraithAnimInstance._cloakingSelector
+                    CachedSourceProperty: StructProperty /Script/TheWraith.WraithAnimInstance._cloakingOutSelector
+                    CachedSourceStructSubProperty: ObjectProperty /Script/DBDAnimation.PerspectiveDependentAnimSequenceSelector._current
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: StructProperty AB_Slasher_02_C.AnimGraphNode_SequencePlayer_14C6B1E74A50D845579CAF85CB3D7971
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _cloakingOutSelector
+                    SourceSubPropertyName: _current
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: ObjectProperty /Script/Engine.AnimNode_SequencePlayer.Sequence
+                    DestArrayIndex: 0
+                    Size: 8
+                    CachedSourceProperty: StructProperty /Script/TheWraith.WraithAnimInstance._cloakingOutSelector
+                    CachedSourceStructSubProperty: ObjectProperty /Script/DBDAnimation.PerspectiveDependentAnimSequenceSelector._current
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: StructProperty AB_Slasher_02_C.AnimGraphNode_SequencePlayer_D9E18CAC45197B2F83D7B3B88C54683A
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _uncloakingSelector
+                    SourceSubPropertyName: _current
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: ObjectProperty /Script/Engine.AnimNode_SequencePlayer.Sequence
+                    DestArrayIndex: 0
+                    Size: 8
+                    CachedSourceProperty: StructProperty /Script/TheWraith.WraithAnimInstance._uncloakingSelector
                     CachedSourceStructSubProperty: ObjectProperty /Script/DBDAnimation.PerspectiveDependentAnimSequenceSelector._current
                 }
                 , 
@@ -655,7 +761,7 @@
                 }
             ]
             Function: null
-            ValueHandlerNodeProperty: StructProperty AB_Slasher_02_C.AnimGraphNode_SequencePlayer_903CDFAF4CB12118600106A3BD3504BC
+            ValueHandlerNodeProperty: StructProperty AB_Slasher_02_C.AnimGraphNode_SequencePlayer_816DC1E14F2EA4C4E93B3E9BA9C10E52
         }
         , 
         {
@@ -675,14 +781,14 @@
                 }
             ]
             Function: null
-            ValueHandlerNodeProperty: StructProperty AB_Slasher_02_C.AnimGraphNode_BlendListByBool_AE4E33C64391F889FE82DD95EE4620DB
+            ValueHandlerNodeProperty: StructProperty AB_Slasher_02_C.AnimGraphNode_BlendListByBool_1BD81EA74686ADA878DBDE87869A9EFB
         }
         , 
         {
             BoundFunction: None
             CopyRecords: [
                 {
-                    SourcePropertyName: _cloakingSelector
+                    SourcePropertyName: _uncloakingSelector
                     SourceSubPropertyName: _current
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
@@ -690,7 +796,7 @@
                     DestProperty: ObjectProperty /Script/Engine.AnimNode_SequencePlayer.Sequence
                     DestArrayIndex: 0
                     Size: 8
-                    CachedSourceProperty: StructProperty /Script/TheWraith.WraithAnimInstance._cloakingSelector
+                    CachedSourceProperty: StructProperty /Script/TheWraith.WraithAnimInstance._uncloakingSelector
                     CachedSourceStructSubProperty: ObjectProperty /Script/DBDAnimation.PerspectiveDependentAnimSequenceSelector._current
                 }
                 , 
@@ -708,14 +814,160 @@
                 }
             ]
             Function: null
-            ValueHandlerNodeProperty: StructProperty AB_Slasher_02_C.AnimGraphNode_SequencePlayer_3F0E31BA4D2B95052DD8619A53676F77
+            ValueHandlerNodeProperty: StructProperty AB_Slasher_02_C.AnimGraphNode_SequencePlayer_555CD52A464F77A7C7890AA592743BB4
         }
         , 
         {
             BoundFunction: None
             CopyRecords: [
                 {
-                    SourcePropertyName: _isRingingBell
+                    SourcePropertyName: _firstPersonView
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: BoolProperty /Script/AnimGraphRuntime.AnimNode_BlendListByBool.bActiveValue
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: BoolProperty /Script/DBDAnimation.BaseKillerAnimInstance._firstPersonView
+                    CachedSourceStructSubProperty: null
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: StructProperty AB_Slasher_02_C.AnimGraphNode_BlendListByBool_6D6594CC426019B6966083A5F77E8994
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _uncloakingInSelector
+                    SourceSubPropertyName: _current
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: ObjectProperty /Script/Engine.AnimNode_SequencePlayer.Sequence
+                    DestArrayIndex: 0
+                    Size: 8
+                    CachedSourceProperty: StructProperty /Script/TheWraith.WraithAnimInstance._uncloakingInSelector
+                    CachedSourceStructSubProperty: ObjectProperty /Script/DBDAnimation.PerspectiveDependentAnimSequenceSelector._current
+                }
+                , 
+                {
+                    SourcePropertyName: _cloakingPlayRate
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: FloatProperty /Script/Engine.AnimNode_SequencePlayer.PlayRate
+                    DestArrayIndex: 0
+                    Size: 4
+                    CachedSourceProperty: FloatProperty /Script/TheWraith.WraithAnimInstance._cloakingPlayRate
+                    CachedSourceStructSubProperty: null
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: StructProperty AB_Slasher_02_C.AnimGraphNode_SequencePlayer_FA26483140063CA0491709A7EE4FEF30
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _uncloakingInSelector
+                    SourceSubPropertyName: _current
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: ObjectProperty /Script/Engine.AnimNode_SequencePlayer.Sequence
+                    DestArrayIndex: 0
+                    Size: 8
+                    CachedSourceProperty: StructProperty /Script/TheWraith.WraithAnimInstance._uncloakingInSelector
+                    CachedSourceStructSubProperty: ObjectProperty /Script/DBDAnimation.PerspectiveDependentAnimSequenceSelector._current
+                }
+                , 
+                {
+                    SourcePropertyName: _cloakingPlayRate
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: FloatProperty /Script/Engine.AnimNode_SequencePlayer.PlayRate
+                    DestArrayIndex: 0
+                    Size: 4
+                    CachedSourceProperty: FloatProperty /Script/TheWraith.WraithAnimInstance._cloakingPlayRate
+                    CachedSourceStructSubProperty: null
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: StructProperty AB_Slasher_02_C.AnimGraphNode_SequencePlayer_299165244BA12B689FE53987BB98BE04
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _firstPersonView
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: BoolProperty /Script/AnimGraphRuntime.AnimNode_BlendListByBool.bActiveValue
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: BoolProperty /Script/DBDAnimation.BaseKillerAnimInstance._firstPersonView
+                    CachedSourceStructSubProperty: null
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: StructProperty AB_Slasher_02_C.AnimGraphNode_BlendListByBool_8D540AF14264E3468005A9BAE5C9671E
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _uncloakingOutSelector
+                    SourceSubPropertyName: _current
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: ObjectProperty /Script/Engine.AnimNode_SequencePlayer.Sequence
+                    DestArrayIndex: 0
+                    Size: 8
+                    CachedSourceProperty: StructProperty /Script/TheWraith.WraithAnimInstance._uncloakingOutSelector
+                    CachedSourceStructSubProperty: ObjectProperty /Script/DBDAnimation.PerspectiveDependentAnimSequenceSelector._current
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: StructProperty AB_Slasher_02_C.AnimGraphNode_SequencePlayer_AB6F6F794BCC7E23211A0BBB347B9AD8
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _uncloakingOutSelector
+                    SourceSubPropertyName: _current
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: ObjectProperty /Script/Engine.AnimNode_SequencePlayer.Sequence
+                    DestArrayIndex: 0
+                    Size: 8
+                    CachedSourceProperty: StructProperty /Script/TheWraith.WraithAnimInstance._uncloakingOutSelector
+                    CachedSourceStructSubProperty: ObjectProperty /Script/DBDAnimation.PerspectiveDependentAnimSequenceSelector._current
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: StructProperty AB_Slasher_02_C.AnimGraphNode_SequencePlayer_069B012142C722EE95224C9C28934E6F
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _isUncloaking
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
@@ -723,7 +975,27 @@
                     DestProperty: BoolProperty /Script/Engine.AnimNode_TransitionResult.bCanEnterTransition
                     DestArrayIndex: 0
                     Size: 1
-                    CachedSourceProperty: BoolProperty /Script/TheWraith.WraithAnimInstance._isRingingBell
+                    CachedSourceProperty: BoolProperty /Script/TheWraith.WraithAnimInstance._isUncloaking
+                    CachedSourceStructSubProperty: null
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: StructProperty AB_Slasher_02_C.AnimGraphNode_TransitionResult_46AB76F0451EE833B9664CB6B742F768
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _isCloaking
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: BoolProperty /Script/Engine.AnimNode_TransitionResult.bCanEnterTransition
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: BoolProperty /Script/TheWraith.WraithAnimInstance._isCloaking
                     CachedSourceStructSubProperty: null
                 }
             ]
@@ -735,7 +1007,7 @@
             BoundFunction: None
             CopyRecords: [
                 {
-                    SourcePropertyName: _isRingingBell
+                    SourcePropertyName: _isCloaking
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
@@ -743,7 +1015,7 @@
                     DestProperty: BoolProperty /Script/Engine.AnimNode_TransitionResult.bCanEnterTransition
                     DestArrayIndex: 0
                     Size: 1
-                    CachedSourceProperty: BoolProperty /Script/TheWraith.WraithAnimInstance._isRingingBell
+                    CachedSourceProperty: BoolProperty /Script/TheWraith.WraithAnimInstance._isCloaking
                     CachedSourceStructSubProperty: null
                 }
             ]
@@ -755,41 +1027,7 @@
             BoundFunction: None
             CopyRecords: [
                 {
-                    SourcePropertyName: _isRingingBell
-                    SourceSubPropertyName: None
-                    SourceArrayIndex: 0
-                    bInstanceIsTarget: False
-                    PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: BoolProperty /Script/Engine.AnimNode_TransitionResult.bCanEnterTransition
-                    DestArrayIndex: 0
-                    Size: 1
-                    CachedSourceProperty: BoolProperty /Script/TheWraith.WraithAnimInstance._isRingingBell
-                    CachedSourceStructSubProperty: null
-                }
-            ]
-            Function: null
-            ValueHandlerNodeProperty: StructProperty AB_Slasher_02_C.AnimGraphNode_TransitionResult_8DF45CE9484E438460F0E88E322F2763
-        }
-        , 
-        {
-            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Slasher_02_AnimGraphNode_TransitionResult_A29FD3164C81308FB6550C8C093B2BAC
-            CopyRecords: [ ]
-            Function: Function AB_Slasher_02_C.EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Slasher_02_AnimGraphNode_TransitionResult_A29FD3164C81308FB6550C8C093B2BAC
-            ValueHandlerNodeProperty: StructProperty AB_Slasher_02_C.AnimGraphNode_TransitionResult_A29FD3164C81308FB6550C8C093B2BAC
-        }
-        , 
-        {
-            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Slasher_02_AnimGraphNode_TransitionResult_C6ECA1554BF23F271AEA6491FE40549D
-            CopyRecords: [ ]
-            Function: Function AB_Slasher_02_C.EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Slasher_02_AnimGraphNode_TransitionResult_C6ECA1554BF23F271AEA6491FE40549D
-            ValueHandlerNodeProperty: StructProperty AB_Slasher_02_C.AnimGraphNode_TransitionResult_C6ECA1554BF23F271AEA6491FE40549D
-        }
-        , 
-        {
-            BoundFunction: None
-            CopyRecords: [
-                {
-                    SourcePropertyName: _isRingingBell
+                    SourcePropertyName: _isUncloaking
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
@@ -797,12 +1035,12 @@
                     DestProperty: BoolProperty /Script/Engine.AnimNode_TransitionResult.bCanEnterTransition
                     DestArrayIndex: 0
                     Size: 1
-                    CachedSourceProperty: BoolProperty /Script/TheWraith.WraithAnimInstance._isRingingBell
+                    CachedSourceProperty: BoolProperty /Script/TheWraith.WraithAnimInstance._isUncloaking
                     CachedSourceStructSubProperty: null
                 }
             ]
             Function: null
-            ValueHandlerNodeProperty: StructProperty AB_Slasher_02_C.AnimGraphNode_TransitionResult_F85C381A43FE547A6AC546A877219A1F
+            ValueHandlerNodeProperty: StructProperty AB_Slasher_02_C.AnimGraphNode_TransitionResult_F79EA4A846B778B42CE20BB3B8BF927C
         }
         , 
         {
@@ -983,7 +1221,7 @@
     __SUBINSTANCE__SpeedRate_A7504FE34B7295BB3E1AAB9A46A60DBE: 460
     AnimGraphNode_SubInstance_A7504FE34B7295BB3E1AAB9A46A60DBE: {
         InPose: {
-            LinkID: 41
+            LinkID: 55
         }
         InstanceClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Wraith/Blueprint/ABSub_Slasher_02_LookAT_00.ABSub_Slasher_02_LookAT_00_C
         Tag: None
@@ -1065,7 +1303,7 @@
     }
     AnimGraphNode_Slot_E18C7DED49BBB5C87BBE2185490C3E14: {
         Source: {
-            LinkID: 40
+            LinkID: 54
         }
         SlotName: MontageIK
         bAlwaysUpdateSourcePose: False
@@ -1079,11 +1317,17 @@
     }
     AnimGraphNode_SaveCachedPose_78DB82164B84118DA555CC95B62377F8: {
         Pose: {
-            LinkID: 42
+            LinkID: 56
         }
         CachePoseName: fromLocomotion
     }
-    AnimGraphNode_TransitionResult_F85C381A43FE547A6AC546A877219A1F: {
+    AnimGraphNode_TransitionResult_F79EA4A846B778B42CE20BB3B8BF927C: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_TransitionResult_FE9FAF3841DBE3CACE8D8C80DDC7E12D: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_TransitionResult_140ED879433A7DCA6FB7398143968247: {
         bCanEnterTransition: False
     }
     AnimGraphNode_TransitionResult_C6ECA1554BF23F271AEA6491FE40549D: {
@@ -1092,16 +1336,16 @@
     AnimGraphNode_TransitionResult_A29FD3164C81308FB6550C8C093B2BAC: {
         bCanEnterTransition: False
     }
-    AnimGraphNode_TransitionResult_8DF45CE9484E438460F0E88E322F2763: {
-        bCanEnterTransition: False
-    }
     AnimGraphNode_TransitionResult_285B2AB74B2705D3C5C91ABBA4D3A2E2: {
         bCanEnterTransition: False
     }
     AnimGraphNode_TransitionResult_2EC8DAC249C197044D810FBF61D14B63: {
         bCanEnterTransition: False
     }
-    AnimGraphNode_SequencePlayer_3F0E31BA4D2B95052DD8619A53676F77: {
+    AnimGraphNode_TransitionResult_46AB76F0451EE833B9664CB6B742F768: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_SequencePlayer_069B012142C722EE95224C9C28934E6F: {
         Sequence: null
         PlayRateBasis: 1
         PlayRate: 1
@@ -1132,15 +1376,91 @@
         BlendWeight: 0
         InternalTimeAccumulator: 0
     }
-    AnimGraphNode_BlendListByBool_AE4E33C64391F889FE82DD95EE4620DB: {
+    AnimGraphNode_SequencePlayer_AB6F6F794BCC7E23211A0BBB347B9AD8: {
+        Sequence: null
+        PlayRateBasis: 1
+        PlayRate: 1
+        PlayRateScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+        StartPosition: 0
+        bLoopAnimation: False
+        GroupIndex: -1
+        GroupRole: EAnimGroupRole::CanBeLeader
+        bIgnoreForRelevancyTest: False
+        BlendWeight: 0
+        InternalTimeAccumulator: 0
+    }
+    AnimGraphNode_LayeredBoneBlend_C88973B34E8E7A4BE852F7AB98008254: {
+        BasePose: {
+            LinkID: 19
+        }
+        BlendPoses: [
+            {
+                LinkID: 15
+            }
+        ]
+        LayerSetup: [
+            {
+                BranchFilters: [
+                    {
+                        BoneName: joint_TorsoA_01
+                        BlendDepth: 0
+                    }
+                    , 
+                    {
+                        BoneName: joint_CamOff_01
+                        BlendDepth: 0
+                    }
+                    , 
+                    {
+                        BoneName: joint_Hand_RT_02_IK
+                        BlendDepth: 0
+                    }
+                    , 
+                    {
+                        BoneName: joint_Hand_LT_02_IK
+                        BlendDepth: 0
+                    }
+                ]
+            }
+        ]
+        BlendWeights: [
+            1
+        ]
+        bMeshSpaceRotationBlend: False
+        CurveBlendOption: ECurveBlendOption::MaxWeight
+        bBlendRootMotionBasedOnRootBone: True
+        LODThreshold: -1
+        PerBoneBlendWeights: [ ]
+        SkeletonGuid: 00000000-0000-0000-0000-000000000000
+        VirtualBoneGuid: 00000000-0000-0000-0000-000000000000
+    }
+    AnimGraphNode_BlendListByBool_8D540AF14264E3468005A9BAE5C9671E: {
         bActiveValue: False
         BlendPose: [
             {
-                LinkID: 13
+                LinkID: 16
             }
             , 
             {
-                LinkID: 16
+                LinkID: 17
             }
         ]
         BlendTime: [
@@ -1153,7 +1473,18 @@
         CustomBlendCurve: null
         BlendProfile: null
     }
-    AnimGraphNode_SequencePlayer_903CDFAF4CB12118600106A3BD3504BC: {
+    AnimGraphNode_UseCachedPose_38776BD14797C2D1FE7419A5D7F0106D: {
+        LinkToCachingNode: {
+            LinkID: 6
+        }
+        CachePoseName: fromLocomotion
+    }
+    AnimGraphNode_StateResult_58C2425840B11CA593CCB9B2763A8871: {
+        Result: {
+            LinkID: 18
+        }
+    }
+    AnimGraphNode_SequencePlayer_299165244BA12B689FE53987BB98BE04: {
         Sequence: null
         PlayRateBasis: 1
         PlayRate: 1
@@ -1184,13 +1515,204 @@
         BlendWeight: 0
         InternalTimeAccumulator: 0
     }
-    AnimGraphNode_LayeredBoneBlend_018E578F45FCDB8A8BE3C78E825FBB36: {
+    AnimGraphNode_SequencePlayer_FA26483140063CA0491709A7EE4FEF30: {
+        Sequence: null
+        PlayRateBasis: 1
+        PlayRate: 1
+        PlayRateScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+        StartPosition: 0
+        bLoopAnimation: False
+        GroupIndex: -1
+        GroupRole: EAnimGroupRole::CanBeLeader
+        bIgnoreForRelevancyTest: False
+        BlendWeight: 0
+        InternalTimeAccumulator: 0
+    }
+    AnimGraphNode_LayeredBoneBlend_878AF7954EAADFF6E517F1A1BBF94E14: {
         BasePose: {
-            LinkID: 17
+            LinkID: 25
         }
         BlendPoses: [
             {
-                LinkID: 15
+                LinkID: 21
+            }
+        ]
+        LayerSetup: [
+            {
+                BranchFilters: [
+                    {
+                        BoneName: joint_TorsoA_01
+                        BlendDepth: 0
+                    }
+                    , 
+                    {
+                        BoneName: joint_CamOff_01
+                        BlendDepth: 0
+                    }
+                    , 
+                    {
+                        BoneName: joint_Hand_RT_02_IK
+                        BlendDepth: 0
+                    }
+                    , 
+                    {
+                        BoneName: joint_Hand_LT_02_IK
+                        BlendDepth: 0
+                    }
+                ]
+            }
+        ]
+        BlendWeights: [
+            1
+        ]
+        bMeshSpaceRotationBlend: False
+        CurveBlendOption: ECurveBlendOption::MaxWeight
+        bBlendRootMotionBasedOnRootBone: True
+        LODThreshold: -1
+        PerBoneBlendWeights: [ ]
+        SkeletonGuid: 00000000-0000-0000-0000-000000000000
+        VirtualBoneGuid: 00000000-0000-0000-0000-000000000000
+    }
+    AnimGraphNode_BlendListByBool_6D6594CC426019B6966083A5F77E8994: {
+        bActiveValue: False
+        BlendPose: [
+            {
+                LinkID: 22
+            }
+            , 
+            {
+                LinkID: 23
+            }
+        ]
+        BlendTime: [
+            0.1
+            , 
+            0.1
+        ]
+        BlendType: EAlphaBlendOption::Linear
+        bResetChildOnActivation: False
+        CustomBlendCurve: null
+        BlendProfile: null
+    }
+    AnimGraphNode_UseCachedPose_D9DF13124E5AEB68FEF03AA9B73FE45C: {
+        LinkToCachingNode: {
+            LinkID: 6
+        }
+        CachePoseName: fromLocomotion
+    }
+    AnimGraphNode_StateResult_DC6048E14C41F2CEBFA038864DDA1AE1: {
+        Result: {
+            LinkID: 24
+        }
+    }
+    AnimGraphNode_SequencePlayer_555CD52A464F77A7C7890AA592743BB4: {
+        Sequence: null
+        PlayRateBasis: 1
+        PlayRate: 1
+        PlayRateScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+        StartPosition: 0
+        bLoopAnimation: False
+        GroupIndex: -1
+        GroupRole: EAnimGroupRole::CanBeLeader
+        bIgnoreForRelevancyTest: False
+        BlendWeight: 0
+        InternalTimeAccumulator: 0
+    }
+    AnimGraphNode_BlendListByBool_1BD81EA74686ADA878DBDE87869A9EFB: {
+        bActiveValue: False
+        BlendPose: [
+            {
+                LinkID: 27
+            }
+            , 
+            {
+                LinkID: 30
+            }
+        ]
+        BlendTime: [
+            0.1
+            , 
+            0.1
+        ]
+        BlendType: EAlphaBlendOption::Linear
+        bResetChildOnActivation: False
+        CustomBlendCurve: null
+        BlendProfile: null
+    }
+    AnimGraphNode_SequencePlayer_816DC1E14F2EA4C4E93B3E9BA9C10E52: {
+        Sequence: null
+        PlayRateBasis: 1
+        PlayRate: 1
+        PlayRateScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+        StartPosition: 0
+        bLoopAnimation: False
+        GroupIndex: -1
+        GroupRole: EAnimGroupRole::CanBeLeader
+        bIgnoreForRelevancyTest: False
+        BlendWeight: 0
+        InternalTimeAccumulator: 0
+    }
+    AnimGraphNode_LayeredBoneBlend_F95C4D3B4D483982EE49FDBD5AA3BE92: {
+        BasePose: {
+            LinkID: 31
+        }
+        BlendPoses: [
+            {
+                LinkID: 29
             }
         ]
         LayerSetup: [
@@ -1229,19 +1751,19 @@
         SkeletonGuid: 00000000-0000-0000-0000-000000000000
         VirtualBoneGuid: 00000000-0000-0000-0000-000000000000
     }
-    AnimGraphNode_UseCachedPose_2627E6F841A921397114AA800A3705CF: {
+    AnimGraphNode_UseCachedPose_D88439BE40FE4C47CA249A9518608D7F: {
         LinkToCachingNode: {
             LinkID: 6
         }
         CachePoseName: fromLocomotion
     }
-    AnimGraphNode_StateResult_10F6E180447879F6A8D50DB8382F007A: {
+    AnimGraphNode_StateResult_8A6756694B44BF9EEE33F8889EF57EBA: {
         Result: {
-            LinkID: 14
+            LinkID: 28
         }
     }
-    AnimGraphNode_SequencePlayer_71AF13C749779DD3E9F57496A8AD91F0: {
-        Sequence: AnimSequence /Game/Characters/Slashers/Wraith/AnimSequences/Locomotion/TW_Bell_OUT_FPV.TW_Bell_OUT_FPV
+    AnimGraphNode_SequencePlayer_D9E18CAC45197B2F83D7B3B88C54683A: {
+        Sequence: null
         PlayRateBasis: 1
         PlayRate: 1
         PlayRateScaleBiasClamp: {
@@ -1271,8 +1793,8 @@
         BlendWeight: 0
         InternalTimeAccumulator: 0
     }
-    AnimGraphNode_SequencePlayer_20037F244CA6CC67403BA7986F327D46: {
-        Sequence: AnimSequence /Game/Characters/Slashers/Wraith/AnimSequences/Locomotion/TW_Bell_OUT.TW_Bell_OUT
+    AnimGraphNode_SequencePlayer_14C6B1E74A50D845579CAF85CB3D7971: {
+        Sequence: null
         PlayRateBasis: 1
         PlayRate: 1
         PlayRateScaleBiasClamp: {
@@ -1304,11 +1826,11 @@
     }
     AnimGraphNode_LayeredBoneBlend_ADA6DDFD4BAB9B6683E0EDB6C81AEDFA: {
         BasePose: {
-            LinkID: 23
+            LinkID: 37
         }
         BlendPoses: [
             {
-                LinkID: 20
+                LinkID: 33
             }
         ]
         LayerSetup: [
@@ -1351,11 +1873,11 @@
         bActiveValue: False
         BlendPose: [
             {
-                LinkID: 19
+                LinkID: 34
             }
             , 
             {
-                LinkID: 21
+                LinkID: 35
             }
         ]
         BlendTime: [
@@ -1376,11 +1898,11 @@
     }
     AnimGraphNode_StateResult_90B0E2DD457D7E0E7EB31A9E31271541: {
         Result: {
-            LinkID: 22
+            LinkID: 36
         }
     }
-    AnimGraphNode_SequencePlayer_1DEB58B74FC76EE3EB0E6397B61DC057: {
-        Sequence: AnimSequence /Game/Characters/Slashers/Wraith/AnimSequences/Locomotion/TW_Bell_IN.TW_Bell_IN
+    AnimGraphNode_SequencePlayer_B2F0A711474B5BCBC835D089DA7991FE: {
+        Sequence: null
         PlayRateBasis: 1
         PlayRate: 1
         PlayRateScaleBiasClamp: {
@@ -1410,8 +1932,8 @@
         BlendWeight: 0
         InternalTimeAccumulator: 0
     }
-    AnimGraphNode_SequencePlayer_B220EDED40397859B597A7AAD1C6D1D4: {
-        Sequence: AnimSequence /Game/Characters/Slashers/Wraith/AnimSequences/Locomotion/TW_Bell_IN_FPV.TW_Bell_IN_FPV
+    AnimGraphNode_SequencePlayer_F5C815674969458ADA69E6A6F1C74834: {
+        Sequence: null
         PlayRateBasis: 1
         PlayRate: 1
         PlayRateScaleBiasClamp: {
@@ -1443,11 +1965,11 @@
     }
     AnimGraphNode_LayeredBoneBlend_54E6F438490E719E369A6F94F65D9F92: {
         BasePose: {
-            LinkID: 29
+            LinkID: 43
         }
         BlendPoses: [
             {
-                LinkID: 25
+                LinkID: 39
             }
         ]
         LayerSetup: [
@@ -1490,11 +2012,11 @@
         bActiveValue: False
         BlendPose: [
             {
-                LinkID: 26
+                LinkID: 40
             }
             , 
             {
-                LinkID: 27
+                LinkID: 41
             }
         ]
         BlendTime: [
@@ -1515,7 +2037,7 @@
     }
     AnimGraphNode_StateResult_8B73810C4D3C99FB5E8680BD89E0EBDA: {
         Result: {
-            LinkID: 28
+            LinkID: 42
         }
     }
     AnimGraphNode_SequencePlayer_0C53B0AC4883C9D0F96908A74475A281: {
@@ -1553,11 +2075,11 @@
         bActiveValue: False
         BlendPose: [
             {
-                LinkID: 31
+                LinkID: 45
             }
             , 
             {
-                LinkID: 34
+                LinkID: 48
             }
         ]
         BlendTime: [
@@ -1603,11 +2125,11 @@
     }
     AnimGraphNode_LayeredBoneBlend_AFD93E324925E5BDBCF85580A0698270: {
         BasePose: {
-            LinkID: 35
+            LinkID: 49
         }
         BlendPoses: [
             {
-                LinkID: 33
+                LinkID: 47
             }
         ]
         LayerSetup: [
@@ -1654,7 +2176,7 @@
     }
     AnimGraphNode_StateResult_88A956944374B83011BD59944CCCD6F4: {
         Result: {
-            LinkID: 32
+            LinkID: 46
         }
     }
     AnimGraphNode_UseCachedPose_36E701CE40DABF4AB3F6F3BA628727DB: {
@@ -1665,7 +2187,7 @@
     }
     AnimGraphNode_StateResult_653569AB4D68E095C36C70BB412CF2A8: {
         Result: {
-            LinkID: 37
+            LinkID: 51
         }
     }
     AnimGraphNode_StateMachine_8EE88ECE4044E9D1D2A158BE3851D7BE: {
@@ -1683,7 +2205,7 @@
     }
     AnimGraphNode_SubInstance_9DB03A8A4AB0F2A6B5EAECB068A3D514: {
         InPose: {
-            LinkID: 39
+            LinkID: 53
         }
         InstanceClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/Wraith/Blueprint/ABSub_Slasher_02_BaseAttack_00.ABSub_Slasher_02_BaseAttack_00_C
         Tag: None
@@ -1901,9 +2423,29 @@
             }
         ]
     }
+    _cloakingInSelector: {
+        _thirdPerson: AnimSequence /Game/Characters/Slashers/Wraith/AnimSequences/Locomotion/TW_Bell_IN_WITHSOUND.TW_Bell_IN_WITHSOUND
+        _firstPerson: AnimSequence /Game/Characters/Slashers/Wraith/AnimSequences/Locomotion/TW_Bell_IN_WITHSOUND_FPV.TW_Bell_IN_WITHSOUND_FPV
+    }
     _cloakingSelector: {
         _thirdPerson: AnimSequence /Game/Characters/Slashers/Wraith/AnimSequences/Locomotion/TW_Bell_LOOP.TW_Bell_LOOP
         _firstPerson: AnimSequence /Game/Characters/Slashers/Wraith/AnimSequences/Locomotion/TW_Bell_LOOP_FPV.TW_Bell_LOOP_FPV
+    }
+    _cloakingOutSelector: {
+        _thirdPerson: AnimSequence /Game/Characters/Slashers/Wraith/AnimSequences/Locomotion/TW_Bell_OUT.TW_Bell_OUT
+        _firstPerson: AnimSequence /Game/Characters/Slashers/Wraith/AnimSequences/Locomotion/TW_Bell_OUT_FPV.TW_Bell_OUT_FPV
+    }
+    _uncloakingInSelector: {
+        _thirdPerson: AnimSequence /Game/Characters/Slashers/Wraith/AnimSequences/Locomotion/TW_Uncloaking_IN.TW_Uncloaking_IN
+        _firstPerson: AnimSequence /Game/Characters/Slashers/Wraith/AnimSequences/Locomotion/TW_Uncloaking_IN_FPV.TW_Uncloaking_IN_FPV
+    }
+    _uncloakingSelector: {
+        _thirdPerson: AnimSequence /Game/Characters/Slashers/Wraith/AnimSequences/Locomotion/TW_Bell_LOOP.TW_Bell_LOOP
+        _firstPerson: AnimSequence /Game/Characters/Slashers/Wraith/AnimSequences/Locomotion/TW_Bell_LOOP_FPV.TW_Bell_LOOP_FPV
+    }
+    _uncloakingOutSelector: {
+        _thirdPerson: AnimSequence /Game/Characters/Slashers/Wraith/AnimSequences/Locomotion/TW_Bell_OUT.TW_Bell_OUT
+        _firstPerson: AnimSequence /Game/Characters/Slashers/Wraith/AnimSequences/Locomotion/TW_Bell_OUT_FPV.TW_Bell_OUT_FPV
     }
     _animEffectHandlerClass: BlueprintGeneratedClass /Game/Audio/BP_Audio_Killer_AnimNotifies_Handler.BP_Audio_Killer_AnimNotifies_Handler_C
 }
