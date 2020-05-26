@@ -1,0 +1,269 @@
+{
+    SimpleConstructionScript: SimpleConstructionScript BP_TormentMode_Power_C.SimpleConstructionScript
+    InheritableComponentHandler: InheritableComponentHandler BP_TormentMode_Power_C.InheritableComponentHandler
+    UberGraphFramePointerProperty: StructProperty BP_TormentMode_Power_C.UberGraphFrame
+    UberGraphFunction: Function BP_TormentMode_Power_C.ExecuteUbergraph_BP_TormentMode_Power
+}
+<--- CDO --->
+{
+    UberGraphFrame: None
+    _activateTormentModeCharge: {
+        }
+    _tormentModeCharge: {
+        }
+    _tormentModeChargePresentation: {
+            _powerChargeComponent: PowerChargeComponent Default__BP_TormentMode_Power_C.TormentModeCharge
+            _powerToggleComponent: {
+                }
+        }
+    _powerToggleComponent: PowerToggleComponent Default__BP_TormentMode_Power_C.PowerToggleComponent
+    _tormentTrailSpawnerComponent: {
+            _restrictionRangeToHooks: {
+                _dataTableRowHandle: {
+                    DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+                    RowName: RestrictionRangeToHooks
+                }
+            }
+            _restrictionRangeToGenerators: {
+                _dataTableRowHandle: {
+                    DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+                    RowName: RestrictionRangeToGenerators
+                }
+            }
+            _restrictionRangeToExitSwitch: {
+                _dataTableRowHandle: {
+                    DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+                    RowName: RestrictionRangeToExitSwitch
+                }
+            }
+            _maxSlopeAngleForTrail: {
+                _dataTableRowHandle: {
+                    DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+                    RowName: MaxSlopeAngleForTrail
+                }
+            }
+            _minSlopeAngleForTrail: {
+                _dataTableRowHandle: {
+                    DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+                    RowName: MinSlopeAngleForTrail
+                }
+            }
+            _restrictionRangeToHatch: {
+                _dataTableRowHandle: {
+                    DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+                    RowName: RestrictionRangeToHatch
+                }
+            }
+        }
+    _tormentTrailPointCollectionComponent: {
+            _maxNumberOfTrailPointInGame: {
+                _dataTableRowHandle: {
+                    DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+                    RowName: MaxNumberOfTrailPointInGame
+                }
+            }
+        }
+    _restrictedTormentTrailPointCollectionComponent: {
+            _maxNumberOfTrailPointInGame: {
+                _dataTableRowHandle: {
+                    DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+                    RowName: MaxNumberOfRestrictionTrailPointInGame
+                }
+            }
+        }
+    _tormentTrailControllerPool: {
+            _actorClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/TormentMode/TormentTrailControllers/BP_TormentTrailController.BP_TormentTrailController_C
+            _size: 20
+        }
+    _tormentAttackTrailControllerPool: {
+            _actorClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/TormentMode/TormentTrailControllers/BP_TormentAttackTrailController.BP_TormentAttackTrailController_C
+            _size: 5
+        }
+    _restrictedTormentTrailControllerPool: {
+            _actorClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/TormentMode/TormentTrailControllers/BP_RestrictedTormentTrailController.BP_RestrictedTormentTrailController_C
+            _size: 20
+        }
+    _tormentTrailPointPool: {
+            _actorClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/TormentMode/TormentTrailControllers/TormentTrailPoints/BP_TormentTrailPoint.BP_TormentTrailPoint_C
+            _size: 110
+        }
+    _restrictedTormentTrailPointPool: {
+            _actorClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/TormentMode/TormentTrailControllers/TormentTrailPoints/BP_RestrictedTormentTrailPoint.BP_RestrictedTormentTrailPoint_C
+            _size: 30
+        }
+    _activateTormentModeSecondsToCharge: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+                RowName: ActivateTormentMode_SecondsToCharge
+            }
+        }
+    }
+    _tormentModeMaxCharge: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+                RowName: TormentMode_MaxCharge
+            }
+        }
+    }
+    _tormentModeChargeRate: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+                RowName: TormentMode_ChargeRate
+            }
+        }
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Mult
+                ModifierTag: {
+                    TagName: GameplayModifierType.ModifyTormentModeChargeRate
+                }
+                CompoundStrategy: EModifierCompoundStrategy::Mult
+            }
+        ]
+    }
+    _tormentModeDischargeRate: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+                RowName: TormentMode_DischargeRate
+            }
+        }
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Mult
+                ModifierTag: {
+                    TagName: GameplayModifierType.ModifyTormentModeDischargeRate
+                }
+                CompoundStrategy: EModifierCompoundStrategy::Mult
+            }
+        ]
+    }
+    _tormentModePauseChargeRate: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+                RowName: TormentMode_PauseChargeRate
+            }
+        }
+    }
+    _tormentModeAttackConsumePower: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+            RowName: TormentMode_AttackConsumePower
+        }
+    }
+    _tormentModeMinimumPercentToActivate: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+            RowName: TormentMode_MinimumPercentToActivate
+        }
+    }
+    _tormentModeMouseYawScale: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+                RowName: TormentMode_MouseYawScale
+            }
+        }
+    }
+    _tormentModeYawAdjustTime: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+                RowName: TormentMode_YawAdjustTime
+            }
+        }
+    }
+    _tormentModeGamePadYawScale: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+                RowName: TormentMode_GamePadYawScale
+            }
+        }
+    }
+    _tormentModeYawInputLimit: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+            RowName: TormentMode_YawInputLimit
+        }
+    }
+    _tormentModeNotMovingYawScaleMultiplier: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+                RowName: TormentMode_NotMovingYawScaleMultiplier
+            }
+        }
+    }
+    _tormentModeNotMovingYawAdjustTime: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+                RowName: TormentMode_NotMovingYawAdjustTime
+            }
+        }
+    }
+    _tormentModeWalkSpeed: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+                RowName: TormentMode_WalkSpeed
+            }
+        }
+    }
+    _tormentModeChargeWalkSpeed: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+                RowName: TormentMode_ChargeWalkSpeed
+            }
+        }
+    }
+    _normalWalkSpeed: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+                RowName: MaxWalkSpeed
+            }
+        }
+    }
+    _tormentModeForcedPitch: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+            RowName: TormentMode_ForcedPitch
+        }
+    }
+    _agonyComponentClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/TormentMode/Bp_AgonyComponent.BP_AgonyComponent_C
+    _killerTormentTrailDetectorClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/TormentMode/BP_TormentTrailDetector_Killer.BP_TormentTrailDetector_Killer_C
+    _survivorTormentTrailDetectorClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/TormentMode/BP_TormentTrailDetector_Survivor.BP_TormentTrailDetector_Survivor_C
+    ItemID: Item_Slasher_TormentMode
+    BaseItemModifier: {
+        }
+    ItemModifier1: {
+        }
+    ItemModifier2: {
+        }
+    _mesh: {
+            DetailLevelBeforeCastShadows: DM_MAX
+            LightingChannels: {
+                bChannel0: False
+                bChannel1: False
+            }
+            BodyInstance: {
+                MassInKgOverride: 0
+            }
+        }
+    _placementOrigin: {
+            AttachParent: SkeletalMeshComponent Default__BP_TormentMode_Power_C.ItemMesh
+        }
+    _attachToSocketName: EAttachToSocketNameEnum::Weapon_SocketLT
+    _objectState: {
+        }
+    NetUpdateFrequency: 1
+    MinNetUpdateFrequency: 1
+    RootComponent: SkeletalMeshComponent Default__BP_TormentMode_Power_C.ItemMesh
+}

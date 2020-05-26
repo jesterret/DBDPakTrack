@@ -1,0 +1,224 @@
+{
+    BakedStateMachines: [
+        {
+            MachineName: Twitch_SM
+            InitialState: 0
+            States: [
+                {
+                    StateName: Base
+                    Transitions: [
+                        {
+                            CanTakeDelegateIndex: 5
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 0
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                    ]
+                    StateRootNodeIndex: 1
+                    StartNotify: -1
+                    EndNotify: -1
+                    FullyBlendedNotify: -1
+                    bIsAConduit: False
+                    EntryRuleNodeIndex: -1
+                    PlayerNodeIndices: [
+                        2
+                    ]
+                    bAlwaysResetOnEntry: False
+                }
+                , 
+                {
+                    StateName: Twitch
+                    Transitions: [
+                        {
+                            CanTakeDelegateIndex: 6
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 1
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                    ]
+                    StateRootNodeIndex: 3
+                    StartNotify: -1
+                    EndNotify: -1
+                    FullyBlendedNotify: -1
+                    bIsAConduit: False
+                    EntryRuleNodeIndex: -1
+                    PlayerNodeIndices: [
+                        4
+                    ]
+                    bAlwaysResetOnEntry: False
+                }
+            ]
+            Transitions: [
+                {
+                    PreviousState: 0
+                    NextState: 1
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+                , 
+                {
+                    PreviousState: 1
+                    NextState: 0
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+            ]
+        }
+    ]
+    TargetSkeleton: Skeleton /Game/Meshes/InteractableObjects/Corpses/Mesh/Corpse02_REF_Skeleton.Corpse02_REF_Skeleton
+    EvaluateGraphExposedInputs: [
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _randomSwitch
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: BoolProperty /Script/Engine.AnimNode_TransitionResult.bCanEnterTransition
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: BoolProperty AB_Corpse02_Twitch_C._randomSwitch
+                    CachedSourceStructSubProperty: null
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: StructProperty AB_Corpse02_Twitch_C.AnimGraphNode_TransitionResult_FD08D0694346E85285A603B915D5A04F
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _randomSwitch
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::LogicalNegateBool
+                    DestProperty: BoolProperty /Script/Engine.AnimNode_TransitionResult.bCanEnterTransition
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: BoolProperty AB_Corpse02_Twitch_C._randomSwitch
+                    CachedSourceStructSubProperty: null
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: StructProperty AB_Corpse02_Twitch_C.AnimGraphNode_TransitionResult_65B3DC79407BF84CF5E6F88612599B15
+        }
+    ]
+    UberGraphFramePointerProperty: StructProperty AB_Corpse02_Twitch_C.UberGraphFrame
+    UberGraphFunction: Function AB_Corpse02_Twitch_C.ExecuteUbergraph_AB_Corpse02_Twitch
+}
+<--- CDO --->
+{
+    UberGraphFrame: None
+    AnimGraphNode_Root_9D15C2A349DADEC766E65E9D92DCB51F: {
+        Result: {
+            LinkID: 7
+        }
+    }
+    AnimGraphNode_TransitionResult_65B3DC79407BF84CF5E6F88612599B15: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_TransitionResult_FD08D0694346E85285A603B915D5A04F: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_SequencePlayer_D9E301C6471BA1A09921BBAF47A91527: {
+        Sequence: AnimSequence /Game/Meshes/InteractableObjects/Corpses/Animation/Corpse02_Idle_Twitch.Corpse02_Idle_Twitch
+        PlayRateBasis: 1
+        PlayRate: 1
+        PlayRateScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+        StartPosition: 0
+        bLoopAnimation: True
+        GroupIndex: -1
+        GroupRole: EAnimGroupRole::CanBeLeader
+        bIgnoreForRelevancyTest: False
+        BlendWeight: 0
+        InternalTimeAccumulator: 0
+    }
+    AnimGraphNode_StateResult_3174A62040486D1D06A0C588B5F09196: {
+        Result: {
+            LinkID: 3
+        }
+    }
+    AnimGraphNode_SequencePlayer_2A58E2FD4096CC38CE2A2F9BA408551E: {
+        Sequence: AnimSequence /Game/Meshes/InteractableObjects/Corpses/Animation/Corpse02_Idle_NoTwitch.Corpse02_Idle_NoTwitch
+        PlayRateBasis: 1
+        PlayRate: 1
+        PlayRateScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+        StartPosition: 0
+        bLoopAnimation: True
+        GroupIndex: -1
+        GroupRole: EAnimGroupRole::CanBeLeader
+        bIgnoreForRelevancyTest: False
+        BlendWeight: 0
+        InternalTimeAccumulator: 0
+    }
+    AnimGraphNode_StateResult_1AB1CDAE4E9D6A2B9A4347AEE061FA19: {
+        Result: {
+            LinkID: 5
+        }
+    }
+    AnimGraphNode_StateMachine_D212968B47BD5C9E3C810FBB53865F7C: {
+        StateMachineIndexInClass: 0
+        MaxTransitionsPerFrame: 3
+        bSkipFirstUpdateTransition: True
+        bReinitializeOnBecomingRelevant: True
+    }
+    _intRange: 10
+}

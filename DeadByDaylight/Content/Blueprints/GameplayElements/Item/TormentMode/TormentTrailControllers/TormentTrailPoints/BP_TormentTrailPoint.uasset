@@ -1,0 +1,101 @@
+{
+    ComponentTemplates: [
+            {
+                StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Trail/Path/SM_K20_Path_01.SM_K20_Path_01
+                CastShadow: False
+                bCastStaticShadow: False
+                DetailLevelBeforeCastShadows: DM_MAX
+                Mobility: EComponentMobility::Movable
+            }
+    ]
+    Timelines: [
+        TimelineTemplate BP_TormentTrailPoint_C.Timeline_0_Template
+        , 
+        TimelineTemplate BP_TormentTrailPoint_C.dissappear_Template
+        , 
+        TimelineTemplate BP_TormentTrailPoint_C.TML_RemoveBackTrail_Template
+        , 
+        TimelineTemplate BP_TormentTrailPoint_C.TML_RemoveFrontTrail_Template
+    ]
+    SimpleConstructionScript: SimpleConstructionScript BP_TormentTrailPoint_C.SimpleConstructionScript
+    UberGraphFramePointerProperty: StructProperty BP_TormentTrailPoint_C.UberGraphFrame
+    UberGraphFunction: Function BP_TormentTrailPoint_C.ExecuteUbergraph_BP_TormentTrailPoint
+}
+<--- CDO --->
+{
+    UberGraphFrame: None
+    PillardArray: [
+        StaticMesh /Game/Meshes/InteractableObjects/PIllards/SM_Pillard01.SM_Pillard01
+        , 
+        StaticMesh /Game/Meshes/InteractableObjects/PIllards/SM_Pillard04.SM_Pillard04
+    ]
+    PillardHeight: { X: 0, Y: 0, Z: 0 }
+    _poolableComponent: {
+        }
+    _collisionComponent: {
+            DetailLevelBeforeCastShadows: DM_MAX
+            BodyInstance: {
+                CollisionProfileName: OverlapOnlyPawn
+                CollisionResponses: {
+                    ResponseArray: [
+                        {
+                            Channel: Pawn
+                            Response: ECR_Overlap
+                        }
+                        , 
+                        {
+                            Channel: Camera
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Vehicle
+                            Response: ECR_Overlap
+                        }
+                        , 
+                        {
+                            Channel: Interactable
+                            Response: ECR_Block
+                        }
+                        , 
+                        {
+                            Channel: Audio
+                            Response: ECR_Block
+                        }
+                        , 
+                        {
+                            Channel: InteractionDetector
+                            Response: ECR_Ignore
+                        }
+                    ]
+                }
+            }
+            bVisible: False
+            bHiddenInGame: False
+        }
+    _tormentTrailAliveTime: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+                RowName: TormentTrailPointAliveTime
+            }
+        }
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Add
+                ModifierTag: {
+                    TagName: GameplayModifierType.ModifyTormentTrailLifetime
+                }
+                CompoundStrategy: EModifierCompoundStrategy::Add
+            }
+        ]
+    }
+    _trailMeshList: [
+        StaticMesh /Game/Meshes/InteractableObjects/Trail/Path/SM_K20_Path_01.SM_K20_Path_01
+        , 
+        StaticMesh /Game/Meshes/InteractableObjects/Trail/Path/SM_K20_Path_02.SM_K20_Path_02
+        , 
+        StaticMesh /Game/Meshes/InteractableObjects/Trail/Path/SM_K20_Path_03.SM_K20_Path_03
+    ]
+    RootComponent: SphereComponent Default__BP_TormentTrailPoint_C.CollisionComponent
+}
