@@ -1,4 +1,10 @@
 {
+    ComponentTemplates: [
+            {
+                DetailLevelBeforeCastShadows: DM_MAX
+                Mobility: EComponentMobility::Movable
+            }
+    ]
     Timelines: [
         TimelineTemplate BP_TormentTrailAttackPoint_C.TML_ScaleObject_Template
     ]
@@ -9,8 +15,23 @@
 <--- CDO --->
 {
     UberGraphFrame: None
+    TrailMeshList: [
+        StaticMesh /Game/Meshes/InteractableObjects/Trail/Path/SM_K20_Path_01.SM_K20_Path_01
+        , 
+        StaticMesh /Game/Meshes/InteractableObjects/Trail/Path/SM_K20_Path_02.SM_K20_Path_02
+        , 
+        StaticMesh /Game/Meshes/InteractableObjects/Trail/Path/SM_K20_Path_03.SM_K20_Path_03
+    ]
+    _attackPointDelayToEnableCollision: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Wales/K20_TunableDB.K20_TunableDB
+            RowName: AttackPointDelayToEnableCollision
+        }
+    }
     _collisionComponent: {
             DetailLevelBeforeCastShadows: DM_MAX
+            bVisible: False
+            bHiddenInGame: False
         }
     _tormentTrailAliveTime: {
         _baseValue: {
@@ -19,6 +40,9 @@
                 RowName: AttackTrailPoint_AliveTime
             }
         }
+    }
+    PrimaryActorTick: {
+        bCanEverTick: True
     }
     bReplicateMovement: True
     bReplicates: True
