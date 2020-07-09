@@ -36,6 +36,25 @@ Row QuestEvent.Blind:
     Id: QuestEvent.Blind
 }
 
+Row QuestEvent.BlindBurn:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.SlasherBlinded
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Camper.BurnSlasher.Invisibility
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Camper.BurnSlasher.Blink
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.BlindBurn
+}
+
 Row QuestEvent.BlindCarry:
 {
     TrackedGameEvents: [
@@ -370,6 +389,17 @@ Row QuestEvent.EscapeHatch:
     Id: QuestEvent.EscapeHatch
 }
 
+Row QuestEvent.EscapeObsession:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Camper.ObsessionEscape
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.EscapeObsession
+}
+
 Row QuestEvent.EscapeOther:
 {
     TrackedGameEvents: [
@@ -497,6 +527,61 @@ Row QuestEvent.GrabLocker:
     ]
     QuestEventEvaluator: None
     Id: QuestEvent.GrabLocker
+}
+
+Row QuestEvent.HagTeleport:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Slasher.Hag.PhantomTrapTeleport
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.HagTeleport
+}
+
+Row QuestEvent.HagTeleportLongDistance:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Slasher.Hag.PhantomTrapTeleport
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.CustomValueMoreThanAmountQEEvaluator
+    Id: QuestEvent.HagTeleportLongDistance
+}
+
+Row QuestEvent.HagTeleportShortDistance:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Slasher.Hag.PhantomTrapTeleport
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.CustomValueLessThanAmountQEEvaluator
+    Id: QuestEvent.HagTeleportShortDistance
+}
+
+Row QuestEvent.HagTrapMultiple:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Hag.TriggerPhantomTrap
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.MultipleEventsInTimeFrameQEEvaluator
+    Id: QuestEvent.HagTrapMultiple
+}
+
+Row QuestEvent.HagTrapTriggered:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Hag.TriggerPhantomTrap
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.HagTrapTriggered
 }
 
 Row QuestEvent.HatchKey:
@@ -627,6 +712,17 @@ Row QuestEvent.HealSelfUsingSolidarity:
     ]
     QuestEventEvaluator: None
     Id: QuestEvent.HealSelfUsingSolidarity
+}
+
+Row QuestEvent.HideInLockerInOrAfterChase:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.PlayerEnterCloset
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/RecentlyInChaseQuestEvaluator.RecentlyInChaseQuestEvaluator_C
+    Id: QuestEvent.HideInLockerInOrAfterChase
 }
 
 Row QuestEvent.HideInLockerNearKiller:
@@ -868,6 +964,10 @@ Row QuestEvent.KillObsession:
         }
         , 
         {
+            TagName: GameEvent.ScoreEvent.EndGame.Slasher.EntitySacrificeAtEnd
+        }
+        , 
+        {
             TagName: GameEvent.ScoreEvent.Slasher.Executioner.DeathBed.SurvivorDead
         }
     ]
@@ -1021,6 +1121,21 @@ Row QuestEvent.ProtectionHit:
     Id: QuestEvent.ProtectionHit
 }
 
+Row QuestEvent.RedGlyph:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.ActivateRedGlyph
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Camper.ActivateRedGlyph
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.RedGlyph
+}
+
 Row QuestEvent.Repair:
 {
     TrackedGameEvents: [
@@ -1144,17 +1259,6 @@ Row QuestEvent.SacrificeEndgame:
     ]
     QuestEventEvaluator: /Script/Archives.DuringEndGameCollapseQEEvaluator
     Id: QuestEvent.SacrificeEndgame
-}
-
-Row QuestEvent.UnhookSurvivorWhileOnDeathHook:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameplayModifierType.ScoreModifier.Camper.SafeUnhook
-        }
-    ]
-    QuestEventEvaluator: /Script/Archives.InstigatorHookCountQEEvaluator
-    Id: QuestEvent.UnhookSurvivorWhileOnDeathHook
 }
 
 Row QuestEvent.Scream:
@@ -1421,6 +1525,17 @@ Row QuestEvent.UnhookBasement:
     Id: QuestEvent.UnhookBasement
 }
 
+Row QuestEvent.UnhookDifferent:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Camper.SafeUnhook
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.UniqueTargetIncrementQEEvaluator
+    Id: QuestEvent.UnhookDifferent
+}
+
 Row QuestEvent.UnhookEndgame:
 {
     TrackedGameEvents: [
@@ -1451,28 +1566,6 @@ Row QuestEvent.UnhookProtectionHit:
     Id: QuestEvent.UnhookProtectionHit
 }
 
-Row QuestEvent.UnhookUnsafe:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.CamperWasUnhooked
-        }
-    ]
-    QuestEventEvaluator: None
-    Id: QuestEvent.UnhookUnsafe
-}
-
-Row QuestEvent.UnhookDifferent:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Camper.SafeUnhook
-        }
-    ]
-    QuestEventEvaluator: /Script/Archives.UniqueTargetIncrementQEEvaluator
-    Id: QuestEvent.UnhookDifferent
-}
-
 Row QuestEvent.UnhookSafeWhoUnhooked:
 {
     TrackedGameEvents: [
@@ -1482,6 +1575,28 @@ Row QuestEvent.UnhookSafeWhoUnhooked:
     ]
     QuestEventEvaluator: /Script/Archives.ReturnTheFavorQEEvaluator
     Id: QuestEvent.UnhookSafeWhoUnhooked
+}
+
+Row QuestEvent.UnhookSurvivorWhileOnDeathHook:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameplayModifierType.ScoreModifier.Camper.SafeUnhook
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.InstigatorHookCountQEEvaluator
+    Id: QuestEvent.UnhookSurvivorWhileOnDeathHook
+}
+
+Row QuestEvent.UnhookUnsafe:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.CamperWasUnhooked
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.UnhookUnsafe
 }
 
 Row QuestEvent.UnhookWhoUnhooked:
@@ -1521,7 +1636,7 @@ Row QuestEvent.VaultInChase:
 {
     TrackedGameEvents: [
         {
-            TagName: GameEvent.Camper.Vault.InChase
+            TagName: GameEvent.Camper.VaultInChase
         }
     ]
     QuestEventEvaluator: None
@@ -1548,4 +1663,70 @@ Row QuestEvent.WiggleFree:
     ]
     QuestEventEvaluator: None
     Id: QuestEvent.WiggleFree
+}
+
+Row QuestEvent.WraithBell:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Slasher.Wraith.HitBell
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.WraithBell
+}
+
+Row QuestEvent.WraithBellNearSurvivor:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Slasher.Wraith.HitBell
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/SurvivorNearMeEvaluator.SurvivorNearMeEvaluator_C
+    Id: QuestEvent.WraithBellNearSurvivor
+}
+
+Row QuestEvent.WraithBellNearSurvivorDifferent:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Slasher.Wraith.HitBell
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.DifferentSurvivorsNearMeQEEvaluator
+    Id: QuestEvent.WraithBellNearSurvivorDifferent
+}
+
+Row QuestEvent.WraithHitAfterUncloak:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.UncloakAttack
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.WraithHitAfterUncloak
+}
+
+Row QuestEvent.WraithHitDifferentAfterUncloak:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.UncloakAttack
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.UniqueTargetIncrementQEEvaluator
+    Id: QuestEvent.WraithHitDifferentAfterUncloak
+}
+
+Row QuestEvent.WraithStalk:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Slasher.Wraith.CloakStalk
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.CustomValueQEEvaluator
+    Id: QuestEvent.WraithStalk
 }

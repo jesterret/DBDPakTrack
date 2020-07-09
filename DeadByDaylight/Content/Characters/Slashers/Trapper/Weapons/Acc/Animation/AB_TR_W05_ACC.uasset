@@ -1,13 +1,57 @@
 {
     BakedStateMachines: [
         {
-            MachineName: State
+            MachineName: BaseState
             InitialState: 0
             States: [
                 {
-                    StateName: Idle
+                    StateName: Base
+                    Transitions: [
+                        {
+                            CanTakeDelegateIndex: 15
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 1
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                        , 
+                        {
+                            CanTakeDelegateIndex: 16
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 0
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                    ]
+                    StateRootNodeIndex: 13
+                    StartNotify: -1
+                    EndNotify: -1
+                    FullyBlendedNotify: -1
+                    bIsAConduit: False
+                    EntryRuleNodeIndex: -1
+                    PlayerNodeIndices: [ ]
+                    bAlwaysResetOnEntry: False
+                }
+                , 
+                {
+                    StateName: Menu
                     Transitions: [ ]
-                    StateRootNodeIndex: 4
+                    StateRootNodeIndex: 3
+                    StartNotify: -1
+                    EndNotify: -1
+                    FullyBlendedNotify: -1
+                    bIsAConduit: False
+                    EntryRuleNodeIndex: -1
+                    PlayerNodeIndices: [ ]
+                    bAlwaysResetOnEntry: False
+                }
+                , 
+                {
+                    StateName: InGame
+                    Transitions: [ ]
+                    StateRootNodeIndex: 8
                     StartNotify: -1
                     EndNotify: -1
                     FullyBlendedNotify: -1
@@ -17,10 +61,76 @@
                     bAlwaysResetOnEntry: False
                 }
             ]
-            Transitions: [ ]
+            Transitions: [
+                {
+                    PreviousState: 0
+                    NextState: 2
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+                , 
+                {
+                    PreviousState: 0
+                    NextState: 1
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+            ]
         }
     ]
     TargetSkeleton: Skeleton /Game/Characters/Slashers/Trapper/Weapons/Acc/TR_W05_ACC_REF_Skeleton.TR_W05_ACC_REF_Skeleton
+    OrderedSavedPoseIndices: [
+        0
+    ]
+    EvaluateGraphExposedInputs: [
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: OwningCharacterSkeletalMesh
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: WeakObjectProperty /Script/AnimGraphRuntime.AnimNode_CopyPoseFromMesh.SourceMeshComponent
+                    DestArrayIndex: 0
+                    Size: 8
+                    CachedSourceProperty: ObjectProperty AB_TR_W05_ACC_C.OwningCharacterSkeletalMesh
+                    CachedSourceStructSubProperty: null
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: StructProperty AB_TR_W05_ACC_C.AnimGraphNode_CopyPoseFromMesh_C8CA5C534903731E50330F816D8953C7
+        }
+        , 
+        {
+            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_AB_TR_W05_ACC_AnimGraphNode_TransitionResult_2F26D8B04850C53E6ECD9F95D935C7F2
+            CopyRecords: [ ]
+            Function: Function AB_TR_W05_ACC_C.EvaluateGraphExposedInputs_ExecuteUbergraph_AB_TR_W05_ACC_AnimGraphNode_TransitionResult_2F26D8B04850C53E6ECD9F95D935C7F2
+            ValueHandlerNodeProperty: StructProperty AB_TR_W05_ACC_C.AnimGraphNode_TransitionResult_2F26D8B04850C53E6ECD9F95D935C7F2
+        }
+        , 
+        {
+            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_AB_TR_W05_ACC_AnimGraphNode_TransitionResult_BB6F883B4484F9327C0423925DCEE544
+            CopyRecords: [ ]
+            Function: Function AB_TR_W05_ACC_C.EvaluateGraphExposedInputs_ExecuteUbergraph_AB_TR_W05_ACC_AnimGraphNode_TransitionResult_BB6F883B4484F9327C0423925DCEE544
+            ValueHandlerNodeProperty: StructProperty AB_TR_W05_ACC_C.AnimGraphNode_TransitionResult_BB6F883B4484F9327C0423925DCEE544
+        }
+    ]
     UberGraphFramePointerProperty: StructProperty AB_TR_W05_ACC_C.UberGraphFrame
     UberGraphFunction: Function AB_TR_W05_ACC_C.ExecuteUbergraph_AB_TR_W05_ACC
 }
@@ -29,21 +139,27 @@
     UberGraphFrame: None
     AnimGraphNode_Root_26B238124487549902333CB9302D3EEA: {
         Result: {
-            LinkID: 5
+            LinkID: 15
         }
     }
-    AnimGraphNode_StateResult_9B0AFE334327FEAFFE3127ACE7940B83: {
+    AnimGraphNode_TransitionResult_BB6F883B4484F9327C0423925DCEE544: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_TransitionResult_2F26D8B04850C53E6ECD9F95D935C7F2: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_UseCachedPose_35FF42D344172093E3A08ABF5ADC315D: {
+        LinkToCachingNode: {
+            LinkID: 17
+        }
+        CachePoseName: CopyMesh
+    }
+    AnimGraphNode_StateResult_FBE6049E4C9D26AE275B5B85DF5F87D5: {
         Result: {
-            LinkID: -1
+            LinkID: 3
         }
     }
-    AnimGraphNode_StateMachine_1135B6584EDD525D0750688BE5C5D49B: {
-        StateMachineIndexInClass: 0
-        MaxTransitionsPerFrame: 3
-        bSkipFirstUpdateTransition: True
-        bReinitializeOnBecomingRelevant: True
-    }
-    AnimGraphNode_AnimDynamics_495245F4477C972423D535BCD250BD95: {
+    AnimGraphNode_AnimDynamics_781C6F444B5C9864030E3CB96B24A63D: {
         LinearDampingOverride: 0
         AngularDampingOverride: 0.5
         RelativeSpaceBone: {
@@ -102,7 +218,7 @@
         bAngularSpring: True
         bChain: True
         ComponentPose: {
-            LinkID: 4
+            LinkID: 7
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -146,14 +262,167 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_LocalToComponentSpace_E653384B44B9AB34363237981200E726: {
+    AnimGraphNode_UseCachedPose_8F1AB9DB4830235F1DF87AB42070CA5D: {
+        LinkToCachingNode: {
+            LinkID: 17
+        }
+        CachePoseName: CopyMesh
+    }
+    AnimGraphNode_LocalToComponentSpace_C8C7F95140750DAA0C0CE9905583F413: {
         LocalPose: {
-            LinkID: 2
+            LinkID: 6
         }
     }
-    AnimGraphNode_ComponentToLocalSpace_43C09E594B3192BF623496A8CCF10C97: {
+    AnimGraphNode_ComponentToLocalSpace_746E00A04A0818CC0F6A69BDA755E876: {
         ComponentPose: {
-            LinkID: 3
+            LinkID: 5
         }
     }
+    AnimGraphNode_StateResult_F558586141212D1CA5B4DD8369F87643: {
+        Result: {
+            LinkID: 8
+        }
+    }
+    AnimGraphNode_AnimDynamics_A87FF83541563B73539A1D9665965E3E: {
+        LinearDampingOverride: 0
+        AngularDampingOverride: 0.5
+        RelativeSpaceBone: {
+            BoneName: joint_chain_Char
+        }
+        bHardLinkChain: False
+        BoundBone: {
+            BoneName: joint_Chain02
+        }
+        ChainEnd: {
+            BoneName: joint_Chain06
+        }
+        BoxExtents: { X: 20, Y: 20, Z: 20 }
+        LocalJointOffset: { X: -2, Y: 0, Z: 0 }
+        GravityScale: 1
+        GravityOverride: { X: 0, Y: 0, Z: 0 }
+        LinearSpringConstant: 1
+        AngularSpringConstant: 3
+        WindScale: 1
+        ComponentLinearAccScale: { X: 0, Y: 0, Z: 0 }
+        ComponentLinearVelScale: { X: 0, Y: 0, Z: 0 }
+        ComponentAppliedLinearAccClamp: { X: 100000, Y: 100000, Z: 100000 }
+        AngularBiasOverride: 0
+        NumSolverIterationsPreUpdate: 4
+        NumSolverIterationsPostUpdate: 1
+        ConstraintSetup: {
+            LinearXLimitType: AnimPhysLinearConstraintType::Limited
+            LinearYLimitType: AnimPhysLinearConstraintType::Limited
+            LinearZLimitType: AnimPhysLinearConstraintType::Limited
+            LinearAxesMin: { X: 0, Y: 0, Z: 0 }
+            LinearAxesMax: { X: 0, Y: 0, Z: 0 }
+            AngularConstraintType: AnimPhysAngularConstraintType::Angular
+            TwistAxis: AnimPhysTwistAxis::AxisX
+            AngularTargetAxis: AnimPhysTwistAxis::AxisX
+            ConeAngle: 0
+            AngularLimitsMin: { X: -45, Y: -90, Z: -90 }
+            AngularLimitsMax: { X: 45, Y: 90, Z: 90 }
+            AngularTarget: { X: 0, Y: 0, Z: 0 }
+        }
+        SphericalLimits: [ ]
+        SphereCollisionRadius: 0
+        ExternalForce: { X: 0, Y: 0, Z: 0 }
+        PlanarLimits: [ ]
+        CollisionType: AnimPhysCollisionType::CoM
+        SimulationSpace: AnimPhysSimSpaceType::World
+        bUseSphericalLimits: False
+        bUsePlanarLimit: True
+        bDoUpdate: True
+        bDoEval: True
+        bOverrideLinearDamping: False
+        bOverrideAngularBias: False
+        bOverrideAngularDamping: True
+        bEnableWind: False
+        bUseGravityOverride: False
+        bLinearSpring: True
+        bAngularSpring: True
+        bChain: True
+        ComponentPose: {
+            LinkID: 12
+        }
+        LODThreshold: -1
+        ActualAlpha: 0
+        AlphaInputType: EAnimAlphaInputType::Float
+        bAlphaBoolEnabled: True
+        Alpha: 1
+        AlphaScaleBias: {
+            Scale: 1
+            Bias: 0
+        }
+        AlphaBoolBlend: {
+            BlendInTime: 0
+            BlendOutTime: 0
+            BlendOption: EAlphaBlendOption::Linear
+            bInitialized: False
+            CustomCurve: null
+            AlphaBlend: {
+                CustomCurve: null
+                BlendTime: 0.2
+                BlendOption: EAlphaBlendOption::Linear
+            }
+        }
+        AlphaCurveName: None
+        AlphaScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+    }
+    AnimGraphNode_UseCachedPose_00193E4346D124CBEC17D8A8E306B1C8: {
+        LinkToCachingNode: {
+            LinkID: 17
+        }
+        CachePoseName: CopyMesh
+    }
+    AnimGraphNode_LocalToComponentSpace_1CCA5BDB4B6D6649B1D956A945E6F8A7: {
+        LocalPose: {
+            LinkID: 11
+        }
+    }
+    AnimGraphNode_ComponentToLocalSpace_45354E414039DC950E1A7682176AF5B4: {
+        ComponentPose: {
+            LinkID: 10
+        }
+    }
+    AnimGraphNode_StateResult_AC86216345C911AAB273B1A9E03025FD: {
+        Result: {
+            LinkID: 13
+        }
+    }
+    AnimGraphNode_StateMachine_94AE80A749BF1AA464B8BC985ABCAA15: {
+        StateMachineIndexInClass: 0
+        MaxTransitionsPerFrame: 3
+        bSkipFirstUpdateTransition: True
+        bReinitializeOnBecomingRelevant: True
+    }
+    AnimGraphNode_CopyPoseFromMesh_C8CA5C534903731E50330F816D8953C7: {
+        SourceMeshComponent: null
+        bUseAttachedParent: False
+        bCopyCurves: False
+    }
+    AnimGraphNode_SaveCachedPose_EBEA76A345B6D5D09513B6A271F88353: {
+        Pose: {
+            LinkID: 16
+        }
+        CachePoseName: CopyMesh
+    }
+    bUsingCopyPoseFromMesh: True
 }

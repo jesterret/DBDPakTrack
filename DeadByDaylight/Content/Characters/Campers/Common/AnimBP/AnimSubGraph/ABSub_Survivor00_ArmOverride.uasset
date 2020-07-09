@@ -294,6 +294,15 @@
                         {
                             CanTakeDelegateIndex: 38
                             CustomResultNodeIndex: -1
+                            TransitionIndex: 7
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                        , 
+                        {
+                            CanTakeDelegateIndex: 39
+                            CustomResultNodeIndex: -1
                             TransitionIndex: 5
                             bDesiredTransitionReturnValue: True
                             bAutomaticRemainingTimeRule: False
@@ -313,10 +322,10 @@
                 }
                 , 
                 {
-                    StateName: Conduit
+                    StateName: HoldingItem
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 39
+                            CanTakeDelegateIndex: 40
                             CustomResultNodeIndex: -1
                             TransitionIndex: 2
                             bDesiredTransitionReturnValue: True
@@ -325,7 +334,7 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 40
+                            CanTakeDelegateIndex: 41
                             CustomResultNodeIndex: -1
                             TransitionIndex: 3
                             bDesiredTransitionReturnValue: True
@@ -334,7 +343,7 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 41
+                            CanTakeDelegateIndex: 38
                             CustomResultNodeIndex: -1
                             TransitionIndex: 1
                             bDesiredTransitionReturnValue: True
@@ -355,6 +364,15 @@
                 {
                     StateName: Crawl
                     Transitions: [
+                        {
+                            CanTakeDelegateIndex: 38
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 6
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                        , 
                         {
                             CanTakeDelegateIndex: 42
                             CustomResultNodeIndex: -1
@@ -450,6 +468,34 @@
                 {
                     PreviousState: 1
                     NextState: 2
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+                , 
+                {
+                    PreviousState: 3
+                    NextState: 0
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+                , 
+                {
+                    PreviousState: 1
+                    NextState: 0
                     CrossfadeDuration: 0.2
                     StartNotify: -1
                     EndNotify: -1
@@ -728,6 +774,26 @@
             BoundFunction: None
             CopyRecords: [
                 {
+                    SourcePropertyName: _HoldingItem
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::LogicalNegateBool
+                    DestProperty: BoolProperty /Script/Engine.AnimNode_TransitionResult.bCanEnterTransition
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: BoolProperty ABSub_Survivor00_ArmOverride_C._HoldingItem
+                    CachedSourceStructSubProperty: null
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: StructProperty ABSub_Survivor00_ArmOverride_C.AnimGraphNode_TransitionResult_46326A894299FB55FAF0A289241108BA
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
                     SourcePropertyName: _IsCrawling
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
@@ -788,26 +854,6 @@
             BoundFunction: None
             CopyRecords: [
                 {
-                    SourcePropertyName: _HoldingItem
-                    SourceSubPropertyName: None
-                    SourceArrayIndex: 0
-                    bInstanceIsTarget: False
-                    PostCopyOperation: EPostCopyOperation::LogicalNegateBool
-                    DestProperty: BoolProperty /Script/Engine.AnimNode_TransitionResult.bCanEnterTransition
-                    DestArrayIndex: 0
-                    Size: 1
-                    CachedSourceProperty: BoolProperty ABSub_Survivor00_ArmOverride_C._HoldingItem
-                    CachedSourceStructSubProperty: null
-                }
-            ]
-            Function: null
-            ValueHandlerNodeProperty: StructProperty ABSub_Survivor00_ArmOverride_C.AnimGraphNode_TransitionResult_621BDD6B48A3D072056B42BD64841010
-        }
-        , 
-        {
-            BoundFunction: None
-            CopyRecords: [
-                {
                     SourcePropertyName: _IsCrawling
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
@@ -835,7 +881,7 @@
             LinkID: 45
         }
     }
-    AnimGraphNode_SubInput_078D3E814D2E11439961948B3B2DA3C2: AnimNode_SubInput: FD-00-00-00-00-00-00-00
+    AnimGraphNode_SubInput_078D3E814D2E11439961948B3B2DA3C2: AnimNode_SubInput: FE-00-00-00-00-00-00-00
     AnimGraphNode_SaveCachedPose_3D29CE6A479E88046A7E66A1C257A9D1: {
         Pose: {
             LinkID: 1
@@ -845,9 +891,6 @@
     AnimGraphNode_TransitionResult_0B9BE76A4ADB7EE65393078CF5CA0807: {
         bCanEnterTransition: False
     }
-    AnimGraphNode_TransitionResult_621BDD6B48A3D072056B42BD64841010: {
-        bCanEnterTransition: False
-    }
     AnimGraphNode_TransitionResult_C129B29C474DC25273D6238297DBEECF: {
         bCanEnterTransition: False
     }
@@ -855,6 +898,9 @@
         bCanEnterTransition: False
     }
     AnimGraphNode_TransitionResult_B0D75D7943682D6593768A8FEDB3664F: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_TransitionResult_46326A894299FB55FAF0A289241108BA: {
         bCanEnterTransition: False
     }
     AnimGraphNode_TransitionResult_64550E4D4796AB95B46A56921B0C9796: {

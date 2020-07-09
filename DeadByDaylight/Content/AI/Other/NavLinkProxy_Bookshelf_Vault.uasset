@@ -1,0 +1,47 @@
+{
+    SimpleConstructionScript: SimpleConstructionScript NavLinkProxy_Bookshelf_Vault_C.SimpleConstructionScript
+}
+<--- CDO --->
+{
+    PlayerSetups: [
+        [ EPlayerRole::VE_Camper
+         => 
+        {
+            Input: EPawnInputPressTypes::FastInteract
+            InteractionIds: [
+                Vault
+                , 
+                VaultFast
+                , 
+                RunVault
+            ]
+            InputTimeDeviationInChase: {
+                DefaultValue: 0
+                TunableName: VaultInChaseInputRandDelay
+            }
+        }
+        ], 
+        [ EPlayerRole::VE_Slasher
+         => 
+        {
+            Input: EPawnInputPressTypes::Interact
+            InteractionIds: [
+                Destroy
+                , 
+                FrenzySlasherVaultOverPulldown
+            ]
+            InputTimeDeviationInChase: {
+                DefaultValue: 0
+                TunableName: None
+            }
+        }
+        ]]
+    PointLinks: [ ]
+    SmartLinkComp: {
+            BaseLinkRelativeStart: { X: -120, Y: 0, Z: 0 }
+            BaseLinkRelativeEnd: { X: 120, Y: 0, Z: 0 }
+            EnabledAreaClass: Class /Script/DBDBots.NavArea_Vault
+        }
+    RootComponent: {
+        }
+}

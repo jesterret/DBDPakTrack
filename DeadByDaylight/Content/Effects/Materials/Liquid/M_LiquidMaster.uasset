@@ -3,7 +3,7 @@ Asset: Material M_LiquidMaster
     Metallic: MaterialExpressionScalarParameter: None
     Specular: MaterialExpressionScalarParameter: None
     Normal: MaterialExpressionTextureSampleParameter2D: None
-    EmissiveColor: MaterialExpressionMultiply: None
+    EmissiveColor: MaterialExpressionLinearInterpolate: None
     BlendMode: BLEND_Translucent
     bEnableResponsiveAA: True
     TwoSided: True
@@ -20,6 +20,8 @@ Asset: Material M_LiquidMaster
         MaterialExpressionScalarParameter M_LiquidMaster.MaterialExpressionScalarParameter
         , 
         MaterialExpressionTextureSampleParameter2D M_LiquidMaster.MaterialExpressionTextureSampleParameter2D
+        , 
+        null
         , 
         null
         , 
@@ -102,6 +104,14 @@ Asset: Material M_LiquidMaster
         null
         , 
         null
+        , 
+        MaterialExpressionScalarParameter M_LiquidMaster.MaterialExpressionScalarParameter
+        , 
+        MaterialExpressionCollectionParameter M_LiquidMaster.MaterialExpressionCollectionParameter
+        , 
+        MaterialExpressionMaterialFunctionCall M_LiquidMaster.MaterialExpressionMaterialFunctionCall
+        , 
+        null
     ]
     MaterialFunctionInfos: [
         {
@@ -123,8 +133,44 @@ Asset: Material M_LiquidMaster
             StateId: cb73c6d3-0768-42fe-876a-60de527fc8ff
             Function: MaterialFunction /Game/Materials/MaterialFunctions/MF_SmoothStep.MF_SmoothStep
         }
+        , 
+        {
+            StateId: a9e4f021-1cc9-4616-964f-2aa232722d72
+            Function: MaterialFunction /Engine/Functions/Engine_MaterialFunctions02/SplitComponents.SplitComponents
+        }
+    ]
+    MaterialParameterCollectionInfos: [
+        {
+            StateId: dfa84f73-a8fb-49c0-aef2-e529faa6e4ee
+            ParameterCollection: MaterialParameterCollection /Game/Effects/Materials/Collections/MPC_AmbientColoration.MPC_AmbientColoration
+        }
     ]
     bCanMaskedBeAssumedOpaque: True
-    StateId: 57ae352f-d0b6-40fe-bc07-563bbcbce066
+    StateId: e654875b-2fd0-45f7-9560-1192bc3c6bdb
     CachedQualityLevelsUsed: [ 0, 1, 0 ]
+    TextureStreamingData: [
+        {
+            SamplingScale: 1
+            UVChannelIndex: 0
+            TextureName: T_Liquid_Clip_A
+        }
+        , 
+        {
+            SamplingScale: 1
+            UVChannelIndex: 0
+            TextureName: T_Mud
+        }
+        , 
+        {
+            SamplingScale: 1
+            UVChannelIndex: 0
+            TextureName: T_Mud_N
+        }
+        , 
+        {
+            SamplingScale: 0.703125
+            UVChannelIndex: 0
+            TextureName: T_Noise_N_02
+        }
+    ]
 }

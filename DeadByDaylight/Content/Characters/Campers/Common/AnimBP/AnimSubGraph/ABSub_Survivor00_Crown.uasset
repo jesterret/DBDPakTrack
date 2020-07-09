@@ -8,7 +8,16 @@
                     StateName: Base
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 7
+                            CanTakeDelegateIndex: 11
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 2
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                        , 
+                        {
+                            CanTakeDelegateIndex: 12
                             CustomResultNodeIndex: -1
                             TransitionIndex: 0
                             bDesiredTransitionReturnValue: True
@@ -30,7 +39,7 @@
                     StateName: Crown_Interaction
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 8
+                            CanTakeDelegateIndex: 13
                             CustomResultNodeIndex: -1
                             TransitionIndex: 1
                             bDesiredTransitionReturnValue: True
@@ -48,6 +57,32 @@
                         4
                         , 
                         5
+                    ]
+                    bAlwaysResetOnEntry: False
+                }
+                , 
+                {
+                    StateName: Glyph
+                    Transitions: [
+                        {
+                            CanTakeDelegateIndex: 14
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 3
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                    ]
+                    StateRootNodeIndex: 7
+                    StartNotify: -1
+                    EndNotify: -1
+                    FullyBlendedNotify: -1
+                    bIsAConduit: False
+                    EntryRuleNodeIndex: -1
+                    PlayerNodeIndices: [
+                        8
+                        , 
+                        9
                     ]
                     bAlwaysResetOnEntry: False
                 }
@@ -80,12 +115,40 @@
                     LogicType: ETransitionLogicType::TLT_StandardBlend
                     StateName: None
                 }
+                , 
+                {
+                    PreviousState: 0
+                    NextState: 2
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+                , 
+                {
+                    PreviousState: 2
+                    NextState: 0
+                    CrossfadeDuration: 0.1
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
             ]
         }
     ]
     TargetSkeleton: Skeleton /Game/Characters/Campers/Models/CamperMale_REF_Skeleton.CamperMale_REF_Skeleton
     OrderedSavedPoseIndices: [
-        9
+        15
     ]
     EvaluateGraphExposedInputs: [
         {
@@ -149,6 +212,73 @@
         }
         , 
         {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: TakeGlyphInjured
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: ObjectProperty /Script/Engine.AnimNode_SequencePlayer.Sequence
+                    DestArrayIndex: 0
+                    Size: 8
+                    CachedSourceProperty: ObjectProperty ABSub_Survivor00_Crown_C.TakeGlyphInjured
+                    CachedSourceStructSubProperty: null
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: StructProperty ABSub_Survivor00_Crown_C.AnimGraphNode_SequencePlayer_D0497C7040B6594F002B2181CB3AE49F
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: TakeGlyph
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: ObjectProperty /Script/Engine.AnimNode_SequencePlayer.Sequence
+                    DestArrayIndex: 0
+                    Size: 8
+                    CachedSourceProperty: ObjectProperty ABSub_Survivor00_Crown_C.TakeGlyph
+                    CachedSourceStructSubProperty: null
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: StructProperty ABSub_Survivor00_Crown_C.AnimGraphNode_SequencePlayer_7FFD36F64898B2FDC45A77A0AE46CE08
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _IsInjured
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: BoolProperty /Script/AnimGraphRuntime.AnimNode_BlendListByBool.bActiveValue
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: BoolProperty ABSub_Survivor00_Crown_C._IsInjured
+                    CachedSourceStructSubProperty: null
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: StructProperty ABSub_Survivor00_Crown_C.AnimGraphNode_BlendListByBool_972DBDB54E3F48A3C4DE31A60893D0C3
+        }
+        , 
+        {
+            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Crown_AnimGraphNode_TransitionResult_BDB090374E1700A7AC71B8AFE955E2C6
+            CopyRecords: [ ]
+            Function: Function ABSub_Survivor00_Crown_C.EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Crown_AnimGraphNode_TransitionResult_BDB090374E1700A7AC71B8AFE955E2C6
+            ValueHandlerNodeProperty: StructProperty ABSub_Survivor00_Crown_C.AnimGraphNode_TransitionResult_BDB090374E1700A7AC71B8AFE955E2C6
+        }
+        , 
+        {
             BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Crown_AnimGraphNode_TransitionResult_AD1BA9334857865256A1B2AFAEDDFCB2
             CopyRecords: [ ]
             Function: Function ABSub_Survivor00_Crown_C.EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Crown_AnimGraphNode_TransitionResult_AD1BA9334857865256A1B2AFAEDDFCB2
@@ -161,6 +291,13 @@
             Function: Function ABSub_Survivor00_Crown_C.EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Crown_AnimGraphNode_TransitionResult_D55E0DB741C288881884B3B8F94AA835
             ValueHandlerNodeProperty: StructProperty ABSub_Survivor00_Crown_C.AnimGraphNode_TransitionResult_D55E0DB741C288881884B3B8F94AA835
         }
+        , 
+        {
+            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Crown_AnimGraphNode_TransitionResult_AF74BE4A41E3E6CD846551849BD81033
+            CopyRecords: [ ]
+            Function: Function ABSub_Survivor00_Crown_C.EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Crown_AnimGraphNode_TransitionResult_AF74BE4A41E3E6CD846551849BD81033
+            ValueHandlerNodeProperty: StructProperty ABSub_Survivor00_Crown_C.AnimGraphNode_TransitionResult_AF74BE4A41E3E6CD846551849BD81033
+        }
     ]
     UberGraphFramePointerProperty: StructProperty ABSub_Survivor00_Crown_C.UberGraphFrame
     UberGraphFunction: Function ABSub_Survivor00_Crown_C.ExecuteUbergraph_ABSub_Survivor00_Crown
@@ -170,15 +307,18 @@
     UberGraphFrame: None
     AnimGraphNode_Root_15A1892A43974CC54DB6D4849A5625BD: {
         Result: {
-            LinkID: 11
+            LinkID: 17
         }
     }
-    AnimGraphNode_SubInput_71F2F04041CDF419C8DFE48AA38DEF17: AnimNode_SubInput: A4-00-00-00-00-00-00-00
+    AnimGraphNode_SubInput_71F2F04041CDF419C8DFE48AA38DEF17: AnimNode_SubInput: B7-00-00-00-00-00-00-00
     AnimGraphNode_SaveCachedPose_7986287145B1C4BC5561D0BD265A01DF: {
         Pose: {
             LinkID: 1
         }
         CachePoseName: CacheInput
+    }
+    AnimGraphNode_TransitionResult_AF74BE4A41E3E6CD846551849BD81033: {
+        bCanEnterTransition: False
     }
     AnimGraphNode_TransitionResult_D55E0DB741C288881884B3B8F94AA835: {
         bCanEnterTransition: False
@@ -186,15 +326,106 @@
     AnimGraphNode_TransitionResult_AD1BA9334857865256A1B2AFAEDDFCB2: {
         bCanEnterTransition: False
     }
+    AnimGraphNode_TransitionResult_BDB090374E1700A7AC71B8AFE955E2C6: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_BlendListByBool_972DBDB54E3F48A3C4DE31A60893D0C3: {
+        bActiveValue: False
+        BlendPose: [
+            {
+                LinkID: 9
+            }
+            , 
+            {
+                LinkID: 8
+            }
+        ]
+        BlendTime: [
+            0.1
+            , 
+            0.1
+        ]
+        BlendType: EAlphaBlendOption::Linear
+        bResetChildOnActivation: False
+        CustomBlendCurve: null
+        BlendProfile: null
+    }
+    AnimGraphNode_SequencePlayer_7FFD36F64898B2FDC45A77A0AE46CE08: {
+        Sequence: null
+        PlayRateBasis: 1
+        PlayRate: 1
+        PlayRateScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+        StartPosition: 0
+        bLoopAnimation: True
+        GroupIndex: -1
+        GroupRole: EAnimGroupRole::CanBeLeader
+        bIgnoreForRelevancyTest: False
+        BlendWeight: 0
+        InternalTimeAccumulator: 0
+    }
+    AnimGraphNode_SequencePlayer_D0497C7040B6594F002B2181CB3AE49F: {
+        Sequence: null
+        PlayRateBasis: 1
+        PlayRate: 1
+        PlayRateScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+        StartPosition: 0
+        bLoopAnimation: True
+        GroupIndex: -1
+        GroupRole: EAnimGroupRole::CanBeLeader
+        bIgnoreForRelevancyTest: False
+        BlendWeight: 0
+        InternalTimeAccumulator: 0
+    }
+    AnimGraphNode_StateResult_C501521442D641FB608C8F92DEBC5AE8: {
+        Result: {
+            LinkID: 7
+        }
+    }
     AnimGraphNode_BlendListByBool_0F460F3840F566683C3A5E928F9483C0: {
         bActiveValue: False
         BlendPose: [
             {
-                LinkID: 7
+                LinkID: 13
             }
             , 
             {
-                LinkID: 6
+                LinkID: 12
             }
         ]
         BlendTime: [
@@ -271,7 +502,7 @@
     }
     AnimGraphNode_StateResult_E5C8AFE9476BD2C699BB1C92B8BB4172: {
         Result: {
-            LinkID: 5
+            LinkID: 11
         }
     }
     AnimGraphNode_UseCachedPose_4B8305EF416D9707B0BA20ACD87CA8D0: {
@@ -282,7 +513,7 @@
     }
     AnimGraphNode_StateResult_7DD42BB842D0EF14E0903196969B41DB: {
         Result: {
-            LinkID: 9
+            LinkID: 15
         }
     }
     AnimGraphNode_StateMachine_396F9107448C911B2418F4AFDC261F10: {
