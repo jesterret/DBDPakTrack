@@ -18,6 +18,7 @@
                         , 
                         13
                     ]
+                    LayerNodeIndices: [ ]
                     bAlwaysResetOnEntry: False
                 }
             ]
@@ -25,6 +26,13 @@
         }
     ]
     TargetSkeleton: Skeleton /Game/Characters/Slashers/Models/SlasherMale_REF_Skeleton.SlasherMale_REF_Skeleton
+    OrderedSavedPoseIndicesMap: [
+        [ AnimGraph
+         => 
+        {
+            OrderedSavedPoseNodeIndices: [ ]
+        }
+        ]]
     EvaluateGraphExposedInputs: [
         {
             BoundFunction: None
@@ -35,15 +43,15 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: BoolProperty /Script/AnimGraphRuntime.AnimNode_BlendListByBool.bActiveValue
+                    DestProperty: UETools.Objects.Property.FieldPath
                     DestArrayIndex: 0
                     Size: 1
-                    CachedSourceProperty: BoolProperty AB_Menu_Slasher15_C.Is Online
-                    CachedSourceStructSubProperty: null
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
                 }
             ]
             Function: null
-            ValueHandlerNodeProperty: StructProperty AB_Menu_Slasher15_C.AnimGraphNode_BlendListByBool_45DC077F4764BED084E7ABA6539BF25E
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
         }
         , 
         {
@@ -55,29 +63,30 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: BoolProperty /Script/AnimGraphRuntime.AnimNode_BlendListByBool.bActiveValue
+                    DestProperty: UETools.Objects.Property.FieldPath
                     DestArrayIndex: 0
                     Size: 1
-                    CachedSourceProperty: BoolProperty AB_Menu_Slasher15_C.Role Selected
-                    CachedSourceStructSubProperty: null
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
                 }
             ]
             Function: null
-            ValueHandlerNodeProperty: StructProperty AB_Menu_Slasher15_C.AnimGraphNode_BlendListByBool_30AD7CC747BC6A70D4B0BEA5BD7B13F6
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
         }
     ]
-    UberGraphFramePointerProperty: StructProperty AB_Menu_Slasher15_C.UberGraphFrame
     UberGraphFunction: Function AB_Menu_Slasher15_C.ExecuteUbergraph_AB_Menu_Slasher15
 }
 <--- CDO --->
 {
     UberGraphFrame: None
-    AnimGraphNode_Root_462DFC7F49A3C22F6045C5833288AB92: {
+    AnimGraphNode_Root: {
         Result: {
             LinkID: 14
         }
+        Name: AnimGraph
+        Group: None
     }
-    AnimGraphNode_SequencePlayer_95B70C424E15A642E4CD25BD8BE5B649: {
+    AnimGraphNode_SequencePlayer: {
         Sequence: AnimSequence /Game/Characters/Slashers/Mali/AnimSequences/Locomotion/MK_IdleMenuLobby.MK_IdleMenuLobby
         PlayRateBasis: 1
         PlayRate: 1
@@ -108,7 +117,7 @@
         BlendWeight: 0
         InternalTimeAccumulator: 0
     }
-    AnimGraphNode_SequencePlayer_0A1F11584AC13EE6FCF939AFA1853C49: {
+    AnimGraphNode_SequencePlayer: {
         Sequence: AnimSequence /Game/Characters/Slashers/Mali/AnimSequences/Locomotion/MK_IdleMenuBack.MK_IdleMenuBack
         PlayRateBasis: 1
         PlayRate: 1
@@ -139,17 +148,17 @@
         BlendWeight: 0
         InternalTimeAccumulator: 0
     }
-    AnimGraphNode_ComponentToLocalSpace_88C27EB2496E60F07D9DA481DCF0A257: {
+    AnimGraphNode_ComponentToLocalSpace: {
         ComponentPose: {
             LinkID: 5
         }
     }
-    AnimGraphNode_LocalToComponentSpace_95BA62C648BB8D0EEB650EAD077EC9D2: {
+    AnimGraphNode_LocalToComponentSpace: {
         LocalPose: {
             LinkID: 12
         }
     }
-    AnimGraphNode_AnimDynamics_EE03062140D5F1F9C12AC6AD7E5E695E: {
+    AnimGraphNode_AnimDynamics: {
         LinearDampingOverride: 0.5
         AngularDampingOverride: 0
         RelativeSpaceBone: {
@@ -207,6 +216,40 @@
         bLinearSpring: True
         bAngularSpring: False
         bChain: False
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
         ComponentPose: {
             LinkID: 7
         }
@@ -252,7 +295,7 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_AnimDynamics_E5F8949B44CEDC5B631019820748A76F: {
+    AnimGraphNode_AnimDynamics: {
         LinearDampingOverride: 0.5
         AngularDampingOverride: 0
         RelativeSpaceBone: {
@@ -310,6 +353,40 @@
         bLinearSpring: True
         bAngularSpring: False
         bChain: False
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
         ComponentPose: {
             LinkID: 8
         }
@@ -355,7 +432,7 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_AnimDynamics_EF40D6A042011C57169AB6B1EC7AEDAC: {
+    AnimGraphNode_AnimDynamics: {
         LinearDampingOverride: 0.5
         AngularDampingOverride: 0
         RelativeSpaceBone: {
@@ -413,6 +490,40 @@
         bLinearSpring: True
         bAngularSpring: False
         bChain: False
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
         ComponentPose: {
             LinkID: 6
         }
@@ -458,7 +569,7 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_AnimDynamics_98483D2C41311A0725C87494F13DA629: {
+    AnimGraphNode_AnimDynamics: {
         LinearDampingOverride: 0.5
         AngularDampingOverride: 0
         RelativeSpaceBone: {
@@ -516,6 +627,40 @@
         bLinearSpring: True
         bAngularSpring: False
         bChain: False
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
         ComponentPose: {
             LinkID: 9
         }
@@ -561,7 +706,7 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_AnimDynamics_157230004047528D18B19F8A130D6AD7: {
+    AnimGraphNode_AnimDynamics: {
         LinearDampingOverride: 0
         AngularDampingOverride: 0
         RelativeSpaceBone: {
@@ -619,6 +764,40 @@
         bLinearSpring: True
         bAngularSpring: False
         bChain: False
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
         ComponentPose: {
             LinkID: 4
         }
@@ -664,7 +843,7 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_BlendListByBool_30AD7CC747BC6A70D4B0BEA5BD7B13F6: {
+    AnimGraphNode_BlendListByBool: {
         bActiveValue: False
         BlendPose: [
             {
@@ -680,12 +859,13 @@
             , 
             0
         ]
+        TransitionType: EBlendListTransitionType::StandardBlend
         BlendType: EAlphaBlendOption::Linear
         bResetChildOnActivation: True
         CustomBlendCurve: null
         BlendProfile: null
     }
-    AnimGraphNode_RandomPlayer_0E3DD36A4D2852BAA50EA58CC347E33F: {
+    AnimGraphNode_RandomPlayer: {
         Entries: [
             {
                 Sequence: AnimSequence /Game/Characters/Slashers/Mali/AnimSequences/Locomotion/MK_IdleMenu_interruption02.MK_IdleMenu_interruption02
@@ -731,7 +911,7 @@
         ]
         bShuffleMode: True
     }
-    AnimGraphNode_BlendListByBool_45DC077F4764BED084E7ABA6539BF25E: {
+    AnimGraphNode_BlendListByBool: {
         bActiveValue: False
         BlendPose: [
             {
@@ -747,17 +927,20 @@
             , 
             0
         ]
+        TransitionType: EBlendListTransitionType::StandardBlend
         BlendType: EAlphaBlendOption::Linear
         bResetChildOnActivation: False
         CustomBlendCurve: null
         BlendProfile: null
     }
-    AnimGraphNode_StateResult_87AA0B514883B77C6E1A418026C7EA52: {
+    AnimGraphNode_StateResult: {
         Result: {
             LinkID: 3
         }
+        Name: Idle
+        Group: None
     }
-    AnimGraphNode_StateMachine_D955F122424CA4E829327C898181F3BC: {
+    AnimGraphNode_StateMachine: {
         StateMachineIndexInClass: 0
         MaxTransitionsPerFrame: 3
         bSkipFirstUpdateTransition: True

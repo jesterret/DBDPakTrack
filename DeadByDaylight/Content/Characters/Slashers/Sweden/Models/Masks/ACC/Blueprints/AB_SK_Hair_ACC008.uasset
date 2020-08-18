@@ -32,6 +32,7 @@
                     bIsAConduit: False
                     EntryRuleNodeIndex: -1
                     PlayerNodeIndices: [ ]
+                    LayerNodeIndices: [ ]
                     bAlwaysResetOnEntry: False
                 }
                 , 
@@ -45,6 +46,7 @@
                     bIsAConduit: False
                     EntryRuleNodeIndex: -1
                     PlayerNodeIndices: [ ]
+                    LayerNodeIndices: [ ]
                     bAlwaysResetOnEntry: False
                 }
                 , 
@@ -58,6 +60,7 @@
                     bIsAConduit: False
                     EntryRuleNodeIndex: -1
                     PlayerNodeIndices: [ ]
+                    LayerNodeIndices: [ ]
                     bAlwaysResetOnEntry: False
                 }
             ]
@@ -93,9 +96,15 @@
         }
     ]
     TargetSkeleton: Skeleton /Game/Characters/Slashers/Sweden/Models/Masks/ACC/Skeletons/SK_Hair_ACC008_REF_Skeleton.SK_Hair_ACC008_REF_Skeleton
-    OrderedSavedPoseIndices: [
-        0
-    ]
+    OrderedSavedPoseIndicesMap: [
+        [ AnimGraph
+         => 
+        {
+            OrderedSavedPoseNodeIndices: [
+                0
+            ]
+        }
+        ]]
     EvaluateGraphExposedInputs: [
         {
             BoundFunction: None
@@ -106,49 +115,50 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: WeakObjectProperty /Script/AnimGraphRuntime.AnimNode_CopyPoseFromMesh.SourceMeshComponent
+                    DestProperty: UETools.Objects.Property.FieldPath
                     DestArrayIndex: 0
                     Size: 8
-                    CachedSourceProperty: ObjectProperty AB_SK_Hair_ACC008_C.OwningCharacterSkeletalMesh
-                    CachedSourceStructSubProperty: null
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
                 }
             ]
             Function: null
-            ValueHandlerNodeProperty: StructProperty AB_SK_Hair_ACC008_C.AnimGraphNode_CopyPoseFromMesh_0F94FA7D417DA6978C154E860F05B88C
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
         }
         , 
         {
             BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_AB_SK_Hair_ACC008_AnimGraphNode_TransitionResult_8F2B82144181076D18D11988723314B5
             CopyRecords: [ ]
             Function: Function AB_SK_Hair_ACC008_C.EvaluateGraphExposedInputs_ExecuteUbergraph_AB_SK_Hair_ACC008_AnimGraphNode_TransitionResult_8F2B82144181076D18D11988723314B5
-            ValueHandlerNodeProperty: StructProperty AB_SK_Hair_ACC008_C.AnimGraphNode_TransitionResult_8F2B82144181076D18D11988723314B5
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
         }
         , 
         {
             BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_AB_SK_Hair_ACC008_AnimGraphNode_TransitionResult_07F0BD514E769732B47928806F70EA58
             CopyRecords: [ ]
             Function: Function AB_SK_Hair_ACC008_C.EvaluateGraphExposedInputs_ExecuteUbergraph_AB_SK_Hair_ACC008_AnimGraphNode_TransitionResult_07F0BD514E769732B47928806F70EA58
-            ValueHandlerNodeProperty: StructProperty AB_SK_Hair_ACC008_C.AnimGraphNode_TransitionResult_07F0BD514E769732B47928806F70EA58
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
         }
     ]
-    UberGraphFramePointerProperty: StructProperty AB_SK_Hair_ACC008_C.UberGraphFrame
     UberGraphFunction: Function AB_SK_Hair_ACC008_C.ExecuteUbergraph_AB_SK_Hair_ACC008
 }
 <--- CDO --->
 {
     UberGraphFrame: None
-    AnimGraphNode_Root_38330F324664F945E174ACAD1D716A08: {
+    AnimGraphNode_Root: {
         Result: {
             LinkID: 27
         }
+        Name: AnimGraph
+        Group: None
     }
-    AnimGraphNode_TransitionResult_07F0BD514E769732B47928806F70EA58: {
+    AnimGraphNode_TransitionResult: {
         bCanEnterTransition: False
     }
-    AnimGraphNode_TransitionResult_8F2B82144181076D18D11988723314B5: {
+    AnimGraphNode_TransitionResult: {
         bCanEnterTransition: False
     }
-    AnimGraphNode_AnimDynamics_11A678A94C9A0691FEFB57A280350629: {
+    AnimGraphNode_AnimDynamics: {
         LinearDampingOverride: 0
         AngularDampingOverride: 0.95
         RelativeSpaceBone: {
@@ -215,6 +225,40 @@
         bLinearSpring: False
         bAngularSpring: True
         bChain: False
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
         ComponentPose: {
             LinkID: 4
         }
@@ -260,7 +304,7 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_AnimDynamics_AD4CBA704BCC0ED964E9B1904562ADAC: {
+    AnimGraphNode_AnimDynamics: {
         LinearDampingOverride: 0
         AngularDampingOverride: 0.95
         RelativeSpaceBone: {
@@ -327,6 +371,40 @@
         bLinearSpring: False
         bAngularSpring: True
         bChain: False
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
         ComponentPose: {
             LinkID: 5
         }
@@ -372,7 +450,7 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_AnimDynamics_90043E274078EEF217FB19A3B8BA8483: {
+    AnimGraphNode_AnimDynamics: {
         LinearDampingOverride: 0
         AngularDampingOverride: 0.95
         RelativeSpaceBone: {
@@ -439,6 +517,40 @@
         bLinearSpring: False
         bAngularSpring: True
         bChain: False
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
         ComponentPose: {
             LinkID: 6
         }
@@ -484,7 +596,7 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_AnimDynamics_39B3823948231857E0C8C7AE711A338A: {
+    AnimGraphNode_AnimDynamics: {
         LinearDampingOverride: 0
         AngularDampingOverride: 0.95
         RelativeSpaceBone: {
@@ -542,6 +654,40 @@
         bLinearSpring: False
         bAngularSpring: True
         bChain: False
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
         ComponentPose: {
             LinkID: 7
         }
@@ -587,7 +733,7 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_AnimDynamics_50F8816F437CF155CAF7C7A97A397628: {
+    AnimGraphNode_AnimDynamics: {
         LinearDampingOverride: 0
         AngularDampingOverride: 0.95
         RelativeSpaceBone: {
@@ -645,6 +791,40 @@
         bLinearSpring: False
         bAngularSpring: True
         bChain: False
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
         ComponentPose: {
             LinkID: 8
         }
@@ -690,7 +870,7 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_AnimDynamics_B8EE7B5D4066FE55B636C3AD28511793: {
+    AnimGraphNode_AnimDynamics: {
         LinearDampingOverride: 0
         AngularDampingOverride: 0.95
         RelativeSpaceBone: {
@@ -748,6 +928,40 @@
         bLinearSpring: False
         bAngularSpring: True
         bChain: False
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
         ComponentPose: {
             LinkID: 9
         }
@@ -793,7 +1007,7 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_AnimDynamics_B6577E1442A67873413C49A43138A41D: {
+    AnimGraphNode_AnimDynamics: {
         LinearDampingOverride: 0
         AngularDampingOverride: 0.95
         RelativeSpaceBone: {
@@ -851,6 +1065,40 @@
         bLinearSpring: False
         bAngularSpring: True
         bChain: False
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
         ComponentPose: {
             LinkID: 11
         }
@@ -896,44 +1144,46 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_ComponentToLocalSpace_EE5F604D4A24F74577717FA747750F14: {
+    AnimGraphNode_ComponentToLocalSpace: {
         ComponentPose: {
             LinkID: 3
         }
     }
-    AnimGraphNode_LocalToComponentSpace_C06928BE40D091F907BD9FBDEB624ADB: {
+    AnimGraphNode_LocalToComponentSpace: {
         LocalPose: {
             LinkID: 12
         }
     }
-    AnimGraphNode_UseCachedPose_65B86D6F466FCDF41494ECB43238218E: {
+    AnimGraphNode_UseCachedPose: {
         LinkToCachingNode: {
             LinkID: 29
         }
         CachePoseName: CopyMesh
     }
-    AnimGraphNode_StateResult_CEA493BF4CBC158C13050F9316626F18: {
+    AnimGraphNode_StateResult: {
         Result: {
             LinkID: 10
         }
+        Name: Menu
+        Group: None
     }
-    AnimGraphNode_ComponentToLocalSpace_8C691E7B45F59A9DE30A36B296F3F9AA: {
+    AnimGraphNode_ComponentToLocalSpace: {
         ComponentPose: {
             LinkID: 17
         }
     }
-    AnimGraphNode_LocalToComponentSpace_24F92B0143904E8030EBEEB75530D188: {
+    AnimGraphNode_LocalToComponentSpace: {
         LocalPose: {
             LinkID: 16
         }
     }
-    AnimGraphNode_UseCachedPose_188FECE64D8D02E55E82E596B3ED07AA: {
+    AnimGraphNode_UseCachedPose: {
         LinkToCachingNode: {
             LinkID: 29
         }
         CachePoseName: CopyMesh
     }
-    AnimGraphNode_AnimDynamics_1931E8D1407D17F49A1F5788B0627FEB: {
+    AnimGraphNode_AnimDynamics: {
         LinearDampingOverride: 0
         AngularDampingOverride: 0.95
         RelativeSpaceBone: {
@@ -991,6 +1241,40 @@
         bLinearSpring: False
         bAngularSpring: True
         bChain: False
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
         ComponentPose: {
             LinkID: 18
         }
@@ -1036,7 +1320,7 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_AnimDynamics_F3E2B9F34EA4DE8C06762EB7AB7D6582: {
+    AnimGraphNode_AnimDynamics: {
         LinearDampingOverride: 0
         AngularDampingOverride: 0.95
         RelativeSpaceBone: {
@@ -1094,6 +1378,40 @@
         bLinearSpring: False
         bAngularSpring: True
         bChain: False
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
         ComponentPose: {
             LinkID: 19
         }
@@ -1139,7 +1457,7 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_AnimDynamics_4A0BD90149786667630850A241F80E6E: {
+    AnimGraphNode_AnimDynamics: {
         LinearDampingOverride: 0
         AngularDampingOverride: 0.95
         RelativeSpaceBone: {
@@ -1197,6 +1515,40 @@
         bLinearSpring: False
         bAngularSpring: True
         bChain: False
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
         ComponentPose: {
             LinkID: 20
         }
@@ -1242,7 +1594,7 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_AnimDynamics_8A831ED647F9BC78EAF157A3997174C7: {
+    AnimGraphNode_AnimDynamics: {
         LinearDampingOverride: 0
         AngularDampingOverride: 0.95
         RelativeSpaceBone: {
@@ -1300,6 +1652,40 @@
         bLinearSpring: False
         bAngularSpring: True
         bChain: False
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
         ComponentPose: {
             LinkID: 21
         }
@@ -1345,7 +1731,7 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_AnimDynamics_0FAD21C343B2A1A3023C9782DF437B62: {
+    AnimGraphNode_AnimDynamics: {
         LinearDampingOverride: 0
         AngularDampingOverride: 0.95
         RelativeSpaceBone: {
@@ -1403,6 +1789,40 @@
         bLinearSpring: False
         bAngularSpring: True
         bChain: False
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
         ComponentPose: {
             LinkID: 22
         }
@@ -1448,7 +1868,7 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_AnimDynamics_65AB279B49DD6582EF4F2CAC18844568: {
+    AnimGraphNode_AnimDynamics: {
         LinearDampingOverride: 0
         AngularDampingOverride: 0.95
         RelativeSpaceBone: {
@@ -1506,6 +1926,40 @@
         bLinearSpring: False
         bAngularSpring: True
         bChain: False
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
         ComponentPose: {
             LinkID: 23
         }
@@ -1551,7 +2005,7 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_AnimDynamics_34896EA54E6C62938BBA79BC63967BAC: {
+    AnimGraphNode_AnimDynamics: {
         LinearDampingOverride: 0
         AngularDampingOverride: 0.95
         RelativeSpaceBone: {
@@ -1609,6 +2063,40 @@
         bLinearSpring: False
         bAngularSpring: True
         bChain: False
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
         ComponentPose: {
             LinkID: 15
         }
@@ -1654,34 +2142,38 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_StateResult_32A426E14D60712C0B4B2E967A6E2391: {
+    AnimGraphNode_StateResult: {
         Result: {
             LinkID: 14
         }
+        Name: Game
+        Group: None
     }
-    AnimGraphNode_UseCachedPose_E364FAA34B71B70D3E61D7AC16FA8E5F: {
+    AnimGraphNode_UseCachedPose: {
         LinkToCachingNode: {
             LinkID: 29
         }
         CachePoseName: CopyMesh
     }
-    AnimGraphNode_StateResult_DF19B03A411E94D910A06A85DC5D972A: {
+    AnimGraphNode_StateResult: {
         Result: {
             LinkID: 25
         }
+        Name: Base
+        Group: None
     }
-    AnimGraphNode_StateMachine_4011BFF743E7C0585B816484B5B7AFED: {
+    AnimGraphNode_StateMachine: {
         StateMachineIndexInClass: 0
         MaxTransitionsPerFrame: 3
         bSkipFirstUpdateTransition: True
         bReinitializeOnBecomingRelevant: True
     }
-    AnimGraphNode_CopyPoseFromMesh_0F94FA7D417DA6978C154E860F05B88C: {
+    AnimGraphNode_CopyPoseFromMesh: {
         SourceMeshComponent: null
         bUseAttachedParent: False
         bCopyCurves: False
     }
-    AnimGraphNode_SaveCachedPose_1FFF55FB48F649E69A9210A0A3ED025D: {
+    AnimGraphNode_SaveCachedPose: {
         Pose: {
             LinkID: 28
         }

@@ -23,6 +23,7 @@
                     bIsAConduit: False
                     EntryRuleNodeIndex: -1
                     PlayerNodeIndices: [ ]
+                    LayerNodeIndices: [ ]
                     bAlwaysResetOnEntry: False
                 }
                 , 
@@ -45,6 +46,7 @@
                     bIsAConduit: False
                     EntryRuleNodeIndex: -1
                     PlayerNodeIndices: [ ]
+                    LayerNodeIndices: [ ]
                     bAlwaysResetOnEntry: False
                 }
             ]
@@ -80,6 +82,13 @@
         }
     ]
     TargetSkeleton: Skeleton /Game/Characters/Campers/Claudette/Models/Torsos/ACC/Neck/Skeletons/CM_Badge03_REF_Skeleton.CM_Badge03_REF_Skeleton
+    OrderedSavedPoseIndicesMap: [
+        [ AnimGraph
+         => 
+        {
+            OrderedSavedPoseNodeIndices: [ ]
+        }
+        ]]
     EvaluateGraphExposedInputs: [
         {
             BoundFunction: None
@@ -90,15 +99,15 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: BoolProperty /Script/Engine.AnimNode_TransitionResult.bCanEnterTransition
+                    DestProperty: UETools.Objects.Property.FieldPath
                     DestArrayIndex: 0
                     Size: 1
-                    CachedSourceProperty: BoolProperty AB_CM_Badge03_C.IsMenu
-                    CachedSourceStructSubProperty: null
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
                 }
             ]
             Function: null
-            ValueHandlerNodeProperty: StructProperty AB_CM_Badge03_C.AnimGraphNode_TransitionResult_BDA0A764407A3ABF4A51FAAA5CD4E9A4
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
         }
         , 
         {
@@ -110,40 +119,41 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
                     PostCopyOperation: EPostCopyOperation::LogicalNegateBool
-                    DestProperty: BoolProperty /Script/Engine.AnimNode_TransitionResult.bCanEnterTransition
+                    DestProperty: UETools.Objects.Property.FieldPath
                     DestArrayIndex: 0
                     Size: 1
-                    CachedSourceProperty: BoolProperty AB_CM_Badge03_C.IsMenu
-                    CachedSourceStructSubProperty: null
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
                 }
             ]
             Function: null
-            ValueHandlerNodeProperty: StructProperty AB_CM_Badge03_C.AnimGraphNode_TransitionResult_A7F58C954BB0B7023DF600B56760AEC5
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
         }
     ]
-    UberGraphFramePointerProperty: StructProperty AB_CM_Badge03_C.UberGraphFrame
     UberGraphFunction: Function AB_CM_Badge03_C.ExecuteUbergraph_AB_CM_Badge03
 }
 <--- CDO --->
 {
     UberGraphFrame: None
-    AnimGraphNode_Root_73E5BADF43BB94297F2A508824397B40: {
+    AnimGraphNode_Root: {
         Result: {
             LinkID: 9
         }
+        Name: AnimGraph
+        Group: None
     }
-    AnimGraphNode_TransitionResult_A7F58C954BB0B7023DF600B56760AEC5: {
+    AnimGraphNode_TransitionResult: {
         bCanEnterTransition: False
     }
-    AnimGraphNode_TransitionResult_BDA0A764407A3ABF4A51FAAA5CD4E9A4: {
+    AnimGraphNode_TransitionResult: {
         bCanEnterTransition: False
     }
-    AnimGraphNode_ComponentToLocalSpace_F072059F4BBBD9E50B2FB383593B3B8A: {
+    AnimGraphNode_ComponentToLocalSpace: {
         ComponentPose: {
             LinkID: 4
         }
     }
-    AnimGraphNode_AnimDynamics_431E7B4240F01F052A1982937483891E: {
+    AnimGraphNode_AnimDynamics: {
         LinearDampingOverride: 0
         AngularDampingOverride: 1
         RelativeSpaceBone: {
@@ -201,6 +211,40 @@
         bLinearSpring: False
         bAngularSpring: False
         bChain: True
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
         ComponentPose: {
             LinkID: -1
         }
@@ -246,17 +290,19 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_StateResult_A67D088F479F3F6C4BFD66AF7CA58684: {
+    AnimGraphNode_StateResult: {
         Result: {
             LinkID: 3
         }
+        Name: Menu
+        Group: None
     }
-    AnimGraphNode_ComponentToLocalSpace_4A96FD71420F6A5DD9C40388AC23702D: {
+    AnimGraphNode_ComponentToLocalSpace: {
         ComponentPose: {
             LinkID: 7
         }
     }
-    AnimGraphNode_AnimDynamics_B770964A4A67690CCEF55FA94AED669B: {
+    AnimGraphNode_AnimDynamics: {
         LinearDampingOverride: 0
         AngularDampingOverride: 0
         RelativeSpaceBone: {
@@ -314,6 +360,40 @@
         bLinearSpring: False
         bAngularSpring: False
         bChain: True
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
         ComponentPose: {
             LinkID: -1
         }
@@ -359,12 +439,14 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_StateResult_F8AC5126435EF9780C9B15AFB0E2184C: {
+    AnimGraphNode_StateResult: {
         Result: {
             LinkID: 6
         }
+        Name: Idle
+        Group: None
     }
-    AnimGraphNode_StateMachine_262B8EE14B5EC40AC258B9AB8DB3B4C4: {
+    AnimGraphNode_StateMachine: {
         StateMachineIndexInClass: 0
         MaxTransitionsPerFrame: 3
         bSkipFirstUpdateTransition: True

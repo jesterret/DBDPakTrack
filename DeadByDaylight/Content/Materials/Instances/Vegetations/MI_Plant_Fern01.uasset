@@ -1,17 +1,27 @@
 Asset: MaterialInstanceConstant MI_Plant_Fern01
 {
     PhysMaterial: PhysicalMaterial /Game/Materials/PhysicalMaterials/PM_Vegetation.PM_Vegetation
-    Parent: Material /Game/Materials/Masters/Grass_HQ.Grass_HQ
+    Parent: MaterialInstanceConstant /Game/Materials/Instances/Vegetations/MI_HideGrass01.MI_HideGrass01
     bHasStaticPermutationResource: True
     ScalarParameterValues: [
         {
             ParameterInfo: {
-                Name: SubsurfaceMult
+                Name: 050_WindIntensity
                 Association: GlobalParameter
                 Index: -1
             }
-            ParameterValue: 0.25
-            ExpressionGUID: 4aa07fc2-d7a5-40e0-8dd7-28a9ed896258
+            ParameterValue: 0.5
+            ExpressionGUID: e705afc9-0d10-4e92-b045-80481d3040c8
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: 050_WPOPower
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: 30
+            ExpressionGUID: de680a4c-d56a-4b4e-9789-1ddb2667c14e
         }
         , 
         {
@@ -84,40 +94,20 @@ Asset: MaterialInstanceConstant MI_Plant_Fern01
             ExpressionGUID: 00000000-0000-0000-0000-000000000000
         }
     ]
-    VectorParameterValues: [
-        {
-            ParameterInfo: {
-                Name: 050_MinVariation
-                Association: GlobalParameter
-                Index: -1
-            }
-            ParameterValue: { R: 0.755, G: 0.903037, B: 1, A: 1 }
-            ExpressionGUID: dfcff650-febb-4c52-9c3c-f8cd4bb4129d
-        }
-        , 
-        {
-            ParameterInfo: {
-                Name: 050_MaxVariation
-                Association: GlobalParameter
-                Index: -1
-            }
-            ParameterValue: { R: 1, G: 1, B: 1, A: 1 }
-            ExpressionGUID: e2bf8245-b3c3-428e-b326-593d2d16b252
-        }
-    ]
     TextureParameterValues: [
         {
             ParameterInfo: {
-                Name: BaseColor
+                Name: Main_BaseColor
                 Association: GlobalParameter
                 Index: -1
             }
-            ParameterValue: Texture2D /Game/Textures/Environment/Vegetations/T_PlantAtlasAlpha_BC.T_PlantAtlasAlpha_BC
-            ExpressionGUID: 62990e33-ebf4-49c7-b4cd-58d63b88e742
+            ParameterValue: Texture2D /Game/Textures/Environment/Vegetations/T_Ges_HideGrass02_BC.T_Ges_HideGrass02_BC
+            ExpressionGUID: 19f0818f-17bf-4513-ac6e-cb6e64a3f07d
         }
     ]
     BasePropertyOverrides: {
         bOverride_CastMaskedMaterialShadow: True
+        bOverride_TwoSided: True
         TwoSided: True
         CastMaskedMaterialShadow: True
         BlendMode: BLEND_Masked
@@ -127,44 +117,66 @@ Asset: MaterialInstanceConstant MI_Plant_Fern01
     StaticParameters: {
         StaticSwitchParameters: [
             {
-                ParameterInfo: {
-                    Name: UseColourVariation
-                    Association: GlobalParameter
-                    Index: -1
-                }
-                Value: True
-                bOverride: True
-                ExpressionGUID: 019d204c-90f5-4fe2-81b8-735b840a7c86
-            }
-            , 
-            {
+                Value: False
                 ParameterInfo: {
                     Name: Use_CloseDithering
                     Association: GlobalParameter
                     Index: -1
                 }
-                Value: False
                 bOverride: True
                 ExpressionGUID: 84c5b4f5-1931-4817-a5b4-17ff8072d85b
             }
             , 
             {
+                Value: True
                 ParameterInfo: {
                     Name: MoveLikeACorn
                     Association: GlobalParameter
                     Index: -1
                 }
-                Value: False
                 bOverride: True
                 ExpressionGUID: 0e175e7c-04ed-4a86-b0ca-434ec2a4030b
             }
         ]
     }
+    CachedReferencedTextures: [
+        Texture2D /Engine/EngineMaterials/BlendFunc_DefBlend.BlendFunc_DefBlend
+        , 
+        Texture2D /Engine/EngineMaterials/BlendFunc_DefBase.BlendFunc_DefBase
+        , 
+        Texture2D /Engine/EngineMaterials/FlatNormal.FlatNormal
+        , 
+        Texture2D /Game/Textures/Props/Misc/T_checker_grid.T_checker_grid
+        , 
+        Texture2D /Game/Textures/Environment/Tiles/Yellow_Linear.Yellow_Linear
+        , 
+        Texture2D /Game/Textures/Environment/Tiles/Black_Linear.Black_Linear
+        , 
+        Texture2D /Game/Textures/Environment/Tiles/White_Linear.White_Linear
+        , 
+        Texture2D /Engine/EngineMaterials/Good64x64TilingNoiseHighFreq.Good64x64TilingNoiseHighFreq
+        , 
+        Texture2D /Game/Textures/Environment/Vegetations/T_FoliageWaves_02_N.T_FoliageWaves_02_N
+        , 
+        Texture2D /Game/Textures/Environment/Vegetations/T_MapleOakLeaves01_Wind.T_MapleOakLeaves01_Wind
+        , 
+        Texture2D /Game/Textures/Environment/Vegetations/T_Ges_HideGrass02_BC.T_Ges_HideGrass02_BC
+        , 
+        Texture2D /Game/Textures/Environment/Vegetations/T_Ges_HideGrass01_N.T_Ges_HideGrass01_N
+        , 
+        Texture2D /Game/Textures/Environment/Vegetations/T_Ges_HideGrass01_Wind.T_Ges_HideGrass01_Wind
+    ]
     TextureStreamingData: [
         {
             SamplingScale: 1
             UVChannelIndex: 0
-            TextureName: T_PlantAtlasAlpha_BC
+            TextureName: T_Ges_HideGrass01_N
+        }
+        , 
+        {
+            SamplingScale: 1
+            UVChannelIndex: 0
+            TextureName: T_Ges_HideGrass02_BC
         }
     ]
 }

@@ -25,6 +25,7 @@
                     PlayerNodeIndices: [
                         10
                     ]
+                    LayerNodeIndices: [ ]
                     bAlwaysResetOnEntry: False
                 }
                 , 
@@ -51,6 +52,7 @@
                         , 
                         7
                     ]
+                    LayerNodeIndices: [ ]
                     bAlwaysResetOnEntry: False
                 }
             ]
@@ -86,9 +88,15 @@
         }
     ]
     TargetSkeleton: Skeleton /Game/Meshes/InteractableObjects/Entity_Objects/Models/SK_MeatHook_Spider_REF_Skeleton.SK_MeatHook_Spider_REF_Skeleton
-    OrderedSavedPoseIndices: [
-        2
-    ]
+    OrderedSavedPoseIndicesMap: [
+        [ AnimGraph
+         => 
+        {
+            OrderedSavedPoseNodeIndices: [
+                2
+            ]
+        }
+        ]]
     EvaluateGraphExposedInputs: [
         {
             BoundFunction: None
@@ -99,15 +107,15 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: FloatProperty /Script/AnimGraphRuntime.AnimNode_BlendSpacePlayer.X
+                    DestProperty: UETools.Objects.Property.FieldPath
                     DestArrayIndex: 0
                     Size: 4
-                    CachedSourceProperty: FloatProperty AB_Entity_C.StrugglePercent
-                    CachedSourceStructSubProperty: null
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
                 }
             ]
             Function: null
-            ValueHandlerNodeProperty: StructProperty AB_Entity_C.AnimGraphNode_BlendSpacePlayer_88A118BC4A678A7D59ACB0B3A621F56D
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
         }
         , 
         {
@@ -119,15 +127,15 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: BoolProperty /Script/Engine.AnimNode_TransitionResult.bCanEnterTransition
+                    DestProperty: UETools.Objects.Property.FieldPath
                     DestArrayIndex: 0
                     Size: 1
-                    CachedSourceProperty: BoolProperty AB_Entity_C.IsStruggling
-                    CachedSourceStructSubProperty: null
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
                 }
             ]
             Function: null
-            ValueHandlerNodeProperty: StructProperty AB_Entity_C.AnimGraphNode_TransitionResult_A1BE19814DFDB1664066C9AAF97ECB47
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
         }
         , 
         {
@@ -139,42 +147,43 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
                     PostCopyOperation: EPostCopyOperation::LogicalNegateBool
-                    DestProperty: BoolProperty /Script/Engine.AnimNode_TransitionResult.bCanEnterTransition
+                    DestProperty: UETools.Objects.Property.FieldPath
                     DestArrayIndex: 0
                     Size: 1
-                    CachedSourceProperty: BoolProperty AB_Entity_C.IsStruggling
-                    CachedSourceStructSubProperty: null
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
                 }
             ]
             Function: null
-            ValueHandlerNodeProperty: StructProperty AB_Entity_C.AnimGraphNode_TransitionResult_ABABE0A446BEC1BF68BBD4A3E0B16333
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
         }
     ]
-    UberGraphFramePointerProperty: StructProperty AB_Entity_C.UberGraphFrame
     UberGraphFunction: Function AB_Entity_C.ExecuteUbergraph_AB_Entity
 }
 <--- CDO --->
 {
     UberGraphFrame: None
-    AnimGraphNode_Root_E8EEF69C4534080B56E3D99368D8CD75: {
+    AnimGraphNode_Root: {
         Result: {
             LinkID: 11
         }
+        Name: AnimGraph
+        Group: None
     }
-    AnimGraphNode_Slot_FD3E491A4E7C4E794D5D0BB2A93873B9: {
+    AnimGraphNode_Slot: {
         Source: {
             LinkID: 13
         }
         SlotName: DefaultSlot
         bAlwaysUpdateSourcePose: False
     }
-    AnimGraphNode_TransitionResult_ABABE0A446BEC1BF68BBD4A3E0B16333: {
+    AnimGraphNode_TransitionResult: {
         bCanEnterTransition: False
     }
-    AnimGraphNode_TransitionResult_A1BE19814DFDB1664066C9AAF97ECB47: {
+    AnimGraphNode_TransitionResult: {
         bCanEnterTransition: False
     }
-    AnimGraphNode_SequencePlayer_41277B834869F70EE229D7A6DC6F56B3: {
+    AnimGraphNode_SequencePlayer: {
         Sequence: AnimSequence /Game/Meshes/InteractableObjects/Entity_Objects/Animations/AnimSequences/SK_Spider_Invisible.SK_Spider_Invisible
         PlayRateBasis: 1
         PlayRate: 1
@@ -205,12 +214,14 @@
         BlendWeight: 0
         InternalTimeAccumulator: 0
     }
-    AnimGraphNode_StateResult_3A91D22849544FBBC48C08A892812B9A: {
+    AnimGraphNode_StateResult: {
         Result: {
             LinkID: 4
         }
+        Name: Idle
+        Group: None
     }
-    AnimGraphNode_LayeredBoneBlend_5C2D1BB2442E646771238BBFB944BF48: {
+    AnimGraphNode_LayeredBoneBlend: {
         BasePose: {
             LinkID: 7
         }
@@ -233,14 +244,235 @@
             0.5
         ]
         bMeshSpaceRotationBlend: False
-        CurveBlendOption: ECurveBlendOption::MaxWeight
+        bMeshSpaceScaleBlend: False
+        CurveBlendOption: ECurveBlendOption::Override
         bBlendRootMotionBasedOnRootBone: True
         LODThreshold: -1
-        PerBoneBlendWeights: [ ]
-        SkeletonGuid: 00000000-0000-0000-0000-000000000000
+        PerBoneBlendWeights: [
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+        ]
+        SkeletonGuid: f6979925-4e32-41de-9966-69329a8e8324
         VirtualBoneGuid: 00000000-0000-0000-0000-000000000000
     }
-    AnimGraphNode_SequencePlayer_F132A43C41F0A136BB1ED78FB4DE9542: {
+    AnimGraphNode_SequencePlayer: {
         Sequence: AnimSequence /Game/Meshes/InteractableObjects/Entity_Objects/Animations/AnimSequences/SK_Spider_Struggle.SK_Spider_Struggle
         PlayRateBasis: 1
         PlayRate: 1
@@ -271,7 +503,7 @@
         BlendWeight: 0
         InternalTimeAccumulator: 0
     }
-    AnimGraphNode_BlendSpacePlayer_88A118BC4A678A7D59ACB0B3A621F56D: {
+    AnimGraphNode_BlendSpacePlayer: {
         X: 0
         Y: 0
         Z: 0
@@ -287,18 +519,20 @@
         BlendWeight: 0
         InternalTimeAccumulator: 0
     }
-    AnimGraphNode_StateResult_BE65BC0D4376EC47C2036DA856677803: {
+    AnimGraphNode_StateResult: {
         Result: {
             LinkID: 6
         }
+        Name: Struggle
+        Group: None
     }
-    AnimGraphNode_StateMachine_D0F4B8CA48A4F302443802A4DDB681BA: {
+    AnimGraphNode_StateMachine: {
         StateMachineIndexInClass: 0
         MaxTransitionsPerFrame: 3
         bSkipFirstUpdateTransition: True
         bReinitializeOnBecomingRelevant: True
     }
-    AnimGraphNode_TwoWayBlend_491160C1423C9AAD71F050841DF0EA5E: {
+    AnimGraphNode_TwoWayBlend: {
         A: {
             LinkID: 1
         }
@@ -346,19 +580,19 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_SaveCachedPose_B9295DA04B405F198F08BA8D504B6C17: {
+    AnimGraphNode_SaveCachedPose: {
         Pose: {
             LinkID: 10
         }
         CachePoseName: MainCache
     }
-    AnimGraphNode_UseCachedPose_BEFEA7BD47C4B7E21A15FFAFC3552DF4: {
+    AnimGraphNode_UseCachedPose: {
         LinkToCachingNode: {
             LinkID: 12
         }
         CachePoseName: MainCache
     }
-    AnimGraphNode_UseCachedPose_B82560F646340DAA05795795F356B9B8: {
+    AnimGraphNode_UseCachedPose: {
         LinkToCachingNode: {
             LinkID: 12
         }

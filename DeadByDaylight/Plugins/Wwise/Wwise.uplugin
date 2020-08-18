@@ -2,11 +2,10 @@
 	"FileVersion" : 1,
 	
 	"FriendlyName" : "Wwise Unreal Engine 4 Integration",
-	"Version" : 201911513,
-	"VersionName" : "2019.1.7.7135.1513",
+	"Version" : 201921661,
+	"VersionName" : "2019.2.2.7275.1661",
 	"CreatedBy" : "Audiokinetic, Inc.",
 	"CreatedByURL" : "http://audiokinetic.com",
-	"EngineVersion" : "4.22.0",
 	"Description" : "Wwise integration for Unreal Engine 4",
 	"Category" : "Audio",
 	"EnabledByDefault" : true,
@@ -32,5 +31,21 @@
 		}
 	],
 	
+	"PostBuildSteps":
+	{
+		"Win64":
+		[
+			"\"$(PluginDir)\\Source\\AkAudio\\WwisePostBuildSteps.bat\" \"$(EngineDir)\\Binaries\\Win64\\UE4Editor-cmd.exe\" \"$(ProjectFile)\" $(TargetType) -run=AkPluginActivator -platform=$(TargetPlatform) -configuration=Profile -targetconfig=$(TargetConfiguration)"
+		],
+		"Mac":
+		[
+			"\"$(PluginDir)/Source/AkAudio/WwisePostBuildSteps.sh\" \"$(EngineDir)/Binaries/Mac/UE4Editor.app/Contents/MacOS/UE4Editor\" \"$(ProjectFile)\" $(TargetType) -run=AkPluginActivator -platform=$(TargetPlatform) -configuration=Profile -targetconfig=$(TargetConfiguration)"
+		],
+		"PS4":
+		[
+			"\"$(PluginDir)\\Source\\AkAudio\\WwisePostBuildSteps.bat\" \"$(EngineDir)\\Binaries\\Win64\\UE4Editor-cmd.exe\" \"$(ProjectFile)\" -run=AkPluginActivator -platform=$(TargetPlatform) -configuration=Profile -targetconfig=$(TargetConfiguration)"
+		]
+	},
+
 	"CanContainContent" : true
 }

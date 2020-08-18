@@ -16,6 +16,7 @@
                     PlayerNodeIndices: [
                         4
                     ]
+                    LayerNodeIndices: [ ]
                     bAlwaysResetOnEntry: False
                 }
             ]
@@ -23,6 +24,13 @@
         }
     ]
     TargetSkeleton: Skeleton /Game/Characters/Campers/Guam/Models/Heads/Top/Models/GS_Hair02_REF_Skeleton.GS_Hair02_REF_Skeleton
+    OrderedSavedPoseIndicesMap: [
+        [ AnimGraph
+         => 
+        {
+            OrderedSavedPoseNodeIndices: [ ]
+        }
+        ]]
     EvaluateGraphExposedInputs: [
         {
             BoundFunction: None
@@ -33,39 +41,40 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: BoolProperty /Script/AnimGraphRuntime.AnimNode_BlendListByBool.bActiveValue
+                    DestProperty: UETools.Objects.Property.FieldPath
                     DestArrayIndex: 0
                     Size: 1
-                    CachedSourceProperty: BoolProperty AB_GS_Hair02_C.IsViewedDuration
-                    CachedSourceStructSubProperty: null
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
                 }
             ]
             Function: null
-            ValueHandlerNodeProperty: StructProperty AB_GS_Hair02_C.AnimGraphNode_BlendListByBool_AD3A169346154907DE4F388B239766CF
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
         }
     ]
-    UberGraphFramePointerProperty: StructProperty AB_GS_Hair02_C.UberGraphFrame
     UberGraphFunction: Function AB_GS_Hair02_C.ExecuteUbergraph_AB_GS_Hair02
 }
 <--- CDO --->
 {
     UberGraphFrame: None
-    AnimGraphNode_Root_04CA98AF41E84D75578246B378341690: {
+    AnimGraphNode_Root: {
         Result: {
             LinkID: 7
         }
+        Name: AnimGraph
+        Group: None
     }
-    AnimGraphNode_ComponentToLocalSpace_E7173A8C48DB795510FA53A4B83504DD: {
+    AnimGraphNode_ComponentToLocalSpace: {
         ComponentPose: {
             LinkID: 3
         }
     }
-    AnimGraphNode_LocalToComponentSpace_D9018AD147E6694F3B4B29B50AA1B74D: {
+    AnimGraphNode_LocalToComponentSpace: {
         LocalPose: {
             LinkID: 4
         }
     }
-    AnimGraphNode_AnimDynamics_FBAA602646ADBB27DA1E24936AB20636: {
+    AnimGraphNode_AnimDynamics: {
         LinearDampingOverride: 0
         AngularDampingOverride: 0.99
         RelativeSpaceBone: {
@@ -123,6 +132,40 @@
         bLinearSpring: False
         bAngularSpring: False
         bChain: True
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
         ComponentPose: {
             LinkID: 2
         }
@@ -168,7 +211,7 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_SequencePlayer_217E258140993D6B970240991EC34490: {
+    AnimGraphNode_SequencePlayer: {
         Sequence: AnimSequence /Game/Characters/Campers/Guam/Models/Heads/Top/Animation/GS_Hair02/GS_Hair02_Idle.GS_Hair02_Idle
         PlayRateBasis: 1
         PlayRate: 1
@@ -199,18 +242,20 @@
         BlendWeight: 0
         InternalTimeAccumulator: 0
     }
-    AnimGraphNode_StateResult_64872A6A40CF45F088DA3A977C9E755E: {
+    AnimGraphNode_StateResult: {
         Result: {
             LinkID: 1
         }
+        Name: Idle
+        Group: None
     }
-    AnimGraphNode_StateMachine_8E43FA3F401D313D34B910BE685AC329: {
+    AnimGraphNode_StateMachine: {
         StateMachineIndexInClass: 0
         MaxTransitionsPerFrame: 3
         bSkipFirstUpdateTransition: True
         bReinitializeOnBecomingRelevant: True
     }
-    AnimGraphNode_BlendListByBool_AD3A169346154907DE4F388B239766CF: {
+    AnimGraphNode_BlendListByBool: {
         bActiveValue: False
         BlendPose: [
             {
@@ -226,12 +271,13 @@
             , 
             1
         ]
+        TransitionType: EBlendListTransitionType::StandardBlend
         BlendType: EAlphaBlendOption::Linear
         bResetChildOnActivation: False
         CustomBlendCurve: null
         BlendProfile: null
     }
-    AnimGraphNode_SequencePlayer_A7C81D33442116B11CAD27AA5F928730: {
+    AnimGraphNode_SequencePlayer: {
         Sequence: AnimSequence /Game/Characters/Campers/Guam/Models/Heads/Top/Animation/GS_Hair02/GS_Hair02_Idle.GS_Hair02_Idle
         PlayRateBasis: 1
         PlayRate: 1

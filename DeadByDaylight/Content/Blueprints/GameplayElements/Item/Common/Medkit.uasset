@@ -1,45 +1,21 @@
 {
-    DynamicBindingObjects: [
-        ComponentDelegateBinding Medkit_C.ComponentDelegateBinding
-    ]
-    ComponentTemplates: [
-            {
-                Template: ParticleSystem /Game/Effects/ParticleSystems/P_DustRing.P_DustRing
-                DetailLevelBeforeCastShadows: DM_MAX
-                PrimaryComponentTick: {
-                    bStartWithTickEnabled: False
-                }
-            }
-    ]
     Timelines: [
         TimelineTemplate Medkit_C.TML_Dissolve_Template
     ]
     SimpleConstructionScript: SimpleConstructionScript Medkit_C.SimpleConstructionScript
     InheritableComponentHandler: InheritableComponentHandler Medkit_C.InheritableComponentHandler
-    UberGraphFramePointerProperty: StructProperty Medkit_C.UberGraphFrame
     UberGraphFunction: Function Medkit_C.ExecuteUbergraph_Medkit
 }
 <--- CDO --->
 {
     UberGraphFrame: None
-    HealOtherChargeMultiplier: 2
-    HandPosition: EItemHandPosition::HandleItem
-    HasUseInteraction: True
-    ItemID: Item_Camper_MedKit
-    BaseItemModifier: {
-        }
-    ItemModifier1: {
-        }
-    ItemModifier2: {
-        }
-    _mesh: {
-            SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/MedKit/SK_MedKit01.SK_MedKit01
-            bRenderCustomColourNoDepth: True
-            CustomColourWriteMask: ECustomColourWriteMask::ECCWM_A
-            CastShadow: True
+    _interactable: {
+            SphereRadius: 50
+            bGenerateOverlapEvents: False
             DetailLevelBeforeCastShadows: DM_MAX
-            bCastCinematicShadow: True
             BodyInstance: {
+                ObjectType: ECC_GameTraceChannel1
+                CollisionProfileName: Interactable
                 CollisionResponses: {
                     ResponseArray: [
                         {
@@ -54,12 +30,12 @@
                         , 
                         {
                             Channel: Pawn
-                            Response: ECR_Overlap
+                            Response: ECR_Ignore
                         }
                         , 
                         {
                             Channel: Visibility
-                            Response: ECR_Overlap
+                            Response: ECR_Ignore
                         }
                         , 
                         {
@@ -79,11 +55,6 @@
                         , 
                         {
                             Channel: Destructible
-                            Response: ECR_Ignore
-                        }
-                        , 
-                        {
-                            Channel: EngineTraceChannel1
                             Response: ECR_Ignore
                         }
                         , 
@@ -123,14 +94,334 @@
                         }
                         , 
                         {
+                            Channel: Slasher
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
                             Channel: Spider
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Traps
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: BlinkBlocker
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Ground
                             Response: ECR_Ignore
                         }
                     ]
                 }
-                MassInKgOverride: 27.31451
             }
+            AttachParent: {
+                    SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/MedKit/SK_MedKit01.SK_MedKit01
+                    bRenderCustomColourNoDepth: True
+                    CastShadow: True
+                    DetailLevelBeforeCastShadows: DM_MAX
+                    bCastCinematicShadow: True
+                    BodyInstance: {
+                        CollisionResponses: {
+                            ResponseArray: [
+                                {
+                                    Channel: WorldStatic
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: WorldDynamic
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Pawn
+                                    Response: ECR_Overlap
+                                }
+                                , 
+                                {
+                                    Channel: Visibility
+                                    Response: ECR_Overlap
+                                }
+                                , 
+                                {
+                                    Channel: Camera
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: PhysicsBody
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Vehicle
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Destructible
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: EngineTraceChannel1
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: EngineTraceChannel2
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: EngineTraceChannel3
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: EngineTraceChannel4
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: EngineTraceChannel5
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: EngineTraceChannel6
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Interactable
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Audio
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Spider
+                                    Response: ECR_Ignore
+                                }
+                            ]
+                        }
+                        MassInKgOverride: 27.31451
+                    }
+                }
         }
+    _collectableInteractor: {
+            AttachParent: SphereComponent Default__Medkit_C.Interactable
+        }
+    _dropItemInteractor: {
+            InteractionID: Drop
+            StopInteractionOnMontageComplete: True
+            CamperCanInteract: True
+            CancelOnHit: True
+            InteractionDescriptionText: Drop
+            UpdateMontage: {
+                MontageID: ItemCollect
+            }
+            AttachParent: {
+                    AttachParent: SphereComponent Default__Medkit_C.Interactable
+                }
+        }
+    _collectItemInteractor: {
+            InteractionID: Collect
+            SnapTime: 0.5
+            StopInteractionOnMontageComplete: True
+            CamperCanInteract: True
+            SnapStopDistance: 85
+            CancelOnHit: True
+            BlockSelfInteract: False
+            InteractionDescriptionText: Collect
+            UpdateMontage: {
+                MontageID: ItemCollect
+            }
+            AttachParent: Interactor Default__Medkit_C.CollectableInteractor
+        }
+    _sphereComponent: {
+            SphereRadius: 24
+            DetailLevelBeforeCastShadows: DM_MAX
+            BodyInstance: {
+                CollisionProfileName: Custom
+                CollisionResponses: {
+                    ResponseArray: [
+                        {
+                            Channel: WorldStatic
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: WorldDynamic
+                            Response: ECR_Overlap
+                        }
+                        , 
+                        {
+                            Channel: Pawn
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Visibility
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Camera
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: PhysicsBody
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Vehicle
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Destructible
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: InteractionDetector
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: BlinkBlocker
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Ground
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Spider
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Traps
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Slasher
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Interactable
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Audio
+                            Response: ECR_Ignore
+                        }
+                    ]
+                }
+            }
+            AttachParent: SkeletalMeshComponent Default__Medkit_C.ItemMesh
+            RelativeLocation: { X: 0, Y: 0, Z: -15 }
+        }
+    _outlineComponent: {
+            FadeOutAsClosingIn: False
+            OutlineName: collectable
+            AttachParent: SkeletalMeshComponent Default__Medkit_C.ItemMesh
+        }
+    _dropInterrupt: {
+            AttachParent: SkeletalMeshComponent Default__Medkit_C.ItemMesh
+        }
+    _collectInterrupt: {
+            AttachParent: SkeletalMeshComponent Default__Medkit_C.ItemMesh
+        }
+    _akComponent: {
+            AttachParent: SkeletalMeshComponent Default__Medkit_C.ItemMesh
+            RelativeLocation: { X: 0, Y: 0, Z: 20 }
+        }
+    _materialHelper: {
+            Groups: [
+                {
+                    GroupName: Camper1
+                    Maps: [
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper.MI_Camper
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve.MI_CamperDissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: Material /Game/Characters/Campers/Materials/M_Hair.M_Hair
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_Hair_Dissolve.MI_Hair_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_Dither.MI_Camper_Dither
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MV_Camper_Dither.MV_Camper_Dither
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_Cust.MI_Camper_Cust
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_Cust.MI_CamperDissolve_Cust
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_TransCust.MI_Camper_TransCust
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_TransCust.MI_CamperDissolve_TransCust
+                        }
+                    ]
+                }
+                , 
+                {
+                    GroupName: Dissolve
+                    Maps: [
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper.MI_Camper
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve.MI_CamperDissolve
+                        }
+                    ]
+                }
+            ]
+            AttachParent: SkeletalMeshComponent Default__Medkit_C.ItemMesh
+            RelativeLocation: { X: 0, Y: 0, Z: 99.999954 }
+            RelativeRotation: { Pitch: 0, Roll: 89.99999, Yaw: 0 }
+        }
+    _survivorCollectableOutlineUpdateStrategy: {
+        }
+    _charger: {
+            ChargerComponentID: MedkitCharger
+        }
+    _dustRingTemplate: ParticleSystem /Game/Effects/ParticleSystems/P_DustRing.P_DustRing
+    _medkitGetAkEvent: AkAudioEvent /Game/Audio/AudioEvents/Objects/AudioEvent_Medkit_Get.AudioEvent_Medkit_Get
+    _medkitDropAkEvent: AkAudioEvent /Game/Audio/AudioEvents/Objects/AudioEvent_Medkit_Drop.AudioEvent_Medkit_Drop
+    _medkitBank: AkAudioBank /Game/Audio/SoundBanks/Medkit.Medkit
+    HandPosition: EItemHandPosition::HandleItem
+    HasUseInteraction: True
+    ItemID: Item_Camper_MedKit
+    BaseItemModifier: {
+        }
+    ItemModifier1: {
+        }
+    ItemModifier2: {
+        }
+    _itemInteractor: Interactor Default__Medkit_C.ItemInteractor
+    _mesh: SkeletalMeshComponent Default__Medkit_C.ItemMesh
     _placementOrigin: {
             AttachParent: SkeletalMeshComponent Default__Medkit_C.ItemMesh
             RelativeLocation: { X: 0, Y: 0, Z: -26 }

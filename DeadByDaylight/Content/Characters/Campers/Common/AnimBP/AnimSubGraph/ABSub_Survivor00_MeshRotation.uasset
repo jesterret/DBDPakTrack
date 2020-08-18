@@ -1,0 +1,180 @@
+{
+    TargetSkeleton: Skeleton /Game/Characters/Campers/Models/CamperMale_REF_Skeleton.CamperMale_REF_Skeleton
+    OrderedSavedPoseIndicesMap: [
+        [ AnimGraph
+         => 
+        {
+            OrderedSavedPoseNodeIndices: [
+                6
+            ]
+        }
+        ]]
+    EvaluateGraphExposedInputs: [
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _toSlopeRotation
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: UETools.Objects.Property.FieldPath
+                    DestArrayIndex: 0
+                    Size: 12
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _isCrawling
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: UETools.Objects.Property.FieldPath
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
+        }
+    ]
+    UberGraphFunction: Function ABSub_Survivor00_MeshRotation_C.ExecuteUbergraph_ABSub_Survivor00_MeshRotation
+}
+<--- CDO --->
+{
+    UberGraphFrame: None
+    AnimGraphNode_Root: {
+        Result: {
+            LinkID: 3
+        }
+        Name: AnimGraph
+        Group: None
+    }
+    AnimGraphNode_SubInput: {
+        Name: InPose
+        Graph: AnimGraph
+        InputPose: {
+            LinkID: -1
+        }
+    }
+    AnimGraphNode_SaveCachedPose: {
+        Pose: {
+            LinkID: 1
+        }
+        CachePoseName: CacheInput
+    }
+    AnimGraphNode_BlendListByBool: {
+        bActiveValue: False
+        BlendPose: [
+            {
+                LinkID: 8
+            }
+            , 
+            {
+                LinkID: 4
+            }
+        ]
+        BlendTime: [
+            0.1
+            , 
+            0.1
+        ]
+        TransitionType: EBlendListTransitionType::StandardBlend
+        BlendType: EAlphaBlendOption::Linear
+        bResetChildOnActivation: False
+        CustomBlendCurve: null
+        BlendProfile: null
+    }
+    AnimGraphNode_UseCachedPose: {
+        LinkToCachingNode: {
+            LinkID: 2
+        }
+        CachePoseName: CacheInput
+    }
+    AnimGraphNode_UseCachedPose: {
+        LinkToCachingNode: {
+            LinkID: 2
+        }
+        CachePoseName: CacheInput
+    }
+    AnimGraphNode_LocalToComponentSpace: {
+        LocalPose: {
+            LinkID: 5
+        }
+    }
+    AnimGraphNode_ModifyBone: {
+        BoneToModify: {
+            BoneName: joint_Char
+        }
+        Translation: { X: 0, Y: 0, Z: 0 }
+        Rotation: { Pitch: 0, Roll: 0, Yaw: 0 }
+        Scale: { X: 1, Y: 1, Z: 1 }
+        TranslationMode: BMM_Ignore
+        RotationMode: BMM_Additive
+        ScaleMode: BMM_Ignore
+        TranslationSpace: BCS_ComponentSpace
+        RotationSpace: BCS_ComponentSpace
+        ScaleSpace: BCS_ComponentSpace
+        ComponentPose: {
+            LinkID: 6
+        }
+        LODThreshold: -1
+        ActualAlpha: 0
+        AlphaInputType: EAnimAlphaInputType::Float
+        bAlphaBoolEnabled: True
+        Alpha: 1
+        AlphaScaleBias: {
+            Scale: 1
+            Bias: 0
+        }
+        AlphaBoolBlend: {
+            BlendInTime: 0
+            BlendOutTime: 0
+            BlendOption: EAlphaBlendOption::Linear
+            bInitialized: False
+            CustomCurve: null
+            AlphaBlend: {
+                CustomCurve: null
+                BlendTime: 0.2
+                BlendOption: EAlphaBlendOption::Linear
+            }
+        }
+        AlphaCurveName: None
+        AlphaScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+    }
+    AnimGraphNode_ComponentToLocalSpace: {
+        ComponentPose: {
+            LinkID: 7
+        }
+    }
+}
