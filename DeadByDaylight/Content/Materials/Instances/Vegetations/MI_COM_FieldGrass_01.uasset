@@ -1,9 +1,19 @@
 Asset: MaterialInstanceConstant MI_COM_FieldGrass_01
 {
     PhysMaterial: PhysicalMaterial /Game/Materials/PhysicalMaterials/PM_Vegetation.PM_Vegetation
-    Parent: MaterialInstanceConstant /Game/Materials/Instances/Vegetations/MI_HideGrass01.MI_HideGrass01
+    Parent: MaterialInstanceConstant /Game/Materials/Masters/MI_Foliage_v2_Masked.MI_Foliage_v2_Masked
     bHasStaticPermutationResource: True
     ScalarParameterValues: [
+        {
+            ParameterInfo: {
+                Name: Main_BaseColorSaturation
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: 0.7
+            ExpressionGUID: a38db172-7717-43cb-9ceb-0d277f3e9bcd
+        }
+        , 
         {
             ParameterInfo: {
                 Name: 014_RoughValue
@@ -77,12 +87,83 @@ Asset: MaterialInstanceConstant MI_COM_FieldGrass_01
     VectorParameterValues: [
         {
             ParameterInfo: {
+                Name: Main_BaseColorTint
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: { R: 0.7, G: 0.7, B: 0.7, A: 0 }
+            ExpressionGUID: ba25f801-99df-4357-8601-8dda6a0ef606
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: 050_MaxVariation
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: { R: 0.502887, G: 0.863157, B: 1, A: 0 }
+            ExpressionGUID: e2bf8245-b3c3-428e-b326-593d2d16b252
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: 014_ColorValue
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: { R: 0.015996, G: 0.043735, B: 0.078187, A: 1 }
+            ExpressionGUID: f98e59a5-d71c-4a95-b247-7acb24d5070a
+        }
+        , 
+        {
+            ParameterInfo: {
                 Name: 050_WPOScaleXY
                 Association: GlobalParameter
                 Index: -1
             }
             ParameterValue: { R: 0, G: 0.1, B: 0.1, A: 0 }
             ExpressionGUID: bc15b10b-63ae-46e4-ab9c-859f48f9cec4
+        }
+    ]
+    TextureParameterValues: [
+        {
+            ParameterInfo: {
+                Name: Main_BaseColor
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: Texture2D /Game/Textures/Environment/Vegetations/T_Ges_HideGrass02_BC.T_Ges_HideGrass02_BC
+            ExpressionGUID: 19f0818f-17bf-4513-ac6e-cb6e64a3f07d
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: Main_Normal
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: Texture2D /Game/Textures/Environment/Vegetations/T_Ges_HideGrass01_N.T_Ges_HideGrass01_N
+            ExpressionGUID: 6048e55e-3122-4142-9e25-c3bf259e0dfb
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: Main_ORM
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: Texture2D /Game/Textures/Environment/Tiles/Yellow_Linear.Yellow_Linear
+            ExpressionGUID: b4e7009f-dbc2-4336-8046-c6eea59efad9
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: 050_WindMaskTexture
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: Texture2D /Game/Textures/Environment/Vegetations/T_Ges_HideGrass01_Wind.T_Ges_HideGrass01_Wind
+            ExpressionGUID: bfa5ebac-7e17-4258-94d6-d7c7d3752814
         }
     ]
     BasePropertyOverrides: {
@@ -97,6 +178,28 @@ Asset: MaterialInstanceConstant MI_COM_FieldGrass_01
     StaticParameters: {
         StaticSwitchParameters: [
             {
+                Value: True
+                ParameterInfo: {
+                    Name: Use_Main_ExpandedAttributes
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: 0ef31ea9-8b95-481c-913b-172977a57f6e
+            }
+            , 
+            {
+                Value: True
+                ParameterInfo: {
+                    Name: Use_GroundBlend
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: 1e438c82-a6d8-4718-bec0-ef75d3234c87
+            }
+            , 
+            {
                 Value: False
                 ParameterInfo: {
                     Name: Use_CloseDithering
@@ -108,7 +211,18 @@ Asset: MaterialInstanceConstant MI_COM_FieldGrass_01
             }
             , 
             {
-                Value: False
+                Value: True
+                ParameterInfo: {
+                    Name: 050_WindEnabled
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: a3b13d32-6f38-49aa-980f-305e7e718288
+            }
+            , 
+            {
+                Value: True
                 ParameterInfo: {
                     Name: 050_WindUseVertexAlpha
                     Association: GlobalParameter
@@ -116,6 +230,28 @@ Asset: MaterialInstanceConstant MI_COM_FieldGrass_01
                 }
                 bOverride: True
                 ExpressionGUID: 19898edc-de54-4485-82e6-954e8e48fdc9
+            }
+            , 
+            {
+                Value: True
+                ParameterInfo: {
+                    Name: 050_WindUseMask
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: 6d22d7d1-9e96-44f7-af6a-b7eca169b449
+            }
+            , 
+            {
+                Value: True
+                ParameterInfo: {
+                    Name: 050_UseAdditionalWPO
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: 02343bfd-3562-4957-b045-35d78a901e11
             }
             , 
             {
@@ -162,6 +298,18 @@ Asset: MaterialInstanceConstant MI_COM_FieldGrass_01
             SamplingScale: 1
             UVChannelIndex: 0
             TextureName: T_Ges_HideGrass01_N
+        }
+        , 
+        {
+            SamplingScale: 1
+            UVChannelIndex: 0
+            TextureName: T_Ges_HideGrass02_BC
+        }
+        , 
+        {
+            SamplingScale: 1
+            UVChannelIndex: 0
+            TextureName: Yellow_Linear
         }
     ]
 }
