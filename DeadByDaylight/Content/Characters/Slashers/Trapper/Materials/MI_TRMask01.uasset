@@ -1,7 +1,6 @@
 Asset: MaterialInstanceConstant MI_TRMask01
 {
     Parent: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Cust.MI_Slasher_Cust
-    bHasStaticPermutationResource: True
     ScalarParameterValues: [
         {
             ParameterInfo: {
@@ -11,6 +10,16 @@ Asset: MaterialInstanceConstant MI_TRMask01
             }
             ParameterValue: 0.2
             ExpressionGUID: 06577673-c13c-4422-b8c3-df3832772772
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: PushBack_Strength
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: -100
+            ExpressionGUID: df97af21-a822-409f-9261-3814d3d708b2
         }
         , 
         {
@@ -33,38 +42,7 @@ Asset: MaterialInstanceConstant MI_TRMask01
             ExpressionGUID: 00000000-0000-0000-0000-000000000000
         }
     ]
-    VectorParameterValues: [
-        {
-            ParameterInfo: {
-                Name: BaseColor Multiplier
-                Association: GlobalParameter
-                Index: -1
-            }
-            ParameterValue: { R: 1, G: 1, B: 1, A: 1 }
-            ExpressionGUID: 37c29fbf-8da2-435b-a010-1cec752c0a55
-        }
-    ]
     TextureParameterValues: [
-        {
-            ParameterInfo: {
-                Name: AORoughnessMetallic
-                Association: GlobalParameter
-                Index: -1
-            }
-            ParameterValue: Texture2D /Game/Characters/Slashers/Trapper/Masks/Textures/Outfit01/T_TRMask01_ORM.T_TRMask01_ORM
-            ExpressionGUID: f7f94105-1966-4247-8c67-0f909cc1b27e
-        }
-        , 
-        {
-            ParameterInfo: {
-                Name: Base Color Texture
-                Association: GlobalParameter
-                Index: -1
-            }
-            ParameterValue: Texture2D /Game/Characters/Slashers/Trapper/Masks/Textures/Outfit01/T_TRMask01_BC.T_TRMask01_BC
-            ExpressionGUID: 72ac35b6-21dd-4644-a895-7ffa481ac309
-        }
-        , 
         {
             ParameterInfo: {
                 Name: Diffuse
@@ -77,12 +55,12 @@ Asset: MaterialInstanceConstant MI_TRMask01
         , 
         {
             ParameterInfo: {
-                Name: HideHead_Mask
+                Name: AORoughnessMetallic
                 Association: GlobalParameter
                 Index: -1
             }
-            ParameterValue: Texture2D /Game/Textures/Environment/Tiles/White.White
-            ExpressionGUID: 68244399-7d52-4947-a248-b0be28331c7c
+            ParameterValue: Texture2D /Game/Characters/Slashers/Trapper/Masks/Textures/Outfit01/T_TRMask01_ORM.T_TRMask01_ORM
+            ExpressionGUID: f7f94105-1966-4247-8c67-0f909cc1b27e
         }
         , 
         {
@@ -97,31 +75,17 @@ Asset: MaterialInstanceConstant MI_TRMask01
         , 
         {
             ParameterInfo: {
-                Name: RoughnessMap Texture
+                Name: HideHead_Mask
                 Association: GlobalParameter
                 Index: -1
             }
-            ParameterValue: null
-            ExpressionGUID: e4d9cddc-e4e5-4863-8a4a-ac45cd219c1c
+            ParameterValue: Texture2D /Game/Textures/Environment/Tiles/White.White
+            ExpressionGUID: 68244399-7d52-4947-a248-b0be28331c7c
         }
     ]
     BasePropertyOverrides: {
         BlendMode: BLEND_Masked
         OpacityMaskClipValue: 0.3333
-    }
-    StaticParameters: {
-        StaticSwitchParameters: [
-            {
-                Value: False
-                ParameterInfo: {
-                    Name: UseDissolveSlasher
-                    Association: GlobalParameter
-                    Index: -1
-                }
-                bOverride: True
-                ExpressionGUID: 8847a463-d67a-4d2d-9471-2a16f676e873
-            }
-        ]
     }
     CachedReferencedTextures: [
         Texture2D /Engine/EngineMaterials/Good64x64TilingNoiseHighFreq.Good64x64TilingNoiseHighFreq
@@ -134,19 +98,9 @@ Asset: MaterialInstanceConstant MI_TRMask01
         , 
         Texture2D /Game/Textures/Environment/Tiles/Green_Linear.Green_Linear
         , 
-        Texture2D /Game/AdvancedDissolveFX/Textures/Dissolve_masks_01.Dissolve_masks_01
-        , 
-        Texture2D /Game/Effects/Textures/T_Dissolve_spiderthing.T_Dissolve_spiderthing
-        , 
-        Texture2D /Game/Effects/Textures/T_Veins.T_Veins
-        , 
         Texture2D /Game/Effects/Textures/T_NoiseNormal_01.T_NoiseNormal_01
         , 
         Texture2D /Game/Effects/Textures/T_Noise02.T_Noise02
-        , 
-        Texture2D /Game/Textures/InteractableObjects/Entity_Objects/Dissolve_border_Entity.Dissolve_border_Entity
-        , 
-        Texture2D /Game/Effects/Textures/T_Noise_04.T_Noise_04
         , 
         Texture2D /Game/Characters/Campers/Textures/T_ETouch_Tile.T_ETouch_Tile
         , 
@@ -164,14 +118,45 @@ Asset: MaterialInstanceConstant MI_TRMask01
         , 
         Texture2D /Game/Materials/Substance/Textures/T_Fur_N.T_Fur_N
         , 
-        Texture2D /Engine/EngineMaterials/BlendFunc_DefBase.BlendFunc_DefBase
+        Texture2D /Game/Effects/Textures/T_DissolveTextures.T_DissolveTextures
         , 
-        Texture2D /Engine/EngineMaterials/BlendFunc_DefBlend.BlendFunc_DefBlend
+        Texture2D /Game/Effects/Textures/T_FX_DissolveRamp.T_FX_DissolveRamp
+    ]
+    TextureStreamingData: [
+        {
+            SamplingScale: 1
+            UVChannelIndex: 0
+            TextureName: FlatNormal
+        }
         , 
-        Texture2D /Game/Characters/Slashers/Trapper/Masks/Textures/Outfit01/T_TRMask01_ORM.T_TRMask01_ORM
+        {
+            SamplingScale: 1
+            UVChannelIndex: 0
+            TextureName: Green_Linear
+        }
         , 
-        Texture2D /Game/Characters/Slashers/Trapper/Masks/Textures/Outfit01/T_TRMask01_BC.T_TRMask01_BC
+        {
+            SamplingScale: 29.953125
+            UVChannelIndex: 0
+            TextureName: T_NoiseNormal_01
+        }
         , 
-        Texture2D /Game/Characters/Slashers/Trapper/Masks/Textures/Outfit01/T_TRMask01_N.T_TRMask01_N
+        {
+            SamplingScale: 1
+            UVChannelIndex: 0
+            TextureName: T_TRMask01_BC
+        }
+        , 
+        {
+            SamplingScale: 1
+            UVChannelIndex: 0
+            TextureName: White
+        }
+        , 
+        {
+            SamplingScale: 1
+            UVChannelIndex: 0
+            TextureName: White
+        }
     ]
 }

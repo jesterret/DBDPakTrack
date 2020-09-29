@@ -1,0 +1,51 @@
+{
+}
+<--- CDO --->
+{
+    FleePathStrategies: [
+        [ EAIFleePathStrategy::KeepGoal
+         => 
+            {
+                DefaultPathBuilders: [
+                        {
+                        }
+                ]
+            }
+        ], 
+        [ EAIFleePathStrategy::Away
+         => 
+            {
+                DefaultPathBuilders: [
+                        {
+                            EQSRequest: {
+                                QueryTemplate: EnvQuery /Game/AI/Camper/EQS_Flee_Forward.EQS_Flee_Forward
+                                RunMode: EEnvQueryRunMode::RandomBest25Pct
+                            }
+                        }
+                    , 
+                        {
+                            EQSRequest: {
+                                QueryTemplate: EnvQuery /Game/AI/Camper/EQS_Flee_Backward.EQS_Flee_Backward
+                                RunMode: EEnvQueryRunMode::RandomBest25Pct
+                            }
+                        }
+                ]
+            }
+        ], 
+        [ EAIFleePathStrategy::Loop
+         => 
+            {
+                FleeLoopStrategyPathBuilders: [
+                    [ EAIFleeLoopStrategy::LoseKiller
+                     => 
+                        {
+                        }
+                    ], 
+                    [ EAIFleeLoopStrategy::WasteTime
+                     => 
+                        {
+                        }
+                    ]]
+            }
+        ]]
+}

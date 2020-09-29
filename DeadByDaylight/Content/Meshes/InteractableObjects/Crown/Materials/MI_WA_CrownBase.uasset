@@ -55,32 +55,52 @@ Asset: MaterialInstanceConstant MI_WA_CrownBase
         , 
         {
             ParameterInfo: {
-                Name: GraDis_amount
+                Name: DissolveGlowLineIntensityMult
                 Association: GlobalParameter
                 Index: -1
             }
-            ParameterValue: 1.1
-            ExpressionGUID: babf185f-87c4-44d9-a84a-ff113b3f2a5b
+            ParameterValue: 750
+            ExpressionGUID: 7d6b4ea2-cd21-4b7d-831a-ffb0edf5840b
         }
         , 
         {
             ParameterInfo: {
-                Name: ObjectHeight
+                Name: DissolveProgress
                 Association: GlobalParameter
                 Index: -1
             }
-            ParameterValue: 655.32745
-            ExpressionGUID: d76113be-de21-4fbb-a3f9-75d424b172a2
+            ParameterValue: 1
+            ExpressionGUID: 9a9d8be0-eed4-4f03-8a7a-2186a504dde1
         }
         , 
         {
             ParameterInfo: {
-                Name: ObjectGroundPosition
+                Name: EndLocation_WorldSpace
                 Association: GlobalParameter
                 Index: -1
             }
-            ParameterValue: -300
-            ExpressionGUID: d3200365-5c04-4cba-9539-5cd6404a2a4d
+            ParameterValue: 575
+            ExpressionGUID: 5a193db8-8966-4aa5-a7a0-ea6ae2e9e234
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: GradientHardness
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: 450
+            ExpressionGUID: 3399a630-7585-4bed-8d9c-1965d8245214
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: StartLocation_WorldSpace
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: 150
+            ExpressionGUID: 074542c9-40c2-4c57-97f6-3e840c46f4c7
         }
         , 
         {
@@ -181,7 +201,18 @@ Asset: MaterialInstanceConstant MI_WA_CrownBase
                     Index: -1
                 }
                 bOverride: True
-                ExpressionGUID: 5f9d52e3-aebd-4896-b858-7dc32a4d8347
+                ExpressionGUID: 5c1016b0-3d36-45b6-bf3c-9cf1011b9b1d
+            }
+            , 
+            {
+                Value: True
+                ParameterInfo: {
+                    Name: UseObjectLocalBounds
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: d9d94da3-2211-4a35-8e04-66054196c18d
             }
         ]
     }
@@ -202,15 +233,9 @@ Asset: MaterialInstanceConstant MI_WA_CrownBase
         , 
         Texture2D /Game/Textures/Environment/Tiles/Black_Linear.Black_Linear
         , 
-        Texture2D /Game/AdvancedDissolveFX/Textures/Dissolve_masks_01.Dissolve_masks_01
+        Texture2D /Game/Effects/Textures/T_DissolveTextures.T_DissolveTextures
         , 
-        Texture2D /Game/Effects/Textures/T_Dissolve_spiderthing.T_Dissolve_spiderthing
-        , 
-        Texture2D /Game/Effects/Textures/T_Veins.T_Veins
-        , 
-        Texture2D /Game/Textures/InteractableObjects/Entity_Objects/Dissolve_border_Entity.Dissolve_border_Entity
-        , 
-        Texture2D /Game/Effects/Textures/T_Noise_04.T_Noise_04
+        Texture2D /Game/Effects/Textures/T_FX_DissolveRamp.T_FX_DissolveRamp
         , 
         Texture2D /Game/Textures/Environment/Tiles/White_Linear.White_Linear
         , 
@@ -229,26 +254,6 @@ Asset: MaterialInstanceConstant MI_WA_CrownBase
         Texture2D /Game/Textures/Environment/Tiles/White.White
         , 
         Texture2D /Game/Textures/Environment/Junkyard/Structures/T_GS_FrontSign_Flickerama.T_GS_FrontSign_Flickerama
-        , 
-        Texture2D /Game/Characters/Campers/Textures/Vomit/T_Vomit01_ORM.T_Vomit01_ORM
-        , 
-        Texture2D /Game/Characters/Campers/Textures/Vomit/T_Vomit01_BC.T_Vomit01_BC
-        , 
-        Texture2D /Game/Characters/Campers/Textures/Vomit/T_Vomit01_N.T_Vomit01_N
-        , 
-        Texture2D /Game/Characters/Campers/Textures/Vomit/T_Vomit_BDE.T_Vomit_BDE
-        , 
-        Texture2D /Engine/ArtTools/RenderToTexture/Textures/127grey.127grey
-        , 
-        Texture2D /Game/Meshes/InteractableObjects/Crown/Textures/T_WA_CrownBase_BC.T_WA_CrownBase_BC
-        , 
-        Texture2D /Game/Meshes/InteractableObjects/Crown/Textures/T_WA_CrownBase_ORM.T_WA_CrownBase_ORM
-        , 
-        Texture2D /Game/Meshes/InteractableObjects/Crown/Textures/T_WA_CrownBase_N.T_WA_CrownBase_N
-        , 
-        Texture2D /Game/Meshes/InteractableObjects/Crown/Textures/T_WA_CrownBase_BDE.T_WA_CrownBase_BDE
-        , 
-        Texture2D /Game/Effects/Textures/T_Anniversary2020_CrownPillarPulse.T_Anniversary2020_CrownPillarPulse
     ]
     TextureStreamingData: [
         {
@@ -258,39 +263,9 @@ Asset: MaterialInstanceConstant MI_WA_CrownBase
         }
         , 
         {
-            SamplingScale: 0.046875
-            UVChannelIndex: 0
-            TextureName: T_Anniversary2020_CrownPillarPulse
-        }
-        , 
-        {
-            SamplingScale: 3
-            UVChannelIndex: 0
-            TextureName: T_Dissolve_spiderthing
-        }
-        , 
-        {
-            SamplingScale: 1
-            UVChannelIndex: 0
-            TextureName: T_Noise_04
-        }
-        , 
-        {
             SamplingScale: 29.953125
             UVChannelIndex: 0
             TextureName: T_NoiseNormal_01
-        }
-        , 
-        {
-            SamplingScale: 1
-            UVChannelIndex: 0
-            TextureName: T_Vomit01_BC
-        }
-        , 
-        {
-            SamplingScale: 1
-            UVChannelIndex: 0
-            TextureName: T_Vomit01_N
         }
         , 
         {

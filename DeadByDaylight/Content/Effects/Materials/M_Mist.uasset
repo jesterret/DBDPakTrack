@@ -1,23 +1,30 @@
 Asset: Material M_Mist
 {
-    EmissiveColor: MaterialExpressionFeatureLevelSwitch: None
+    EmissiveColor: MaterialExpressionMultiply: None
     BlendMode: BLEND_Translucent
     ShadingModel: MSM_Unlit
     ShadingModels: {
         ShadingModelField: 1
     }
-    WorldPositionOffset: MaterialExpressionIf: None
-    NumCustomizedUVs: 2
+    WorldPositionOffset: MaterialExpressionReroute: None
     bUsedWithParticleSprites: True
     bCanMaskedBeAssumedOpaque: True
-    StateId: 39d81e67-3e8c-4433-ad99-413b9e56939d
+    StateId: c86f1ea5-ccad-4f4d-a692-d4dc98d70076
     CachedExpressionData: {
         Parameters: {
             Entries: {
                 NameHashes: [
                     2213010414163285491
                     , 
+                    3775951208358729996
+                    , 
+                    5715783085211599032
+                    , 
+                    6526327112281301420
+                    , 
                     8687791388222420711
+                    , 
+                    10371715421228879687
                     , 
                     15181565769751900315
                 ]
@@ -29,7 +36,31 @@ Asset: Material M_Mist
                     }
                     , 
                     {
+                        Name: Emissive
+                        Association: GlobalParameter
+                        Index: -1
+                    }
+                    , 
+                    {
+                        Name: Param
+                        Association: GlobalParameter
+                        Index: -1
+                    }
+                    , 
+                    {
+                        Name: PlayerInteractionStrength
+                        Association: GlobalParameter
+                        Index: -1
+                    }
+                    , 
+                    {
                         Name: AtlantaOpacity
+                        Association: GlobalParameter
+                        Index: -1
+                    }
+                    , 
+                    {
+                        Name: Param
                         Association: GlobalParameter
                         Index: -1
                     }
@@ -43,17 +74,33 @@ Asset: Material M_Mist
                 ExpressionGuids: [
                     0cdf5de4-7892-47ca-9c15-5cc2cf48a2e1
                     , 
+                    48befb42-0e78-4d57-b0ea-c21424ff419a
+                    , 
+                    9f9215e8-c72b-49b6-9668-89ab1424fb62
+                    , 
+                    d11cfe8f-5fd3-4651-9bd8-d6964da70ac8
+                    , 
                     3c0739c7-b46f-42e0-aabb-53dd5ba77cc5
+                    , 
+                    626aeaa9-6d47-4566-be85-281a751cb83d
                     , 
                     16bbec0e-7e8d-462e-a53c-f4455534ca75
                 ]
-                Overrides: [ 0, 0, 0 ]
+                Overrides: [ 0, 0, 0, 0, 0, 0, 0 ]
             }
             Entries: {
                 NameHashes: [
+                    1305014157859255331
+                    , 
                     12493964642381454784
                 ]
                 ParameterInfos: [
+                    {
+                        Name: RenderTarget
+                        Association: GlobalParameter
+                        Index: -1
+                    }
+                    , 
                     {
                         Name: MaterialExpressionTextureSampleParameterSubUV
                         Association: GlobalParameter
@@ -61,18 +108,30 @@ Asset: Material M_Mist
                     }
                 ]
                 ExpressionGuids: [
+                    57496ecd-8c7b-46ed-980d-bbd2c1d5876c
+                    , 
                     d3c3c727-1215-4904-904e-8065dda4971e
                 ]
-                Overrides: [ 0 ]
+                Overrides: [ 0, 0 ]
             }
             ScalarValues: [
                 2000
                 , 
+                1
+                , 
+                500
+                , 
+                1
+                , 
                 0.15
+                , 
+                2000
                 , 
                 0
             ]
             TextureValues: [
+                TextureRenderTarget2D /Game/Effects/Blueprints/Environment/InteractiveMist/Shared/RT_InteractiveMist.RT_InteractiveMist
+                , 
                 Texture2D /Game/Effects/Textures/T_SmokeSubUV_8X8_02.T_SmokeSubUV_8X8_02
             ]
         }
@@ -82,6 +141,8 @@ Asset: Material M_Mist
             Texture2D /Game/Effects/Textures/T_TilingNoise03.T_TilingNoise03
             , 
             Texture2D /Game/Effects/Textures/T_TilingClouds_01.T_TilingClouds_01
+            , 
+            TextureRenderTarget2D /Game/Effects/Blueprints/Environment/InteractiveMist/Shared/RT_InteractiveMist.RT_InteractiveMist
         ]
         FunctionInfos: [
             {
@@ -93,11 +154,26 @@ Asset: Material M_Mist
                 StateId: 27042758-7c38-4d03-ba26-836aef6a6b75
                 Function: MaterialFunction /Engine/Functions/Engine_MaterialFunctions02/Math/MultiplyAdd.MultiplyAdd
             }
+            , 
+            {
+                StateId: db3e993f-98b3-4e2e-b913-ad05a55d8c2d
+                Function: MaterialFunction /Engine/Functions/Engine_MaterialFunctions01/Opacity/CameraDepthFade.CameraDepthFade
+            }
+            , 
+            {
+                StateId: f243858d-a805-4b74-bae0-62d1a56dde40
+                Function: MaterialFunction /Game/Effects/Blueprints/Environment/InteractiveMist/Shared/MF_GetPlayerPositionMist.MF_GetPlayerPositionMist
+            }
         ]
         ParameterCollectionInfos: [
             {
-                StateId: ec849f3b-89a5-4882-87ad-3cc5eb2f0ed0
+                StateId: 95d7c19f-5b50-407d-8d96-23775962cd82
                 ParameterCollection: MaterialParameterCollection /Game/Materials/MPC_WorldSettings.MPC_WorldSettings
+            }
+            , 
+            {
+                StateId: 97c5163c-4a0a-496f-a7d0-20a8c75e5a82
+                ParameterCollection: MaterialParameterCollection /Game/Effects/Blueprints/Environment/InteractiveMist/Shared/MPC_InteractiveMist.MPC_InteractiveMist
             }
         ]
         QualityLevelsUsed: [ 0, 1, 0 ]
