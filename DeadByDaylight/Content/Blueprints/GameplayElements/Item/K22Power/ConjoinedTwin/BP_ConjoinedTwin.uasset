@@ -1,0 +1,408 @@
+{
+    DynamicBindingObjects: [
+        ComponentDelegateBinding BP_ConjoinedTwin_C.ComponentDelegateBinding
+    ]
+    Timelines: [
+        TimelineTemplate BP_ConjoinedTwin_C.TML_BloodOnBrother_Template
+        , 
+        TimelineTemplate BP_ConjoinedTwin_C.TML_DyingBrother_Template
+        , 
+        TimelineTemplate BP_ConjoinedTwin_C.TML_RespawnBlood_Template
+        , 
+        TimelineTemplate BP_ConjoinedTwin_C.TML_Dormant_Highlight_Template
+        , 
+        TimelineTemplate BP_ConjoinedTwin_C.TML_MIssedJump_Highlight_Template
+        , 
+        TimelineTemplate BP_ConjoinedTwin_C.TML_Jump_Active_Template
+        , 
+        TimelineTemplate BP_ConjoinedTwin_C.TML_FadeToBlack_Template
+        , 
+        TimelineTemplate BP_ConjoinedTwin_C.TML_WrongLandingHighlight_Template
+    ]
+    SimpleConstructionScript: SimpleConstructionScript BP_ConjoinedTwin_C.SimpleConstructionScript
+    UberGraphFunction: Function BP_ConjoinedTwin_C.ExecuteUbergraph_BP_ConjoinedTwin
+}
+<--- CDO --->
+{
+    UberGraphFrame: None
+    TML_WrongLandingHighlight_Color_FE8C3DDB44ECF3F4DC3C31B012DCE654: { R: 0, G: 0, B: 0, A: 0 }
+    TML_MIssedJump_Highlight_Color_6E22FD504D6174B2407665AD1CDA0CE0: { R: 0, G: 0, B: 0, A: 0 }
+    TML_Dormant_Highlight_Color_0C60774646B97E0FA6C332BC446EDD91: { R: 0, G: 0, B: 0, A: 0 }
+    HighlightColor: { R: 0.5, G: 0.5, B: 0.5, A: 1 }
+    _restrictedPossessionAreaTracker: {
+            _rangeTrackers: [
+                    {
+                        _range: {
+                            _dataTableRowHandle: {
+                                DataTable: DataTable /Game/Data/Dlc/Aurora/K22_TunableDB.K22_TunableDB
+                                RowName: ExitGateRestrictionRadius
+                            }
+                        }
+                    }
+                , 
+                    {
+                        _range: {
+                            _dataTableRowHandle: {
+                                DataTable: DataTable /Game/Data/Dlc/Aurora/K22_TunableDB.K22_TunableDB
+                                RowName: HookRestrictionRadius
+                            }
+                        }
+                    }
+                , 
+                    {
+                        _range: {
+                            _dataTableRowHandle: {
+                                DataTable: DataTable /Game/Data/Dlc/Aurora/K22_TunableDB.K22_TunableDB
+                                RowName: HatchRestrictionRadius
+                            }
+                        }
+                    }
+            ]
+        }
+    _twinOutlineUpdateStrategy: {
+        }
+    _twinBlindingFX: {
+            _blindingSoundLoop: {
+                _startEvent: AkAudioEvent /Game/Audio/AudioEvents/Objects/AudioEvent_Flashlight_TargetSpot_Start.AudioEvent_Flashlight_TargetSpot_Start
+                _endEvent: AkAudioEvent /Game/Audio/AudioEvents/Objects/AudioEvent_Flashlight_TargetSpot_Stop.AudioEvent_Flashlight_TargetSpot_Stop
+            }
+            _blindedSound: AkAudioEvent /Game/Audio/AudioEvents/Gameplay/AudioEvent_Blind_Killer_Affected.AudioEvent_Blind_Killer_Affected
+            _blindnessIntensityParameter: FlashlightIntensity
+            _blindnessMaterialCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/BlindnessCurve_Material.BlindnessCurve_Material
+            _blindnessCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/BlindnessCurve.BlindnessCurve
+        }
+    _customizedAudio: {
+            AudioCharacterShoesDefaultSwitchState: Barefoot
+        }
+    _attackerComponent: {
+        }
+    _maxWalkSpeed: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Aurora/K22_TunableDB.K22_TunableDB
+            RowName: Twin_MaxWalkSpeed
+        }
+    }
+    _hitValidatorComponent: {
+        }
+    _hitValidationConfigurator: {
+        }
+    _gravityScale: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Aurora/K22_TunableDB.K22_TunableDB
+            RowName: TwinJump_GravityScale
+        }
+    }
+    _animationFollower: {
+        }
+    _revealDurationOnAttached: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Aurora/K22_TunableDB.K22_TunableDB
+            RowName: TwinAura_OnAttachedToSurvivorRevealDuration
+        }
+    }
+    _firstPersonViewComponent: {
+        }
+    _eyesFlashlightable: {
+            _lightingStrategy: {
+                    _pointsProvider: {
+                            _meshReference: {
+                                ComponentProperty: Mesh
+                            }
+                            _sockets: [
+                                HK_Socket_Flashlight
+                            ]
+                        }
+                }
+        }
+    _blindFlashlightTargetFXComponent: {
+            _flashlightable: FlashlightableComponent Default__BP_ConjoinedTwin_C.EyesFlashlightable
+        }
+    _firecrackerEffectHandlerComponent: {
+        }
+    Camera: {
+            FieldOfView: 87
+            RelativeRotation: { Pitch: 0, Roll: -6.0081482E-05, Yaw: 0 }
+        }
+    MaterialHelper: {
+            Groups: [
+                {
+                    GroupName: Standard
+                    Maps: [
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Cust.MI_Slasher_Cust
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Cust.MI_Slasher_Cust
+                        }
+                    ]
+                }
+                , 
+                {
+                    GroupName: Highlight
+                    Maps: [
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Cust.MI_Slasher_Cust
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Cust_OK.MI_Slasher_Cust_OK
+                        }
+                    ]
+                }
+                , 
+                {
+                    GroupName: Dissolve
+                    Maps: [
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Cust.MI_Slasher_Cust
+                            DstMaterial: null
+                        }
+                    ]
+                }
+                , 
+                {
+                    GroupName: DissolveBaby
+                    Maps: [
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/MI_Slasher_Cust.MI_Slasher_Cust
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_Slasher_DissolveWithClipping_Blood.MV_Slasher_DissolveWithClipping_Blood
+                        }
+                    ]
+                }
+            ]
+            AttachParent: {
+                    AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/K22/Blueprints/AB_Slasher_22_ConjoinedTwin.AB_Slasher_22_ConjoinedTwin_C
+                    SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/K22/Weapons/Models/K22_SW00_REF.K22_SW00_REF
+                    OverrideMaterials: [
+                        null
+                        , 
+                        null
+                    ]
+                    DetailLevelBeforeCastShadows: DM_MAX
+                    BodyInstance: {
+                        CollisionResponses: {
+                            ResponseArray: [
+                                {
+                                    Channel: Pawn
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Vehicle
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Camera
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: WorldStatic
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: WorldDynamic
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Visibility
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Destructible
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Interactable
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Audio
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Slasher
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Spider
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Traps
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: InteractionDetector
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: BlinkBlocker
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Ground
+                                    Response: ECR_Ignore
+                                }
+                            ]
+                        }
+                    }
+                    AttachParent: {
+                            CapsuleHalfHeight: 50
+                            CapsuleRadius: 35
+                            DetailLevelBeforeCastShadows: DM_MAX
+                            BodyInstance: {
+                                ObjectType: ECC_GameTraceChannel3
+                                CollisionProfileName: Custom
+                                CollisionResponses: {
+                                    ResponseArray: [
+                                        {
+                                            Channel: Camera
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: PhysicsBody
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Slasher
+                                            Response: ECR_Block
+                                        }
+                                        , 
+                                        {
+                                            Channel: Spider
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Traps
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: InteractionDetector
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Audio
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: BlinkBlocker
+                                            Response: ECR_Block
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    RelativeLocation: { X: 0, Y: 0, Z: -50 }
+                    RelativeRotation: { Pitch: 0, Roll: -90.00018, Yaw: 0 }
+                }
+        }
+    Interactable: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/K22Power/ConjoinedTwin/BP_ConjoinedTwinInteractable.BP_ConjoinedTwinInteractable_C
+    PitchLimitLower: -80
+    PitchLimitUpper: 80
+    GamepadYawCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/SlasherGamepadYawCurve.SlasherGamepadYawCurve
+    GamepadPitchCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/SlasherGamepadPitchCurve.SlasherGamepadPitchCurve
+    GamepadSettingToYawRateCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/SlasherGamepadSettingToYawRateCurve.SlasherGamepadSettingToYawRateCurve
+    GamepadSettingToPitchRateCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/SlasherGamepadSettingToPitchRateCurve.SlasherGamepadSettingToPitchRateCurve
+    _characterInventoryComponent: {
+        }
+    _renderedPixelCounter: {
+            DetailLevelBeforeCastShadows: DM_MAX
+        }
+    _standingOcclusionBox: {
+            DetailLevelBeforeCastShadows: DM_MAX
+            AttachParent: CapsuleComponent Default__BP_ConjoinedTwin_C.CollisionCylinder
+        }
+    _crouchingOcclusionBox: {
+            DetailLevelBeforeCastShadows: DM_MAX
+            AttachParent: CapsuleComponent Default__BP_ConjoinedTwin_C.CollisionCylinder
+        }
+    _stateMachine: {
+        }
+    _interactionHandler: {
+        }
+    _montagePlayer: {
+            _animationMappingsTable: DataTable /Game/Characters/Slashers/Animations/MontageMappings/Slasher022_Twin_AnimMappings.Slasher022_Twin_AnimMappings
+            _playerSpecificMappingsTable: DataTable /Game/Characters/Slashers/Animations/MontageMappings/Slasher022_Twin_AnimMappings.Slasher022_Twin_AnimMappings
+        }
+    _perkManager: {
+            _perks: {
+                }
+            _statusEffects: {
+                }
+        }
+    _playerData: {
+        }
+    _characterChaseVisualComponent: {
+        }
+    _cameraHandlerComponent: {
+        }
+    _specialEventSpawnerComponent: {
+        }
+    _itemDropOffPosition: {
+            AttachParent: CapsuleComponent Default__BP_ConjoinedTwin_C.CollisionCylinder
+        }
+    _perceptionStimuliComponent: {
+        }
+    _blindingChargeableComponent: {
+            OnInteractionEmptiedEvent: OnBlindChargeEmptied
+            ChargeableCompletionPercentChangeCosmeticDelegate: OnChargeableCompletionPercentChanged
+        }
+    _shouldUpdateStateMachineDriverOnPossessed: False
+    _blindableComponent: {
+            _chargeableComponent: ChargeableComponent Default__BP_ConjoinedTwin_C.BlindnessChargeableComponent
+        }
+    _eventListener: {
+        }
+    _chaseComponent: {
+        }
+    _meatHookZoneDetector: {
+        }
+    _basementZoneDetector: {
+        }
+    _authoritativeMovementComponent: {
+        }
+    _objectState: {
+        }
+    _audioFXComponent: {
+        }
+    _playerPerspectiveComponent: {
+        }
+    _characterSightComponent: {
+        }
+    _characterSightableComponent: {
+        }
+    _interactionDetectorComponent: {
+        }
+    _clippablePrimitivesRegistererComponent: {
+        }
+    _clippableProviderComponent: {
+        }
+    _dynCapsuleResizer: {
+        }
+    _playerGameRelevancyComponent: {
+        }
+    _contextualQuestComponent: {
+        }
+    _presentationChargeableProgressComponent: {
+        }
+    _characterIndex: 268435477
+    Mesh: SkeletalMeshComponent Default__BP_ConjoinedTwin_C.CharacterMesh0
+    CharacterMovement: {
+        }
+    CapsuleComponent: CapsuleComponent Default__BP_ConjoinedTwin_C.CollisionCylinder
+    RootComponent: CapsuleComponent Default__BP_ConjoinedTwin_C.CollisionCylinder
+}

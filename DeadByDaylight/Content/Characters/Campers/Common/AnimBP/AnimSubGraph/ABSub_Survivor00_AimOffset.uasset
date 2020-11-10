@@ -5,18 +5,18 @@
             InitialState: 0
             States: [
                 {
-                    StateName: FailStart
+                    StateName: Base
                     Transitions: [
                         {
                             CanTakeDelegateIndex: 18
                             CustomResultNodeIndex: -1
-                            TransitionIndex: 4
+                            TransitionIndex: 0
                             bDesiredTransitionReturnValue: True
                             bAutomaticRemainingTimeRule: False
                             PoseEvaluatorLinks: [ ]
                         }
                     ]
-                    StateRootNodeIndex: 16
+                    StateRootNodeIndex: 8
                     StartNotify: -1
                     EndNotify: -1
                     FullyBlendedNotify: -1
@@ -28,7 +28,7 @@
                 }
                 , 
                 {
-                    StateName: Base
+                    StateName: AimOffset_State
                     Transitions: [
                         {
                             CanTakeDelegateIndex: 19
@@ -42,7 +42,16 @@
                         {
                             CanTakeDelegateIndex: 20
                             CustomResultNodeIndex: -1
-                            TransitionIndex: 0
+                            TransitionIndex: 4
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                        , 
+                        {
+                            CanTakeDelegateIndex: 21
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 1
                             bDesiredTransitionReturnValue: True
                             bAutomaticRemainingTimeRule: False
                             PoseEvaluatorLinks: [ ]
@@ -62,35 +71,19 @@
                 }
                 , 
                 {
-                    StateName: JustHead
+                    StateName: State
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 21
+                            CanTakeDelegateIndex: 22
                             CustomResultNodeIndex: -1
-                            TransitionIndex: 1
+                            TransitionIndex: 5
                             bDesiredTransitionReturnValue: True
                             bAutomaticRemainingTimeRule: False
                             PoseEvaluatorLinks: [ ]
                         }
-                    ]
-                    StateRootNodeIndex: 8
-                    StartNotify: -1
-                    EndNotify: -1
-                    FullyBlendedNotify: -1
-                    bIsAConduit: False
-                    EntryRuleNodeIndex: -1
-                    PlayerNodeIndices: [
-                        9
-                    ]
-                    LayerNodeIndices: [ ]
-                    bAlwaysResetOnEntry: False
-                }
-                , 
-                {
-                    StateName: FlashLight
-                    Transitions: [
+                        , 
                         {
-                            CanTakeDelegateIndex: 22
+                            CanTakeDelegateIndex: 23
                             CustomResultNodeIndex: -1
                             TransitionIndex: 3
                             bDesiredTransitionReturnValue: True
@@ -98,20 +91,71 @@
                             PoseEvaluatorLinks: [ ]
                         }
                     ]
-                    StateRootNodeIndex: 13
+                    StateRootNodeIndex: 10
                     StartNotify: -1
                     EndNotify: -1
                     FullyBlendedNotify: -1
                     bIsAConduit: False
                     EntryRuleNodeIndex: -1
                     PlayerNodeIndices: [
-                        14
+                        11
                     ]
+                    LayerNodeIndices: [ ]
+                    bAlwaysResetOnEntry: False
+                }
+                , 
+                {
+                    StateName: Conduit
+                    Transitions: [
+                        {
+                            CanTakeDelegateIndex: 24
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 6
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                    ]
+                    StateRootNodeIndex: -1
+                    StartNotify: -1
+                    EndNotify: -1
+                    FullyBlendedNotify: -1
+                    bIsAConduit: True
+                    EntryRuleNodeIndex: 17
+                    PlayerNodeIndices: [ ]
                     LayerNodeIndices: [ ]
                     bAlwaysResetOnEntry: False
                 }
             ]
             Transitions: [
+                {
+                    PreviousState: 0
+                    NextState: 1
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+                , 
+                {
+                    PreviousState: 1
+                    NextState: 0
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+                , 
                 {
                     PreviousState: 1
                     NextState: 2
@@ -155,8 +199,8 @@
                 }
                 , 
                 {
-                    PreviousState: 3
-                    NextState: 1
+                    PreviousState: 2
+                    NextState: 3
                     CrossfadeDuration: 0.2
                     StartNotify: -1
                     EndNotify: -1
@@ -169,8 +213,8 @@
                 }
                 , 
                 {
-                    PreviousState: 0
-                    NextState: 1
+                    PreviousState: 3
+                    NextState: 0
                     CrossfadeDuration: 0.2
                     StartNotify: -1
                     EndNotify: -1
@@ -190,7 +234,7 @@
          => 
         {
             OrderedSavedPoseNodeIndices: [
-                23
+                25
             ]
         }
         ]]
@@ -311,40 +355,14 @@
             BoundFunction: None
             CopyRecords: [
                 {
-                    SourcePropertyName: _yaw
+                    SourcePropertyName: IsDead
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
                     PostCopyOperation: EPostCopyOperation::None
                     DestProperty: UETools.Objects.Property.FieldPath
                     DestArrayIndex: 0
-                    Size: 4
-                    CachedSourceProperty: UETools.Objects.Property.FieldPath
-                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
-                }
-                , 
-                {
-                    SourcePropertyName: _pitch
-                    SourceSubPropertyName: None
-                    SourceArrayIndex: 0
-                    bInstanceIsTarget: False
-                    PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: UETools.Objects.Property.FieldPath
-                    DestArrayIndex: 0
-                    Size: 4
-                    CachedSourceProperty: UETools.Objects.Property.FieldPath
-                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
-                }
-                , 
-                {
-                    SourcePropertyName: AO_Flashlight
-                    SourceSubPropertyName: None
-                    SourceArrayIndex: 0
-                    bInstanceIsTarget: False
-                    PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: UETools.Objects.Property.FieldPath
-                    DestArrayIndex: 0
-                    Size: 8
+                    Size: 1
                     CachedSourceProperty: UETools.Objects.Property.FieldPath
                     CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
                 }
@@ -354,10 +372,17 @@
         }
         , 
         {
+            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_AimOffset_AnimGraphNode_TransitionResult_2D7690DE4BA46D92B748FFB782DF20EC
+            CopyRecords: [ ]
+            Function: Function ABSub_Survivor00_AimOffset_C.EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_AimOffset_AnimGraphNode_TransitionResult_2D7690DE4BA46D92B748FFB782DF20EC
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
+        }
+        , 
+        {
             BoundFunction: None
             CopyRecords: [
                 {
-                    SourcePropertyName: Initialize
+                    SourcePropertyName: _isInjured
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
@@ -377,7 +402,7 @@
             BoundFunction: None
             CopyRecords: [
                 {
-                    SourcePropertyName: _isUsingAimItem
+                    SourcePropertyName: _isCarry
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
@@ -394,16 +419,16 @@
         }
         , 
         {
-            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_AimOffset_AnimGraphNode_TransitionResult_85443B094D73E991BC8694AABB27FFBB
+            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_AimOffset_AnimGraphNode_TransitionResult_1148C6A0448369C996846A8C6D31A790
             CopyRecords: [ ]
-            Function: Function ABSub_Survivor00_AimOffset_C.EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_AimOffset_AnimGraphNode_TransitionResult_85443B094D73E991BC8694AABB27FFBB
+            Function: Function ABSub_Survivor00_AimOffset_C.EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_AimOffset_AnimGraphNode_TransitionResult_1148C6A0448369C996846A8C6D31A790
             ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
         }
         , 
         {
-            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_AimOffset_AnimGraphNode_TransitionResult_08CB269E468EB8674BE56F8518E674BB
+            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_AimOffset_AnimGraphNode_TransitionResult_B22B4BF64DF6620982FAF589E4754CAC
             CopyRecords: [ ]
-            Function: Function ABSub_Survivor00_AimOffset_C.EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_AimOffset_AnimGraphNode_TransitionResult_08CB269E468EB8674BE56F8518E674BB
+            Function: Function ABSub_Survivor00_AimOffset_C.EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_AimOffset_AnimGraphNode_TransitionResult_B22B4BF64DF6620982FAF589E4754CAC
             ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
         }
         , 
@@ -411,7 +436,7 @@
             BoundFunction: None
             CopyRecords: [
                 {
-                    SourcePropertyName: _isUsingAimItem
+                    SourcePropertyName: _isInjured
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
@@ -434,7 +459,7 @@
     UberGraphFrame: None
     AnimGraphNode_Root: {
         Result: {
-            LinkID: 25
+            LinkID: 27
         }
         Name: AnimGraph
         Group: None
@@ -453,7 +478,7 @@
         CachePoseName: CacheInput
     }
     AnimGraphNode_TransitionResult: {
-        bCanEnterTransition: False
+        bCanEnterTransition: True
     }
     AnimGraphNode_TransitionResult: {
         bCanEnterTransition: False
@@ -466,6 +491,15 @@
     }
     AnimGraphNode_TransitionResult: {
         bCanEnterTransition: False
+    }
+    AnimGraphNode_TransitionResult: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_TransitionResult: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_TransitionResult: {
+        bCanEnterTransition: True
     }
     AnimGraphNode_UseCachedPose: {
         LinkToCachingNode: {
@@ -473,84 +507,27 @@
         }
         CachePoseName: CacheInput
     }
-    AnimGraphNode_StateResult: {
-        Result: {
-            LinkID: 8
-        }
-        Name: FailStart
-        Group: None
-    }
-    AnimGraphNode_UseCachedPose: {
-        LinkToCachingNode: {
-            LinkID: 2
-        }
-        CachePoseName: CacheInput
-    }
-    AnimGraphNode_RotationOffsetBlendSpace: {
-        BasePose: {
-            LinkID: 10
-        }
-        LODThreshold: -1
-        Alpha: 1
-        AlphaScaleBias: {
-            Scale: 1
-            Bias: 0
-        }
-        AlphaBoolBlend: {
-            BlendInTime: 0
-            BlendOutTime: 0
-            BlendOption: EAlphaBlendOption::Linear
-            bInitialized: False
-            CustomCurve: null
-            AlphaBlend: {
-                CustomCurve: null
-                BlendTime: 0.2
-                BlendOption: EAlphaBlendOption::Linear
+    AnimGraphNode_BlendListByBool: {
+        bActiveValue: False
+        BlendPose: [
+            {
+                LinkID: 11
             }
-        }
-        AlphaCurveName: None
-        AlphaScaleBiasClamp: {
-            bMapRange: False
-            bClampResult: False
-            bInterpResult: False
-            InRange: {
-                Min: 0
-                Max: 1
+            , 
+            {
+                LinkID: 13
             }
-            OutRange: {
-                Min: 0
-                Max: 1
-            }
-            Scale: 1
-            Bias: 0
-            ClampMin: 0
-            ClampMax: 1
-            InterpSpeedIncreasing: 10
-            InterpSpeedDecreasing: 10
-        }
-        AlphaInputType: EAnimAlphaInputType::Float
-        bAlphaBoolEnabled: False
-        X: 0
-        Y: 0
-        Z: 0
-        PlayRate: 1
-        bLoop: True
-        bResetPlayTimeWhenBlendSpaceChanges: True
-        StartPosition: 0
-        BlendSpace: null
-        PreviousBlendSpace: null
-        GroupIndex: -1
-        GroupRole: EAnimGroupRole::CanBeLeader
-        bIgnoreForRelevancyTest: False
-        BlendWeight: 0
-        InternalTimeAccumulator: 0
-    }
-    AnimGraphNode_StateResult: {
-        Result: {
-            LinkID: 11
-        }
-        Name: FlashLight
-        Group: None
+        ]
+        BlendTime: [
+            0.1
+            , 
+            0.1
+        ]
+        TransitionType: EBlendListTransitionType::StandardBlend
+        BlendType: EAlphaBlendOption::Linear
+        bResetChildOnActivation: False
+        CustomBlendCurve: null
+        BlendProfile: null
     }
     AnimGraphNode_LayeredBoneBlend: {
         BasePose: {
@@ -565,8 +542,8 @@
             {
                 BranchFilters: [
                     {
-                        BoneName: joint_NeckA_01
-                        BlendDepth: 0
+                        BoneName: joint_TorsoB_01
+                        BlendDepth: 1
                     }
                 ]
             }
@@ -662,7 +639,527 @@
             , 
             {
                 SourceIndex: 0
-                BlendWeight: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
             }
             , 
             {
@@ -712,177 +1209,32 @@
             , 
             {
                 SourceIndex: 0
-                BlendWeight: 0
+                BlendWeight: 1
             }
             , 
             {
                 SourceIndex: 0
-                BlendWeight: 0
+                BlendWeight: 1
             }
             , 
             {
                 SourceIndex: 0
-                BlendWeight: 0
+                BlendWeight: 1
             }
             , 
             {
                 SourceIndex: 0
-                BlendWeight: 0
+                BlendWeight: 1
             }
             , 
             {
                 SourceIndex: 0
-                BlendWeight: 0
+                BlendWeight: 1
             }
             , 
             {
                 SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
+                BlendWeight: 1
             }
             , 
             {
@@ -1067,256 +1419,6 @@
             , 
             {
                 SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 1
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 1
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 1
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 1
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 1
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 1
-            }
-            , 
-            {
-                SourceIndex: 0
                 BlendWeight: 1
             }
             , 
@@ -1437,142 +1539,17 @@
             , 
             {
                 SourceIndex: 0
-                BlendWeight: 0
+                BlendWeight: 1
             }
             , 
             {
                 SourceIndex: 0
-                BlendWeight: 0
+                BlendWeight: 1
             }
             , 
             {
                 SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
+                BlendWeight: 1
             }
             , 
             {
@@ -1632,17 +1609,17 @@
             , 
             {
                 SourceIndex: 0
-                BlendWeight: 0
+                BlendWeight: 1
             }
             , 
             {
                 SourceIndex: 0
-                BlendWeight: 0
+                BlendWeight: 1
             }
             , 
             {
                 SourceIndex: 0
-                BlendWeight: 0
+                BlendWeight: 1
             }
             , 
             {
@@ -1737,7 +1714,132 @@
             , 
             {
                 SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
                 BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
             }
             , 
             {
@@ -1772,7 +1874,82 @@
             , 
             {
                 SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
                 BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
             }
             , 
             {
@@ -1807,247 +1984,47 @@
             , 
             {
                 SourceIndex: 0
-                BlendWeight: 0
+                BlendWeight: 1
             }
             , 
             {
                 SourceIndex: 0
-                BlendWeight: 0
+                BlendWeight: 1
             }
             , 
             {
                 SourceIndex: 0
-                BlendWeight: 0
+                BlendWeight: 1
             }
             , 
             {
                 SourceIndex: 0
-                BlendWeight: 0
+                BlendWeight: 1
             }
             , 
             {
                 SourceIndex: 0
-                BlendWeight: 0
+                BlendWeight: 1
             }
             , 
             {
                 SourceIndex: 0
-                BlendWeight: 0
+                BlendWeight: 1
             }
             , 
             {
                 SourceIndex: 0
-                BlendWeight: 0
+                BlendWeight: 1
             }
             , 
             {
                 SourceIndex: 0
-                BlendWeight: 0
+                BlendWeight: 1
             }
             , 
             {
                 SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
-            }
-            , 
-            {
-                SourceIndex: 0
-                BlendWeight: 0
+                BlendWeight: 1
             }
             , 
             {
@@ -2061,7 +2038,7 @@
             }
         ]
         SkeletonGuid: b93bb250-9a39-4dbd-bdd3-d182db704db7
-        VirtualBoneGuid: 38d85778-b590-4af6-ac1b-9b7e42c872a5
+        VirtualBoneGuid: 2f9c1787-bae1-400d-9de8-c5ae67a2ffe8
     }
     AnimGraphNode_UseCachedPose: {
         LinkToCachingNode: {
@@ -2136,9 +2113,22 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 13
+            LinkID: 12
         }
-        Name: JustHead
+        Name: State
+        Group: None
+    }
+    AnimGraphNode_UseCachedPose: {
+        LinkToCachingNode: {
+            LinkID: 2
+        }
+        CachePoseName: CacheInput
+    }
+    AnimGraphNode_StateResult: {
+        Result: {
+            LinkID: 18
+        }
+        Name: Base
         Group: None
     }
     AnimGraphNode_UseCachedPose: {
@@ -2151,11 +2141,11 @@
         bActiveValue: False
         BlendPose: [
             {
-                LinkID: 18
+                LinkID: 20
             }
             , 
             {
-                LinkID: 20
+                LinkID: 22
             }
         ]
         BlendTime: [
@@ -2171,11 +2161,11 @@
     }
     AnimGraphNode_LayeredBoneBlend: {
         BasePose: {
-            LinkID: 21
+            LinkID: 23
         }
         BlendPoses: [
             {
-                LinkID: 23
+                LinkID: 25
             }
         ]
         LayerSetup: [
@@ -3678,7 +3668,7 @@
             }
         ]
         SkeletonGuid: b93bb250-9a39-4dbd-bdd3-d182db704db7
-        VirtualBoneGuid: 38d85778-b590-4af6-ac1b-9b7e42c872a5
+        VirtualBoneGuid: 2f9c1787-bae1-400d-9de8-c5ae67a2ffe8
     }
     AnimGraphNode_UseCachedPose: {
         LinkToCachingNode: {
@@ -3694,7 +3684,7 @@
     }
     AnimGraphNode_RotationOffsetBlendSpace: {
         BasePose: {
-            LinkID: 22
+            LinkID: 24
         }
         LODThreshold: -1
         Alpha: 1
@@ -3753,9 +3743,9 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 19
+            LinkID: 21
         }
-        Name: Base
+        Name: AimOffset_State
         Group: None
     }
     AnimGraphNode_StateMachine: {

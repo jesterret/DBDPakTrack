@@ -1,0 +1,77 @@
+{
+    DynamicBindingObjects: [
+        ComponentDelegateBinding BP_Flashlight_C.ComponentDelegateBinding
+    ]
+    ComponentTemplates: [
+            {
+                Template: ParticleSystem /Game/Effects/ParticleSystems/P_DustRing.P_DustRing
+                DetailLevelBeforeCastShadows: DM_MAX
+                PrimaryComponentTick: {
+                    bStartWithTickEnabled: False
+                }
+            }
+    ]
+    Timelines: [
+        TimelineTemplate BP_Flashlight_C.TML_Dissolve_Template
+    ]
+    SimpleConstructionScript: SimpleConstructionScript BP_Flashlight_C.SimpleConstructionScript
+    InheritableComponentHandler: InheritableComponentHandler BP_Flashlight_C.InheritableComponentHandler
+    UberGraphFunction: Function BP_Flashlight_C.ExecuteUbergraph_BP_Flashlight
+}
+<--- CDO --->
+{
+    UberGraphFrame: None
+    BeamHalfAngleWhenBlinding: 2
+    BeamHalfAngleDuringFlash: 30
+    SpotLightHalfAngle: 5
+    StrafeOnUse: True
+    AimOnUse: True
+    StopRunningOnUse: True
+    HandPosition: EItemHandPosition::AimItem
+    ItemID: Item_Camper_Flashlight
+    BaseItemModifier: {
+            ModifierData: {
+                Modifiers: [
+                    {
+                        Type: {
+                            TagName: GameplayModifierType.IncreaseItemCharge
+                        }
+                        ModifierValue: 5
+                    }
+                    , 
+                    {
+                        Type: {
+                            TagName: GameplayModifierType.ModifyItemMaxCharge
+                        }
+                        ModifierValue: 5
+                    }
+                ]
+            }
+        }
+    ItemModifier1: {
+        }
+    ItemModifier2: {
+        }
+    _mesh: {
+            SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/FlashLight/SK_FlashLight01.SK_FlashLight01
+            CastShadow: True
+            bCastCinematicShadow: True
+            bRenderCustomDepth: True
+            BodyInstance: {
+                MassInKgOverride: 1.3087957
+            }
+        }
+    _placementOrigin: {
+            AttachParent: SkeletalMeshComponent Default__BP_Flashlight_C.ItemMesh
+            RelativeLocation: { X: 0, Y: 0, Z: -4 }
+        }
+    _objectState: {
+        }
+    _itemType: ELoadoutItemType::Flashlight
+    _discardWhenConsumed: False
+    PrimaryActorTick: {
+        TickInterval: 0.05
+    }
+    bReplicateMovement: False
+    RootComponent: SkeletalMeshComponent Default__BP_Flashlight_C.ItemMesh
+}

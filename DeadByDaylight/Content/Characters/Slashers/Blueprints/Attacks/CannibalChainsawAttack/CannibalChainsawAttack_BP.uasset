@@ -1,0 +1,61 @@
+{
+}
+<--- CDO --->
+{
+    _chainsawHitGameEventTag: {
+        TagName: GameEvent.ScoreEvent.Cannibal.Chainsaw.Hit
+    }
+    _chainsawAttemptGameEventTag: {
+        TagName: GameEvent.ScoreEvent.Cannibal.Chainsaw.Attempt
+    }
+    _maxAccelerationMultiplier: {
+        _useTunable: True
+        _tunableValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Cannibal/LFTunableDB.LFTunableDB
+                RowName: SlasherAttackLFChainsawMaxAccelerationPercent
+            }
+        }
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Mult
+                ModifierTag: {
+                    TagName: GameplayModifierType.ModifyChainsawAcceleration
+                }
+                CompoundStrategy: EModifierCompoundStrategy::Mult
+            }
+        ]
+    }
+    _targetTracker: {
+        _targetSnapDistance: {
+            _useTunable: True
+            _tunableValue: {
+                _dataTableRowHandle: {
+                    DataTable: DataTable /Game/Data/TunableValuesDB.TunableValuesDB
+                    RowName: SlasherAttackChainsawSnapDistance
+                }
+            }
+        }
+    }
+    _stateClasses: [
+        [ EAttackSubstate::VE_Open
+         => 
+        BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/Attacks/CannibalChainsawAttack/CannibalChainsawAttackOpenSubstate_BP.CannibalChainsawAttackOpenSubstate_BP_C
+        ], 
+        [ EAttackSubstate::VE_Hitting
+         => 
+        BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/Attacks/CannibalChainsawAttack/CannibalChainsawAttackHittingSubstate_BP.CannibalChainsawAttackHittingSubstate_BP_C
+        ], 
+        [ EAttackSubstate::VE_HitSucceed
+         => 
+        BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/Attacks/CannibalChainsawAttack/CannibalChainsawAttackSuccessSubstate_BP.CannibalChainsawAttackSuccessSubstate_BP_C
+        ], 
+        [ EAttackSubstate::VE_HitMiss
+         => 
+        BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/Attacks/CannibalChainsawAttack/CannibalChainsawAttackMissSubstate_BP.CannibalChainsawAttackMissSubstate_BP_C
+        ], 
+        [ EAttackSubstate::VE_HitObstructed
+         => 
+        BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/Attacks/CannibalChainsawAttack/CannibalChainsawAttackObstructSubstate_BP.CannibalChainsawAttackObstructSubstate_BP_C
+        ]]
+}

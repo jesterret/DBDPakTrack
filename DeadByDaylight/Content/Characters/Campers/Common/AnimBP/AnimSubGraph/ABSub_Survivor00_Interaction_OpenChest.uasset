@@ -8,7 +8,16 @@
                     StateName: Base
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 19
+                            CanTakeDelegateIndex: 28
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 2
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                        , 
+                        {
+                            CanTakeDelegateIndex: 29
                             CustomResultNodeIndex: -1
                             TransitionIndex: 0
                             bDesiredTransitionReturnValue: True
@@ -31,7 +40,7 @@
                     StateName: Chest_Interaction
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 20
+                            CanTakeDelegateIndex: 30
                             CustomResultNodeIndex: -1
                             TransitionIndex: 1
                             bDesiredTransitionReturnValue: True
@@ -55,6 +64,58 @@
                     LayerNodeIndices: [ ]
                     bAlwaysResetOnEntry: False
                 }
+                , 
+                {
+                    StateName: Chest_Open
+                    Transitions: [
+                        {
+                            CanTakeDelegateIndex: 31
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 3
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                    ]
+                    StateRootNodeIndex: 19
+                    StartNotify: -1
+                    EndNotify: -1
+                    FullyBlendedNotify: -1
+                    bIsAConduit: False
+                    EntryRuleNodeIndex: -1
+                    PlayerNodeIndices: [
+                        22
+                        , 
+                        24
+                    ]
+                    LayerNodeIndices: [ ]
+                    bAlwaysResetOnEntry: True
+                }
+                , 
+                {
+                    StateName: Chest_Out
+                    Transitions: [
+                        {
+                            CanTakeDelegateIndex: 32
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 4
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                    ]
+                    StateRootNodeIndex: 26
+                    StartNotify: -1
+                    EndNotify: -1
+                    FullyBlendedNotify: -1
+                    bIsAConduit: False
+                    EntryRuleNodeIndex: -1
+                    PlayerNodeIndices: [
+                        27
+                    ]
+                    LayerNodeIndices: [ ]
+                    bAlwaysResetOnEntry: True
+                }
             ]
             Transitions: [
                 {
@@ -73,6 +134,48 @@
                 , 
                 {
                     PreviousState: 1
+                    NextState: 0
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+                , 
+                {
+                    PreviousState: 0
+                    NextState: 2
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+                , 
+                {
+                    PreviousState: 2
+                    NextState: 3
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+                , 
+                {
+                    PreviousState: 3
                     NextState: 0
                     CrossfadeDuration: 0.2
                     StartNotify: -1
@@ -210,6 +313,68 @@
                 }
             ]
         }
+        , 
+        {
+            MachineName: S24P01
+            InitialState: 0
+            States: [
+                {
+                    StateName: In_Search
+                    Transitions: [
+                        {
+                            CanTakeDelegateIndex: 25
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 0
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                    ]
+                    StateRootNodeIndex: 21
+                    StartNotify: -1
+                    EndNotify: -1
+                    FullyBlendedNotify: -1
+                    bIsAConduit: False
+                    EntryRuleNodeIndex: -1
+                    PlayerNodeIndices: [
+                        22
+                    ]
+                    LayerNodeIndices: [ ]
+                    bAlwaysResetOnEntry: True
+                }
+                , 
+                {
+                    StateName: Loop_Search
+                    Transitions: [ ]
+                    StateRootNodeIndex: 23
+                    StartNotify: -1
+                    EndNotify: -1
+                    FullyBlendedNotify: -1
+                    bIsAConduit: False
+                    EntryRuleNodeIndex: -1
+                    PlayerNodeIndices: [
+                        24
+                    ]
+                    LayerNodeIndices: [ ]
+                    bAlwaysResetOnEntry: True
+                }
+            ]
+            Transitions: [
+                {
+                    PreviousState: 0
+                    NextState: 1
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+            ]
+        }
     ]
     TargetSkeleton: Skeleton /Game/Characters/Campers/Models/CamperMale_REF_Skeleton.CamperMale_REF_Skeleton
     OrderedSavedPoseIndicesMap: [
@@ -278,6 +443,54 @@
         }
         , 
         {
+            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Interaction_OpenChest_AnimGraphNode_SequencePlayer_18CC5F9A4EE6B9A94CC13EA4699712D7
+            CopyRecords: [ ]
+            Function: Function ABSub_Survivor00_Interaction_OpenChest_C.EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Interaction_OpenChest_AnimGraphNode_SequencePlayer_18CC5F9A4EE6B9A94CC13EA4699712D7
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
+        }
+        , 
+        {
+            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Interaction_OpenChest_AnimGraphNode_SequencePlayer_C0E42FF941E40AD979619997673618A0
+            CopyRecords: [ ]
+            Function: Function ABSub_Survivor00_Interaction_OpenChest_C.EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Interaction_OpenChest_AnimGraphNode_SequencePlayer_C0E42FF941E40AD979619997673618A0
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
+        }
+        , 
+        {
+            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Interaction_OpenChest_AnimGraphNode_TransitionResult_A151D288480E12070C367CA658B8AF79
+            CopyRecords: [ ]
+            Function: Function ABSub_Survivor00_Interaction_OpenChest_C.EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Interaction_OpenChest_AnimGraphNode_TransitionResult_A151D288480E12070C367CA658B8AF79
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
+        }
+        , 
+        {
+            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Interaction_OpenChest_AnimGraphNode_SequencePlayer_0F3B71AF4626B67BEDC45BB2C8564241
+            CopyRecords: [ ]
+            Function: Function ABSub_Survivor00_Interaction_OpenChest_C.EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Interaction_OpenChest_AnimGraphNode_SequencePlayer_0F3B71AF4626B67BEDC45BB2C8564241
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _isInteractingWithOpenChest
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: UETools.Objects.Property.FieldPath
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
+        }
+        , 
+        {
             BoundFunction: None
             CopyRecords: [
                 {
@@ -316,6 +529,33 @@
             Function: null
             ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
         }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _isInteractingWithOpenChest
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::LogicalNegateBool
+                    DestProperty: UETools.Objects.Property.FieldPath
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
+        }
+        , 
+        {
+            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Interaction_OpenChest_AnimGraphNode_TransitionResult_A9EE243A4124C4BFCC357887F842A80B
+            CopyRecords: [ ]
+            Function: Function ABSub_Survivor00_Interaction_OpenChest_C.EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Interaction_OpenChest_AnimGraphNode_TransitionResult_A9EE243A4124C4BFCC357887F842A80B
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
+        }
     ]
     UberGraphFunction: Function ABSub_Survivor00_Interaction_OpenChest_C.ExecuteUbergraph_ABSub_Survivor00_Interaction_OpenChest
 }
@@ -324,7 +564,7 @@
     UberGraphFrame: None
     AnimGraphNode_Root: {
         Result: {
-            LinkID: 19
+            LinkID: 31
         }
         Name: AnimGraph
         Group: None
@@ -335,14 +575,153 @@
     AnimGraphNode_TransitionResult: {
         bCanEnterTransition: False
     }
+    AnimGraphNode_TransitionResult: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_TransitionResult: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_TransitionResult: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_SequencePlayer: {
+        Sequence: null
+        PlayRateBasis: 1
+        PlayRate: 1
+        PlayRateScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+        StartPosition: 0
+        bLoopAnimation: True
+        GroupIndex: -1
+        GroupRole: EAnimGroupRole::CanBeLeader
+        bIgnoreForRelevancyTest: False
+        BlendWeight: 0
+        InternalTimeAccumulator: 0
+    }
+    AnimGraphNode_StateResult: {
+        Result: {
+            LinkID: 6
+        }
+        Name: Chest_Out
+        Group: None
+    }
+    AnimGraphNode_TransitionResult: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_SequencePlayer: {
+        Sequence: null
+        PlayRateBasis: 1
+        PlayRate: 1
+        PlayRateScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+        StartPosition: 0
+        bLoopAnimation: True
+        GroupIndex: -1
+        GroupRole: EAnimGroupRole::CanBeLeader
+        bIgnoreForRelevancyTest: False
+        BlendWeight: 0
+        InternalTimeAccumulator: 0
+    }
+    AnimGraphNode_StateResult: {
+        Result: {
+            LinkID: 9
+        }
+        Name: Loop_Search
+        Group: None
+    }
+    AnimGraphNode_SequencePlayer: {
+        Sequence: null
+        PlayRateBasis: 1
+        PlayRate: 1
+        PlayRateScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+        StartPosition: 0
+        bLoopAnimation: True
+        GroupIndex: -1
+        GroupRole: EAnimGroupRole::CanBeLeader
+        bIgnoreForRelevancyTest: False
+        BlendWeight: 0
+        InternalTimeAccumulator: 0
+    }
+    AnimGraphNode_StateResult: {
+        Result: {
+            LinkID: 11
+        }
+        Name: In_Search
+        Group: None
+    }
+    AnimGraphNode_StateMachine: {
+        StateMachineIndexInClass: 2
+        MaxTransitionsPerFrame: 3
+        bSkipFirstUpdateTransition: True
+        bReinitializeOnBecomingRelevant: True
+    }
+    AnimGraphNode_StateResult: {
+        Result: {
+            LinkID: 13
+        }
+        Name: Chest_Open
+        Group: None
+    }
     AnimGraphNode_LocalToComponentSpace: {
         LocalPose: {
-            LinkID: 15
+            LinkID: 27
         }
     }
     AnimGraphNode_ComponentToLocalSpace: {
         ComponentPose: {
-            LinkID: 5
+            LinkID: 17
         }
     }
     AnimGraphNode_ModifyBone: {
@@ -359,7 +738,7 @@
         RotationSpace: BCS_ParentBoneSpace
         ScaleSpace: BCS_ComponentSpace
         ComponentPose: {
-            LinkID: 3
+            LinkID: 15
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -445,7 +824,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 9
+            LinkID: 21
         }
         Name: Out
         Group: None
@@ -483,7 +862,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 11
+            LinkID: 23
         }
         Name: Loop
         Group: None
@@ -521,7 +900,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 13
+            LinkID: 25
         }
         Name: In
         Group: None
@@ -534,20 +913,20 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 4
+            LinkID: 16
         }
         Name: Chest_Interaction
         Group: None
     }
     AnimGraphNode_UseCachedPose: {
         LinkToCachingNode: {
-            LinkID: 21
+            LinkID: 33
         }
         CachePoseName: Input_Cache
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 17
+            LinkID: 29
         }
         Name: Base
         Group: None
@@ -567,7 +946,7 @@
     }
     AnimGraphNode_SaveCachedPose: {
         Pose: {
-            LinkID: 20
+            LinkID: 32
         }
         CachePoseName: Input_Cache
     }

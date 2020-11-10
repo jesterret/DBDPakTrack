@@ -36,12 +36,12 @@ Asset: MaterialInstanceConstant MI_Car01_Windows
         , 
         {
             ParameterInfo: {
-                Name: 010_GlassDepthValue
+                Name: 010_GlassRoughnessValue
                 Association: GlobalParameter
                 Index: -1
             }
-            ParameterValue: 0.1
-            ExpressionGUID: 8373f928-f464-4ad9-9253-9570ec484514
+            ParameterValue: 12
+            ExpressionGUID: d58aa02a-bece-4f72-878c-f3292537595f
         }
         , 
         {
@@ -71,7 +71,7 @@ Asset: MaterialInstanceConstant MI_Car01_Windows
                 Association: GlobalParameter
                 Index: -1
             }
-            ParameterValue: { R: 0.970896, G: 0.650753, B: 1, A: 0 }
+            ParameterValue: { R: 0.254629, G: 0.163469, B: 0.098951, A: 0 }
             ExpressionGUID: acd11046-4884-47b9-a631-e6ab9dbf03b5
         }
     ]
@@ -92,7 +92,7 @@ Asset: MaterialInstanceConstant MI_Car01_Windows
                 Association: GlobalParameter
                 Index: -1
             }
-            ParameterValue: Texture2D /Game/Textures/Props/Cars/T_Car01_Windows_N.T_Car01_Windows_N
+            ParameterValue: Texture2D /Engine/EngineMaterials/FlatNormal.FlatNormal
             ExpressionGUID: 6048e55e-3122-4142-9e25-c3bf259e0dfb
         }
         , 
@@ -105,12 +105,33 @@ Asset: MaterialInstanceConstant MI_Car01_Windows
             ParameterValue: Texture2D /Game/Textures/Props/Cars/T_Car01_Windows_ORM.T_Car01_Windows_ORM
             ExpressionGUID: b4e7009f-dbc2-4336-8046-c6eea59efad9
         }
+        , 
+        {
+            ParameterInfo: {
+                Name: 010_GlassCubemap
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: TextureCube /Game/Textures/Environment/England/Cubemaps/TC_Eng_Street_01.TC_Eng_Street_01
+            ExpressionGUID: 0b84bc45-ea9c-4755-a564-60e968ebfb28
+        }
     ]
     BasePropertyOverrides: {
         OpacityMaskClipValue: 0.3333
     }
     StaticParameters: {
         StaticSwitchParameters: [
+            {
+                Value: True
+                ParameterInfo: {
+                    Name: 010_UseGlassOpaque
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: 679d57e4-f1a8-4d7b-9643-21535fe0045d
+            }
+            , 
             {
                 Value: True
                 ParameterInfo: {
@@ -155,22 +176,18 @@ Asset: MaterialInstanceConstant MI_Car01_Windows
         Texture2D /Game/Textures/Environment/Junkyard/Structures/T_GS_FrontSign_Flickerama.T_GS_FrontSign_Flickerama
         , 
         TextureCube /Game/Textures/T_Skylight2.T_Skylight2
-        , 
-        Texture2D /Game/Effects/Textures/T_DissolveTextures.T_DissolveTextures
-        , 
-        Texture2D /Game/Effects/Textures/T_FX_DissolveRamp.T_FX_DissolveRamp
     ]
     TextureStreamingData: [
         {
             SamplingScale: 1
             UVChannelIndex: 0
-            TextureName: T_Car01_Windows_BC
+            TextureName: FlatNormal
         }
         , 
         {
             SamplingScale: 1
             UVChannelIndex: 0
-            TextureName: T_Car01_Windows_N
+            TextureName: T_Car01_Windows_BC
         }
         , 
         {

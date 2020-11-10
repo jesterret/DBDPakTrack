@@ -1,44 +1,56 @@
 Asset: Material M_Erosion_TwoChannel_Normals
 {
-    Metallic: MaterialExpressionScalarParameter: None
-    Specular: MaterialExpressionScalarParameter: None
-    Normal: MaterialExpressionTextureSampleParameter2D: None
-    EmissiveColor: MaterialExpressionLinearInterpolate: None
+    Specular: MaterialExpressionConstant: None
+    Normal: None: None
     BlendMode: BLEND_Translucent
+    ShadingModel: MSM_Subsurface
+    ShadingModels: {
+        ShadingModelField: 4
+    }
     bEnableResponsiveAA: True
-    TranslucencyLightingMode: TLM_SurfacePerPixelLighting
+    TwoSided: True
     bUsedWithParticleSprites: True
     bUsedWithMeshParticles: True
-    StateId: 9235ed6d-1e12-4d79-9de4-c99297ee25c6
+    bUsedWithNiagaraSprites: True
+    bCanMaskedBeAssumedOpaque: True
+    StateId: a16084d3-19f4-4264-b1f6-fe5f0e9e1473
     CachedExpressionData: {
         Parameters: {
             Entries: {
                 NameHashes: [
-                    440574345582452634
+                    37912302103993054
+                    , 
+                    2260385266101879363
                     , 
                     2920944328956761800
                     , 
-                    3078550227877033723
+                    5737490810858129589
                     , 
-                    3929274268584483569
+                    7149225889305310097
                     , 
-                    4436937709625847949
-                    , 
-                    5591279591644334502
+                    7814379136033070998
                     , 
                     11088549068339750248
                     , 
+                    13629339568553685915
+                    , 
                     13659183658142814833
                     , 
-                    14714097221434041894
+                    14489500261288275945
+                    , 
+                    15684328969772911168
                     , 
                     15810303283906607195
-                    , 
-                    16481313979631777996
                 ]
                 ParameterInfos: [
                     {
-                        Name: Roughness
+                        Name: Reflection_Softness
+                        Association: GlobalParameter
+                        Index: -1
+                    }
+                    , 
+                    {
+                        Name: Opacity_Reflection
                         Association: GlobalParameter
                         Index: -1
                     }
@@ -50,25 +62,19 @@ Asset: Material M_Erosion_TwoChannel_Normals
                     }
                     , 
                     {
-                        Name: Metallic
+                        Name: Scale_NoiseColor_Blood
                         Association: GlobalParameter
                         Index: -1
                     }
                     , 
                     {
-                        Name: Specular
+                        Name: Time_Particle
                         Association: GlobalParameter
                         Index: -1
                     }
                     , 
                     {
-                        Name: Ambient Color Intensity
-                        Association: GlobalParameter
-                        Index: -1
-                    }
-                    , 
-                    {
-                        Name: Fresnel Reflection Factor
+                        Name: Smoot Step Min
                         Association: GlobalParameter
                         Index: -1
                     }
@@ -80,13 +86,25 @@ Asset: Material M_Erosion_TwoChannel_Normals
                     }
                     , 
                     {
+                        Name: Contrast_Reflection
+                        Association: GlobalParameter
+                        Index: -1
+                    }
+                    , 
+                    {
                         Name: Detail -Intensity
                         Association: GlobalParameter
                         Index: -1
                     }
                     , 
                     {
-                        Name: GestureIntensity
+                        Name: Smoot Step Max
+                        Association: GlobalParameter
+                        Index: -1
+                    }
+                    , 
+                    {
+                        Name: Opacity
                         Association: GlobalParameter
                         Index: -1
                     }
@@ -96,69 +114,93 @@ Asset: Material M_Erosion_TwoChannel_Normals
                         Association: GlobalParameter
                         Index: -1
                     }
-                    , 
-                    {
-                        Name: Fresnel Strength Exponent
-                        Association: GlobalParameter
-                        Index: -1
-                    }
                 ]
                 ExpressionGuids: [
-                    8abd9cc1-73d6-4af5-bb18-2ee77e42ce47
+                    b9ede705-e3f0-46d7-8f8b-ac274a8650bb
                     , 
-                    99052d20-6307-454f-b2c0-9d4ebcf59b54
+                    37e01aad-3977-4846-9128-d98aed7c6105
                     , 
-                    10264ab1-9d71-492a-ace8-665d84e57dd0
+                    2e0f1dbe-67b8-4564-9791-b2eebcce3f3e
                     , 
-                    32752633-b7a5-4933-b9e7-1292a3ffa096
+                    092e715d-c738-4b3c-a3db-1bbdaf8753e2
                     , 
-                    076b28d2-b393-4ee7-807e-ec77eb3f897b
+                    cdc2499b-5016-4f9f-b19d-f99d53dfd825
                     , 
-                    c651944b-8314-4311-b8c3-f3385f988d23
+                    227cc6e2-5475-4462-b07c-63e300e8e067
                     , 
-                    1aae0569-143f-4839-9dc0-485ea4fc7ad9
+                    cdfe2db1-5f9b-4305-9b5d-49726926f974
                     , 
-                    79936268-f974-4bd7-a84e-2e4419f2035a
+                    bcf06c3f-c25d-4124-9df8-25ce92377d5c
                     , 
-                    1e9e9882-84c7-4e39-acd6-325592bdbcc0
+                    5b365e01-90a4-46ab-a6da-df33ee3eb42f
                     , 
-                    4b4acdb7-c19e-436a-b581-bd6882015685
+                    5a7f3558-d1db-416b-98e4-ec2c96063b6a
                     , 
-                    3b9f3cbe-4d24-474d-8aa2-54eb5330833f
+                    629cdcba-ecbc-434d-9ce0-6725b03b9d8f
+                    , 
+                    a6441435-12bf-4c26-b028-83f82a796e72
                 ]
-                Overrides: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+                Overrides: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
             }
             Entries: {
                 NameHashes: [
-                    12279385124011487613
+                    1591538169771417026
+                    , 
+                    6332708771744604487
+                    , 
+                    7752767595831315487
+                    , 
+                    17063179941543440008
                 ]
                 ParameterInfos: [
                     {
-                        Name: Color
+                        Name: Blood Color light
+                        Association: GlobalParameter
+                        Index: -1
+                    }
+                    , 
+                    {
+                        Name: Subsurface
+                        Association: GlobalParameter
+                        Index: -1
+                    }
+                    , 
+                    {
+                        Name: Blood Color Outer_02
+                        Association: GlobalParameter
+                        Index: -1
+                    }
+                    , 
+                    {
+                        Name: Blood Color Outer
                         Association: GlobalParameter
                         Index: -1
                     }
                 ]
                 ExpressionGuids: [
-                    90a927f5-545a-4f88-bd16-3ac6ee1ec034
+                    608c5167-879b-42ce-9868-387116b68dd6
+                    , 
+                    b7ecb408-b635-4533-ae46-629cadd427e1
+                    , 
+                    afe0f658-e67a-4efd-88f5-9b850477fefe
+                    , 
+                    616548e4-a3d2-4507-8721-f12fff5ce83f
                 ]
-                Overrides: [ 0 ]
+                Overrides: [ 0, 0, 0, 0 ]
             }
             Entries: {
                 NameHashes: [
-                    4708953410708818575
+                    3827603732862609337
                     , 
                     6856208798112647319
                     , 
-                    7376579258098759584
-                    , 
                     8530886441090122198
                     , 
-                    10371715421228879687
+                    18362453276463452333
                 ]
                 ParameterInfos: [
                     {
-                        Name: Normal
+                        Name: Reflection Map
                         Association: GlobalParameter
                         Index: -1
                     }
@@ -170,107 +212,102 @@ Asset: Material M_Erosion_TwoChannel_Normals
                     }
                     , 
                     {
-                        Name: GradientMap
-                        Association: GlobalParameter
-                        Index: -1
-                    }
-                    , 
-                    {
                         Name: Erosion Texture RG
                         Association: GlobalParameter
                         Index: -1
                     }
                     , 
                     {
-                        Name: Param
+                        Name: Normal Texture
                         Association: GlobalParameter
                         Index: -1
                     }
                 ]
                 ExpressionGuids: [
-                    b866b487-3c4f-4dc4-a2ab-63db01aaabc1
+                    e520e4af-9551-4dd4-a3fd-d98b283a0df9
                     , 
-                    01f6415e-2755-40f3-947d-894877ef308f
+                    974d6ab8-140b-4fde-985a-aa8d1952a20f
                     , 
-                    a71eafc0-6547-4cfb-a912-e039b4970cda
+                    7d0919a0-0c63-4a4a-bdd3-a64cdaccf249
                     , 
-                    d14e06ff-3447-40d9-910e-78a3e2d4ac07
-                    , 
-                    b916ef02-bddd-4dc5-9b73-fbe673b7e98c
+                    7ad67b0c-e57b-4c0f-a6b1-a5af82d99a7f
                 ]
-                Overrides: [ 0, 0, 0, 0, 0 ]
+                Overrides: [ 0, 0, 0, 0 ]
             }
             ScalarValues: [
-                0
+                6
+                , 
+                2
                 , 
                 1
-                , 
-                0.05
-                , 
-                0.05
-                , 
-                1
-                , 
-                0.04
-                , 
-                0
-                , 
-                0
                 , 
                 1
                 , 
                 0
                 , 
-                5
+                0
+                , 
+                0
+                , 
+                2
+                , 
+                0
+                , 
+                1
+                , 
+                1
+                , 
+                0
             ]
             VectorValues: [
-                { R: 0, G: 0, B: 0, A: 0 }
+                { R: 0.39, G: 0.39, B: 0.5, A: 1 }
+                , 
+                { R: 0, G: 0.00153, B: 0.09375, A: 1 }
+                , 
+                { R: 0, G: 0.000334, B: 0.04, A: 1 }
+                , 
+                { R: 0, G: 0.002696, B: 0.322917, A: 1 }
             ]
             TextureValues: [
-                Texture2D /Game/Effects/Textures/T_NoiseNormal_01.T_NoiseNormal_01
+                Texture2D /Game/Effects/Textures/T_reflection_map_01.T_reflection_map_01
                 , 
                 Texture2D /Game/Effects/Textures/T_IceNoise.T_IceNoise
                 , 
-                Texture2D /Game/Effects/Textures/T_Gradient_BLood.T_Gradient_BLood
-                , 
                 Texture2D /Game/Effects/Textures/Liquid/Saliva/T_Saliva_Drop_02.T_Saliva_Drop_02
                 , 
-                Texture2D /Game/Materials/Substance/Textures/T_Swamp_Mud_roughness.T_Swamp_Mud_roughness
+                Texture2D /Game/Effects/Textures/T_FlatNormal_01.T_FlatNormal_01
             ]
         }
         ReferencedTextures: [
-            Texture2D /Game/Effects/Textures/T_NoiseNormal_01.T_NoiseNormal_01
-            , 
-            Texture2D /Game/Effects/Textures/T_Gradient_BLood.T_Gradient_BLood
-            , 
             Texture2D /Game/Effects/Textures/Liquid/Saliva/T_Saliva_Drop_02.T_Saliva_Drop_02
             , 
             Texture2D /Game/Effects/Textures/T_IceNoise.T_IceNoise
             , 
-            Texture2D /Game/Effects/Textures/T_WaterNormal2.T_WaterNormal2
+            Texture2D /Game/Effects/Textures/T_FlatNormal_01.T_FlatNormal_01
             , 
-            Texture2D /Game/Materials/Substance/Textures/T_Swamp_Mud_roughness.T_Swamp_Mud_roughness
+            Texture2D /Game/Effects/Textures/T_Mud_01_M.T_Mud_01_M
+            , 
+            Texture2D /Game/Effects/Textures/T_reflection_map_01.T_reflection_map_01
+            , 
+            null
+            , 
+            Texture2D /Game/Effects/Textures/T_Tilling_Distortion_Map_01.T_Tilling_Distortion_Map_01
         ]
         FunctionInfos: [
             {
-                StateId: a9e4f021-1cc9-4616-964f-2aa232722d72
-                Function: MaterialFunction /Engine/Functions/Engine_MaterialFunctions02/SplitComponents.SplitComponents
+                StateId: 75614f71-88ad-46e7-994f-c156a7d6e1f3
+                Function: MaterialFunction /Engine/Functions/Engine_MaterialFunctions01/Reflections/ReflectionVectorSoft.ReflectionVectorSoft
+            }
+            , 
+            {
+                StateId: ab126d3e-d8f7-46d0-bcb2-71a2da32c97b
+                Function: MaterialFunction /Engine/Functions/Engine_MaterialFunctions02/SmoothStep.SmoothStep
             }
         ]
         ParameterCollectionInfos: [
             {
                 StateId: 95d7c19f-5b50-407d-8d96-23775962cd82
                 ParameterCollection: MaterialParameterCollection /Game/Materials/MPC_WorldSettings.MPC_WorldSettings
-            }
-            , 
-            {
-                StateId: f1742c97-7e96-4d8c-88e9-17609bf9c659
-                ParameterCollection: MaterialParameterCollection /Game/Effects/Materials/Collections/MPC_AmbientColoration.MPC_AmbientColoration
-            }
-            , 
-            {
-                StateId: a905752b-b5e1-47fc-a22b-edd9bd28deff
-                ParameterCollection: MaterialParameterCollection /Game/Materials/PostProcess/MPC_PP_Contour.MPC_PP_Contour
             }
         ]
         DynamicParameterNames: [
@@ -286,6 +323,12 @@ Asset: Material M_Erosion_TwoChannel_Normals
     }
     TextureStreamingData: [
         {
+            SamplingScale: 0.9633789
+            UVChannelIndex: 0
+            TextureName: T_FlatNormal_01
+        }
+        , 
+        {
             SamplingScale: 5
             UVChannelIndex: 0
             TextureName: T_IceNoise
@@ -294,7 +337,7 @@ Asset: Material M_Erosion_TwoChannel_Normals
         {
             SamplingScale: 1
             UVChannelIndex: 0
-            TextureName: T_NoiseNormal_01
+            TextureName: T_Mud_01_M
         }
         , 
         {
@@ -306,13 +349,7 @@ Asset: Material M_Erosion_TwoChannel_Normals
         {
             SamplingScale: 1
             UVChannelIndex: 0
-            TextureName: T_Swamp_Mud_roughness
-        }
-        , 
-        {
-            SamplingScale: 1
-            UVChannelIndex: 0
-            TextureName: T_WaterNormal2
+            TextureName: T_Tilling_Distortion_Map_01
         }
     ]
 }

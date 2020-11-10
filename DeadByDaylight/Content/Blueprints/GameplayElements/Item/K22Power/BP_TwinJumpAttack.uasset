@@ -1,0 +1,50 @@
+{
+    UberGraphFunction: Function BP_TwinJumpAttack_C.ExecuteUbergraph_BP_TwinJumpAttack
+}
+<--- CDO --->
+{
+    UberGraphFrame: None
+    _jumpVelocity: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Aurora/K22_TunableDB.K22_TunableDB
+            RowName: TwinJump_StartVelocity
+        }
+    }
+    _jumpAngleCurve: CurveFloat /Game/Blueprints/GameplayElements/Item/K22Power/ConjoinedTwin/TwinJumpPitch.TwinJumpPitch
+    _upDownObstructionAnglePrecision: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Aurora/K22_TunableDB.K22_TunableDB
+            RowName: TwinJump_UpDownObstructionAnglePrecision
+        }
+    }
+    _leftRightObstructionAnglePrecision: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Aurora/K22_TunableDB.K22_TunableDB
+            RowName: TwinJump_LeftRightObstructionAnglePrecision
+        }
+    }
+    _authorizedLandingHeight: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Aurora/K22_TunableDB.K22_TunableDB
+            RowName: TwinJump_AuthorizedLandingHeight
+        }
+    }
+    _useMontage: False
+    _stateClasses: [
+        [ EAttackSubstate::VE_Open
+         => 
+        Class /Script/TheTwins.TwinJumpAttackOpenSubstate
+        ], 
+        [ EAttackSubstate::VE_HitSucceed
+         => 
+        BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/Attacks/TwinJump/BP_TwinJumpAttackSuccessSubstate.BP_TwinJumpAttackSuccessSubstate_C
+        ], 
+        [ EAttackSubstate::VE_HitMiss
+         => 
+        BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/Attacks/TwinJump/BP_TwinJumpAttackMissSubstate.BP_TwinJumpAttackMissSubstate_C
+        ], 
+        [ EAttackSubstate::VE_HitObstructed
+         => 
+        BlueprintGeneratedClass /Game/Characters/Slashers/Blueprints/Attacks/TwinJump/BP_TwinJumpAttackObstructedSubstate.BP_TwinJumpAttackObstructedSubstate_C
+        ]]
+}
