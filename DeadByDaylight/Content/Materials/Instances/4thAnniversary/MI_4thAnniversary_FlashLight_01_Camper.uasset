@@ -1,15 +1,26 @@
 Asset: MaterialInstanceConstant MI_4thAnniversary_FlashLight_01_Camper
 {
-    Parent: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper.MI_Camper
+    Parent: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_Cust.MI_Camper_Cust
+    bHasStaticPermutationResource: True
     ScalarParameterValues: [
         {
             ParameterInfo: {
-                Name: EM Intensity
+                Name: SpecularValue
                 Association: GlobalParameter
                 Index: -1
             }
-            ParameterValue: 1
-            ExpressionGUID: 27b6661f-a078-44f7-b8ab-fe4912d6a576
+            ParameterValue: 0.5
+            ExpressionGUID: 06577673-c13c-4422-b8c3-df3832772772
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: 42 - BoundsMultiplier
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: 1.3
+            ExpressionGUID: e7abc39a-82ca-4992-8235-af12968f0cc5
         }
         , 
         {
@@ -25,12 +36,12 @@ Asset: MaterialInstanceConstant MI_4thAnniversary_FlashLight_01_Camper
     VectorParameterValues: [
         {
             ParameterInfo: {
-                Name: EM Color
+                Name: EmissiveTouch
                 Association: GlobalParameter
                 Index: -1
             }
-            ParameterValue: { R: 0.346604, G: 1.031489, B: 1.5, A: 0 }
-            ExpressionGUID: 2fc6b6fb-72d4-4d6d-847b-fba6e3b8b50c
+            ParameterValue: { R: 0, G: 0.15, B: 0.2, A: 0 }
+            ExpressionGUID: 4f8b57d1-0be9-4085-924a-3cb56e9f167e
         }
     ]
     TextureParameterValues: [
@@ -46,28 +57,60 @@ Asset: MaterialInstanceConstant MI_4thAnniversary_FlashLight_01_Camper
         , 
         {
             ParameterInfo: {
-                Name: EmmisiveMask Texture
+                Name: AORoughnessMetallic
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: Texture2D /Game/Textures/InteractableObjects/FlashLight/T_Flashlight01_Ges_ORM.T_Flashlight01_Ges_ORM
+            ExpressionGUID: f7f94105-1966-4247-8c67-0f909cc1b27e
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: NormalMap Texture
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: Texture2D /Game/Textures/InteractableObjects/FlashLight/T_Flashlight01_Ges_N.T_Flashlight01_Ges_N
+            ExpressionGUID: c7150513-4540-4ab1-8304-18784534d495
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: Blood Dirt Emissive
                 Association: GlobalParameter
                 Index: -1
             }
             ParameterValue: Texture2D /Game/Textures/InteractableObjects/FlashLight/T_4thAnniversary_FlashLight01_EM.T_4thAnniversary_FlashLight01_EM
-            ExpressionGUID: 471b8093-4473-4a4c-887d-280a114b331d
+            ExpressionGUID: 7f3dffec-5318-4405-b070-1a7fa202ba9c
         }
     ]
     BasePropertyOverrides: {
         BlendMode: BLEND_Masked
         OpacityMaskClipValue: 0.3333
     }
+    StaticParameters: {
+        StaticSwitchParameters: [
+            {
+                Value: True
+                ParameterInfo: {
+                    Name: UseObjectLocalBounds
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: d9d94da3-2211-4a35-8e04-66054196c18d
+            }
+        ]
+    }
     CachedReferencedTextures: [
         Texture2D /Game/Textures/Environment/Tiles/Black.Black
         , 
-        Texture2D /Game/Textures/Environment/Tiles/White.White
+        null
         , 
-        Texture2D /Game/Effects/Textures/T_DissolveTextures.T_DissolveTextures
+        Texture2D /Engine/EngineMaterials/FlatNormal.FlatNormal
         , 
-        Texture2D /Game/Effects/Textures/T_FX_DissolveRamp.T_FX_DissolveRamp
-        , 
-        Texture2D /Engine/EngineMaterials/Good64x64TilingNoiseHighFreq.Good64x64TilingNoiseHighFreq
+        Texture2D /Game/Textures/Environment/Tiles/Green_Linear.Green_Linear
         , 
         Texture2D /Game/Effects/Textures/T_NoiseNormal_01.T_NoiseNormal_01
         , 
@@ -77,13 +120,25 @@ Asset: MaterialInstanceConstant MI_4thAnniversary_FlashLight_01_Camper
         , 
         Texture2D /Game/Textures/Environment/Tiles/Black_Linear.Black_Linear
         , 
-        null
+        Texture2D /Game/Effects/Textures/T_DissolveTextures.T_DissolveTextures
         , 
-        Texture2D /Engine/EngineMaterials/FlatNormal.FlatNormal
+        Texture2D /Game/Effects/Textures/T_FX_DissolveRamp.T_FX_DissolveRamp
         , 
-        Texture2D /Game/Textures/Environment/Tiles/Green_Linear.Green_Linear
+        Texture2D /Game/Textures/Environment/Tiles/White_Linear.White_Linear
         , 
         Texture2D /Engine/EngineResources/DefaultTexture.DefaultTexture
+        , 
+        Texture2D /Engine/EngineVolumetrics/Fogsheet/Materials/T_EV_BlankWhite_01.T_EV_BlankWhite_01
+        , 
+        Texture2D /Engine/EngineMaterials/Good64x64TilingNoiseHighFreq.Good64x64TilingNoiseHighFreq
+        , 
+        Texture2D /Game/Materials/Substance/Textures/T_Fur_ORM.T_Fur_ORM
+        , 
+        Texture2D /Game/Materials/Substance/Textures/T_BrownFur_BC.T_BrownFur_BC
+        , 
+        Texture2D /Game/Materials/Substance/Textures/T_Fur_N.T_Fur_N
+        , 
+        Texture2D /Game/Textures/Environment/Tiles/White.White
         , 
         Texture2D /Game/Textures/Environment/Junkyard/Structures/T_GS_FrontSign_Flickerama.T_GS_FrontSign_Flickerama
     ]
@@ -91,19 +146,13 @@ Asset: MaterialInstanceConstant MI_4thAnniversary_FlashLight_01_Camper
         {
             SamplingScale: 1
             UVChannelIndex: 0
-            TextureName: Black
-        }
-        , 
-        {
-            SamplingScale: 1
-            UVChannelIndex: 0
-            TextureName: FlatNormal
-        }
-        , 
-        {
-            SamplingScale: 1
-            UVChannelIndex: 0
             TextureName: Green_Linear
+        }
+        , 
+        {
+            SamplingScale: 1
+            UVChannelIndex: 0
+            TextureName: T_4thAnniversary_FlashLight01_BC
         }
         , 
         {
@@ -114,8 +163,8 @@ Asset: MaterialInstanceConstant MI_4thAnniversary_FlashLight_01_Camper
         , 
         {
             SamplingScale: 1
-            UVChannelIndex: 0
-            TextureName: White
+            UVChannelIndex: 1
+            TextureName: White_Linear
         }
     ]
 }

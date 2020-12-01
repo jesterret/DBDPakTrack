@@ -1,8 +1,99 @@
 Asset: MaterialInstanceConstant MI_TallTree01_Jnk_Trunk
 {
-    PhysMaterial: PhysicalMaterial /Game/Materials/PhysicalMaterials/PM_Vegetation.PM_Vegetation
-    Parent: Material /Game/Materials/Masters/M_Structures_v2.M_Structures_v2
+    PhysMaterial: PhysicalMaterial /Game/Materials/PhysicalMaterials/PM_Tree.PM_Tree
+    Parent: Material /Game/Materials/Masters/M_TreeBark.M_TreeBark
+    bHasStaticPermutationResource: True
     ScalarParameterValues: [
+        {
+            ParameterInfo: {
+                Name: 21_MossTileAmount
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: 1
+            ExpressionGUID: 23268630-86cf-46c4-9be0-a8602735e821
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: 21_MossCurve
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: 5.600399
+            ExpressionGUID: b171dd29-ef1a-4467-8e46-0670ac1bfeba
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: 21_MossHeight
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: 51.213757
+            ExpressionGUID: d7615e84-d50e-489b-9b1c-de83d3b34c73
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: 21_GroundHeight
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: 1.329779
+            ExpressionGUID: 680b1e5b-f6a6-4d38-8e97-0de90f3e0ed5
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: contrast
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: 1
+            ExpressionGUID: 0cf31907-30d8-4531-95ab-301aafef7a95
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: pixelfade
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: 6000
+            ExpressionGUID: d903d5f1-9321-4791-95f5-55986a2caaab
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: procedural mix
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: 30
+            ExpressionGUID: dd6c38f4-0fb5-44c4-ace1-3001ee71fc1d
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: U_Tile
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: 1
+            ExpressionGUID: 97ad1edb-2694-41da-95b9-2e1d5ada37cd
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: V_Tile
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: 1
+            ExpressionGUID: e86f8673-bc0d-4ce7-aadf-522a390819b2
+        }
+        , 
         {
             ParameterInfo: {
                 Name: RefractionDepthBias
@@ -16,38 +107,90 @@ Asset: MaterialInstanceConstant MI_TallTree01_Jnk_Trunk
     TextureParameterValues: [
         {
             ParameterInfo: {
-                Name: Main_BaseColor
+                Name: BC_Texture
                 Association: GlobalParameter
                 Index: -1
             }
             ParameterValue: Texture2D /Game/Textures/Environment/Junkyard/Vegetation/T_TallTree01_Jnk_Trunk_BC.T_TallTree01_Jnk_Trunk_BC
-            ExpressionGUID: 19f0818f-17bf-4513-ac6e-cb6e64a3f07d
+            ExpressionGUID: e0c73a87-9208-4b99-9f60-429157bb12b9
         }
         , 
         {
             ParameterInfo: {
-                Name: Main_Normal
+                Name: NormalMap Texture
                 Association: GlobalParameter
                 Index: -1
             }
             ParameterValue: Texture2D /Game/Textures/Environment/Junkyard/Vegetation/T_TallTree01_Jnk_Trunk_N.T_TallTree01_Jnk_Trunk_N
-            ExpressionGUID: 6048e55e-3122-4142-9e25-c3bf259e0dfb
+            ExpressionGUID: 8dfe4e8a-ee4d-4fd9-93f5-d0317350da7d
         }
         , 
         {
             ParameterInfo: {
-                Name: Main_ORM
+                Name: 06_ORMTexture
                 Association: GlobalParameter
                 Index: -1
             }
             ParameterValue: Texture2D /Game/Textures/Environment/Junkyard/Vegetation/T_TallTree01_Jnk_Trunk_ORM.T_TallTree01_Jnk_Trunk_ORM
-            ExpressionGUID: b4e7009f-dbc2-4336-8046-c6eea59efad9
+            ExpressionGUID: a933df92-2133-4c2c-a2e8-b7a5c6ce638c
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: 21_MossTexture
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: Texture2D /Game/Materials/Substance/Textures/T_Ind_DirtTerrain_BC.T_Ind_DirtTerrain_BC
+            ExpressionGUID: bea60393-4aa3-493a-abca-91997e80ca1e
         }
     ]
     BasePropertyOverrides: {
+        DitheredLODTransition: True
+        BlendMode: BLEND_Masked
         OpacityMaskClipValue: 0.3333
     }
+    StaticParameters: {
+        StaticSwitchParameters: [
+            {
+                Value: True
+                ParameterInfo: {
+                    Name: 06_TextureORM
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: e4767fbc-4609-43cf-8076-c67a2cd7b8b9
+            }
+            , 
+            {
+                Value: True
+                ParameterInfo: {
+                    Name: 21_UseCrawlingMoss
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: 38dc155e-70e9-40fe-88af-b4f0dc3dacc8
+            }
+            , 
+            {
+                Value: True
+                ParameterInfo: {
+                    Name: 21_UseLocalPosition
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: 33787f35-967c-464a-8259-7af39030790c
+            }
+        ]
+    }
     CachedReferencedTextures: [
+        Texture2D /Game/Effects/Textures/T_FlatNormal_01.T_FlatNormal_01
+        , 
+        Texture2D /Game/Textures/Environment/Tiles/Black.Black
+        , 
         null
         , 
         Texture2D /Engine/EngineMaterials/DefaultDiffuse.DefaultDiffuse
@@ -60,43 +203,35 @@ Asset: MaterialInstanceConstant MI_TallTree01_Jnk_Trunk
         , 
         Texture2D /Game/Textures/Environment/Tiles/Yellow_Linear.Yellow_Linear
         , 
-        Texture2D /Engine/EngineDebugMaterials/HeatmapGradient.HeatmapGradient
+        Texture2D /Game/Effects/Textures/T_BurnLUT.T_BurnLUT
         , 
-        Texture2D /Game/Meshes/Environment/Tiles/Textures/environment_mud_diffuse.environment_mud_diffuse
+        Texture2D /Game/Textures/Environment/Asylum/T_Noise01.T_Noise01
         , 
-        Texture2D /Game/Meshes/Environment/Tiles/Textures/environment_mud_N.environment_mud_N
+        Texture2D /Game/Effects/Textures/T_BurnedEmbers.T_BurnedEmbers
         , 
-        Texture2D /Engine/EngineMaterials/BlendFunc_DefBlend.BlendFunc_DefBlend
+        Texture2D /Game/Effects/Textures/T_BurnedAsh.T_BurnedAsh
         , 
-        Texture2D /Engine/EngineMaterials/BlendFunc_DefBase.BlendFunc_DefBase
+        Texture2D /Game/Effects/Textures/T_Dissolve_spiderthing.T_Dissolve_spiderthing
         , 
-        Texture2D /Game/Textures/Props/Misc/T_checker_grid.T_checker_grid
+        Texture2D /Game/Effects/Textures/T_Veins.T_Veins
         , 
-        Texture2D /Game/Textures/Environment/Tiles/Black_Linear.Black_Linear
+        Texture2D /Game/Effects/Textures/T_NoiseNormal_01.T_NoiseNormal_01
         , 
-        Texture2D /Game/Textures/Environment/Tiles/White_Linear.White_Linear
+        Texture2D /Game/Effects/Textures/T_Noise02.T_Noise02
         , 
-        Texture2D /Game/Textures/Environment/Junkyard/Structures/T_GS_FrontSign_Flickerama.T_GS_FrontSign_Flickerama
+        Texture2D /Game/Textures/InteractableObjects/Entity_Objects/Dissolve_border_Entity.Dissolve_border_Entity
         , 
-        TextureCube /Game/Textures/T_Skylight2.T_Skylight2
+        Texture2D /Game/Effects/Textures/T_TilingNoise03.T_TilingNoise03
+        , 
+        Texture2D /Game/Textures/Environment/Tiles/Green_Linear.Green_Linear
+        , 
+        Texture2D /Game/Textures/Environment/Tiles/White.White
     ]
     TextureStreamingData: [
         {
             SamplingScale: 1
             UVChannelIndex: 0
-            TextureName: T_TallTree01_Jnk_Trunk_BC
-        }
-        , 
-        {
-            SamplingScale: 1
-            UVChannelIndex: 0
             TextureName: T_TallTree01_Jnk_Trunk_N
-        }
-        , 
-        {
-            SamplingScale: 1
-            UVChannelIndex: 0
-            TextureName: T_TallTree01_Jnk_Trunk_ORM
         }
     ]
 }

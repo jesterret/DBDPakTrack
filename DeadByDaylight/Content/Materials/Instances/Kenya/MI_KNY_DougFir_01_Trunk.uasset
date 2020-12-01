@@ -1,7 +1,8 @@
 Asset: MaterialInstanceConstant MI_KNY_DougFir_01_Trunk
 {
     PhysMaterial: PhysicalMaterial /Game/Materials/PhysicalMaterials/PM_Wood.PM_Wood
-    Parent: MaterialInstanceConstant /Game/Materials/Masters/MI_Structures_v2_Masked.MI_Structures_v2_Masked
+    Parent: Material /Game/Materials/Masters/M_TreeBark.M_TreeBark
+    bHasStaticPermutationResource: True
     ScalarParameterValues: [
         {
             ParameterInfo: {
@@ -9,8 +10,38 @@ Asset: MaterialInstanceConstant MI_KNY_DougFir_01_Trunk
                 Association: GlobalParameter
                 Index: -1
             }
-            ParameterValue: 0.344862
+            ParameterValue: 1.118436
             ExpressionGUID: 23268630-86cf-46c4-9be0-a8602735e821
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: 21_MossCurve
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: 0.891568
+            ExpressionGUID: b171dd29-ef1a-4467-8e46-0670ac1bfeba
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: 21_MossHeight
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: 31.363443
+            ExpressionGUID: d7615e84-d50e-489b-9b1c-de83d3b34c73
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: 21_GroundHeight
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: 3.478619
+            ExpressionGUID: 680b1e5b-f6a6-4d38-8e97-0de90f3e0ed5
         }
         , 
         {
@@ -26,32 +57,32 @@ Asset: MaterialInstanceConstant MI_KNY_DougFir_01_Trunk
     TextureParameterValues: [
         {
             ParameterInfo: {
-                Name: Main_BaseColor
+                Name: BC_Texture
                 Association: GlobalParameter
                 Index: -1
             }
             ParameterValue: Texture2D /Game/Textures/Environment/Kenya/Vegetation/T_KNY_DougFir_01_Trunk_BC.T_KNY_DougFir_01_Trunk_BC
-            ExpressionGUID: 19f0818f-17bf-4513-ac6e-cb6e64a3f07d
+            ExpressionGUID: e0c73a87-9208-4b99-9f60-429157bb12b9
         }
         , 
         {
             ParameterInfo: {
-                Name: Main_Normal
+                Name: NormalMap Texture
                 Association: GlobalParameter
                 Index: -1
             }
             ParameterValue: Texture2D /Game/Textures/Environment/Kenya/Vegetation/T_KNY_DougFir_01_Trunk_N.T_KNY_DougFir_01_Trunk_N
-            ExpressionGUID: 6048e55e-3122-4142-9e25-c3bf259e0dfb
+            ExpressionGUID: 8dfe4e8a-ee4d-4fd9-93f5-d0317350da7d
         }
         , 
         {
             ParameterInfo: {
-                Name: Main_ORM
+                Name: 06_ORMTexture
                 Association: GlobalParameter
                 Index: -1
             }
             ParameterValue: Texture2D /Game/Textures/Environment/Kenya/Vegetation/T_KNY_DougFir_01_Trunk_ORM.T_KNY_DougFir_01_Trunk_ORM
-            ExpressionGUID: b4e7009f-dbc2-4336-8046-c6eea59efad9
+            ExpressionGUID: a933df92-2133-4c2c-a2e8-b7a5c6ce638c
         }
         , 
         {
@@ -60,15 +91,45 @@ Asset: MaterialInstanceConstant MI_KNY_DougFir_01_Trunk
                 Association: GlobalParameter
                 Index: -1
             }
-            ParameterValue: Texture2D /Game/Textures/Environment/Suburbs/Structures/T_ConcreteDirty01.T_ConcreteDirty01
+            ParameterValue: Texture2D /Game/Textures/Environment/_Common/Tilable/Snow/T_SnowPowdery_A_BC.T_SnowPowdery_A_BC
             ExpressionGUID: bea60393-4aa3-493a-abca-91997e80ca1e
         }
     ]
     BasePropertyOverrides: {
+        DitheredLODTransition: True
         BlendMode: BLEND_Masked
         OpacityMaskClipValue: 0.3333
     }
+    StaticParameters: {
+        StaticSwitchParameters: [
+            {
+                Value: True
+                ParameterInfo: {
+                    Name: 06_TextureORM
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: e4767fbc-4609-43cf-8076-c67a2cd7b8b9
+            }
+            , 
+            {
+                Value: True
+                ParameterInfo: {
+                    Name: 21_UseCrawlingMoss
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: 38dc155e-70e9-40fe-88af-b4f0dc3dacc8
+            }
+        ]
+    }
     CachedReferencedTextures: [
+        Texture2D /Game/Effects/Textures/T_FlatNormal_01.T_FlatNormal_01
+        , 
+        Texture2D /Game/Textures/Environment/Tiles/Black.Black
+        , 
         null
         , 
         Texture2D /Engine/EngineMaterials/DefaultDiffuse.DefaultDiffuse
@@ -81,43 +142,35 @@ Asset: MaterialInstanceConstant MI_KNY_DougFir_01_Trunk
         , 
         Texture2D /Game/Textures/Environment/Tiles/Yellow_Linear.Yellow_Linear
         , 
-        Texture2D /Engine/EngineDebugMaterials/HeatmapGradient.HeatmapGradient
+        Texture2D /Game/Effects/Textures/T_BurnLUT.T_BurnLUT
         , 
-        Texture2D /Game/Meshes/Environment/Tiles/Textures/environment_mud_diffuse.environment_mud_diffuse
+        Texture2D /Game/Textures/Environment/Asylum/T_Noise01.T_Noise01
         , 
-        Texture2D /Game/Meshes/Environment/Tiles/Textures/environment_mud_N.environment_mud_N
+        Texture2D /Game/Effects/Textures/T_BurnedEmbers.T_BurnedEmbers
         , 
-        Texture2D /Engine/EngineMaterials/BlendFunc_DefBlend.BlendFunc_DefBlend
+        Texture2D /Game/Effects/Textures/T_BurnedAsh.T_BurnedAsh
         , 
-        Texture2D /Engine/EngineMaterials/BlendFunc_DefBase.BlendFunc_DefBase
+        Texture2D /Game/Effects/Textures/T_Dissolve_spiderthing.T_Dissolve_spiderthing
         , 
-        Texture2D /Game/Textures/Props/Misc/T_checker_grid.T_checker_grid
+        Texture2D /Game/Effects/Textures/T_Veins.T_Veins
         , 
-        Texture2D /Game/Textures/Environment/Tiles/Black_Linear.Black_Linear
+        Texture2D /Game/Effects/Textures/T_NoiseNormal_01.T_NoiseNormal_01
         , 
-        Texture2D /Game/Textures/Environment/Tiles/White_Linear.White_Linear
+        Texture2D /Game/Effects/Textures/T_Noise02.T_Noise02
         , 
-        Texture2D /Game/Textures/Environment/Junkyard/Structures/T_GS_FrontSign_Flickerama.T_GS_FrontSign_Flickerama
+        Texture2D /Game/Textures/InteractableObjects/Entity_Objects/Dissolve_border_Entity.Dissolve_border_Entity
         , 
-        TextureCube /Game/Textures/T_Skylight2.T_Skylight2
+        Texture2D /Game/Effects/Textures/T_TilingNoise03.T_TilingNoise03
+        , 
+        Texture2D /Game/Textures/Environment/Tiles/Green_Linear.Green_Linear
+        , 
+        Texture2D /Game/Textures/Environment/Tiles/White.White
     ]
     TextureStreamingData: [
         {
             SamplingScale: 1
             UVChannelIndex: 0
-            TextureName: T_KNY_DougFir_01_Trunk_BC
-        }
-        , 
-        {
-            SamplingScale: 1
-            UVChannelIndex: 0
             TextureName: T_KNY_DougFir_01_Trunk_N
-        }
-        , 
-        {
-            SamplingScale: 1
-            UVChannelIndex: 0
-            TextureName: T_KNY_DougFir_01_Trunk_ORM
         }
     ]
 }
