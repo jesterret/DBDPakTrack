@@ -15,6 +15,16 @@ Asset: MaterialInstanceConstant MV_Leaf_NoShadow_Dissolve
         , 
         {
             ParameterInfo: {
+                Name: 050_WindNormalFlatness
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: 0
+            ExpressionGUID: 2fb139f4-86a9-44ba-a171-232dc8a05708
+        }
+        , 
+        {
+            ParameterInfo: {
                 Name: border_brightness (rb)
                 Association: GlobalParameter
                 Index: -1
@@ -41,16 +51,6 @@ Asset: MaterialInstanceConstant MV_Leaf_NoShadow_Dissolve
             }
             ParameterValue: 2
             ExpressionGUID: f1bff3b7-7e29-41a7-a91e-01ae09a0a535
-        }
-        , 
-        {
-            ParameterInfo: {
-                Name: Scale (psm)
-                Association: GlobalParameter
-                Index: -1
-            }
-            ParameterValue: 1
-            ExpressionGUID: 4c0bd361-aa23-439b-a0ef-80717a0377e7
         }
         , 
         {
@@ -93,18 +93,17 @@ Asset: MaterialInstanceConstant MV_Leaf_NoShadow_Dissolve
             ExpressionGUID: 00000000-0000-0000-0000-000000000000
         }
     ]
-    VectorParameterValues: [
+    TextureParameterValues: [
         {
             ParameterInfo: {
-                Name: ColorTintColour
+                Name: 050_WindMaskTexture
                 Association: GlobalParameter
                 Index: -1
             }
-            ParameterValue: { R: 0.25, G: 0.148317, B: 0.132473, A: 0 }
-            ExpressionGUID: d56de2b5-2416-4a84-91c1-14d70a71b9a5
+            ParameterValue: Texture2D /Game/Textures/Environment/Vegetations/T_MapleOakLeaves01_Wind.T_MapleOakLeaves01_Wind
+            ExpressionGUID: bfa5ebac-7e17-4258-94d6-d7c7d3752814
         }
-    ]
-    TextureParameterValues: [
+        , 
         {
             ParameterInfo: {
                 Name: Texture (rb)
@@ -116,7 +115,9 @@ Asset: MaterialInstanceConstant MV_Leaf_NoShadow_Dissolve
         }
     ]
     BasePropertyOverrides: {
+        bOverride_CastMaskedMaterialShadow: True
         TwoSided: True
+        CastMaskedMaterialShadow: True
         BlendMode: BLEND_Masked
         OpacityMaskClipValue: 0.3333
     }
@@ -136,12 +137,111 @@ Asset: MaterialInstanceConstant MV_Leaf_NoShadow_Dissolve
             {
                 Value: True
                 ParameterInfo: {
+                    Name: UseColourVariation
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: 019d204c-90f5-4fe2-81b8-735b840a7c86
+            }
+            , 
+            {
+                Value: True
+                ParameterInfo: {
                     Name: UseColorTint
                     Association: GlobalParameter
                     Index: -1
                 }
                 bOverride: True
                 ExpressionGUID: d5016d77-ad3e-488d-a994-b2546d3fe6b9
+            }
+            , 
+            {
+                Value: True
+                ParameterInfo: {
+                    Name: 050_WindEnabled
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: a3b13d32-6f38-49aa-980f-305e7e718288
+            }
+            , 
+            {
+                Value: True
+                ParameterInfo: {
+                    Name: 050_WeightStickToGround
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: d3513629-bc21-47e0-8cca-66f213414b0f
+            }
+            , 
+            {
+                Value: True
+                ParameterInfo: {
+                    Name: 050_UseLocalPosition
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: 658d576c-afb9-4b70-bb45-1cd60d3641a0
+            }
+            , 
+            {
+                Value: True
+                ParameterInfo: {
+                    Name: 050_WindUseVertexAlpha
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: 19898edc-de54-4485-82e6-954e8e48fdc9
+            }
+            , 
+            {
+                Value: True
+                ParameterInfo: {
+                    Name: 050_WindUseMask
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: 6d22d7d1-9e96-44f7-af6a-b7eca169b449
+            }
+            , 
+            {
+                Value: True
+                ParameterInfo: {
+                    Name: 050_WindUseMaskAlpha
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: e8d3f17f-d896-483a-b44f-e697c626bcd7
+            }
+            , 
+            {
+                Value: True
+                ParameterInfo: {
+                    Name: 050_UseAdditionalWPO
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: 02343bfd-3562-4957-b045-35d78a901e11
+            }
+            , 
+            {
+                Value: True
+                ParameterInfo: {
+                    Name: 050_UseAdditionalDetailWPO
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: 6d1f9a43-0954-4d01-8178-c70f0da54375
             }
             , 
             {
@@ -197,39 +297,6 @@ Asset: MaterialInstanceConstant MV_Leaf_NoShadow_Dissolve
                 }
                 bOverride: True
                 ExpressionGUID: 9ba42a85-5748-4a1c-8d97-18b9674d55ce
-            }
-            , 
-            {
-                Value: True
-                ParameterInfo: {
-                    Name: Allow Scaling? (pam)
-                    Association: GlobalParameter
-                    Index: -1
-                }
-                bOverride: True
-                ExpressionGUID: e329c99e-2891-4b94-8bf6-e95b82dafb55
-            }
-            , 
-            {
-                Value: True
-                ParameterInfo: {
-                    Name: Allow Scaling Period? (pam)
-                    Association: GlobalParameter
-                    Index: -1
-                }
-                bOverride: True
-                ExpressionGUID: c08b6700-f713-4372-8509-64c72db057a2
-            }
-            , 
-            {
-                Value: True
-                ParameterInfo: {
-                    Name: Allow Scaling
-                    Association: GlobalParameter
-                    Index: -1
-                }
-                bOverride: True
-                ExpressionGUID: c434091f-7bd3-44b3-a4a5-8c2121fbd2c8
             }
             , 
             {
@@ -294,5 +361,28 @@ Asset: MaterialInstanceConstant MV_Leaf_NoShadow_Dissolve
         Texture2D /Game/Textures/Environment/Tiles/White.White
         , 
         Texture2D /Game/Effects/Textures/T_FlatNormal_01.T_FlatNormal_01
+        , 
+        Texture2D /Game/Textures/Environment/Vegetations/T_FoliageWaves_02_N.T_FoliageWaves_02_N
+        , 
+        Texture2D /Game/Textures/Environment/Vegetations/T_MapleOakLeaves01_Wind.T_MapleOakLeaves01_Wind
+    ]
+    TextureStreamingData: [
+        {
+            SamplingScale: 1
+            UVChannelIndex: 0
+            TextureName: Black
+        }
+        , 
+        {
+            SamplingScale: 1
+            UVChannelIndex: 0
+            TextureName: T_FlatNormal_01
+        }
+        , 
+        {
+            SamplingScale: 1
+            UVChannelIndex: 0
+            TextureName: T_treeLeaf01_BC
+        }
     ]
 }
