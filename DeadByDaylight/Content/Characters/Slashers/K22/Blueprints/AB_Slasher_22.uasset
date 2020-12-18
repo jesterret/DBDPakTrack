@@ -8,7 +8,7 @@
                     StateName: Base
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 32
+                            CanTakeDelegateIndex: 34
                             CustomResultNodeIndex: -1
                             TransitionIndex: 0
                             bDesiredTransitionReturnValue: True
@@ -31,7 +31,7 @@
                     StateName: BrotherOut
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 33
+                            CanTakeDelegateIndex: 35
                             CustomResultNodeIndex: -1
                             TransitionIndex: 1
                             bDesiredTransitionReturnValue: True
@@ -130,6 +130,15 @@
                         {
                             CanTakeDelegateIndex: 29
                             CustomResultNodeIndex: -1
+                            TransitionIndex: 4
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                        , 
+                        {
+                            CanTakeDelegateIndex: 30
+                            CustomResultNodeIndex: -1
                             TransitionIndex: 0
                             bDesiredTransitionReturnValue: True
                             bAutomaticRemainingTimeRule: False
@@ -157,7 +166,7 @@
                     StateName: Dorment
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 30
+                            CanTakeDelegateIndex: 31
                             CustomResultNodeIndex: -1
                             TransitionIndex: 1
                             bDesiredTransitionReturnValue: True
@@ -182,7 +191,16 @@
                     StateName: Dorment2Idle
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 31
+                            CanTakeDelegateIndex: 32
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 5
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                        , 
+                        {
+                            CanTakeDelegateIndex: 33
                             CustomResultNodeIndex: -1
                             TransitionIndex: 2
                             bDesiredTransitionReturnValue: True
@@ -263,6 +281,34 @@
                     LogicType: ETransitionLogicType::TLT_StandardBlend
                     StateName: None
                 }
+                , 
+                {
+                    PreviousState: 1
+                    NextState: 3
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+                , 
+                {
+                    PreviousState: 3
+                    NextState: 1
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
             ]
         }
     ]
@@ -272,9 +318,9 @@
          => 
         {
             OrderedSavedPoseNodeIndices: [
-                34
+                36
                 , 
-                39
+                41
             ]
         }
         ]]
@@ -545,6 +591,26 @@
         }
         , 
         {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _isDormant
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::LogicalNegateBool
+                    DestProperty: UETools.Objects.Property.FieldPath
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
+        }
+        , 
+        {
             BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Slasher_22_AnimGraphNode_TransitionResult_3B093827458988894FC0E49BCB3614E9
             CopyRecords: [ ]
             Function: Function AB_Slasher_22_C.EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Slasher_22_AnimGraphNode_TransitionResult_3B093827458988894FC0E49BCB3614E9
@@ -560,6 +626,26 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
                     PostCopyOperation: EPostCopyOperation::LogicalNegateBool
+                    DestProperty: UETools.Objects.Property.FieldPath
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _isDormant
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
                     DestProperty: UETools.Objects.Property.FieldPath
                     DestArrayIndex: 0
                     Size: 1
@@ -926,7 +1012,7 @@
     UberGraphFrame: None
     AnimGraphNode_Root: {
         Result: {
-            LinkID: 47
+            LinkID: 49
         }
         Name: AnimGraph
         Group: None
@@ -4228,6 +4314,12 @@
     AnimGraphNode_TransitionResult: {
         bCanEnterTransition: False
     }
+    AnimGraphNode_TransitionResult: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_TransitionResult: {
+        bCanEnterTransition: False
+    }
     AnimGraphNode_UseCachedPose: {
         LinkToCachingNode: {
             LinkID: 13
@@ -4267,11 +4359,11 @@
     }
     AnimGraphNode_LayeredBoneBlend: {
         BasePose: {
-            LinkID: 20
+            LinkID: 22
         }
         BlendPoses: [
             {
-                LinkID: 21
+                LinkID: 23
             }
         ]
         LayerSetup: [
@@ -7295,11 +7387,11 @@
         bActiveValue: False
         BlendPose: [
             {
-                LinkID: 24
+                LinkID: 26
             }
             , 
             {
-                LinkID: 22
+                LinkID: 24
             }
         ]
         BlendTime: [
@@ -7348,11 +7440,11 @@
         bActiveValue: False
         BlendPose: [
             {
-                LinkID: 26
+                LinkID: 28
             }
             , 
             {
-                LinkID: 23
+                LinkID: 25
             }
         ]
         BlendTime: [
@@ -7399,7 +7491,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 25
+            LinkID: 27
         }
         Name: Dorment2Idle
         Group: None
@@ -7437,7 +7529,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 28
+            LinkID: 30
         }
         Name: Dorment
         Group: None
@@ -7481,11 +7573,11 @@
     }
     AnimGraphNode_LayeredBoneBlend: {
         BasePose: {
-            LinkID: 31
+            LinkID: 33
         }
         BlendPoses: [
             {
-                LinkID: 30
+                LinkID: 32
             }
         ]
         LayerSetup: [
@@ -10509,11 +10601,11 @@
         bActiveValue: False
         BlendPose: [
             {
-                LinkID: 36
+                LinkID: 38
             }
             , 
             {
-                LinkID: 32
+                LinkID: 34
             }
         ]
         BlendTime: [
@@ -10562,11 +10654,11 @@
         bActiveValue: False
         BlendPose: [
             {
-                LinkID: 34
+                LinkID: 36
             }
             , 
             {
-                LinkID: 33
+                LinkID: 35
             }
         ]
         BlendTime: [
@@ -10613,7 +10705,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 35
+            LinkID: 37
         }
         Name: Idle2Dorment
         Group: None
@@ -10626,7 +10718,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 38
+            LinkID: 40
         }
         Name: Base_release
         Group: None
@@ -10639,11 +10731,11 @@
     }
     AnimGraphNode_LayeredBoneBlend: {
         BasePose: {
-            LinkID: 40
+            LinkID: 42
         }
         BlendPoses: [
             {
-                LinkID: 42
+                LinkID: 44
             }
         ]
         LayerSetup: [
@@ -13726,7 +13818,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 41
+            LinkID: 43
         }
         Name: BrotherOut
         Group: None
@@ -13739,7 +13831,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 44
+            LinkID: 46
         }
         Name: Base
         Group: None
@@ -13752,7 +13844,7 @@
     }
     AnimGraphNode_Slot: {
         Source: {
-            LinkID: 46
+            LinkID: 48
         }
         SlotName: Power
         bAlwaysUpdateSourcePose: False
