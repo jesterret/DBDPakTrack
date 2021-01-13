@@ -1,14 +1,23 @@
 {
     BakedStateMachines: [
         {
-            MachineName: Base
+            MachineName: BaseState
             InitialState: 0
             States: [
                 {
-                    StateName: Idle
+                    StateName: Base
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 9
+                            CanTakeDelegateIndex: 21
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 1
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                        , 
+                        {
+                            CanTakeDelegateIndex: 22
                             CustomResultNodeIndex: -1
                             TransitionIndex: 0
                             bDesiredTransitionReturnValue: True
@@ -16,7 +25,21 @@
                             PoseEvaluatorLinks: [ ]
                         }
                     ]
-                    StateRootNodeIndex: 1
+                    StateRootNodeIndex: 3
+                    StartNotify: -1
+                    EndNotify: -1
+                    FullyBlendedNotify: -1
+                    bIsAConduit: False
+                    EntryRuleNodeIndex: -1
+                    PlayerNodeIndices: [ ]
+                    LayerNodeIndices: [ ]
+                    bAlwaysResetOnEntry: False
+                }
+                , 
+                {
+                    StateName: Game
+                    Transitions: [ ]
+                    StateRootNodeIndex: 5
                     StartNotify: -1
                     EndNotify: -1
                     FullyBlendedNotify: -1
@@ -29,17 +52,8 @@
                 , 
                 {
                     StateName: Menu
-                    Transitions: [
-                        {
-                            CanTakeDelegateIndex: 10
-                            CustomResultNodeIndex: -1
-                            TransitionIndex: 1
-                            bDesiredTransitionReturnValue: True
-                            bAutomaticRemainingTimeRule: False
-                            PoseEvaluatorLinks: [ ]
-                        }
-                    ]
-                    StateRootNodeIndex: 5
+                    Transitions: [ ]
+                    StateRootNodeIndex: 13
                     StartNotify: -1
                     EndNotify: -1
                     FullyBlendedNotify: -1
@@ -66,8 +80,8 @@
                 }
                 , 
                 {
-                    PreviousState: 1
-                    NextState: 0
+                    PreviousState: 0
+                    NextState: 2
                     CrossfadeDuration: 0.2
                     StartNotify: -1
                     EndNotify: -1
@@ -86,10 +100,32 @@
         [ AnimGraph
          => 
         {
-            OrderedSavedPoseNodeIndices: [ ]
+            OrderedSavedPoseNodeIndices: [
+                0
+            ]
         }
         ]]
     EvaluateGraphExposedInputs: [
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _masterMesh
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: UETools.Objects.Property.FieldPath
+                    DestArrayIndex: 0
+                    Size: 8
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
+        }
+        , 
         {
             BoundFunction: None
             CopyRecords: [
@@ -137,7 +173,7 @@
     UberGraphFrame: None
     AnimGraphNode_Root: {
         Result: {
-            LinkID: 11
+            LinkID: 21
         }
         Name: AnimGraph
         Group: None
@@ -148,106 +184,512 @@
     AnimGraphNode_TransitionResult: {
         bCanEnterTransition: False
     }
-    AnimGraphNode_ComponentToLocalSpace: {
+    AnimGraphNode_AnimDynamics: {
+        LinearDampingOverride: 0
+        AngularDampingOverride: 0
+        RelativeSpaceBone: {
+            BoneName: joint_Char
+        }
+        bHardLinkChain: False
+        BoundBone: {
+            BoneName: joint_HairLT_03
+        }
+        ChainEnd: {
+            BoneName: None
+        }
+        BoxExtents: { X: 15, Y: 15, Z: 15 }
+        LocalJointOffset: { X: -1, Y: 0, Z: 0 }
+        GravityScale: 1
+        GravityOverride: { X: 0, Y: 0, Z: 0 }
+        LinearSpringConstant: 0
+        AngularSpringConstant: 0
+        WindScale: 1
+        ComponentLinearAccScale: { X: 0, Y: 0, Z: 0 }
+        ComponentLinearVelScale: { X: 0, Y: 0, Z: 0 }
+        ComponentAppliedLinearAccClamp: { X: 100000, Y: 100000, Z: 100000 }
+        AngularBiasOverride: 0
+        NumSolverIterationsPreUpdate: 4
+        NumSolverIterationsPostUpdate: 1
+        ConstraintSetup: {
+            LinearXLimitType: AnimPhysLinearConstraintType::Limited
+            LinearYLimitType: AnimPhysLinearConstraintType::Limited
+            LinearZLimitType: AnimPhysLinearConstraintType::Limited
+            LinearAxesMin: { X: 0, Y: 0, Z: 0 }
+            LinearAxesMax: { X: 0, Y: 0, Z: 0 }
+            AngularConstraintType: AnimPhysAngularConstraintType::Angular
+            TwistAxis: AnimPhysTwistAxis::AxisX
+            AngularTargetAxis: AnimPhysTwistAxis::AxisX
+            ConeAngle: 0
+            AngularLimitsMin: { X: 0, Y: -10, Z: -10 }
+            AngularLimitsMax: { X: 0, Y: 0, Z: 5 }
+            AngularTarget: { X: 0, Y: 0, Z: 0 }
+        }
+        SphericalLimits: [ ]
+        SphereCollisionRadius: 0
+        ExternalForce: { X: 0, Y: 0, Z: 0 }
+        PlanarLimits: [ ]
+        CollisionType: AnimPhysCollisionType::CoM
+        SimulationSpace: AnimPhysSimSpaceType::World
+        bUseSphericalLimits: False
+        bUsePlanarLimit: True
+        bDoUpdate: True
+        bDoEval: True
+        bOverrideLinearDamping: False
+        bOverrideAngularBias: False
+        bOverrideAngularDamping: False
+        bEnableWind: False
+        bUseGravityOverride: False
+        bLinearSpring: False
+        bAngularSpring: False
+        bChain: False
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
+        ComponentPose: {
+            LinkID: 6
+        }
+        LODThreshold: -1
+        ActualAlpha: 0
+        AlphaInputType: EAnimAlphaInputType::Float
+        bAlphaBoolEnabled: True
+        Alpha: 1
+        AlphaScaleBias: {
+            Scale: 1
+            Bias: 0
+        }
+        AlphaBoolBlend: {
+            BlendInTime: 0
+            BlendOutTime: 0
+            BlendOption: EAlphaBlendOption::Linear
+            bInitialized: False
+            CustomCurve: null
+            AlphaBlend: {
+                CustomCurve: null
+                BlendTime: 0.2
+                BlendOption: EAlphaBlendOption::Linear
+            }
+        }
+        AlphaCurveName: None
+        AlphaScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+    }
+    AnimGraphNode_AnimDynamics: {
+        LinearDampingOverride: 0
+        AngularDampingOverride: 0
+        RelativeSpaceBone: {
+            BoneName: joint_Char
+        }
+        bHardLinkChain: False
+        BoundBone: {
+            BoneName: joint_HairLT_04
+        }
+        ChainEnd: {
+            BoneName: None
+        }
+        BoxExtents: { X: 15, Y: 15, Z: 15 }
+        LocalJointOffset: { X: -1, Y: 0, Z: 0 }
+        GravityScale: 1
+        GravityOverride: { X: 0, Y: 0, Z: 0 }
+        LinearSpringConstant: 0
+        AngularSpringConstant: 0
+        WindScale: 1
+        ComponentLinearAccScale: { X: 0, Y: 0, Z: 0 }
+        ComponentLinearVelScale: { X: 0, Y: 0, Z: 0 }
+        ComponentAppliedLinearAccClamp: { X: 100000, Y: 100000, Z: 100000 }
+        AngularBiasOverride: 0
+        NumSolverIterationsPreUpdate: 4
+        NumSolverIterationsPostUpdate: 1
+        ConstraintSetup: {
+            LinearXLimitType: AnimPhysLinearConstraintType::Limited
+            LinearYLimitType: AnimPhysLinearConstraintType::Limited
+            LinearZLimitType: AnimPhysLinearConstraintType::Limited
+            LinearAxesMin: { X: 0, Y: 0, Z: 0 }
+            LinearAxesMax: { X: 0, Y: 0, Z: 0 }
+            AngularConstraintType: AnimPhysAngularConstraintType::Angular
+            TwistAxis: AnimPhysTwistAxis::AxisX
+            AngularTargetAxis: AnimPhysTwistAxis::AxisX
+            ConeAngle: 0
+            AngularLimitsMin: { X: 0, Y: -20, Z: -20 }
+            AngularLimitsMax: { X: 0, Y: 0, Z: 10 }
+            AngularTarget: { X: 0, Y: 0, Z: 0 }
+        }
+        SphericalLimits: [ ]
+        SphereCollisionRadius: 0
+        ExternalForce: { X: 0, Y: 0, Z: 0 }
+        PlanarLimits: [ ]
+        CollisionType: AnimPhysCollisionType::CoM
+        SimulationSpace: AnimPhysSimSpaceType::World
+        bUseSphericalLimits: False
+        bUsePlanarLimit: True
+        bDoUpdate: True
+        bDoEval: True
+        bOverrideLinearDamping: False
+        bOverrideAngularBias: False
+        bOverrideAngularDamping: False
+        bEnableWind: False
+        bUseGravityOverride: False
+        bLinearSpring: False
+        bAngularSpring: False
+        bChain: False
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
+        ComponentPose: {
+            LinkID: 3
+        }
+        LODThreshold: -1
+        ActualAlpha: 0
+        AlphaInputType: EAnimAlphaInputType::Float
+        bAlphaBoolEnabled: True
+        Alpha: 1
+        AlphaScaleBias: {
+            Scale: 1
+            Bias: 0
+        }
+        AlphaBoolBlend: {
+            BlendInTime: 0
+            BlendOutTime: 0
+            BlendOption: EAlphaBlendOption::Linear
+            bInitialized: False
+            CustomCurve: null
+            AlphaBlend: {
+                CustomCurve: null
+                BlendTime: 0.2
+                BlendOption: EAlphaBlendOption::Linear
+            }
+        }
+        AlphaCurveName: None
+        AlphaScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+    }
+    AnimGraphNode_AnimDynamics: {
+        LinearDampingOverride: 0
+        AngularDampingOverride: 0
+        RelativeSpaceBone: {
+            BoneName: joint_Char
+        }
+        bHardLinkChain: False
+        BoundBone: {
+            BoneName: joint_HairRT_03
+        }
+        ChainEnd: {
+            BoneName: None
+        }
+        BoxExtents: { X: 15, Y: 15, Z: 15 }
+        LocalJointOffset: { X: -1, Y: 0, Z: 0 }
+        GravityScale: 1
+        GravityOverride: { X: 0, Y: 0, Z: 0 }
+        LinearSpringConstant: 0
+        AngularSpringConstant: 0
+        WindScale: 1
+        ComponentLinearAccScale: { X: 0, Y: 0, Z: 0 }
+        ComponentLinearVelScale: { X: 0, Y: 0, Z: 0 }
+        ComponentAppliedLinearAccClamp: { X: 100000, Y: 100000, Z: 100000 }
+        AngularBiasOverride: 0
+        NumSolverIterationsPreUpdate: 4
+        NumSolverIterationsPostUpdate: 1
+        ConstraintSetup: {
+            LinearXLimitType: AnimPhysLinearConstraintType::Limited
+            LinearYLimitType: AnimPhysLinearConstraintType::Limited
+            LinearZLimitType: AnimPhysLinearConstraintType::Limited
+            LinearAxesMin: { X: 0, Y: 0, Z: 0 }
+            LinearAxesMax: { X: 0, Y: 0, Z: 0 }
+            AngularConstraintType: AnimPhysAngularConstraintType::Angular
+            TwistAxis: AnimPhysTwistAxis::AxisX
+            AngularTargetAxis: AnimPhysTwistAxis::AxisX
+            ConeAngle: 0
+            AngularLimitsMin: { X: 0, Y: -10, Z: -10 }
+            AngularLimitsMax: { X: 0, Y: 0, Z: 5 }
+            AngularTarget: { X: 0, Y: 0, Z: 0 }
+        }
+        SphericalLimits: [ ]
+        SphereCollisionRadius: 0
+        ExternalForce: { X: 0, Y: 0, Z: 0 }
+        PlanarLimits: [ ]
+        CollisionType: AnimPhysCollisionType::CoM
+        SimulationSpace: AnimPhysSimSpaceType::World
+        bUseSphericalLimits: False
+        bUsePlanarLimit: True
+        bDoUpdate: True
+        bDoEval: True
+        bOverrideLinearDamping: False
+        bOverrideAngularBias: False
+        bOverrideAngularDamping: False
+        bEnableWind: False
+        bUseGravityOverride: False
+        bLinearSpring: False
+        bAngularSpring: False
+        bChain: False
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
+        ComponentPose: {
+            LinkID: 9
+        }
+        LODThreshold: -1
+        ActualAlpha: 0
+        AlphaInputType: EAnimAlphaInputType::Float
+        bAlphaBoolEnabled: True
+        Alpha: 1
+        AlphaScaleBias: {
+            Scale: 1
+            Bias: 0
+        }
+        AlphaBoolBlend: {
+            BlendInTime: 0
+            BlendOutTime: 0
+            BlendOption: EAlphaBlendOption::Linear
+            bInitialized: False
+            CustomCurve: null
+            AlphaBlend: {
+                CustomCurve: null
+                BlendTime: 0.2
+                BlendOption: EAlphaBlendOption::Linear
+            }
+        }
+        AlphaCurveName: None
+        AlphaScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+    }
+    AnimGraphNode_AnimDynamics: {
+        LinearDampingOverride: 0
+        AngularDampingOverride: 0
+        RelativeSpaceBone: {
+            BoneName: joint_Char
+        }
+        bHardLinkChain: False
+        BoundBone: {
+            BoneName: joint_HairRT_04
+        }
+        ChainEnd: {
+            BoneName: None
+        }
+        BoxExtents: { X: 15, Y: 15, Z: 15 }
+        LocalJointOffset: { X: -1, Y: 0, Z: 0 }
+        GravityScale: 1
+        GravityOverride: { X: 0, Y: 0, Z: 0 }
+        LinearSpringConstant: 0
+        AngularSpringConstant: 0
+        WindScale: 1
+        ComponentLinearAccScale: { X: 0, Y: 0, Z: 0 }
+        ComponentLinearVelScale: { X: 0, Y: 0, Z: 0 }
+        ComponentAppliedLinearAccClamp: { X: 100000, Y: 100000, Z: 100000 }
+        AngularBiasOverride: 0
+        NumSolverIterationsPreUpdate: 4
+        NumSolverIterationsPostUpdate: 1
+        ConstraintSetup: {
+            LinearXLimitType: AnimPhysLinearConstraintType::Limited
+            LinearYLimitType: AnimPhysLinearConstraintType::Limited
+            LinearZLimitType: AnimPhysLinearConstraintType::Limited
+            LinearAxesMin: { X: 0, Y: 0, Z: 0 }
+            LinearAxesMax: { X: 0, Y: 0, Z: 0 }
+            AngularConstraintType: AnimPhysAngularConstraintType::Angular
+            TwistAxis: AnimPhysTwistAxis::AxisX
+            AngularTargetAxis: AnimPhysTwistAxis::AxisX
+            ConeAngle: 0
+            AngularLimitsMin: { X: 0, Y: -20, Z: -20 }
+            AngularLimitsMax: { X: 0, Y: 0, Z: 10 }
+            AngularTarget: { X: 0, Y: 0, Z: 0 }
+        }
+        SphericalLimits: [ ]
+        SphereCollisionRadius: 0
+        ExternalForce: { X: 0, Y: 0, Z: 0 }
+        PlanarLimits: [ ]
+        CollisionType: AnimPhysCollisionType::CoM
+        SimulationSpace: AnimPhysSimSpaceType::World
+        bUseSphericalLimits: False
+        bUsePlanarLimit: True
+        bDoUpdate: True
+        bDoEval: True
+        bOverrideLinearDamping: False
+        bOverrideAngularBias: False
+        bOverrideAngularDamping: False
+        bEnableWind: False
+        bUseGravityOverride: False
+        bLinearSpring: False
+        bAngularSpring: False
+        bChain: False
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
         ComponentPose: {
             LinkID: 5
         }
-    }
-    AnimGraphNode_AnimDynamics: {
-        LinearDampingOverride: 0
-        AngularDampingOverride: 0.99
-        RelativeSpaceBone: {
-            BoneName: joint_char
-        }
-        bHardLinkChain: False
-        BoundBone: {
-            BoneName: joint_HairRT_02
-        }
-        ChainEnd: {
-            BoneName: joint_HairRT_04
-        }
-        BoxExtents: { X: 20, Y: 20, Z: 20 }
-        LocalJointOffset: { X: 3, Y: 0, Z: 0 }
-        GravityScale: 1.25
-        GravityOverride: { X: 0, Y: 0, Z: 0 }
-        LinearSpringConstant: 0
-        AngularSpringConstant: 0
-        WindScale: 1
-        ComponentLinearAccScale: { X: 0, Y: 0, Z: 0 }
-        ComponentLinearVelScale: { X: 0, Y: 0, Z: 0 }
-        ComponentAppliedLinearAccClamp: { X: 100000, Y: 100000, Z: 100000 }
-        AngularBiasOverride: 0
-        NumSolverIterationsPreUpdate: 4
-        NumSolverIterationsPostUpdate: 1
-        ConstraintSetup: {
-            LinearXLimitType: AnimPhysLinearConstraintType::Limited
-            LinearYLimitType: AnimPhysLinearConstraintType::Limited
-            LinearZLimitType: AnimPhysLinearConstraintType::Limited
-            LinearAxesMin: { X: 0, Y: 0, Z: 0 }
-            LinearAxesMax: { X: 0, Y: 0, Z: 0 }
-            AngularConstraintType: AnimPhysAngularConstraintType::Angular
-            TwistAxis: AnimPhysTwistAxis::AxisX
-            AngularTargetAxis: AnimPhysTwistAxis::AxisX
-            ConeAngle: 0
-            AngularLimitsMin: { X: -25, Y: -25, Z: -45 }
-            AngularLimitsMax: { X: 25, Y: 25, Z: 10 }
-            AngularTarget: { X: 0, Y: 0, Z: 0 }
-        }
-        SphericalLimits: [ ]
-        SphereCollisionRadius: 0
-        ExternalForce: { X: 0, Y: 0, Z: 0 }
-        PlanarLimits: [ ]
-        CollisionType: AnimPhysCollisionType::CoM
-        SimulationSpace: AnimPhysSimSpaceType::World
-        bUseSphericalLimits: False
-        bUsePlanarLimit: True
-        bDoUpdate: True
-        bDoEval: True
-        bOverrideLinearDamping: False
-        bOverrideAngularBias: False
-        bOverrideAngularDamping: True
-        bEnableWind: False
-        bUseGravityOverride: False
-        bLinearSpring: False
-        bAngularSpring: False
-        bChain: True
-        RetargetingSettings: {
-            bEnabled: False
-            Source: {
-                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
-                Translation: { X: 0, Y: 0, Z: 0 }
-                Scale3D: { X: 1, Y: 1, Z: 1 }
-            }
-            Target: {
-                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
-                Translation: { X: 0, Y: 0, Z: 0 }
-                Scale3D: { X: 1, Y: 1, Z: 1 }
-            }
-            RotationComponent: ERotationComponent::SwingAngle
-            TwistAxis: { X: 1, Y: 0, Z: 0 }
-            bUseAbsoluteAngle: False
-            SourceMinimum: 0
-            SourceMaximum: 45
-            TargetMinimum: 0
-            TargetMaximum: 45
-            EasingType: EEasingFuncType::Linear
-            CustomCurve: {
-                EditorCurveData: {
-                    Keys: [ ]
-                    DefaultValue: 3.4028235E+38
-                    PreInfinityExtrap: RCCE_Constant
-                    PostInfinityExtrap: RCCE_Constant
-                    KeyHandlesToIndices: KeyHandleMap: 
-                }
-                ExternalCurve: null
-            }
-            bFlipEasing: False
-            EasingWeight: 1
-            bClamp: False
-        }
-        ComponentPose: {
-            LinkID: -1
-        }
         LODThreshold: -1
         ActualAlpha: 0
         AlphaInputType: EAnimAlphaInputType::Float
@@ -290,146 +732,25 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_AnimDynamics: {
-        LinearDampingOverride: 0
-        AngularDampingOverride: 0.99
-        RelativeSpaceBone: {
-            BoneName: joint_char
+    AnimGraphNode_UseCachedPose: {
+        LinkToCachingNode: {
+            LinkID: 23
         }
-        bHardLinkChain: False
-        BoundBone: {
-            BoneName: joint_HairLT_02
-        }
-        ChainEnd: {
-            BoneName: joint_HairLT_04
-        }
-        BoxExtents: { X: 20, Y: 20, Z: 20 }
-        LocalJointOffset: { X: -3, Y: 0, Z: 0 }
-        GravityScale: 1.25
-        GravityOverride: { X: 0, Y: 0, Z: 0 }
-        LinearSpringConstant: 0
-        AngularSpringConstant: 0
-        WindScale: 1
-        ComponentLinearAccScale: { X: 0, Y: 0, Z: 0 }
-        ComponentLinearVelScale: { X: 0, Y: 0, Z: 0 }
-        ComponentAppliedLinearAccClamp: { X: 100000, Y: 100000, Z: 100000 }
-        AngularBiasOverride: 0
-        NumSolverIterationsPreUpdate: 4
-        NumSolverIterationsPostUpdate: 1
-        ConstraintSetup: {
-            LinearXLimitType: AnimPhysLinearConstraintType::Limited
-            LinearYLimitType: AnimPhysLinearConstraintType::Limited
-            LinearZLimitType: AnimPhysLinearConstraintType::Limited
-            LinearAxesMin: { X: 0, Y: 0, Z: 0 }
-            LinearAxesMax: { X: 0, Y: 0, Z: 0 }
-            AngularConstraintType: AnimPhysAngularConstraintType::Angular
-            TwistAxis: AnimPhysTwistAxis::AxisX
-            AngularTargetAxis: AnimPhysTwistAxis::AxisX
-            ConeAngle: 0
-            AngularLimitsMin: { X: -25, Y: -25, Z: -45 }
-            AngularLimitsMax: { X: 25, Y: 25, Z: 10 }
-            AngularTarget: { X: 0, Y: 0, Z: 0 }
-        }
-        SphericalLimits: [ ]
-        SphereCollisionRadius: 0
-        ExternalForce: { X: 0, Y: 0, Z: 0 }
-        PlanarLimits: [ ]
-        CollisionType: AnimPhysCollisionType::CoM
-        SimulationSpace: AnimPhysSimSpaceType::World
-        bUseSphericalLimits: False
-        bUsePlanarLimit: True
-        bDoUpdate: True
-        bDoEval: True
-        bOverrideLinearDamping: False
-        bOverrideAngularBias: False
-        bOverrideAngularDamping: True
-        bEnableWind: False
-        bUseGravityOverride: False
-        bLinearSpring: False
-        bAngularSpring: False
-        bChain: True
-        RetargetingSettings: {
-            bEnabled: False
-            Source: {
-                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
-                Translation: { X: 0, Y: 0, Z: 0 }
-                Scale3D: { X: 1, Y: 1, Z: 1 }
-            }
-            Target: {
-                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
-                Translation: { X: 0, Y: 0, Z: 0 }
-                Scale3D: { X: 1, Y: 1, Z: 1 }
-            }
-            RotationComponent: ERotationComponent::SwingAngle
-            TwistAxis: { X: 1, Y: 0, Z: 0 }
-            bUseAbsoluteAngle: False
-            SourceMinimum: 0
-            SourceMaximum: 45
-            TargetMinimum: 0
-            TargetMaximum: 45
-            EasingType: EEasingFuncType::Linear
-            CustomCurve: {
-                EditorCurveData: {
-                    Keys: [ ]
-                    DefaultValue: 3.4028235E+38
-                    PreInfinityExtrap: RCCE_Constant
-                    PostInfinityExtrap: RCCE_Constant
-                    KeyHandlesToIndices: KeyHandleMap: 
-                }
-                ExternalCurve: null
-            }
-            bFlipEasing: False
-            EasingWeight: 1
-            bClamp: False
-        }
+        CachePoseName: CopyMesh
+    }
+    AnimGraphNode_ComponentToLocalSpace: {
         ComponentPose: {
             LinkID: 4
         }
-        LODThreshold: -1
-        ActualAlpha: 0
-        AlphaInputType: EAnimAlphaInputType::Float
-        bAlphaBoolEnabled: True
-        Alpha: 1
-        AlphaScaleBias: {
-            Scale: 1
-            Bias: 0
-        }
-        AlphaBoolBlend: {
-            BlendInTime: 0
-            BlendOutTime: 0
-            BlendOption: EAlphaBlendOption::Linear
-            bInitialized: False
-            CustomCurve: null
-            AlphaBlend: {
-                CustomCurve: null
-                BlendTime: 0.2
-                BlendOption: EAlphaBlendOption::Linear
-            }
-        }
-        AlphaCurveName: None
-        AlphaScaleBiasClamp: {
-            bMapRange: False
-            bClampResult: False
-            bInterpResult: False
-            InRange: {
-                Min: 0
-                Max: 1
-            }
-            OutRange: {
-                Min: 0
-                Max: 1
-            }
-            Scale: 1
-            Bias: 0
-            ClampMin: 0
-            ClampMax: 1
-            InterpSpeedIncreasing: 10
-            InterpSpeedDecreasing: 10
+    }
+    AnimGraphNode_LocalToComponentSpace: {
+        LocalPose: {
+            LinkID: 7
         }
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 3
+            LinkID: 8
         }
         Name: Menu
         Group: None
@@ -438,17 +759,17 @@
         LinearDampingOverride: 0
         AngularDampingOverride: 0
         RelativeSpaceBone: {
-            BoneName: joint_char
+            BoneName: joint_HairLT_02
         }
         bHardLinkChain: False
         BoundBone: {
-            BoneName: joint_HairRT_02
+            BoneName: joint_HairLT_03
         }
         ChainEnd: {
-            BoneName: joint_HairRT_04
+            BoneName: None
         }
         BoxExtents: { X: 15, Y: 15, Z: 15 }
-        LocalJointOffset: { X: 3, Y: 0, Z: 0 }
+        LocalJointOffset: { X: -1, Y: 0, Z: 0 }
         GravityScale: 1
         GravityOverride: { X: 0, Y: 0, Z: 0 }
         LinearSpringConstant: 0
@@ -470,8 +791,8 @@
             TwistAxis: AnimPhysTwistAxis::AxisX
             AngularTargetAxis: AnimPhysTwistAxis::AxisX
             ConeAngle: 0
-            AngularLimitsMin: { X: -25, Y: -25, Z: -45 }
-            AngularLimitsMax: { X: 25, Y: 25, Z: 10 }
+            AngularLimitsMin: { X: 0, Y: -10, Z: -10 }
+            AngularLimitsMax: { X: 0, Y: 0, Z: 5 }
             AngularTarget: { X: 0, Y: 0, Z: 0 }
         }
         SphericalLimits: [ ]
@@ -479,7 +800,7 @@
         ExternalForce: { X: 0, Y: 0, Z: 0 }
         PlanarLimits: [ ]
         CollisionType: AnimPhysCollisionType::CoM
-        SimulationSpace: AnimPhysSimSpaceType::World
+        SimulationSpace: AnimPhysSimSpaceType::Actor
         bUseSphericalLimits: False
         bUsePlanarLimit: True
         bDoUpdate: True
@@ -491,7 +812,7 @@
         bUseGravityOverride: False
         bLinearSpring: False
         bAngularSpring: False
-        bChain: True
+        bChain: False
         RetargetingSettings: {
             bEnabled: False
             Source: {
@@ -527,7 +848,418 @@
             bClamp: False
         }
         ComponentPose: {
-            LinkID: -1
+            LinkID: 14
+        }
+        LODThreshold: -1
+        ActualAlpha: 0
+        AlphaInputType: EAnimAlphaInputType::Float
+        bAlphaBoolEnabled: True
+        Alpha: 1
+        AlphaScaleBias: {
+            Scale: 1
+            Bias: 0
+        }
+        AlphaBoolBlend: {
+            BlendInTime: 0
+            BlendOutTime: 0
+            BlendOption: EAlphaBlendOption::Linear
+            bInitialized: False
+            CustomCurve: null
+            AlphaBlend: {
+                CustomCurve: null
+                BlendTime: 0.2
+                BlendOption: EAlphaBlendOption::Linear
+            }
+        }
+        AlphaCurveName: None
+        AlphaScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+    }
+    AnimGraphNode_AnimDynamics: {
+        LinearDampingOverride: 0
+        AngularDampingOverride: 0
+        RelativeSpaceBone: {
+            BoneName: joint_HairLT_03
+        }
+        bHardLinkChain: False
+        BoundBone: {
+            BoneName: joint_HairLT_04
+        }
+        ChainEnd: {
+            BoneName: None
+        }
+        BoxExtents: { X: 15, Y: 15, Z: 15 }
+        LocalJointOffset: { X: -1, Y: 0, Z: 0 }
+        GravityScale: 1
+        GravityOverride: { X: 0, Y: 0, Z: 0 }
+        LinearSpringConstant: 0
+        AngularSpringConstant: 0
+        WindScale: 1
+        ComponentLinearAccScale: { X: 0, Y: 0, Z: 0 }
+        ComponentLinearVelScale: { X: 0, Y: 0, Z: 0 }
+        ComponentAppliedLinearAccClamp: { X: 100000, Y: 100000, Z: 100000 }
+        AngularBiasOverride: 0
+        NumSolverIterationsPreUpdate: 4
+        NumSolverIterationsPostUpdate: 1
+        ConstraintSetup: {
+            LinearXLimitType: AnimPhysLinearConstraintType::Limited
+            LinearYLimitType: AnimPhysLinearConstraintType::Limited
+            LinearZLimitType: AnimPhysLinearConstraintType::Limited
+            LinearAxesMin: { X: 0, Y: 0, Z: 0 }
+            LinearAxesMax: { X: 0, Y: 0, Z: 0 }
+            AngularConstraintType: AnimPhysAngularConstraintType::Angular
+            TwistAxis: AnimPhysTwistAxis::AxisX
+            AngularTargetAxis: AnimPhysTwistAxis::AxisX
+            ConeAngle: 0
+            AngularLimitsMin: { X: 0, Y: -20, Z: -20 }
+            AngularLimitsMax: { X: 0, Y: 0, Z: 10 }
+            AngularTarget: { X: 0, Y: 0, Z: 0 }
+        }
+        SphericalLimits: [ ]
+        SphereCollisionRadius: 0
+        ExternalForce: { X: 0, Y: 0, Z: 0 }
+        PlanarLimits: [ ]
+        CollisionType: AnimPhysCollisionType::CoM
+        SimulationSpace: AnimPhysSimSpaceType::Actor
+        bUseSphericalLimits: False
+        bUsePlanarLimit: True
+        bDoUpdate: True
+        bDoEval: True
+        bOverrideLinearDamping: False
+        bOverrideAngularBias: False
+        bOverrideAngularDamping: False
+        bEnableWind: False
+        bUseGravityOverride: False
+        bLinearSpring: False
+        bAngularSpring: False
+        bChain: False
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
+        ComponentPose: {
+            LinkID: 11
+        }
+        LODThreshold: -1
+        ActualAlpha: 0
+        AlphaInputType: EAnimAlphaInputType::Float
+        bAlphaBoolEnabled: True
+        Alpha: 1
+        AlphaScaleBias: {
+            Scale: 1
+            Bias: 0
+        }
+        AlphaBoolBlend: {
+            BlendInTime: 0
+            BlendOutTime: 0
+            BlendOption: EAlphaBlendOption::Linear
+            bInitialized: False
+            CustomCurve: null
+            AlphaBlend: {
+                CustomCurve: null
+                BlendTime: 0.2
+                BlendOption: EAlphaBlendOption::Linear
+            }
+        }
+        AlphaCurveName: None
+        AlphaScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+    }
+    AnimGraphNode_AnimDynamics: {
+        LinearDampingOverride: 0
+        AngularDampingOverride: 0
+        RelativeSpaceBone: {
+            BoneName: joint_HairRT_02
+        }
+        bHardLinkChain: False
+        BoundBone: {
+            BoneName: joint_HairRT_03
+        }
+        ChainEnd: {
+            BoneName: None
+        }
+        BoxExtents: { X: 15, Y: 15, Z: 15 }
+        LocalJointOffset: { X: -1, Y: 0, Z: 0 }
+        GravityScale: 1
+        GravityOverride: { X: 0, Y: 0, Z: 0 }
+        LinearSpringConstant: 0
+        AngularSpringConstant: 0
+        WindScale: 1
+        ComponentLinearAccScale: { X: 0, Y: 0, Z: 0 }
+        ComponentLinearVelScale: { X: 0, Y: 0, Z: 0 }
+        ComponentAppliedLinearAccClamp: { X: 100000, Y: 100000, Z: 100000 }
+        AngularBiasOverride: 0
+        NumSolverIterationsPreUpdate: 4
+        NumSolverIterationsPostUpdate: 1
+        ConstraintSetup: {
+            LinearXLimitType: AnimPhysLinearConstraintType::Limited
+            LinearYLimitType: AnimPhysLinearConstraintType::Limited
+            LinearZLimitType: AnimPhysLinearConstraintType::Limited
+            LinearAxesMin: { X: 0, Y: 0, Z: 0 }
+            LinearAxesMax: { X: 0, Y: 0, Z: 0 }
+            AngularConstraintType: AnimPhysAngularConstraintType::Angular
+            TwistAxis: AnimPhysTwistAxis::AxisX
+            AngularTargetAxis: AnimPhysTwistAxis::AxisX
+            ConeAngle: 0
+            AngularLimitsMin: { X: 0, Y: -10, Z: -10 }
+            AngularLimitsMax: { X: 0, Y: 0, Z: 5 }
+            AngularTarget: { X: 0, Y: 0, Z: 0 }
+        }
+        SphericalLimits: [ ]
+        SphereCollisionRadius: 0
+        ExternalForce: { X: 0, Y: 0, Z: 0 }
+        PlanarLimits: [ ]
+        CollisionType: AnimPhysCollisionType::CoM
+        SimulationSpace: AnimPhysSimSpaceType::Actor
+        bUseSphericalLimits: False
+        bUsePlanarLimit: True
+        bDoUpdate: True
+        bDoEval: True
+        bOverrideLinearDamping: False
+        bOverrideAngularBias: False
+        bOverrideAngularDamping: False
+        bEnableWind: False
+        bUseGravityOverride: False
+        bLinearSpring: False
+        bAngularSpring: False
+        bChain: False
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
+        ComponentPose: {
+            LinkID: 17
+        }
+        LODThreshold: -1
+        ActualAlpha: 0
+        AlphaInputType: EAnimAlphaInputType::Float
+        bAlphaBoolEnabled: True
+        Alpha: 1
+        AlphaScaleBias: {
+            Scale: 1
+            Bias: 0
+        }
+        AlphaBoolBlend: {
+            BlendInTime: 0
+            BlendOutTime: 0
+            BlendOption: EAlphaBlendOption::Linear
+            bInitialized: False
+            CustomCurve: null
+            AlphaBlend: {
+                CustomCurve: null
+                BlendTime: 0.2
+                BlendOption: EAlphaBlendOption::Linear
+            }
+        }
+        AlphaCurveName: None
+        AlphaScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+    }
+    AnimGraphNode_AnimDynamics: {
+        LinearDampingOverride: 0
+        AngularDampingOverride: 0
+        RelativeSpaceBone: {
+            BoneName: joint_HairRT_03
+        }
+        bHardLinkChain: False
+        BoundBone: {
+            BoneName: joint_HairRT_04
+        }
+        ChainEnd: {
+            BoneName: None
+        }
+        BoxExtents: { X: 15, Y: 15, Z: 15 }
+        LocalJointOffset: { X: -1, Y: 0, Z: 0 }
+        GravityScale: 1
+        GravityOverride: { X: 0, Y: 0, Z: 0 }
+        LinearSpringConstant: 0
+        AngularSpringConstant: 0
+        WindScale: 1
+        ComponentLinearAccScale: { X: 0, Y: 0, Z: 0 }
+        ComponentLinearVelScale: { X: 0, Y: 0, Z: 0 }
+        ComponentAppliedLinearAccClamp: { X: 100000, Y: 100000, Z: 100000 }
+        AngularBiasOverride: 0
+        NumSolverIterationsPreUpdate: 4
+        NumSolverIterationsPostUpdate: 1
+        ConstraintSetup: {
+            LinearXLimitType: AnimPhysLinearConstraintType::Limited
+            LinearYLimitType: AnimPhysLinearConstraintType::Limited
+            LinearZLimitType: AnimPhysLinearConstraintType::Limited
+            LinearAxesMin: { X: 0, Y: 0, Z: 0 }
+            LinearAxesMax: { X: 0, Y: 0, Z: 0 }
+            AngularConstraintType: AnimPhysAngularConstraintType::Angular
+            TwistAxis: AnimPhysTwistAxis::AxisX
+            AngularTargetAxis: AnimPhysTwistAxis::AxisX
+            ConeAngle: 0
+            AngularLimitsMin: { X: 0, Y: -20, Z: -20 }
+            AngularLimitsMax: { X: 0, Y: 0, Z: 10 }
+            AngularTarget: { X: 0, Y: 0, Z: 0 }
+        }
+        SphericalLimits: [ ]
+        SphereCollisionRadius: 0
+        ExternalForce: { X: 0, Y: 0, Z: 0 }
+        PlanarLimits: [ ]
+        CollisionType: AnimPhysCollisionType::CoM
+        SimulationSpace: AnimPhysSimSpaceType::Actor
+        bUseSphericalLimits: False
+        bUsePlanarLimit: True
+        bDoUpdate: True
+        bDoEval: True
+        bOverrideLinearDamping: False
+        bOverrideAngularBias: False
+        bOverrideAngularDamping: False
+        bEnableWind: False
+        bUseGravityOverride: False
+        bLinearSpring: False
+        bAngularSpring: False
+        bChain: False
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
+        ComponentPose: {
+            LinkID: 13
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -573,151 +1305,38 @@
     }
     AnimGraphNode_ComponentToLocalSpace: {
         ComponentPose: {
-            LinkID: 9
+            LinkID: 12
         }
     }
-    AnimGraphNode_AnimDynamics: {
-        LinearDampingOverride: 0
-        AngularDampingOverride: 0
-        RelativeSpaceBone: {
-            BoneName: joint_char
+    AnimGraphNode_UseCachedPose: {
+        LinkToCachingNode: {
+            LinkID: 23
         }
-        bHardLinkChain: False
-        BoundBone: {
-            BoneName: joint_HairLT_02
-        }
-        ChainEnd: {
-            BoneName: joint_HairLT_04
-        }
-        BoxExtents: { X: 15, Y: 15, Z: 15 }
-        LocalJointOffset: { X: -3, Y: 0, Z: 0 }
-        GravityScale: 1
-        GravityOverride: { X: 0, Y: 0, Z: 0 }
-        LinearSpringConstant: 0
-        AngularSpringConstant: 0
-        WindScale: 1
-        ComponentLinearAccScale: { X: 0, Y: 0, Z: 0 }
-        ComponentLinearVelScale: { X: 0, Y: 0, Z: 0 }
-        ComponentAppliedLinearAccClamp: { X: 100000, Y: 100000, Z: 100000 }
-        AngularBiasOverride: 0
-        NumSolverIterationsPreUpdate: 4
-        NumSolverIterationsPostUpdate: 1
-        ConstraintSetup: {
-            LinearXLimitType: AnimPhysLinearConstraintType::Limited
-            LinearYLimitType: AnimPhysLinearConstraintType::Limited
-            LinearZLimitType: AnimPhysLinearConstraintType::Limited
-            LinearAxesMin: { X: 0, Y: 0, Z: 0 }
-            LinearAxesMax: { X: 0, Y: 0, Z: 0 }
-            AngularConstraintType: AnimPhysAngularConstraintType::Angular
-            TwistAxis: AnimPhysTwistAxis::AxisX
-            AngularTargetAxis: AnimPhysTwistAxis::AxisX
-            ConeAngle: 0
-            AngularLimitsMin: { X: -25, Y: -25, Z: -45 }
-            AngularLimitsMax: { X: 25, Y: 25, Z: 10 }
-            AngularTarget: { X: 0, Y: 0, Z: 0 }
-        }
-        SphericalLimits: [ ]
-        SphereCollisionRadius: 0
-        ExternalForce: { X: 0, Y: 0, Z: 0 }
-        PlanarLimits: [ ]
-        CollisionType: AnimPhysCollisionType::CoM
-        SimulationSpace: AnimPhysSimSpaceType::World
-        bUseSphericalLimits: False
-        bUsePlanarLimit: True
-        bDoUpdate: True
-        bDoEval: True
-        bOverrideLinearDamping: False
-        bOverrideAngularBias: False
-        bOverrideAngularDamping: False
-        bEnableWind: False
-        bUseGravityOverride: False
-        bLinearSpring: False
-        bAngularSpring: False
-        bChain: True
-        RetargetingSettings: {
-            bEnabled: False
-            Source: {
-                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
-                Translation: { X: 0, Y: 0, Z: 0 }
-                Scale3D: { X: 1, Y: 1, Z: 1 }
-            }
-            Target: {
-                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
-                Translation: { X: 0, Y: 0, Z: 0 }
-                Scale3D: { X: 1, Y: 1, Z: 1 }
-            }
-            RotationComponent: ERotationComponent::SwingAngle
-            TwistAxis: { X: 1, Y: 0, Z: 0 }
-            bUseAbsoluteAngle: False
-            SourceMinimum: 0
-            SourceMaximum: 45
-            TargetMinimum: 0
-            TargetMaximum: 45
-            EasingType: EEasingFuncType::Linear
-            CustomCurve: {
-                EditorCurveData: {
-                    Keys: [ ]
-                    DefaultValue: 3.4028235E+38
-                    PreInfinityExtrap: RCCE_Constant
-                    PostInfinityExtrap: RCCE_Constant
-                    KeyHandlesToIndices: KeyHandleMap: 
-                }
-                ExternalCurve: null
-            }
-            bFlipEasing: False
-            EasingWeight: 1
-            bClamp: False
-        }
-        ComponentPose: {
-            LinkID: 7
-        }
-        LODThreshold: -1
-        ActualAlpha: 0
-        AlphaInputType: EAnimAlphaInputType::Float
-        bAlphaBoolEnabled: True
-        Alpha: 1
-        AlphaScaleBias: {
-            Scale: 1
-            Bias: 0
-        }
-        AlphaBoolBlend: {
-            BlendInTime: 0
-            BlendOutTime: 0
-            BlendOption: EAlphaBlendOption::Linear
-            bInitialized: False
-            CustomCurve: null
-            AlphaBlend: {
-                CustomCurve: null
-                BlendTime: 0.2
-                BlendOption: EAlphaBlendOption::Linear
-            }
-        }
-        AlphaCurveName: None
-        AlphaScaleBiasClamp: {
-            bMapRange: False
-            bClampResult: False
-            bInterpResult: False
-            InRange: {
-                Min: 0
-                Max: 1
-            }
-            OutRange: {
-                Min: 0
-                Max: 1
-            }
-            Scale: 1
-            Bias: 0
-            ClampMin: 0
-            ClampMax: 1
-            InterpSpeedIncreasing: 10
-            InterpSpeedDecreasing: 10
+        CachePoseName: CopyMesh
+    }
+    AnimGraphNode_LocalToComponentSpace: {
+        LocalPose: {
+            LinkID: 16
         }
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 8
+            LinkID: 15
         }
-        Name: Idle
+        Name: Game
+        Group: None
+    }
+    AnimGraphNode_UseCachedPose: {
+        LinkToCachingNode: {
+            LinkID: 23
+        }
+        CachePoseName: CopyMesh
+    }
+    AnimGraphNode_StateResult: {
+        Result: {
+            LinkID: 19
+        }
+        Name: Base
         Group: None
     }
     AnimGraphNode_StateMachine: {
@@ -726,4 +1345,16 @@
         bSkipFirstUpdateTransition: True
         bReinitializeOnBecomingRelevant: True
     }
+    AnimGraphNode_CopyPoseFromMesh: {
+        SourceMeshComponent: null
+        bUseAttachedParent: False
+        bCopyCurves: False
+    }
+    AnimGraphNode_SaveCachedPose: {
+        Pose: {
+            LinkID: 22
+        }
+        CachePoseName: CopyMesh
+    }
+    bUsingCopyPoseFromMesh: True
 }

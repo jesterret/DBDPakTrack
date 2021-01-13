@@ -1,17 +1,113 @@
 {
+    BakedStateMachines: [
+        {
+            MachineName: Locomotion
+            InitialState: 0
+            States: [
+                {
+                    StateName: Locomotion_Regular
+                    Transitions: [
+                        {
+                            CanTakeDelegateIndex: 5
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 0
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                    ]
+                    StateRootNodeIndex: 3
+                    StartNotify: -1
+                    EndNotify: -1
+                    FullyBlendedNotify: -1
+                    bIsAConduit: False
+                    EntryRuleNodeIndex: -1
+                    PlayerNodeIndices: [ ]
+                    LayerNodeIndices: [ ]
+                    bAlwaysResetOnEntry: False
+                }
+                , 
+                {
+                    StateName: Locomotion_Injured
+                    Transitions: [
+                        {
+                            CanTakeDelegateIndex: 6
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 1
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                    ]
+                    StateRootNodeIndex: 1
+                    StartNotify: -1
+                    EndNotify: -1
+                    FullyBlendedNotify: -1
+                    bIsAConduit: False
+                    EntryRuleNodeIndex: -1
+                    PlayerNodeIndices: [ ]
+                    LayerNodeIndices: [ ]
+                    bAlwaysResetOnEntry: False
+                }
+            ]
+            Transitions: [
+                {
+                    PreviousState: 0
+                    NextState: 1
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+                , 
+                {
+                    PreviousState: 1
+                    NextState: 0
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+            ]
+        }
+    ]
     TargetSkeleton: Skeleton /Game/Characters/Campers/Models/CamperMale_REF_Skeleton.CamperMale_REF_Skeleton
     OrderedSavedPoseIndicesMap: [
         [ AnimGraph
          => 
         {
             OrderedSavedPoseNodeIndices: [
-                27
+                33
                 , 
-                29
+                35
             ]
         }
         ]]
     EvaluateGraphExposedInputs: [
+        {
+            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Survivor_00_AnimGraphNode_TransitionResult_6A55EBE54D3FD653D1D1D6B42317104D
+            CopyRecords: [ ]
+            Function: Function AB_Survivor_00_C.EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Survivor_00_AnimGraphNode_TransitionResult_6A55EBE54D3FD653D1D1D6B42317104D
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
+        }
+        , 
+        {
+            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Survivor_00_AnimGraphNode_TransitionResult_74F565D54966D62A0E8D49B790E3129D
+            CopyRecords: [ ]
+            Function: Function AB_Survivor_00_C.EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Survivor_00_AnimGraphNode_TransitionResult_74F565D54966D62A0E8D49B790E3129D
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
+        }
+        , 
         {
             BoundFunction: None
             CopyRecords: [
@@ -29,7 +125,7 @@
                 }
                 , 
                 {
-                    SourcePropertyName: Speed
+                    SourcePropertyName: _walkAnimSpeed
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
@@ -76,6 +172,19 @@
             CopyRecords: [
                 {
                     SourcePropertyName: Injured
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: True
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: UETools.Objects.Property.FieldPath
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
+                }
+                , 
+                {
+                    SourcePropertyName: IsCrouched
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
@@ -200,7 +309,7 @@
                 }
                 , 
                 {
-                    SourcePropertyName: Speed
+                    SourcePropertyName: _walkAnimSpeed
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
@@ -311,7 +420,7 @@
                 }
                 , 
                 {
-                    SourcePropertyName: Speed
+                    SourcePropertyName: _walkAnimSpeed
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
@@ -345,19 +454,6 @@
                 , 
                 {
                     SourcePropertyName: RightArmIKAlpha
-                    SourceSubPropertyName: None
-                    SourceArrayIndex: 0
-                    bInstanceIsTarget: True
-                    PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: UETools.Objects.Property.FieldPath
-                    DestArrayIndex: 0
-                    Size: 4
-                    CachedSourceProperty: UETools.Objects.Property.FieldPath
-                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
-                }
-                , 
-                {
-                    SourcePropertyName: LeftArmIKAlpha
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
@@ -473,6 +569,19 @@
                     CachedSourceProperty: UETools.Objects.Property.FieldPath
                     CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
                 }
+                , 
+                {
+                    SourcePropertyName: IsCrawling
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: True
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: UETools.Objects.Property.FieldPath
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
+                }
             ]
             Function: null
             ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
@@ -495,7 +604,7 @@
                 }
                 , 
                 {
-                    SourcePropertyName: Speed
+                    SourcePropertyName: _walkAnimSpeed
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
@@ -593,7 +702,7 @@
                 }
                 , 
                 {
-                    SourcePropertyName: Speed
+                    SourcePropertyName: _walkAnimSpeed
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
@@ -704,7 +813,7 @@
                 }
                 , 
                 {
-                    SourcePropertyName: Speed
+                    SourcePropertyName: _walkAnimSpeed
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
@@ -966,7 +1075,7 @@
                 }
                 , 
                 {
-                    SourcePropertyName: Speed
+                    SourcePropertyName: _walkAnimSpeed
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
@@ -1037,32 +1146,6 @@
         {
             BoundFunction: None
             CopyRecords: [
-                {
-                    SourcePropertyName: IsDead
-                    SourceSubPropertyName: None
-                    SourceArrayIndex: 0
-                    bInstanceIsTarget: True
-                    PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: UETools.Objects.Property.FieldPath
-                    DestArrayIndex: 0
-                    Size: 1
-                    CachedSourceProperty: UETools.Objects.Property.FieldPath
-                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
-                }
-                , 
-                {
-                    SourcePropertyName: IsBeingCarried
-                    SourceSubPropertyName: None
-                    SourceArrayIndex: 0
-                    bInstanceIsTarget: True
-                    PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: UETools.Objects.Property.FieldPath
-                    DestArrayIndex: 0
-                    Size: 1
-                    CachedSourceProperty: UETools.Objects.Property.FieldPath
-                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
-                }
-                , 
                 {
                     SourcePropertyName: IsCrawling
                     SourceSubPropertyName: None
@@ -1141,133 +1224,9 @@
                     CachedSourceProperty: UETools.Objects.Property.FieldPath
                     CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
                 }
-            ]
-            Function: null
-            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
-        }
-        , 
-        {
-            BoundFunction: None
-            CopyRecords: [
-                {
-                    SourcePropertyName: IsCrawling
-                    SourceSubPropertyName: None
-                    SourceArrayIndex: 0
-                    bInstanceIsTarget: True
-                    PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: UETools.Objects.Property.FieldPath
-                    DestArrayIndex: 0
-                    Size: 1
-                    CachedSourceProperty: UETools.Objects.Property.FieldPath
-                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
-                }
                 , 
                 {
                     SourcePropertyName: Injured
-                    SourceSubPropertyName: None
-                    SourceArrayIndex: 0
-                    bInstanceIsTarget: True
-                    PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: UETools.Objects.Property.FieldPath
-                    DestArrayIndex: 0
-                    Size: 1
-                    CachedSourceProperty: UETools.Objects.Property.FieldPath
-                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
-                }
-                , 
-                {
-                    SourcePropertyName: IsCrouched
-                    SourceSubPropertyName: None
-                    SourceArrayIndex: 0
-                    bInstanceIsTarget: True
-                    PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: UETools.Objects.Property.FieldPath
-                    DestArrayIndex: 0
-                    Size: 1
-                    CachedSourceProperty: UETools.Objects.Property.FieldPath
-                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
-                }
-                , 
-                {
-                    SourcePropertyName: Speed
-                    SourceSubPropertyName: None
-                    SourceArrayIndex: 0
-                    bInstanceIsTarget: True
-                    PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: UETools.Objects.Property.FieldPath
-                    DestArrayIndex: 0
-                    Size: 4
-                    CachedSourceProperty: UETools.Objects.Property.FieldPath
-                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
-                }
-                , 
-                {
-                    SourcePropertyName: Strafe
-                    SourceSubPropertyName: None
-                    SourceArrayIndex: 0
-                    bInstanceIsTarget: True
-                    PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: UETools.Objects.Property.FieldPath
-                    DestArrayIndex: 0
-                    Size: 1
-                    CachedSourceProperty: UETools.Objects.Property.FieldPath
-                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
-                }
-                , 
-                {
-                    SourcePropertyName: IsUsingDeadHard
-                    SourceSubPropertyName: None
-                    SourceArrayIndex: 0
-                    bInstanceIsTarget: True
-                    PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: UETools.Objects.Property.FieldPath
-                    DestArrayIndex: 0
-                    Size: 1
-                    CachedSourceProperty: UETools.Objects.Property.FieldPath
-                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
-                }
-                , 
-                {
-                    SourcePropertyName: Direction
-                    SourceSubPropertyName: None
-                    SourceArrayIndex: 0
-                    bInstanceIsTarget: True
-                    PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: UETools.Objects.Property.FieldPath
-                    DestArrayIndex: 0
-                    Size: 4
-                    CachedSourceProperty: UETools.Objects.Property.FieldPath
-                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
-                }
-                , 
-                {
-                    SourcePropertyName: IsUsingAimItem
-                    SourceSubPropertyName: None
-                    SourceArrayIndex: 0
-                    bInstanceIsTarget: True
-                    PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: UETools.Objects.Property.FieldPath
-                    DestArrayIndex: 0
-                    Size: 1
-                    CachedSourceProperty: UETools.Objects.Property.FieldPath
-                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
-                }
-                , 
-                {
-                    SourcePropertyName: IsBeingCarried
-                    SourceSubPropertyName: None
-                    SourceArrayIndex: 0
-                    bInstanceIsTarget: True
-                    PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: UETools.Objects.Property.FieldPath
-                    DestArrayIndex: 0
-                    Size: 1
-                    CachedSourceProperty: UETools.Objects.Property.FieldPath
-                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
-                }
-                , 
-                {
-                    SourcePropertyName: IsDead
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
@@ -1288,68 +1247,10 @@
 <--- CDO --->
 {
     UberGraphFrame: None
-    AnimGraphNode_Root: {
-        Result: {
-            LinkID: 25
-        }
-        Name: AnimGraph
-        Group: None
-    }
-    AnimGraphNode_SubInstance: {
-        InputPoses: [ ]
-        InputPoseNames: [ ]
-        InstanceClass: AnimBlueprintGeneratedClass /Game/Characters/Campers/Common/AnimBP/AnimSubGraph/ABSub_Survivor00_Locomotion.ABSub_Survivor00_Locomotion_C
-        Tag: None
-        bReceiveNotifiesFromLinkedInstances: False
-        bPropagateNotifiesToLinkedInstances: False
-        SourcePropertyNames: [
-            __CustomProperty__IsCrawling_A682929249C0912B1DB7068919981DC2
-            , 
-            __CustomProperty__IsInjured_A682929249C0912B1DB7068919981DC2
-            , 
-            __CustomProperty__IsCrouched_A682929249C0912B1DB7068919981DC2
-            , 
-            __CustomProperty__Speed_A682929249C0912B1DB7068919981DC2
-            , 
-            __CustomProperty__isStrafe_A682929249C0912B1DB7068919981DC2
-            , 
-            __CustomProperty__IsDeadHard_A682929249C0912B1DB7068919981DC2
-            , 
-            __CustomProperty__Direction_A682929249C0912B1DB7068919981DC2
-            , 
-            __CustomProperty__UseAimItem_A682929249C0912B1DB7068919981DC2
-            , 
-            __CustomProperty__IsCarry_A682929249C0912B1DB7068919981DC2
-            , 
-            __CustomProperty__IsDead_A682929249C0912B1DB7068919981DC2
-        ]
-        DestPropertyNames: [
-            _IsCrawling
-            , 
-            _IsInjured
-            , 
-            _IsCrouched
-            , 
-            _Speed
-            , 
-            _isStrafe
-            , 
-            _IsDeadHard
-            , 
-            _Direction
-            , 
-            _UseAimItem
-            , 
-            _IsCarry
-            , 
-            _IsDead
-        ]
-        TargetInstance: null
-    }
     AnimGraphNode_SubInstance: {
         InputPoses: [
             {
-                LinkID: 30
+                LinkID: 27
             }
         ]
         InputPoseNames: [
@@ -1365,6 +1266,8 @@
             __CustomProperty__InteractionType_C3C4DDA0498E190F6208C7867FA3D756
             , 
             __CustomProperty__isIdle_C3C4DDA0498E190F6208C7867FA3D756
+            , 
+            __CustomProperty_IsInjured_C3C4DDA0498E190F6208C7867FA3D756
         ]
         DestPropertyNames: [
             _IsDead
@@ -1372,38 +1275,40 @@
             _InteractionType
             , 
             _isIdle
+            , 
+            IsInjured
         ]
         TargetInstance: null
     }
     AnimGraphNode_Slot: {
         Source: {
-            LinkID: 32
+            LinkID: 29
         }
         SlotName: MontageNoIk
         bAlwaysUpdateSourcePose: False
     }
     AnimGraphNode_Slot: {
         Source: {
-            LinkID: 6
+            LinkID: 4
         }
         SlotName: Split
         bAlwaysUpdateSourcePose: False
     }
     AnimGraphNode_SaveCachedPose: {
         Pose: {
-            LinkID: 20
+            LinkID: 17
         }
         CachePoseName: Pre_Split
     }
     AnimGraphNode_UseCachedPose: {
         LinkToCachingNode: {
-            LinkID: 5
+            LinkID: 3
         }
         CachePoseName: Pre_Split
     }
     AnimGraphNode_SaveCachedPose: {
         Pose: {
-            LinkID: 4
+            LinkID: 2
         }
         CachePoseName: Post_Split
     }
@@ -1411,11 +1316,11 @@
         bActiveValue: False
         BlendPose: [
             {
-                LinkID: 10
+                LinkID: 8
             }
             , 
             {
-                LinkID: 9
+                LinkID: 7
             }
         ]
         BlendTime: [
@@ -1431,11 +1336,11 @@
     }
     AnimGraphNode_LayeredBoneBlend: {
         BasePose: {
-            LinkID: 11
+            LinkID: 9
         }
         BlendPoses: [
             {
-                LinkID: 12
+                LinkID: 10
             }
         ]
         LayerSetup: [
@@ -2942,26 +2847,26 @@
     }
     AnimGraphNode_UseCachedPose: {
         LinkToCachingNode: {
-            LinkID: 7
+            LinkID: 5
         }
         CachePoseName: Post_Split
     }
     AnimGraphNode_UseCachedPose: {
         LinkToCachingNode: {
-            LinkID: 5
+            LinkID: 3
         }
         CachePoseName: Pre_Split
     }
     AnimGraphNode_UseCachedPose: {
         LinkToCachingNode: {
-            LinkID: 7
+            LinkID: 5
         }
         CachePoseName: Post_Split
     }
     AnimGraphNode_SubInstance: {
         InputPoses: [
             {
-                LinkID: 8
+                LinkID: 6
             }
         ]
         InputPoseNames: [
@@ -2971,43 +2876,18 @@
         Tag: None
         bReceiveNotifiesFromLinkedInstances: False
         bPropagateNotifiesToLinkedInstances: False
-        SourcePropertyNames: [ ]
-        DestPropertyNames: [ ]
-        TargetInstance: null
-    }
-    AnimGraphNode_SubInstance: {
-        InputPoses: [
-            {
-                LinkID: 13
-            }
-        ]
-        InputPoseNames: [
-            InPose
-        ]
-        InstanceClass: AnimBlueprintGeneratedClass /Game/Characters/Campers/Common/AnimBP/AnimSubGraph/ABSub_Survivor00_AimOffset.ABSub_Survivor00_AimOffset_C
-        Tag: None
-        bReceiveNotifiesFromLinkedInstances: False
-        bPropagateNotifiesToLinkedInstances: False
         SourcePropertyNames: [
-            __CustomProperty_IsDead_8F865B4B4C3107C8D927DFB510DCBED9
-            , 
-            __CustomProperty__isCarry_8F865B4B4C3107C8D927DFB510DCBED9
-            , 
-            __CustomProperty__crawl_8F865B4B4C3107C8D927DFB510DCBED9
+            __CustomProperty_IsCrawling_7484F282443F1A2D8BBE8F88187E7791
         ]
         DestPropertyNames: [
-            IsDead
-            , 
-            _isCarry
-            , 
-            _crawl
+            IsCrawling
         ]
         TargetInstance: null
     }
     AnimGraphNode_SubInstance: {
         InputPoses: [
             {
-                LinkID: 26
+                LinkID: 1
             }
         ]
         InputPoseNames: [
@@ -3052,7 +2932,7 @@
     AnimGraphNode_SubInstance: {
         InputPoses: [
             {
-                LinkID: 29
+                LinkID: 26
             }
         ]
         InputPoseNames: [
@@ -3077,7 +2957,7 @@
     AnimGraphNode_SubInstance: {
         InputPoses: [
             {
-                LinkID: 31
+                LinkID: 28
             }
         ]
         InputPoseNames: [
@@ -3138,7 +3018,7 @@
     AnimGraphNode_SubInstance: {
         InputPoses: [
             {
-                LinkID: 16
+                LinkID: 13
             }
         ]
         InputPoseNames: [
@@ -3163,7 +3043,7 @@
     AnimGraphNode_SubInstance: {
         InputPoses: [
             {
-                LinkID: 18
+                LinkID: 15
             }
         ]
         InputPoseNames: [
@@ -3208,7 +3088,7 @@
     AnimGraphNode_SubInstance: {
         InputPoses: [
             {
-                LinkID: 24
+                LinkID: 21
             }
         ]
         InputPoseNames: [
@@ -3225,7 +3105,7 @@
     AnimGraphNode_SubInstance: {
         InputPoses: [
             {
-                LinkID: 19
+                LinkID: 16
             }
         ]
         InputPoseNames: [
@@ -3242,7 +3122,7 @@
     AnimGraphNode_SubInstance: {
         InputPoses: [
             {
-                LinkID: 28
+                LinkID: 25
             }
         ]
         InputPoseNames: [
@@ -3283,7 +3163,7 @@
     AnimGraphNode_SubInstance: {
         InputPoses: [
             {
-                LinkID: 21
+                LinkID: 18
             }
         ]
         InputPoseNames: [
@@ -3316,7 +3196,7 @@
     AnimGraphNode_SubInstance: {
         InputPoses: [
             {
-                LinkID: 22
+                LinkID: 19
             }
         ]
         InputPoseNames: [
@@ -3330,18 +3210,22 @@
             __CustomProperty__IsIdle_25CBA22149DAD8427251FF88609C2EBB
             , 
             __CustomProperty__IsCrouched_25CBA22149DAD8427251FF88609C2EBB
+            , 
+            __CustomProperty__IsCrawling_25CBA22149DAD8427251FF88609C2EBB
         ]
         DestPropertyNames: [
             _IsIdle
             , 
             _IsCrouched
+            , 
+            _IsCrawling
         ]
         TargetInstance: null
     }
     AnimGraphNode_SubInstance: {
         InputPoses: [
             {
-                LinkID: 3
+                LinkID: 12
             }
         ]
         InputPoseNames: [
@@ -3383,7 +3267,7 @@
     AnimGraphNode_SubInstance: {
         InputPoses: [
             {
-                LinkID: 27
+                LinkID: 20
             }
         ]
         InputPoseNames: [
@@ -3397,39 +3281,25 @@
             __CustomProperty__RightHandIKTransform_8739A8EA405167CCC4BF21894D9F089F
             , 
             __CustomProperty__RightArmIKAlpha_8739A8EA405167CCC4BF21894D9F089F
-            , 
-            __CustomProperty__LeftArmIKAlpha_8739A8EA405167CCC4BF21894D9F089F
         ]
         DestPropertyNames: [
             _RightHandIKTransform
             , 
             _RightArmIKAlpha
-            , 
-            _LeftArmIKAlpha
         ]
         TargetInstance: null
+    }
+    AnimGraphNode_Root: {
+        Result: {
+            LinkID: 22
+        }
+        Name: AnimGraph
+        Group: None
     }
     AnimGraphNode_SubInstance: {
         InputPoses: [
             {
-                LinkID: 23
-            }
-        ]
-        InputPoseNames: [
-            InPose
-        ]
-        InstanceClass: AnimBlueprintGeneratedClass /Game/Characters/Campers/Common/AnimBP/AnimSubGraph/ABSub_Survivor00_LegIK.ABSub_Survivor00_LegIK_C
-        Tag: None
-        bReceiveNotifiesFromLinkedInstances: False
-        bPropagateNotifiesToLinkedInstances: False
-        SourcePropertyNames: [ ]
-        DestPropertyNames: [ ]
-        TargetInstance: null
-    }
-    AnimGraphNode_SubInstance: {
-        InputPoses: [
-            {
-                LinkID: 1
+                LinkID: 38
             }
         ]
         InputPoseNames: [
@@ -3466,7 +3336,7 @@
     AnimGraphNode_SubInstance: {
         InputPoses: [
             {
-                LinkID: 14
+                LinkID: 11
             }
         ]
         InputPoseNames: [
@@ -3511,7 +3381,7 @@
     AnimGraphNode_SubInstance: {
         InputPoses: [
             {
-                LinkID: 15
+                LinkID: 23
             }
         ]
         InputPoseNames: [
@@ -3536,7 +3406,7 @@
     AnimGraphNode_LinkedAnimGraph: {
         InputPoses: [
             {
-                LinkID: 2
+                LinkID: 0
             }
         ]
         InputPoseNames: [
@@ -3553,7 +3423,7 @@
     AnimGraphNode_LinkedAnimGraph: {
         InputPoses: [
             {
-                LinkID: 34
+                LinkID: 31
             }
         ]
         InputPoseNames: [
@@ -3578,7 +3448,7 @@
     AnimGraphNode_LinkedAnimGraph: {
         InputPoses: [
             {
-                LinkID: 17
+                LinkID: 14
             }
         ]
         InputPoseNames: [
@@ -3590,16 +3460,20 @@
         bPropagateNotifiesToLinkedInstances: False
         SourcePropertyNames: [
             __CustomProperty_isInjured_D45DDE80489ED23F99EAE6BF0B67A5AB
+            , 
+            __CustomProperty_IsCrouching_D45DDE80489ED23F99EAE6BF0B67A5AB
         ]
         DestPropertyNames: [
             isInjured
+            , 
+            IsCrouching
         ]
         TargetInstance: null
     }
     AnimGraphNode_LinkedAnimGraph: {
         InputPoses: [
             {
-                LinkID: 33
+                LinkID: 30
             }
         ]
         InputPoseNames: [
@@ -3628,6 +3502,54 @@
             _isCrouch
         ]
         TargetInstance: null
+    }
+    AnimGraphNode_TransitionResult: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_TransitionResult: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_LinkedAnimGraph: {
+        InputPoses: [ ]
+        InputPoseNames: [ ]
+        InstanceClass: AnimBlueprintGeneratedClass /Game/Characters/Campers/Common/AnimBP/AnimSubGraph/ABSub_Survivor00_Locomotion_Regular.ABSub_Survivor00_Locomotion_Regular_C
+        Tag: None
+        bReceiveNotifiesFromLinkedInstances: False
+        bPropagateNotifiesToLinkedInstances: False
+        SourcePropertyNames: [ ]
+        DestPropertyNames: [ ]
+        TargetInstance: null
+    }
+    AnimGraphNode_StateResult: {
+        Result: {
+            LinkID: 34
+        }
+        Name: Locomotion_Regular
+        Group: None
+    }
+    AnimGraphNode_SubInstance: {
+        InputPoses: [ ]
+        InputPoseNames: [ ]
+        InstanceClass: AnimBlueprintGeneratedClass /Game/Characters/Campers/Common/AnimBP/AnimSubGraph/ABSub_Survivor00_Locomotion_Injured.ABSub_Survivor00_Locomotion_Injured_C
+        Tag: None
+        bReceiveNotifiesFromLinkedInstances: False
+        bPropagateNotifiesToLinkedInstances: False
+        SourcePropertyNames: [ ]
+        DestPropertyNames: [ ]
+        TargetInstance: null
+    }
+    AnimGraphNode_StateResult: {
+        Result: {
+            LinkID: 36
+        }
+        Name: Locomotion_Injured
+        Group: None
+    }
+    AnimGraphNode_StateMachine: {
+        StateMachineIndexInClass: 0
+        MaxTransitionsPerFrame: 3
+        bSkipFirstUpdateTransition: True
+        bReinitializeOnBecomingRelevant: True
     }
     OnVomitHitTimerHandle: {
         Handle: 0

@@ -5,14 +5,19 @@
 <--- CDO --->
 {
     UberGraphFrame: None
+    Set_PS_GlyphKillerFPV: ParticleSystem /Game/Effects/ParticleSystems/Gameplay/Glyph/P_CQ_Glyph_KillerInterraction_FPV.P_CQ_Glyph_KillerInterraction_FPV
     _specialBehaviourId: RedGlyph
     _glyphInteraction: {
+            SlasherCanInteract: False
+            SnapPosition: True
+            SnapRotation: True
+            SnapStopDistance: 75
             _interactor: {
                     _interactionDefinitions: [
                         GlyphInteraction Default__RedGlyph_C.GlyphInteraction
                     ]
                     AttachParent: {
-                            BoxExtent: { X: 60, Y: 60, Z: 60 }
+                            BoxExtent: { X: 70, Y: 70, Z: 70 }
                             ShapeColor: { R: 0, G: 223, B: 41, A: 255 }
                             BodyInstance: {
                                 ObjectType: ECC_GameTraceChannel1
@@ -128,17 +133,30 @@
                 }
             AttachParent: Interactor Default__RedGlyph_C.GlyphInteractor
         }
+    _glyphInteractionKiller: {
+            InteractionAnimation: EInteractionAnimation::VE_None
+            CamperCanInteract: False
+            SnapPosition: True
+            SnapRotation: True
+            SnapStopDistance: 75
+            CanInteractWhileCarrying: False
+            UseCameraMontageMode: False
+            UpdateMontage: {
+                MontageID: Generic_Interaction
+            }
+            _startUpdateMontageDuringEnter: True
+            _interactor: Interactor Default__RedGlyph_C.GlyphInteractor
+            AttachParent: Interactor Default__RedGlyph_C.GlyphInteractor
+        }
     _glyphInteractionChargeable: {
+        }
+    _glyphInteractionChargeableKiller: {
         }
     _glyphInteractor: Interactor Default__RedGlyph_C.GlyphInteractor
     _glyphInteractionZone: BoxComponent Default__RedGlyph_C.GlyphInteractionZone
     _outlineComponent: {
             AttachParent: {
-                    StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/HexBags/SM_HexTotem01.SM_HexTotem01
                     bUseDefaultCollision: False
-                    OverrideMaterials: [
-                        Material /Game/Materials/PlaceHolder/PlaceholderWithOutline.PlaceholderWithOutline
-                    ]
                     BodyInstance: {
                         ObjectType: ECC_WorldStatic
                         CollisionEnabled: ECollisionEnabled::NoCollision
@@ -260,14 +278,26 @@
             _outlineComponent: DBDOutlineComponent Default__RedGlyph_C.OutlineComponent
         }
     _glyphMesh: StaticMeshComponent Default__RedGlyph_C.GlyphMesh
+    _nearTrackedActorComponent: {
+            _distanceThreshold: 800
+        }
     _associatedSurvivorScoreEvent: {
         TagName: GameEvent.ScoreEvent.Camper.ActivateRedGlyph
     }
     _associatedKillerScoreEvent: {
         TagName: GameEvent.ScoreEvent.Slasher.ActivateRedGlyph
     }
-    _localPlayerTracker: {
+    _glyphInteractionSecondsToChargeKiller: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Archives/ArchiveTunableDB.ArchiveTunableDB
+            RowName: GlyphInteractionDurationKiller
         }
-    bHidden: True
+    }
+    _glyphDetectionRange: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Archives/ArchiveTunableDB.ArchiveTunableDB
+            RowName: GlyphDetectionRange
+        }
+    }
     RootComponent: SceneComponent Default__RedGlyph_C.Root
 }

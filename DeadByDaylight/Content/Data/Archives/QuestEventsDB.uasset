@@ -1980,3 +1980,388 @@ Row QuestEvent.HarvestHalloweenPlant:
     QuestEventEvaluator: None
     Id: QuestEvent.HarvestHalloweenPlant
 }
+
+Row QuestEvent.ChaseStartCrow:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.ChaseStart
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/TargetStartledCrowRecentlyQuestEvaluator.TargetStartledCrowRecentlyQuestEvaluator_C
+    Id: QuestEvent.ChaseStartCrow
+}
+
+Row QuestEvent.EmotePointAtKiller:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Camper.Emote.Point
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/AtKillerPremonitionSoundedinTimeQuestEvaluator.AtKillerPremonitionSoundedinTimeQuestEvaluator_C
+    Id: QuestEvent.EmotePointAtKiller
+}
+
+Row QuestEvent.EscapeChaseInjured:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Camper.EscapeChase
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/IsInjuredQuestEvaluator.IsInjuredQuestEvaluator_C
+    Id: QuestEvent.EscapeChaseInjured
+}
+
+Row QuestEvent.HealDying:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.HealFromDying
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Camper.FullRecovery
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.HealDying
+}
+
+Row QuestEvent.HealFinishEndgame:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.HealFromInjured
+        }
+        , 
+        {
+            TagName: GameEvent.HealFromDying.PostExit
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Camper.FullRecovery
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.DuringEndGameCollapseQEEvaluator
+    Id: QuestEvent.HealFinishEndgame
+}
+
+Row QuestEvent.HealFinishNearKiller:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.HealFromInjured
+        }
+        , 
+        {
+            TagName: GameEvent.HealFromDying
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Camper.FullRecovery
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.InDirectionOfKillerQEEvaluator
+    Id: QuestEvent.HealFinishNearKiller
+}
+
+Row QuestEvent.HealFinishSelfAfterUnhook:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.HealFromInjured
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Camper.FullRecovery
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/EventOnSelfAndUnhookedRecently.EventOnSelfAndUnhookedRecently_C
+    Id: QuestEvent.HealFinishSelfAfterUnhook
+}
+
+Row QuestEvent.HitGrabNearPalletsVaultsWalls:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.PickupCamper
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.PickupTrappedCamper
+        }
+        , 
+        {
+            TagName: GameEvent.SlasherBasicAttackSuccess
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.SpecialAttack.Hit
+        }
+        , 
+        {
+            TagName: GameEvent.PlayerExitCloset.FoundBySlasher
+        }
+        , 
+        {
+            TagName: GameEvent.SlasherInterruption
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.NearPalletVaultWallQEEvaluator
+    Id: QuestEvent.HitGrabNearPalletsVaultsWalls
+}
+
+Row QuestEvent.HitHemorrhage:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.SlasherBasicAttackSuccess
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.SpecialAttack.Hit
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/TargetHemorrhageQuestEvaluator.TargetHemorrhageQuestEvaluator_C
+    Id: QuestEvent.HitHemorrhage
+}
+
+Row QuestEvent.HitOblivious:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.SlasherBasicAttackSuccess
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.SpecialAttack.Hit
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/TargetObliviousQuestEvaluator.TargetObliviousQuestEvaluator_C
+    Id: QuestEvent.HitOblivious
+}
+
+Row QuestEvent.HookConsecutiveDifferent:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.HookCamper
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.EndGame.Slasher.HookSurvivor
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.UniqueTargetsInTimeQEEvaluator
+    Id: QuestEvent.HookConsecutiveDifferent
+}
+
+Row QuestEvent.InjuredDyingHookedMultiple:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.DamageStateChanged
+        }
+        , 
+        {
+            TagName: GameEvent.CamperWasHooked
+        }
+        , 
+        {
+            TagName: GameEvent.CamperWasUnhooked
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.InjuredDyingHookManyQEEvaluator
+    Id: QuestEvent.InjuredDyingHookedMultiple
+}
+
+Row QuestEvent.InjuredDyingMultiple:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.DamageStateChanged
+        }
+        , 
+        {
+            TagName: GameEvent.CamperWasUnhooked
+        }
+        , 
+        {
+            TagName: GameEvent.CamperWasHooked
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.InjuredDyingMultipleQEEvaluator
+    Id: QuestEvent.InjuredDyingMultiple
+}
+
+Row QuestEvent.NurseBlinkChainMultipleHit:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Nurse.BlinkAttackHit
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.NurseChainBlinkNumberQEEvaluator
+    Id: QuestEvent.NurseBlinkChainMultipleHit
+}
+
+Row QuestEvent.NurseBlinkHit:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Nurse.BlinkAttackHit
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.NurseBlinkHit
+}
+
+Row QuestEvent.NurseBlinkHitSurprise:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Nurse.BlinkAttackHit
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Nurse.BlinkInterrupt
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/TargetIsInteractingQuestEvaluator.TargetIsInteractingQuestEvaluator_C
+    Id: QuestEvent.NurseBlinkHitSurprise
+}
+
+Row QuestEvent.NurseBlinkPrecise:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Nurse.PreciseBlink
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.NurseBlinkPrecise
+}
+
+Row QuestEvent.OniDashConsecutiveHitDifferent:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.Oni.DemonMode.PowerAttack.Dash
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.OniDashHitDiffInTimeQEEvaluator
+    Id: QuestEvent.OniDashConsecutiveHitDifferent
+}
+
+Row QuestEvent.OniDashTimeHit:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.Oni.Dash.PerSecond
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/CustomValueMoreThanAndSpecialAttackHitRecentlyQuestEvaluator.CustomValueMoreThanAndSpecialAttackHitRecentlyQuestEvaluator_C
+    Id: QuestEvent.OniDashTimeHit
+}
+
+Row QuestEvent.OniDashHit:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.Oni.DemonMode.PowerAttack.Dash
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.OniDashHit
+}
+
+Row QuestEvent.OniStrike:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.Oni.DemonMode.PowerAttack
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.OniStrike
+}
+
+Row QuestEvent.OniStrikeDifferent:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.Oni.DemonMode.PowerAttack
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.UniqueTargetIncrementQEEvaluator
+    Id: QuestEvent.OniStrikeDifferent
+}
+
+Row QuestEvent.PalletReset:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Camper.Pallet.PullUp.Complete
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.PalletReset
+}
+
+Row QuestEvent.PalletResetNearKiller:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Camper.Pallet.PullUp.Complete
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.InDirectionOfKillerQEEvaluator
+    Id: QuestEvent.PalletResetNearKiller
+}
+
+Row QuestEvent.PalletStunReset:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Camper.StunSlasher.WithAction
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.WithPulledUpPalletQEEvaluator
+    Id: QuestEvent.PalletStunReset
+}
+
+Row QuestEvent.StunBlind:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Player.StunSlasher
+        }
+        , 
+        {
+            TagName: GameEvent.SlasherBlinded
+        }
+        , 
+        {
+            TagName: GameEvent.SlasherBlindedWhileImmune
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Camper.BurnSlasher
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.StunBlind
+}
+
+Row QuestEvent.WiggleFreeDropNearKiller:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.SlasherCarryEnd
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/NearMeEvent_SlasherDropNotMeQuestEvaluator.NearMeEvent_SlasherDropNotMeQuestEvaluator_C
+    Id: QuestEvent.WiggleFreeDropNearKiller
+}
