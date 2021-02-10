@@ -99,7 +99,7 @@
                                 , 
                                 {
                                     Channel: BlinkBlocker
-                                    Response: ECR_Ignore
+                                    Response: ECR_Block
                                 }
                                 , 
                                 {
@@ -143,6 +143,12 @@
     _firstPersonViewComponent: {
         }
     _killerIntroComponent: {
+        }
+    _blindingFXComponent: {
+            _blindedSound: AkAudioEvent /Game/Audio/AudioEvents/Gameplay/AudioEvent_Blind_Killer_Affected.AudioEvent_Blind_Killer_Affected
+            _blindnessIntensityParameter: FlashlightIntensity
+            _blindnessMaterialCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/BlindnessCurve_Material.BlindnessCurve_Material
+            _blindnessCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/BlindnessCurve.BlindnessCurve
         }
     MaterialHelper: {
             Groups: [
@@ -669,6 +675,7 @@
     CharacterMovement: {
             RandomInputFrontMultiplier: 0
             RandomInputBackMultiplier: 0
+            NetworkSmoothingMode: ENetworkSmoothingMode::Exponential
             GroundFriction: 6
             MaxWalkSpeed: 462
             MaxWalkSpeedCrouched: 240

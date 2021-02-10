@@ -8,6 +8,15 @@
                     StateName: Base
                     Transitions: [
                         {
+                            CanTakeDelegateIndex: 9
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 1
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                        , 
+                        {
                             CanTakeDelegateIndex: 10
                             CustomResultNodeIndex: -1
                             TransitionIndex: 0
@@ -28,12 +37,12 @@
                 }
                 , 
                 {
-                    StateName: Conduit
+                    StateName: Not_Moving
                     Transitions: [
                         {
                             CanTakeDelegateIndex: 11
                             CustomResultNodeIndex: -1
-                            TransitionIndex: 2
+                            TransitionIndex: 5
                             bDesiredTransitionReturnValue: True
                             bAutomaticRemainingTimeRule: False
                             PoseEvaluatorLinks: [ ]
@@ -42,52 +51,20 @@
                         {
                             CanTakeDelegateIndex: 12
                             CustomResultNodeIndex: -1
-                            TransitionIndex: 4
-                            bDesiredTransitionReturnValue: True
-                            bAutomaticRemainingTimeRule: False
-                            PoseEvaluatorLinks: [ ]
-                        }
-                        , 
-                        {
-                            CanTakeDelegateIndex: 13
-                            CustomResultNodeIndex: -1
-                            TransitionIndex: 1
+                            TransitionIndex: 2
                             bDesiredTransitionReturnValue: True
                             bAutomaticRemainingTimeRule: False
                             PoseEvaluatorLinks: [ ]
                         }
                     ]
-                    StateRootNodeIndex: -1
-                    StartNotify: -1
-                    EndNotify: -1
-                    FullyBlendedNotify: -1
-                    bIsAConduit: True
-                    EntryRuleNodeIndex: 3
-                    PlayerNodeIndices: [ ]
-                    LayerNodeIndices: [ ]
-                    bAlwaysResetOnEntry: False
-                }
-                , 
-                {
-                    StateName: Not_Moving
-                    Transitions: [
-                        {
-                            CanTakeDelegateIndex: 14
-                            CustomResultNodeIndex: -1
-                            TransitionIndex: 3
-                            bDesiredTransitionReturnValue: True
-                            bAutomaticRemainingTimeRule: False
-                            PoseEvaluatorLinks: [ ]
-                        }
-                    ]
-                    StateRootNodeIndex: 4
+                    StateRootNodeIndex: 3
                     StartNotify: -1
                     EndNotify: -1
                     FullyBlendedNotify: -1
                     bIsAConduit: False
                     EntryRuleNodeIndex: -1
                     PlayerNodeIndices: [
-                        5
+                        4
                     ]
                     LayerNodeIndices: [ ]
                     bAlwaysResetOnEntry: False
@@ -97,28 +74,51 @@
                     StateName: Moving
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 15
+                            CanTakeDelegateIndex: 13
                             CustomResultNodeIndex: -1
-                            TransitionIndex: 5
+                            TransitionIndex: 4
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                        , 
+                        {
+                            CanTakeDelegateIndex: 14
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 3
                             bDesiredTransitionReturnValue: True
                             bAutomaticRemainingTimeRule: False
                             PoseEvaluatorLinks: [ ]
                         }
                     ]
-                    StateRootNodeIndex: 6
+                    StateRootNodeIndex: 5
                     StartNotify: -1
                     EndNotify: -1
                     FullyBlendedNotify: -1
                     bIsAConduit: False
                     EntryRuleNodeIndex: -1
                     PlayerNodeIndices: [
-                        9
+                        8
                     ]
                     LayerNodeIndices: [ ]
                     bAlwaysResetOnEntry: False
                 }
             ]
             Transitions: [
+                {
+                    PreviousState: 0
+                    NextState: 2
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+                , 
                 {
                     PreviousState: 0
                     NextState: 1
@@ -136,7 +136,7 @@
                 {
                     PreviousState: 1
                     NextState: 0
-                    CrossfadeDuration: 0.2
+                    CrossfadeDuration: 0.5
                     StartNotify: -1
                     EndNotify: -1
                     InterruptNotify: -1
@@ -148,9 +148,9 @@
                 }
                 , 
                 {
-                    PreviousState: 1
-                    NextState: 2
-                    CrossfadeDuration: 0.2
+                    PreviousState: 2
+                    NextState: 0
+                    CrossfadeDuration: 0.5
                     StartNotify: -1
                     EndNotify: -1
                     InterruptNotify: -1
@@ -177,21 +177,7 @@
                 , 
                 {
                     PreviousState: 1
-                    NextState: 3
-                    CrossfadeDuration: 0.2
-                    StartNotify: -1
-                    EndNotify: -1
-                    InterruptNotify: -1
-                    BlendMode: EAlphaBlendOption::HermiteCubic
-                    CustomCurve: null
-                    BlendProfile: null
-                    LogicType: ETransitionLogicType::TLT_StandardBlend
-                    StateName: None
-                }
-                , 
-                {
-                    PreviousState: 3
-                    NextState: 1
+                    NextState: 2
                     CrossfadeDuration: 0.2
                     StartNotify: -1
                     EndNotify: -1
@@ -211,7 +197,7 @@
          => 
         {
             OrderedSavedPoseNodeIndices: [
-                16
+                15
             ]
         }
         ]]
@@ -257,44 +243,44 @@
         }
         , 
         {
-            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Gassed_AnimGraphNode_TransitionResult_8385469E44374C96F3145C818E915A36
+            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Gassed_AnimGraphNode_TransitionResult_35D793574C8FD23A5B375E9777DD43AC
             CopyRecords: [ ]
-            Function: Function ABSub_Survivor00_Gassed_C.EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Gassed_AnimGraphNode_TransitionResult_8385469E44374C96F3145C818E915A36
+            Function: Function ABSub_Survivor00_Gassed_C.EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Gassed_AnimGraphNode_TransitionResult_35D793574C8FD23A5B375E9777DD43AC
             ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
         }
         , 
         {
-            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Gassed_AnimGraphNode_TransitionResult_526FED6646C50C64325AB6BBFA295C46
+            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Gassed_AnimGraphNode_TransitionResult_DF68125C46CFAA9BF2835F884F1EB798
             CopyRecords: [ ]
-            Function: Function ABSub_Survivor00_Gassed_C.EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Gassed_AnimGraphNode_TransitionResult_526FED6646C50C64325AB6BBFA295C46
+            Function: Function ABSub_Survivor00_Gassed_C.EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Gassed_AnimGraphNode_TransitionResult_DF68125C46CFAA9BF2835F884F1EB798
             ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
         }
         , 
         {
-            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Gassed_AnimGraphNode_TransitionResult_8AD36FF744A2CFDA4E4739B54EB12329
+            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Gassed_AnimGraphNode_TransitionResult_E0BCBBD749E4ACEF48A91CACF5F97A9E
             CopyRecords: [ ]
-            Function: Function ABSub_Survivor00_Gassed_C.EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Gassed_AnimGraphNode_TransitionResult_8AD36FF744A2CFDA4E4739B54EB12329
+            Function: Function ABSub_Survivor00_Gassed_C.EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Gassed_AnimGraphNode_TransitionResult_E0BCBBD749E4ACEF48A91CACF5F97A9E
             ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
         }
         , 
         {
-            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Gassed_AnimGraphNode_TransitionResult_508FAAF94F71548B242F158EEBCD9036
+            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Gassed_AnimGraphNode_TransitionResult_71A82E1F49B4D5A2377843B74B2CA605
             CopyRecords: [ ]
-            Function: Function ABSub_Survivor00_Gassed_C.EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Gassed_AnimGraphNode_TransitionResult_508FAAF94F71548B242F158EEBCD9036
+            Function: Function ABSub_Survivor00_Gassed_C.EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Gassed_AnimGraphNode_TransitionResult_71A82E1F49B4D5A2377843B74B2CA605
             ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
         }
         , 
         {
-            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Gassed_AnimGraphNode_TransitionResult_DD8DB4FF43A57E2E830458BF00897A25
+            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Gassed_AnimGraphNode_TransitionResult_FD0C22A14112208B8EC67E98886AB052
             CopyRecords: [ ]
-            Function: Function ABSub_Survivor00_Gassed_C.EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Gassed_AnimGraphNode_TransitionResult_DD8DB4FF43A57E2E830458BF00897A25
+            Function: Function ABSub_Survivor00_Gassed_C.EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Gassed_AnimGraphNode_TransitionResult_FD0C22A14112208B8EC67E98886AB052
             ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
         }
         , 
         {
-            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Gassed_AnimGraphNode_TransitionResult_CFFA054F42CDF9AE2525E2824A49672E
+            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Gassed_AnimGraphNode_TransitionResult_CCD07B2540249F7BEF6BE898F07D0E5E
             CopyRecords: [ ]
-            Function: Function ABSub_Survivor00_Gassed_C.EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Gassed_AnimGraphNode_TransitionResult_CFFA054F42CDF9AE2525E2824A49672E
+            Function: Function ABSub_Survivor00_Gassed_C.EvaluateGraphExposedInputs_ExecuteUbergraph_ABSub_Survivor00_Gassed_AnimGraphNode_TransitionResult_CCD07B2540249F7BEF6BE898F07D0E5E
             ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
         }
     ]
@@ -305,7 +291,7 @@
     UberGraphFrame: None
     AnimGraphNode_Root: {
         Result: {
-            LinkID: 18
+            LinkID: 17
         }
         Name: AnimGraph
         Group: None
@@ -1934,9 +1920,6 @@
         Name: Not_Moving
         Group: None
     }
-    AnimGraphNode_TransitionResult: {
-        bCanEnterTransition: True
-    }
     AnimGraphNode_UseCachedPose: {
         LinkToCachingNode: {
             LinkID: 2
@@ -1945,7 +1928,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 16
+            LinkID: 15
         }
         Name: Base
         Group: None

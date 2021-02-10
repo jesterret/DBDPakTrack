@@ -8,7 +8,7 @@
                     StateName: Idle_Closed
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 11
+                            CanTakeDelegateIndex: 13
                             CustomResultNodeIndex: -1
                             TransitionIndex: 1
                             bDesiredTransitionReturnValue: True
@@ -17,7 +17,7 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 12
+                            CanTakeDelegateIndex: 14
                             CustomResultNodeIndex: -1
                             TransitionIndex: 0
                             bDesiredTransitionReturnValue: True
@@ -28,7 +28,7 @@
                     StateRootNodeIndex: 3
                     StartNotify: -1
                     EndNotify: -1
-                    FullyBlendedNotify: -1
+                    FullyBlendedNotify: 0
                     bIsAConduit: False
                     EntryRuleNodeIndex: -1
                     PlayerNodeIndices: [
@@ -44,7 +44,7 @@
                     StateRootNodeIndex: 5
                     StartNotify: -1
                     EndNotify: -1
-                    FullyBlendedNotify: -1
+                    FullyBlendedNotify: 0
                     bIsAConduit: False
                     EntryRuleNodeIndex: -1
                     PlayerNodeIndices: [
@@ -58,16 +58,16 @@
                     StateName: IsBeingSearched_IN
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 13
+                            CanTakeDelegateIndex: 15
                             CustomResultNodeIndex: -1
-                            TransitionIndex: 5
+                            TransitionIndex: 4
                             bDesiredTransitionReturnValue: True
                             bAutomaticRemainingTimeRule: False
                             PoseEvaluatorLinks: [ ]
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 14
+                            CanTakeDelegateIndex: 16
                             CustomResultNodeIndex: -1
                             TransitionIndex: 2
                             bDesiredTransitionReturnValue: True
@@ -92,16 +92,16 @@
                     StateName: IsBeingSearched_Loop
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 15
+                            CanTakeDelegateIndex: 17
                             CustomResultNodeIndex: -1
-                            TransitionIndex: 4
+                            TransitionIndex: 5
                             bDesiredTransitionReturnValue: True
                             bAutomaticRemainingTimeRule: False
                             PoseEvaluatorLinks: [ ]
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 16
+                            CanTakeDelegateIndex: 18
                             CustomResultNodeIndex: -1
                             TransitionIndex: 3
                             bDesiredTransitionReturnValue: True
@@ -117,6 +117,31 @@
                     EntryRuleNodeIndex: -1
                     PlayerNodeIndices: [
                         10
+                    ]
+                    LayerNodeIndices: [ ]
+                    bAlwaysResetOnEntry: False
+                }
+                , 
+                {
+                    StateName: Opening
+                    Transitions: [
+                        {
+                            CanTakeDelegateIndex: 19
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 6
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: True
+                            PoseEvaluatorLinks: [ ]
+                        }
+                    ]
+                    StateRootNodeIndex: 11
+                    StartNotify: -1
+                    EndNotify: -1
+                    FullyBlendedNotify: -1
+                    bIsAConduit: False
+                    EntryRuleNodeIndex: -1
+                    PlayerNodeIndices: [
+                        12
                     ]
                     LayerNodeIndices: [ ]
                     bAlwaysResetOnEntry: False
@@ -167,20 +192,6 @@
                 , 
                 {
                     PreviousState: 3
-                    NextState: 1
-                    CrossfadeDuration: 0.2
-                    StartNotify: -1
-                    EndNotify: -1
-                    InterruptNotify: -1
-                    BlendMode: EAlphaBlendOption::HermiteCubic
-                    CustomCurve: null
-                    BlendProfile: null
-                    LogicType: ETransitionLogicType::TLT_StandardBlend
-                    StateName: None
-                }
-                , 
-                {
-                    PreviousState: 3
                     NextState: 0
                     CrossfadeDuration: 0.2
                     StartNotify: -1
@@ -206,10 +217,77 @@
                     LogicType: ETransitionLogicType::TLT_StandardBlend
                     StateName: None
                 }
+                , 
+                {
+                    PreviousState: 3
+                    NextState: 4
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+                , 
+                {
+                    PreviousState: 4
+                    NextState: 1
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
             ]
         }
     ]
     TargetSkeleton: Skeleton /Game/Meshes/InteractableObjects/Chest/Models/SK_SR_Chest01_REF_Skeleton.SK_SR_Chest01_REF_Skeleton
+    AnimNotifies: [
+        {
+            TriggerTimeOffset: 0
+            EndTriggerTimeOffset: 0
+            TriggerWeightThreshold: 1E-05
+            NotifyName: SleepSkeletonMesh
+            Notify: null
+            NotifyStateClass: null
+            Duration: 0
+            EndLink: {
+                LinkedMontage: null
+                SlotIndex: 0
+                SegmentIndex: -1
+                LinkMethod: EAnimLinkMethod::Absolute
+                CachedLinkMethod: EAnimLinkMethod::Absolute
+                SegmentBeginTime: 0
+                SegmentLength: 0
+                LinkValue: 0
+                LinkedSequence: null
+            }
+            bConvertedFromBranchingPoint: False
+            MontageTickType: EMontageNotifyTickType::Queued
+            NotifyTriggerChance: 1
+            NotifyFilterType: ENotifyFilterType::NoFiltering
+            NotifyFilterLOD: 0
+            bTriggerOnDedicatedServer: True
+            bTriggerOnFollower: False
+            TrackIndex: 0
+            LinkedMontage: null
+            SlotIndex: 0
+            SegmentIndex: -1
+            LinkMethod: EAnimLinkMethod::Absolute
+            CachedLinkMethod: EAnimLinkMethod::Absolute
+            SegmentBeginTime: 0
+            SegmentLength: 0
+            LinkValue: 0
+            LinkedSequence: null
+        }
+    ]
     OrderedSavedPoseIndicesMap: [
         [ AnimGraph
          => 
@@ -253,13 +331,6 @@
         }
         , 
         {
-            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Chest01_AnimGraphNode_TransitionResult_E3B45CDA420F81FFF28FCA839A2CEECE
-            CopyRecords: [ ]
-            Function: Function AB_Chest01_C.EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Chest01_AnimGraphNode_TransitionResult_E3B45CDA420F81FFF28FCA839A2CEECE
-            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
-        }
-        , 
-        {
             BoundFunction: None
             CopyRecords: [
                 {
@@ -278,6 +349,13 @@
             Function: null
             ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
         }
+        , 
+        {
+            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Chest01_AnimGraphNode_TransitionResult_E3B45CDA420F81FFF28FCA839A2CEECE
+            CopyRecords: [ ]
+            Function: Function AB_Chest01_C.EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Chest01_AnimGraphNode_TransitionResult_E3B45CDA420F81FFF28FCA839A2CEECE
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
+        }
     ]
     UberGraphFunction: Function AB_Chest01_C.ExecuteUbergraph_AB_Chest01
 }
@@ -286,7 +364,7 @@
     UberGraphFrame: None
     AnimGraphNode_Root: {
         Result: {
-            LinkID: 16
+            LinkID: 19
         }
         Name: AnimGraph
         Group: None
@@ -308,6 +386,47 @@
     }
     AnimGraphNode_TransitionResult: {
         bCanEnterTransition: False
+    }
+    AnimGraphNode_TransitionResult: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_SequencePlayer: {
+        Sequence: AnimSequence /Game/Meshes/InteractableObjects/Chest/Animations/AnimSequences/SK_Chest_Out.SK_Chest_Out
+        PlayRateBasis: 1
+        PlayRate: 1
+        PlayRateScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+        StartPosition: 0
+        bLoopAnimation: False
+        GroupIndex: -1
+        GroupRole: EAnimGroupRole::CanBeLeader
+        bIgnoreForRelevancyTest: False
+        BlendWeight: 0
+        InternalTimeAccumulator: 0
+    }
+    AnimGraphNode_StateResult: {
+        Result: {
+            LinkID: 8
+        }
+        Name: Opening
+        Group: None
     }
     AnimGraphNode_SequencePlayer: {
         Sequence: AnimSequence /Game/Meshes/InteractableObjects/Chest/Animations/AnimSequences/SK_Chest_Loop.SK_Chest_Loop
@@ -342,7 +461,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 7
+            LinkID: 10
         }
         Name: IsBeingSearched_Loop
         Group: None
@@ -380,13 +499,13 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 9
+            LinkID: 12
         }
         Name: IsBeingSearched_IN
         Group: None
     }
     AnimGraphNode_SequencePlayer: {
-        Sequence: AnimSequence /Game/Meshes/InteractableObjects/Chest/Animations/AnimSequences/SK_Chest_Out.SK_Chest_Out
+        Sequence: AnimSequence /Game/Meshes/InteractableObjects/Chest/Animations/AnimSequences/SK_Chest_Open_Idle.SK_Chest_Open_Idle
         PlayRateBasis: 1
         PlayRate: 1
         PlayRateScaleBiasClamp: {
@@ -409,7 +528,7 @@
             InterpSpeedDecreasing: 10
         }
         StartPosition: 0
-        bLoopAnimation: False
+        bLoopAnimation: True
         GroupIndex: -1
         GroupRole: EAnimGroupRole::CanBeLeader
         bIgnoreForRelevancyTest: False
@@ -418,7 +537,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 11
+            LinkID: 14
         }
         Name: Idle_Open
         Group: None
@@ -456,7 +575,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 13
+            LinkID: 16
         }
         Name: Idle_Closed
         Group: None
@@ -469,11 +588,11 @@
     }
     AnimGraphNode_LayeredBoneBlend: {
         BasePose: {
-            LinkID: 15
+            LinkID: 18
         }
         BlendPoses: [
             {
-                LinkID: 17
+                LinkID: 20
             }
         ]
         LayerSetup: [

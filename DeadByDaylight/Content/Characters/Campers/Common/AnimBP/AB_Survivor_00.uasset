@@ -8,7 +8,7 @@
                     StateName: Locomotion_Regular
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 5
+                            CanTakeDelegateIndex: 9
                             CustomResultNodeIndex: -1
                             TransitionIndex: 0
                             bDesiredTransitionReturnValue: True
@@ -16,7 +16,7 @@
                             PoseEvaluatorLinks: [ ]
                         }
                     ]
-                    StateRootNodeIndex: 3
+                    StateRootNodeIndex: 7
                     StartNotify: -1
                     EndNotify: -1
                     FullyBlendedNotify: -1
@@ -31,7 +31,7 @@
                     StateName: Locomotion_Injured
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 6
+                            CanTakeDelegateIndex: 10
                             CustomResultNodeIndex: -1
                             TransitionIndex: 1
                             bDesiredTransitionReturnValue: True
@@ -39,7 +39,7 @@
                             PoseEvaluatorLinks: [ ]
                         }
                     ]
-                    StateRootNodeIndex: 1
+                    StateRootNodeIndex: 5
                     StartNotify: -1
                     EndNotify: -1
                     FullyBlendedNotify: -1
@@ -87,9 +87,11 @@
          => 
         {
             OrderedSavedPoseNodeIndices: [
-                33
+                37
                 , 
-                35
+                39
+                , 
+                3
             ]
         }
         ]]
@@ -1128,6 +1130,32 @@
                 , 
                 {
                     SourcePropertyName: IsHoldingAimItem
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: True
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: UETools.Objects.Property.FieldPath
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
+                }
+                , 
+                {
+                    SourcePropertyName: IsCrouched
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: True
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: UETools.Objects.Property.FieldPath
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
+                }
+                , 
+                {
+                    SourcePropertyName: _isFrightScreaming
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
@@ -2887,7 +2915,7 @@
     AnimGraphNode_SubInstance: {
         InputPoses: [
             {
-                LinkID: 1
+                LinkID: 42
             }
         ]
         InputPoseNames: [
@@ -2911,6 +2939,10 @@
             __CustomProperty__useaimItem_1290B7A74B83847F9B98FDABB8B0B808
             , 
             __CustomProperty__holdAimItem_1290B7A74B83847F9B98FDABB8B0B808
+            , 
+            __CustomProperty__iscrouched_1290B7A74B83847F9B98FDABB8B0B808
+            , 
+            __CustomProperty_IsFrightScream_1290B7A74B83847F9B98FDABB8B0B808
         ]
         DestPropertyNames: [
             _IsCrawling
@@ -2926,6 +2958,10 @@
             _useaimItem
             , 
             _holdAimItem
+            , 
+            _iscrouched
+            , 
+            IsFrightScream
         ]
         TargetInstance: null
     }
@@ -3299,7 +3335,7 @@
     AnimGraphNode_SubInstance: {
         InputPoses: [
             {
-                LinkID: 38
+                LinkID: 40
             }
         ]
         InputPoseNames: [
@@ -3509,7 +3545,7 @@
     AnimGraphNode_TransitionResult: {
         bCanEnterTransition: False
     }
-    AnimGraphNode_LinkedAnimGraph: {
+    AnimGraphNode_SubInstance: {
         InputPoses: [ ]
         InputPoseNames: [ ]
         InstanceClass: AnimBlueprintGeneratedClass /Game/Characters/Campers/Common/AnimBP/AnimSubGraph/ABSub_Survivor00_Locomotion_Regular.ABSub_Survivor00_Locomotion_Regular_C
@@ -3527,7 +3563,7 @@
         Name: Locomotion_Regular
         Group: None
     }
-    AnimGraphNode_SubInstance: {
+    AnimGraphNode_LinkedAnimGraph: {
         InputPoses: [ ]
         InputPoseNames: [ ]
         InstanceClass: AnimBlueprintGeneratedClass /Game/Characters/Campers/Common/AnimBP/AnimSubGraph/ABSub_Survivor00_Locomotion_Injured.ABSub_Survivor00_Locomotion_Injured_C
@@ -3550,6 +3586,72 @@
         MaxTransitionsPerFrame: 3
         bSkipFirstUpdateTransition: True
         bReinitializeOnBecomingRelevant: True
+    }
+    AnimGraphNode_SaveCachedPose: {
+        Pose: {
+            LinkID: 38
+        }
+        CachePoseName: LocomotionCache
+    }
+    AnimGraphNode_UseCachedPose: {
+        LinkToCachingNode: {
+            LinkID: 39
+        }
+        CachePoseName: LocomotionCache
+    }
+    AnimGraphNode_UseCachedPose: {
+        LinkToCachingNode: {
+            LinkID: 39
+        }
+        CachePoseName: LocomotionCache
+    }
+    AnimGraphNode_TwoWayBlend: {
+        A: {
+            LinkID: 1
+        }
+        B: {
+            LinkID: 41
+        }
+        AlphaInputType: EAnimAlphaInputType::Float
+        bAlphaBoolEnabled: True
+        bResetChildOnActivation: False
+        Alpha: 0.01
+        AlphaScaleBias: {
+            Scale: 1
+            Bias: 0
+        }
+        AlphaBoolBlend: {
+            BlendInTime: 0
+            BlendOutTime: 0
+            BlendOption: EAlphaBlendOption::Linear
+            bInitialized: False
+            CustomCurve: null
+            AlphaBlend: {
+                CustomCurve: null
+                BlendTime: 0.2
+                BlendOption: EAlphaBlendOption::Linear
+            }
+        }
+        AlphaCurveName: None
+        AlphaScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
     }
     OnVomitHitTimerHandle: {
         Handle: 0

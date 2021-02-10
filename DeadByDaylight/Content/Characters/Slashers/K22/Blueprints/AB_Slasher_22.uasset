@@ -8,7 +8,7 @@
                     StateName: Base
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 40
+                            CanTakeDelegateIndex: 41
                             CustomResultNodeIndex: -1
                             TransitionIndex: 0
                             bDesiredTransitionReturnValue: True
@@ -31,7 +31,7 @@
                     StateName: BrotherOut
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 41
+                            CanTakeDelegateIndex: 42
                             CustomResultNodeIndex: -1
                             TransitionIndex: 1
                             bDesiredTransitionReturnValue: True
@@ -242,6 +242,15 @@
                         {
                             CanTakeDelegateIndex: 39
                             CustomResultNodeIndex: -1
+                            TransitionIndex: 8
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                        , 
+                        {
+                            CanTakeDelegateIndex: 40
+                            CustomResultNodeIndex: -1
                             TransitionIndex: 7
                             bDesiredTransitionReturnValue: True
                             bAutomaticRemainingTimeRule: False
@@ -373,6 +382,20 @@
                     LogicType: ETransitionLogicType::TLT_StandardBlend
                     StateName: None
                 }
+                , 
+                {
+                    PreviousState: 4
+                    NextState: 0
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
             ]
         }
     ]
@@ -382,9 +405,9 @@
          => 
         {
             OrderedSavedPoseNodeIndices: [
-                42
+                43
                 , 
-                47
+                48
             ]
         }
         ]]
@@ -761,6 +784,26 @@
             BoundFunction: None
             CopyRecords: [
                 {
+                    SourcePropertyName: _isAutoPossessingAfterRelease
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::LogicalNegateBool
+                    DestProperty: UETools.Objects.Property.FieldPath
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
                     SourcePropertyName: _isDormant
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
@@ -1099,7 +1142,7 @@
     UberGraphFrame: None
     AnimGraphNode_Root: {
         Result: {
-            LinkID: 54
+            LinkID: 55
         }
         Name: AnimGraph
         Group: None
@@ -1245,7 +1288,7 @@
     AnimGraphNode_LinkedAnimGraph: {
         InputPoses: [
             {
-                LinkID: 55
+                LinkID: 56
             }
         ]
         InputPoseNames: [
@@ -4413,6 +4456,9 @@
     AnimGraphNode_TransitionResult: {
         bCanEnterTransition: False
     }
+    AnimGraphNode_TransitionResult: {
+        bCanEnterTransition: False
+    }
     AnimGraphNode_SequencePlayer: {
         Sequence: null
         PlayRateBasis: 1
@@ -4446,14 +4492,14 @@
     }
     AnimGraphNode_Slot: {
         Source: {
-            LinkID: 24
+            LinkID: 25
         }
         SlotName: MontageFullOverride
         bAlwaysUpdateSourcePose: False
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 25
+            LinkID: 26
         }
         Name: Idle2DormantAfterReleaseFPV
         Group: None
@@ -4497,11 +4543,11 @@
     }
     AnimGraphNode_LayeredBoneBlend: {
         BasePose: {
-            LinkID: 27
+            LinkID: 28
         }
         BlendPoses: [
             {
-                LinkID: 28
+                LinkID: 29
             }
         ]
         LayerSetup: [
@@ -7525,11 +7571,11 @@
         bActiveValue: False
         BlendPose: [
             {
-                LinkID: 31
+                LinkID: 32
             }
             , 
             {
-                LinkID: 29
+                LinkID: 30
             }
         ]
         BlendTime: [
@@ -7578,11 +7624,11 @@
         bActiveValue: False
         BlendPose: [
             {
-                LinkID: 33
+                LinkID: 34
             }
             , 
             {
-                LinkID: 30
+                LinkID: 31
             }
         ]
         BlendTime: [
@@ -7629,7 +7675,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 32
+            LinkID: 33
         }
         Name: Dorment2Idle
         Group: None
@@ -7667,7 +7713,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 35
+            LinkID: 36
         }
         Name: Dorment
         Group: None
@@ -7711,11 +7757,11 @@
     }
     AnimGraphNode_LayeredBoneBlend: {
         BasePose: {
-            LinkID: 38
+            LinkID: 39
         }
         BlendPoses: [
             {
-                LinkID: 37
+                LinkID: 38
             }
         ]
         LayerSetup: [
@@ -10739,60 +10785,7 @@
         bActiveValue: False
         BlendPose: [
             {
-                LinkID: 43
-            }
-            , 
-            {
-                LinkID: 39
-            }
-        ]
-        BlendTime: [
-            0.1
-            , 
-            0.1
-        ]
-        TransitionType: EBlendListTransitionType::StandardBlend
-        BlendType: EAlphaBlendOption::Linear
-        bResetChildOnActivation: False
-        CustomBlendCurve: null
-        BlendProfile: null
-    }
-    AnimGraphNode_SequencePlayer: {
-        Sequence: null
-        PlayRateBasis: 1
-        PlayRate: 1
-        PlayRateScaleBiasClamp: {
-            bMapRange: False
-            bClampResult: False
-            bInterpResult: False
-            InRange: {
-                Min: 0
-                Max: 1
-            }
-            OutRange: {
-                Min: 0
-                Max: 1
-            }
-            Scale: 1
-            Bias: 0
-            ClampMin: 0
-            ClampMax: 1
-            InterpSpeedIncreasing: 10
-            InterpSpeedDecreasing: 10
-        }
-        StartPosition: 0
-        bLoopAnimation: True
-        GroupIndex: -1
-        GroupRole: EAnimGroupRole::CanBeLeader
-        bIgnoreForRelevancyTest: False
-        BlendWeight: 0
-        InternalTimeAccumulator: 0
-    }
-    AnimGraphNode_BlendListByBool: {
-        bActiveValue: False
-        BlendPose: [
-            {
-                LinkID: 41
+                LinkID: 44
             }
             , 
             {
@@ -10841,9 +10834,62 @@
         BlendWeight: 0
         InternalTimeAccumulator: 0
     }
+    AnimGraphNode_BlendListByBool: {
+        bActiveValue: False
+        BlendPose: [
+            {
+                LinkID: 42
+            }
+            , 
+            {
+                LinkID: 41
+            }
+        ]
+        BlendTime: [
+            0.1
+            , 
+            0.1
+        ]
+        TransitionType: EBlendListTransitionType::StandardBlend
+        BlendType: EAlphaBlendOption::Linear
+        bResetChildOnActivation: False
+        CustomBlendCurve: null
+        BlendProfile: null
+    }
+    AnimGraphNode_SequencePlayer: {
+        Sequence: null
+        PlayRateBasis: 1
+        PlayRate: 1
+        PlayRateScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+        StartPosition: 0
+        bLoopAnimation: True
+        GroupIndex: -1
+        GroupRole: EAnimGroupRole::CanBeLeader
+        bIgnoreForRelevancyTest: False
+        BlendWeight: 0
+        InternalTimeAccumulator: 0
+    }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 42
+            LinkID: 43
         }
         Name: Idle2Dorment
         Group: None
@@ -10856,7 +10902,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 45
+            LinkID: 46
         }
         Name: Base_release
         Group: None
@@ -10869,11 +10915,11 @@
     }
     AnimGraphNode_LayeredBoneBlend: {
         BasePose: {
-            LinkID: 47
+            LinkID: 48
         }
         BlendPoses: [
             {
-                LinkID: 49
+                LinkID: 50
             }
         ]
         LayerSetup: [
@@ -13956,7 +14002,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 48
+            LinkID: 49
         }
         Name: BrotherOut
         Group: None
@@ -13969,7 +14015,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 51
+            LinkID: 52
         }
         Name: Base
         Group: None
@@ -13982,7 +14028,7 @@
     }
     AnimGraphNode_Slot: {
         Source: {
-            LinkID: 53
+            LinkID: 54
         }
         SlotName: Power
         bAlwaysUpdateSourcePose: False

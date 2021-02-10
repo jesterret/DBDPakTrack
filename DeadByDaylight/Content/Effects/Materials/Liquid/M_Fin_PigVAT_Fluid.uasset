@@ -3,7 +3,7 @@ Asset: Material M_Fin_PigVAT_Fluid
     Metallic: MaterialExpressionScalarParameter: None
     Specular: MaterialExpressionConstant: None
     Normal: MaterialExpressionNormalize: None
-    EmissiveColor: MaterialExpressionMultiply: None
+    EmissiveColor: MaterialExpressionAdd: None
     BlendMode: BLEND_Translucent
     ShadingModel: MSM_Unlit
     ShadingModels: {
@@ -15,7 +15,9 @@ Asset: Material M_Fin_PigVAT_Fluid
     bTangentSpaceNormal: False
     bUsedWithNiagaraMeshParticles: True
     bCanMaskedBeAssumedOpaque: True
-    StateId: 88e98563-ee0d-4a39-b79d-244b65945258
+    bUseTranslucencyVertexFog: False
+    bUseTranslucencyVolumetricFog: False
+    StateId: fd25460c-9e81-4cb9-a1ea-ba45d4a3a723
     CachedExpressionData: {
         Parameters: {
             Entries: {
@@ -25,6 +27,8 @@ Asset: Material M_Fin_PigVAT_Fluid
                     2575815769494805545
                     , 
                     3078550227877033723
+                    , 
+                    4460893236655468627
                     , 
                     10748930959742849294
                     , 
@@ -53,6 +57,12 @@ Asset: Material M_Fin_PigVAT_Fluid
                     , 
                     {
                         Name: metallic
+                        Association: GlobalParameter
+                        Index: -1
+                    }
+                    , 
+                    {
+                        Name: Reflection Intensity
                         Association: GlobalParameter
                         Index: -1
                     }
@@ -100,6 +110,8 @@ Asset: Material M_Fin_PigVAT_Fluid
                     , 
                     99f39949-e96a-4430-83fa-3487bcb0756d
                     , 
+                    77f0e922-6a6b-4209-b1e9-e8546e8c4cc7
+                    , 
                     8b38c4a9-bd6c-4a0a-915b-0c76ed63ec12
                     , 
                     54039cf7-6a35-4b96-92c0-aac89987b0f4
@@ -112,11 +124,29 @@ Asset: Material M_Fin_PigVAT_Fluid
                     , 
                     1f9ef9a5-7bb1-40b6-be83-c7a8790cbc1b
                 ]
-                Overrides: [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+                Overrides: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+            }
+            Entries: {
+                NameHashes: [
+                    3811534204201934227
+                ]
+                ParameterInfos: [
+                    {
+                        Name: Blood Color Reflection
+                        Association: GlobalParameter
+                        Index: -1
+                    }
+                ]
+                ExpressionGuids: [
+                    f049b039-c4b6-46b8-adf2-f2beefd50ffb
+                ]
+                Overrides: [ 0 ]
             }
             Entries: {
                 NameHashes: [
                     599719527642021902
+                    , 
+                    3827603732862609337
                     , 
                     6177659456972949161
                     , 
@@ -127,6 +157,12 @@ Asset: Material M_Fin_PigVAT_Fluid
                 ParameterInfos: [
                     {
                         Name: Color Map
+                        Association: GlobalParameter
+                        Index: -1
+                    }
+                    , 
+                    {
+                        Name: Reflection Map
                         Association: GlobalParameter
                         Index: -1
                     }
@@ -152,13 +188,15 @@ Asset: Material M_Fin_PigVAT_Fluid
                 ExpressionGuids: [
                     6e02a36a-3bab-44ce-b517-9dffd26f5f75
                     , 
+                    16aaf0f5-6180-41f2-ae71-d69d85f2b50c
+                    , 
                     630caa88-3ead-4e39-a4b0-c082c7369119
                     , 
                     3c2a6395-ad0f-4e6f-8bf5-2e0603336a94
                     , 
                     3500e6a9-fd3f-4dd5-9877-d11160a4e1ed
                 ]
-                Overrides: [ 0, 0, 0, 0 ]
+                Overrides: [ 0, 0, 0, 0, 0 ]
             }
             ScalarValues: [
                 0.5
@@ -166,6 +204,8 @@ Asset: Material M_Fin_PigVAT_Fluid
                 5.25
                 , 
                 0
+                , 
+                0.75
                 , 
                 0
                 , 
@@ -179,8 +219,13 @@ Asset: Material M_Fin_PigVAT_Fluid
                 , 
                 0.5
             ]
+            VectorValues: [
+                { R: 0.78, G: 0.78, B: 1, A: 1 }
+            ]
             TextureValues: [
                 Texture2D /Engine/EngineResources/WhiteSquareTexture.WhiteSquareTexture
+                , 
+                Texture2D /Game/Effects/Textures/T_Mud_01_M.T_Mud_01_M
                 , 
                 Texture2D /Engine/EngineResources/Black.Black
                 , 
@@ -197,6 +242,18 @@ Asset: Material M_Fin_PigVAT_Fluid
             Texture2D /Engine/EngineDebugMaterials/HeatmapGradient.HeatmapGradient
             , 
             Texture2D /Engine/EngineResources/WhiteSquareTexture.WhiteSquareTexture
+            , 
+            Texture2D /Game/Effects/Textures/T_Mud_N.T_Mud_N
+            , 
+            Texture2D /Game/Effects/Textures/T_Mud_01_M.T_Mud_01_M
+            , 
+            null
+        ]
+        FunctionInfos: [
+            {
+                StateId: 75614f71-88ad-46e7-994f-c156a7d6e1f3
+                Function: MaterialFunction /Engine/Functions/Engine_MaterialFunctions01/Reflections/ReflectionVectorSoft.ReflectionVectorSoft
+            }
         ]
         DynamicParameterNames: [
             FrameSel
