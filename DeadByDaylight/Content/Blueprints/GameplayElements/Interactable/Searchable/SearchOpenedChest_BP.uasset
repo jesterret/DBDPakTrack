@@ -5,11 +5,6 @@
     _searchableCompleteContributionPercentTag: {
         TagName: GameEvent.ScoreEvent.Camper.SearchableCompleteContributionPercent
     }
-    _camperSearchablePercentTag: {
-        TagName: GameEvent.ScoreEvent.Camper.SearchablePercent
-    }
-    _shouldTriggerProgressBasedScoreEvent: False
-    _successExitTimeAnimSequenceReference: AnimSequence /Game/Characters/Campers/Common/Animation/Male/AnimSequences/ObjectInteractions/M_Chest_Out.M_Chest_Out
     StopInteractionOnChargeComplete: True
     InteractionID: SearchOpenedChest
     StopInteractionOnInputRelease: True
@@ -24,5 +19,9 @@
     InteractionDescriptionText: Rummage
     SnapSocketName: joint_AttachCamper
     _tags: { Semantics.Interaction.Id.SearchAlreadyOpenChest }
+    _activationDefinition: {
+        _activationStrategy: EActivationStrategy::ActivateIfAnyTagMatches
+        _activationTags: { GameplayModifierFlag.CanSearchOpenedChests }
+    }
     _preventingTags: { GameplayModifierFlag.IsIncapacitated }
 }

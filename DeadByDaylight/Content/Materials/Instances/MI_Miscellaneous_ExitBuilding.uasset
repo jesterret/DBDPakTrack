@@ -6,12 +6,32 @@ Asset: MaterialInstanceConstant MI_Miscellaneous_ExitBuilding
     ScalarParameterValues: [
         {
             ParameterInfo: {
-                Name: CAOBlendContrast
+                Name: CustomSpecular
                 Association: GlobalParameter
                 Index: -1
             }
-            ParameterValue: 3
-            ExpressionGUID: 188edee5-a2c8-4bab-80d4-8726db0e6227
+            ParameterValue: 0
+            ExpressionGUID: 31014024-353a-4371-82a6-7c503330d4fa
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: EmmisiveValue
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: 0.5
+            ExpressionGUID: 3a513285-2b8c-4c15-a7c6-baa376b010b4
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: EmissiveValue
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: 20
+            ExpressionGUID: f781d800-383a-4a35-b610-aad42729464d
         }
         , 
         {
@@ -26,12 +46,12 @@ Asset: MaterialInstanceConstant MI_Miscellaneous_ExitBuilding
         , 
         {
             ParameterInfo: {
-                Name: CustomSpecular
+                Name: CAOBlendContrast
                 Association: GlobalParameter
                 Index: -1
             }
-            ParameterValue: 0
-            ExpressionGUID: 31014024-353a-4371-82a6-7c503330d4fa
+            ParameterValue: 3
+            ExpressionGUID: 188edee5-a2c8-4bab-80d4-8726db0e6227
         }
         , 
         {
@@ -44,17 +64,18 @@ Asset: MaterialInstanceConstant MI_Miscellaneous_ExitBuilding
             ExpressionGUID: 00000000-0000-0000-0000-000000000000
         }
     ]
-    TextureParameterValues: [
+    VectorParameterValues: [
         {
             ParameterInfo: {
-                Name: CAOBlendTexture
+                Name: Emmisive Color
                 Association: GlobalParameter
                 Index: -1
             }
-            ParameterValue: Texture2D /Game/Textures/Environment/Structures/T_Miscellaneous_ExitBuilding_BC.T_Miscellaneous_ExitBuilding_BC
-            ExpressionGUID: 111dea86-1e75-40e4-a082-4c3353be5249
+            ParameterValue: { R: 0.317708, G: 0.858457, B: 1, A: 1 }
+            ExpressionGUID: 4a8b8707-6bc8-4e4f-9edd-7fb003684930
         }
-        , 
+    ]
+    TextureParameterValues: [
         {
             ParameterInfo: {
                 Name: BaseColorTexture
@@ -64,6 +85,26 @@ Asset: MaterialInstanceConstant MI_Miscellaneous_ExitBuilding
             ParameterValue: Texture2D /Game/Textures/Environment/Structures/T_Miscellaneous_ExitBuilding_BC.T_Miscellaneous_ExitBuilding_BC
             ExpressionGUID: 430841ac-568c-449a-b3db-27563c26e5de
         }
+        , 
+        {
+            ParameterInfo: {
+                Name: EmmisiveColorTexture
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: Texture2D /Game/Textures/Environment/Structures/T_Escape_LightMask.T_Escape_LightMask
+            ExpressionGUID: cbe56fc1-2587-4a5a-be30-bed8f73b75ed
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: CAOBlendTexture
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: Texture2D /Game/Textures/Environment/Structures/T_Miscellaneous_ExitBuilding_BC.T_Miscellaneous_ExitBuilding_BC
+            ExpressionGUID: 111dea86-1e75-40e4-a082-4c3353be5249
+        }
     ]
     BasePropertyOverrides: {
         OpacityMaskClipValue: 0.3333
@@ -71,14 +112,47 @@ Asset: MaterialInstanceConstant MI_Miscellaneous_ExitBuilding
     StaticParameters: {
         StaticSwitchParameters: [
             {
-                Value: False
+                Value: True
                 ParameterInfo: {
-                    Name: LOD2
+                    Name: UseBaseColor
                     Association: GlobalParameter
                     Index: -1
                 }
                 bOverride: True
-                ExpressionGUID: b94ded5c-813a-422f-84d3-b56bad957ead
+                ExpressionGUID: 5202d8bc-59e1-4189-a2f9-4c20614f016a
+            }
+            , 
+            {
+                Value: True
+                ParameterInfo: {
+                    Name: UseEmmisiveMask
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: 253e798b-0cf3-467b-9173-e19366f97d92
+            }
+            , 
+            {
+                Value: True
+                ParameterInfo: {
+                    Name: UseCustomEmissiveMask
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: 3671a18f-1129-4af9-b086-c154f2b22bcf
+            }
+            , 
+            {
+                Value: False
+                ParameterInfo: {
+                    Name: UseCAOBlend
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: 85b5d809-e366-48fd-a4ff-ba98aca7cef3
             }
             , 
             {
@@ -106,23 +180,12 @@ Asset: MaterialInstanceConstant MI_Miscellaneous_ExitBuilding
             {
                 Value: False
                 ParameterInfo: {
-                    Name: UseCAOBlend
+                    Name: LOD2
                     Association: GlobalParameter
                     Index: -1
                 }
                 bOverride: True
-                ExpressionGUID: 85b5d809-e366-48fd-a4ff-ba98aca7cef3
-            }
-            , 
-            {
-                Value: True
-                ParameterInfo: {
-                    Name: UseBaseColor
-                    Association: GlobalParameter
-                    Index: -1
-                }
-                bOverride: True
-                ExpressionGUID: 5202d8bc-59e1-4189-a2f9-4c20614f016a
+                ExpressionGUID: b94ded5c-813a-422f-84d3-b56bad957ead
             }
         ]
     }
@@ -154,12 +217,5 @@ Asset: MaterialInstanceConstant MI_Miscellaneous_ExitBuilding
         Texture2D /Game/Textures/Environment/Tiles/Green_Linear.Green_Linear
         , 
         Texture2D /Game/Textures/Environment/Tiles/White.White
-    ]
-    TextureStreamingData: [
-        {
-            SamplingScale: 1
-            UVChannelIndex: 0
-            TextureName: T_Miscellaneous_ExitBuilding_BC
-        }
     ]
 }
