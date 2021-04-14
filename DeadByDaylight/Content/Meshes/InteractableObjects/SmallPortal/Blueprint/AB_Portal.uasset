@@ -8,7 +8,7 @@
                     StateName: Close
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 11
+                            CanTakeDelegateIndex: 13
                             CustomResultNodeIndex: -1
                             TransitionIndex: 3
                             bDesiredTransitionReturnValue: True
@@ -17,7 +17,16 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 12
+                            CanTakeDelegateIndex: 14
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 6
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                        , 
+                        {
+                            CanTakeDelegateIndex: 15
                             CustomResultNodeIndex: -1
                             TransitionIndex: 0
                             bDesiredTransitionReturnValue: True
@@ -42,7 +51,7 @@
                     StateName: Charging
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 13
+                            CanTakeDelegateIndex: 16
                             CustomResultNodeIndex: -1
                             TransitionIndex: 4
                             bDesiredTransitionReturnValue: True
@@ -51,7 +60,7 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 14
+                            CanTakeDelegateIndex: 17
                             CustomResultNodeIndex: -1
                             TransitionIndex: 1
                             bDesiredTransitionReturnValue: True
@@ -92,7 +101,7 @@
                     StateName: Exit
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 15
+                            CanTakeDelegateIndex: 18
                             CustomResultNodeIndex: -1
                             TransitionIndex: 2
                             bDesiredTransitionReturnValue: True
@@ -117,7 +126,7 @@
                     StateName: Opening
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 16
+                            CanTakeDelegateIndex: 19
                             CustomResultNodeIndex: -1
                             TransitionIndex: 5
                             bDesiredTransitionReturnValue: True
@@ -133,6 +142,31 @@
                     EntryRuleNodeIndex: -1
                     PlayerNodeIndices: [
                         10
+                    ]
+                    LayerNodeIndices: [ ]
+                    bAlwaysResetOnEntry: False
+                }
+                , 
+                {
+                    StateName: Exit_Slower
+                    Transitions: [
+                        {
+                            CanTakeDelegateIndex: 20
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 7
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                    ]
+                    StateRootNodeIndex: 11
+                    StartNotify: -1
+                    EndNotify: -1
+                    FullyBlendedNotify: -1
+                    bIsAConduit: False
+                    EntryRuleNodeIndex: -1
+                    PlayerNodeIndices: [
+                        12
                     ]
                     LayerNodeIndices: [ ]
                     bAlwaysResetOnEntry: False
@@ -222,6 +256,34 @@
                     LogicType: ETransitionLogicType::TLT_StandardBlend
                     StateName: None
                 }
+                , 
+                {
+                    PreviousState: 0
+                    NextState: 5
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+                , 
+                {
+                    PreviousState: 5
+                    NextState: 2
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
             ]
         }
     ]
@@ -255,22 +317,16 @@
         }
         , 
         {
-            BoundFunction: None
-            CopyRecords: [
-                {
-                    SourcePropertyName: ExitingDemo
-                    SourceSubPropertyName: None
-                    SourceArrayIndex: 0
-                    bInstanceIsTarget: False
-                    PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: UETools.Objects.Property.FieldPath
-                    DestArrayIndex: 0
-                    Size: 1
-                    CachedSourceProperty: UETools.Objects.Property.FieldPath
-                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
-                }
-            ]
-            Function: null
+            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Portal_AnimGraphNode_TransitionResult_45EEF4E4424A939664313BB32E1E1671
+            CopyRecords: [ ]
+            Function: Function AB_Portal_C.EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Portal_AnimGraphNode_TransitionResult_45EEF4E4424A939664313BB32E1E1671
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
+        }
+        , 
+        {
+            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Portal_AnimGraphNode_TransitionResult_82E50A824790CC5579437885B00B6CAD
+            CopyRecords: [ ]
+            Function: Function AB_Portal_C.EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Portal_AnimGraphNode_TransitionResult_82E50A824790CC5579437885B00B6CAD
             ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
         }
         , 
@@ -373,6 +429,26 @@
             Function: null
             ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
         }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: IsExitFinish
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: UETools.Objects.Property.FieldPath
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
+        }
     ]
     NumReplicatedProperties: 1
     UberGraphFunction: Function AB_Portal_C.ExecuteUbergraph_AB_Portal
@@ -382,7 +458,7 @@
     UberGraphFrame: None
     AnimGraphNode_Root: {
         Result: {
-            LinkID: 17
+            LinkID: 21
         }
         Name: AnimGraph
         Group: None
@@ -404,6 +480,50 @@
     }
     AnimGraphNode_TransitionResult: {
         bCanEnterTransition: False
+    }
+    AnimGraphNode_TransitionResult: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_TransitionResult: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_SequencePlayer: {
+        Sequence: AnimSequence /Game/Meshes/InteractableObjects/SmallPortal/Animation/Portal_Exit_Slow.Portal_Exit_Slow
+        PlayRateBasis: 1
+        PlayRate: 1
+        PlayRateScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+        StartPosition: 0
+        bLoopAnimation: True
+        GroupIndex: -1
+        GroupRole: EAnimGroupRole::CanBeLeader
+        bIgnoreForRelevancyTest: False
+        BlendWeight: 0
+        InternalTimeAccumulator: 0
+    }
+    AnimGraphNode_StateResult: {
+        Result: {
+            LinkID: 9
+        }
+        Name: Exit_Slower
+        Group: None
     }
     AnimGraphNode_SequencePlayer: {
         Sequence: AnimSequence /Game/Meshes/InteractableObjects/SmallPortal/Animation/Portal_Opening.Portal_Opening
@@ -438,7 +558,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 7
+            LinkID: 11
         }
         Name: Opening
         Group: None
@@ -476,7 +596,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 9
+            LinkID: 13
         }
         Name: Exit
         Group: None
@@ -514,7 +634,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 11
+            LinkID: 15
         }
         Name: Open
         Group: None
@@ -552,7 +672,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 13
+            LinkID: 17
         }
         Name: Charging
         Group: None
@@ -590,7 +710,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 15
+            LinkID: 19
         }
         Name: Close
         Group: None

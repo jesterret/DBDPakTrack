@@ -8,7 +8,7 @@
                     StateName: Non_Dormant
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 9
+                            CanTakeDelegateIndex: 14
                             CustomResultNodeIndex: -1
                             TransitionIndex: 0
                             bDesiredTransitionReturnValue: True
@@ -16,7 +16,7 @@
                             PoseEvaluatorLinks: [ ]
                         }
                     ]
-                    StateRootNodeIndex: 1
+                    StateRootNodeIndex: 6
                     StartNotify: -1
                     EndNotify: -1
                     FullyBlendedNotify: -1
@@ -31,7 +31,7 @@
                     StateName: Dormant
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 10
+                            CanTakeDelegateIndex: 15
                             CustomResultNodeIndex: -1
                             TransitionIndex: 4
                             bDesiredTransitionReturnValue: True
@@ -40,7 +40,7 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 11
+                            CanTakeDelegateIndex: 16
                             CustomResultNodeIndex: -1
                             TransitionIndex: 2
                             bDesiredTransitionReturnValue: True
@@ -48,14 +48,14 @@
                             PoseEvaluatorLinks: [ ]
                         }
                     ]
-                    StateRootNodeIndex: 3
+                    StateRootNodeIndex: 8
                     StartNotify: -1
                     EndNotify: -1
                     FullyBlendedNotify: -1
                     bIsAConduit: False
                     EntryRuleNodeIndex: -1
                     PlayerNodeIndices: [
-                        4
+                        9
                     ]
                     LayerNodeIndices: [ ]
                     bAlwaysResetOnEntry: False
@@ -65,7 +65,7 @@
                     StateName: Idle2Dormant
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 12
+                            CanTakeDelegateIndex: 17
                             CustomResultNodeIndex: -1
                             TransitionIndex: 1
                             bDesiredTransitionReturnValue: True
@@ -73,14 +73,14 @@
                             PoseEvaluatorLinks: [ ]
                         }
                     ]
-                    StateRootNodeIndex: 5
+                    StateRootNodeIndex: 10
                     StartNotify: -1
                     EndNotify: -1
                     FullyBlendedNotify: -1
                     bIsAConduit: False
                     EntryRuleNodeIndex: -1
                     PlayerNodeIndices: [
-                        6
+                        11
                     ]
                     LayerNodeIndices: [ ]
                     bAlwaysResetOnEntry: False
@@ -90,7 +90,7 @@
                     StateName: Dormant2Idle
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 13
+                            CanTakeDelegateIndex: 18
                             CustomResultNodeIndex: -1
                             TransitionIndex: 3
                             bDesiredTransitionReturnValue: True
@@ -98,14 +98,14 @@
                             PoseEvaluatorLinks: [ ]
                         }
                     ]
-                    StateRootNodeIndex: 7
+                    StateRootNodeIndex: 12
                     StartNotify: -1
                     EndNotify: -1
                     FullyBlendedNotify: -1
                     bIsAConduit: False
                     EntryRuleNodeIndex: -1
                     PlayerNodeIndices: [
-                        8
+                        13
                     ]
                     LayerNodeIndices: [ ]
                     bAlwaysResetOnEntry: False
@@ -190,7 +190,9 @@
          => 
         {
             OrderedSavedPoseNodeIndices: [
-                14
+                2
+                , 
+                19
             ]
         }
         ]]
@@ -200,6 +202,26 @@
         SlasherLocomotion
     ]
     EvaluateGraphExposedInputs: [
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _isAttachedToLocker
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: UETools.Objects.Property.FieldPath
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
+        }
+        , 
         {
             BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Slasher_22_ConjoinedTwin_AnimGraphNode_TransitionResult_4F967FC14C83F6FB6ABBF5913B099CFA
             CopyRecords: [ ]
@@ -543,7 +565,7 @@
     }
     AnimGraphNode_Slot: {
         Source: {
-            LinkID: 19
+            LinkID: 20
         }
         SlotName: MontageFullOverride
         bAlwaysUpdateSourcePose: False
@@ -830,6 +852,53 @@
         MaxTransitionsPerFrame: 3
         bSkipFirstUpdateTransition: True
         bReinitializeOnBecomingRelevant: True
+    }
+    AnimGraphNode_BlendListByBool: {
+        bActiveValue: False
+        BlendPose: [
+            {
+                LinkID: 21
+            }
+            , 
+            {
+                LinkID: 24
+            }
+        ]
+        BlendTime: [
+            0
+            , 
+            0
+        ]
+        TransitionType: EBlendListTransitionType::StandardBlend
+        BlendType: EAlphaBlendOption::Linear
+        bResetChildOnActivation: False
+        CustomBlendCurve: null
+        BlendProfile: null
+    }
+    AnimGraphNode_Slot: {
+        Source: {
+            LinkID: 23
+        }
+        SlotName: TwinOnLockerMontages
+        bAlwaysUpdateSourcePose: False
+    }
+    AnimGraphNode_SaveCachedPose: {
+        Pose: {
+            LinkID: 19
+        }
+        CachePoseName: CacheFinalPose
+    }
+    AnimGraphNode_UseCachedPose: {
+        LinkToCachingNode: {
+            LinkID: 22
+        }
+        CachePoseName: CacheFinalPose
+    }
+    AnimGraphNode_UseCachedPose: {
+        LinkToCachingNode: {
+            LinkID: 22
+        }
+        CachePoseName: CacheFinalPose
     }
     _SpeedRate: 460
     _animEffectHandlerClassForSFX: BlueprintGeneratedClass /Game/Audio/BP_Audio_Killer_AnimNotifies_Handler.BP_Audio_Killer_AnimNotifies_Handler_C

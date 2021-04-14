@@ -8,7 +8,7 @@
                     StateName: Base
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 16
+                            CanTakeDelegateIndex: 18
                             CustomResultNodeIndex: -1
                             TransitionIndex: 1
                             bDesiredTransitionReturnValue: True
@@ -17,7 +17,7 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 17
+                            CanTakeDelegateIndex: 19
                             CustomResultNodeIndex: -1
                             TransitionIndex: 0
                             bDesiredTransitionReturnValue: True
@@ -25,7 +25,7 @@
                             PoseEvaluatorLinks: [ ]
                         }
                     ]
-                    StateRootNodeIndex: 15
+                    StateRootNodeIndex: 17
                     StartNotify: -1
                     EndNotify: -1
                     FullyBlendedNotify: -1
@@ -39,7 +39,7 @@
                 {
                     StateName: Menu
                     Transitions: [ ]
-                    StateRootNodeIndex: 1
+                    StateRootNodeIndex: 3
                     StartNotify: -1
                     EndNotify: -1
                     FullyBlendedNotify: -1
@@ -53,7 +53,7 @@
                 {
                     StateName: InGame
                     Transitions: [ ]
-                    StateRootNodeIndex: 7
+                    StateRootNodeIndex: 9
                     StartNotify: -1
                     EndNotify: -1
                     FullyBlendedNotify: -1
@@ -100,7 +100,9 @@
         [ AnimGraph
          => 
         {
-            OrderedSavedPoseNodeIndices: [ ]
+            OrderedSavedPoseNodeIndices: [
+                0
+            ]
         }
         ]]
     EvaluateGraphExposedInputs: [
@@ -108,7 +110,7 @@
             BoundFunction: None
             CopyRecords: [
                 {
-                    SourcePropertyName: OwningCharacterSkeletalMesh
+                    SourcePropertyName: _masterMesh
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
@@ -128,14 +130,14 @@
             BoundFunction: None
             CopyRecords: [
                 {
-                    SourcePropertyName: OwningCharacterSkeletalMesh
+                    SourcePropertyName: _isInMenu
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
                     PostCopyOperation: EPostCopyOperation::None
                     DestProperty: UETools.Objects.Property.FieldPath
                     DestArrayIndex: 0
-                    Size: 8
+                    Size: 1
                     CachedSourceProperty: UETools.Objects.Property.FieldPath
                     CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
                 }
@@ -145,16 +147,22 @@
         }
         , 
         {
-            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_AB_TN_Cloth007_AnimGraphNode_TransitionResult_305649D5435A4FE038D7979057581B9F
-            CopyRecords: [ ]
-            Function: Function AB_TN_Cloth007_C.EvaluateGraphExposedInputs_ExecuteUbergraph_AB_TN_Cloth007_AnimGraphNode_TransitionResult_305649D5435A4FE038D7979057581B9F
-            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
-        }
-        , 
-        {
-            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_AB_TN_Cloth007_AnimGraphNode_TransitionResult_8E196F2C490C7DD6E3CED581B5CEB55C
-            CopyRecords: [ ]
-            Function: Function AB_TN_Cloth007_C.EvaluateGraphExposedInputs_ExecuteUbergraph_AB_TN_Cloth007_AnimGraphNode_TransitionResult_8E196F2C490C7DD6E3CED581B5CEB55C
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _isInGame
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: UETools.Objects.Property.FieldPath
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
+                }
+            ]
+            Function: null
             ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
         }
     ]
@@ -183,6 +191,17 @@
         Name: Base
         Group: None
     }
+    AnimGraphNode_UseCachedPose: {
+        LinkToCachingNode: {
+            LinkID: 20
+        }
+        CachePoseName: CopyMesh
+    }
+    AnimGraphNode_LocalToComponentSpace: {
+        LocalPose: {
+            LinkID: 4
+        }
+    }
     AnimGraphNode_Constraint: {
         BoneToModify: {
             BoneName: joint_Cloth_03
@@ -205,7 +224,7 @@
             1
         ]
         ComponentPose: {
-            LinkID: 5
+            LinkID: 7
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -271,7 +290,7 @@
             1
         ]
         ComponentPose: {
-            LinkID: 6
+            LinkID: 8
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -337,7 +356,7 @@
             1
         ]
         ComponentPose: {
-            LinkID: 9
+            LinkID: 5
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -474,7 +493,7 @@
             bClamp: False
         }
         ComponentPose: {
-            LinkID: 4
+            LinkID: 6
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -518,19 +537,9 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_CopyPoseFromMesh: {
-        SourceMeshComponent: null
-        bUseAttachedParent: False
-        bCopyCurves: False
-    }
-    AnimGraphNode_LocalToComponentSpace: {
-        LocalPose: {
-            LinkID: 8
-        }
-    }
     AnimGraphNode_ComponentToLocalSpace: {
         ComponentPose: {
-            LinkID: 7
+            LinkID: 9
         }
     }
     AnimGraphNode_StateResult: {
@@ -539,6 +548,17 @@
         }
         Name: InGame
         Group: None
+    }
+    AnimGraphNode_UseCachedPose: {
+        LinkToCachingNode: {
+            LinkID: 20
+        }
+        CachePoseName: CopyMesh
+    }
+    AnimGraphNode_LocalToComponentSpace: {
+        LocalPose: {
+            LinkID: 12
+        }
     }
     AnimGraphNode_Constraint: {
         BoneToModify: {
@@ -562,7 +582,7 @@
             1
         ]
         ComponentPose: {
-            LinkID: 15
+            LinkID: 13
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -699,7 +719,7 @@
             bClamp: False
         }
         ComponentPose: {
-            LinkID: 12
+            LinkID: 14
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -743,19 +763,9 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_CopyPoseFromMesh: {
-        SourceMeshComponent: null
-        bUseAttachedParent: False
-        bCopyCurves: False
-    }
-    AnimGraphNode_LocalToComponentSpace: {
-        LocalPose: {
-            LinkID: 14
-        }
-    }
     AnimGraphNode_ComponentToLocalSpace: {
         ComponentPose: {
-            LinkID: 13
+            LinkID: 15
         }
     }
     AnimGraphNode_StateResult: {
@@ -770,6 +780,17 @@
         MaxTransitionsPerFrame: 3
         bSkipFirstUpdateTransition: True
         bReinitializeOnBecomingRelevant: True
+    }
+    AnimGraphNode_CopyPoseFromMesh: {
+        SourceMeshComponent: null
+        bUseAttachedParent: False
+        bCopyCurves: False
+    }
+    AnimGraphNode_SaveCachedPose: {
+        Pose: {
+            LinkID: 19
+        }
+        CachePoseName: CopyMesh
     }
     bUsingCopyPoseFromMesh: True
 }
