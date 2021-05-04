@@ -11,6 +11,7 @@
 {
     UberGraphFrame: None
     _gnomeInteraction: {
+            StopInteractionOnInputRelease: False
             StopUpdateMontageOnExit: True
             SlasherCanInteract: False
             SnapRotation: True
@@ -23,6 +24,7 @@
                         GnomeInteraction Default__BP_Gnome_C.GnomeInteraction
                         , 
                             {
+                                StopInteractionOnInputRelease: False
                                 StopUpdateMontageOnExit: True
                                 CamperCanInteract: False
                                 SnapRotation: True
@@ -166,9 +168,53 @@
                     AnimationMode: EAnimationMode::AnimationCustomMode
                     bNoSkeletonUpdate: True
                     bPauseAnims: True
+                    SkeletalMesh: SkeletalMesh /Game/Meshes/Charms/Models/Charms/Draco/Universal_Charms/DR_016_REF.DR_016_REF
                     VisibilityBasedAnimTickOption: EVisibilityBasedAnimTickOption::OnlyTickPoseWhenRendered
                     bRenderStatic: True
                     DetailLevelBeforeCastShadows: DM_MAX
+                    BodyInstance: {
+                        ObjectType: ECC_WorldDynamic
+                        CollisionEnabled: ECollisionEnabled::QueryAndPhysics
+                        CollisionProfileName: BlockAllDynamic
+                        CollisionResponses: {
+                            ResponseArray: [
+                                {
+                                    Channel: Interactable
+                                    Response: ECR_Block
+                                }
+                                , 
+                                {
+                                    Channel: Slasher
+                                    Response: ECR_Block
+                                }
+                                , 
+                                {
+                                    Channel: Blood
+                                    Response: ECR_Block
+                                }
+                                , 
+                                {
+                                    Channel: InteractionDetector
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: BlinkBlocker
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Ground
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Walkable
+                                    Response: ECR_Block
+                                }
+                            ]
+                        }
+                    }
                     AttachParent: SceneComponent Default__BP_Gnome_C.Root
                     RelativeLocation: { X: 0, Y: 0, Z: 82 }
                     RelativeScale3D: { X: 0.575, Y: 0.575, Z: 0.575 }
