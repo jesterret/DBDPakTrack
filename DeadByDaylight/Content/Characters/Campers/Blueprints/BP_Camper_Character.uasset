@@ -9,8 +9,6 @@
             }
     ]
     Timelines: [
-        TimelineTemplate BP_Camper_Character_C.Red_Template
-        , 
         TimelineTemplate BP_Camper_Character_C.Hook_Template
         , 
         TimelineTemplate BP_Camper_Character_C.Timeline_2_Template
@@ -68,6 +66,12 @@
         TimelineTemplate BP_Camper_Character_C.TML_LineFade7_Controller_Template
         , 
         TimelineTemplate BP_Camper_Character_C.TML_K23VignetteController_Template
+        , 
+        TimelineTemplate BP_Camper_Character_C.TML_K24_ContaminatedSurvivor_Template
+        , 
+        TimelineTemplate BP_Camper_Character_C.TML_AddPoisonedLiquid_Template
+        , 
+        TimelineTemplate BP_Camper_Character_C.TML_RemovePoisonedLiquid_Template
     ]
     SimpleConstructionScript: SimpleConstructionScript BP_Camper_Character_C.SimpleConstructionScript
     InheritableComponentHandler: InheritableComponentHandler BP_Camper_Character_C.InheritableComponentHandler
@@ -314,10 +318,12 @@
     SlashableZone: {
             CapsuleHalfHeight: 60
             CapsuleRadius: 25
+            bGenerateOverlapEvents: False
             DetailLevelBeforeCastShadows: DM_MAX
             CanCharacterStepUpOn: ECB_No
             BodyInstance: {
                 ObjectType: ECC_Pawn
+                CollisionEnabled: ECollisionEnabled::NoCollision
                 CollisionProfileName: Custom
                 CollisionResponses: {
                     ResponseArray: [
@@ -431,6 +437,7 @@
             CanCharacterStepUpOn: ECB_No
             BodyInstance: {
                 ObjectType: ECC_Pawn
+                CollisionEnabled: ECollisionEnabled::NoCollision
                 CollisionProfileName: Custom
                 CollisionResponses: {
                     ResponseArray: [
@@ -537,6 +544,10 @@
                 Slashable
             ]
             bCanEverAffectNavigation: False
+        }
+    _camperSlashable: {
+            _slashableZone: CapsuleComponent Default__BP_Camper_Character_C.Slashable
+            _hookSlashableZone: CapsuleComponent Default__BP_Camper_Character_C.HookSlashable
         }
     _terrorRadiusReceiverComponent: {
             _trVerticalDistanceFactor: CurveFloat /Game/Characters/Campers/Blueprints/TRVerticalDistanceFactor.TRVerticalDistanceFactor
@@ -757,6 +768,8 @@
                 }
             ]
             AttachParent: {
+                    bEnablePhysicsOnDedicatedServer: False
+                    bSkipBoundsUpdateWhenInterpolating: True
                     bEnableUpdateRateOptimizations: True
                     AnimationTresholdToFrameSkip: [
                         {
@@ -908,6 +921,7 @@
             DetailLevelBeforeCastShadows: DM_MAX
         }
     _standingOcclusionBox: {
+            bGenerateOverlapEvents: False
             DetailLevelBeforeCastShadows: DM_MAX
             BodyInstance: {
                 CollisionResponses: {
@@ -995,8 +1009,10 @@
                 }
             }
             AttachParent: CapsuleComponent Default__BP_Camper_Character_C.CollisionCylinder
+            bSkipComponentAndChildrenTransformUpdate: True
         }
     _crouchingOcclusionBox: {
+            bGenerateOverlapEvents: False
             DetailLevelBeforeCastShadows: DM_MAX
             BodyInstance: {
                 CollisionResponses: {
@@ -1085,6 +1101,7 @@
             }
             AttachParent: CapsuleComponent Default__BP_Camper_Character_C.CollisionCylinder
             RelativeLocation: { X: 0, Y: 0, Z: -25 }
+            bSkipComponentAndChildrenTransformUpdate: True
         }
     _activator: {
             _searchForActivatableSubAnimInstances: True
@@ -1168,6 +1185,8 @@
     _contextualQuestComponent: {
         }
     _presentationChargeableProgressComponent: {
+        }
+    _otherCharactersVerticalCollisionsHandler: {
         }
     Mesh: SkeletalMeshComponent Default__BP_Camper_Character_C.CharacterMesh0
     CharacterMovement: {

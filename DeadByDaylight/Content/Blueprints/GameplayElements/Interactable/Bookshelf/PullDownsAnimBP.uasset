@@ -8,7 +8,16 @@
                     StateName: StandIdle
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 11
+                            CanTakeDelegateIndex: 13
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 9
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                        , 
+                        {
+                            CanTakeDelegateIndex: 14
                             CustomResultNodeIndex: -1
                             TransitionIndex: 0
                             bDesiredTransitionReturnValue: True
@@ -33,7 +42,7 @@
                     StateName: FallOnGround
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 12
+                            CanTakeDelegateIndex: 15
                             CustomResultNodeIndex: -1
                             TransitionIndex: 4
                             bDesiredTransitionReturnValue: True
@@ -42,7 +51,7 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 13
+                            CanTakeDelegateIndex: 16
                             CustomResultNodeIndex: -1
                             TransitionIndex: 1
                             bDesiredTransitionReturnValue: True
@@ -67,7 +76,7 @@
                     StateName: LiftingLoop
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 14
+                            CanTakeDelegateIndex: 17
                             CustomResultNodeIndex: -1
                             TransitionIndex: 6
                             bDesiredTransitionReturnValue: True
@@ -76,7 +85,7 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 15
+                            CanTakeDelegateIndex: 18
                             CustomResultNodeIndex: -1
                             TransitionIndex: 2
                             bDesiredTransitionReturnValue: True
@@ -101,7 +110,7 @@
                     StateName: PullupOut
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 16
+                            CanTakeDelegateIndex: 19
                             CustomResultNodeIndex: -1
                             TransitionIndex: 3
                             bDesiredTransitionReturnValue: True
@@ -126,7 +135,7 @@
                     StateName: IdleOnGround
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 17
+                            CanTakeDelegateIndex: 20
                             CustomResultNodeIndex: -1
                             TransitionIndex: 7
                             bDesiredTransitionReturnValue: True
@@ -135,7 +144,16 @@
                         }
                         , 
                         {
-                            CanTakeDelegateIndex: 18
+                            CanTakeDelegateIndex: 21
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 8
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                        , 
+                        {
+                            CanTakeDelegateIndex: 22
                             CustomResultNodeIndex: -1
                             TransitionIndex: 5
                             bDesiredTransitionReturnValue: True
@@ -151,6 +169,22 @@
                     EntryRuleNodeIndex: -1
                     PlayerNodeIndices: [
                         10
+                    ]
+                    LayerNodeIndices: [ ]
+                    bAlwaysResetOnEntry: False
+                }
+                , 
+                {
+                    StateName: Destroying
+                    Transitions: [ ]
+                    StateRootNodeIndex: 11
+                    StartNotify: -1
+                    EndNotify: -1
+                    FullyBlendedNotify: -1
+                    bIsAConduit: False
+                    EntryRuleNodeIndex: -1
+                    PlayerNodeIndices: [
+                        12
                     ]
                     LayerNodeIndices: [ ]
                     bAlwaysResetOnEntry: False
@@ -268,6 +302,34 @@
                     LogicType: ETransitionLogicType::TLT_StandardBlend
                     StateName: None
                 }
+                , 
+                {
+                    PreviousState: 4
+                    NextState: 5
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+                , 
+                {
+                    PreviousState: 0
+                    NextState: 5
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
             ]
         }
     ]
@@ -284,7 +346,60 @@
             BoundFunction: None
             CopyRecords: [
                 {
-                    SourcePropertyName: IsPulledDown
+                    SourcePropertyName: _destroyPalletAnim
+                    SourceSubPropertyName: _selected
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: UETools.Objects.Property.FieldPath
+                    DestArrayIndex: 0
+                    Size: 8
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
+                }
+                , 
+                {
+                    SourcePropertyName: _isBeingDestroyedPlayRate
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: UETools.Objects.Property.FieldPath
+                    DestArrayIndex: 0
+                    Size: 4
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _isBeingDestroyed
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: UETools.Objects.Property.FieldPath
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _isPulledDown
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
@@ -311,7 +426,7 @@
             BoundFunction: None
             CopyRecords: [
                 {
-                    SourcePropertyName: IsPulledDown
+                    SourcePropertyName: _isPulledDown
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
@@ -338,7 +453,7 @@
             BoundFunction: None
             CopyRecords: [
                 {
-                    SourcePropertyName: IsPulledDown
+                    SourcePropertyName: _isPulledDown
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
@@ -365,7 +480,7 @@
             BoundFunction: None
             CopyRecords: [
                 {
-                    SourcePropertyName: IsPulledDown
+                    SourcePropertyName: _isPulledDown
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
@@ -385,7 +500,27 @@
             BoundFunction: None
             CopyRecords: [
                 {
-                    SourcePropertyName: IsBeingPulledUp
+                    SourcePropertyName: _isBeingDestroyed
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: UETools.Objects.Property.FieldPath
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: UETools.Objects.Property.FieldPath
+                    CachedSourceStructSubProperty: UETools.Objects.Property.FieldPath
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: UETools.Objects.Property.FieldPath
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _isBeingPulledUp
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
@@ -408,7 +543,7 @@
     UberGraphFrame: None
     AnimGraphNode_Root: {
         Result: {
-            LinkID: 19
+            LinkID: 23
         }
         Name: AnimGraph
         Group: None
@@ -436,6 +571,50 @@
     }
     AnimGraphNode_TransitionResult: {
         bCanEnterTransition: False
+    }
+    AnimGraphNode_TransitionResult: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_TransitionResult: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_SequencePlayer: {
+        Sequence: null
+        PlayRateBasis: 1
+        PlayRate: 1
+        PlayRateScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+        StartPosition: 0
+        bLoopAnimation: False
+        GroupIndex: -1
+        GroupRole: EAnimGroupRole::CanBeLeader
+        bIgnoreForRelevancyTest: False
+        BlendWeight: 0
+        InternalTimeAccumulator: 0
+    }
+    AnimGraphNode_StateResult: {
+        Result: {
+            LinkID: 11
+        }
+        Name: Destroying
+        Group: None
     }
     AnimGraphNode_SequencePlayer: {
         Sequence: AnimSequence /Game/Meshes/InteractableObjects/PullDown/Animations/Plank01_Idle_OnGround.Plank01_Idle_OnGround
@@ -470,7 +649,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 9
+            LinkID: 13
         }
         Name: IdleOnGround
         Group: None
@@ -508,7 +687,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 11
+            LinkID: 15
         }
         Name: PullupOut
         Group: None
@@ -546,7 +725,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 13
+            LinkID: 17
         }
         Name: LiftingLoop
         Group: None
@@ -575,7 +754,7 @@
             InterpSpeedDecreasing: 10
         }
         StartPosition: 0
-        bLoopAnimation: True
+        bLoopAnimation: False
         GroupIndex: -1
         GroupRole: EAnimGroupRole::CanBeLeader
         bIgnoreForRelevancyTest: False
@@ -584,7 +763,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 15
+            LinkID: 19
         }
         Name: StandIdle
         Group: None
@@ -622,7 +801,7 @@
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 17
+            LinkID: 21
         }
         Name: FallOnGround
         Group: None
@@ -632,5 +811,18 @@
         MaxTransitionsPerFrame: 3
         bSkipFirstUpdateTransition: True
         bReinitializeOnBecomingRelevant: True
+    }
+    _destroyPalletAnim: {
+        _taggedSequences: [
+            {
+                Sequence: AnimSequence /Game/Meshes/InteractableObjects/PullDown/Animations/Plank01_DestroyBookShelf.Plank01_DestroyBookShelf
+                Tags: {  }
+            }
+            , 
+            {
+                Sequence: AnimSequence /Game/Meshes/InteractableObjects/PullDown/Animations/Plank01_DestroyBookShelf_K24.Plank01_DestroyBookShelf_K24
+                Tags: { AnimTag.K24 }
+            }
+        ]
     }
 }

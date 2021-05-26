@@ -1,0 +1,464 @@
+{
+    Timelines: [
+        TimelineTemplate BP_ZombieCharacter_C.TML_DissolveZombie_Spawn_Template
+        , 
+        TimelineTemplate BP_ZombieCharacter_C.TML_DissolveZombie_Death_Template
+    ]
+    SimpleConstructionScript: SimpleConstructionScript BP_ZombieCharacter_C.SimpleConstructionScript
+    UberGraphFunction: Function BP_ZombieCharacter_C.ExecuteUbergraph_BP_ZombieCharacter
+}
+<--- CDO --->
+{
+    UberGraphFrame: None
+    _zombieWalkSpeed: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+                RowName: ZombieWalkSpeed
+            }
+        }
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Add
+                ModifierTag: {
+                    TagName: GameplayModifierType.ModifyZombieWalkSpeedAdditive
+                }
+                CompoundStrategy: EModifierCompoundStrategy::Add
+            }
+        ]
+    }
+    _poolableComponent: {
+        }
+    _zombieAttackDetector: {
+            SphereRadius: 100
+            DetailLevelBeforeCastShadows: DM_MAX
+            CanCharacterStepUpOn: ECB_No
+            BodyInstance: {
+                CollisionProfileName: Custom
+                CollisionResponses: {
+                    ResponseArray: [
+                        {
+                            Channel: WorldStatic
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: WorldDynamic
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Pawn
+                            Response: ECR_Overlap
+                        }
+                        , 
+                        {
+                            Channel: Visibility
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Camera
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: PhysicsBody
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Vehicle
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Destructible
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: InteractionDetector
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: BlinkBlocker
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Ground
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Spider
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Traps
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Slasher
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Audio
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Interactable
+                            Response: ECR_Ignore
+                        }
+                    ]
+                }
+            }
+            AttachParent: {
+                    DetailLevelBeforeCastShadows: DM_MAX
+                    BodyInstance: {
+                        bLockXRotation: True
+                        bLockYRotation: True
+                        CollisionProfileName: Custom
+                    }
+                    ComponentTags: [
+                        Slashable
+                    ]
+                }
+            RelativeLocation: { X: 20, Y: 0, Z: 0 }
+            bCanEverAffectNavigation: False
+        }
+    _attackDamageZone: {
+            StaticMesh: StaticMesh /Game/Characters/Slashers/Blueprints/AttackZone/AttackZone_001.AttackZone_001
+            bUseDefaultCollision: False
+            OverrideMaterials: [
+                null
+            ]
+            bVisibleInReflectionCaptures: False
+            bVisibleInRayTracing: False
+            bRenderInMainPass: False
+            bRenderInDepthPass: False
+            bReceivesDecals: False
+            bUseAsOccluder: False
+            DetailLevelBeforeCastShadows: DM_MAX
+            BodyInstance: {
+                CollisionProfileName: Custom
+                CollisionResponses: {
+                    ResponseArray: [
+                        {
+                            Channel: Interactable
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Slasher
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: InteractionDetector
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: BlinkBlocker
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Ground
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Visibility
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Camera
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Spider
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Traps
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: WorldStatic
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: WorldDynamic
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Pawn
+                            Response: ECR_Overlap
+                        }
+                        , 
+                        {
+                            Channel: PhysicsBody
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Vehicle
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Destructible
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Audio
+                            Response: ECR_Ignore
+                        }
+                    ]
+                }
+            }
+            AttachParent: CapsuleComponent Default__BP_ZombieCharacter_C.CollisionCylinder
+            RelativeRotation: { Pitch: 0, Roll: 90, Yaw: 0 }
+            RelativeScale3D: { X: 0.35, Y: 0.2, Z: 0.35 }
+            bVisible: False
+            bHiddenInGame: True
+            bCanEverAffectNavigation: False
+        }
+    _zombieRespawnTimeKilledBySlasher: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+                RowName: ZombieRespawnTimeKilledBySlasher
+            }
+        }
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Add
+                ModifierTag: {
+                    TagName: GameplayModifierType.ModifyZombieSpawnTimeAdditive
+                }
+                CompoundStrategy: EModifierCompoundStrategy::Add
+            }
+        ]
+    }
+    _zombieRespawnTimeKilledBySurvivor: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+                RowName: ZombieRespawnTimeKilledBySurvivor
+            }
+        }
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Add
+                ModifierTag: {
+                    TagName: GameplayModifierType.ModifyZombieSpawnTimeAdditive
+                }
+                CompoundStrategy: EModifierCompoundStrategy::Add
+            }
+        ]
+    }
+    _femaleSkeletalMesh: SkeletalMesh /Game/Characters/Slashers/K24/MF_Eclipse/Model/F_K24_01_REF.F_K24_01_REF
+    _blindableComponent: {
+            _chargeableComponent: {
+                    ChargeableCompletionPercentChangeCosmeticDelegate: OnChargeableCompletionPercentChanged
+                }
+        }
+    _blindingChargeableComponent: ChargeableComponent Default__BP_ZombieCharacter_C.BlindnessChargeableComponent
+    _firecrackerEffectHandlerComponent: {
+        }
+    _flashLightableComponent: {
+            _lightingStrategy: {
+                    _pointsProvider: {
+                            _meshReference: {
+                                ComponentProperty: Mesh
+                            }
+                            _sockets: [
+                                EyesSocket
+                            ]
+                        }
+                }
+        }
+    _zombieStunBaseTime: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+            RowName: ZombieStunBaseTime
+        }
+    }
+    _objectState: {
+        }
+    _positionRecorder: {
+        }
+    _authoritativeMovementComponent: {
+        }
+    _otherCharactersVerticalCollisionsHandler: {
+        }
+    Mesh: {
+            AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/K24/MF_Eclipse/Blueprints/AB_MF_K24.AB_MF_K24_C
+            bUpdateOverlapsOnAnimationFinalize: False
+            SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/K24/MF_Eclipse/Model/M_K24_01_REF.M_K24_01_REF
+            VisibilityBasedAnimTickOption: EVisibilityBasedAnimTickOption::OnlyTickPoseWhenRendered
+            bComponentUseFixedSkelBounds: True
+            DetailLevelBeforeCastShadows: DM_MAX
+            BodyInstance: {
+                ObjectType: ECC_WorldStatic
+                CollisionEnabled: ECollisionEnabled::NoCollision
+                CollisionProfileName: NoCollision
+                CollisionResponses: {
+                    ResponseArray: [
+                        {
+                            Channel: WorldStatic
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: WorldDynamic
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Pawn
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Visibility
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Camera
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: PhysicsBody
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Vehicle
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Destructible
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: EngineTraceChannel2
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: EngineTraceChannel3
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: EngineTraceChannel4
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: EngineTraceChannel5
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: EngineTraceChannel6
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Interactable
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Audio
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Slasher
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Spider
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Traps
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: InteractionDetector
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: BlinkBlocker
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Ground
+                            Response: ECR_Ignore
+                        }
+                    ]
+                }
+            }
+            AttachParent: CapsuleComponent Default__BP_ZombieCharacter_C.CollisionCylinder
+            RelativeLocation: { X: 0, Y: 0, Z: -90 }
+            RelativeRotation: { Pitch: 0, Roll: -90, Yaw: 0 }
+        }
+    CharacterMovement: {
+            MaxWalkSpeed: 130
+            MaxAcceleration: 100
+            BrakingDecelerationFalling: 1000
+            FallingLateralFriction: 1
+            RotationRate: { Pitch: 0, Roll: 250, Yaw: 0 }
+            bOrientRotationToMovement: True
+            bNetworkAlwaysReplicateTransformUpdateTimestamp: True
+            MaxSimulationTimeStep: 0.1
+            AvoidanceGroup: {
+                bGroup0: False
+                bGroup2: True
+            }
+            GroupsToAvoid: {
+                bGroup0: False
+                bGroup1: False
+            }
+            NavAgentProps: {
+                bCanJump: False
+                bCanSwim: False
+            }
+            bReplicates: True
+        }
+    CapsuleComponent: CapsuleComponent Default__BP_ZombieCharacter_C.CollisionCylinder
+    bUseControllerRotationYaw: False
+    AutoPossessAI: EAutoPossessAI::Spawned
+    AIControllerClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/K24/Zombie/AI/ZombieAIController_BP.ZombieAIController_BP_C
+    bAlwaysRelevant: False
+    RootComponent: CapsuleComponent Default__BP_ZombieCharacter_C.CollisionCylinder
+}

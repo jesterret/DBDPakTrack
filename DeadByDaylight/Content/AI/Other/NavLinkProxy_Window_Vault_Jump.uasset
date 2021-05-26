@@ -1,0 +1,48 @@
+{
+    SimpleConstructionScript: SimpleConstructionScript NavLinkProxy_Window_Vault_Jump_C.SimpleConstructionScript
+}
+<--- CDO --->
+{
+    PlayerSetups: [
+        [ EPlayerRole::VE_Camper
+         => 
+        {
+            Input: EPawnInputPressTypes::FastInteract
+            InteractionIds: [
+                Vault
+                , 
+                VaultFast
+                , 
+                RunVault
+            ]
+            InputTimeDeviationInChase: {
+                DefaultValue: 0
+                TunableName: VaultInChaseInputRandDelay
+            }
+        }
+        ], 
+        [ EPlayerRole::VE_Slasher
+         => 
+        {
+            Input: EPawnInputPressTypes::Interact
+            InteractionIds: [
+                SlasherVault
+            ]
+            InputTimeDeviationInChase: {
+                DefaultValue: 0
+                TunableName: None
+            }
+        }
+        ]]
+    PointLinks: [ ]
+    SmartLinkComp: {
+            BaseLinkRelativeStart: { X: -100, Y: 0, Z: 0 }
+            BaseLinkRelativeEnd: { X: 320, Y: 0, Z: 0 }
+            BaseLinkDirection: ENavLinkDirection::LeftToRight
+            AutoSnapSmartLinkPointsUpHeight: 20
+            AutoSnapSmartLinkPointsDownHeight: 1000
+            EnabledAreaClass: Class /Script/DBDBots.NavArea_Vault
+        }
+    RootComponent: {
+        }
+}

@@ -9,6 +9,52 @@
 <--- CDO --->
 {
     UberGraphFrame: None
+    _interactable: {
+            DetailLevelBeforeCastShadows: DM_MAX
+            AttachParent: {
+                    SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/FireCracker/FireCraker_REF.FireCraker_REF
+                    bRenderStatic: True
+                    DetailLevelBeforeCastShadows: DM_MAX
+                    BodyInstance: {
+                        MassInKgOverride: 0
+                    }
+                }
+        }
+    _collectableInteractor: {
+            AttachParent: SpherePlayerOverlapComponent Default__BP_FirecrackerSpawner_C.InteractableZone
+        }
+    _dropInteraction: {
+            AttachParent: {
+                    AttachParent: SkeletalMeshComponent Default__BP_FirecrackerSpawner_C.ItemMesh
+                }
+        }
+    _collectInteraction: {
+            AttachParent: Interactor Default__BP_FirecrackerSpawner_C.CollectableInteractorComponent
+        }
+    _infectablePrimitive: {
+            DetailLevelBeforeCastShadows: DM_MAX
+            AttachParent: SkeletalMeshComponent Default__BP_FirecrackerSpawner_C.ItemMesh
+        }
+    _outlineComponent: {
+            AttachParent: SkeletalMeshComponent Default__BP_FirecrackerSpawner_C.ItemMesh
+        }
+    _materialHelper: {
+            Groups: [
+                {
+                    GroupName: Dissolve
+                    Maps: [
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper.MI_Camper
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperItemDissolve.MI_CamperItemDissolve
+                        }
+                    ]
+                }
+            ]
+            AttachParent: SkeletalMeshComponent Default__BP_FirecrackerSpawner_C.ItemMesh
+        }
+    _survivorCollectableOutlineUpdateStrategy: {
+            _outlineComponent: DBDOutlineComponent Default__BP_FirecrackerSpawner_C.DBDOutlineComponent
+        }
     HandPosition: EItemHandPosition::FirecrackerItem
     ItemID: Item_Camper_Firecracker
     BaseItemModifier: {
@@ -69,9 +115,8 @@
         }
     ItemModifier2: {
         }
-    _mesh: {
-            SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/FireCracker/FireCraker_REF.FireCraker_REF
-        }
+    _itemInteractor: Interactor Default__BP_FirecrackerSpawner_C.ItemInteractorComponent
+    _mesh: SkeletalMeshComponent Default__BP_FirecrackerSpawner_C.ItemMesh
     _placementOrigin: {
             AttachParent: SkeletalMeshComponent Default__BP_FirecrackerSpawner_C.ItemMesh
             RelativeLocation: { X: 0, Y: 0, Z: -1 }
@@ -82,5 +127,7 @@
         TagName: State.HasFirecracker
     }
     _itemType: ELoadoutItemType::Firecracker
+    _transformOptimizer: {
+        }
     RootComponent: SkeletalMeshComponent Default__BP_FirecrackerSpawner_C.ItemMesh
 }

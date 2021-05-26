@@ -22,6 +22,184 @@
 <--- CDO --->
 {
     UberGraphFrame: None
+    _interactable: {
+            DetailLevelBeforeCastShadows: DM_MAX
+            AttachParent: {
+                    bDisableClothSimulation: True
+                    bDisableRigidBodyAnimNode: True
+                    SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/ToolBox/Models/SK_Toolbox01_REF.SK_Toolbox01_REF
+                    bRenderStatic: True
+                    CastShadow: True
+                    DetailLevelBeforeCastShadows: DM_MAX
+                    bCastCinematicShadow: True
+                    BodyInstance: {
+                        CollisionResponses: {
+                            ResponseArray: [
+                                {
+                                    Channel: WorldStatic
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: WorldDynamic
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Pawn
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Visibility
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Camera
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: PhysicsBody
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Vehicle
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Destructible
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: EngineTraceChannel1
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: EngineTraceChannel2
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: EngineTraceChannel3
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: EngineTraceChannel4
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: EngineTraceChannel5
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: EngineTraceChannel6
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Interactable
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Audio
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Slasher
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Spider
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Traps
+                                    Response: ECR_Ignore
+                                }
+                            ]
+                        }
+                        MassInKgOverride: 23.033546
+                    }
+                }
+        }
+    _collectableInteractor: {
+            AttachParent: SpherePlayerOverlapComponent Default__ToolBox_C.InteractableZone
+        }
+    _dropInteraction: {
+            AttachParent: {
+                    AttachParent: SkeletalMeshComponent Default__ToolBox_C.ItemMesh
+                }
+        }
+    _collectInteraction: {
+            AttachParent: Interactor Default__ToolBox_C.CollectableInteractorComponent
+        }
+    _infectablePrimitive: {
+            DetailLevelBeforeCastShadows: DM_MAX
+            AttachParent: SkeletalMeshComponent Default__ToolBox_C.ItemMesh
+        }
+    _outlineComponent: {
+            AttachParent: SkeletalMeshComponent Default__ToolBox_C.ItemMesh
+        }
+    _materialHelper: {
+            Groups: [
+                {
+                    GroupName: Camper1
+                    Maps: [
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper.MI_Camper
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve.MI_CamperDissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: Material /Game/Characters/Campers/Materials/M_Hair.M_Hair
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_Hair_Dissolve.MI_Hair_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_Dither.MI_Camper_Dither
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MV_Camper_Dither.MV_Camper_Dither
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_Cust.MI_Camper_Cust
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_Cust.MI_CamperDissolve_Cust
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_TransCust.MI_Camper_TransCust
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_TransCust.MI_CamperDissolve_TransCust
+                        }
+                    ]
+                }
+                , 
+                {
+                    GroupName: Dissolve
+                    Maps: [
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Materials/Masters/MI_Structures_v2.MI_Structures_v2
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_Structures_v2_Dissolve.MI_Structures_v2_Dissolve
+                        }
+                    ]
+                }
+            ]
+            AttachParent: SkeletalMeshComponent Default__ToolBox_C.ItemMesh
+        }
+    _survivorCollectableOutlineUpdateStrategy: {
+            _outlineComponent: DBDOutlineComponent Default__ToolBox_C.DBDOutlineComponent
+        }
     HandPosition: EItemHandPosition::HandleItem
     HasUseInteraction: True
     ItemID: Item_Camper_Toolbox
@@ -61,114 +239,8 @@
                 ]
             }
         }
-    _mesh: {
-            bDisableClothSimulation: True
-            bDisableRigidBodyAnimNode: True
-            SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/ToolBox/Models/SK_Toolbox01_REF.SK_Toolbox01_REF
-            CastShadow: True
-            bCastCinematicShadow: True
-            BodyInstance: {
-                CollisionResponses: {
-                    ResponseArray: [
-                        {
-                            Channel: WorldStatic
-                            Response: ECR_Ignore
-                        }
-                        , 
-                        {
-                            Channel: WorldDynamic
-                            Response: ECR_Ignore
-                        }
-                        , 
-                        {
-                            Channel: Pawn
-                            Response: ECR_Ignore
-                        }
-                        , 
-                        {
-                            Channel: Visibility
-                            Response: ECR_Ignore
-                        }
-                        , 
-                        {
-                            Channel: Camera
-                            Response: ECR_Ignore
-                        }
-                        , 
-                        {
-                            Channel: PhysicsBody
-                            Response: ECR_Ignore
-                        }
-                        , 
-                        {
-                            Channel: Vehicle
-                            Response: ECR_Ignore
-                        }
-                        , 
-                        {
-                            Channel: Destructible
-                            Response: ECR_Ignore
-                        }
-                        , 
-                        {
-                            Channel: EngineTraceChannel1
-                            Response: ECR_Ignore
-                        }
-                        , 
-                        {
-                            Channel: EngineTraceChannel2
-                            Response: ECR_Ignore
-                        }
-                        , 
-                        {
-                            Channel: EngineTraceChannel3
-                            Response: ECR_Ignore
-                        }
-                        , 
-                        {
-                            Channel: EngineTraceChannel4
-                            Response: ECR_Ignore
-                        }
-                        , 
-                        {
-                            Channel: EngineTraceChannel5
-                            Response: ECR_Ignore
-                        }
-                        , 
-                        {
-                            Channel: EngineTraceChannel6
-                            Response: ECR_Ignore
-                        }
-                        , 
-                        {
-                            Channel: Interactable
-                            Response: ECR_Ignore
-                        }
-                        , 
-                        {
-                            Channel: Audio
-                            Response: ECR_Ignore
-                        }
-                        , 
-                        {
-                            Channel: Slasher
-                            Response: ECR_Ignore
-                        }
-                        , 
-                        {
-                            Channel: Spider
-                            Response: ECR_Ignore
-                        }
-                        , 
-                        {
-                            Channel: Traps
-                            Response: ECR_Ignore
-                        }
-                    ]
-                }
-                MassInKgOverride: 23.033546
-            }
-        }
+    _itemInteractor: Interactor Default__ToolBox_C.ItemInteractorComponent
+    _mesh: SkeletalMeshComponent Default__ToolBox_C.ItemMesh
     _placementOrigin: {
             AttachParent: SkeletalMeshComponent Default__ToolBox_C.ItemMesh
             RelativeLocation: { X: 0, Y: 0, Z: -20 }
@@ -180,5 +252,7 @@
     }
     _itemType: ELoadoutItemType::Toolbox
     _discardWhenConsumed: False
+    _transformOptimizer: {
+        }
     RootComponent: SkeletalMeshComponent Default__ToolBox_C.ItemMesh
 }

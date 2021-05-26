@@ -24,6 +24,83 @@
     MapActorCategoriesNotInitiallyTrackable: [
         EMapActorCategory::BlackLock
     ]
+    _interactable: {
+            DetailLevelBeforeCastShadows: DM_MAX
+            AttachParent: {
+                    bRenderStatic: True
+                    CastShadow: True
+                    DetailLevelBeforeCastShadows: DM_MAX
+                    bCastCinematicShadow: True
+                    BodyInstance: {
+                        MassInKgOverride: 0
+                    }
+                }
+        }
+    _collectableInteractor: {
+            AttachParent: SpherePlayerOverlapComponent Default__BP_Map_C.InteractableZone
+        }
+    _dropInteraction: {
+            AttachParent: {
+                    AttachParent: SkeletalMeshComponent Default__BP_Map_C.ItemMesh
+                }
+        }
+    _collectInteraction: {
+            AttachParent: Interactor Default__BP_Map_C.CollectableInteractorComponent
+        }
+    _infectablePrimitive: {
+            DetailLevelBeforeCastShadows: DM_MAX
+            AttachParent: SkeletalMeshComponent Default__BP_Map_C.ItemMesh
+        }
+    _outlineComponent: {
+            AttachParent: SkeletalMeshComponent Default__BP_Map_C.ItemMesh
+        }
+    _materialHelper: {
+            Groups: [
+                {
+                    GroupName: Camper1
+                    Maps: [
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper.MI_Camper
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve.MI_CamperDissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: Material /Game/Characters/Campers/Materials/M_Hair.M_Hair
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_Hair_Dissolve.MI_Hair_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_Dither.MI_Camper_Dither
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MV_Camper_Dither.MV_Camper_Dither
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_Cust.MI_Camper_Cust
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_Cust.MI_CamperDissolve_Cust
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_TransCust.MI_Camper_TransCust
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_TransCust.MI_CamperDissolve_TransCust
+                        }
+                    ]
+                }
+                , 
+                {
+                    GroupName: Dissolve
+                    Maps: [
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Materials/Masters/MI_Structures_v2_Masked.MI_Structures_v2_Masked
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_Structures_v2_Dissolve.MI_Structures_v2_Dissolve
+                        }
+                    ]
+                }
+            ]
+            AttachParent: SkeletalMeshComponent Default__BP_Map_C.ItemMesh
+        }
+    _survivorCollectableOutlineUpdateStrategy: {
+            _outlineComponent: DBDOutlineComponent Default__BP_Map_C.DBDOutlineComponent
+        }
     HandPosition: EItemHandPosition::HandleItem
     HasUseInteraction: True
     ItemID: BeigeMap
@@ -50,10 +127,8 @@
         }
     ItemModifier2: {
         }
-    _mesh: {
-            CastShadow: True
-            bCastCinematicShadow: True
-        }
+    _itemInteractor: Interactor Default__BP_Map_C.ItemInteractorComponent
+    _mesh: SkeletalMeshComponent Default__BP_Map_C.ItemMesh
     _placementOrigin: {
             AttachParent: SkeletalMeshComponent Default__BP_Map_C.ItemMesh
         }
@@ -61,5 +136,7 @@
         }
     _itemType: ELoadoutItemType::Map
     _discardWhenConsumed: False
+    _transformOptimizer: {
+        }
     RootComponent: SkeletalMeshComponent Default__BP_Map_C.ItemMesh
 }

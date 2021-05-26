@@ -1,0 +1,186 @@
+{
+    Timelines: [
+        TimelineTemplate BP_K24PowerItem_C.TML_ContaminationDecal_02_Template
+        , 
+        TimelineTemplate BP_K24PowerItem_C.Timeline_0_Template
+    ]
+    SimpleConstructionScript: SimpleConstructionScript BP_K24PowerItem_C.SimpleConstructionScript
+    InheritableComponentHandler: InheritableComponentHandler BP_K24PowerItem_C.InheritableComponentHandler
+    UberGraphFunction: Function BP_K24PowerItem_C.ExecuteUbergraph_BP_K24PowerItem
+}
+<--- CDO --->
+{
+    UberGraphFrame: None
+    K24_MeshScale_curve: CurveFloat /Game/Effects/Blueprints/Killer24/C_K24_TrailScaleMesh.C_K24_TrailScaleMesh
+    WhipStartLocation: { X: 0, Y: 0, Z: 0 }
+    WhipImpactLocation: { X: 0, Y: 0, Z: 0 }
+    StateBegin_WhipStartLocation: { X: 0, Y: 0, Z: 0 }
+    StateBegin_WhipEndLocation: { X: 0, Y: 0, Z: 0 }
+    StateEnd_WhipStartLocation: { X: 0, Y: 0, Z: 0 }
+    StateEnd_WhipEndLocation: { X: 0, Y: 0, Z: 0 }
+    _powerWalkSpeed: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+            RowName: PowerWalkSpeed
+        }
+    }
+    _normalWalkSpeed: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+            RowName: MaxWalkSpeed
+        }
+    }
+    _powerMouseYawScale: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+            RowName: PowerMouseYawScale
+        }
+    }
+    _powerYawAdjustTime: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+            RowName: PowerYawAdjustTime
+        }
+    }
+    _powerGamePadYawScale: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+            RowName: PowerGamePadYawScale
+        }
+    }
+    _activateK24PowerCharge: {
+        }
+    _activateK24PowerSecondsToCharge: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+            RowName: ActivateK24PowerSecondsToCharge
+        }
+    }
+    _activatePowerChargeSpeedCurve: CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/K24/K24PowerChargeSpeedCurve.K24PowerChargeSpeedCurve
+    _activatePowerChargeLvl3SpeedCurve: CurveFloat /Game/Characters/Slashers/Blueprints/AttackCurves/K24/K24PowerChargeLvl3SpeedCurve.K24PowerChargeLvl3SpeedCurve
+    _whipLengthLevel1: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+            RowName: WhipLengthLevel1
+        }
+    }
+    _whipLengthLevel2: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+            RowName: WhipLengthLevel2
+        }
+    }
+    _whipLengthLevel3: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+            RowName: WhipLengthLevel3
+        }
+    }
+    _contaminationComponentBP: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/K24/BP_SurvivorContamination.BP_SurvivorContamination_C
+    _powerChargeSurvivorContaminatedPoint: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+                RowName: PowerChargeSurvivorContaminatedPoint
+            }
+        }
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Add
+                ModifierTag: {
+                    TagName: GameplayModifierType.ModifyInfectionPointSurvivorAdditive
+                }
+                CompoundStrategy: EModifierCompoundStrategy::Add
+            }
+        ]
+    }
+    _powerChargeZombieKilledPoint: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+                RowName: PowerChargeZombieKilledPoint
+            }
+        }
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Add
+                ModifierTag: {
+                    TagName: GameplayModifierType.ModifyInfectionPointZombieAdditive
+                }
+                CompoundStrategy: EModifierCompoundStrategy::Add
+            }
+        ]
+    }
+    _powerLevelPointsToLevel2: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+            RowName: PowerLevelPointsToLevel2
+        }
+    }
+    _powerLevelPointsToLevel3: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+            RowName: PowerLevelPointsToLevel3
+        }
+    }
+    ItemID: Item_Slasher_K24Power
+    BaseItemModifier: {
+        }
+    ItemModifier1: {
+        }
+    ItemModifier2: {
+        }
+    _mesh: {
+            AnimClass: AnimBlueprintGeneratedClass /Game/Characters/Slashers/K24/Weapons/Blueprints/AB_K24_SW00.AB_K24_SW00_C
+            SkeletalMesh: SkeletalMesh /Game/Characters/Slashers/K24/Weapons/Models/K24_SW00_REF.K24_SW00_REF
+            VisibilityBasedAnimTickOption: EVisibilityBasedAnimTickOption::AlwaysTickPoseAndRefreshBones
+            AnimationTresholdToFrameSkip: [
+                {
+                    Treshold: 0.5
+                    FrameSkip: 0
+                }
+                , 
+                {
+                    Treshold: 0.15
+                    FrameSkip: 0
+                }
+                , 
+                {
+                    Treshold: 0.15
+                    FrameSkip: 0
+                }
+                , 
+                {
+                    Treshold: 0.05
+                    FrameSkip: 0
+                }
+                , 
+                {
+                    Treshold: 0
+                    FrameSkip: 0
+                }
+            ]
+            OverrideMaterials: [
+                MaterialInstanceConstant /Game/Effects/Materials/SlasherK24/MI_Tentacule.MI_Tentacule
+            ]
+            DetailLevelBeforeCastShadows: DM_MAX
+            LightingChannels: {
+                bChannel0: False
+                bChannel1: False
+            }
+            BodyInstance: {
+                MassInKgOverride: 0
+            }
+        }
+    _placementOrigin: {
+            AttachParent: SkeletalMeshComponent Default__BP_K24PowerItem_C.ItemMesh
+        }
+    _attachToSocketName: EAttachToSocketNameEnum::Tentacle_SocketLT
+    _objectState: {
+        }
+    _transformOptimizer: {
+        }
+    NetUpdateFrequency: 10
+    MinNetUpdateFrequency: 10
+    RootComponent: SkeletalMeshComponent Default__BP_K24PowerItem_C.ItemMesh
+}

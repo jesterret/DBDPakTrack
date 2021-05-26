@@ -1,0 +1,45 @@
+{
+}
+<--- CDO --->
+{
+    _injectSerumKillerInstinctTime: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+                RowName: InjectSerumKillerInstinctTime
+            }
+        }
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Add
+                ModifierTag: {
+                    TagName: GameplayModifierType.ModifyInjectSerumKillerInstinctTime
+                }
+                CompoundStrategy: EModifierCompoundStrategy::Add
+            }
+        ]
+    }
+    _scoreEvent: {
+        TagName: GameEvent.ScoreEvent.Camper.Injected.Serum.Self
+    }
+    _serumApplyHeal: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+            RowName: SerumApplyHeal
+        }
+    }
+    StopInteractionOnChargeComplete: True
+    _interactionSpecificActionSpeedAdditiveTags: { GameplayModifierType.ModifyInjectSerumTimeAdditive }
+    InteractionID: InjectSerum
+    InteractionInputType: EInputInteractionType::VE_ItemUse
+    StopInteractionOnInputRelease: True
+    CamperCanInteract: True
+    UseCameraMontageMode: False
+    CancelOnHit: True
+    InteractionDescriptionText: Inject Vaccine
+    _tags: { Semantics.Interaction.Id.Survivor.InjectingSerumSelf }
+    _activationDefinition: {
+        _activationStrategy: EActivationStrategy::ActivateIfAnyTagMatches
+        _activationTags: { State.Presence.TheK24 }
+    }
+}

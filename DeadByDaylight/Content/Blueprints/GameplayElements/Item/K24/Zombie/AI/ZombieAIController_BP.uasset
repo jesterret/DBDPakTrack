@@ -1,0 +1,113 @@
+{
+    SimpleConstructionScript: SimpleConstructionScript ZombieAIController_BP_C.SimpleConstructionScript
+}
+<--- CDO --->
+{
+    _zombieBehaviorTree: BehaviorTree /Game/Blueprints/GameplayElements/Item/K24/Zombie/AI/BT_Zombie.BT_Zombie
+    _aiPerceptionComponent: {
+            SensesConfig: [
+                    {
+                        SightRadius: 100
+                        LoseSightRadius: 100
+                        PeripheralVisionAngleDegrees: 10
+                        MaxAge: 0
+                    }
+            ]
+            DominantSense: Class /Script/AIModule.AISense_Sight
+        }
+    _zombieAttackHitTime: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+            RowName: ZombieAttackHitTime
+        }
+    }
+    _zombieAttackOpenTime: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+            RowName: ZombieAttackOpenTime
+        }
+    }
+    _zombieAnimSpawnTime: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+            RowName: ZombieAnimSpawnTime
+        }
+    }
+    _zombieAnimDyingTime: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+            RowName: ZombieAnimDyingTime
+        }
+    }
+    _zombieSightRadius: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+                RowName: ZombieSightRadius
+            }
+        }
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Add
+                ModifierTag: {
+                    TagName: GameplayModifierType.ModifyZombieSightRangeAdditive
+                }
+                CompoundStrategy: EModifierCompoundStrategy::Add
+            }
+        ]
+    }
+    _zombieLoseSightRadius: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+                RowName: ZombieLoseSightRadius
+            }
+        }
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Add
+                ModifierTag: {
+                    TagName: GameplayModifierType.ModifyZombieSightRangeAdditive
+                }
+                CompoundStrategy: EModifierCompoundStrategy::Add
+            }
+        ]
+    }
+    _zombieVisionHalfAngle: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+                RowName: ZombieVisionHalfAngle
+            }
+        }
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Add
+                ModifierTag: {
+                    TagName: GameplayModifierType.ModifyZombieSightAngleAdditive
+                }
+                CompoundStrategy: EModifierCompoundStrategy::Add
+            }
+        ]
+    }
+    _zombieFallSmashTime: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+            RowName: ZombieFallSmashTime
+        }
+    }
+    _zombieAttackCooldownTime: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+            RowName: ZombieAttackCooldownTime
+        }
+    }
+    PathFollowingComponent: {
+        }
+    ActionsComp: {
+        }
+    DefaultNavigationFilterClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/K24/Zombie/AI/ZombieNavigationQueryFilter.ZombieNavigationQueryFilter_C
+    TransformComponent: {
+        }
+    RootComponent: SceneComponent Default__ZombieAIController_BP_C.TransformComponent0
+}

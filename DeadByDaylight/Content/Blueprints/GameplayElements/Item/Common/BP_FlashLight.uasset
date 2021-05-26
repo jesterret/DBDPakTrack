@@ -24,6 +24,55 @@
     BeamHalfAngleWhenBlinding: 2
     BeamHalfAngleDuringFlash: 30
     SpotLightHalfAngle: 5
+    _interactable: {
+            DetailLevelBeforeCastShadows: DM_MAX
+            AttachParent: {
+                    SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/FlashLight/SK_FlashLight01.SK_FlashLight01
+                    bRenderStatic: True
+                    CastShadow: True
+                    DetailLevelBeforeCastShadows: DM_MAX
+                    bCastCinematicShadow: True
+                    bRenderCustomDepth: True
+                    BodyInstance: {
+                        MassInKgOverride: 1.3087957
+                    }
+                }
+        }
+    _collectableInteractor: {
+            AttachParent: SpherePlayerOverlapComponent Default__BP_Flashlight_C.InteractableZone
+        }
+    _dropInteraction: {
+            AttachParent: {
+                    AttachParent: SkeletalMeshComponent Default__BP_Flashlight_C.ItemMesh
+                }
+        }
+    _collectInteraction: {
+            AttachParent: Interactor Default__BP_Flashlight_C.CollectableInteractorComponent
+        }
+    _infectablePrimitive: {
+            DetailLevelBeforeCastShadows: DM_MAX
+            AttachParent: SkeletalMeshComponent Default__BP_Flashlight_C.ItemMesh
+        }
+    _outlineComponent: {
+            AttachParent: SkeletalMeshComponent Default__BP_Flashlight_C.ItemMesh
+        }
+    _materialHelper: {
+            Groups: [
+                {
+                    GroupName: Dissolve
+                    Maps: [
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_Cust.MI_Camper_Cust
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperItemDissolve.MI_CamperItemDissolve
+                        }
+                    ]
+                }
+            ]
+            AttachParent: SkeletalMeshComponent Default__BP_Flashlight_C.ItemMesh
+        }
+    _survivorCollectableOutlineUpdateStrategy: {
+            _outlineComponent: DBDOutlineComponent Default__BP_Flashlight_C.DBDOutlineComponent
+        }
     StrafeOnUse: True
     AimOnUse: True
     StopRunningOnUse: True
@@ -52,15 +101,8 @@
         }
     ItemModifier2: {
         }
-    _mesh: {
-            SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/FlashLight/SK_FlashLight01.SK_FlashLight01
-            CastShadow: True
-            bCastCinematicShadow: True
-            bRenderCustomDepth: True
-            BodyInstance: {
-                MassInKgOverride: 1.3087957
-            }
-        }
+    _itemInteractor: Interactor Default__BP_Flashlight_C.ItemInteractorComponent
+    _mesh: SkeletalMeshComponent Default__BP_Flashlight_C.ItemMesh
     _placementOrigin: {
             AttachParent: SkeletalMeshComponent Default__BP_Flashlight_C.ItemMesh
             RelativeLocation: { X: 0, Y: 0, Z: -4 }
@@ -72,6 +114,8 @@
     }
     _itemType: ELoadoutItemType::Flashlight
     _discardWhenConsumed: False
+    _transformOptimizer: {
+        }
     PrimaryActorTick: {
         TickInterval: 0.05
     }

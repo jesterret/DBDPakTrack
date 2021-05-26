@@ -3,6 +3,8 @@
         TimelineTemplate CrownPillar_C.Main_Timeline_Template
         , 
         TimelineTemplate CrownPillar_C.PillarDissolveTimeline_Template
+        , 
+        TimelineTemplate CrownPillar_C.TML_PillarAppear_Template
     ]
     SimpleConstructionScript: SimpleConstructionScript CrownPillar_C.SimpleConstructionScript
     UberGraphFunction: Function CrownPillar_C.ExecuteUbergraph_CrownPillar
@@ -11,8 +13,215 @@
 {
     UberGraphFrame: None
     Play Rate: 1.5
-    _survivorChargeDuration: 0.8
-    _slasherChargeDuration: 1
-    _debugIndicatorBlueprintClass: BlueprintGeneratedClass /Game/Blueprints/Util/BP_DebugIndicator.BP_DebugIndicator_C
+    OfferingAppearAuraDistance: {
+        _dataTableRowHandle: {
+            DataTable: null
+            RowName: OfferingAppearAuraDistance
+        }
+        _defaultValue: 800
+    }
+    _crownPillarInteractionSecondsToCharge: {
+        _dataTableRowHandle: {
+            RowName: SurvivorInteractionTime
+        }
+    }
+    _crownPillarInteractionSecondsToChargeKiller: {
+        _dataTableRowHandle: {
+            RowName: KillerInteractionTime
+        }
+    }
+    _offeringEnabledAuraVisibilityDistance: {
+        _dataTableRowHandle: {
+            RowName: OfferingAppearAuraDistance
+        }
+    }
+    _crownPillarInteraction: {
+            _attachToSocketName: LanternCollectableSocket
+            StopInteractionOnChargeComplete: True
+            InteractionID: CrownPickup_Survivor
+            StopInteractionOnInputRelease: True
+            StopInteractionOnHeightDelta: True
+            InteractionAnimation: EInteractionAnimation::VE_PickUpAnniversaryCrown
+            CamperCanInteract: True
+            CancelOnHit: True
+            InteractionDescriptionText: Pick Up
+            _interactor: {
+                    _interactionDefinitions: [
+                        CrownPickupInteraction Default__CrownPillar_C.CrownPillarInteraction
+                        , 
+                            {
+                                _attachToSocketName: BE_Socket_Toy
+                                StopInteractionOnChargeComplete: True
+                                InteractionID: CrownPickup_Slasher
+                                StopInteractionOnInputRelease: True
+                                StopInteractionOnHeightDelta: True
+                                SlasherCanInteract: True
+                                ScaleMainAnimationToTime: True
+                                CanInteractWhileCarrying: False
+                                CancelOnHit: True
+                                CancelOnAttack: True
+                                InteractionDescriptionText: Pick Up
+                                UpdateMontage: {
+                                    MontageID: Generic_Interaction
+                                }
+                                _interactor: Interactor Default__CrownPillar_C.CrownPillarInteractor
+                                AttachParent: Interactor Default__CrownPillar_C.CrownPillarInteractor
+                            }
+                    ]
+                    AttachParent: {
+                            BoxExtent: { X: 64, Y: 64, Z: 48 }
+                            DetailLevelBeforeCastShadows: DM_MAX
+                            CanCharacterStepUpOn: ECB_No
+                            BodyInstance: {
+                                ObjectType: ECC_GameTraceChannel1
+                                CollisionProfileName: Interactable
+                                CollisionResponses: {
+                                    ResponseArray: [
+                                        {
+                                            Channel: WorldStatic
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: WorldDynamic
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Pawn
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Visibility
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Camera
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: PhysicsBody
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Vehicle
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Destructible
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: EngineTraceChannel2
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: EngineTraceChannel3
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: EngineTraceChannel4
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: EngineTraceChannel5
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: EngineTraceChannel6
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Interactable
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Audio
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Slasher
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Spider
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Traps
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: BlinkBlocker
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Ground
+                                            Response: ECR_Ignore
+                                        }
+                                    ]
+                                }
+                            }
+                            AttachParent: {
+                                    Mobility: EComponentMobility::Static
+                                }
+                        }
+                }
+            AttachParent: Interactor Default__CrownPillar_C.CrownPillarInteractor
+        }
+    _crownPillarInteractionKiller: CrownPickupInteraction Default__CrownPillar_C.CrownPillarInteractionKiller
+    _crownPillarInteractionChargeable: {
+            ChargeableComponentID: CrownPickUpChargeable
+        }
+    _crownPillarInteractionChargeableKiller: {
+            ChargeableComponentID: CrownPickUpChargeable
+        }
+    _crownPillarInteractor: Interactor Default__CrownPillar_C.CrownPillarInteractor
+    _crownPillarInteractionZone: BoxComponent Default__CrownPillar_C.CrownPillarInteractionZone
+    _crownPillarStaticMesh: {
+            StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Crown/Static/SM_WA_CrownBase.SM_WA_CrownBase
+            bUseDefaultCollision: False
+            DetailLevelBeforeCastShadows: DM_MAX
+            CanCharacterStepUpOn: ECB_No
+            BodyInstance: {
+                ObjectType: ECC_WorldStatic
+                CollisionProfileName: BlockAll
+            }
+            AttachParent: SceneComponent Default__CrownPillar_C.Root
+            Mobility: EComponentMobility::Static
+        }
+    _outlineComponent: {
+            InterpolationSpeed: 5
+            MinimumOutlineDistance: 2000
+            OutlineName: crownpillar
+            AttachParent: StaticMeshComponent Default__CrownPillar_C.CrownPillarStaticMesh
+        }
+    _nearTrackedActorComponent: {
+            _distanceThreshold: 800
+        }
+    _crownPillarOutlineUpdateStrategy: {
+            _offeringEnabledAuraColor: { R: 1, G: 0, B: 0.561, A: 0.6 }
+        }
+    _transformOptimizer: {
+        }
+    bHidden: True
     bCanBeDamaged: False
+    RootComponent: SceneComponent Default__CrownPillar_C.Root
 }

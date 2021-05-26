@@ -1,0 +1,113 @@
+{
+    SimpleConstructionScript: SimpleConstructionScript BP_Toolbox_008_C.SimpleConstructionScript
+    InheritableComponentHandler: InheritableComponentHandler BP_Toolbox_008_C.InheritableComponentHandler
+    UberGraphFunction: Function BP_Toolbox_008_C.ExecuteUbergraph_BP_Toolbox_008
+}
+<--- CDO --->
+{
+    UberGraphFrame: None
+    SkillCheckFailEventHandle: {
+        Filter: {
+            TagName: None
+        }
+        GameEventDelegate: None
+    }
+    SkillCheckBonusSuccessEventHandle: {
+        Filter: {
+            TagName: None
+        }
+        GameEventDelegate: None
+    }
+    _interactable: {
+            AttachParent: {
+                    OverrideMaterials: [
+                        MaterialInstanceConstant /Game/Materials/Instances/InteractableObjects/Toolbox/MI_ToolBox_5thAnniversary.MI_ToolBox_5thAnniversary
+                    ]
+                }
+        }
+    _collectableInteractor: {
+            AttachParent: SpherePlayerOverlapComponent Default__BP_Toolbox_008_C.InteractableZone
+        }
+    _dropInteraction: {
+            AttachParent: {
+                    AttachParent: SkeletalMeshComponent Default__BP_Toolbox_008_C.ItemMesh
+                }
+        }
+    _collectInteraction: {
+            AttachParent: Interactor Default__BP_Toolbox_008_C.CollectableInteractorComponent
+        }
+    _infectablePrimitive: {
+            AttachParent: SkeletalMeshComponent Default__BP_Toolbox_008_C.ItemMesh
+        }
+    _outlineComponent: {
+            AttachParent: SkeletalMeshComponent Default__BP_Toolbox_008_C.ItemMesh
+        }
+    _materialHelper: {
+            AttachParent: SkeletalMeshComponent Default__BP_Toolbox_008_C.ItemMesh
+        }
+    _survivorCollectableOutlineUpdateStrategy: {
+            _outlineComponent: DBDOutlineComponent Default__BP_Toolbox_008_C.DBDOutlineComponent
+        }
+    ItemID: Item_Camper_AnniversaryToolbox
+    BaseItemModifier: {
+            ModifierData: {
+                Modifiers: [
+                    {
+                        Type: {
+                            TagName: GameplayModifierType.IncreaseItemCharge
+                        }
+                        ModifierValue: 32
+                    }
+                    , 
+                    {
+                        Type: {
+                            TagName: GameplayModifierType.ModifyItemMaxCharge
+                        }
+                        ModifierValue: 32
+                    }
+                ]
+                TaggedFlags: [
+                    {
+                        TagName: GameplayModifierFlag.AllowSabotage
+                    }
+                ]
+            }
+        }
+    ItemModifier1: {
+            ModifierData: {
+                Conditions: [
+                    BlueprintGeneratedClass /Game/Blueprints/Perks/PerkConditions/PlayerIsRepairingWithToolbox.PlayerIsRepairingWithToolbox_C
+                ]
+                Modifiers: [
+                    {
+                        Type: {
+                            TagName: GameplayModifierType.ActionSpeed
+                        }
+                        ModifierValue: 0.5
+                    }
+                ]
+            }
+        }
+    ItemModifier2: {
+            ModifierData: {
+                Modifiers: [
+                    {
+                        Type: {
+                            TagName: GameplayModifierType.ModifyItemEfficiency
+                        }
+                        ModifierValue: -0.5
+                    }
+                ]
+            }
+        }
+    _itemInteractor: Interactor Default__BP_Toolbox_008_C.ItemInteractorComponent
+    _mesh: SkeletalMeshComponent Default__BP_Toolbox_008_C.ItemMesh
+    _placementOrigin: {
+            AttachParent: SkeletalMeshComponent Default__BP_Toolbox_008_C.ItemMesh
+        }
+    _objectState: {
+        }
+    _transformOptimizer: {
+        }
+    RootComponent: SkeletalMeshComponent Default__BP_Toolbox_008_C.ItemMesh
+}

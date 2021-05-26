@@ -387,7 +387,7 @@ Asset: ProceduralGenerationData ProceduralGenerationData
             ]
             DlcIDString: 
             Blackboard: null
-            Gesture: True
+            Gesture: False
         }
         , 
         {
@@ -415,7 +415,7 @@ Asset: ProceduralGenerationData ProceduralGenerationData
             ]
             DlcIDString: lastBreath
             Blackboard: null
-            Gesture: True
+            Gesture: False
         }
         , 
         {
@@ -583,7 +583,7 @@ Asset: ProceduralGenerationData ProceduralGenerationData
             ]
             DlcIDString: Finland
             Blackboard: null
-            Gesture: True
+            Gesture: False
         }
         , 
         {
@@ -743,6 +743,34 @@ Asset: ProceduralGenerationData ProceduralGenerationData
             Blackboard: BlackboardData /Game/ProceduralLevelGeneration/Blackboards/Wales.Wales
             Gesture: False
         }
+        , 
+        {
+            Name: Eclipse
+            Weather: Clear
+            AudioStateThemes: AudioStateThemes_17_Eclipse
+            AudioStateWeather: AudioStateWeather_Clear
+            AudioGameStartEvent: AudioEvent_AM_Theme_17_Eclipse
+            TilePath: 17-Eclipse
+            MapPath: 17-Eclipse
+            ThemeNumber: 17
+            DisplayName: Raccoon City
+            ThemeColorId: EThemeColorId::Blue
+            ThemeSelectionOfferingEffectType: EOfferingEffectType::EclipseThemeSelectionModifier
+            SubstitutionElements: [
+                {
+                    _replacements: [
+                        {
+                            _elementToReplace: None
+                            _elementToReplaceWith: /Game/Blueprints/GameplayElements/Interactable/MeatLocker/BP_SmallMeatLocker_Eclipse.BP_SmallMeatLocker_Eclipse_C
+                        }
+                    ]
+                    _type: EGameplayElementType::MeatLocker_Small
+                }
+            ]
+            DlcIDString: Eclipse
+            Blackboard: BlackboardData /Game/ProceduralLevelGeneration/Blackboards/Wales.Wales
+            Gesture: False
+        }
     ]
     MaxSurvivorCount: 4
     KillersItemDependencies: [
@@ -800,6 +828,23 @@ Asset: ProceduralGenerationData ProceduralGenerationData
                 }
             ]
         }
+        , 
+        {
+            KillerAbility: EKillerAbilities::VE_K24Power
+            Items: [
+                {
+                    Object: /Game/Blueprints/GameplayElements/Item/K24/SupplyCrate/SupplyCrate_BP.SupplyCrate_BP_C
+                    Population: CurveFloat /Game/ProceduralLevelGeneration/ProbabilityCurves/SupplyCrateObjectCount.SupplyCrateObjectCount
+                    _gameplayElementType: EGameplayElementType::Searchable
+                }
+                , 
+                {
+                    Object: /Game/Blueprints/GameplayElements/Item/K24/Zombie/ZombiesManagement_BP.ZombiesManagement_BP_C
+                    Population: CurveFloat /Game/ProceduralLevelGeneration/ProbabilityCurves/ZombiesManagementCount.ZombiesManagementCount
+                    _gameplayElementType: EGameplayElementType::Generic
+                }
+            ]
+        }
     ]
     SurvivorItemPopulationProbability: CurveFloat /Game/ProceduralLevelGeneration/ProbabilityCurves/ItemCamperCount.ItemCamperCount
     SurvivorItemProperty: [
@@ -838,6 +883,8 @@ Asset: ProceduralGenerationData ProceduralGenerationData
                 /Game/Blueprints/GameplayElements/Interactable/Escape/BP_IND_Escape_01.BP_IND_Escape_01_C
                 , 
                 /Game/Blueprints/GameplayElements/Interactable/Escape/BP_ASY_Escape_01.BP_ASY_Escape_01_C
+                , 
+                /Game/Blueprints/GameplayElements/Interactable/Escape/BP_ECL_Escape_01.BP_ECL_Escape_01_C
                 , 
                 /Game/Blueprints/GameplayElements/Interactable/Escape/BP_FRM_Escape01.BP_FRM_Escape01_C
             ]
@@ -995,6 +1042,46 @@ Asset: ProceduralGenerationData ProceduralGenerationData
         }
         , 
         {
+            _name: Winter2018
+            _allowSubstitutionInKYF: True
+            _baseNumOfSubstitutionPerGroup: 1000
+            _gameplaySubstitutionElements: [
+                {
+                    _replacements: [
+                        {
+                            _elementToReplace: None
+                            _elementToReplaceWith: /Game/Blueprints/GameplayElements/Interactable/MeatLocker/BP_SmallMeatLocker_Winter2018.BP_SmallMeatLocker_Winter2018_C
+                        }
+                    ]
+                    _type: EGameplayElementType::MeatLocker_Small
+                }
+                , 
+                {
+                    _replacements: [
+                        {
+                            _elementToReplace: /Game/Blueprints/GameplayElements/Interactable/Closet/ClosetStandard.ClosetStandard_C
+                            _elementToReplaceWith: /Game/Blueprints/GameplayElements/Interactable/Closet/SpecialEvent/ClosetStandard_Winter.ClosetStandard_Winter_C
+                        }
+                    ]
+                    _type: EGameplayElementType::Generic
+                }
+                , 
+                {
+                    _replacements: [
+                        {
+                            _elementToReplace: /Game/Blueprints/Props/BP_FireBarrel01.BP_FireBarrel01_C
+                            _elementToReplaceWith: /Game/Blueprints/Props/SpecialEvent/Winter/BP_FireBarrel01_Winter.BP_FireBarrel01_Winter_C
+                        }
+                    ]
+                    _type: EGameplayElementType::TileLights
+                }
+            ]
+            _dependencySubstitutionElements: [ ]
+            _dependencyElementAdditions: [ ]
+            _gameplayElementAdditions: [ ]
+        }
+        , 
+        {
             _name: Lunar2021
             _allowSubstitutionInKYF: False
             _baseNumOfSubstitutionPerGroup: 1000
@@ -1040,7 +1127,7 @@ Asset: ProceduralGenerationData ProceduralGenerationData
         }
         , 
         {
-            _name: Anniversary
+            _name: Anniversary2021
             _allowSubstitutionInKYF: False
             _baseNumOfSubstitutionPerGroup: 1000
             _gameplaySubstitutionElements: [
@@ -1112,7 +1199,7 @@ Asset: ProceduralGenerationData ProceduralGenerationData
         }
         , 
         {
-            _name: Halloween
+            _name: Halloween2020
             _allowSubstitutionInKYF: False
             _baseNumOfSubstitutionPerGroup: 1
             _gameplaySubstitutionElements: [
@@ -1135,7 +1222,7 @@ Asset: ProceduralGenerationData ProceduralGenerationData
                         }
                         , 
                         {
-                            _elementToReplace: /Game/Blueprints/GameplayElements/Interactable/Generator/GeneratorHospital.GeneratorHospital_C
+                            _elementToReplace: /Game/Blueprints/GameplayElements/Interactable/Generator/GeneratorIndoor.GeneratorIndoor_C
                             _elementToReplaceWith: /Game/Blueprints/GameplayElements/Interactable/Generator/Events/Halloween/GeneratorIndoors_Halloween2020.GeneratorIndoors_Halloween2020_C
                         }
                         , 

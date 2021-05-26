@@ -21,6 +21,54 @@
 <--- CDO --->
 {
     UberGraphFrame: None
+    _interactable: {
+            DetailLevelBeforeCastShadows: DM_MAX
+            AttachParent: {
+                    SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/Skeleton_Key/Skeleton_Key_REF.Skeleton_Key_REF
+                    bRenderStatic: True
+                    CastShadow: True
+                    DetailLevelBeforeCastShadows: DM_MAX
+                    bCastCinematicShadow: True
+                    BodyInstance: {
+                        MassInKgOverride: 1.9502953
+                    }
+                }
+        }
+    _collectableInteractor: {
+            AttachParent: SpherePlayerOverlapComponent Default__BP_Key_C.InteractableZone
+        }
+    _dropInteraction: {
+            AttachParent: {
+                    AttachParent: SkeletalMeshComponent Default__BP_Key_C.ItemMesh
+                }
+        }
+    _collectInteraction: {
+            AttachParent: Interactor Default__BP_Key_C.CollectableInteractorComponent
+        }
+    _infectablePrimitive: {
+            DetailLevelBeforeCastShadows: DM_MAX
+            AttachParent: SkeletalMeshComponent Default__BP_Key_C.ItemMesh
+        }
+    _outlineComponent: {
+            AttachParent: SkeletalMeshComponent Default__BP_Key_C.ItemMesh
+        }
+    _materialHelper: {
+            Groups: [
+                {
+                    GroupName: Dissolve
+                    Maps: [
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Materials/Masters/MI_Structures_v2.MI_Structures_v2
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_Item_Key_Dissolve.MI_Item_Key_Dissolve
+                        }
+                    ]
+                }
+            ]
+            AttachParent: SkeletalMeshComponent Default__BP_Key_C.ItemMesh
+        }
+    _survivorCollectableOutlineUpdateStrategy: {
+            _outlineComponent: DBDOutlineComponent Default__BP_Key_C.DBDOutlineComponent
+        }
     HandPosition: EItemHandPosition::SmallItem
     HasUseInteraction: True
     ItemID: Item_Camper_Key
@@ -30,14 +78,8 @@
         }
     ItemModifier2: {
         }
-    _mesh: {
-            SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/Skeleton_Key/Skeleton_Key_REF.Skeleton_Key_REF
-            CastShadow: True
-            bCastCinematicShadow: True
-            BodyInstance: {
-                MassInKgOverride: 1.9502953
-            }
-        }
+    _itemInteractor: Interactor Default__BP_Key_C.ItemInteractorComponent
+    _mesh: SkeletalMeshComponent Default__BP_Key_C.ItemMesh
     _placementOrigin: {
             AttachParent: SkeletalMeshComponent Default__BP_Key_C.ItemMesh
         }
@@ -45,5 +87,7 @@
         }
     _itemType: ELoadoutItemType::Key
     _discardWhenConsumed: False
+    _transformOptimizer: {
+        }
     RootComponent: SkeletalMeshComponent Default__BP_Key_C.ItemMesh
 }

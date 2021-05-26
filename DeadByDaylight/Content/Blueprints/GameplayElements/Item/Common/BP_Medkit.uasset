@@ -1,0 +1,108 @@
+{
+    Timelines: [
+        TimelineTemplate BP_Medkit_C.TML_Dissolve_Template
+    ]
+    SimpleConstructionScript: SimpleConstructionScript BP_Medkit_C.SimpleConstructionScript
+    InheritableComponentHandler: InheritableComponentHandler BP_Medkit_C.InheritableComponentHandler
+    UberGraphFunction: Function BP_Medkit_C.ExecuteUbergraph_BP_Medkit
+}
+<--- CDO --->
+{
+    UberGraphFrame: None
+    _akComponent: {
+            AttachParent: {
+                    SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/MedKit/SK_MedKit01.SK_MedKit01
+                    CastShadow: True
+                    DetailLevelBeforeCastShadows: DM_MAX
+                    bCastCinematicShadow: True
+                }
+            RelativeLocation: { X: 0, Y: 0, Z: 20 }
+        }
+    _charger: {
+        }
+    _dustRingTemplate: ParticleSystem /Game/Effects/ParticleSystems/P_DustRing.P_DustRing
+    _medkitGetAkEvent: AkAudioEvent /Game/Audio/AudioEvents/Objects/AudioEvent_Medkit_Get.AudioEvent_Medkit_Get
+    _medkitDropAkEvent: AkAudioEvent /Game/Audio/AudioEvents/Objects/AudioEvent_Medkit_Drop.AudioEvent_Medkit_Drop
+    _medkitBank: AkAudioBank /Game/Audio/SoundBanks/Medkit.Medkit
+    _interactable: {
+            DetailLevelBeforeCastShadows: DM_MAX
+            AttachParent: SkeletalMeshComponent Default__BP_Medkit_C.ItemMesh
+        }
+    _collectableInteractor: {
+            AttachParent: SpherePlayerOverlapComponent Default__BP_Medkit_C.InteractableZone
+        }
+    _dropInteraction: {
+            AttachParent: {
+                    AttachParent: SkeletalMeshComponent Default__BP_Medkit_C.ItemMesh
+                }
+        }
+    _collectInteraction: {
+            AttachParent: Interactor Default__BP_Medkit_C.CollectableInteractorComponent
+        }
+    _infectablePrimitive: {
+            DetailLevelBeforeCastShadows: DM_MAX
+            AttachParent: SkeletalMeshComponent Default__BP_Medkit_C.ItemMesh
+        }
+    _outlineComponent: {
+            AttachParent: SkeletalMeshComponent Default__BP_Medkit_C.ItemMesh
+        }
+    _materialHelper: {
+            Groups: [
+                {
+                    GroupName: Camper1
+                    Maps: [
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper.MI_Camper
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve.MI_CamperDissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: Material /Game/Characters/Campers/Materials/M_Hair.M_Hair
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_Hair_Dissolve.MI_Hair_Dissolve
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_Dither.MI_Camper_Dither
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MV_Camper_Dither.MV_Camper_Dither
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_Cust.MI_Camper_Cust
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_Cust.MI_CamperDissolve_Cust
+                        }
+                        , 
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/MI_Camper_TransCust.MI_Camper_TransCust
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Campers/Materials/Variants/MI_CamperDissolve_TransCust.MI_CamperDissolve_TransCust
+                        }
+                    ]
+                }
+            ]
+            AttachParent: SkeletalMeshComponent Default__BP_Medkit_C.ItemMesh
+        }
+    _survivorCollectableOutlineUpdateStrategy: {
+            _outlineComponent: DBDOutlineComponent Default__BP_Medkit_C.DBDOutlineComponent
+        }
+    HandPosition: EItemHandPosition::HandleItem
+    HasUseInteraction: True
+    ItemID: Item_Camper_MedKit
+    BaseItemModifier: {
+        }
+    ItemModifier1: {
+        }
+    ItemModifier2: {
+        }
+    _itemInteractor: Interactor Default__BP_Medkit_C.ItemInteractorComponent
+    _mesh: SkeletalMeshComponent Default__BP_Medkit_C.ItemMesh
+    _placementOrigin: {
+            AttachParent: SkeletalMeshComponent Default__BP_Medkit_C.ItemMesh
+            RelativeLocation: { X: 0, Y: 0, Z: -26 }
+        }
+    _objectState: {
+        }
+    _itemType: ELoadoutItemType::Medkit
+    _discardWhenConsumed: False
+    _transformOptimizer: {
+        }
+    RootComponent: SkeletalMeshComponent Default__BP_Medkit_C.ItemMesh
+}
