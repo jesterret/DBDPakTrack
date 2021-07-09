@@ -1,11 +1,43 @@
 {
     BakedStateMachines: [
         {
-            MachineName: State
+            MachineName: BaseState
             InitialState: 0
             States: [
                 {
-                    StateName: Idle
+                    StateName: Base
+                    Transitions: [
+                        {
+                            CanTakeDelegateIndex: 15
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 1
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                        , 
+                        {
+                            CanTakeDelegateIndex: 16
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 0
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                    ]
+                    StateRootNodeIndex: 13
+                    StartNotify: -1
+                    EndNotify: -1
+                    FullyBlendedNotify: -1
+                    bIsAConduit: False
+                    EntryRuleNodeIndex: -1
+                    PlayerNodeIndices: [ ]
+                    LayerNodeIndices: [ ]
+                    bAlwaysResetOnEntry: False
+                }
+                , 
+                {
+                    StateName: Menu
                     Transitions: [ ]
                     StateRootNodeIndex: 3
                     StartNotify: -1
@@ -13,14 +45,54 @@
                     FullyBlendedNotify: -1
                     bIsAConduit: False
                     EntryRuleNodeIndex: -1
-                    PlayerNodeIndices: [
-                        4
-                    ]
+                    PlayerNodeIndices: [ ]
+                    LayerNodeIndices: [ ]
+                    bAlwaysResetOnEntry: False
+                }
+                , 
+                {
+                    StateName: InGame
+                    Transitions: [ ]
+                    StateRootNodeIndex: 8
+                    StartNotify: -1
+                    EndNotify: -1
+                    FullyBlendedNotify: -1
+                    bIsAConduit: False
+                    EntryRuleNodeIndex: -1
+                    PlayerNodeIndices: [ ]
                     LayerNodeIndices: [ ]
                     bAlwaysResetOnEntry: False
                 }
             ]
-            Transitions: [ ]
+            Transitions: [
+                {
+                    PreviousState: 0
+                    NextState: 2
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+                , 
+                {
+                    PreviousState: 0
+                    NextState: 1
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+            ]
         }
     ]
     TargetSkeleton: Skeleton /Game/Characters/Campers/Guam/Models/Heads/Top/Models/GS_Hair02_REF_Skeleton.GS_Hair02_REF_Skeleton
@@ -28,7 +100,9 @@
         [ AnimGraph
          => 
         {
-            OrderedSavedPoseNodeIndices: [ ]
+            OrderedSavedPoseNodeIndices: [
+                0
+            ]
         }
         ]]
     EvaluateGraphExposedInputs: [
@@ -36,20 +110,60 @@
             BoundFunction: None
             CopyRecords: [
                 {
-                    SourcePropertyName: IsViewedDuration
+                    SourcePropertyName: _masterMesh
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
                     bInstanceIsTarget: False
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: ScriptStruct /Script/AnimGraphRuntime.AnimNode_BlendListByBool [ bActiveValue ]
+                    DestProperty: ScriptStruct /Script/AnimGraphRuntime.AnimNode_CopyPoseFromMesh [ SourceMeshComponent ]
                     DestArrayIndex: 0
-                    Size: 1
-                    CachedSourceProperty: AnimBlueprintGeneratedClass AB_GS_Hair02_C [ IsViewedDuration ]
+                    Size: 8
+                    CachedSourceProperty: Class /Script/DBDAnimation.DynamicAccessoryAnimInstance [ _masterMesh ]
                     CachedSourceStructSubProperty: null [  ]
                 }
             ]
             Function: null
-            ValueHandlerNodeProperty: AnimBlueprintGeneratedClass AB_GS_Hair02_C [ AnimGraphNode_BlendListByBool ]
+            ValueHandlerNodeProperty: AnimBlueprintGeneratedClass AB_GS_Hair02_C [ AnimGraphNode_CopyPoseFromMesh ]
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _isInMenu
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: ScriptStruct /Script/Engine.AnimNode_TransitionResult [ bCanEnterTransition ]
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: Class /Script/DBDAnimation.DynamicAccessoryAnimInstance [ _isInMenu ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: AnimBlueprintGeneratedClass AB_GS_Hair02_C [ AnimGraphNode_TransitionResult ]
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: _isInGame
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: ScriptStruct /Script/Engine.AnimNode_TransitionResult [ bCanEnterTransition ]
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: Class /Script/DBDAnimation.DynamicAccessoryAnimInstance [ _isInGame ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: AnimBlueprintGeneratedClass AB_GS_Hair02_C [ AnimGraphNode_TransitionResult ]
         }
     ]
     UberGraphFunction: Function AB_GS_Hair02_C.ExecuteUbergraph_AB_GS_Hair02
@@ -59,28 +173,47 @@
     UberGraphFrame: None
     AnimGraphNode_Root: {
         Result: {
-            LinkID: 7
+            LinkID: 15
         }
         Name: AnimGraph
         Group: None
     }
-    AnimGraphNode_ComponentToLocalSpace: {
-        ComponentPose: {
+    AnimGraphNode_TransitionResult: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_TransitionResult: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_UseCachedPose: {
+        LinkToCachingNode: {
+            LinkID: 17
+        }
+        CachePoseName: CopyMesh
+    }
+    AnimGraphNode_StateResult: {
+        Result: {
             LinkID: 3
         }
+        Name: Base
+        Group: None
     }
     AnimGraphNode_LocalToComponentSpace: {
         LocalPose: {
-            LinkID: 4
+            LinkID: 8
+        }
+    }
+    AnimGraphNode_ComponentToLocalSpace: {
+        ComponentPose: {
+            LinkID: 7
         }
     }
     AnimGraphNode_AnimDynamics: {
         LinearDampingOverride: 0
-        AngularDampingOverride: 0.99
+        AngularDampingOverride: 0
         RelativeSpaceBone: {
-            BoneName: None
+            BoneName: joint_Hair01
         }
-        bHardLinkChain: True
+        bHardLinkChain: False
         BoundBone: {
             BoneName: joint_Hair02
         }
@@ -88,8 +221,8 @@
             BoneName: joint_Hair04
         }
         BoxExtents: { X: 15, Y: 15, Z: 15 }
-        LocalJointOffset: { X: -4, Y: 0, Z: 0 }
-        GravityScale: 1.25
+        LocalJointOffset: { X: -1, Y: 0, Z: 0 }
+        GravityScale: 1
         GravityOverride: { X: 0, Y: 0, Z: 0 }
         LinearSpringConstant: 0
         AngularSpringConstant: 0
@@ -110,8 +243,8 @@
             TwistAxis: AnimPhysTwistAxis::AxisX
             AngularTargetAxis: AnimPhysTwistAxis::AxisX
             ConeAngle: 0
-            AngularLimitsMin: { X: -5, Y: -25, Z: -45 }
-            AngularLimitsMax: { X: 5, Y: 25, Z: 25 }
+            AngularLimitsMin: { X: -25, Y: -25, Z: -25 }
+            AngularLimitsMax: { X: 25, Y: 25, Z: 20 }
             AngularTarget: { X: 0, Y: 0, Z: 0 }
         }
         SphericalLimits: [ ]
@@ -119,14 +252,14 @@
         ExternalForce: { X: 0, Y: 0, Z: 0 }
         PlanarLimits: [ ]
         CollisionType: AnimPhysCollisionType::CoM
-        SimulationSpace: AnimPhysSimSpaceType::World
+        SimulationSpace: AnimPhysSimSpaceType::Actor
         bUseSphericalLimits: False
         bUsePlanarLimit: True
         bDoUpdate: True
         bDoEval: True
         bOverrideLinearDamping: False
         bOverrideAngularBias: False
-        bOverrideAngularDamping: True
+        bOverrideAngularDamping: False
         bEnableWind: False
         bUseGravityOverride: False
         bLinearSpring: False
@@ -167,7 +300,7 @@
             bClamp: False
         }
         ComponentPose: {
-            LinkID: 2
+            LinkID: 5
         }
         LODThreshold: -1
         ActualAlpha: 0
@@ -211,11 +344,147 @@
             InterpSpeedDecreasing: 10
         }
     }
-    AnimGraphNode_SequencePlayer: {
-        Sequence: AnimSequence /Game/Characters/Campers/Guam/Models/Heads/Top/Animation/GS_Hair02/GS_Hair02_Idle.GS_Hair02_Idle
-        PlayRateBasis: 1
-        PlayRate: 1
-        PlayRateScaleBiasClamp: {
+    AnimGraphNode_UseCachedPose: {
+        LinkToCachingNode: {
+            LinkID: 17
+        }
+        CachePoseName: CopyMesh
+    }
+    AnimGraphNode_StateResult: {
+        Result: {
+            LinkID: 6
+        }
+        Name: InGame
+        Group: None
+    }
+    AnimGraphNode_LocalToComponentSpace: {
+        LocalPose: {
+            LinkID: 13
+        }
+    }
+    AnimGraphNode_ComponentToLocalSpace: {
+        ComponentPose: {
+            LinkID: 12
+        }
+    }
+    AnimGraphNode_AnimDynamics: {
+        LinearDampingOverride: 0
+        AngularDampingOverride: 0
+        RelativeSpaceBone: {
+            BoneName: joint_Char
+        }
+        bHardLinkChain: False
+        BoundBone: {
+            BoneName: joint_Hair02
+        }
+        ChainEnd: {
+            BoneName: joint_Hair04
+        }
+        BoxExtents: { X: 15, Y: 15, Z: 15 }
+        LocalJointOffset: { X: -1, Y: 0, Z: 0 }
+        GravityScale: 1
+        GravityOverride: { X: 0, Y: 0, Z: 0 }
+        LinearSpringConstant: 0
+        AngularSpringConstant: 0
+        WindScale: 1
+        ComponentLinearAccScale: { X: 0, Y: 0, Z: 0 }
+        ComponentLinearVelScale: { X: 0, Y: 0, Z: 0 }
+        ComponentAppliedLinearAccClamp: { X: 100000, Y: 100000, Z: 100000 }
+        AngularBiasOverride: 0
+        NumSolverIterationsPreUpdate: 4
+        NumSolverIterationsPostUpdate: 1
+        ConstraintSetup: {
+            LinearXLimitType: AnimPhysLinearConstraintType::Limited
+            LinearYLimitType: AnimPhysLinearConstraintType::Limited
+            LinearZLimitType: AnimPhysLinearConstraintType::Limited
+            LinearAxesMin: { X: 0, Y: 0, Z: 0 }
+            LinearAxesMax: { X: 0, Y: 0, Z: 0 }
+            AngularConstraintType: AnimPhysAngularConstraintType::Angular
+            TwistAxis: AnimPhysTwistAxis::AxisX
+            AngularTargetAxis: AnimPhysTwistAxis::AxisX
+            ConeAngle: 0
+            AngularLimitsMin: { X: -25, Y: -25, Z: -25 }
+            AngularLimitsMax: { X: 25, Y: 25, Z: 20 }
+            AngularTarget: { X: 0, Y: 0, Z: 0 }
+        }
+        SphericalLimits: [ ]
+        SphereCollisionRadius: 0
+        ExternalForce: { X: 0, Y: 0, Z: 0 }
+        PlanarLimits: [ ]
+        CollisionType: AnimPhysCollisionType::CoM
+        SimulationSpace: AnimPhysSimSpaceType::World
+        bUseSphericalLimits: False
+        bUsePlanarLimit: True
+        bDoUpdate: True
+        bDoEval: True
+        bOverrideLinearDamping: False
+        bOverrideAngularBias: False
+        bOverrideAngularDamping: False
+        bEnableWind: False
+        bUseGravityOverride: False
+        bLinearSpring: False
+        bAngularSpring: False
+        bChain: True
+        RetargetingSettings: {
+            bEnabled: False
+            Source: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            Target: {
+                Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
+                Translation: { X: 0, Y: 0, Z: 0 }
+                Scale3D: { X: 1, Y: 1, Z: 1 }
+            }
+            RotationComponent: ERotationComponent::SwingAngle
+            TwistAxis: { X: 1, Y: 0, Z: 0 }
+            bUseAbsoluteAngle: False
+            SourceMinimum: 0
+            SourceMaximum: 45
+            TargetMinimum: 0
+            TargetMaximum: 45
+            EasingType: EEasingFuncType::Linear
+            CustomCurve: {
+                EditorCurveData: {
+                    Keys: [ ]
+                    DefaultValue: 3.4028235E+38
+                    PreInfinityExtrap: RCCE_Constant
+                    PostInfinityExtrap: RCCE_Constant
+                    KeyHandlesToIndices: KeyHandleMap: 
+                }
+                ExternalCurve: null
+            }
+            bFlipEasing: False
+            EasingWeight: 1
+            bClamp: False
+        }
+        ComponentPose: {
+            LinkID: 10
+        }
+        LODThreshold: -1
+        ActualAlpha: 0
+        AlphaInputType: EAnimAlphaInputType::Float
+        bAlphaBoolEnabled: True
+        Alpha: 1
+        AlphaScaleBias: {
+            Scale: 1
+            Bias: 0
+        }
+        AlphaBoolBlend: {
+            BlendInTime: 0
+            BlendOutTime: 0
+            BlendOption: EAlphaBlendOption::Linear
+            bInitialized: False
+            CustomCurve: null
+            AlphaBlend: {
+                CustomCurve: null
+                BlendTime: 0.2
+                BlendOption: EAlphaBlendOption::Linear
+            }
+        }
+        AlphaCurveName: None
+        AlphaScaleBiasClamp: {
             bMapRange: False
             bClampResult: False
             bInterpResult: False
@@ -234,19 +503,18 @@
             InterpSpeedIncreasing: 10
             InterpSpeedDecreasing: 10
         }
-        StartPosition: 0
-        bLoopAnimation: True
-        GroupIndex: -1
-        GroupRole: EAnimGroupRole::CanBeLeader
-        bIgnoreForRelevancyTest: False
-        BlendWeight: 0
-        InternalTimeAccumulator: 0
+    }
+    AnimGraphNode_UseCachedPose: {
+        LinkToCachingNode: {
+            LinkID: 17
+        }
+        CachePoseName: CopyMesh
     }
     AnimGraphNode_StateResult: {
         Result: {
-            LinkID: 1
+            LinkID: 11
         }
-        Name: Idle
+        Name: Menu
         Group: None
     }
     AnimGraphNode_StateMachine: {
@@ -255,57 +523,16 @@
         bSkipFirstUpdateTransition: True
         bReinitializeOnBecomingRelevant: True
     }
-    AnimGraphNode_BlendListByBool: {
-        bActiveValue: False
-        BlendPose: [
-            {
-                LinkID: 8
-            }
-            , 
-            {
-                LinkID: 6
-            }
-        ]
-        BlendTime: [
-            0.1
-            , 
-            1
-        ]
-        TransitionType: EBlendListTransitionType::StandardBlend
-        BlendType: EAlphaBlendOption::Linear
-        bResetChildOnActivation: False
-        CustomBlendCurve: null
-        BlendProfile: null
+    AnimGraphNode_CopyPoseFromMesh: {
+        SourceMeshComponent: null
+        bUseAttachedParent: False
+        bCopyCurves: False
     }
-    AnimGraphNode_SequencePlayer: {
-        Sequence: AnimSequence /Game/Characters/Campers/Guam/Models/Heads/Top/Animation/GS_Hair02/GS_Hair02_Idle.GS_Hair02_Idle
-        PlayRateBasis: 1
-        PlayRate: 1
-        PlayRateScaleBiasClamp: {
-            bMapRange: False
-            bClampResult: False
-            bInterpResult: False
-            InRange: {
-                Min: 0
-                Max: 1
-            }
-            OutRange: {
-                Min: 0
-                Max: 1
-            }
-            Scale: 1
-            Bias: 0
-            ClampMin: 0
-            ClampMax: 1
-            InterpSpeedIncreasing: 10
-            InterpSpeedDecreasing: 10
+    AnimGraphNode_SaveCachedPose: {
+        Pose: {
+            LinkID: 16
         }
-        StartPosition: 0
-        bLoopAnimation: True
-        GroupIndex: -1
-        GroupRole: EAnimGroupRole::CanBeLeader
-        bIgnoreForRelevancyTest: False
-        BlendWeight: 0
-        InternalTimeAccumulator: 0
+        CachePoseName: CopyMesh
     }
+    bUsingCopyPoseFromMesh: True
 }
