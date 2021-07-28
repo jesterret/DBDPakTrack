@@ -1,14 +1,14 @@
 {
     BakedStateMachines: [
         {
-            MachineName: FaceIdle_SM
+            MachineName: FaceIdle_SM_1
             InitialState: 0
             States: [
                 {
                     StateName: FaceIdle_State
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 5
+                            CanTakeDelegateIndex: 6
                             CustomResultNodeIndex: -1
                             TransitionIndex: 0
                             bDesiredTransitionReturnValue: True
@@ -16,14 +16,14 @@
                             PoseEvaluatorLinks: [ ]
                         }
                     ]
-                    StateRootNodeIndex: 1
+                    StateRootNodeIndex: 2
                     StartNotify: -1
                     EndNotify: -1
                     FullyBlendedNotify: -1
                     bIsAConduit: False
                     EntryRuleNodeIndex: -1
                     PlayerNodeIndices: [
-                        2
+                        3
                     ]
                     LayerNodeIndices: [ ]
                     bAlwaysResetOnEntry: False
@@ -33,7 +33,7 @@
                     StateName: FaceIdleInjured_State_
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 6
+                            CanTakeDelegateIndex: 7
                             CustomResultNodeIndex: -1
                             TransitionIndex: 1
                             bDesiredTransitionReturnValue: True
@@ -41,14 +41,99 @@
                             PoseEvaluatorLinks: [ ]
                         }
                     ]
-                    StateRootNodeIndex: 3
+                    StateRootNodeIndex: 4
                     StartNotify: -1
                     EndNotify: -1
                     FullyBlendedNotify: -1
                     bIsAConduit: False
                     EntryRuleNodeIndex: -1
                     PlayerNodeIndices: [
-                        4
+                        5
+                    ]
+                    LayerNodeIndices: [ ]
+                    bAlwaysResetOnEntry: False
+                }
+            ]
+            Transitions: [
+                {
+                    PreviousState: 0
+                    NextState: 1
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+                , 
+                {
+                    PreviousState: 1
+                    NextState: 0
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+            ]
+        }
+        , 
+        {
+            MachineName: FaceIdle_SM
+            InitialState: 0
+            States: [
+                {
+                    StateName: FaceIdle_State
+                    Transitions: [
+                        {
+                            CanTakeDelegateIndex: 13
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 0
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                    ]
+                    StateRootNodeIndex: 9
+                    StartNotify: -1
+                    EndNotify: -1
+                    FullyBlendedNotify: -1
+                    bIsAConduit: False
+                    EntryRuleNodeIndex: -1
+                    PlayerNodeIndices: [
+                        10
+                    ]
+                    LayerNodeIndices: [ ]
+                    bAlwaysResetOnEntry: False
+                }
+                , 
+                {
+                    StateName: FaceIdleInjured_State_
+                    Transitions: [
+                        {
+                            CanTakeDelegateIndex: 14
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 1
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                    ]
+                    StateRootNodeIndex: 11
+                    StartNotify: -1
+                    EndNotify: -1
+                    FullyBlendedNotify: -1
+                    bIsAConduit: False
+                    EntryRuleNodeIndex: -1
+                    PlayerNodeIndices: [
+                        12
                     ]
                     LayerNodeIndices: [ ]
                     bAlwaysResetOnEntry: False
@@ -91,15 +176,115 @@
          => 
         {
             OrderedSavedPoseNodeIndices: [
-                10
+                18
                 , 
-                44
+                52
                 , 
-                46
+                54
             ]
         }
         ]]
     EvaluateGraphExposedInputs: [
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: UseFaceIdle
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: ScriptStruct /Script/AnimGraphRuntime.AnimNode_BlendListByBool [ bActiveValue ]
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: AnimBlueprintGeneratedClass AB_Survivor_00_C [ UseFaceIdle ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: AnimBlueprintGeneratedClass AB_Survivor_00_C [ AnimGraphNode_BlendListByBool ]
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: FaceIdle
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: ScriptStruct /Script/Engine.AnimNode_SequencePlayer [ Sequence ]
+                    DestArrayIndex: 0
+                    Size: 8
+                    CachedSourceProperty: AnimBlueprintGeneratedClass AB_Survivor_00_C [ FaceIdle ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: AnimBlueprintGeneratedClass AB_Survivor_00_C [ AnimGraphNode_SequencePlayer ]
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: FaceIdleInjured
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: ScriptStruct /Script/Engine.AnimNode_SequencePlayer [ Sequence ]
+                    DestArrayIndex: 0
+                    Size: 8
+                    CachedSourceProperty: AnimBlueprintGeneratedClass AB_Survivor_00_C [ FaceIdleInjured ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: AnimBlueprintGeneratedClass AB_Survivor_00_C [ AnimGraphNode_SequencePlayer ]
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: Injured
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: ScriptStruct /Script/Engine.AnimNode_TransitionResult [ bCanEnterTransition ]
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Injured ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: AnimBlueprintGeneratedClass AB_Survivor_00_C [ AnimGraphNode_TransitionResult ]
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: Injured
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::LogicalNegateBool
+                    DestProperty: ScriptStruct /Script/Engine.AnimNode_TransitionResult [ bCanEnterTransition ]
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Injured ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: AnimBlueprintGeneratedClass AB_Survivor_00_C [ AnimGraphNode_TransitionResult ]
+        }
+        , 
         {
             BoundFunction: None
             CopyRecords: [
@@ -5564,7 +5749,7 @@
         }
         BlendPoses: [
             {
-                LinkID: 36
+                LinkID: 56
             }
         ]
         LayerSetup: [
@@ -7151,10 +7336,120 @@
         Group: None
     }
     AnimGraphNode_StateMachine: {
+        StateMachineIndexInClass: 1
+        MaxTransitionsPerFrame: 3
+        bSkipFirstUpdateTransition: True
+        bReinitializeOnBecomingRelevant: True
+    }
+    AnimGraphNode_TransitionResult: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_TransitionResult: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_SequencePlayer: {
+        Sequence: null
+        PlayRateBasis: 1
+        PlayRate: 1
+        PlayRateScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+        StartPosition: 0
+        bLoopAnimation: True
+        GroupIndex: -1
+        GroupRole: EAnimGroupRole::CanBeLeader
+        bIgnoreForRelevancyTest: False
+        BlendWeight: 0
+        InternalTimeAccumulator: 0
+    }
+    AnimGraphNode_StateResult: {
+        Result: {
+            LinkID: 51
+        }
+        Name: FaceIdleInjured_State_
+        Group: None
+    }
+    AnimGraphNode_SequencePlayer: {
+        Sequence: null
+        PlayRateBasis: 1
+        PlayRate: 1
+        PlayRateScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+        StartPosition: 0
+        bLoopAnimation: True
+        GroupIndex: -1
+        GroupRole: EAnimGroupRole::CanBeLeader
+        bIgnoreForRelevancyTest: False
+        BlendWeight: 0
+        InternalTimeAccumulator: 0
+    }
+    AnimGraphNode_StateResult: {
+        Result: {
+            LinkID: 53
+        }
+        Name: FaceIdle_State
+        Group: None
+    }
+    AnimGraphNode_StateMachine: {
         StateMachineIndexInClass: 0
         MaxTransitionsPerFrame: 3
         bSkipFirstUpdateTransition: True
         bReinitializeOnBecomingRelevant: True
+    }
+    AnimGraphNode_BlendListByBool: {
+        bActiveValue: False
+        BlendPose: [
+            {
+                LinkID: 55
+            }
+            , 
+            {
+                LinkID: 36
+            }
+        ]
+        BlendTime: [
+            0.1
+            , 
+            0.1
+        ]
+        TransitionType: EBlendListTransitionType::StandardBlend
+        BlendType: EAlphaBlendOption::Linear
+        bResetChildOnActivation: False
+        CustomBlendCurve: null
+        BlendProfile: null
     }
     OnVomitHitTimerHandle: {
         Handle: 0

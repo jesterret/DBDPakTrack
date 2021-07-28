@@ -1,14 +1,14 @@
 {
     BakedStateMachines: [
         {
-            MachineName: Locomotion
+            MachineName: FaceIdle_SM
             InitialState: 0
             States: [
                 {
-                    StateName: Locomotion_Regular
+                    StateName: FaceIdle_State
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 12
+                            CanTakeDelegateIndex: 6
                             CustomResultNodeIndex: -1
                             TransitionIndex: 0
                             bDesiredTransitionReturnValue: True
@@ -16,22 +16,24 @@
                             PoseEvaluatorLinks: [ ]
                         }
                     ]
-                    StateRootNodeIndex: 10
+                    StateRootNodeIndex: 2
                     StartNotify: -1
                     EndNotify: -1
                     FullyBlendedNotify: -1
                     bIsAConduit: False
                     EntryRuleNodeIndex: -1
-                    PlayerNodeIndices: [ ]
+                    PlayerNodeIndices: [
+                        3
+                    ]
                     LayerNodeIndices: [ ]
                     bAlwaysResetOnEntry: False
                 }
                 , 
                 {
-                    StateName: Locomotion_Injured
+                    StateName: FaceIdleInjured_State_
                     Transitions: [
                         {
-                            CanTakeDelegateIndex: 13
+                            CanTakeDelegateIndex: 7
                             CustomResultNodeIndex: -1
                             TransitionIndex: 1
                             bDesiredTransitionReturnValue: True
@@ -39,13 +41,100 @@
                             PoseEvaluatorLinks: [ ]
                         }
                     ]
-                    StateRootNodeIndex: 8
+                    StateRootNodeIndex: 4
                     StartNotify: -1
                     EndNotify: -1
                     FullyBlendedNotify: -1
                     bIsAConduit: False
                     EntryRuleNodeIndex: -1
-                    PlayerNodeIndices: [ ]
+                    PlayerNodeIndices: [
+                        5
+                    ]
+                    LayerNodeIndices: [ ]
+                    bAlwaysResetOnEntry: False
+                }
+            ]
+            Transitions: [
+                {
+                    PreviousState: 0
+                    NextState: 1
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+                , 
+                {
+                    PreviousState: 1
+                    NextState: 0
+                    CrossfadeDuration: 0.2
+                    StartNotify: -1
+                    EndNotify: -1
+                    InterruptNotify: -1
+                    BlendMode: EAlphaBlendOption::HermiteCubic
+                    CustomCurve: null
+                    BlendProfile: null
+                    LogicType: ETransitionLogicType::TLT_StandardBlend
+                    StateName: None
+                }
+            ]
+        }
+        , 
+        {
+            MachineName: FaceIdle_SM
+            InitialState: 0
+            States: [
+                {
+                    StateName: FaceIdle_State
+                    Transitions: [
+                        {
+                            CanTakeDelegateIndex: 13
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 0
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                    ]
+                    StateRootNodeIndex: 9
+                    StartNotify: -1
+                    EndNotify: -1
+                    FullyBlendedNotify: -1
+                    bIsAConduit: False
+                    EntryRuleNodeIndex: -1
+                    PlayerNodeIndices: [
+                        10
+                    ]
+                    LayerNodeIndices: [ ]
+                    bAlwaysResetOnEntry: False
+                }
+                , 
+                {
+                    StateName: FaceIdleInjured_State_
+                    Transitions: [
+                        {
+                            CanTakeDelegateIndex: 14
+                            CustomResultNodeIndex: -1
+                            TransitionIndex: 1
+                            bDesiredTransitionReturnValue: True
+                            bAutomaticRemainingTimeRule: False
+                            PoseEvaluatorLinks: [ ]
+                        }
+                    ]
+                    StateRootNodeIndex: 11
+                    StartNotify: -1
+                    EndNotify: -1
+                    FullyBlendedNotify: -1
+                    bIsAConduit: False
+                    EntryRuleNodeIndex: -1
+                    PlayerNodeIndices: [
+                        12
+                    ]
                     LayerNodeIndices: [ ]
                     bAlwaysResetOnEntry: False
                 }
@@ -87,15 +176,235 @@
          => 
         {
             OrderedSavedPoseNodeIndices: [
-                40
+                18
                 , 
-                42
+                52
                 , 
-                3
+                54
             ]
         }
         ]]
     EvaluateGraphExposedInputs: [
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: IsLengendary
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: ScriptStruct /Script/AnimGraphRuntime.AnimNode_BlendListByBool [ bActiveValue ]
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ IsLengendary ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ AnimGraphNode_BlendListByBool ]
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: FaceIdle
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: ScriptStruct /Script/Engine.AnimNode_SequencePlayer [ Sequence ]
+                    DestArrayIndex: 0
+                    Size: 8
+                    CachedSourceProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ FaceIdle ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ AnimGraphNode_SequencePlayer ]
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: FaceIdleInjured
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: ScriptStruct /Script/Engine.AnimNode_SequencePlayer [ Sequence ]
+                    DestArrayIndex: 0
+                    Size: 8
+                    CachedSourceProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ FaceIdleInjured ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ AnimGraphNode_SequencePlayer ]
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: Injured
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: ScriptStruct /Script/Engine.AnimNode_TransitionResult [ bCanEnterTransition ]
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Injured ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ AnimGraphNode_TransitionResult ]
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: Injured
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::LogicalNegateBool
+                    DestProperty: ScriptStruct /Script/Engine.AnimNode_TransitionResult [ bCanEnterTransition ]
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Injured ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ AnimGraphNode_TransitionResult ]
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: FaceIdle
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: ScriptStruct /Script/Engine.AnimNode_SequencePlayer [ Sequence ]
+                    DestArrayIndex: 0
+                    Size: 8
+                    CachedSourceProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ FaceIdle ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ AnimGraphNode_SequencePlayer ]
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: FaceIdleInjured
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: ScriptStruct /Script/Engine.AnimNode_SequencePlayer [ Sequence ]
+                    DestArrayIndex: 0
+                    Size: 8
+                    CachedSourceProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ FaceIdleInjured ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ AnimGraphNode_SequencePlayer ]
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: Injured
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: ScriptStruct /Script/Engine.AnimNode_TransitionResult [ bCanEnterTransition ]
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Injured ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ AnimGraphNode_TransitionResult ]
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: Injured
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::LogicalNegateBool
+                    DestProperty: ScriptStruct /Script/Engine.AnimNode_TransitionResult [ bCanEnterTransition ]
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Injured ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ AnimGraphNode_TransitionResult ]
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: FaceAdditive
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: ScriptStruct /Script/Engine.AnimNode_SequencePlayer [ Sequence ]
+                    DestArrayIndex: 0
+                    Size: 8
+                    CachedSourceProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ FaceAdditive ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ AnimGraphNode_SequencePlayer ]
+        }
+        , 
+        {
+            BoundFunction: None
+            CopyRecords: [
+                {
+                    SourcePropertyName: FullFacial
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: False
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: ScriptStruct /Script/AnimGraphRuntime.AnimNode_ApplyAdditive [ Alpha ]
+                    DestArrayIndex: 0
+                    Size: 4
+                    CachedSourceProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ FullFacial ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+            ]
+            Function: null
+            ValueHandlerNodeProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ AnimGraphNode_ApplyAdditive ]
+        }
+        , 
         {
             BoundFunction: None
             CopyRecords: [
@@ -105,7 +414,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__idle_D9420E6F47C5EB30B5DC4187FF16D634 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__idle_0ED70C21407E71ADA523D2ACCEE16775 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Idle ]
@@ -118,7 +427,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsCrouched_D9420E6F47C5EB30B5DC4187FF16D634 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsCrouched_0ED70C21407E71ADA523D2ACCEE16775 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsCrouched ]
@@ -131,7 +440,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsInsideCloset_D9420E6F47C5EB30B5DC4187FF16D634 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsInsideCloset_0ED70C21407E71ADA523D2ACCEE16775 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsInsideCloset ]
@@ -144,7 +453,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsInteracting_D9420E6F47C5EB30B5DC4187FF16D634 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsInteracting_0ED70C21407E71ADA523D2ACCEE16775 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsInteracting ]
@@ -157,7 +466,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsHoldingAimItem_D9420E6F47C5EB30B5DC4187FF16D634 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsHoldingAimItem_0ED70C21407E71ADA523D2ACCEE16775 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsHoldingAimItem ]
@@ -170,7 +479,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsCrawling_D9420E6F47C5EB30B5DC4187FF16D634 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsCrawling_0ED70C21407E71ADA523D2ACCEE16775 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsCrawling ]
@@ -183,7 +492,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsHooked_D9420E6F47C5EB30B5DC4187FF16D634 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsHooked_0ED70C21407E71ADA523D2ACCEE16775 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsHooked ]
@@ -196,7 +505,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsDead_D9420E6F47C5EB30B5DC4187FF16D634 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsDead_0ED70C21407E71ADA523D2ACCEE16775 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsDead ]
@@ -209,7 +518,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__holdingSmallItem_D9420E6F47C5EB30B5DC4187FF16D634 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__holdingSmallItem_0ED70C21407E71ADA523D2ACCEE16775 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsHoldingSmallItem ]
@@ -222,7 +531,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__usingAimItem_D9420E6F47C5EB30B5DC4187FF16D634 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__usingAimItem_0ED70C21407E71ADA523D2ACCEE16775 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsUsingAimItem ]
@@ -235,7 +544,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__holdinghandleitem_D9420E6F47C5EB30B5DC4187FF16D634 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__holdinghandleitem_0ED70C21407E71ADA523D2ACCEE16775 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsHoldingHandleItem ]
@@ -248,7 +557,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__injured_D9420E6F47C5EB30B5DC4187FF16D634 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__injured_0ED70C21407E71ADA523D2ACCEE16775 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Injured ]
@@ -261,7 +570,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isCarry_D9420E6F47C5EB30B5DC4187FF16D634 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isCarry_0ED70C21407E71ADA523D2ACCEE16775 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsBeingCarried ]
@@ -276,12 +585,38 @@
             BoundFunction: None
             CopyRecords: [
                 {
+                    SourcePropertyName: Injured
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: True
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isInjured_1A36EAA0469FC6D32AE88E815B6CAE37 ]
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Injured ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+                , 
+                {
+                    SourcePropertyName: IsCrawling
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: True
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isCrawling_1A36EAA0469FC6D32AE88E815B6CAE37 ]
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsCrawling ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+                , 
+                {
                     SourcePropertyName: IsDead
                     SourceSubPropertyName: None
                     SourceArrayIndex: 0
-                    bInstanceIsTarget: False
+                    bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: ScriptStruct /Script/AnimGraphRuntime.AnimNode_BlendListByBool [ bActiveValue ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isDead_1A36EAA0469FC6D32AE88E815B6CAE37 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsDead ]
@@ -289,21 +624,7 @@
                 }
             ]
             Function: null
-            ValueHandlerNodeProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ AnimGraphNode_BlendListByBool ]
-        }
-        , 
-        {
-            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Survivor_17_ML006_AnimGraphNode_TransitionResult_5F76755C46839304528B9BBEEA61B8D2
-            CopyRecords: [ ]
-            Function: Function AB_Survivor_17_ML006_C.EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Survivor_17_ML006_AnimGraphNode_TransitionResult_5F76755C46839304528B9BBEEA61B8D2
-            ValueHandlerNodeProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ AnimGraphNode_TransitionResult ]
-        }
-        , 
-        {
-            BoundFunction: EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Survivor_17_ML006_AnimGraphNode_TransitionResult_7AA2189E4C7C2162F57D78B3E7D9EC9E
-            CopyRecords: [ ]
-            Function: Function AB_Survivor_17_ML006_C.EvaluateGraphExposedInputs_ExecuteUbergraph_AB_Survivor_17_ML006_AnimGraphNode_TransitionResult_7AA2189E4C7C2162F57D78B3E7D9EC9E
-            ValueHandlerNodeProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ AnimGraphNode_TransitionResult ]
+            ValueHandlerNodeProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ AnimGraphNode_LinkedAnimGraph ]
         }
         , 
         {
@@ -315,7 +636,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isInjured_9280FBD048B92DBB3819C3BADBFAA9AA ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isInjured_4F4A7FCC4D3DB3998DED62B657B19E12 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Injured ]
@@ -328,7 +649,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__speed_9280FBD048B92DBB3819C3BADBFAA9AA ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__speed_4F4A7FCC4D3DB3998DED62B657B19E12 ]
                     DestArrayIndex: 0
                     Size: 4
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ _walkAnimSpeed ]
@@ -341,7 +662,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isIdle_9280FBD048B92DBB3819C3BADBFAA9AA ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isIdle_4F4A7FCC4D3DB3998DED62B657B19E12 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Idle ]
@@ -354,7 +675,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isCrouch_9280FBD048B92DBB3819C3BADBFAA9AA ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isCrouch_4F4A7FCC4D3DB3998DED62B657B19E12 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsCrouched ]
@@ -374,7 +695,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty_isInjured_E041C92843D03F9266A923AB56B7D899 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty_isInjured_1ACEE0F4432270B7204D7E8DCF479CEE ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Injured ]
@@ -387,7 +708,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty_IsCrouching_E041C92843D03F9266A923AB56B7D899 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty_IsCrouching_1ACEE0F4432270B7204D7E8DCF479CEE ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsCrouched ]
@@ -407,7 +728,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isScream_4ACE450F4C3F2E45923CE49DEB5D551D ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isScream_F91E6A6049A7B8D242AD1AB0FDA83345 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ _isFrightScreaming ]
@@ -420,7 +741,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__idle_4ACE450F4C3F2E45923CE49DEB5D551D ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__idle_F91E6A6049A7B8D242AD1AB0FDA83345 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Idle ]
@@ -440,7 +761,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsInjured_53F0BB3445E948071AD53989CC3BD1AF ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsInjured_A4FCC4724DBF1AAFC459B4BDB33A476F ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Injured ]
@@ -453,7 +774,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__InteractionType_53F0BB3445E948071AD53989CC3BD1AF ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__InteractionType_A4FCC4724DBF1AAFC459B4BDB33A476F ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ InteractionType ]
@@ -473,7 +794,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__idle_1F179AC2414F85F62EB079A66E36D7D0 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__idle_4E4104244DC11B72302B448E8DF01E37 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Idle ]
@@ -486,7 +807,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__crouch_1F179AC2414F85F62EB079A66E36D7D0 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__crouch_4E4104244DC11B72302B448E8DF01E37 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsCrouched ]
@@ -499,7 +820,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isCrawl_1F179AC2414F85F62EB079A66E36D7D0 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isCrawl_4E4104244DC11B72302B448E8DF01E37 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsCrawling ]
@@ -512,7 +833,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty_Speed_1F179AC2414F85F62EB079A66E36D7D0 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty_Speed_4E4104244DC11B72302B448E8DF01E37 ]
                     DestArrayIndex: 0
                     Size: 4
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ _walkAnimSpeed ]
@@ -525,7 +846,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty_InteractionType_1F179AC2414F85F62EB079A66E36D7D0 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty_InteractionType_4E4104244DC11B72302B448E8DF01E37 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ InteractionType ]
@@ -538,7 +859,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__injured_1F179AC2414F85F62EB079A66E36D7D0 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__injured_4E4104244DC11B72302B448E8DF01E37 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Injured ]
@@ -551,7 +872,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__carried_1F179AC2414F85F62EB079A66E36D7D0 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__carried_4E4104244DC11B72302B448E8DF01E37 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsBeingCarried ]
@@ -571,7 +892,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__inAir_12DF706645EB76905C60EFA2785850E1 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__inAir_29071AB14F1FE04FC49115BC6D5A9E07 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ InAir ]
@@ -584,7 +905,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__DropStaggerTimeLeft_12DF706645EB76905C60EFA2785850E1 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__DropStaggerTimeLeft_29071AB14F1FE04FC49115BC6D5A9E07 ]
                     DestArrayIndex: 0
                     Size: 4
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ DropStaggerTimeLeft ]
@@ -597,7 +918,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsCrawling_12DF706645EB76905C60EFA2785850E1 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsCrawling_29071AB14F1FE04FC49115BC6D5A9E07 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsCrawling ]
@@ -610,7 +931,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__MaxSpeed_12DF706645EB76905C60EFA2785850E1 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__MaxSpeed_29071AB14F1FE04FC49115BC6D5A9E07 ]
                     DestArrayIndex: 0
                     Size: 4
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ MaxSpeed ]
@@ -623,7 +944,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__Speed_12DF706645EB76905C60EFA2785850E1 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__Speed_29071AB14F1FE04FC49115BC6D5A9E07 ]
                     DestArrayIndex: 0
                     Size: 4
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ _walkAnimSpeed ]
@@ -643,7 +964,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__RightHandIKTransform_708A315C4F6C025CFC1248A751786681 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__RightHandIKTransform_62BEF88E42BBD3B919CFACBFF9A8FDE2 ]
                     DestArrayIndex: 0
                     Size: 48
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ RightHandIKTransform ]
@@ -656,7 +977,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__RightArmIKAlpha_708A315C4F6C025CFC1248A751786681 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__RightArmIKAlpha_62BEF88E42BBD3B919CFACBFF9A8FDE2 ]
                     DestArrayIndex: 0
                     Size: 4
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ RightArmIKAlpha ]
@@ -676,7 +997,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__Dynamics_A41C9AC349EBBA2E2FE35BBAFC36F148 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__Dynamics_BA6D67794CB979FE9F35B5827F9EC547 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ ShouldUseDynamics ]
@@ -689,7 +1010,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsKate_A41C9AC349EBBA2E2FE35BBAFC36F148 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsKate_BA6D67794CB979FE9F35B5827F9EC547 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ IsKate ]
@@ -702,7 +1023,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsJane_A41C9AC349EBBA2E2FE35BBAFC36F148 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsJane_BA6D67794CB979FE9F35B5827F9EC547 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ IsJane ]
@@ -715,7 +1036,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsCrouched_A41C9AC349EBBA2E2FE35BBAFC36F148 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsCrouched_BA6D67794CB979FE9F35B5827F9EC547 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsCrouched ]
@@ -728,10 +1049,88 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__Idle_A41C9AC349EBBA2E2FE35BBAFC36F148 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__Idle_BA6D67794CB979FE9F35B5827F9EC547 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Idle ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+                , 
+                {
+                    SourcePropertyName: _isJohn
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: True
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isJohn_BA6D67794CB979FE9F35B5827F9EC547 ]
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ _isJohn ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+                , 
+                {
+                    SourcePropertyName: _isSteve
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: True
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isSteve_BA6D67794CB979FE9F35B5827F9EC547 ]
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ _isSteve ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+                , 
+                {
+                    SourcePropertyName: IsS26
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: True
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isS26_BA6D67794CB979FE9F35B5827F9EC547 ]
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ IsS26 ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+                , 
+                {
+                    SourcePropertyName: IsS26_02
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: True
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isS26_02_BA6D67794CB979FE9F35B5827F9EC547 ]
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ IsS26_02 ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+                , 
+                {
+                    SourcePropertyName: IsS27
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: True
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isS27_BA6D67794CB979FE9F35B5827F9EC547 ]
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ IsS27 ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+                , 
+                {
+                    SourcePropertyName: IsS27_02
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: True
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isS27_02_BA6D67794CB979FE9F35B5827F9EC547 ]
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ IsS27_02 ]
                     CachedSourceStructSubProperty: null [  ]
                 }
             ]
@@ -748,7 +1147,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsIdle_D89B34CC49AC9D94A2AEB3B2CCAFFFD0 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsIdle_84B4B4124A41A5931687659D0ECC657D ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Idle ]
@@ -761,7 +1160,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsCrouched_D89B34CC49AC9D94A2AEB3B2CCAFFFD0 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsCrouched_84B4B4124A41A5931687659D0ECC657D ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsCrouched ]
@@ -774,7 +1173,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsCrawling_D89B34CC49AC9D94A2AEB3B2CCAFFFD0 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsCrawling_84B4B4124A41A5931687659D0ECC657D ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsCrawling ]
@@ -794,7 +1193,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__Idle_78B580C04F0D387F9D7101B76501B08F ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__Idle_97C782A84BE2318EFC59A08F02BDFED8 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Idle ]
@@ -807,7 +1206,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__Speed_78B580C04F0D387F9D7101B76501B08F ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__Speed_97C782A84BE2318EFC59A08F02BDFED8 ]
                     DestArrayIndex: 0
                     Size: 4
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ _walkAnimSpeed ]
@@ -820,7 +1219,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__Yaw_78B580C04F0D387F9D7101B76501B08F ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__Yaw_97C782A84BE2318EFC59A08F02BDFED8 ]
                     DestArrayIndex: 0
                     Size: 4
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Yaw ]
@@ -833,7 +1232,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__Pitch_78B580C04F0D387F9D7101B76501B08F ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__Pitch_97C782A84BE2318EFC59A08F02BDFED8 ]
                     DestArrayIndex: 0
                     Size: 4
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Pitch ]
@@ -853,7 +1252,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__Injured_0C9368F64B879D40CA221D95C915542C ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__Injured_7235C9824E9EF66F5E5823BEC783BCAC ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Injured ]
@@ -866,7 +1265,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isCrawling_0C9368F64B879D40CA221D95C915542C ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isCrawling_7235C9824E9EF66F5E5823BEC783BCAC ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsCrawling ]
@@ -879,7 +1278,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__idle_0C9368F64B879D40CA221D95C915542C ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__idle_7235C9824E9EF66F5E5823BEC783BCAC ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Idle ]
@@ -892,7 +1291,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsCrouched_0C9368F64B879D40CA221D95C915542C ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsCrouched_7235C9824E9EF66F5E5823BEC783BCAC ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsCrouched ]
@@ -905,7 +1304,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__speed_0C9368F64B879D40CA221D95C915542C ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__speed_7235C9824E9EF66F5E5823BEC783BCAC ]
                     DestArrayIndex: 0
                     Size: 4
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ _walkAnimSpeed ]
@@ -918,7 +1317,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isCarried_0C9368F64B879D40CA221D95C915542C ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isCarried_7235C9824E9EF66F5E5823BEC783BCAC ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsBeingCarried ]
@@ -938,7 +1337,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsCrawling_F34FCE7448A65F0E02873A90ED85F9FE ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsCrawling_B8BB347348BBDB01B1EB5CBE7AECED5A ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsCrawling ]
@@ -951,7 +1350,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsBeingCarried_F34FCE7448A65F0E02873A90ED85F9FE ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsBeingCarried_B8BB347348BBDB01B1EB5CBE7AECED5A ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsBeingCarried ]
@@ -964,7 +1363,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsDead_F34FCE7448A65F0E02873A90ED85F9FE ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsDead_B8BB347348BBDB01B1EB5CBE7AECED5A ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsDead ]
@@ -977,7 +1376,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsHooked_F34FCE7448A65F0E02873A90ED85F9FE ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsHooked_B8BB347348BBDB01B1EB5CBE7AECED5A ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsHooked ]
@@ -990,7 +1389,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsCrouched_F34FCE7448A65F0E02873A90ED85F9FE ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsCrouched_B8BB347348BBDB01B1EB5CBE7AECED5A ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsCrouched ]
@@ -1003,7 +1402,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__Idle_F34FCE7448A65F0E02873A90ED85F9FE ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__Idle_B8BB347348BBDB01B1EB5CBE7AECED5A ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Idle ]
@@ -1016,7 +1415,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__Speed_F34FCE7448A65F0E02873A90ED85F9FE ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__Speed_B8BB347348BBDB01B1EB5CBE7AECED5A ]
                     DestArrayIndex: 0
                     Size: 4
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ _walkAnimSpeed ]
@@ -1036,7 +1435,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsTrapped_A8E788814E73C34A7A51A8B603D54204 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsTrapped_56A8DAEE40106CCB641EA09F15E5C927 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsTrapped ]
@@ -1049,7 +1448,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__InteractionType_A8E788814E73C34A7A51A8B603D54204 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__InteractionType_56A8DAEE40106CCB641EA09F15E5C927 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ InteractionType ]
@@ -1069,7 +1468,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsCrawling_893E9EFD43E0E1A3EB6C638C683E59E6 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsCrawling_57439D34464B73198D30B1BEF872D149 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsCrawling ]
@@ -1082,7 +1481,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsHooked_893E9EFD43E0E1A3EB6C638C683E59E6 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsHooked_57439D34464B73198D30B1BEF872D149 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsHooked ]
@@ -1095,7 +1494,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsDead_893E9EFD43E0E1A3EB6C638C683E59E6 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsDead_57439D34464B73198D30B1BEF872D149 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsDead ]
@@ -1108,7 +1507,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsFrightScreaming_893E9EFD43E0E1A3EB6C638C683E59E6 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsFrightScreaming_57439D34464B73198D30B1BEF872D149 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ _isFrightScreaming ]
@@ -1121,7 +1520,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__GuidedAction_893E9EFD43E0E1A3EB6C638C683E59E6 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__GuidedAction_57439D34464B73198D30B1BEF872D149 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ GuidedAction ]
@@ -1134,7 +1533,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__InteractionType_893E9EFD43E0E1A3EB6C638C683E59E6 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__InteractionType_57439D34464B73198D30B1BEF872D149 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ InteractionType ]
@@ -1147,7 +1546,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsInsideCloset_893E9EFD43E0E1A3EB6C638C683E59E6 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsInsideCloset_57439D34464B73198D30B1BEF872D149 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsInsideCloset ]
@@ -1160,7 +1559,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsInteracting_893E9EFD43E0E1A3EB6C638C683E59E6 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsInteracting_57439D34464B73198D30B1BEF872D149 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsInteracting ]
@@ -1173,7 +1572,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsCrouched_893E9EFD43E0E1A3EB6C638C683E59E6 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsCrouched_57439D34464B73198D30B1BEF872D149 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsCrouched ]
@@ -1186,7 +1585,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsHoldingAimItem_893E9EFD43E0E1A3EB6C638C683E59E6 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsHoldingAimItem_57439D34464B73198D30B1BEF872D149 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsHoldingAimItem ]
@@ -1199,7 +1598,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__idle_893E9EFD43E0E1A3EB6C638C683E59E6 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__idle_57439D34464B73198D30B1BEF872D149 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Idle ]
@@ -1219,7 +1618,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__InteractionType_63DD7A6B47EF5EA923BDE5950562FD40 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__InteractionType_BC1CBDCE48BB46822860859B113DF8F3 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ InteractionType ]
@@ -1232,7 +1631,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__Idle_63DD7A6B47EF5EA923BDE5950562FD40 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__Idle_BC1CBDCE48BB46822860859B113DF8F3 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Idle ]
@@ -1252,7 +1651,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsCrawling_AB2687494804CA63C339B5BD032A171A ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsCrawling_E45918ED45896BBA2CF65E9C86AA47FC ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsCrawling ]
@@ -1265,7 +1664,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__HoldingItem_AB2687494804CA63C339B5BD032A171A ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__HoldingItem_E45918ED45896BBA2CF65E9C86AA47FC ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsHoldingHandleItem ]
@@ -1278,7 +1677,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__Speed_AB2687494804CA63C339B5BD032A171A ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__Speed_E45918ED45896BBA2CF65E9C86AA47FC ]
                     DestArrayIndex: 0
                     Size: 4
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ _walkAnimSpeed ]
@@ -1291,7 +1690,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__firecracker_AB2687494804CA63C339B5BD032A171A ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__firecracker_E45918ED45896BBA2CF65E9C86AA47FC ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsHoldingFirecracker ]
@@ -1304,7 +1703,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__smallItem_AB2687494804CA63C339B5BD032A171A ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__smallItem_E45918ED45896BBA2CF65E9C86AA47FC ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsHoldingSmallItem ]
@@ -1317,7 +1716,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__useaimItem_AB2687494804CA63C339B5BD032A171A ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__useaimItem_E45918ED45896BBA2CF65E9C86AA47FC ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsUsingAimItem ]
@@ -1330,36 +1729,10 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__holdAimItem_AB2687494804CA63C339B5BD032A171A ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__holdAimItem_E45918ED45896BBA2CF65E9C86AA47FC ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsHoldingAimItem ]
-                    CachedSourceStructSubProperty: null [  ]
-                }
-                , 
-                {
-                    SourcePropertyName: IsCrouched
-                    SourceSubPropertyName: None
-                    SourceArrayIndex: 0
-                    bInstanceIsTarget: True
-                    PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__iscrouched_AB2687494804CA63C339B5BD032A171A ]
-                    DestArrayIndex: 0
-                    Size: 1
-                    CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsCrouched ]
-                    CachedSourceStructSubProperty: null [  ]
-                }
-                , 
-                {
-                    SourcePropertyName: _isFrightScreaming
-                    SourceSubPropertyName: None
-                    SourceArrayIndex: 0
-                    bInstanceIsTarget: True
-                    PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty_IsFrightScream_AB2687494804CA63C339B5BD032A171A ]
-                    DestArrayIndex: 0
-                    Size: 1
-                    CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ _isFrightScreaming ]
                     CachedSourceStructSubProperty: null [  ]
                 }
                 , 
@@ -1369,10 +1742,36 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isholdvaccine_AB2687494804CA63C339B5BD032A171A ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isholdvaccine_E45918ED45896BBA2CF65E9C86AA47FC ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsHoldingVaccine ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+                , 
+                {
+                    SourcePropertyName: Injured
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: True
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isinjured_E45918ED45896BBA2CF65E9C86AA47FC ]
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Injured ]
+                    CachedSourceStructSubProperty: null [  ]
+                }
+                , 
+                {
+                    SourcePropertyName: IsHoldingFlashbang
+                    SourceSubPropertyName: None
+                    SourceArrayIndex: 0
+                    bInstanceIsTarget: True
+                    PostCopyOperation: EPostCopyOperation::None
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty_IsHoldingFlashbang_E45918ED45896BBA2CF65E9C86AA47FC ]
+                    DestArrayIndex: 0
+                    Size: 1
+                    CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsHoldingFlashbang ]
                     CachedSourceStructSubProperty: null [  ]
                 }
             ]
@@ -1389,7 +1788,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty_IsCrawling_BDA456A04C59EA4E14E4E1B12CAAA2A9 ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty_IsCrawling_1A29F0744D62DC048E2A7C8C9EE7F7D5 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsCrawling ]
@@ -1429,7 +1828,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsDead_C068B2A941B7B713BDE65CA8DFD7EDBF ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__IsDead_D3F6A57840367B2AC5BE40A5E63DC5A7 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ IsDead ]
@@ -1442,7 +1841,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__InteractionType_C068B2A941B7B713BDE65CA8DFD7EDBF ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__InteractionType_D3F6A57840367B2AC5BE40A5E63DC5A7 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ InteractionType ]
@@ -1455,7 +1854,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isIdle_C068B2A941B7B713BDE65CA8DFD7EDBF ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty__isIdle_D3F6A57840367B2AC5BE40A5E63DC5A7 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Idle ]
@@ -1468,7 +1867,7 @@
                     SourceArrayIndex: 0
                     bInstanceIsTarget: True
                     PostCopyOperation: EPostCopyOperation::None
-                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty_IsInjured_C068B2A941B7B713BDE65CA8DFD7EDBF ]
+                    DestProperty: AnimBlueprintGeneratedClass AB_Survivor_17_ML006_C [ __CustomProperty_IsInjured_D3F6A57840367B2AC5BE40A5E63DC5A7 ]
                     DestArrayIndex: 0
                     Size: 1
                     CachedSourceProperty: Class /Script/DBDAnimation.SurvivorAnimInstance [ Injured ]
@@ -1498,13 +1897,13 @@
         bReceiveNotifiesFromLinkedInstances: False
         bPropagateNotifiesToLinkedInstances: False
         SourcePropertyNames: [
-            __CustomProperty__IsDead_C068B2A941B7B713BDE65CA8DFD7EDBF
+            __CustomProperty__IsDead_D3F6A57840367B2AC5BE40A5E63DC5A7
             , 
-            __CustomProperty__InteractionType_C068B2A941B7B713BDE65CA8DFD7EDBF
+            __CustomProperty__InteractionType_D3F6A57840367B2AC5BE40A5E63DC5A7
             , 
-            __CustomProperty__isIdle_C068B2A941B7B713BDE65CA8DFD7EDBF
+            __CustomProperty__isIdle_D3F6A57840367B2AC5BE40A5E63DC5A7
             , 
-            __CustomProperty_IsInjured_C068B2A941B7B713BDE65CA8DFD7EDBF
+            __CustomProperty_IsInjured_D3F6A57840367B2AC5BE40A5E63DC5A7
         ]
         DestPropertyNames: [
             _IsDead
@@ -3057,7 +3456,7 @@
         bReceiveNotifiesFromLinkedInstances: False
         bPropagateNotifiesToLinkedInstances: False
         SourcePropertyNames: [
-            __CustomProperty_IsCrawling_BDA456A04C59EA4E14E4E1B12CAAA2A9
+            __CustomProperty_IsCrawling_1A29F0744D62DC048E2A7C8C9EE7F7D5
         ]
         DestPropertyNames: [
             IsCrawling
@@ -3067,7 +3466,7 @@
     AnimGraphNode_SubInstance: {
         InputPoses: [
             {
-                LinkID: 38
+                LinkID: 31
             }
         ]
         InputPoseNames: [
@@ -3078,25 +3477,25 @@
         bReceiveNotifiesFromLinkedInstances: False
         bPropagateNotifiesToLinkedInstances: False
         SourcePropertyNames: [
-            __CustomProperty__IsCrawling_AB2687494804CA63C339B5BD032A171A
+            __CustomProperty__IsCrawling_E45918ED45896BBA2CF65E9C86AA47FC
             , 
-            __CustomProperty__HoldingItem_AB2687494804CA63C339B5BD032A171A
+            __CustomProperty__HoldingItem_E45918ED45896BBA2CF65E9C86AA47FC
             , 
-            __CustomProperty__Speed_AB2687494804CA63C339B5BD032A171A
+            __CustomProperty__Speed_E45918ED45896BBA2CF65E9C86AA47FC
             , 
-            __CustomProperty__firecracker_AB2687494804CA63C339B5BD032A171A
+            __CustomProperty__firecracker_E45918ED45896BBA2CF65E9C86AA47FC
             , 
-            __CustomProperty__smallItem_AB2687494804CA63C339B5BD032A171A
+            __CustomProperty__smallItem_E45918ED45896BBA2CF65E9C86AA47FC
             , 
-            __CustomProperty__useaimItem_AB2687494804CA63C339B5BD032A171A
+            __CustomProperty__useaimItem_E45918ED45896BBA2CF65E9C86AA47FC
             , 
-            __CustomProperty__holdAimItem_AB2687494804CA63C339B5BD032A171A
+            __CustomProperty__holdAimItem_E45918ED45896BBA2CF65E9C86AA47FC
             , 
-            __CustomProperty__iscrouched_AB2687494804CA63C339B5BD032A171A
+            __CustomProperty__isholdvaccine_E45918ED45896BBA2CF65E9C86AA47FC
             , 
-            __CustomProperty_IsFrightScream_AB2687494804CA63C339B5BD032A171A
+            __CustomProperty__isinjured_E45918ED45896BBA2CF65E9C86AA47FC
             , 
-            __CustomProperty__isholdvaccine_AB2687494804CA63C339B5BD032A171A
+            __CustomProperty_IsHoldingFlashbang_E45918ED45896BBA2CF65E9C86AA47FC
         ]
         DestPropertyNames: [
             _IsCrawling
@@ -3113,11 +3512,11 @@
             , 
             _holdAimItem
             , 
-            _iscrouched
-            , 
-            IsFrightScream
-            , 
             _isholdvaccine
+            , 
+            _isinjured
+            , 
+            IsHoldingFlashbang
         ]
         TargetInstance: null
     }
@@ -3135,9 +3534,9 @@
         bReceiveNotifiesFromLinkedInstances: False
         bPropagateNotifiesToLinkedInstances: False
         SourcePropertyNames: [
-            __CustomProperty__InteractionType_63DD7A6B47EF5EA923BDE5950562FD40
+            __CustomProperty__InteractionType_BC1CBDCE48BB46822860859B113DF8F3
             , 
-            __CustomProperty__Idle_63DD7A6B47EF5EA923BDE5950562FD40
+            __CustomProperty__Idle_BC1CBDCE48BB46822860859B113DF8F3
         ]
         DestPropertyNames: [
             _InteractionType
@@ -3160,27 +3559,27 @@
         bReceiveNotifiesFromLinkedInstances: False
         bPropagateNotifiesToLinkedInstances: False
         SourcePropertyNames: [
-            __CustomProperty__IsCrawling_893E9EFD43E0E1A3EB6C638C683E59E6
+            __CustomProperty__IsCrawling_57439D34464B73198D30B1BEF872D149
             , 
-            __CustomProperty__IsHooked_893E9EFD43E0E1A3EB6C638C683E59E6
+            __CustomProperty__IsHooked_57439D34464B73198D30B1BEF872D149
             , 
-            __CustomProperty__IsDead_893E9EFD43E0E1A3EB6C638C683E59E6
+            __CustomProperty__IsDead_57439D34464B73198D30B1BEF872D149
             , 
-            __CustomProperty__IsFrightScreaming_893E9EFD43E0E1A3EB6C638C683E59E6
+            __CustomProperty__IsFrightScreaming_57439D34464B73198D30B1BEF872D149
             , 
-            __CustomProperty__GuidedAction_893E9EFD43E0E1A3EB6C638C683E59E6
+            __CustomProperty__GuidedAction_57439D34464B73198D30B1BEF872D149
             , 
-            __CustomProperty__InteractionType_893E9EFD43E0E1A3EB6C638C683E59E6
+            __CustomProperty__InteractionType_57439D34464B73198D30B1BEF872D149
             , 
-            __CustomProperty__IsInsideCloset_893E9EFD43E0E1A3EB6C638C683E59E6
+            __CustomProperty__IsInsideCloset_57439D34464B73198D30B1BEF872D149
             , 
-            __CustomProperty__IsInteracting_893E9EFD43E0E1A3EB6C638C683E59E6
+            __CustomProperty__IsInteracting_57439D34464B73198D30B1BEF872D149
             , 
-            __CustomProperty__IsCrouched_893E9EFD43E0E1A3EB6C638C683E59E6
+            __CustomProperty__IsCrouched_57439D34464B73198D30B1BEF872D149
             , 
-            __CustomProperty__IsHoldingAimItem_893E9EFD43E0E1A3EB6C638C683E59E6
+            __CustomProperty__IsHoldingAimItem_57439D34464B73198D30B1BEF872D149
             , 
-            __CustomProperty__idle_893E9EFD43E0E1A3EB6C638C683E59E6
+            __CustomProperty__idle_57439D34464B73198D30B1BEF872D149
         ]
         DestPropertyNames: [
             _IsCrawling
@@ -3221,9 +3620,9 @@
         bReceiveNotifiesFromLinkedInstances: False
         bPropagateNotifiesToLinkedInstances: False
         SourcePropertyNames: [
-            __CustomProperty__IsTrapped_A8E788814E73C34A7A51A8B603D54204
+            __CustomProperty__IsTrapped_56A8DAEE40106CCB641EA09F15E5C927
             , 
-            __CustomProperty__InteractionType_A8E788814E73C34A7A51A8B603D54204
+            __CustomProperty__InteractionType_56A8DAEE40106CCB641EA09F15E5C927
         ]
         DestPropertyNames: [
             _IsTrapped
@@ -3246,19 +3645,19 @@
         bReceiveNotifiesFromLinkedInstances: False
         bPropagateNotifiesToLinkedInstances: False
         SourcePropertyNames: [
-            __CustomProperty__IsCrawling_F34FCE7448A65F0E02873A90ED85F9FE
+            __CustomProperty__IsCrawling_B8BB347348BBDB01B1EB5CBE7AECED5A
             , 
-            __CustomProperty__IsBeingCarried_F34FCE7448A65F0E02873A90ED85F9FE
+            __CustomProperty__IsBeingCarried_B8BB347348BBDB01B1EB5CBE7AECED5A
             , 
-            __CustomProperty__IsDead_F34FCE7448A65F0E02873A90ED85F9FE
+            __CustomProperty__IsDead_B8BB347348BBDB01B1EB5CBE7AECED5A
             , 
-            __CustomProperty__IsHooked_F34FCE7448A65F0E02873A90ED85F9FE
+            __CustomProperty__IsHooked_B8BB347348BBDB01B1EB5CBE7AECED5A
             , 
-            __CustomProperty__IsCrouched_F34FCE7448A65F0E02873A90ED85F9FE
+            __CustomProperty__IsCrouched_B8BB347348BBDB01B1EB5CBE7AECED5A
             , 
-            __CustomProperty__Idle_F34FCE7448A65F0E02873A90ED85F9FE
+            __CustomProperty__Idle_B8BB347348BBDB01B1EB5CBE7AECED5A
             , 
-            __CustomProperty__Speed_F34FCE7448A65F0E02873A90ED85F9FE
+            __CustomProperty__Speed_B8BB347348BBDB01B1EB5CBE7AECED5A
         ]
         DestPropertyNames: [
             _IsCrawling
@@ -3325,17 +3724,17 @@
         bReceiveNotifiesFromLinkedInstances: False
         bPropagateNotifiesToLinkedInstances: False
         SourcePropertyNames: [
-            __CustomProperty__Injured_0C9368F64B879D40CA221D95C915542C
+            __CustomProperty__Injured_7235C9824E9EF66F5E5823BEC783BCAC
             , 
-            __CustomProperty__isCrawling_0C9368F64B879D40CA221D95C915542C
+            __CustomProperty__isCrawling_7235C9824E9EF66F5E5823BEC783BCAC
             , 
-            __CustomProperty__idle_0C9368F64B879D40CA221D95C915542C
+            __CustomProperty__idle_7235C9824E9EF66F5E5823BEC783BCAC
             , 
-            __CustomProperty__IsCrouched_0C9368F64B879D40CA221D95C915542C
+            __CustomProperty__IsCrouched_7235C9824E9EF66F5E5823BEC783BCAC
             , 
-            __CustomProperty__speed_0C9368F64B879D40CA221D95C915542C
+            __CustomProperty__speed_7235C9824E9EF66F5E5823BEC783BCAC
             , 
-            __CustomProperty__isCarried_0C9368F64B879D40CA221D95C915542C
+            __CustomProperty__isCarried_7235C9824E9EF66F5E5823BEC783BCAC
         ]
         DestPropertyNames: [
             _Injured
@@ -3366,13 +3765,13 @@
         bReceiveNotifiesFromLinkedInstances: False
         bPropagateNotifiesToLinkedInstances: False
         SourcePropertyNames: [
-            __CustomProperty__Idle_78B580C04F0D387F9D7101B76501B08F
+            __CustomProperty__Idle_97C782A84BE2318EFC59A08F02BDFED8
             , 
-            __CustomProperty__Speed_78B580C04F0D387F9D7101B76501B08F
+            __CustomProperty__Speed_97C782A84BE2318EFC59A08F02BDFED8
             , 
-            __CustomProperty__Yaw_78B580C04F0D387F9D7101B76501B08F
+            __CustomProperty__Yaw_97C782A84BE2318EFC59A08F02BDFED8
             , 
-            __CustomProperty__Pitch_78B580C04F0D387F9D7101B76501B08F
+            __CustomProperty__Pitch_97C782A84BE2318EFC59A08F02BDFED8
         ]
         DestPropertyNames: [
             _Idle
@@ -3399,11 +3798,11 @@
         bReceiveNotifiesFromLinkedInstances: False
         bPropagateNotifiesToLinkedInstances: False
         SourcePropertyNames: [
-            __CustomProperty__IsIdle_D89B34CC49AC9D94A2AEB3B2CCAFFFD0
+            __CustomProperty__IsIdle_84B4B4124A41A5931687659D0ECC657D
             , 
-            __CustomProperty__IsCrouched_D89B34CC49AC9D94A2AEB3B2CCAFFFD0
+            __CustomProperty__IsCrouched_84B4B4124A41A5931687659D0ECC657D
             , 
-            __CustomProperty__IsCrawling_D89B34CC49AC9D94A2AEB3B2CCAFFFD0
+            __CustomProperty__IsCrawling_84B4B4124A41A5931687659D0ECC657D
         ]
         DestPropertyNames: [
             _IsIdle
@@ -3428,15 +3827,27 @@
         bReceiveNotifiesFromLinkedInstances: False
         bPropagateNotifiesToLinkedInstances: False
         SourcePropertyNames: [
-            __CustomProperty__Dynamics_A41C9AC349EBBA2E2FE35BBAFC36F148
+            __CustomProperty__Dynamics_BA6D67794CB979FE9F35B5827F9EC547
             , 
-            __CustomProperty__IsKate_A41C9AC349EBBA2E2FE35BBAFC36F148
+            __CustomProperty__IsKate_BA6D67794CB979FE9F35B5827F9EC547
             , 
-            __CustomProperty__IsJane_A41C9AC349EBBA2E2FE35BBAFC36F148
+            __CustomProperty__IsJane_BA6D67794CB979FE9F35B5827F9EC547
             , 
-            __CustomProperty__IsCrouched_A41C9AC349EBBA2E2FE35BBAFC36F148
+            __CustomProperty__IsCrouched_BA6D67794CB979FE9F35B5827F9EC547
             , 
-            __CustomProperty__Idle_A41C9AC349EBBA2E2FE35BBAFC36F148
+            __CustomProperty__Idle_BA6D67794CB979FE9F35B5827F9EC547
+            , 
+            __CustomProperty__isJohn_BA6D67794CB979FE9F35B5827F9EC547
+            , 
+            __CustomProperty__isSteve_BA6D67794CB979FE9F35B5827F9EC547
+            , 
+            __CustomProperty__isS26_BA6D67794CB979FE9F35B5827F9EC547
+            , 
+            __CustomProperty__isS26_02_BA6D67794CB979FE9F35B5827F9EC547
+            , 
+            __CustomProperty__isS27_BA6D67794CB979FE9F35B5827F9EC547
+            , 
+            __CustomProperty__isS27_02_BA6D67794CB979FE9F35B5827F9EC547
         ]
         DestPropertyNames: [
             _Dynamics
@@ -3448,10 +3859,22 @@
             _IsCrouched
             , 
             _Idle
+            , 
+            _isJohn
+            , 
+            _isSteve
+            , 
+            _isS26
+            , 
+            _isS26_02
+            , 
+            _isS27
+            , 
+            _isS27_02
         ]
         TargetInstance: null
     }
-    __CustomProperty__RightHandIKTransform_708A315C4F6C025CFC1248A751786681: {
+    __CustomProperty__RightHandIKTransform_62BEF88E42BBD3B919CFACBFF9A8FDE2: {
         Rotation: { X: 0, Y: 0, Z: 0, W: 1 }
         Translation: { X: 0, Y: 0, Z: 0 }
         Scale3D: { X: 1, Y: 1, Z: 1 }
@@ -3470,9 +3893,9 @@
         bReceiveNotifiesFromLinkedInstances: False
         bPropagateNotifiesToLinkedInstances: False
         SourcePropertyNames: [
-            __CustomProperty__RightHandIKTransform_708A315C4F6C025CFC1248A751786681
+            __CustomProperty__RightHandIKTransform_62BEF88E42BBD3B919CFACBFF9A8FDE2
             , 
-            __CustomProperty__RightArmIKAlpha_708A315C4F6C025CFC1248A751786681
+            __CustomProperty__RightArmIKAlpha_62BEF88E42BBD3B919CFACBFF9A8FDE2
         ]
         DestPropertyNames: [
             _RightHandIKTransform
@@ -3483,7 +3906,7 @@
     }
     AnimGraphNode_Root: {
         Result: {
-            LinkID: 21
+            LinkID: 37
         }
         Name: AnimGraph
         Group: None
@@ -3491,7 +3914,7 @@
     AnimGraphNode_SubInstance: {
         InputPoses: [
             {
-                LinkID: 42
+                LinkID: 35
             }
         ]
         InputPoseNames: [
@@ -3502,15 +3925,15 @@
         bReceiveNotifiesFromLinkedInstances: False
         bPropagateNotifiesToLinkedInstances: False
         SourcePropertyNames: [
-            __CustomProperty__inAir_12DF706645EB76905C60EFA2785850E1
+            __CustomProperty__inAir_29071AB14F1FE04FC49115BC6D5A9E07
             , 
-            __CustomProperty__DropStaggerTimeLeft_12DF706645EB76905C60EFA2785850E1
+            __CustomProperty__DropStaggerTimeLeft_29071AB14F1FE04FC49115BC6D5A9E07
             , 
-            __CustomProperty__IsCrawling_12DF706645EB76905C60EFA2785850E1
+            __CustomProperty__IsCrawling_29071AB14F1FE04FC49115BC6D5A9E07
             , 
-            __CustomProperty__MaxSpeed_12DF706645EB76905C60EFA2785850E1
+            __CustomProperty__MaxSpeed_29071AB14F1FE04FC49115BC6D5A9E07
             , 
-            __CustomProperty__Speed_12DF706645EB76905C60EFA2785850E1
+            __CustomProperty__Speed_29071AB14F1FE04FC49115BC6D5A9E07
         ]
         DestPropertyNames: [
             _inAir
@@ -3539,19 +3962,19 @@
         bReceiveNotifiesFromLinkedInstances: False
         bPropagateNotifiesToLinkedInstances: False
         SourcePropertyNames: [
-            __CustomProperty__idle_1F179AC2414F85F62EB079A66E36D7D0
+            __CustomProperty__idle_4E4104244DC11B72302B448E8DF01E37
             , 
-            __CustomProperty__crouch_1F179AC2414F85F62EB079A66E36D7D0
+            __CustomProperty__crouch_4E4104244DC11B72302B448E8DF01E37
             , 
-            __CustomProperty__isCrawl_1F179AC2414F85F62EB079A66E36D7D0
+            __CustomProperty__isCrawl_4E4104244DC11B72302B448E8DF01E37
             , 
-            __CustomProperty_Speed_1F179AC2414F85F62EB079A66E36D7D0
+            __CustomProperty_Speed_4E4104244DC11B72302B448E8DF01E37
             , 
-            __CustomProperty_InteractionType_1F179AC2414F85F62EB079A66E36D7D0
+            __CustomProperty_InteractionType_4E4104244DC11B72302B448E8DF01E37
             , 
-            __CustomProperty__injured_1F179AC2414F85F62EB079A66E36D7D0
+            __CustomProperty__injured_4E4104244DC11B72302B448E8DF01E37
             , 
-            __CustomProperty__carried_1F179AC2414F85F62EB079A66E36D7D0
+            __CustomProperty__carried_4E4104244DC11B72302B448E8DF01E37
         ]
         DestPropertyNames: [
             _idle
@@ -3584,9 +4007,9 @@
         bReceiveNotifiesFromLinkedInstances: False
         bPropagateNotifiesToLinkedInstances: False
         SourcePropertyNames: [
-            __CustomProperty__IsInjured_53F0BB3445E948071AD53989CC3BD1AF
+            __CustomProperty__IsInjured_A4FCC4724DBF1AAFC459B4BDB33A476F
             , 
-            __CustomProperty__InteractionType_53F0BB3445E948071AD53989CC3BD1AF
+            __CustomProperty__InteractionType_A4FCC4724DBF1AAFC459B4BDB33A476F
         ]
         DestPropertyNames: [
             _IsInjured
@@ -3626,9 +4049,9 @@
         bReceiveNotifiesFromLinkedInstances: False
         bPropagateNotifiesToLinkedInstances: False
         SourcePropertyNames: [
-            __CustomProperty__isScream_4ACE450F4C3F2E45923CE49DEB5D551D
+            __CustomProperty__isScream_F91E6A6049A7B8D242AD1AB0FDA83345
             , 
-            __CustomProperty__idle_4ACE450F4C3F2E45923CE49DEB5D551D
+            __CustomProperty__idle_F91E6A6049A7B8D242AD1AB0FDA83345
         ]
         DestPropertyNames: [
             _isScream
@@ -3651,9 +4074,9 @@
         bReceiveNotifiesFromLinkedInstances: False
         bPropagateNotifiesToLinkedInstances: False
         SourcePropertyNames: [
-            __CustomProperty_isInjured_E041C92843D03F9266A923AB56B7D899
+            __CustomProperty_isInjured_1ACEE0F4432270B7204D7E8DCF479CEE
             , 
-            __CustomProperty_IsCrouching_E041C92843D03F9266A923AB56B7D899
+            __CustomProperty_IsCrouching_1ACEE0F4432270B7204D7E8DCF479CEE
         ]
         DestPropertyNames: [
             isInjured
@@ -3676,13 +4099,13 @@
         bReceiveNotifiesFromLinkedInstances: False
         bPropagateNotifiesToLinkedInstances: False
         SourcePropertyNames: [
-            __CustomProperty__isInjured_9280FBD048B92DBB3819C3BADBFAA9AA
+            __CustomProperty__isInjured_4F4A7FCC4D3DB3998DED62B657B19E12
             , 
-            __CustomProperty__speed_9280FBD048B92DBB3819C3BADBFAA9AA
+            __CustomProperty__speed_4F4A7FCC4D3DB3998DED62B657B19E12
             , 
-            __CustomProperty__isIdle_9280FBD048B92DBB3819C3BADBFAA9AA
+            __CustomProperty__isIdle_4F4A7FCC4D3DB3998DED62B657B19E12
             , 
-            __CustomProperty__isCrouch_9280FBD048B92DBB3819C3BADBFAA9AA
+            __CustomProperty__isCrouch_4F4A7FCC4D3DB3998DED62B657B19E12
         ]
         DestPropertyNames: [
             _isInjured
@@ -3695,57 +4118,9 @@
         ]
         TargetInstance: null
     }
-    AnimGraphNode_TransitionResult: {
-        bCanEnterTransition: False
-    }
-    AnimGraphNode_TransitionResult: {
-        bCanEnterTransition: False
-    }
-    AnimGraphNode_LinkedAnimGraph: {
-        InputPoses: [ ]
-        InputPoseNames: [ ]
-        InstanceClass: AnimBlueprintGeneratedClass /Game/Characters/Campers/Common/AnimBP/AnimSubGraph/ABSub_Survivor00_Locomotion_Regular.ABSub_Survivor00_Locomotion_Regular_C
-        Tag: None
-        bReceiveNotifiesFromLinkedInstances: False
-        bPropagateNotifiesToLinkedInstances: False
-        SourcePropertyNames: [ ]
-        DestPropertyNames: [ ]
-        TargetInstance: null
-    }
-    AnimGraphNode_StateResult: {
-        Result: {
-            LinkID: 33
-        }
-        Name: Locomotion_Regular
-        Group: None
-    }
-    AnimGraphNode_SubInstance: {
-        InputPoses: [ ]
-        InputPoseNames: [ ]
-        InstanceClass: AnimBlueprintGeneratedClass /Game/Characters/Campers/Common/AnimBP/AnimSubGraph/ABSub_Survivor00_Locomotion_Injured.ABSub_Survivor00_Locomotion_Injured_C
-        Tag: None
-        bReceiveNotifiesFromLinkedInstances: False
-        bPropagateNotifiesToLinkedInstances: False
-        SourcePropertyNames: [ ]
-        DestPropertyNames: [ ]
-        TargetInstance: null
-    }
-    AnimGraphNode_StateResult: {
-        Result: {
-            LinkID: 35
-        }
-        Name: Locomotion_Injured
-        Group: None
-    }
-    AnimGraphNode_StateMachine: {
-        StateMachineIndexInClass: 0
-        MaxTransitionsPerFrame: 3
-        bSkipFirstUpdateTransition: True
-        bReinitializeOnBecomingRelevant: True
-    }
     AnimGraphNode_Slot: {
         Source: {
-            LinkID: 40
+            LinkID: 34
         }
         SlotName: MontageNoIk
         bAlwaysUpdateSourcePose: False
@@ -3767,50 +4142,33 @@
         DestPropertyNames: [ ]
         TargetInstance: null
     }
-    AnimGraphNode_BlendListByBool: {
-        bActiveValue: False
-        BlendPose: [
-            {
-                LinkID: 43
-            }
+    AnimGraphNode_LinkedAnimGraph: {
+        InputPoses: [ ]
+        InputPoseNames: [ ]
+        InstanceClass: AnimBlueprintGeneratedClass /Game/Characters/Campers/Common/AnimBP/AnimSubGraph/ABSub_Survivor00_LocomotionLookAt.ABSub_Survivor00_LocomotionLookAt_C
+        Tag: None
+        bReceiveNotifiesFromLinkedInstances: False
+        bPropagateNotifiesToLinkedInstances: False
+        SourcePropertyNames: [
+            __CustomProperty__isInjured_1A36EAA0469FC6D32AE88E815B6CAE37
             , 
-            {
-                LinkID: 44
-            }
-        ]
-        BlendTime: [
-            0.1
+            __CustomProperty__isCrawling_1A36EAA0469FC6D32AE88E815B6CAE37
             , 
-            0.1
+            __CustomProperty__isDead_1A36EAA0469FC6D32AE88E815B6CAE37
         ]
-        TransitionType: EBlendListTransitionType::StandardBlend
-        BlendType: EAlphaBlendOption::Linear
-        bResetChildOnActivation: False
-        CustomBlendCurve: null
-        BlendProfile: null
-    }
-    AnimGraphNode_SaveCachedPose: {
-        Pose: {
-            LinkID: 37
-        }
-        CachePoseName: Cache_locomotion
-    }
-    AnimGraphNode_UseCachedPose: {
-        LinkToCachingNode: {
-            LinkID: 41
-        }
-        CachePoseName: Cache_locomotion
-    }
-    AnimGraphNode_UseCachedPose: {
-        LinkToCachingNode: {
-            LinkID: 41
-        }
-        CachePoseName: Cache_locomotion
+        DestPropertyNames: [
+            _isInjured
+            , 
+            _isCrawling
+            , 
+            _isDead
+        ]
+        TargetInstance: null
     }
     AnimGraphNode_LinkedAnimGraph: {
         InputPoses: [
             {
-                LinkID: 39
+                LinkID: 32
             }
         ]
         InputPoseNames: [
@@ -3821,31 +4179,31 @@
         bReceiveNotifiesFromLinkedInstances: False
         bPropagateNotifiesToLinkedInstances: False
         SourcePropertyNames: [
-            __CustomProperty__idle_D9420E6F47C5EB30B5DC4187FF16D634
+            __CustomProperty__idle_0ED70C21407E71ADA523D2ACCEE16775
             , 
-            __CustomProperty__IsCrouched_D9420E6F47C5EB30B5DC4187FF16D634
+            __CustomProperty__IsCrouched_0ED70C21407E71ADA523D2ACCEE16775
             , 
-            __CustomProperty__IsInsideCloset_D9420E6F47C5EB30B5DC4187FF16D634
+            __CustomProperty__IsInsideCloset_0ED70C21407E71ADA523D2ACCEE16775
             , 
-            __CustomProperty__IsInteracting_D9420E6F47C5EB30B5DC4187FF16D634
+            __CustomProperty__IsInteracting_0ED70C21407E71ADA523D2ACCEE16775
             , 
-            __CustomProperty__IsHoldingAimItem_D9420E6F47C5EB30B5DC4187FF16D634
+            __CustomProperty__IsHoldingAimItem_0ED70C21407E71ADA523D2ACCEE16775
             , 
-            __CustomProperty__IsCrawling_D9420E6F47C5EB30B5DC4187FF16D634
+            __CustomProperty__IsCrawling_0ED70C21407E71ADA523D2ACCEE16775
             , 
-            __CustomProperty__IsHooked_D9420E6F47C5EB30B5DC4187FF16D634
+            __CustomProperty__IsHooked_0ED70C21407E71ADA523D2ACCEE16775
             , 
-            __CustomProperty__IsDead_D9420E6F47C5EB30B5DC4187FF16D634
+            __CustomProperty__IsDead_0ED70C21407E71ADA523D2ACCEE16775
             , 
-            __CustomProperty__holdingSmallItem_D9420E6F47C5EB30B5DC4187FF16D634
+            __CustomProperty__holdingSmallItem_0ED70C21407E71ADA523D2ACCEE16775
             , 
-            __CustomProperty__usingAimItem_D9420E6F47C5EB30B5DC4187FF16D634
+            __CustomProperty__usingAimItem_0ED70C21407E71ADA523D2ACCEE16775
             , 
-            __CustomProperty__holdinghandleitem_D9420E6F47C5EB30B5DC4187FF16D634
+            __CustomProperty__holdinghandleitem_0ED70C21407E71ADA523D2ACCEE16775
             , 
-            __CustomProperty__injured_D9420E6F47C5EB30B5DC4187FF16D634
+            __CustomProperty__injured_0ED70C21407E71ADA523D2ACCEE16775
             , 
-            __CustomProperty__isCarry_D9420E6F47C5EB30B5DC4187FF16D634
+            __CustomProperty__isCarry_0ED70C21407E71ADA523D2ACCEE16775
         ]
         DestPropertyNames: [
             _idle
@@ -3876,9 +4234,3229 @@
         ]
         TargetInstance: null
     }
+    AnimGraphNode_LayeredBoneBlend: {
+        BasePose: {
+            LinkID: 33
+        }
+        BlendPoses: [
+            {
+                LinkID: 48
+            }
+        ]
+        LayerSetup: [
+            {
+                BranchFilters: [
+                    {
+                        BoneName: joint_FacialGroup
+                        BlendDepth: 0
+                    }
+                ]
+            }
+        ]
+        BlendWeights: [
+            1
+        ]
+        bMeshSpaceRotationBlend: False
+        bMeshSpaceScaleBlend: False
+        CurveBlendOption: ECurveBlendOption::Override
+        bBlendRootMotionBasedOnRootBone: True
+        LODThreshold: -1
+        PerBoneBlendWeights: [
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+        ]
+        SkeletonGuid: cf50d3f7-f87b-414a-b175-2a9366739ac3
+        VirtualBoneGuid: 2f9c1787-bae1-400d-9de8-c5ae67a2ffe8
+    }
+    AnimGraphNode_ApplyAdditive: {
+        Base: {
+            LinkID: 40
+        }
+        Additive: {
+            LinkID: 41
+        }
+        Alpha: 1
+        AlphaScaleBias: {
+            Scale: 1
+            Bias: 0
+        }
+        LODThreshold: -1
+        AlphaBoolBlend: {
+            BlendInTime: 0
+            BlendOutTime: 0
+            BlendOption: EAlphaBlendOption::Linear
+            bInitialized: False
+            CustomCurve: null
+            AlphaBlend: {
+                CustomCurve: null
+                BlendTime: 0.2
+                BlendOption: EAlphaBlendOption::Linear
+            }
+        }
+        AlphaCurveName: None
+        AlphaScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+        AlphaInputType: EAnimAlphaInputType::Float
+        bAlphaBoolEnabled: True
+    }
+    AnimGraphNode_LayeredBoneBlend: {
+        BasePose: {
+            LinkID: 39
+        }
+        BlendPoses: [
+            {
+                LinkID: 56
+            }
+        ]
+        LayerSetup: [
+            {
+                BranchFilters: [
+                    {
+                        BoneName: joint_FacialGroup
+                        BlendDepth: 0
+                    }
+                ]
+            }
+        ]
+        BlendWeights: [
+            1
+        ]
+        bMeshSpaceRotationBlend: False
+        bMeshSpaceScaleBlend: False
+        CurveBlendOption: ECurveBlendOption::Override
+        bBlendRootMotionBasedOnRootBone: True
+        LODThreshold: -1
+        PerBoneBlendWeights: [
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 1
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+            , 
+            {
+                SourceIndex: 0
+                BlendWeight: 0
+            }
+        ]
+        SkeletonGuid: cf50d3f7-f87b-414a-b175-2a9366739ac3
+        VirtualBoneGuid: 2f9c1787-bae1-400d-9de8-c5ae67a2ffe8
+    }
+    AnimGraphNode_SaveCachedPose: {
+        Pose: {
+            LinkID: 21
+        }
+        CachePoseName: Faceaddictive
+    }
+    AnimGraphNode_UseCachedPose: {
+        LinkToCachingNode: {
+            LinkID: 38
+        }
+        CachePoseName: Faceaddictive
+    }
+    AnimGraphNode_UseCachedPose: {
+        LinkToCachingNode: {
+            LinkID: 38
+        }
+        CachePoseName: Faceaddictive
+    }
+    AnimGraphNode_SequencePlayer: {
+        Sequence: null
+        PlayRateBasis: 1
+        PlayRate: 1
+        PlayRateScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+        StartPosition: 0
+        bLoopAnimation: True
+        GroupIndex: -1
+        GroupRole: EAnimGroupRole::CanBeLeader
+        bIgnoreForRelevancyTest: False
+        BlendWeight: 0
+        InternalTimeAccumulator: 0
+    }
+    AnimGraphNode_TransitionResult: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_TransitionResult: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_SequencePlayer: {
+        Sequence: null
+        PlayRateBasis: 1
+        PlayRate: 1
+        PlayRateScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+        StartPosition: 0
+        bLoopAnimation: True
+        GroupIndex: -1
+        GroupRole: EAnimGroupRole::CanBeLeader
+        bIgnoreForRelevancyTest: False
+        BlendWeight: 0
+        InternalTimeAccumulator: 0
+    }
+    AnimGraphNode_StateResult: {
+        Result: {
+            LinkID: 44
+        }
+        Name: FaceIdleInjured_State_
+        Group: None
+    }
+    AnimGraphNode_SequencePlayer: {
+        Sequence: null
+        PlayRateBasis: 1
+        PlayRate: 1
+        PlayRateScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+        StartPosition: 0
+        bLoopAnimation: True
+        GroupIndex: -1
+        GroupRole: EAnimGroupRole::CanBeLeader
+        bIgnoreForRelevancyTest: False
+        BlendWeight: 0
+        InternalTimeAccumulator: 0
+    }
+    AnimGraphNode_StateResult: {
+        Result: {
+            LinkID: 46
+        }
+        Name: FaceIdle_State
+        Group: None
+    }
+    AnimGraphNode_StateMachine: {
+        StateMachineIndexInClass: 1
+        MaxTransitionsPerFrame: 3
+        bSkipFirstUpdateTransition: True
+        bReinitializeOnBecomingRelevant: True
+    }
+    AnimGraphNode_TransitionResult: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_TransitionResult: {
+        bCanEnterTransition: False
+    }
+    AnimGraphNode_SequencePlayer: {
+        Sequence: null
+        PlayRateBasis: 1
+        PlayRate: 1
+        PlayRateScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+        StartPosition: 0
+        bLoopAnimation: True
+        GroupIndex: -1
+        GroupRole: EAnimGroupRole::CanBeLeader
+        bIgnoreForRelevancyTest: False
+        BlendWeight: 0
+        InternalTimeAccumulator: 0
+    }
+    AnimGraphNode_StateResult: {
+        Result: {
+            LinkID: 51
+        }
+        Name: FaceIdleInjured_State_
+        Group: None
+    }
+    AnimGraphNode_SequencePlayer: {
+        Sequence: null
+        PlayRateBasis: 1
+        PlayRate: 1
+        PlayRateScaleBiasClamp: {
+            bMapRange: False
+            bClampResult: False
+            bInterpResult: False
+            InRange: {
+                Min: 0
+                Max: 1
+            }
+            OutRange: {
+                Min: 0
+                Max: 1
+            }
+            Scale: 1
+            Bias: 0
+            ClampMin: 0
+            ClampMax: 1
+            InterpSpeedIncreasing: 10
+            InterpSpeedDecreasing: 10
+        }
+        StartPosition: 0
+        bLoopAnimation: True
+        GroupIndex: -1
+        GroupRole: EAnimGroupRole::CanBeLeader
+        bIgnoreForRelevancyTest: False
+        BlendWeight: 0
+        InternalTimeAccumulator: 0
+    }
+    AnimGraphNode_StateResult: {
+        Result: {
+            LinkID: 53
+        }
+        Name: FaceIdle_State
+        Group: None
+    }
+    AnimGraphNode_StateMachine: {
+        StateMachineIndexInClass: 0
+        MaxTransitionsPerFrame: 3
+        bSkipFirstUpdateTransition: True
+        bReinitializeOnBecomingRelevant: True
+    }
+    AnimGraphNode_BlendListByBool: {
+        bActiveValue: False
+        BlendPose: [
+            {
+                LinkID: 55
+            }
+            , 
+            {
+                LinkID: 36
+            }
+        ]
+        BlendTime: [
+            0.1
+            , 
+            0.1
+        ]
+        TransitionType: EBlendListTransitionType::StandardBlend
+        BlendType: EAlphaBlendOption::Linear
+        bResetChildOnActivation: False
+        CustomBlendCurve: null
+        BlendProfile: null
+    }
     OnVomitHitTimerHandle: {
         Handle: 0
     }
+    FaceAdditive: AnimSequence /Game/Characters/Campers/Mali_Licensed/Animation/ML_FaceAdditive.ML_FaceAdditive
+    FaceIdle: AnimSequence /Game/Characters/Campers/Mali_Licensed/Animation/ML_FaceIdle.ML_FaceIdle
+    FaceIdleInjured: AnimSequence /Game/Characters/Campers/Mali_Licensed/Animation/ML_FaceIdle_Injured.ML_FaceIdle_Injured
     _animEffectHandlerClassForSFX: BlueprintGeneratedClass /Game/Audio/BP_Audio_Survivor_AnimNotifies_Handler.BP_Audio_Survivor_AnimNotifies_Handler_C
     _animEffectHandlerClassForVFX: BlueprintGeneratedClass /Game/Effects/Blueprints/BP_VFX_Survivor_AnimNotifies_Handler.BP_VFX_Survivor_AnimNotifies_Handler_C
 }
