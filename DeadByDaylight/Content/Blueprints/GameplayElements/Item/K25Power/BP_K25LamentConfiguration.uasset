@@ -1,0 +1,296 @@
+{
+    Timelines: [
+        TimelineTemplate BP_K25LamentConfiguration_C.TML_Charge_Template
+        , 
+        TimelineTemplate BP_K25LamentConfiguration_C.TML_DissolveSurvivorPickUp_Template
+    ]
+    SimpleConstructionScript: SimpleConstructionScript BP_K25LamentConfiguration_C.SimpleConstructionScript
+    UberGraphFunction: Function BP_K25LamentConfiguration_C.ExecuteUbergraph_BP_K25LamentConfiguration
+}
+<--- CDO --->
+{
+    UberGraphFrame: None
+    TML_DissolveSurvivorPickUp_NewTrack_0_9A7D114942D8F2B170969DABBDD75629: { X: 0, Y: 0, Z: 0 }
+    LamentConfigurationBubbleIndicatorTime: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Gemini/K25_TunableValue.K25_TunableValue
+            RowName: LamentConfiguration_KillerPickUp_ScreamBubbleIndicatorLifetime
+        }
+        _defaultValue: 0
+    }
+    Mesh_Location: { X: 0, Y: 0, Z: 0 }
+    IsKillerPickUp?: True
+    _interactable: {
+            DetailLevelBeforeCastShadows: DM_MAX
+            AttachParent: {
+                    AnimClass: AnimBlueprintGeneratedClass /Game/Meshes/InteractableObjects/Cenobite/AB_LamentBox_REF.AB_LamentBox_REF_C
+                    SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/Cenobite/LamentBox_REF.LamentBox_REF
+                    OverrideMaterials: [
+                        MaterialInstanceConstant /Game/Materials/Instances/MI_K25_Item_Normal.MI_K25_Item_Normal
+                    ]
+                    bRenderInDepthPass: False
+                    DetailLevelBeforeCastShadows: DM_MAX
+                    BodyInstance: {
+                        ObjectType: ECC_WorldStatic
+                        CollisionProfileName: NoCollision
+                        CollisionResponses: {
+                            ResponseArray: [
+                                {
+                                    Channel: EngineTraceChannel2
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: EngineTraceChannel3
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: EngineTraceChannel4
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: EngineTraceChannel5
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: EngineTraceChannel6
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Interactable
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Slasher
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: InteractionDetector
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: BlinkBlocker
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Ground
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: WorldStatic
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: WorldDynamic
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Pawn
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Visibility
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Camera
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: PhysicsBody
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Vehicle
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Destructible
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Audio
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Spider
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Traps
+                                    Response: ECR_Ignore
+                                }
+                            ]
+                        }
+                    }
+                }
+        }
+    _collectableInteractor: {
+            AttachParent: SpherePlayerOverlapComponent Default__BP_K25LamentConfiguration_C.InteractableZone
+        }
+    _survivorCollectItemInteraction: {
+            SnapTime: 0.5
+            CamperCanInteract: True
+            CancelOnHit: True
+            BlockSelfInteract: False
+            UpdateMontage: {
+                MontageID: PickupLamentBox
+            }
+            AttachParent: Interactor Default__BP_K25LamentConfiguration_C.CollectableInteractor
+        }
+    _killerCollectItemInteraction: {
+            SlasherCanInteract: True
+            BlockSelfInteract: False
+            UpdateMontage: {
+                MontageID: PickupLamentBox_Killer
+            }
+            _activationDefinition: {
+                _activationTags: { State.Item.Collected }
+            }
+            _preventingTags: { GameplayModifierFlag.IsIncapacitated }
+            AttachParent: Interactor Default__BP_K25LamentConfiguration_C.CollectableInteractor
+        }
+    _outlineComponent: {
+            LimitToCustomDepthObjects: True
+            OutlineName: LamentConfiguration
+            AttachParent: SkeletalMeshComponent Default__BP_K25LamentConfiguration_C.ItemMesh
+        }
+    _materialHelper: {
+            Groups: [
+                {
+                    GroupName: DissolveOut
+                    Maps: [
+                        {
+                            SrcMaterial: MaterialInstanceConstant /Game/Materials/Instances/MI_K25_Item_Normal.MI_K25_Item_Normal
+                            DstMaterial: MaterialInstanceConstant /Game/Characters/Slashers/Materials/Variants/MV_K25_Teleport_Dissolve.MV_K25_Teleport_Dissolve
+                        }
+                    ]
+                }
+            ]
+            AttachParent: SkeletalMeshComponent Default__BP_K25LamentConfiguration_C.ItemMesh
+        }
+    _outlineStrategy: {
+            _chainHuntActiveColor: { R: 0.006095, G: 0.949909, B: 1, A: 1 }
+        }
+    _spawnStrategy: {
+            _minSurvivorDistance: 1600
+            _minSurvivorDistancePointPenalty: 5000
+            _minKillerDistance: 4000
+            _minKillerDistancePointPenalty: 15000
+            _spawnPointsTypes: [
+                ETileSpawnPointType::Killer
+                , 
+                ETileSpawnPointType::Survivor
+            ]
+        }
+    _chainHuntComponent: {
+            _minChainHuntTimeBetweenChainStrikes: {
+                _dataTableRowHandle: {
+                    DataTable: DataTable /Game/Data/Dlc/Gemini/K25_TunableValue.K25_TunableValue
+                    RowName: LamentConfiguration_ChainHunt_MinTimeBetweenChainStrike
+                }
+            }
+            _maxChainHuntTimeBetweenChainStrikes: {
+                _dataTableRowHandle: {
+                    DataTable: DataTable /Game/Data/Dlc/Gemini/K25_TunableValue.K25_TunableValue
+                    RowName: LamentConfiguration_ChainHunt_MaxTimeBetweenChainStrike
+                }
+            }
+            _baseChainHuntChargeTime: {
+                _dataTableRowHandle: {
+                    DataTable: DataTable /Game/Data/Dlc/Gemini/K25_TunableValue.K25_TunableValue
+                    RowName: LamentConfiguration_ChainHuntChargeTime
+                }
+            }
+            _chainNumberPerSurvivorsAlive: CurveFloat /Game/Blueprints/GameplayElements/Item/K25Power/Curves/K25_LamentConfiguration_ChainHuntChainAmountPerSurvivor_Curve.K25_LamentConfiguration_ChainHuntChainAmountPerSurvivor_Curve
+        }
+    _dotProductMinValue: 0.8
+    _montageFollower: {
+        }
+    _montagePlayer: {
+            _animationMappingsTable: DataTable /Game/Characters/Slashers/K25/Weapons/Animation/LamentConfigurationAnimMappings.LamentConfigurationAnimMappings
+        }
+    _chainAnimationActorClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/K25Power/Animation/BP_K25ChainAnimationFollowerActor.BP_K25ChainAnimationFollowerActor_C
+    _possessionSoundLoop: {
+        _startEvent: AkAudioEvent /Game/Audio/AudioEvents/Killer/AudioEvent_K25_OBJ_PuzzleBox_PickUp_Survivor.AudioEvent_K25_OBJ_PuzzleBox_PickUp_Survivor
+        _endEvent: AkAudioEvent /Game/Audio/AudioEvents/Killer/AudioEvent_K25_OBJ_PuzzleBox_PutDown_Survivor.AudioEvent_K25_OBJ_PuzzleBox_PutDown_Survivor
+    }
+    _respawnTimeAfterLamentConfigurationSolved: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Gemini/K25_TunableValue.K25_TunableValue
+            RowName: LamentConfiguration_RespawnTime_Solved
+        }
+    }
+    _respawnTimeAfterKillerPickUp: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Gemini/K25_TunableValue.K25_TunableValue
+            RowName: LamentConfiguration_RespawnTime_KillerPickUp
+        }
+    }
+    _respawnTimeAfterSurvivorFreeBySelf: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Gemini/K25_TunableValue.K25_TunableValue
+            RowName: LamentConfiguration_RespawnTime_SurvivorEscapedGrasp
+        }
+    }
+    _respawnTimeAfterSurvivorFreeByAttack: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Gemini/K25_TunableValue.K25_TunableValue
+            RowName: LamentConfiguration_RespawnTime_FreedFromGraspByKillerAttack
+        }
+    }
+    _numberChainsToLaunchUponKillerPickUpLamentConfiguration: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Gemini/K25_TunableValue.K25_TunableValue
+            RowName: LamentConfiguration_KillerPickUp_NumberChainsOnEachSurvivor
+        }
+    }
+    _hostageInteractionTime: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Gemini/TunableValuesDB.TunableValuesDB
+            RowName: EscapeLamentConfigurationGasp_SecondsToCharge
+        }
+    }
+    DisableArmOverrideDuringInteractions: True
+    ItemID: Item_LamentConfiguration
+    BaseItemModifier: {
+        }
+    ItemModifier1: {
+        }
+    ItemModifier2: {
+        }
+    _itemInteractor: {
+            AttachParent: SpherePlayerOverlapComponent Default__BP_K25LamentConfiguration_C.InteractableZone
+        }
+    _mesh: SkeletalMeshComponent Default__BP_K25LamentConfiguration_C.ItemMesh
+    _objectState: {
+        }
+    _placementOrigin: {
+            AttachParent: SkeletalMeshComponent Default__BP_K25LamentConfiguration_C.ItemMesh
+        }
+    _stateTagForCollector: {
+        TagName: State.K25.IsHoldingLamentConfiguration
+    }
+    _transformOptimizer: {
+        }
+    RootComponent: SkeletalMeshComponent Default__BP_K25LamentConfiguration_C.ItemMesh
+}

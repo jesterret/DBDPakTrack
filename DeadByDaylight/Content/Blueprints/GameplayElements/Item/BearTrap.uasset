@@ -1,5 +1,4 @@
 {
-    NumReplicatedProperties: 1
     DynamicBindingObjects: [
         ComponentDelegateBinding BearTrap_C.ComponentDelegateBinding
     ]
@@ -10,24 +9,6 @@
 <--- CDO --->
 {
     UberGraphFrame: None
-    SlasherCaughtFootRotationOffset: { Pitch: 0, Roll: 250, Yaw: 0 }
-    InitialColourForSlasher: { R: 0, G: 0, B: 0.2, A: 1 }
-    InitialColourForCamper: { R: 0, G: 0, B: 0, A: 0 }
-    CamperCaughtFootRotationOffset: { Pitch: 0, Roll: 290, Yaw: 0 }
-    SlasherPlacementSocket: Weapon_SocketLT
-    Break Bear Trap Distance: 80
-    RevealedColourForCamper: { R: 0.070588, G: 0.164706, B: 0.882353, A: 1 }
-    OutlineFadeSlasher: CurveLinearColor /Game/Characters/Slashers/Blueprints/CLC_SlasherOutlineColor.CLC_SlasherOutlineColor
-    RepairTimer: {
-        _startTime: 0
-        _startTimeDirty: True
-        _timeLeft: {
-            _value: 0
-        }
-        _replicateTimeLeft: False
-        _interpSpeed: 1
-    }
-    TrapSetPosition: { X: 0, Y: 0, Z: 0 }
     _interactionVolume: {
             BoxExtent: { X: 250, Y: 250, Z: 120 }
             DetailLevelBeforeCastShadows: DM_MAX
@@ -159,13 +140,121 @@
                 Interactor
             ]
         }
-    _pickTrapZone: {
-            SphereRadius: 100
+    _trapPlayerDetectionZone: {
+            CapsuleRadius: 10
             DetailLevelBeforeCastShadows: DM_MAX
-            CanCharacterStepUpOn: ECB_No
             BodyInstance: {
                 ObjectType: ECC_GameTraceChannel1
-                CollisionProfileName: Interactable
+                CollisionProfileName: Custom
+                CollisionResponses: {
+                    ResponseArray: [
+                        {
+                            Channel: WorldStatic
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: WorldDynamic
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Pawn
+                            Response: ECR_Overlap
+                        }
+                        , 
+                        {
+                            Channel: Visibility
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Camera
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: PhysicsBody
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Vehicle
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Destructible
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: InteractionDetector
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: BlinkBlocker
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Ground
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Interactable
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Audio
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Spider
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Traps
+                            Response: ECR_Ignore
+                        }
+                    ]
+                }
+            }
+            AttachParent: SkeletalMeshComponent Default__BearTrap_C.ItemMesh
+            RelativeLocation: { X: 0, Y: 0, Z: 40 }
+        }
+    _killerSafetyZoneComponent: {
+            BoxExtent: { X: 150, Y: 150, Z: 75 }
+            DetailLevelBeforeCastShadows: DM_MAX
+            AttachParent: SkeletalMeshComponent Default__BearTrap_C.ItemMesh
+            RelativeLocation: { X: 0, Y: 0, Z: 69.999985 }
+        }
+    _outlineComponent: {
+            LimitToCustomDepthObjects: True
+            IsAlwaysVisible: True
+            MinimumOutlineDistance: 2000
+            OutlineName: trap
+            AttachParent: SkeletalMeshComponent Default__BearTrap_C.ItemMesh
+        }
+    _outlineUpdateStrategy: {
+            RevealedColorToSurvivor: { R: 0.070588, G: 0.164706, B: 0.882353, A: 1 }
+            KillerOutlineFadeCurve: CurveLinearColor /Game/Characters/Slashers/Blueprints/CLC_SlasherOutlineColor.CLC_SlasherOutlineColor
+            _outlineComponent: DBDOutlineComponent Default__BearTrap_C.Outline Component
+        }
+    _mapActorComponent: {
+            Category: EMapActorCategory::KillerObject
+        }
+    _mapActorCollision: {
+            SphereRadius: 64
+            DetailLevelBeforeCastShadows: DM_MAX
+            BodyInstance: {
+                ObjectType: ECC_GameTraceChannel7
+                CollisionProfileName: MapActor
                 CollisionResponses: {
                     ResponseArray: [
                         {
@@ -259,6 +348,16 @@
                         }
                         , 
                         {
+                            Channel: MapActor
+                            Response: ECR_Overlap
+                        }
+                        , 
+                        {
+                            Channel: InteractionDetector
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
                             Channel: BlinkBlocker
                             Response: ECR_Ignore
                         }
@@ -271,12 +370,117 @@
                 }
             }
             AttachParent: SkeletalMeshComponent Default__BearTrap_C.ItemMesh
-            RelativeLocation: { X: 0, Y: 0, Z: 10 }
+            RelativeLocation: { X: 0, Y: 0, Z: 17.15 }
         }
-    _collectInteractor: {
-            AttachParent: SpherePlayerOverlapComponent Default__BearTrap_C.Pick Trap Zone
-            RelativeLocation: { X: 0, Y: 0, Z: 4.999998 }
-            RelativeRotation: { Pitch: 0, Roll: 180, Yaw: 0 }
+    _trapBlocker: {
+            SphereRadius: 150
+            DetailLevelBeforeCastShadows: DM_MAX
+            BodyInstance: {
+                ObjectType: ECC_WorldStatic
+                CollisionProfileName: TrapBlocker
+                CollisionResponses: {
+                    ResponseArray: [
+                        {
+                            Channel: WorldStatic
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: WorldDynamic
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Pawn
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Visibility
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Camera
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: PhysicsBody
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Vehicle
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Destructible
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: EngineTraceChannel2
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: EngineTraceChannel3
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: EngineTraceChannel4
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: EngineTraceChannel5
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: EngineTraceChannel6
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Interactable
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Audio
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Slasher
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Spider
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: InteractionDetector
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: BlinkBlocker
+                            Response: ECR_Ignore
+                        }
+                    ]
+                }
+            }
+            AttachParent: SkeletalMeshComponent Default__BearTrap_C.ItemMesh
+        }
+    _montagePlayer: {
+            _animationMappingsTable: DataTable /Game/Blueprints/GameplayElements/Item/BearTrap/BearTrapAnimMappings.BearTrapAnimMappings
         }
     _dangerNavModifierComponent: {
         }
@@ -291,12 +495,12 @@
     ItemModifier2: {
         }
     _mesh: SkeletalMeshComponent Default__BearTrap_C.ItemMesh
+    _objectState: {
+        }
     _placementOrigin: {
             AttachParent: SkeletalMeshComponent Default__BearTrap_C.ItemMesh
         }
     _attachToSocketName: EAttachToSocketNameEnum::Weapon_SocketLT
-    _objectState: {
-        }
     _transformOptimizer: {
         }
     NetUpdateFrequency: 1

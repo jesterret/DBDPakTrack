@@ -1,0 +1,99 @@
+{
+    UberGraphFunction: Function BP_K25ChainStrikeInteraction_C.ExecuteUbergraph_BP_K25ChainStrikeInteraction
+}
+<--- CDO --->
+{
+    UberGraphFrame: None
+    _chainStrikeStateMachineclass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/K25Power/ChainStrikeStateMachine/BP_K25ChainStrikeStateMachine.BP_K25ChainStrikeStateMachine_C
+    _repossessFadeInTime: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Gemini/K25_TunableValue.K25_TunableValue
+            RowName: ChainStrike_KillerRepossession_FadeIn
+        }
+    }
+    _gatewayPossessionFovModifierCurve: CurveFloat /Game/Blueprints/GameplayElements/Item/K25Power/Curves/K25Chainstrike_GatewayPossession_FOVMultiplierCurve.K25Chainstrike_GatewayPossession_FOVMultiplierCurve
+    _controlledProjectilePossessionFovModifierCurve: CurveFloat /Game/Blueprints/GameplayElements/Item/K25Power/Curves/K25Chainstrike_ControlledProjectilePossession_FOVMultiplierCurve.K25Chainstrike_ControlledProjectilePossession_FOVMultiplierCurve
+    _chargeTimeAfterGatewayPlacementCancelled: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Gemini/K25_TunableValue.K25_TunableValue
+            RowName: ChainStrike_GatewayPlacement_CancelCooldown
+        }
+    }
+    _chargeTimeAfterGatewayPossessionCancelled: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Gemini/K25_TunableValue.K25_TunableValue
+            RowName: ChainStrike_GatewayPossession_CancelCooldown
+        }
+    }
+    _chargeTimeAfterControlledChainShot: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Gemini/K25_TunableValue.K25_TunableValue
+            RowName: ChainStrike_ShootControlledProjectile_Cooldown
+        }
+    }
+    _gatewayPossessionFovChangeDuration: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Gemini/K25_TunableValue.K25_TunableValue
+            RowName: ChainStrike_GatewayPossession_FoVChangeTime
+        }
+    }
+    _gatewayPossessionCameraPanTime: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Gemini/K25_TunableValue.K25_TunableValue
+            RowName: ChainStrike_GatewayPossession_CameraPanTime
+        }
+    }
+    _controlledProjectilePossessionCameraPanTime: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Gemini/K25_TunableValue.K25_TunableValue
+            RowName: ChainStrike_ShootControlledProjectile_CameraPanTime
+        }
+    }
+    _controlledProjectilePossessionFovTimeChangeDuration: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Gemini/K25_TunableValue.K25_TunableValue
+            RowName: ChainStrike_ShootControlledProjectile_FovChangeTime
+        }
+    }
+    HideProgressBar: True
+    InteractionID: K25ChainStrike
+    SlasherCanInteract: True
+    CanInteractWhileCarrying: False
+    AllowNavigation: True
+    AllowRotation: True
+    UseCameraMontageMode: False
+    UseAuthoritativeMovement: False
+    CanAuthoritativePush: False
+    InteractionInputType: EInputInteractionType::VE_ItemUse
+    NavigationSpeedCurve: CurveFloat /Game/Blueprints/GameplayElements/Item/K25Power/Curves/K25ChainstrikeInteraction_MovementSpeedCurve.K25ChainstrikeInteraction_MovementSpeedCurve
+    ExitInteractionTime: 1.5
+    InteractionDescriptionText: Create gateway
+    _secondaryInteractions: [
+        [ K25ChainStrike_CancelGatewayPlacement
+         => 
+        {
+            SecondaryInteractionID: K25ChainStrike_CancelGatewayPlacement
+            SecondaryInteractionInputType: EInputInteractionType::VE_ActionKiller
+            SecondaryInteractionDescriptionText: Cancel
+            ShouldShow: False
+        }
+        ], 
+        [ K25ChainStrike_PossessGateway
+         => 
+        {
+            SecondaryInteractionID: K25ChainStrike_PossessGateway
+            SecondaryInteractionInputType: EInputInteractionType::VE_AttackInteract
+            SecondaryInteractionDescriptionText: Close gateway
+            ShouldShow: False
+        }
+        ], 
+        [ K25ChainStrike_FireControlledProjectile
+         => 
+        {
+            SecondaryInteractionID: K25ChainStrike_FireControlledProjectile
+            SecondaryInteractionInputType: EInputInteractionType::VE_AttackInteract
+            SecondaryInteractionDescriptionText: Summon chain
+            ShouldShow: False
+        }
+        ]]
+}

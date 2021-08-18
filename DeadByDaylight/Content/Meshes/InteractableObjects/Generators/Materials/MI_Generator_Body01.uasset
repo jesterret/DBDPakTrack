@@ -1,8 +1,19 @@
 Asset: MaterialInstanceConstant MI_Generator_Body01
 {
-    Parent: MaterialInstanceConstant /Game/Materials/Masters/MI_InteractableObject_v2.MI_InteractableObject_v2
+    PhysMaterial: PhysicalMaterial /Game/Materials/PhysicalMaterials/PM_Metal_Hard.PM_Metal_Hard
+    Parent: MaterialInstanceConstant /Game/Materials/Master_Instances/Environment/MIM_Simple_InteractableObject.MIM_Simple_InteractableObject
     bHasStaticPermutationResource: True
     ScalarParameterValues: [
+        {
+            ParameterInfo: {
+                Name: UV Channel
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: 0
+            ExpressionGUID: c27f8105-dc89-4ac6-b40a-d049ad851d9d
+        }
+        , 
         {
             ParameterInfo: {
                 Name: RefractionDepthBias
@@ -21,7 +32,17 @@ Asset: MaterialInstanceConstant MI_Generator_Body01
                 Index: -1
             }
             ParameterValue: { R: 0, G: 0, B: 0, A: 0 }
-            ExpressionGUID: 8f361edf-58be-4808-ae65-9e4e68110aa5
+            ExpressionGUID: 4c6be443-161c-4d89-880f-66ec309312ad
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: |     Tint Color
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: { R: 0.026486, G: 0.022135, B: 0.177083, A: 1 }
+            ExpressionGUID: 844a9249-d570-49ec-b500-acbedc3859af
         }
     ]
     TextureParameterValues: [
@@ -32,27 +53,7 @@ Asset: MaterialInstanceConstant MI_Generator_Body01
                 Index: -1
             }
             ParameterValue: Texture2D /Game/Meshes/InteractableObjects/Generators/Textures/T_Generator_Body01_BC.T_Generator_Body01_BC
-            ExpressionGUID: 19f0818f-17bf-4513-ac6e-cb6e64a3f07d
-        }
-        , 
-        {
-            ParameterInfo: {
-                Name: Main_Normal
-                Association: GlobalParameter
-                Index: -1
-            }
-            ParameterValue: Texture2D /Game/Meshes/InteractableObjects/Generators/Textures/T_Generator_Body01_N.T_Generator_Body01_N
-            ExpressionGUID: 6048e55e-3122-4142-9e25-c3bf259e0dfb
-        }
-        , 
-        {
-            ParameterInfo: {
-                Name: Main_ORM
-                Association: GlobalParameter
-                Index: -1
-            }
-            ParameterValue: Texture2D /Game/Meshes/InteractableObjects/Generators/Textures/T_Generator_Body01_ORM.T_Generator_Body01_ORM
-            ExpressionGUID: b4e7009f-dbc2-4336-8046-c6eea59efad9
+            ExpressionGUID: f11fdc05-18cd-488f-8afd-488ab190d611
         }
         , 
         {
@@ -61,8 +62,8 @@ Asset: MaterialInstanceConstant MI_Generator_Body01
                 Association: GlobalParameter
                 Index: -1
             }
-            ParameterValue: Texture2D /Game/Effects/Textures/T_FX_Generator_Body01_EmissiveMask.T_FX_Generator_Body01_EmissiveMask
-            ExpressionGUID: 3325ff76-e445-4671-9693-fcdb396da5e9
+            ParameterValue: Texture2D /Game/Meshes/InteractableObjects/Generators/Textures/T_Generator_Body01_BDE.T_Generator_Body01_BDE
+            ExpressionGUID: 4234ab13-3582-4d8e-a78b-3e52831e5974
         }
         , 
         {
@@ -94,6 +95,46 @@ Asset: MaterialInstanceConstant MI_Generator_Body01
             ParameterValue: Texture2D /Game/Meshes/InteractableObjects/Generators/Textures/T_Generator_Body01_BDE.T_Generator_Body01_BDE
             ExpressionGUID: 17d055bb-9ec7-48f0-a828-eff0bf59ae2f
         }
+        , 
+        {
+            ParameterInfo: {
+                Name: BaseColor Map
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: Texture2D /Game/Meshes/InteractableObjects/Generators/Textures/T_Generator_Body01_BC.T_Generator_Body01_BC
+            ExpressionGUID: 9217cc03-00a4-43b5-9ba6-951c93890bcf
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: Normal Map
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: Texture2D /Game/Meshes/InteractableObjects/Generators/Textures/T_Generator_Body01_N.T_Generator_Body01_N
+            ExpressionGUID: 8e4d9db2-6d11-4fe2-ad79-4efd30260b2c
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: HRM\ORM Map
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: Texture2D /Game/Meshes/InteractableObjects/Generators/Textures/T_Generator_Body01_ORM.T_Generator_Body01_ORM
+            ExpressionGUID: c9cf5081-75cc-4fc9-b8c5-4b2829504e4d
+        }
+        , 
+        {
+            ParameterInfo: {
+                Name: |     Tint Opacity Map
+                Association: GlobalParameter
+                Index: -1
+            }
+            ParameterValue: Texture2D /Game/Meshes/InteractableObjects/Generators/Textures/T_Generator_Body01_RGBA.T_Generator_Body01_RGBA
+            ExpressionGUID: a0b03b23-a45b-4156-93ea-e51adcf3af6b
+        }
     ]
     BasePropertyOverrides: {
         OpacityMaskClipValue: 0.3333
@@ -103,40 +144,103 @@ Asset: MaterialInstanceConstant MI_Generator_Body01
             {
                 Value: True
                 ParameterInfo: {
-                    Name: Use_Main_Emissive
+                    Name: Use ORM
                     Association: GlobalParameter
                     Index: -1
                 }
                 bOverride: True
-                ExpressionGUID: c2baedb6-1750-46c1-b6dc-b29eb7330f19
+                ExpressionGUID: 7d40e489-1dab-422d-a0a3-8886fb62d765
             }
             , 
             {
                 Value: True
                 ParameterInfo: {
-                    Name: Use_Main_EmissiveMask
+                    Name: Use BaseColor Map
                     Association: GlobalParameter
                     Index: -1
                 }
                 bOverride: True
-                ExpressionGUID: 847469ea-2459-4c51-bc14-6c5e31779b0f
+                ExpressionGUID: 19871919-f123-444b-9a56-00555c8f0820
+            }
+            , 
+            {
+                Value: True
+                ParameterInfo: {
+                    Name: Use Tint
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: 0cbc50ac-b211-4e4a-8ac7-264479f62432
+            }
+            , 
+            {
+                Value: True
+                ParameterInfo: {
+                    Name: Use Normal Map
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: ed6beaa7-a675-4740-afb8-3a1005077a80
+            }
+            , 
+            {
+                Value: True
+                ParameterInfo: {
+                    Name: Use HRM\ORM Map
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: 2322b79e-f93a-4a9d-9408-6a3cb72420e9
+            }
+            , 
+            {
+                Value: True
+                ParameterInfo: {
+                    Name: Use Tint Opacity Map
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: 435bb07d-46ab-448f-b83f-38a8001bd5dd
+            }
+        ]
+        StaticComponentMaskParameters: [
+            {
+                R: True
+                G: False
+                B: False
+                A: False
+                ParameterInfo: {
+                    Name: |     Tint Opacity Map Channel
+                    Association: GlobalParameter
+                    Index: -1
+                }
+                bOverride: True
+                ExpressionGUID: 8382fe7a-5312-4b0e-9dcd-a1279cc89b58
             }
         ]
     }
     CachedReferencedTextures: [
+        Texture2D /Game/Textures/Environment/_Common/Defaults/T_Diffuse_Default.T_Diffuse_Default
+        , 
+        Texture2D /Game/Textures/Environment/_Common/Defaults/T_NormalMap_Default.T_NormalMap_Default
+        , 
+        Texture2D /Game/Textures/Environment/_Common/Defaults/T_MRH_Default.T_MRH_Default
+        , 
         Texture2D /Engine/EngineMaterials/BlendFunc_DefBlend.BlendFunc_DefBlend
         , 
         Texture2D /Engine/EngineMaterials/BlendFunc_DefBase.BlendFunc_DefBase
         , 
-        Texture2D /Engine/EngineMaterials/FlatNormal.FlatNormal
+        Texture2D /Game/Textures/Environment/_Common/Defaults/T_DiffuseWithAlpha_Default.T_DiffuseWithAlpha_Default
         , 
-        Texture2D /Game/Textures/Props/Misc/T_checker_grid.T_checker_grid
+        Texture2D /Game/Textures/Environment/_Common/Defaults/T_Specular_Default.T_Specular_Default
         , 
-        Texture2D /Game/Textures/Environment/Tiles/Yellow_Linear.Yellow_Linear
+        Texture2D /Game/Textures/Environment/_Common/Defaults/T_RgbMask_Default.T_RgbMask_Default
         , 
-        Texture2D /Game/Textures/Environment/Tiles/Black_Linear.Black_Linear
-        , 
-        Texture2D /Game/Textures/Environment/Tiles/White_Linear.White_Linear
+        Texture2D /Game/Textures/Environment/_Common/Defaults/T_RgbMaskWithAlpha_Default.T_RgbMaskWithAlpha_Default
         , 
         null
         , 
@@ -150,29 +254,23 @@ Asset: MaterialInstanceConstant MI_Generator_Body01
         , 
         Texture2D /Game/Characters/Campers/Textures/Vomit/T_Vomit01_ORM.T_Vomit01_ORM
         , 
-        Texture2D /Game/Characters/Campers/Textures/Vomit/T_Vomit01_N.T_Vomit01_N
+        Texture2D /Game/Textures/Environment/Tiles/Yellow_Linear.Yellow_Linear
         , 
-        Texture2D /Game/Effects/Textures/T_Clouds_01.T_Clouds_01
+        Texture2D /Game/Characters/Campers/Textures/Vomit/T_Vomit01_N.T_Vomit01_N
         , 
         Texture2D /Game/Effects/Textures/T_DissolveTextures.T_DissolveTextures
         , 
         Texture2D /Game/Effects/Textures/T_FX_DissolveRamp.T_FX_DissolveRamp
         , 
-        Texture2D /Game/Textures/Environment/Junkyard/Structures/T_GS_FrontSign_Flickerama.T_GS_FrontSign_Flickerama
+        Texture2D /Game/Effects/Textures/T_Clouds_01.T_Clouds_01
+        , 
+        Texture2D /Game/Textures/Environment/Tiles/White_Linear.White_Linear
+        , 
+        Texture2D /Game/Textures/Props/Misc/T_checker_grid.T_checker_grid
+        , 
+        Texture2D /Engine/EngineMaterials/Good64x64TilingNoiseHighFreq.Good64x64TilingNoiseHighFreq
     ]
     TextureStreamingData: [
-        {
-            SamplingScale: 1
-            UVChannelIndex: 0
-            TextureName: T_Generator_Body01_BC
-        }
-        , 
-        {
-            SamplingScale: 1
-            UVChannelIndex: 0
-            TextureName: T_Generator_Body01_N
-        }
-        , 
         {
             SamplingScale: 1
             UVChannelIndex: 0

@@ -1,19 +1,51 @@
 {
-    UberGraphFunction: Function BP_InjectSerum_Other_C.ExecuteUbergraph_BP_InjectSerum_Other
 }
 <--- CDO --->
 {
-    UberGraphFrame: None
+    _injectSerumKillerInstinctTime: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+                RowName: InjectSerumKillerInstinctTime
+            }
+        }
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Add
+                ModifierTag: {
+                    TagName: GameplayModifierType.ModifyInjectSerumKillerInstinctTime
+                }
+                CompoundStrategy: EModifierCompoundStrategy::Add
+            }
+        ]
+    }
     _scoreEvent: {
         TagName: GameEvent.ScoreEvent.Camper.Injected.Serum.Other
     }
+    _serumApplyHeal: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Eclipse/K24_TunableDB.K24_TunableDB
+            RowName: SerumApplyHeal
+        }
+    }
+    StopInteractionOnChargeComplete: True
+    _interactionSpecificActionSpeedAdditiveTags: { GameplayModifierType.ModifyInjectSerumTimeAdditive }
     InteractionID: InjectSerumOther
+    CamperCanInteract: True
     SnapPosition: True
     SnapRotation: True
     SnapStopDistance: 100
-    UseCameraMontageMode: True
+    CancelOnHit: True
+    InteractionInputType: EInputInteractionType::VE_ItemUse
+    StopInteractionOnInputRelease: True
     InteractionDescriptionText: VACCINATE
     InteractionHeightDeltaMax: 20
     _tags: { Semantics.Interaction.Id.Survivor.InjectingSerumOther }
     _allowInteractionInNarrowSpaces: True
+    _activationDefinition: {
+        _activationStrategy: EActivationStrategy::ActivateIfAnyTagMatches
+        _activationTags: { State.Presence.TheK24 }
+    }
+    RelativeLocation: { X: 0, Y: 0, Z: 80 }
+    bComponentToWorldUpdated: True
 }
