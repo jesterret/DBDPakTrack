@@ -203,25 +203,26 @@
             ]
         }
     _chainHuntComponent: {
-            _minChainHuntTimeBetweenChainStrikes: {
-                _dataTableRowHandle: {
-                    DataTable: DataTable /Game/Data/Dlc/Gemini/K25_TunableValue.K25_TunableValue
-                    RowName: LamentConfiguration_ChainHunt_MinTimeBetweenChainStrike
+            _chainHuntChargeTime: {
+                _baseValue: {
+                    _dataTableRowHandle: {
+                        DataTable: DataTable /Game/Data/Dlc/Gemini/K25_TunableValue.K25_TunableValue
+                        RowName: LamentConfiguration_ChainHuntChargeTime
+                    }
                 }
+                _statModifiers: [
+                    {
+                        OperationStrategy: EModifierOperationStrategy::Add
+                        ModifierTag: {
+                            TagName: GameplayModifierType.K25.ModifyChainHuntTimeToActivateAdditive
+                        }
+                        CompoundStrategy: EModifierCompoundStrategy::Add
+                    }
+                ]
             }
-            _maxChainHuntTimeBetweenChainStrikes: {
-                _dataTableRowHandle: {
-                    DataTable: DataTable /Game/Data/Dlc/Gemini/K25_TunableValue.K25_TunableValue
-                    RowName: LamentConfiguration_ChainHunt_MaxTimeBetweenChainStrike
-                }
-            }
-            _baseChainHuntChargeTime: {
-                _dataTableRowHandle: {
-                    DataTable: DataTable /Game/Data/Dlc/Gemini/K25_TunableValue.K25_TunableValue
-                    RowName: LamentConfiguration_ChainHuntChargeTime
-                }
-            }
-            _chainNumberPerSurvivorsAlive: CurveFloat /Game/Blueprints/GameplayElements/Item/K25Power/Curves/K25_LamentConfiguration_ChainHuntChainAmountPerSurvivor_Curve.K25_LamentConfiguration_ChainHuntChainAmountPerSurvivor_Curve
+            _chainNumberPerChainHuntCluster: CurveFloat /Game/Blueprints/GameplayElements/Item/K25Power/Curves/K25_LamentConfiguration_ChainHuntChainAmountPerSurvivor_Curve.K25_LamentConfiguration_ChainHuntChainAmountPerSurvivor_Curve
+            _timeBetweenChainHuntClusterStrikes: CurveFloat /Game/Blueprints/GameplayElements/Item/K25Power/Curves/K25_LamentConfiguration_TimeBetweenClusterStrike_Curve.K25_LamentConfiguration_TimeBetweenClusterStrike_Curve
+            _survivorChainHuntEffectsComponentClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/K25Power/Components/Survivor/BP_K25SurvivorChainHuntEffectsComponent.BP_K25SurvivorChainHuntEffectsComponent_C
         }
     _dotProductMinValue: 0.8
     _montageFollower: {
@@ -230,6 +231,7 @@
             _animationMappingsTable: DataTable /Game/Characters/Slashers/K25/Weapons/Animation/LamentConfigurationAnimMappings.LamentConfigurationAnimMappings
         }
     _chainAnimationActorClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/K25Power/Animation/BP_K25ChainAnimationFollowerActor.BP_K25ChainAnimationFollowerActor_C
+    _lamentConfigurationTeleportIndicatorClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/K25Power/BP_K25LamentConfigurationTeleportIcon.BP_K25LamentConfigurationTeleportIcon_C
     _possessionSoundLoop: {
         _startEvent: AkAudioEvent /Game/Audio/AudioEvents/Killer/AudioEvent_K25_OBJ_PuzzleBox_PickUp_Survivor.AudioEvent_K25_OBJ_PuzzleBox_PickUp_Survivor
         _endEvent: AkAudioEvent /Game/Audio/AudioEvents/Killer/AudioEvent_K25_OBJ_PuzzleBox_PutDown_Survivor.AudioEvent_K25_OBJ_PuzzleBox_PutDown_Survivor
@@ -270,7 +272,6 @@
             RowName: EscapeLamentConfigurationGasp_SecondsToCharge
         }
     }
-    DisableArmOverrideDuringInteractions: True
     ItemID: Item_LamentConfiguration
     BaseItemModifier: {
         }

@@ -35,27 +35,11 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
         }
         , 
         {
-            Id: e37e7b25-4b9e-4c34-b007-9e4b6e2472e4
-            IdName: E37E7B254C344B9E4B9E07B0E472246E
+            Id: 71eb226e-9265-45a5-90da-a412347ca471
+            IdName: 71EB226E45A5926512A4DA9071A47C34
             bIsEnabled: True
-            Name: Lightning_Curves
-            Instance: NiagaraEmitter NS_K25_Item_Charge_Complete.Lightning_Curves
-        }
-        , 
-        {
-            Id: bed0b58e-0dd8-45c9-b3a6-d4527694ca65
-            IdName: BED0B58E45C90DD852D4A6B365CA9476
-            bIsEnabled: True
-            Name: Middle_Vertical
-            Instance: NiagaraEmitter NS_K25_Item_Charge_Complete.Middle_Vertical
-        }
-        , 
-        {
-            Id: cd4414ca-a768-4d30-8377-e0ed19cd5480
-            IdName: CD4414CA4D30A768EDE077838054CD19
-            bIsEnabled: True
-            Name: Middle_Top
-            Instance: NiagaraEmitter NS_K25_Item_Charge_Complete.Middle_Top
+            Name: Lightning_Strike_Body
+            Instance: NiagaraEmitter NS_K25_Item_Charge_Complete.Lightning_Strike_Body
         }
     ]
     SystemSpawnScript: NiagaraScript NS_K25_Item_Charge_Complete.SystemSpawnScript
@@ -65,7 +49,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
             SortedParameterOffsets: [
                 {
                     Offset: 0
-                    Name: User.SpawnRate_Charge
+                    Name: User.Loop Duration
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
                         UnderlyingType: 2
@@ -74,6 +58,33 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 , 
                 {
                     Offset: 4
+                    Name: User.Maximum_Loop Duration
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    Offset: 8
+                    Name: User.Minimum_Loop Duration
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    Offset: 12
+                    Name: User.SpawnRate_Charge
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    Offset: 16
                     Name: User.StandardColor
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/CoreUObject.Vector
@@ -81,7 +92,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                     }
                 }
             ]
-            ParameterData: [ 0, 0, 128, 63, 0, 0, 72, 65, 0, 0, 72, 66, 0, 0, 200, 66 ]
+            ParameterData: [ 0, 0, 0, 63, 205, 204, 12, 63, 51, 51, 51, 63, 0, 0, 128, 63, 0, 0, 72, 65, 0, 0, 72, 66, 0, 0, 200, 66 ]
         }
         DataSetCompiledData: {
             Variables: [
@@ -97,6 +108,15 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 {
                     VarData: [  ]
                     Name: EM_Light_Single.AlphaScale
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    VarData: [  ]
+                    Name: EM_Light_Single.CurrentLoopDelay
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
                         UnderlyingType: 2
@@ -177,18 +197,9 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 , 
                 {
                     VarData: [  ]
-                    Name: EM_Light_Single.SpawnRate.SpawnOutputInfo
+                    Name: EM_Light_Single.SpawnBurst_Instantaneous.SpawnBurst
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraSpawnInfo
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: EM_Light_Single.SpawnRate.SpawnRemainder
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
                         UnderlyingType: 2
                     }
                 }
@@ -212,7 +223,16 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 }
                 , 
                 {
-                    VarData: [ 0, 0, 0, 0 ]
+                    VarData: [  ]
+                    Name: EM_Sparks.CurrentLoopDelay
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    VarData: [  ]
                     Name: EM_Sparks.CurrentLoopDuration
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
@@ -285,18 +305,9 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 , 
                 {
                     VarData: [  ]
-                    Name: EM_Sparks.SpawnRate.SpawnOutputInfo
+                    Name: EM_Sparks.SpawnBurst_Instantaneous.SpawnBurst
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraSpawnInfo
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: EM_Sparks.SpawnRate.SpawnRemainder
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
                         UnderlyingType: 2
                     }
                 }
@@ -320,7 +331,16 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 }
                 , 
                 {
-                    VarData: [ 0, 0, 0, 0 ]
+                    VarData: [  ]
+                    Name: EM_Sparks_Pop.CurrentLoopDelay
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    VarData: [  ]
                     Name: EM_Sparks_Pop.CurrentLoopDuration
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
@@ -393,18 +413,9 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 , 
                 {
                     VarData: [  ]
-                    Name: EM_Sparks_Pop.SpawnRate.SpawnOutputInfo
+                    Name: EM_Sparks_Pop.SpawnBurst_Instantaneous.SpawnBurst
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraSpawnInfo
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: EM_Sparks_Pop.SpawnRate.SpawnRemainder
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
                         UnderlyingType: 2
                     }
                 }
@@ -420,105 +431,6 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 , 
                 {
                     VarData: [  ]
-                    Name: Lightning_Curves.Age
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [ 0, 0, 0, 0 ]
-                    Name: Lightning_Curves.CurrentLoopDuration
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: Lightning_Curves.ExecutionState
-                    TypeDef: {
-                        ClassStructOrEnum: Enum /Script/Niagara.ENiagaraExecutionState
-                        UnderlyingType: 3
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: Lightning_Curves.ExecutionStateSource
-                    TypeDef: {
-                        ClassStructOrEnum: Enum /Script/Niagara.ENiagaraExecutionStateSource
-                        UnderlyingType: 3
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: Lightning_Curves.LocalSpace
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraBool
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: Lightning_Curves.LoopCount
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraInt32
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [ 0, 0, 0, 0 ]
-                    Name: Lightning_Curves.LoopedAge
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: Lightning_Curves.NormalizedLoopAge
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: Lightning_Curves.Scalability.DistanceFraction
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: Lightning_Curves.SpawnRate.SpawnOutputInfo
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraSpawnInfo
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: Lightning_Curves.SpawnRate.SpawnRemainder
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
                     Name: Lightning_Strands.Age
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
@@ -527,7 +439,16 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 }
                 , 
                 {
-                    VarData: [ 0, 0, 0, 0 ]
+                    VarData: [  ]
+                    Name: Lightning_Strands.CurrentLoopDelay
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    VarData: [  ]
                     Name: Lightning_Strands.CurrentLoopDuration
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
@@ -600,7 +521,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 , 
                 {
                     VarData: [  ]
-                    Name: Lightning_Strands.SpawnRate.SpawnOutputInfo
+                    Name: Lightning_Strands.SpawnBurst_Instantaneous.SpawnBurst
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraSpawnInfo
                         UnderlyingType: 2
@@ -609,7 +530,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 , 
                 {
                     VarData: [  ]
-                    Name: Lightning_Strands.SpawnRate.SpawnRemainder
+                    Name: Lightning_Strike_Body.Age
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
                         UnderlyingType: 2
@@ -618,7 +539,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 , 
                 {
                     VarData: [  ]
-                    Name: Middle_Top.Age
+                    Name: Lightning_Strike_Body.AlphaScale
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
                         UnderlyingType: 2
@@ -627,16 +548,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 , 
                 {
                     VarData: [  ]
-                    Name: Middle_Top.AlphaScale
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [ 0, 0, 0, 0 ]
-                    Name: Middle_Top.CurrentLoopDuration
+                    Name: Lightning_Strike_Body.CurrentLoopDelay
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
                         UnderlyingType: 2
@@ -645,7 +557,16 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 , 
                 {
                     VarData: [  ]
-                    Name: Middle_Top.ExecutionState
+                    Name: Lightning_Strike_Body.CurrentLoopDuration
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    VarData: [  ]
+                    Name: Lightning_Strike_Body.ExecutionState
                     TypeDef: {
                         ClassStructOrEnum: Enum /Script/Niagara.ENiagaraExecutionState
                         UnderlyingType: 3
@@ -654,7 +575,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 , 
                 {
                     VarData: [  ]
-                    Name: Middle_Top.ExecutionStateSource
+                    Name: Lightning_Strike_Body.ExecutionStateSource
                     TypeDef: {
                         ClassStructOrEnum: Enum /Script/Niagara.ENiagaraExecutionStateSource
                         UnderlyingType: 3
@@ -663,7 +584,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 , 
                 {
                     VarData: [  ]
-                    Name: Middle_Top.LocalSpace
+                    Name: Lightning_Strike_Body.LocalSpace
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraBool
                         UnderlyingType: 2
@@ -672,7 +593,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 , 
                 {
                     VarData: [  ]
-                    Name: Middle_Top.LoopCount
+                    Name: Lightning_Strike_Body.LoopCount
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraInt32
                         UnderlyingType: 2
@@ -681,7 +602,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 , 
                 {
                     VarData: [ 0, 0, 0, 0 ]
-                    Name: Middle_Top.LoopedAge
+                    Name: Lightning_Strike_Body.LoopedAge
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
                         UnderlyingType: 2
@@ -690,7 +611,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 , 
                 {
                     VarData: [  ]
-                    Name: Middle_Top.NormalizedLoopAge
+                    Name: Lightning_Strike_Body.NormalizedLoopAge
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
                         UnderlyingType: 2
@@ -699,7 +620,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 , 
                 {
                     VarData: [  ]
-                    Name: Middle_Top.Scalability.DistanceFraction
+                    Name: Lightning_Strike_Body.Scalability.DistanceFraction
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
                         UnderlyingType: 2
@@ -708,7 +629,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 , 
                 {
                     VarData: [  ]
-                    Name: Middle_Top.SpawnRate.SpawnOutputInfo
+                    Name: Lightning_Strike_Body.SpawnBurst_Instantaneous.SpawnBurst
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraSpawnInfo
                         UnderlyingType: 2
@@ -716,124 +637,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 }
                 , 
                 {
-                    VarData: [  ]
-                    Name: Middle_Top.SpawnRate.SpawnRemainder
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: Middle_Vertical.Age
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: Middle_Vertical.AlphaScale
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
                     VarData: [ 0, 0, 0, 0 ]
-                    Name: Middle_Vertical.CurrentLoopDuration
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: Middle_Vertical.ExecutionState
-                    TypeDef: {
-                        ClassStructOrEnum: Enum /Script/Niagara.ENiagaraExecutionState
-                        UnderlyingType: 3
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: Middle_Vertical.ExecutionStateSource
-                    TypeDef: {
-                        ClassStructOrEnum: Enum /Script/Niagara.ENiagaraExecutionStateSource
-                        UnderlyingType: 3
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: Middle_Vertical.LocalSpace
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraBool
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: Middle_Vertical.LoopCount
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraInt32
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [ 0, 0, 0, 0 ]
-                    Name: Middle_Vertical.LoopedAge
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: Middle_Vertical.NormalizedLoopAge
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: Middle_Vertical.Scalability.DistanceFraction
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: Middle_Vertical.SpawnRate.SpawnOutputInfo
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraSpawnInfo
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: Middle_Vertical.SpawnRate.SpawnRemainder
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
                     Name: System.Age
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
@@ -846,6 +650,15 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                     Name: System.bCompleteOnInactive
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraBool
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    VarData: [ 0, 0, 0, 0 ]
+                    Name: System.CurrentLoopDelay
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
                         UnderlyingType: 2
                     }
                 }
@@ -878,7 +691,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 }
                 , 
                 {
-                    VarData: [  ]
+                    VarData: [ 0, 0, 0, 0 ]
                     Name: System.LoopCount
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraInt32
@@ -896,7 +709,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 }
                 , 
                 {
-                    VarData: [  ]
+                    VarData: [ 0, 0, 0, 0 ]
                     Name: System.NormalizedLoopAge
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
@@ -954,6 +767,21 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                     FloatComponentStart: 3
                     Int32ComponentStart: 0
                     LayoutInfo: {
+                        FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 4
+                    Int32ComponentStart: 0
+                    LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
                         FloatComponentRegisterOffsets: [ ]
                         Int32ComponentByteOffsets: [
@@ -966,7 +794,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 }
                 , 
                 {
-                    FloatComponentStart: 3
+                    FloatComponentStart: 4
                     Int32ComponentStart: 1
                     LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
@@ -981,7 +809,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 }
                 , 
                 {
-                    FloatComponentStart: 3
+                    FloatComponentStart: 4
                     Int32ComponentStart: 2
                     LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
@@ -996,7 +824,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 }
                 , 
                 {
-                    FloatComponentStart: 3
+                    FloatComponentStart: 4
                     Int32ComponentStart: 3
                     LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
@@ -1007,21 +835,6 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                         Int32ComponentRegisterOffsets: [
                             0
                         ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 3
-                    Int32ComponentStart: 4
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
                     }
                 }
                 , 
@@ -1060,6 +873,21 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                     Int32ComponentStart: 4
                     LayoutInfo: {
                         FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 7
+                    Int32ComponentStart: 4
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [
                             4
                             , 
                             8
@@ -1079,21 +907,6 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                             , 
                             3
                         ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 8
-                    Int32ComponentStart: 6
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
                     }
                 }
                 , 
@@ -1146,6 +959,21 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                     FloatComponentStart: 12
                     Int32ComponentStart: 6
                     LayoutInfo: {
+                        FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 13
+                    Int32ComponentStart: 6
+                    LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
                         FloatComponentRegisterOffsets: [ ]
                         Int32ComponentByteOffsets: [
@@ -1158,7 +986,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 }
                 , 
                 {
-                    FloatComponentStart: 12
+                    FloatComponentStart: 13
                     Int32ComponentStart: 7
                     LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
@@ -1173,7 +1001,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 }
                 , 
                 {
-                    FloatComponentStart: 12
+                    FloatComponentStart: 13
                     Int32ComponentStart: 8
                     LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
@@ -1188,7 +1016,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 }
                 , 
                 {
-                    FloatComponentStart: 12
+                    FloatComponentStart: 13
                     Int32ComponentStart: 9
                     LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
@@ -1199,21 +1027,6 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                         Int32ComponentRegisterOffsets: [
                             0
                         ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 12
-                    Int32ComponentStart: 10
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
                     }
                 }
                 , 
@@ -1252,6 +1065,21 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                     Int32ComponentStart: 10
                     LayoutInfo: {
                         FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 16
+                    Int32ComponentStart: 10
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [
                             4
                             , 
                             8
@@ -1271,21 +1099,6 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                             , 
                             3
                         ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 17
-                    Int32ComponentStart: 12
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
                     }
                 }
                 , 
@@ -1338,6 +1151,21 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                     FloatComponentStart: 21
                     Int32ComponentStart: 12
                     LayoutInfo: {
+                        FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 22
+                    Int32ComponentStart: 12
+                    LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
                         FloatComponentRegisterOffsets: [ ]
                         Int32ComponentByteOffsets: [
@@ -1350,7 +1178,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 }
                 , 
                 {
-                    FloatComponentStart: 21
+                    FloatComponentStart: 22
                     Int32ComponentStart: 13
                     LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
@@ -1365,7 +1193,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 }
                 , 
                 {
-                    FloatComponentStart: 21
+                    FloatComponentStart: 22
                     Int32ComponentStart: 14
                     LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
@@ -1380,7 +1208,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 }
                 , 
                 {
-                    FloatComponentStart: 21
+                    FloatComponentStart: 22
                     Int32ComponentStart: 15
                     LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
@@ -1391,21 +1219,6 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                         Int32ComponentRegisterOffsets: [
                             0
                         ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 21
-                    Int32ComponentStart: 16
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
                     }
                 }
                 , 
@@ -1444,6 +1257,21 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                     Int32ComponentStart: 16
                     LayoutInfo: {
                         FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 25
+                    Int32ComponentStart: 16
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [
                             4
                             , 
                             8
@@ -1463,21 +1291,6 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                             , 
                             3
                         ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 26
-                    Int32ComponentStart: 18
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
                     }
                 }
                 , 
@@ -1530,6 +1343,21 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                     FloatComponentStart: 29
                     Int32ComponentStart: 19
                     LayoutInfo: {
+                        FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 30
+                    Int32ComponentStart: 19
+                    LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
                         FloatComponentRegisterOffsets: [ ]
                         Int32ComponentByteOffsets: [
@@ -1542,7 +1370,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 }
                 , 
                 {
-                    FloatComponentStart: 29
+                    FloatComponentStart: 30
                     Int32ComponentStart: 20
                     LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
@@ -1557,7 +1385,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 }
                 , 
                 {
-                    FloatComponentStart: 29
+                    FloatComponentStart: 30
                     Int32ComponentStart: 21
                     LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
@@ -1572,7 +1400,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 }
                 , 
                 {
-                    FloatComponentStart: 29
+                    FloatComponentStart: 30
                     Int32ComponentStart: 22
                     LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
@@ -1583,21 +1411,6 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                         Int32ComponentRegisterOffsets: [
                             0
                         ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 29
-                    Int32ComponentStart: 23
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
                     }
                 }
                 , 
@@ -1636,6 +1449,21 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                     Int32ComponentStart: 23
                     LayoutInfo: {
                         FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 33
+                    Int32ComponentStart: 23
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [
                             4
                             , 
                             8
@@ -1655,21 +1483,6 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                             , 
                             3
                         ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 34
-                    Int32ComponentStart: 25
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
                     }
                 }
                 , 
@@ -1707,6 +1520,36 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                     FloatComponentStart: 37
                     Int32ComponentStart: 25
                     LayoutInfo: {
+                        FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 38
+                    Int32ComponentStart: 25
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 39
+                    Int32ComponentStart: 25
+                    LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
                         FloatComponentRegisterOffsets: [ ]
                         Int32ComponentByteOffsets: [
@@ -1719,7 +1562,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 }
                 , 
                 {
-                    FloatComponentStart: 37
+                    FloatComponentStart: 39
                     Int32ComponentStart: 26
                     LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
@@ -1734,7 +1577,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 }
                 , 
                 {
-                    FloatComponentStart: 37
+                    FloatComponentStart: 39
                     Int32ComponentStart: 27
                     LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
@@ -1749,7 +1592,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 }
                 , 
                 {
-                    FloatComponentStart: 37
+                    FloatComponentStart: 39
                     Int32ComponentStart: 28
                     LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
@@ -1760,36 +1603,6 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                         Int32ComponentRegisterOffsets: [
                             0
                         ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 37
-                    Int32ComponentStart: 29
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 38
-                    Int32ComponentStart: 29
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
                     }
                 }
                 , 
@@ -1810,6 +1623,36 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 , 
                 {
                     FloatComponentStart: 40
+                    Int32ComponentStart: 29
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 41
+                    Int32ComponentStart: 29
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 42
                     Int32ComponentStart: 29
                     LayoutInfo: {
                         FloatComponentByteOffsets: [
@@ -1836,36 +1679,6 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 }
                 , 
                 {
-                    FloatComponentStart: 42
-                    Int32ComponentStart: 31
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 43
-                    Int32ComponentStart: 31
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
                     FloatComponentStart: 44
                     Int32ComponentStart: 31
                     LayoutInfo: {
@@ -1884,6 +1697,21 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                     FloatComponentStart: 45
                     Int32ComponentStart: 31
                     LayoutInfo: {
+                        FloatComponentByteOffsets: [ ]
+                        FloatComponentRegisterOffsets: [ ]
+                        Int32ComponentByteOffsets: [
+                            0
+                        ]
+                        Int32ComponentRegisterOffsets: [
+                            0
+                        ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 45
+                    Int32ComponentStart: 32
+                    LayoutInfo: {
                         FloatComponentByteOffsets: [
                             0
                         ]
@@ -1897,21 +1725,21 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 , 
                 {
                     FloatComponentStart: 46
-                    Int32ComponentStart: 31
+                    Int32ComponentStart: 32
                     LayoutInfo: {
-                        FloatComponentByteOffsets: [ ]
-                        FloatComponentRegisterOffsets: [ ]
-                        Int32ComponentByteOffsets: [
+                        FloatComponentByteOffsets: [
                             0
                         ]
-                        Int32ComponentRegisterOffsets: [
+                        FloatComponentRegisterOffsets: [
                             0
                         ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
                     }
                 }
                 , 
                 {
-                    FloatComponentStart: 46
+                    FloatComponentStart: 47
                     Int32ComponentStart: 32
                     LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
@@ -1926,7 +1754,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 }
                 , 
                 {
-                    FloatComponentStart: 46
+                    FloatComponentStart: 47
                     Int32ComponentStart: 33
                     LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
@@ -1941,7 +1769,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 }
                 , 
                 {
-                    FloatComponentStart: 46
+                    FloatComponentStart: 47
                     Int32ComponentStart: 34
                     LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
@@ -1952,21 +1780,6 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                         Int32ComponentRegisterOffsets: [
                             0
                         ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 46
-                    Int32ComponentStart: 35
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
                     }
                 }
                 , 
@@ -1999,363 +1812,9 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                         Int32ComponentRegisterOffsets: [ ]
                     }
                 }
-                , 
-                {
-                    FloatComponentStart: 49
-                    Int32ComponentStart: 35
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            4
-                            , 
-                            8
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            1
-                            , 
-                            2
-                        ]
-                        Int32ComponentByteOffsets: [
-                            0
-                            , 
-                            12
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                            , 
-                            3
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 51
-                    Int32ComponentStart: 37
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 52
-                    Int32ComponentStart: 37
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 53
-                    Int32ComponentStart: 37
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 54
-                    Int32ComponentStart: 37
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 55
-                    Int32ComponentStart: 37
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [ ]
-                        FloatComponentRegisterOffsets: [ ]
-                        Int32ComponentByteOffsets: [
-                            0
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 55
-                    Int32ComponentStart: 38
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [ ]
-                        FloatComponentRegisterOffsets: [ ]
-                        Int32ComponentByteOffsets: [
-                            0
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 55
-                    Int32ComponentStart: 39
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [ ]
-                        FloatComponentRegisterOffsets: [ ]
-                        Int32ComponentByteOffsets: [
-                            0
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 55
-                    Int32ComponentStart: 40
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [ ]
-                        FloatComponentRegisterOffsets: [ ]
-                        Int32ComponentByteOffsets: [
-                            0
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 55
-                    Int32ComponentStart: 41
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 56
-                    Int32ComponentStart: 41
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 57
-                    Int32ComponentStart: 41
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 58
-                    Int32ComponentStart: 41
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            4
-                            , 
-                            8
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            1
-                            , 
-                            2
-                        ]
-                        Int32ComponentByteOffsets: [
-                            0
-                            , 
-                            12
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                            , 
-                            3
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 60
-                    Int32ComponentStart: 43
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 61
-                    Int32ComponentStart: 43
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 62
-                    Int32ComponentStart: 43
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [ ]
-                        FloatComponentRegisterOffsets: [ ]
-                        Int32ComponentByteOffsets: [
-                            0
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 62
-                    Int32ComponentStart: 44
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 63
-                    Int32ComponentStart: 44
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [ ]
-                        FloatComponentRegisterOffsets: [ ]
-                        Int32ComponentByteOffsets: [
-                            0
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 63
-                    Int32ComponentStart: 45
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [ ]
-                        FloatComponentRegisterOffsets: [ ]
-                        Int32ComponentByteOffsets: [
-                            0
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 63
-                    Int32ComponentStart: 46
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [ ]
-                        FloatComponentRegisterOffsets: [ ]
-                        Int32ComponentByteOffsets: [
-                            0
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 63
-                    Int32ComponentStart: 47
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 64
-                    Int32ComponentStart: 47
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
             ]
-            TotalFloatComponents: 65
-            TotalInt32Components: 47
+            TotalFloatComponents: 49
+            TotalInt32Components: 35
         }
         SpawnInstanceParamsDataSetCompiledData: {
             Variables: [
@@ -2453,24 +1912,6 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 , 
                 {
                     VarData: [ 0, 0, 0, 0 ]
-                    Name: Engine.Lightning_Curves.NumParticles
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraInt32
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [ 0, 0, 0, 0 ]
-                    Name: Engine.Lightning_Curves.SpawnCountScale
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [ 0, 0, 0, 0 ]
                     Name: Engine.Lightning_Strands.NumParticles
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraInt32
@@ -2489,7 +1930,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 , 
                 {
                     VarData: [ 0, 0, 0, 0 ]
-                    Name: Engine.Middle_Top.NumParticles
+                    Name: Engine.Lightning_Strike_Body.NumParticles
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraInt32
                         UnderlyingType: 2
@@ -2498,25 +1939,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 , 
                 {
                     VarData: [ 0, 0, 0, 0 ]
-                    Name: Engine.Middle_Top.SpawnCountScale
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [ 0, 0, 0, 0 ]
-                    Name: Engine.Middle_Vertical.NumParticles
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraInt32
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [ 0, 0, 0, 0 ]
-                    Name: Engine.Middle_Vertical.SpawnCountScale
+                    Name: Engine.Lightning_Strike_Body.SpawnCountScale
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
                         UnderlyingType: 2
@@ -2535,6 +1958,24 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 {
                     VarData: [ 0, 0, 0, 0 ]
                     Name: Engine.Owner.LODDistanceFraction
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    VarData: [  ]
+                    Name: Engine.System.TickCount
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraInt32
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    VarData: [ 0, 0, 0, 0 ]
+                    Name: User.Loop Duration
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
                         UnderlyingType: 2
@@ -2780,36 +2221,6 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                     FloatComponentStart: 7
                     Int32ComponentStart: 8
                     LayoutInfo: {
-                        FloatComponentByteOffsets: [ ]
-                        FloatComponentRegisterOffsets: [ ]
-                        Int32ComponentByteOffsets: [
-                            0
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 7
-                    Int32ComponentStart: 9
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 8
-                    Int32ComponentStart: 9
-                    LayoutInfo: {
                         FloatComponentByteOffsets: [
                             0
                         ]
@@ -2821,20 +2232,10 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                     }
                 }
             ]
-            TotalFloatComponents: 9
-            TotalInt32Components: 9
+            TotalFloatComponents: 8
+            TotalInt32Components: 8
         }
         SpawnInstanceEmitterBindings: [
-            {
-                FloatOffsets: [ ]
-                Int32Offsets: [ ]
-            }
-            , 
-            {
-                FloatOffsets: [ ]
-                Int32Offsets: [ ]
-            }
-            , 
             {
                 FloatOffsets: [ ]
                 Int32Offsets: [ ]
@@ -2864,13 +2265,18 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
             FloatOffsets: [
                 {
                     ParameterOffset: 8
-                    DataSetComponentOffset: 7
+                    DataSetComponentOffset: 5
                 }
             ]
             Int32Offsets: [
                 {
                     ParameterOffset: 16
-                    DataSetComponentOffset: 8
+                    DataSetComponentOffset: 6
+                }
+                , 
+                {
+                    ParameterOffset: 20
+                    DataSetComponentOffset: 7
                 }
             ]
         }
@@ -2894,51 +2300,6 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 FloatOffsets: [
                     {
                         ParameterOffset: 8
-                        DataSetComponentOffset: 4
-                    }
-                ]
-                Int32Offsets: [
-                    {
-                        ParameterOffset: 0
-                        DataSetComponentOffset: 5
-                    }
-                ]
-            }
-            , 
-            {
-                FloatOffsets: [
-                    {
-                        ParameterOffset: 8
-                        DataSetComponentOffset: 2
-                    }
-                ]
-                Int32Offsets: [
-                    {
-                        ParameterOffset: 0
-                        DataSetComponentOffset: 2
-                    }
-                ]
-            }
-            , 
-            {
-                FloatOffsets: [
-                    {
-                        ParameterOffset: 8
-                        DataSetComponentOffset: 0
-                    }
-                ]
-                Int32Offsets: [
-                    {
-                        ParameterOffset: 0
-                        DataSetComponentOffset: 0
-                    }
-                ]
-            }
-            , 
-            {
-                FloatOffsets: [
-                    {
-                        ParameterOffset: 8
                         DataSetComponentOffset: 3
                     }
                 ]
@@ -2954,13 +2315,13 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 FloatOffsets: [
                     {
                         ParameterOffset: 8
-                        DataSetComponentOffset: 6
+                        DataSetComponentOffset: 2
                     }
                 ]
                 Int32Offsets: [
                     {
                         ParameterOffset: 0
-                        DataSetComponentOffset: 7
+                        DataSetComponentOffset: 2
                     }
                 ]
             }
@@ -2969,13 +2330,28 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 FloatOffsets: [
                     {
                         ParameterOffset: 8
-                        DataSetComponentOffset: 5
+                        DataSetComponentOffset: 0
                     }
                 ]
                 Int32Offsets: [
                     {
                         ParameterOffset: 0
-                        DataSetComponentOffset: 6
+                        DataSetComponentOffset: 0
+                    }
+                ]
+            }
+            , 
+            {
+                FloatOffsets: [
+                    {
+                        ParameterOffset: 8
+                        DataSetComponentOffset: 4
+                    }
+                ]
+                Int32Offsets: [
+                    {
+                        ParameterOffset: 0
+                        DataSetComponentOffset: 5
                     }
                 ]
             }
@@ -2983,6 +2359,60 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
     }
     ExposedParameters: {
         UserParameterRedirects: [
+            [ {
+                VarData: [  ]
+                Name: Loop Duration
+                TypeDef: {
+                    ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                    UnderlyingType: 2
+                }
+            }
+             => 
+            {
+                VarData: [  ]
+                Name: User.Loop Duration
+                TypeDef: {
+                    ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                    UnderlyingType: 2
+                }
+            }
+            ], 
+            [ {
+                VarData: [  ]
+                Name: Maximum_Loop Duration
+                TypeDef: {
+                    ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                    UnderlyingType: 2
+                }
+            }
+             => 
+            {
+                VarData: [  ]
+                Name: User.Maximum_Loop Duration
+                TypeDef: {
+                    ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                    UnderlyingType: 2
+                }
+            }
+            ], 
+            [ {
+                VarData: [  ]
+                Name: Minimum_Loop Duration
+                TypeDef: {
+                    ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                    UnderlyingType: 2
+                }
+            }
+             => 
+            {
+                VarData: [  ]
+                Name: User.Minimum_Loop Duration
+                TypeDef: {
+                    ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                    UnderlyingType: 2
+                }
+            }
+            ], 
             [ {
                 VarData: [  ]
                 Name: SpawnRate_Charge
@@ -3022,7 +2452,7 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
         SortedParameterOffsets: [
             {
                 Offset: 0
-                Name: User.SpawnRate_Charge
+                Name: User.Loop Duration
                 TypeDef: {
                     ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
                     UnderlyingType: 2
@@ -3031,6 +2461,33 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
             , 
             {
                 Offset: 4
+                Name: User.Maximum_Loop Duration
+                TypeDef: {
+                    ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                    UnderlyingType: 2
+                }
+            }
+            , 
+            {
+                Offset: 8
+                Name: User.Minimum_Loop Duration
+                TypeDef: {
+                    ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                    UnderlyingType: 2
+                }
+            }
+            , 
+            {
+                Offset: 12
+                Name: User.SpawnRate_Charge
+                TypeDef: {
+                    ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                    UnderlyingType: 2
+                }
+            }
+            , 
+            {
+                Offset: 16
                 Name: User.StandardColor
                 TypeDef: {
                     ClassStructOrEnum: ScriptStruct /Script/CoreUObject.Vector
@@ -3038,6 +2495,6 @@ Asset: NiagaraSystem NS_K25_Item_Charge_Complete
                 }
             }
         ]
-        ParameterData: [ 0, 0, 128, 63, 0, 0, 72, 65, 0, 0, 72, 66, 0, 0, 200, 66 ]
+        ParameterData: [ 0, 0, 0, 63, 205, 204, 12, 63, 51, 51, 51, 63, 0, 0, 128, 63, 0, 0, 72, 65, 0, 0, 72, 66, 0, 0, 200, 66 ]
     }
 }

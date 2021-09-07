@@ -1,6 +1,6 @@
 Asset: NiagaraSystem NS_K25_Projectile_Launch
 {
-    EffectType: NiagaraEffectType /Game/Effects/Niagara/EffectType/Environment/ET_MediumEnvironmentVFX.ET_MediumEnvironmentVFX
+    EffectType: NiagaraEffectType /Game/Effects/Niagara/EffectType/Item/ET_Item_MediumVFX_Kill.ET_Item_MediumVFX_Kill
     EmitterHandles: [
         {
             Id: aced7c1e-09cc-472e-baa1-61d13bb4655a
@@ -8,22 +8,6 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
             bIsEnabled: True
             Name: Glow
             Instance: NiagaraEmitter NS_K25_Projectile_Launch.Glow
-        }
-        , 
-        {
-            Id: 796dc2ce-a30b-436c-9461-55f73872f4c0
-            IdName: 796DC2CE436CA30BF7556194C0F47238
-            bIsEnabled: True
-            Name: Lightning
-            Instance: NiagaraEmitter NS_K25_Projectile_Launch.Lightning
-        }
-        , 
-        {
-            Id: 52e81ac2-d1df-49ea-a55e-ecb96a3c7ead
-            IdName: 52E81AC249EAD1DFB9EC5EA5AD7E3C6A
-            bIsEnabled: True
-            Name: NE_Spiral_BlackSmoke
-            Instance: NiagaraEmitter NS_K25_Projectile_Launch.NE_Spiral_BlackSmoke
         }
         , 
         {
@@ -40,6 +24,22 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
             bIsEnabled: True
             Name: NE_Spiral_BlackSmoke001
             Instance: NiagaraEmitter NS_K25_Projectile_Launch.NE_Spiral_BlackSmoke001
+        }
+        , 
+        {
+            Id: 4208f7ab-f0b7-40db-a607-e4d69f7f8c19
+            IdName: 4208F7AB40DBF0B7D6E407A6198C7F9F
+            bIsEnabled: True
+            Name: Lightning_Strike_Body
+            Instance: NiagaraEmitter NS_K25_Projectile_Launch.Lightning_Strike_Body
+        }
+        , 
+        {
+            Id: 10dadb10-44b9-427d-bdcf-a65a197f9c97
+            IdName: 10DADB10427D44B95AA6CFBD979C7F19
+            bIsEnabled: True
+            Name: Sparks002
+            Instance: NiagaraEmitter NS_K25_Projectile_Launch.Sparks002
         }
     ]
     SystemSpawnScript: NiagaraScript NS_K25_Projectile_Launch.SystemSpawnScript
@@ -94,6 +94,15 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 , 
                 {
                     Offset: 36
+                    Name: User.SpawnRate_Charge
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    Offset: 40
                     Name: User.User_Scale
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
@@ -101,7 +110,7 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                     }
                 }
             ]
-            ParameterData: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 128, 62, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 0, 62, 51, 51, 51, 63 ]
+            ParameterData: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 128, 62, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 0, 62, 0, 0, 0, 0, 0, 0, 128, 63 ]
         }
         DataSetCompiledData: {
             Variables: [
@@ -117,6 +126,15 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 {
                     VarData: [  ]
                     Name: Glow.Age
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    VarData: [  ]
+                    Name: Glow.AlphaScale
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
                         UnderlyingType: 2
@@ -206,16 +224,7 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 , 
                 {
                     VarData: [  ]
-                    Name: Lightning.Age
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [ 0, 0, 0, 0 ]
-                    Name: Lightning.CurrentLoopDuration
+                    Name: Lightning_Strike_Body.Age
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
                         UnderlyingType: 2
@@ -224,7 +233,25 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 , 
                 {
                     VarData: [  ]
-                    Name: Lightning.ExecutionState
+                    Name: Lightning_Strike_Body.AlphaScale
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    VarData: [ 0, 0, 0, 0 ]
+                    Name: Lightning_Strike_Body.CurrentLoopDuration
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    VarData: [  ]
+                    Name: Lightning_Strike_Body.ExecutionState
                     TypeDef: {
                         ClassStructOrEnum: Enum /Script/Niagara.ENiagaraExecutionState
                         UnderlyingType: 3
@@ -233,7 +260,7 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 , 
                 {
                     VarData: [  ]
-                    Name: Lightning.ExecutionStateSource
+                    Name: Lightning_Strike_Body.ExecutionStateSource
                     TypeDef: {
                         ClassStructOrEnum: Enum /Script/Niagara.ENiagaraExecutionStateSource
                         UnderlyingType: 3
@@ -242,7 +269,7 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 , 
                 {
                     VarData: [  ]
-                    Name: Lightning.LocalSpace
+                    Name: Lightning_Strike_Body.LocalSpace
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraBool
                         UnderlyingType: 2
@@ -251,7 +278,7 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 , 
                 {
                     VarData: [  ]
-                    Name: Lightning.LoopCount
+                    Name: Lightning_Strike_Body.LoopCount
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraInt32
                         UnderlyingType: 2
@@ -260,7 +287,7 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 , 
                 {
                     VarData: [ 0, 0, 0, 0 ]
-                    Name: Lightning.LoopedAge
+                    Name: Lightning_Strike_Body.LoopedAge
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
                         UnderlyingType: 2
@@ -269,7 +296,7 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 , 
                 {
                     VarData: [  ]
-                    Name: Lightning.NormalizedLoopAge
+                    Name: Lightning_Strike_Body.NormalizedLoopAge
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
                         UnderlyingType: 2
@@ -278,7 +305,7 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 , 
                 {
                     VarData: [  ]
-                    Name: Lightning.Scalability.DistanceFraction
+                    Name: Lightning_Strike_Body.Scalability.DistanceFraction
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
                         UnderlyingType: 2
@@ -287,97 +314,7 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 , 
                 {
                     VarData: [  ]
-                    Name: Lightning.SpawnBurst_Instantaneous.SpawnBurst
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraSpawnInfo
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: NE_Spiral_BlackSmoke.Age
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [ 0, 0, 0, 0 ]
-                    Name: NE_Spiral_BlackSmoke.CurrentLoopDuration
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: NE_Spiral_BlackSmoke.ExecutionState
-                    TypeDef: {
-                        ClassStructOrEnum: Enum /Script/Niagara.ENiagaraExecutionState
-                        UnderlyingType: 3
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: NE_Spiral_BlackSmoke.ExecutionStateSource
-                    TypeDef: {
-                        ClassStructOrEnum: Enum /Script/Niagara.ENiagaraExecutionStateSource
-                        UnderlyingType: 3
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: NE_Spiral_BlackSmoke.LocalSpace
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraBool
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: NE_Spiral_BlackSmoke.LoopCount
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraInt32
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [ 0, 0, 0, 0 ]
-                    Name: NE_Spiral_BlackSmoke.LoopedAge
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: NE_Spiral_BlackSmoke.NormalizedLoopAge
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: NE_Spiral_BlackSmoke.Scalability.DistanceFraction
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [  ]
-                    Name: NE_Spiral_BlackSmoke.SpawnBurst_Instantaneous.SpawnBurst
+                    Name: Lightning_Strike_Body.SpawnBurst_Instantaneous.SpawnBurst
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraSpawnInfo
                         UnderlyingType: 2
@@ -584,6 +521,96 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 , 
                 {
                     VarData: [  ]
+                    Name: Sparks002.Age
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    VarData: [ 0, 0, 0, 0 ]
+                    Name: Sparks002.CurrentLoopDuration
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    VarData: [  ]
+                    Name: Sparks002.ExecutionState
+                    TypeDef: {
+                        ClassStructOrEnum: Enum /Script/Niagara.ENiagaraExecutionState
+                        UnderlyingType: 3
+                    }
+                }
+                , 
+                {
+                    VarData: [  ]
+                    Name: Sparks002.ExecutionStateSource
+                    TypeDef: {
+                        ClassStructOrEnum: Enum /Script/Niagara.ENiagaraExecutionStateSource
+                        UnderlyingType: 3
+                    }
+                }
+                , 
+                {
+                    VarData: [  ]
+                    Name: Sparks002.LocalSpace
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraBool
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    VarData: [  ]
+                    Name: Sparks002.LoopCount
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraInt32
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    VarData: [ 0, 0, 0, 0 ]
+                    Name: Sparks002.LoopedAge
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    VarData: [  ]
+                    Name: Sparks002.NormalizedLoopAge
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    VarData: [  ]
+                    Name: Sparks002.Scalability.DistanceFraction
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    VarData: [  ]
+                    Name: Sparks002.SpawnBurst_Instantaneous.SpawnBurst
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraSpawnInfo
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    VarData: [  ]
                     Name: System.Age
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
@@ -704,6 +731,21 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                     FloatComponentStart: 2
                     Int32ComponentStart: 1
                     LayoutInfo: {
+                        FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 3
+                    Int32ComponentStart: 1
+                    LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
                         FloatComponentRegisterOffsets: [ ]
                         Int32ComponentByteOffsets: [
@@ -716,7 +758,7 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 }
                 , 
                 {
-                    FloatComponentStart: 2
+                    FloatComponentStart: 3
                     Int32ComponentStart: 2
                     LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
@@ -731,7 +773,7 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 }
                 , 
                 {
-                    FloatComponentStart: 2
+                    FloatComponentStart: 3
                     Int32ComponentStart: 3
                     LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
@@ -746,7 +788,7 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 }
                 , 
                 {
-                    FloatComponentStart: 2
+                    FloatComponentStart: 3
                     Int32ComponentStart: 4
                     LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
@@ -757,21 +799,6 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                         Int32ComponentRegisterOffsets: [
                             0
                         ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 2
-                    Int32ComponentStart: 5
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
                     }
                 }
                 , 
@@ -810,6 +837,21 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                     Int32ComponentStart: 5
                     LayoutInfo: {
                         FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 6
+                    Int32ComponentStart: 5
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [
                             4
                             , 
                             8
@@ -833,21 +875,6 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 }
                 , 
                 {
-                    FloatComponentStart: 7
-                    Int32ComponentStart: 7
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
                     FloatComponentStart: 8
                     Int32ComponentStart: 7
                     LayoutInfo: {
@@ -866,6 +893,36 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                     FloatComponentStart: 9
                     Int32ComponentStart: 7
                     LayoutInfo: {
+                        FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 10
+                    Int32ComponentStart: 7
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 11
+                    Int32ComponentStart: 7
+                    LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
                         FloatComponentRegisterOffsets: [ ]
                         Int32ComponentByteOffsets: [
@@ -878,7 +935,7 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 }
                 , 
                 {
-                    FloatComponentStart: 9
+                    FloatComponentStart: 11
                     Int32ComponentStart: 8
                     LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
@@ -893,7 +950,7 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 }
                 , 
                 {
-                    FloatComponentStart: 9
+                    FloatComponentStart: 11
                     Int32ComponentStart: 9
                     LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
@@ -908,7 +965,7 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 }
                 , 
                 {
-                    FloatComponentStart: 9
+                    FloatComponentStart: 11
                     Int32ComponentStart: 10
                     LayoutInfo: {
                         FloatComponentByteOffsets: [ ]
@@ -919,36 +976,6 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                         Int32ComponentRegisterOffsets: [
                             0
                         ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 9
-                    Int32ComponentStart: 11
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 10
-                    Int32ComponentStart: 11
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
                     }
                 }
                 , 
@@ -972,6 +999,36 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                     Int32ComponentStart: 11
                     LayoutInfo: {
                         FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 13
+                    Int32ComponentStart: 11
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 14
+                    Int32ComponentStart: 11
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [
                             4
                             , 
                             8
@@ -995,98 +1052,8 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 }
                 , 
                 {
-                    FloatComponentStart: 14
-                    Int32ComponentStart: 13
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 15
-                    Int32ComponentStart: 13
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
                     FloatComponentStart: 16
                     Int32ComponentStart: 13
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [ ]
-                        FloatComponentRegisterOffsets: [ ]
-                        Int32ComponentByteOffsets: [
-                            0
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 16
-                    Int32ComponentStart: 14
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [ ]
-                        FloatComponentRegisterOffsets: [ ]
-                        Int32ComponentByteOffsets: [
-                            0
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 16
-                    Int32ComponentStart: 15
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [ ]
-                        FloatComponentRegisterOffsets: [ ]
-                        Int32ComponentByteOffsets: [
-                            0
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 16
-                    Int32ComponentStart: 16
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [ ]
-                        FloatComponentRegisterOffsets: [ ]
-                        Int32ComponentByteOffsets: [
-                            0
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 16
-                    Int32ComponentStart: 17
                     LayoutInfo: {
                         FloatComponentByteOffsets: [
                             0
@@ -1101,7 +1068,7 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 , 
                 {
                     FloatComponentStart: 17
-                    Int32ComponentStart: 17
+                    Int32ComponentStart: 13
                     LayoutInfo: {
                         FloatComponentByteOffsets: [
                             0
@@ -1111,6 +1078,66 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                         ]
                         Int32ComponentByteOffsets: [ ]
                         Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 18
+                    Int32ComponentStart: 13
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [ ]
+                        FloatComponentRegisterOffsets: [ ]
+                        Int32ComponentByteOffsets: [
+                            0
+                        ]
+                        Int32ComponentRegisterOffsets: [
+                            0
+                        ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 18
+                    Int32ComponentStart: 14
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [ ]
+                        FloatComponentRegisterOffsets: [ ]
+                        Int32ComponentByteOffsets: [
+                            0
+                        ]
+                        Int32ComponentRegisterOffsets: [
+                            0
+                        ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 18
+                    Int32ComponentStart: 15
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [ ]
+                        FloatComponentRegisterOffsets: [ ]
+                        Int32ComponentByteOffsets: [
+                            0
+                        ]
+                        Int32ComponentRegisterOffsets: [
+                            0
+                        ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 18
+                    Int32ComponentStart: 16
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [ ]
+                        FloatComponentRegisterOffsets: [ ]
+                        Int32ComponentByteOffsets: [
+                            0
+                        ]
+                        Int32ComponentRegisterOffsets: [
+                            0
+                        ]
                     }
                 }
                 , 
@@ -1134,6 +1161,36 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                     Int32ComponentStart: 17
                     LayoutInfo: {
                         FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 20
+                    Int32ComponentStart: 17
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 21
+                    Int32ComponentStart: 17
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [
                             4
                             , 
                             8
@@ -1157,98 +1214,8 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 }
                 , 
                 {
-                    FloatComponentStart: 21
-                    Int32ComponentStart: 19
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 22
-                    Int32ComponentStart: 19
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
                     FloatComponentStart: 23
                     Int32ComponentStart: 19
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [ ]
-                        FloatComponentRegisterOffsets: [ ]
-                        Int32ComponentByteOffsets: [
-                            0
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 23
-                    Int32ComponentStart: 20
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [ ]
-                        FloatComponentRegisterOffsets: [ ]
-                        Int32ComponentByteOffsets: [
-                            0
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 23
-                    Int32ComponentStart: 21
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [ ]
-                        FloatComponentRegisterOffsets: [ ]
-                        Int32ComponentByteOffsets: [
-                            0
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 23
-                    Int32ComponentStart: 22
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [ ]
-                        FloatComponentRegisterOffsets: [ ]
-                        Int32ComponentByteOffsets: [
-                            0
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 23
-                    Int32ComponentStart: 23
                     LayoutInfo: {
                         FloatComponentByteOffsets: [
                             0
@@ -1263,7 +1230,7 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 , 
                 {
                     FloatComponentStart: 24
-                    Int32ComponentStart: 23
+                    Int32ComponentStart: 19
                     LayoutInfo: {
                         FloatComponentByteOffsets: [
                             0
@@ -1278,7 +1245,7 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 , 
                 {
                     FloatComponentStart: 25
-                    Int32ComponentStart: 23
+                    Int32ComponentStart: 19
                     LayoutInfo: {
                         FloatComponentByteOffsets: [
                             0
@@ -1293,6 +1260,111 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 , 
                 {
                     FloatComponentStart: 26
+                    Int32ComponentStart: 19
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [ ]
+                        FloatComponentRegisterOffsets: [ ]
+                        Int32ComponentByteOffsets: [
+                            0
+                        ]
+                        Int32ComponentRegisterOffsets: [
+                            0
+                        ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 26
+                    Int32ComponentStart: 20
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [ ]
+                        FloatComponentRegisterOffsets: [ ]
+                        Int32ComponentByteOffsets: [
+                            0
+                        ]
+                        Int32ComponentRegisterOffsets: [
+                            0
+                        ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 26
+                    Int32ComponentStart: 21
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [ ]
+                        FloatComponentRegisterOffsets: [ ]
+                        Int32ComponentByteOffsets: [
+                            0
+                        ]
+                        Int32ComponentRegisterOffsets: [
+                            0
+                        ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 26
+                    Int32ComponentStart: 22
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [ ]
+                        FloatComponentRegisterOffsets: [ ]
+                        Int32ComponentByteOffsets: [
+                            0
+                        ]
+                        Int32ComponentRegisterOffsets: [
+                            0
+                        ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 26
+                    Int32ComponentStart: 23
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 27
+                    Int32ComponentStart: 23
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 28
+                    Int32ComponentStart: 23
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 29
                     Int32ComponentStart: 23
                     LayoutInfo: {
                         FloatComponentByteOffsets: [
@@ -1319,113 +1391,8 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 }
                 , 
                 {
-                    FloatComponentStart: 28
-                    Int32ComponentStart: 25
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 29
-                    Int32ComponentStart: 25
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 30
-                    Int32ComponentStart: 25
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
                     FloatComponentStart: 31
                     Int32ComponentStart: 25
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [ ]
-                        FloatComponentRegisterOffsets: [ ]
-                        Int32ComponentByteOffsets: [
-                            0
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 31
-                    Int32ComponentStart: 26
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [ ]
-                        FloatComponentRegisterOffsets: [ ]
-                        Int32ComponentByteOffsets: [
-                            0
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 31
-                    Int32ComponentStart: 27
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [ ]
-                        FloatComponentRegisterOffsets: [ ]
-                        Int32ComponentByteOffsets: [
-                            0
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 31
-                    Int32ComponentStart: 28
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [ ]
-                        FloatComponentRegisterOffsets: [ ]
-                        Int32ComponentByteOffsets: [
-                            0
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 31
-                    Int32ComponentStart: 29
                     LayoutInfo: {
                         FloatComponentByteOffsets: [
                             0
@@ -1440,7 +1407,7 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 , 
                 {
                     FloatComponentStart: 32
-                    Int32ComponentStart: 29
+                    Int32ComponentStart: 25
                     LayoutInfo: {
                         FloatComponentByteOffsets: [
                             0
@@ -1455,7 +1422,7 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 , 
                 {
                     FloatComponentStart: 33
-                    Int32ComponentStart: 29
+                    Int32ComponentStart: 25
                     LayoutInfo: {
                         FloatComponentByteOffsets: [
                             0
@@ -1470,6 +1437,111 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 , 
                 {
                     FloatComponentStart: 34
+                    Int32ComponentStart: 25
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [ ]
+                        FloatComponentRegisterOffsets: [ ]
+                        Int32ComponentByteOffsets: [
+                            0
+                        ]
+                        Int32ComponentRegisterOffsets: [
+                            0
+                        ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 34
+                    Int32ComponentStart: 26
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [ ]
+                        FloatComponentRegisterOffsets: [ ]
+                        Int32ComponentByteOffsets: [
+                            0
+                        ]
+                        Int32ComponentRegisterOffsets: [
+                            0
+                        ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 34
+                    Int32ComponentStart: 27
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [ ]
+                        FloatComponentRegisterOffsets: [ ]
+                        Int32ComponentByteOffsets: [
+                            0
+                        ]
+                        Int32ComponentRegisterOffsets: [
+                            0
+                        ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 34
+                    Int32ComponentStart: 28
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [ ]
+                        FloatComponentRegisterOffsets: [ ]
+                        Int32ComponentByteOffsets: [
+                            0
+                        ]
+                        Int32ComponentRegisterOffsets: [
+                            0
+                        ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 34
+                    Int32ComponentStart: 29
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 35
+                    Int32ComponentStart: 29
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 36
+                    Int32ComponentStart: 29
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 37
                     Int32ComponentStart: 29
                     LayoutInfo: {
                         FloatComponentByteOffsets: [
@@ -1496,113 +1568,8 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 }
                 , 
                 {
-                    FloatComponentStart: 36
+                    FloatComponentStart: 39
                     Int32ComponentStart: 31
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 37
-                    Int32ComponentStart: 31
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 38
-                    Int32ComponentStart: 31
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [ ]
-                        FloatComponentRegisterOffsets: [ ]
-                        Int32ComponentByteOffsets: [
-                            0
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 38
-                    Int32ComponentStart: 32
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [
-                            0
-                        ]
-                        FloatComponentRegisterOffsets: [
-                            0
-                        ]
-                        Int32ComponentByteOffsets: [ ]
-                        Int32ComponentRegisterOffsets: [ ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 39
-                    Int32ComponentStart: 32
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [ ]
-                        FloatComponentRegisterOffsets: [ ]
-                        Int32ComponentByteOffsets: [
-                            0
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 39
-                    Int32ComponentStart: 33
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [ ]
-                        FloatComponentRegisterOffsets: [ ]
-                        Int32ComponentByteOffsets: [
-                            0
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 39
-                    Int32ComponentStart: 34
-                    LayoutInfo: {
-                        FloatComponentByteOffsets: [ ]
-                        FloatComponentRegisterOffsets: [ ]
-                        Int32ComponentByteOffsets: [
-                            0
-                        ]
-                        Int32ComponentRegisterOffsets: [
-                            0
-                        ]
-                    }
-                }
-                , 
-                {
-                    FloatComponentStart: 39
-                    Int32ComponentStart: 35
                     LayoutInfo: {
                         FloatComponentByteOffsets: [
                             0
@@ -1617,6 +1584,96 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 , 
                 {
                     FloatComponentStart: 40
+                    Int32ComponentStart: 31
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [ ]
+                        FloatComponentRegisterOffsets: [ ]
+                        Int32ComponentByteOffsets: [
+                            0
+                        ]
+                        Int32ComponentRegisterOffsets: [
+                            0
+                        ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 40
+                    Int32ComponentStart: 32
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 41
+                    Int32ComponentStart: 32
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [ ]
+                        FloatComponentRegisterOffsets: [ ]
+                        Int32ComponentByteOffsets: [
+                            0
+                        ]
+                        Int32ComponentRegisterOffsets: [
+                            0
+                        ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 41
+                    Int32ComponentStart: 33
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [ ]
+                        FloatComponentRegisterOffsets: [ ]
+                        Int32ComponentByteOffsets: [
+                            0
+                        ]
+                        Int32ComponentRegisterOffsets: [
+                            0
+                        ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 41
+                    Int32ComponentStart: 34
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [ ]
+                        FloatComponentRegisterOffsets: [ ]
+                        Int32ComponentByteOffsets: [
+                            0
+                        ]
+                        Int32ComponentRegisterOffsets: [
+                            0
+                        ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 41
+                    Int32ComponentStart: 35
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [
+                            0
+                        ]
+                        FloatComponentRegisterOffsets: [
+                            0
+                        ]
+                        Int32ComponentByteOffsets: [ ]
+                        Int32ComponentRegisterOffsets: [ ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 42
                     Int32ComponentStart: 35
                     LayoutInfo: {
                         FloatComponentByteOffsets: [
@@ -1630,7 +1687,7 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                     }
                 }
             ]
-            TotalFloatComponents: 41
+            TotalFloatComponents: 43
             TotalInt32Components: 35
         }
         SpawnInstanceParamsDataSetCompiledData: {
@@ -1693,7 +1750,7 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 , 
                 {
                     VarData: [ 0, 0, 0, 0 ]
-                    Name: Engine.Lightning.NumParticles
+                    Name: Engine.Lightning_Strike_Body.NumParticles
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraInt32
                         UnderlyingType: 2
@@ -1702,25 +1759,7 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 , 
                 {
                     VarData: [ 0, 0, 0, 0 ]
-                    Name: Engine.Lightning.SpawnCountScale
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [ 0, 0, 0, 0 ]
-                    Name: Engine.NE_Spiral_BlackSmoke.NumParticles
-                    TypeDef: {
-                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraInt32
-                        UnderlyingType: 2
-                    }
-                }
-                , 
-                {
-                    VarData: [ 0, 0, 0, 0 ]
-                    Name: Engine.NE_Spiral_BlackSmoke.SpawnCountScale
+                    Name: Engine.Lightning_Strike_Body.SpawnCountScale
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
                         UnderlyingType: 2
@@ -1777,6 +1816,42 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                     Name: Engine.Sparks.SpawnCountScale
                     TypeDef: {
                         ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    VarData: [ 0, 0, 0, 0 ]
+                    Name: Engine.Sparks002.NumParticles
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraInt32
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    VarData: [ 0, 0, 0, 0 ]
+                    Name: Engine.Sparks002.SpawnCountScale
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    VarData: [  ]
+                    Name: Engine.System.TickCount
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraInt32
+                        UnderlyingType: 2
+                    }
+                }
+                , 
+                {
+                    VarData: [  ]
+                    Name: User.Sparks002.RandomSeed
+                    TypeDef: {
+                        ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraInt32
                         UnderlyingType: 2
                     }
                 }
@@ -1976,9 +2051,39 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                         Int32ComponentRegisterOffsets: [ ]
                     }
                 }
+                , 
+                {
+                    FloatComponentStart: 6
+                    Int32ComponentStart: 7
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [ ]
+                        FloatComponentRegisterOffsets: [ ]
+                        Int32ComponentByteOffsets: [
+                            0
+                        ]
+                        Int32ComponentRegisterOffsets: [
+                            0
+                        ]
+                    }
+                }
+                , 
+                {
+                    FloatComponentStart: 6
+                    Int32ComponentStart: 8
+                    LayoutInfo: {
+                        FloatComponentByteOffsets: [ ]
+                        FloatComponentRegisterOffsets: [ ]
+                        Int32ComponentByteOffsets: [
+                            0
+                        ]
+                        Int32ComponentRegisterOffsets: [
+                            0
+                        ]
+                    }
+                }
             ]
             TotalFloatComponents: 6
-            TotalInt32Components: 7
+            TotalInt32Components: 9
         }
         SpawnInstanceEmitterBindings: [
             {
@@ -2010,13 +2115,18 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
             FloatOffsets: [
                 {
                     ParameterOffset: 8
-                    DataSetComponentOffset: 4
+                    DataSetComponentOffset: 3
                 }
             ]
             Int32Offsets: [
                 {
                     ParameterOffset: 16
-                    DataSetComponentOffset: 5
+                    DataSetComponentOffset: 4
+                }
+                , 
+                {
+                    ParameterOffset: 20
+                    DataSetComponentOffset: 7
                 }
             ]
         }
@@ -2040,6 +2150,36 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 FloatOffsets: [
                     {
                         ParameterOffset: 8
+                        DataSetComponentOffset: 4
+                    }
+                ]
+                Int32Offsets: [
+                    {
+                        ParameterOffset: 0
+                        DataSetComponentOffset: 5
+                    }
+                ]
+            }
+            , 
+            {
+                FloatOffsets: [
+                    {
+                        ParameterOffset: 8
+                        DataSetComponentOffset: 2
+                    }
+                ]
+                Int32Offsets: [
+                    {
+                        ParameterOffset: 0
+                        DataSetComponentOffset: 3
+                    }
+                ]
+            }
+            , 
+            {
+                FloatOffsets: [
+                    {
+                        ParameterOffset: 8
                         DataSetComponentOffset: 1
                     }
                 ]
@@ -2055,21 +2195,6 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 FloatOffsets: [
                     {
                         ParameterOffset: 8
-                        DataSetComponentOffset: 2
-                    }
-                ]
-                Int32Offsets: [
-                    {
-                        ParameterOffset: 0
-                        DataSetComponentOffset: 3
-                    }
-                ]
-            }
-            , 
-            {
-                FloatOffsets: [
-                    {
-                        ParameterOffset: 8
                         DataSetComponentOffset: 5
                     }
                 ]
@@ -2077,21 +2202,6 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                     {
                         ParameterOffset: 0
                         DataSetComponentOffset: 6
-                    }
-                ]
-            }
-            , 
-            {
-                FloatOffsets: [
-                    {
-                        ParameterOffset: 8
-                        DataSetComponentOffset: 3
-                    }
-                ]
-                Int32Offsets: [
-                    {
-                        ParameterOffset: 0
-                        DataSetComponentOffset: 4
                     }
                 ]
             }
@@ -2191,6 +2301,24 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
             ], 
             [ {
                 VarData: [  ]
+                Name: SpawnRate_Charge
+                TypeDef: {
+                    ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                    UnderlyingType: 2
+                }
+            }
+             => 
+            {
+                VarData: [  ]
+                Name: User.SpawnRate_Charge
+                TypeDef: {
+                    ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                    UnderlyingType: 2
+                }
+            }
+            ], 
+            [ {
+                VarData: [  ]
                 Name: User_Scale
                 TypeDef: {
                     ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
@@ -2254,6 +2382,15 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
             }
             , 
             {
+                Offset: 40
+                Name: User.SpawnRate_Charge
+                TypeDef: {
+                    ClassStructOrEnum: ScriptStruct /Script/Niagara.NiagaraFloat
+                    UnderlyingType: 2
+                }
+            }
+            , 
+            {
                 Offset: 36
                 Name: User.User_Scale
                 TypeDef: {
@@ -2262,6 +2399,6 @@ Asset: NiagaraSystem NS_K25_Projectile_Launch
                 }
             }
         ]
-        ParameterData: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 128, 62, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 0, 62, 51, 51, 51, 63 ]
+        ParameterData: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 128, 62, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 0, 62, 0, 0, 128, 63, 0, 0, 0, 0 ]
     }
 }
