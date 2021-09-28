@@ -6,25 +6,29 @@
 <--- CDO --->
 {
     UberGraphFrame: None
-    GlowAmount: 75
-    Surroundings: [
-        { X: 1, Y: 0, Z: 0 }
-        , 
-        { X: -1, Y: 0, Z: 0 }
-        , 
-        { X: 0, Y: 1, Z: 0 }
-        , 
-        { X: 0, Y: -1, Z: 0 }
-        , 
-        { X: 0, Y: 0, Z: 1 }
-    ]
-    ShouldEmit: True
-    DecalDistance: 100
-    DeacalDistance2: 150
-    Total: 250
-    LoudNoiseMinDistance: 1000
-    Loud Noise Fade Distance: 100
-    PrimaryActorTick: {
-        bCanEverTick: True
-    }
+    _toInfinityDecal: {
+            DecalSize: { X: 1, Y: 1, Z: 1 }
+            AttachParent: {
+                }
+            bVisible: False
+            bHiddenInGame: True
+        }
+    _distortionParticleSystem: {
+            Template: ParticleSystem /Game/Effects/ParticleSystems/P_LoudNoiseIndicator.P_LoudNoiseIndicator
+            DetailLevelBeforeCastShadows: DM_MAX
+            TranslucencySortPriority: 35
+            AttachParent: SceneComponent Default__BP_LoudNoise_C.RootScene
+            PrimaryComponentTick: {
+                bStartWithTickEnabled: False
+            }
+        }
+    _ak_audio_loudNoise: {
+            OcclusionRefreshInterval: 0
+            ShouldTransmitRelativeAngle: True
+            OcclusionAffect: 0
+            MaxDistance: 100
+            AttachParent: SceneComponent Default__BP_LoudNoise_C.RootScene
+        }
+    _rootScene: SceneComponent Default__BP_LoudNoise_C.RootScene
+    RootComponent: SceneComponent Default__BP_LoudNoise_C.RootScene
 }

@@ -88,6 +88,17 @@ Row QuestEvent.BlindCarry:
     Id: QuestEvent.BlindCarry
 }
 
+Row QuestEvent.BlueGlyph:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Camper.ActivateBlueGlyph
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.BlueGlyph
+}
+
 Row QuestEvent.BreakGenSame:
 {
     TrackedGameEvents: [
@@ -147,6 +158,32 @@ Row QuestEvent.BreakPalletsGens:
     Id: QuestEvent.BreakPalletsGens
 }
 
+Row QuestEvent.BreakWallsPalletsGens:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.DestroyPallet
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.DamageGenerator
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.DestroyBreakableWall
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.BreakWallsPalletsGens
+}
+
+Row QuestEvent.Carry:
+{
+    TrackedGameEvents: [ ]
+    QuestEventEvaluator: /Script/Archives.CarryDistanceQEEvaluator
+    Id: QuestEvent.Carry
+}
+
 Row QuestEvent.Chase:
 {
     TrackedGameEvents: [
@@ -167,6 +204,17 @@ Row QuestEvent.ChaseStart:
     ]
     QuestEventEvaluator: None
     Id: QuestEvent.ChaseStart
+}
+
+Row QuestEvent.ChaseStartCrow:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.ChaseStart
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/TargetStartledCrowRecentlyQuestEvaluator.TargetStartledCrowRecentlyQuestEvaluator_C
+    Id: QuestEvent.ChaseStartCrow
 }
 
 Row QuestEvent.ChaseStartDifferent:
@@ -200,6 +248,10 @@ Row QuestEvent.CleanseFinish:
         , 
         {
             TagName: GameEvent.ScoreEvent.Camper.CleanseTotem.Hex
+        }
+        , 
+        {
+            TagName: None
         }
     ]
     QuestEventEvaluator: None
@@ -239,11 +291,77 @@ Row QuestEvent.ClownBottleDirectHit:
     Id: QuestEvent.ClownBottleDirectHit
 }
 
+Row QuestEvent.ClownDownIntoxicated:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Clown.DownSmokedSurvivor
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.ClownDownIntoxicated
+}
+
+Row QuestEvent.ClownHitIntoxicated:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.Clown.Hit.SmokedSurvivor
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.ClownHitIntoxicated
+}
+
+Row QuestEvent.ClownHitIntoxicatedDifferent:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.Clown.Hit.SmokedSurvivor
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.UniqueTargetIncrementQEEvaluator
+    Id: QuestEvent.ClownHitIntoxicatedDifferent
+}
+
+Row QuestEvent.ClownHitWhileInvigorated:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Slasher.Clown.Hit.WhileInvigorated
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.ClownHitWhileInvigorated
+}
+
 Row QuestEvent.ClownIntoxicatedMultiple:
 {
     TrackedGameEvents: [ ]
     QuestEventEvaluator: /Game/Blueprints/Archives/Quests/MaxIntoxicatedQuestEvaluator.MaxIntoxicatedQuestEvaluator_C
     Id: QuestEvent.ClownIntoxicatedMultiple
+}
+
+Row QuestEvent.ClownIntoxicatedSameConsecutive:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.Clown.Bomb.SurvivorEnteredGasCloud
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.TriggerWithSameTargetWithinTimeQEEvaluator
+    Id: QuestEvent.ClownIntoxicatedSameConsecutive
+}
+
+Row QuestEvent.ClownInvigorateIntoxicated:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Clown.Bomb.SurvivorCured
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.ClownInvigorateIntoxicated
 }
 
 Row QuestEvent.ClownSurvivorEnteredGasCloud:
@@ -255,17 +373,6 @@ Row QuestEvent.ClownSurvivorEnteredGasCloud:
     ]
     QuestEventEvaluator: None
     Id: QuestEvent.ClownSurvivorEnteredGasCloud
-}
-
-Row QuestEvent.ClownDownIntoxicated:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.Clown.DownSmokedSurvivor
-        }
-    ]
-    QuestEventEvaluator: None
-    Id: QuestEvent.ClownDownIntoxicated
 }
 
 Row QuestEvent.ConsumeItem:
@@ -406,6 +513,17 @@ Row QuestEvent.EarnEmblemsQuality:
     Id: QuestEvent.EarnEmblemsQuality
 }
 
+Row QuestEvent.EmotePointAtKiller:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Camper.Emote.Point
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/AtKillerPremonitionSoundedinTimeQuestEvaluator.AtKillerPremonitionSoundedinTimeQuestEvaluator_C
+    Id: QuestEvent.EmotePointAtKiller
+}
+
 Row QuestEvent.Escape:
 {
     TrackedGameEvents: [
@@ -443,6 +561,17 @@ Row QuestEvent.EscapeChase:
     Id: QuestEvent.EscapeChase
 }
 
+Row QuestEvent.EscapeChaseInjured:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Camper.EscapeChase
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/InstigatorIsInjuredQuestEvaluator.InstigatorIsInjuredQuestEvaluator_C
+    Id: QuestEvent.EscapeChaseInjured
+}
+
 Row QuestEvent.EscapeGate:
 {
     TrackedGameEvents: [
@@ -462,6 +591,17 @@ Row QuestEvent.EscapeHatch:
         }
     ]
     QuestEventEvaluator: None
+    Id: QuestEvent.EscapeHatch
+}
+
+Row QuestEvent.EscapeHatchWithItem:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Camper.EscapeThroughHatch
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.HasItemTypeQEEvaluator
     Id: QuestEvent.EscapeHatch
 }
 
@@ -559,6 +699,17 @@ Row QuestEvent.FinishedPlaying:
     ]
     QuestEventEvaluator: None
     Id: QuestEvent.FinishedPlaying
+}
+
+Row QuestEvent.ForThePeopleTriggered:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Camper.ForThePeople.ExchangeHealthState
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.ForThePeopleTriggered
 }
 
 Row QuestEvent.GeneratorRepairedByTeam:
@@ -671,6 +822,95 @@ Row QuestEvent.HagTrapTriggered:
     Id: QuestEvent.HagTrapTriggered
 }
 
+Row QuestEvent.HalloweenEventHook:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.HalloweenEventHookUsed.NoOffering
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.HalloweenEventHook
+}
+
+Row QuestEvent.HalloweenEventPumpkinDestroyed:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.HalloweenEventPumpkinDestroyed.Trick
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.HalloweenEventPumpkinDestroyed.Neutral
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.HalloweenEventPumpkinDestroyed.Treat
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.HalloweenEventPumpkinDestroyed
+}
+
+Row QuestEvent.HalloweenEventPumpkinDestroyedNeutral:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.HalloweenEventPumpkinDestroyed.Neutral
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.HalloweenEventPumpkinDestroyedNeutral
+}
+
+Row QuestEvent.HalloweenEventPumpkinDestroyedTreat:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.HalloweenEventPumpkinDestroyed.Treat
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.HalloweenEventPumpkinDestroyedTreat
+}
+
+Row QuestEvent.HalloweenEventPumpkinDestroyedTrick:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.HalloweenEventPumpkinDestroyed.Trick
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.HalloweenEventPumpkinDestroyedTrick
+}
+
+Row QuestEvent.HalloweenEventRepairFinish:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.HalloweenEventGenRepaired
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.HalloweenEventGenRepaired.NoOffering
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.HalloweenEventRepairFinish
+}
+
+Row QuestEvent.HarvestHalloweenPlant:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.HalloweenEventPlantUsed
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.HarvestHalloweenPlant
+}
+
 Row QuestEvent.HatchKey:
 {
     TrackedGameEvents: [
@@ -727,6 +967,21 @@ Row QuestEvent.HealCoop:
     Id: QuestEvent.HealCoop
 }
 
+Row QuestEvent.HealDying:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.HealFromDying
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Camper.FullRecovery
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.HealDying
+}
+
 Row QuestEvent.HealFinish:
 {
     TrackedGameEvents: [
@@ -763,6 +1018,59 @@ Row QuestEvent.HealFinishAfterGate:
     ]
     QuestEventEvaluator: /Script/Archives.AfterExitOpenQEEvaluator
     Id: QuestEvent.HealFinishAfterGate
+}
+
+Row QuestEvent.HealFinishEndgame:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.HealFromInjured
+        }
+        , 
+        {
+            TagName: GameEvent.HealFromDying.PostExit
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Camper.FullRecovery
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.DuringEndGameCollapseQEEvaluator
+    Id: QuestEvent.HealFinishEndgame
+}
+
+Row QuestEvent.HealFinishNearKiller:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.HealFromInjured
+        }
+        , 
+        {
+            TagName: GameEvent.HealFromDying
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Camper.FullRecovery
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.InDirectionOfKillerQEEvaluator
+    Id: QuestEvent.HealFinishNearKiller
+}
+
+Row QuestEvent.HealFinishSelfAfterUnhook:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.HealFromInjured
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Camper.FullRecovery
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/EventOnSelfAndUnhookedRecently.EventOnSelfAndUnhookedRecently_C
+    Id: QuestEvent.HealFinishSelfAfterUnhook
 }
 
 Row QuestEvent.HealMedkit:
@@ -912,6 +1220,17 @@ Row QuestEvent.Hit:
     Id: QuestEvent.Hit
 }
 
+Row QuestEvent.HitConsecutiveDifferent:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.SlasherBasicAttackSuccess
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.UniqueTargetsInTimeQEEvaluator
+    Id: QuestEvent.HitConsecutiveDifferent
+}
+
 Row QuestEvent.HitDifferent:
 {
     TrackedGameEvents: [
@@ -921,17 +1240,6 @@ Row QuestEvent.HitDifferent:
     ]
     QuestEventEvaluator: /Script/Archives.UniqueTargetIncrementQEEvaluator
     Id: QuestEvent.HitDifferent
-}
-
-Row QuestEvent.HitHindered:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.SlasherBasicAttackSuccess
-        }
-    ]
-    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/TargetHinderedQuestEvaluator.TargetHinderedQuestEvaluator_C
-    Id: QuestEvent.HitHindered
 }
 
 Row QuestEvent.HitExposed:
@@ -945,6 +1253,66 @@ Row QuestEvent.HitExposed:
     Id: QuestEvent.HitExposed
 }
 
+Row QuestEvent.HitGrabNearPalletsVaultsWalls:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.PickupCamper
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.PickupTrappedCamper
+        }
+        , 
+        {
+            TagName: GameEvent.SlasherBasicAttackSuccess
+        }
+        , 
+        {
+            TagName: GameEvent.PlayerExitCloset.FoundBySlasher
+        }
+        , 
+        {
+            TagName: GameEvent.SlasherInterruption
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.NearPalletVaultWallQEEvaluator
+    Id: QuestEvent.HitGrabNearPalletsVaultsWalls
+}
+
+Row QuestEvent.HitHemorrhage:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.SlasherBasicAttackSuccess
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/TargetHemorrhageQuestEvaluator.TargetHemorrhageQuestEvaluator_C
+    Id: QuestEvent.HitHemorrhage
+}
+
+Row QuestEvent.HitHindered:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.SlasherBasicAttackSuccess
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/TargetHinderedQuestEvaluator.TargetHinderedQuestEvaluator_C
+    Id: QuestEvent.HitHindered
+}
+
+Row QuestEvent.HitOblivious:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.SlasherBasicAttackSuccess
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/TargetObliviousQuestEvaluator.TargetObliviousQuestEvaluator_C
+    Id: QuestEvent.HitOblivious
+}
+
 Row QuestEvent.HitUndetectable:
 {
     TrackedGameEvents: [
@@ -954,6 +1322,17 @@ Row QuestEvent.HitUndetectable:
     ]
     QuestEventEvaluator: /Game/Blueprints/Archives/Quests/UndetectableQuestEvaluator.UndetectableQuestEvaluator_C
     Id: QuestEvent.HitUndetectable
+}
+
+Row QuestEvent.HitVaulting:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.SlasherBasicAttackSuccess
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/TargetIsVaultingEvaluator.TargetIsVaultingEvaluator_C
+    Id: QuestEvent.HitVaulting
 }
 
 Row QuestEvent.Hook:
@@ -980,6 +1359,21 @@ Row QuestEvent.HookBasement:
     ]
     QuestEventEvaluator: /Script/Archives.TargetInBasementQEEvaluator
     Id: QuestEvent.HookBasement
+}
+
+Row QuestEvent.HookConsecutiveDifferent:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.HookCamper
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.EndGame.Slasher.HookSurvivor
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.UniqueTargetsInTimeQEEvaluator
+    Id: QuestEvent.HookConsecutiveDifferent
 }
 
 Row QuestEvent.HookDifferent:
@@ -1090,6 +1484,17 @@ Row QuestEvent.HuntressHatchetDistanceHit:
     Id: QuestEvent.HuntressHatchetDistanceHit
 }
 
+Row QuestEvent.HuntressHatchetDown:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Slasher.Huntress.HatchetDown
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.HuntressHatchetDown
+}
+
 Row QuestEvent.HuntressHatchetHit:
 {
     TrackedGameEvents: [
@@ -1099,6 +1504,65 @@ Row QuestEvent.HuntressHatchetHit:
     ]
     QuestEventEvaluator: None
     Id: QuestEvent.HuntressHatchetHit
+}
+
+Row QuestEvent.HuntressHatchetHitDifferent:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Slasher.Huntress.HatchetHit
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.UniqueTargetIncrementQEEvaluator
+    Id: QuestEvent.HuntressHatchetHitDifferent
+}
+
+Row QuestEvent.HuntressHatchetHitHatchetDown:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Slasher.Huntress.HatchetDown
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/TargetWasRecentlyBasicAttackedEvaluator.TargetWasRecentlyBasicAttackedEvaluator_C
+    Id: QuestEvent.HuntressHatchetHitHatchetDown
+}
+
+Row QuestEvent.HuntressHatchetHitReload:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Slasher.Huntress.HatchetHit
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/MultipleHatchetHitsBeforeReloadEvaluator.MultipleHatchetHitsBeforeReloadEvaluator_C
+    Id: QuestEvent.HuntressHatchetHitReload
+}
+
+Row QuestEvent.HuntressHatchetHitUndetectable:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Slasher.Huntress.HatchetHit
+        }
+        , 
+        {
+            TagName: GameEvent.SlasherBasicAttackSuccess
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/UndetectableQuestEvaluator.UndetectableQuestEvaluator_C
+    Id: QuestEvent.HuntressHatchetHitUndetectable
+}
+
+Row QuestEvent.HuntressHitNoHatchets:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.SlasherBasicAttackSuccess
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/OutOfAmmoQuestEvaluator.OutOfAmmoQuestEvaluator_C
+    Id: QuestEvent.HuntressHitNoHatchets
 }
 
 Row QuestEvent.InflictDeepWound:
@@ -1114,6 +1578,44 @@ Row QuestEvent.InflictDeepWound:
     ]
     QuestEventEvaluator: None
     Id: QuestEvent.InflictDeepWound
+}
+
+Row QuestEvent.InjuredDyingHookedMultiple:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.DamageStateChanged
+        }
+        , 
+        {
+            TagName: GameEvent.CamperWasHooked
+        }
+        , 
+        {
+            TagName: GameEvent.CamperWasUnhooked
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.InjuredDyingHookManyQEEvaluator
+    Id: QuestEvent.InjuredDyingHookedMultiple
+}
+
+Row QuestEvent.InjuredDyingMultiple:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.DamageStateChanged
+        }
+        , 
+        {
+            TagName: GameEvent.CamperWasUnhooked
+        }
+        , 
+        {
+            TagName: GameEvent.CamperWasHooked
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.InjuredDyingMultipleQEEvaluator
+    Id: QuestEvent.InjuredDyingMultiple
 }
 
 Row QuestEvent.Kill:
@@ -1257,6 +1759,109 @@ Row QuestEvent.MoriObsession:
     Id: QuestEvent.MoriObsession
 }
 
+Row QuestEvent.NurseBlinkChainMultipleHit:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Nurse.BlinkAttackHit
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.NurseChainBlinkNumberQEEvaluator
+    Id: QuestEvent.NurseBlinkChainMultipleHit
+}
+
+Row QuestEvent.NurseBlinkHit:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Nurse.BlinkAttackHit
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.NurseBlinkHit
+}
+
+Row QuestEvent.NurseBlinkHitSurprise:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Nurse.BlinkAttackHit
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Nurse.BlinkInterrupt
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/TargetIsInteractingQuestEvaluator.TargetIsInteractingQuestEvaluator_C
+    Id: QuestEvent.NurseBlinkHitSurprise
+}
+
+Row QuestEvent.NurseBlinkPrecise:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Nurse.PreciseBlink
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.NurseBlinkPrecise
+}
+
+Row QuestEvent.OniDashConsecutiveHitDifferent:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.Oni.DemonMode.PowerAttack.Dash
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.OniDashHitDiffInTimeQEEvaluator
+    Id: QuestEvent.OniDashConsecutiveHitDifferent
+}
+
+Row QuestEvent.OniDashHit:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.Oni.DemonMode.PowerAttack.Dash
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.OniDashHit
+}
+
+Row QuestEvent.OniDashTimeHit:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.Oni.Dash.PerSecond
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/CustomValueMoreThanAndSpecialAttackHitRecentlyQuestEvaluator.CustomValueMoreThanAndSpecialAttackHitRecentlyQuestEvaluator_C
+    Id: QuestEvent.OniDashTimeHit
+}
+
+Row QuestEvent.OniStrike:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.Oni.DemonMode.PowerAttack
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.OniStrike
+}
+
+Row QuestEvent.OniStrikeDifferent:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.Oni.DemonMode.PowerAttack
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.UniqueTargetIncrementQEEvaluator
+    Id: QuestEvent.OniStrikeDifferent
+}
+
 Row QuestEvent.OpenExitGate:
 {
     TrackedGameEvents: [
@@ -1305,6 +1910,28 @@ Row QuestEvent.PalletPulldownBlock:
     Id: QuestEvent.PalletPulldownBlock
 }
 
+Row QuestEvent.PalletReset:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Camper.Pallet.PullUp.Complete
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.PalletReset
+}
+
+Row QuestEvent.PalletResetNearKiller:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Camper.Pallet.PullUp.Complete
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.InDirectionOfKillerQEEvaluator
+    Id: QuestEvent.PalletResetNearKiller
+}
+
 Row QuestEvent.PalletStun:
 {
     TrackedGameEvents: [
@@ -1314,6 +1941,54 @@ Row QuestEvent.PalletStun:
     ]
     QuestEventEvaluator: None
     Id: QuestEvent.PalletStun
+}
+
+Row QuestEvent.PalletStunReset:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Camper.StunSlasher.WithAction
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.WithPulledUpPalletQEEvaluator
+    Id: QuestEvent.PalletStunReset
+}
+
+Row QuestEvent.PlagueCorruptPurgeMultiple:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.HitSurvivorWithVomit.Super
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.PlagueCorruptUniqueTargetsQEEvaluator
+    Id: QuestEvent.PlagueCorruptPurgeMultiple
+}
+
+Row QuestEvent.PlagueInfectMax:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Slasher.Plague.ApplyMaxSickness
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.PlagueInfectMax
+}
+
+Row QuestEvent.PlaguePurgeInjure:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.CorruptPurgeDamage
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.SicknessDamage
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.PlaguePurgeInjure
 }
 
 Row QuestEvent.ProtectionHit:
@@ -1344,6 +2019,17 @@ Row QuestEvent.RedGlyph:
     ]
     QuestEventEvaluator: None
     Id: QuestEvent.RedGlyph
+}
+
+Row QuestEvent.RedHerringTriggered:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Perk.Activate.EnterClosetRedHerring
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.KillerNearRedHerringGeneratorQEEvaluator
+    Id: QuestEvent.RedHerringTriggered
 }
 
 Row QuestEvent.Repair:
@@ -1401,6 +2087,21 @@ Row QuestEvent.RepairFinishInTerrorRadius:
     Id: QuestEvent.RepairFinishInTerrorRadius
 }
 
+Row QuestEvent.RepairFinishUnhookWhileInjured:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Camper.SafeUnhook
+        }
+        , 
+        {
+            TagName: GameEvent.Camper.Generator.RepairFinish
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/InstigatorIsInjuredQuestEvaluator.InstigatorIsInjuredQuestEvaluator_C
+    Id: QuestEvent.RepairFinishUnhookWhileInjured
+}
+
 Row QuestEvent.RepairInTerrorRadius:
 {
     TrackedGameEvents: [
@@ -1410,6 +2111,17 @@ Row QuestEvent.RepairInTerrorRadius:
     ]
     QuestEventEvaluator: /Game/Blueprints/Archives/Quests/InstigatorInTerrorRadiusQuestEvaluator.InstigatorInTerrorRadiusQuestEvaluator_C
     Id: QuestEvent.RepairInTerrorRadius
+}
+
+Row QuestEvent.RummageBasement:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Camper.Chest.Search.Complete.WhileOpen
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.InstigatorInBasementQEEvaluator
+    Id: QuestEvent.RummageBasement
 }
 
 Row QuestEvent.SabotageFinish:
@@ -1432,6 +2144,17 @@ Row QuestEvent.SabotageFinishInTerrorRadius:
     ]
     QuestEventEvaluator: /Game/Blueprints/Archives/Quests/InstigatorInTerrorRadiusQuestEvaluator.InstigatorInTerrorRadiusQuestEvaluator_C
     Id: QuestEvent.SabotageFinishInTerrorRadius
+}
+
+Row QuestEvent.SabotageWithoutToolbox:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Camper.SabotageHook.NoToolBox
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.SabotageWithoutToolbox
 }
 
 Row QuestEvent.Sacrifice:
@@ -1555,6 +2278,17 @@ Row QuestEvent.SkillCheckGreatSuccess:
     Id: QuestEvent.SkillCheckGreatSuccess
 }
 
+Row QuestEvent.SkillCheckGreatSuccessInTerrorRadius:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Camper.SkillCheck.Success.Bonus
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/InstigatorInTerrorRadiusQuestEvaluator.InstigatorInTerrorRadiusQuestEvaluator_C
+    Id: QuestEvent.SkillCheckGreatSuccessInTerrorRadius
+}
+
 Row QuestEvent.SkillCheckHealingSuccess:
 {
     TrackedGameEvents: [
@@ -1579,6 +2313,28 @@ Row QuestEvent.SkillCheckSuccess:
     ]
     QuestEventEvaluator: None
     Id: QuestEvent.SkillCheckSuccess
+}
+
+Row QuestEvent.SkillCheckSuccessInTerrorRadius:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Camper.SkillCheck.Success
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/InstigatorInTerrorRadiusQuestEvaluator.InstigatorInTerrorRadiusQuestEvaluator_C
+    Id: QuestEvent.SkillCheckSuccessInTerrorRadius
+}
+
+Row QuestEvent.SpecialAttackHit:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.SpecialAttack.Hit
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/TargetWasRecentlyDamagedBySpecialAttackEvaluator.TargetWasRecentlyDamagedBySpecialAttackEvaluator_C
+    Id: QuestEvent.SpecialAttackHit
 }
 
 Row QuestEvent.SpiritGrabHitPostPhase:
@@ -1655,6 +2411,44 @@ Row QuestEvent.Stun:
     Id: QuestEvent.Stun
 }
 
+Row QuestEvent.StunBlind:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Player.StunSlasher
+        }
+        , 
+        {
+            TagName: GameEvent.SlasherBlinded
+        }
+        , 
+        {
+            TagName: GameEvent.SlasherBlindedWhileImmune
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Camper.BurnSlasher
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.StunBlind
+}
+
+Row QuestEvent.StunCarrying:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Camper.EscapeCarry
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Camper.StunCarryingSlasher
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.StunCarrying
+}
+
 Row QuestEvent.StunKillerWithHeadOn:
 {
     TrackedGameEvents: [
@@ -1721,6 +2515,39 @@ Row QuestEvent.TrapperCatchDifferent:
     Id: QuestEvent.TrapperCatchDifferent
 }
 
+Row QuestEvent.TrapperCatchInChase:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.TrapSurvivor
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/InChaseQuestEvaluator.InChaseQuestEvaluator_C
+    Id: QuestEvent.TrapperCatchInChase
+}
+
+Row QuestEvent.TrapperCatchTrapNearPalletsVaultsWalls:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.TrapSurvivor
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.TargetNearPalletVaultWallQEEvaluator
+    Id: QuestEvent.TrapperCatchTrapNearPalletsVaultsWalls
+}
+
+Row QuestEvent.TrapperCatchTrapReset:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Slasher.Trapper.TrapTwiceWithoutMovingBearTrap
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.TrapperCatchTrapReset
+}
+
 Row QuestEvent.Unhook:
 {
     TrackedGameEvents: [
@@ -1774,6 +2601,17 @@ Row QuestEvent.UnhookEndgame:
     ]
     QuestEventEvaluator: /Script/Archives.DuringEndGameCollapseQEEvaluator
     Id: QuestEvent.UnhookEndgame
+}
+
+Row QuestEvent.UnhookInTerrorRadius:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Camper.SafeUnhook
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/InstigatorInTerrorRadiusQuestEvaluator.InstigatorInTerrorRadiusQuestEvaluator_C
+    Id: QuestEvent.UnhookInTerrorRadius
 }
 
 Row QuestEvent.UnhookProtectionHit:
@@ -1916,6 +2754,17 @@ Row QuestEvent.WiggleFree:
     Id: QuestEvent.WiggleFree
 }
 
+Row QuestEvent.WiggleFreeDropNearKiller:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.SlasherCarryEnd
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/NearMeEvent_SlasherDropNotMeQuestEvaluator.NearMeEvent_SlasherDropNotMeQuestEvaluator_C
+    Id: QuestEvent.WiggleFreeDropNearKiller
+}
+
 Row QuestEvent.WraithBell:
 {
     TrackedGameEvents: [
@@ -1982,762 +2831,6 @@ Row QuestEvent.WraithStalk:
     Id: QuestEvent.WraithStalk
 }
 
-Row QuestEvent.HarvestHalloweenPlant:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.HalloweenEventPlantUsed
-        }
-    ]
-    QuestEventEvaluator: None
-    Id: QuestEvent.HarvestHalloweenPlant
-}
-
-Row QuestEvent.ChaseStartCrow:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Slasher.ChaseStart
-        }
-    ]
-    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/TargetStartledCrowRecentlyQuestEvaluator.TargetStartledCrowRecentlyQuestEvaluator_C
-    Id: QuestEvent.ChaseStartCrow
-}
-
-Row QuestEvent.EmotePointAtKiller:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.Camper.Emote.Point
-        }
-    ]
-    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/AtKillerPremonitionSoundedinTimeQuestEvaluator.AtKillerPremonitionSoundedinTimeQuestEvaluator_C
-    Id: QuestEvent.EmotePointAtKiller
-}
-
-Row QuestEvent.EscapeChaseInjured:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Camper.EscapeChase
-        }
-    ]
-    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/InstigatorIsInjuredQuestEvaluator.InstigatorIsInjuredQuestEvaluator_C
-    Id: QuestEvent.EscapeChaseInjured
-}
-
-Row QuestEvent.HealDying:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.HealFromDying
-        }
-        , 
-        {
-            TagName: GameEvent.ScoreEvent.Camper.FullRecovery
-        }
-    ]
-    QuestEventEvaluator: None
-    Id: QuestEvent.HealDying
-}
-
-Row QuestEvent.HealFinishEndgame:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.HealFromInjured
-        }
-        , 
-        {
-            TagName: GameEvent.HealFromDying.PostExit
-        }
-        , 
-        {
-            TagName: GameEvent.ScoreEvent.Camper.FullRecovery
-        }
-    ]
-    QuestEventEvaluator: /Script/Archives.DuringEndGameCollapseQEEvaluator
-    Id: QuestEvent.HealFinishEndgame
-}
-
-Row QuestEvent.HealFinishNearKiller:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.HealFromInjured
-        }
-        , 
-        {
-            TagName: GameEvent.HealFromDying
-        }
-        , 
-        {
-            TagName: GameEvent.ScoreEvent.Camper.FullRecovery
-        }
-    ]
-    QuestEventEvaluator: /Script/Archives.InDirectionOfKillerQEEvaluator
-    Id: QuestEvent.HealFinishNearKiller
-}
-
-Row QuestEvent.HealFinishSelfAfterUnhook:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.HealFromInjured
-        }
-        , 
-        {
-            TagName: GameEvent.ScoreEvent.Camper.FullRecovery
-        }
-    ]
-    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/EventOnSelfAndUnhookedRecently.EventOnSelfAndUnhookedRecently_C
-    Id: QuestEvent.HealFinishSelfAfterUnhook
-}
-
-Row QuestEvent.HitGrabNearPalletsVaultsWalls:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Slasher.PickupCamper
-        }
-        , 
-        {
-            TagName: GameEvent.ScoreEvent.Slasher.PickupTrappedCamper
-        }
-        , 
-        {
-            TagName: GameEvent.SlasherBasicAttackSuccess
-        }
-        , 
-        {
-            TagName: GameEvent.PlayerExitCloset.FoundBySlasher
-        }
-        , 
-        {
-            TagName: GameEvent.SlasherInterruption
-        }
-    ]
-    QuestEventEvaluator: /Script/Archives.NearPalletVaultWallQEEvaluator
-    Id: QuestEvent.HitGrabNearPalletsVaultsWalls
-}
-
-Row QuestEvent.HitHemorrhage:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.SlasherBasicAttackSuccess
-        }
-    ]
-    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/TargetHemorrhageQuestEvaluator.TargetHemorrhageQuestEvaluator_C
-    Id: QuestEvent.HitHemorrhage
-}
-
-Row QuestEvent.HitOblivious:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.SlasherBasicAttackSuccess
-        }
-    ]
-    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/TargetObliviousQuestEvaluator.TargetObliviousQuestEvaluator_C
-    Id: QuestEvent.HitOblivious
-}
-
-Row QuestEvent.HookConsecutiveDifferent:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Slasher.HookCamper
-        }
-        , 
-        {
-            TagName: GameEvent.ScoreEvent.EndGame.Slasher.HookSurvivor
-        }
-    ]
-    QuestEventEvaluator: /Script/Archives.UniqueTargetsInTimeQEEvaluator
-    Id: QuestEvent.HookConsecutiveDifferent
-}
-
-Row QuestEvent.InjuredDyingHookedMultiple:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.DamageStateChanged
-        }
-        , 
-        {
-            TagName: GameEvent.CamperWasHooked
-        }
-        , 
-        {
-            TagName: GameEvent.CamperWasUnhooked
-        }
-    ]
-    QuestEventEvaluator: /Script/Archives.InjuredDyingHookManyQEEvaluator
-    Id: QuestEvent.InjuredDyingHookedMultiple
-}
-
-Row QuestEvent.InjuredDyingMultiple:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.DamageStateChanged
-        }
-        , 
-        {
-            TagName: GameEvent.CamperWasUnhooked
-        }
-        , 
-        {
-            TagName: GameEvent.CamperWasHooked
-        }
-    ]
-    QuestEventEvaluator: /Script/Archives.InjuredDyingMultipleQEEvaluator
-    Id: QuestEvent.InjuredDyingMultiple
-}
-
-Row QuestEvent.NurseBlinkChainMultipleHit:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Nurse.BlinkAttackHit
-        }
-    ]
-    QuestEventEvaluator: /Script/Archives.NurseChainBlinkNumberQEEvaluator
-    Id: QuestEvent.NurseBlinkChainMultipleHit
-}
-
-Row QuestEvent.NurseBlinkHit:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Nurse.BlinkAttackHit
-        }
-    ]
-    QuestEventEvaluator: None
-    Id: QuestEvent.NurseBlinkHit
-}
-
-Row QuestEvent.NurseBlinkHitSurprise:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Nurse.BlinkAttackHit
-        }
-        , 
-        {
-            TagName: GameEvent.ScoreEvent.Nurse.BlinkInterrupt
-        }
-    ]
-    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/TargetIsInteractingQuestEvaluator.TargetIsInteractingQuestEvaluator_C
-    Id: QuestEvent.NurseBlinkHitSurprise
-}
-
-Row QuestEvent.NurseBlinkPrecise:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Nurse.PreciseBlink
-        }
-    ]
-    QuestEventEvaluator: None
-    Id: QuestEvent.NurseBlinkPrecise
-}
-
-Row QuestEvent.OniDashConsecutiveHitDifferent:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Slasher.Oni.DemonMode.PowerAttack.Dash
-        }
-    ]
-    QuestEventEvaluator: /Script/Archives.OniDashHitDiffInTimeQEEvaluator
-    Id: QuestEvent.OniDashConsecutiveHitDifferent
-}
-
-Row QuestEvent.OniDashTimeHit:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Slasher.Oni.Dash.PerSecond
-        }
-    ]
-    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/CustomValueMoreThanAndSpecialAttackHitRecentlyQuestEvaluator.CustomValueMoreThanAndSpecialAttackHitRecentlyQuestEvaluator_C
-    Id: QuestEvent.OniDashTimeHit
-}
-
-Row QuestEvent.OniDashHit:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Slasher.Oni.DemonMode.PowerAttack.Dash
-        }
-    ]
-    QuestEventEvaluator: None
-    Id: QuestEvent.OniDashHit
-}
-
-Row QuestEvent.OniStrike:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Slasher.Oni.DemonMode.PowerAttack
-        }
-    ]
-    QuestEventEvaluator: None
-    Id: QuestEvent.OniStrike
-}
-
-Row QuestEvent.OniStrikeDifferent:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Slasher.Oni.DemonMode.PowerAttack
-        }
-    ]
-    QuestEventEvaluator: /Script/Archives.UniqueTargetIncrementQEEvaluator
-    Id: QuestEvent.OniStrikeDifferent
-}
-
-Row QuestEvent.PalletReset:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.Camper.Pallet.PullUp.Complete
-        }
-    ]
-    QuestEventEvaluator: None
-    Id: QuestEvent.PalletReset
-}
-
-Row QuestEvent.PalletResetNearKiller:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.Camper.Pallet.PullUp.Complete
-        }
-    ]
-    QuestEventEvaluator: /Script/Archives.InDirectionOfKillerQEEvaluator
-    Id: QuestEvent.PalletResetNearKiller
-}
-
-Row QuestEvent.PalletStunReset:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Camper.StunSlasher.WithAction
-        }
-    ]
-    QuestEventEvaluator: /Script/Archives.WithPulledUpPalletQEEvaluator
-    Id: QuestEvent.PalletStunReset
-}
-
-Row QuestEvent.StunBlind:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.Player.StunSlasher
-        }
-        , 
-        {
-            TagName: GameEvent.SlasherBlinded
-        }
-        , 
-        {
-            TagName: GameEvent.SlasherBlindedWhileImmune
-        }
-        , 
-        {
-            TagName: GameEvent.ScoreEvent.Camper.BurnSlasher
-        }
-    ]
-    QuestEventEvaluator: None
-    Id: QuestEvent.StunBlind
-}
-
-Row QuestEvent.WiggleFreeDropNearKiller:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.SlasherCarryEnd
-        }
-    ]
-    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/NearMeEvent_SlasherDropNotMeQuestEvaluator.NearMeEvent_SlasherDropNotMeQuestEvaluator_C
-    Id: QuestEvent.WiggleFreeDropNearKiller
-}
-
-Row QuestEvent.PlagueInfectMax:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.Slasher.Plague.ApplyMaxSickness
-        }
-    ]
-    QuestEventEvaluator: None
-    Id: QuestEvent.PlagueInfectMax
-}
-
-Row QuestEvent.ForThePeopleTriggered:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Camper.ForThePeople.ExchangeHealthState
-        }
-    ]
-    QuestEventEvaluator: None
-    Id: QuestEvent.ForThePeopleTriggered
-}
-
-Row QuestEvent.PlaguePurgeInjure:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Slasher.CorruptPurgeDamage
-        }
-        , 
-        {
-            TagName: GameEvent.ScoreEvent.Slasher.SicknessDamage
-        }
-    ]
-    QuestEventEvaluator: None
-    Id: QuestEvent.PlaguePurgeInjure
-}
-
-Row QuestEvent.TrapperCatchInChase:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Slasher.TrapSurvivor
-        }
-    ]
-    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/InChaseQuestEvaluator.InChaseQuestEvaluator_C
-    Id: QuestEvent.TrapperCatchInChase
-}
-
-Row QuestEvent.UnhookInTerrorRadius:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Camper.SafeUnhook
-        }
-    ]
-    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/InstigatorInTerrorRadiusQuestEvaluator.InstigatorInTerrorRadiusQuestEvaluator_C
-    Id: QuestEvent.UnhookInTerrorRadius
-}
-
-Row QuestEvent.PlagueCorruptPurgeMultiple:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Slasher.HitSurvivorWithVomit.Super
-        }
-    ]
-    QuestEventEvaluator: /Script/Archives.PlagueCorruptUniqueTargetsQEEvaluator
-    Id: QuestEvent.PlagueCorruptPurgeMultiple
-}
-
-Row QuestEvent.TrapperCatchTrapNearPalletsVaultsWalls:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Slasher.TrapSurvivor
-        }
-    ]
-    QuestEventEvaluator: /Script/Archives.TargetNearPalletVaultWallQEEvaluator
-    Id: QuestEvent.TrapperCatchTrapNearPalletsVaultsWalls
-}
-
-Row QuestEvent.TrapperCatchTrapReset:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.Slasher.Trapper.TrapTwiceWithoutMovingBearTrap
-        }
-    ]
-    QuestEventEvaluator: None
-    Id: QuestEvent.TrapperCatchTrapReset
-}
-
-Row QuestEvent.RedHerringTriggered:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.Perk.Activate.EnterClosetRedHerring
-        }
-    ]
-    QuestEventEvaluator: /Script/Archives.KillerNearRedHerringGeneratorQEEvaluator
-    Id: QuestEvent.RedHerringTriggered
-}
-
-Row QuestEvent.SkillCheckGreatSuccessInTerrorRadius:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.Camper.SkillCheck.Success.Bonus
-        }
-    ]
-    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/InstigatorInTerrorRadiusQuestEvaluator.InstigatorInTerrorRadiusQuestEvaluator_C
-    Id: QuestEvent.SkillCheckGreatSuccessInTerrorRadius
-}
-
-Row QuestEvent.BreakWallsPalletsGens:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Slasher.DestroyPallet
-        }
-        , 
-        {
-            TagName: GameEvent.ScoreEvent.Slasher.DamageGenerator
-        }
-        , 
-        {
-            TagName: GameEvent.ScoreEvent.Slasher.DestroyBreakableWall
-        }
-    ]
-    QuestEventEvaluator: None
-    Id: QuestEvent.BreakWallsPalletsGens
-}
-
-Row QuestEvent.EscapeHatchWithItem:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Camper.EscapeThroughHatch
-        }
-    ]
-    QuestEventEvaluator: /Script/Archives.HasItemTypeQEEvaluator
-    Id: QuestEvent.EscapeHatch
-}
-
-Row QuestEvent.ClownHitIntoxicated:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Slasher.Clown.Hit.SmokedSurvivor
-        }
-    ]
-    QuestEventEvaluator: None
-    Id: QuestEvent.ClownHitIntoxicated
-}
-
-Row QuestEvent.ClownHitWhileInvigorated:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.Slasher.Clown.Hit.WhileInvigorated
-        }
-    ]
-    QuestEventEvaluator: None
-    Id: QuestEvent.ClownHitWhileInvigorated
-}
-
-Row QuestEvent.ClownIntoxicatedSameConsecutive:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Slasher.Clown.Bomb.SurvivorEnteredGasCloud
-        }
-    ]
-    QuestEventEvaluator: /Script/Archives.TriggerWithSameTargetWithinTimeQEEvaluator
-    Id: QuestEvent.ClownIntoxicatedSameConsecutive
-}
-
-Row QuestEvent.ClownHitIntoxicatedDifferent:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Slasher.Clown.Hit.SmokedSurvivor
-        }
-    ]
-    QuestEventEvaluator: /Script/Archives.UniqueTargetIncrementQEEvaluator
-    Id: QuestEvent.ClownHitIntoxicatedDifferent
-}
-
-Row QuestEvent.ClownInvigorateIntoxicated:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.Clown.Bomb.SurvivorCured
-        }
-    ]
-    QuestEventEvaluator: None
-    Id: QuestEvent.ClownInvigorateIntoxicated
-}
-
-Row QuestEvent.HuntressHitNoHatchets:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.SlasherBasicAttackSuccess
-        }
-    ]
-    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/OutOfAmmoQuestEvaluator.OutOfAmmoQuestEvaluator_C
-    Id: QuestEvent.HuntressHitNoHatchets
-}
-
-Row QuestEvent.HuntressHatchetHitHatchetDown:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.Slasher.Huntress.HatchetDown
-        }
-    ]
-    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/TargetWasRecentlyBasicAttackedEvaluator.TargetWasRecentlyBasicAttackedEvaluator_C
-    Id: QuestEvent.HuntressHatchetHitHatchetDown
-}
-
-Row QuestEvent.HuntressHatchetHitUndetectable:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.Slasher.Huntress.HatchetHit
-        }
-        , 
-        {
-            TagName: GameEvent.SlasherBasicAttackSuccess
-        }
-    ]
-    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/UndetectableQuestEvaluator.UndetectableQuestEvaluator_C
-    Id: QuestEvent.HuntressHatchetHitUndetectable
-}
-
-Row QuestEvent.HuntressHatchetHitReload:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.Slasher.Huntress.HatchetHit
-        }
-    ]
-    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/MultipleHatchetHitsBeforeReloadEvaluator.MultipleHatchetHitsBeforeReloadEvaluator_C
-    Id: QuestEvent.HuntressHatchetHitReload
-}
-
-Row QuestEvent.HuntressHatchetDown:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.Slasher.Huntress.HatchetDown
-        }
-    ]
-    QuestEventEvaluator: None
-    Id: QuestEvent.HuntressHatchetDown
-}
-
-Row QuestEvent.HuntressHatchetHitDifferent:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.Slasher.Huntress.HatchetHit
-        }
-    ]
-    QuestEventEvaluator: /Script/Archives.UniqueTargetIncrementQEEvaluator
-    Id: QuestEvent.HuntressHatchetHitDifferent
-}
-
-Row QuestEvent.RummageBasement:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Camper.Chest.Search.Complete.WhileOpen
-        }
-    ]
-    QuestEventEvaluator: /Script/Archives.InstigatorInBasementQEEvaluator
-    Id: QuestEvent.RummageBasement
-}
-
-Row QuestEvent.RepairFinishUnhookWhileInjured:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Camper.SafeUnhook
-        }
-        , 
-        {
-            TagName: GameEvent.Camper.Generator.RepairFinish
-        }
-    ]
-    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/InstigatorIsInjuredQuestEvaluator.InstigatorIsInjuredQuestEvaluator_C
-    Id: QuestEvent.RepairFinishUnhookWhileInjured
-}
-
-Row QuestEvent.SabotageWithoutToolbox:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Camper.SabotageHook.NoToolBox
-        }
-    ]
-    QuestEventEvaluator: None
-    Id: QuestEvent.SabotageWithoutToolbox
-}
-
-Row QuestEvent.HitConsecutiveDifferent:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.SlasherBasicAttackSuccess
-        }
-    ]
-    QuestEventEvaluator: /Script/Archives.UniqueTargetsInTimeQEEvaluator
-    Id: QuestEvent.HitConsecutiveDifferent
-}
-
-Row QuestEvent.Carry:
-{
-    TrackedGameEvents: [ ]
-    QuestEventEvaluator: /Script/Archives.CarryDistanceQEEvaluator
-    Id: QuestEvent.Carry
-}
-
-Row QuestEvent.SkillCheckSuccessInTerrorRadius:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.Camper.SkillCheck.Success
-        }
-    ]
-    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/InstigatorInTerrorRadiusQuestEvaluator.InstigatorInTerrorRadiusQuestEvaluator_C
-    Id: QuestEvent.SkillCheckSuccessInTerrorRadius
-}
-
-Row QuestEvent.SpecialAttackHit:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Slasher.SpecialAttack.Hit
-        }
-    ]
-    QuestEventEvaluator: None
-    Id: QuestEvent.SpecialAttackHit
-}
-
-Row QuestEvent.HitVaulting:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.SlasherBasicAttackSuccess
-        }
-    ]
-    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/TargetIsVaultingEvaluator.TargetIsVaultingEvaluator_C
-    Id: QuestEvent.HitVaulting
-}
-
-Row QuestEvent.StunCarrying:
-{
-    TrackedGameEvents: [
-        {
-            TagName: GameEvent.ScoreEvent.Camper.EscapeCarry
-        }
-        , 
-        {
-            TagName: GameEvent.ScoreEvent.Camper.StunCarryingSlasher
-        }
-    ]
-    QuestEventEvaluator: None
-    Id: QuestEvent.StunCarrying
-}
-
 Row QuestEvent.YellowGlyph:
 {
     TrackedGameEvents: [
@@ -2749,13 +2842,192 @@ Row QuestEvent.YellowGlyph:
     Id: QuestEvent.YellowGlyph
 }
 
-Row QuestEvent.BlueGlyph:
+Row QuestEvent.TricksterKnivesHit:
 {
     TrackedGameEvents: [
         {
-            TagName: GameEvent.ScoreEvent.Camper.ActivateBlueGlyph
+            TagName: GameEvent.Slasher.Trickster.KnifeThrow.Hit
         }
     ]
     QuestEventEvaluator: None
-    Id: QuestEvent.BlueGlyph
+    Id: QuestEvent.TricksterKnivesHit
+}
+
+Row QuestEvent.TricksterKnivesDistanceHit:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Slasher.Trickster.KnifeThrow.Hit
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/CustomDistanceQuestEvaluator.CustomDistanceQuestEvaluator_C
+    Id: QuestEvent.TricksterKnivesDistanceHit
+}
+
+Row QuestEvent.TricksterMaxLaceration:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Trickster.Laceration
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.TricksterMaxLaceration
+}
+
+Row QuestEvent.TricksterKnivesDownMainEvent:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Slasher.Trickster.KnifeThrow.Hit.DownedDuringMainEvent
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.TricksterKnivesDownMainEvent
+}
+
+Row QuestEvent.DoctorMadnessIIorIIIMultiple:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.Doctor.BringSurvivorUpOneMadnessTier
+        }
+    ]
+    QuestEventEvaluator: /Game/Blueprints/Archives/Quests/MultipleMadSurvivorsQuestEvaluator.MultipleMadSurvivorsQuestEvaluator_C
+    Id: QuestEvent.DoctorMadnessIIorIIIMultiple
+}
+
+Row QuestEvent.DoctorStaticBlast:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.Doctor.StaticBlastSurvivor
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.DoctorStaticBlast
+}
+
+Row QuestEvent.DoctorStaticBlastMultiple:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.Slasher.Doctor.StaticBlastMultiple
+        }
+    ]
+    QuestEventEvaluator: /Script/Archives.CustomValueMoreThanAmountQEEvaluator
+    Id: QuestEvent.DoctorStaticBlastMultiple
+}
+
+Row QuestEvent.BlessFinish:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Camper.BlessTotem
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.BlessFinish
+}
+
+Row QuestEvent.DownHealthy:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.CamperKOFromHealthy
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.DownHealthy
+}
+
+Row QuestEvent.PurpleGlyph:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.ActivatePurpleGlyph
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.PurpleGlyph
+}
+
+Row QuestEvent.UnhookOrHook:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Camper.SafeUnhook
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.HookCamper
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.EndGame.Slasher.HookSurvivor
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.UnhookOrHook
+}
+
+Row QuestEvent.HealFinishOrDown:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.CamperKO
+        }
+        , 
+        {
+            TagName: GameEvent.HealFromDying
+        }
+        , 
+        {
+            TagName: GameEvent.HealFromInjured
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Camper.FullRecovery
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.HealFinishOrDown
+}
+
+Row QuestEvent.PalletDropInChaseOrBreakPallets:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Camper.Pallet.Drop.InChase
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Slasher.DestroyPallet
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.PalletDropInChaseOrBreakPallets
+}
+
+Row QuestEvent.CleanseBlessFinish:
+{
+    TrackedGameEvents: [
+        {
+            TagName: GameEvent.ScoreEvent.Camper.BlessTotem.Dull
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Camper.BlessTotem.Hex
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Camper.CleanseTotem.Dull
+        }
+        , 
+        {
+            TagName: GameEvent.ScoreEvent.Camper.CleanseTotem.Hex
+        }
+    ]
+    QuestEventEvaluator: None
+    Id: QuestEvent.CleanseBlessFinish
 }

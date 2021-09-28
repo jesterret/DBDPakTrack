@@ -1,0 +1,268 @@
+{
+    NumReplicatedProperties: 1
+    Timelines: [
+        TimelineTemplate BP_Pumpkin_C.TML_PumpkinScaleController_Template
+        , 
+        TimelineTemplate BP_Pumpkin_C.TML_PumpkinTreatGlowController_Template
+        , 
+        TimelineTemplate BP_Pumpkin_C.TML_PumpkingInnerGlowController_Template
+    ]
+    SimpleConstructionScript: SimpleConstructionScript BP_Pumpkin_C.SimpleConstructionScript
+    UberGraphFunction: Function BP_Pumpkin_C.ExecuteUbergraph_BP_Pumpkin
+}
+<--- CDO --->
+{
+    UberGraphFrame: None
+    TML_PumpkinScaleController_Pumpkin_Scale_75954BFC4C8E96C1718574A7AC9F8657: { X: 0, Y: 0, Z: 0 }
+    PumpkinTreatDuration: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Blueprints/GameplayElements/Interactable/Pumpkin/PumpkinTunableDB.PumpkinTunableDB
+            RowName: PumpkinTreatDuration
+        }
+        _defaultValue: 10
+    }
+    PumpkinTrickDuration: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Blueprints/GameplayElements/Interactable/Pumpkin/PumpkinTunableDB.PumpkinTunableDB
+            RowName: PumpkinTrickDuration
+        }
+        _defaultValue: 10
+    }
+    PumpkinSpeedBoost: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Blueprints/GameplayElements/Interactable/Pumpkin/PumpkinTunableDB.PumpkinTunableDB
+            RowName: PumpkinSpeedBoost
+        }
+        _defaultValue: 0.5
+    }
+    PumpkinSpeedDebuff: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Blueprints/GameplayElements/Interactable/Pumpkin/PumpkinTunableDB.PumpkinTunableDB
+            RowName: PumpkinSpeedDebuff
+        }
+        _defaultValue: -0.03
+    }
+    PumpkinArray: [
+        null
+        , 
+        null
+        , 
+        null
+    ]
+    PumpkinMaterialArray: [
+        MaterialInstanceConstant /Game/Meshes/InteractableObjects/Pumpkins/Material/MI_pumpkin001.MI_Pumpkin001
+        , 
+        MaterialInstanceConstant /Game/Meshes/InteractableObjects/Pumpkins/Material/MI_Pumpkin002.MI_Pumpkin002
+        , 
+        MaterialInstanceConstant /Game/Meshes/InteractableObjects/Pumpkins/Material/MI_Pumpkin003.MI_Pumpkin003
+    ]
+    _specialBehaviourId: Pumpkin
+    _pumpkinInteraction: {
+            StopUpdateMontageOnExit: True
+            SnapRotation: True
+            SnapStopDistance: 85
+            CheckInteractableIsInPlayerView: True
+            CheckInteractableInViewSphereSweepRadius: 1
+            CheckInteractableInViewOffset: { X: 0, Y: 0, Z: 50 }
+            CheckInteractableInViewOffsetDistanceToHitPoint: 15
+            ScaleMainAnimationToTime: True
+            UpdateMontage: {
+                MontageID: KickPumpkin_In
+            }
+            ExitMontage: {
+                MontageID: KickPumpkin_Out
+            }
+            _interactor: {
+                    _interactionDefinitions: [
+                        PumpkinInteraction Default__BP_Pumpkin_C.PumpkinInteraction
+                        , 
+                            {
+                                StopUpdateMontageOnExit: True
+                                SnapRotation: True
+                                SnapStopDistance: 85
+                                CheckInteractableIsInPlayerView: True
+                                CheckInteractableInViewOffset: { X: 0, Y: 0, Z: 50 }
+                                CheckInteractableInViewOffsetDistanceToHitPoint: 15
+                                ScaleMainAnimationToTime: True
+                                UpdateMontage: {
+                                    MontageID: KickPumpkin_In
+                                }
+                                ExitMontage: {
+                                    MontageID: KickPumpkin_Out
+                                }
+                                _interactor: Interactor Default__BP_Pumpkin_C.PumpkinInteractor
+                                AttachParent: Interactor Default__BP_Pumpkin_C.PumpkinInteractor
+                            }
+                    ]
+                    AttachParent: {
+                            BoxExtent: { X: 64, Y: 64, Z: 64 }
+                            DetailLevelBeforeCastShadows: DM_MAX
+                            CanCharacterStepUpOn: ECB_No
+                            BodyInstance: {
+                                ObjectType: ECC_GameTraceChannel1
+                                CollisionProfileName: Interactable
+                                CollisionResponses: {
+                                    ResponseArray: [
+                                        {
+                                            Channel: WorldStatic
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: WorldDynamic
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Pawn
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Visibility
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Camera
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: PhysicsBody
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Vehicle
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Destructible
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: EngineTraceChannel2
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: EngineTraceChannel3
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: EngineTraceChannel4
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: EngineTraceChannel5
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: EngineTraceChannel6
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Interactable
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Audio
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Slasher
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Spider
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Traps
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: BlinkBlocker
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Ground
+                                            Response: ECR_Ignore
+                                        }
+                                    ]
+                                }
+                            }
+                            AttachParent: {
+                                }
+                            RelativeLocation: { X: 0, Y: 0, Z: 64 }
+                        }
+                    RelativeLocation: { X: 0, Y: 0, Z: -64 }
+                }
+            AttachParent: Interactor Default__BP_Pumpkin_C.PumpkinInteractor
+        }
+    _pumpkinInteractionKiller: PumpkinInteraction Default__BP_Pumpkin_C.PumpkinInteractionKiller
+    _pumpkinInteractionChargeable: {
+        }
+    _pumpkinInteractionChargeableKiller: {
+        }
+    _pumpkinInteractor: Interactor Default__BP_Pumpkin_C.PumpkinInteractor
+    _pumpkinInteractionZone: BoxComponent Default__BP_Pumpkin_C.PumpkinInteractionZone
+    _outlineComponent: {
+            OutlineName: pumpkin
+            AttachParent: {
+                    DetailLevelBeforeCastShadows: DM_MAX
+                    BodyInstance: {
+                        ObjectType: ECC_WorldDynamic
+                        CollisionProfileName: Custom
+                    }
+                    AttachParent: SceneComponent Default__BP_Pumpkin_C.Root
+                    RelativeScale3D: { X: 0.19, Y: 0.19, Z: 0.19 }
+                }
+        }
+    _pumpkinSkeletalMesh: SkeletalMeshComponent Default__BP_Pumpkin_C.PumpkinSkeletalMesh
+    _pumpkinInteractionSecondsToCharge: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Blueprints/GameplayElements/Interactable/Pumpkin/PumpkinTunableDB.PumpkinTunableDB
+            RowName: PumpkinInteractionDuration
+        }
+    }
+    _pumpkinInteractionSecondsToChargeKiller: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Blueprints/GameplayElements/Interactable/Pumpkin/PumpkinTunableDB.PumpkinTunableDB
+            RowName: PumpkinInteractionDurationKiller
+        }
+    }
+    _pumpkinTreatChance: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Blueprints/GameplayElements/Interactable/Pumpkin/PumpkinTunableDB.PumpkinTunableDB
+            RowName: PumpkinTreatChance
+        }
+    }
+    _pumpkinTrickChance: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Blueprints/GameplayElements/Interactable/Pumpkin/PumpkinTunableDB.PumpkinTunableDB
+            RowName: PumpkinTrickChance
+        }
+    }
+    _transformOptimizer: {
+        }
+    PrimaryActorTick: {
+        bStartWithTickEnabled: False
+        TickInterval: 0.1
+    }
+    RemoteRole: ROLE_None
+    RootComponent: SceneComponent Default__BP_Pumpkin_C.Root
+}
