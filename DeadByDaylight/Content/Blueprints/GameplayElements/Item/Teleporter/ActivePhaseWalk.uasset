@@ -4,8 +4,54 @@
 <--- CDO --->
 {
     UberGraphFrame: None
-    ActivePhaseWalkChargingMontageID: ActivePhaseWalkCharging
+    _fullyChargedSpeed: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Haiti/SpiritTunableDB.SpiritTunableDB
+                RowName: ActivePhaseWalk_Speed
+            }
+        }
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Add
+                ModifierTag: {
+                    TagName: GameplayModifierType.ModifyActivePhaseWalkMovementSpeedMultiplicative
+                }
+                CompoundStrategy: EModifierCompoundStrategy::MultWithCompoundNegativeMinusOne
+            }
+        ]
+    }
     _chargingSpeedCurve: CurveFloat /Game/Characters/Slashers/Blueprints/Curves/ActivePhaseWalkChargingSpeedCurve.ActivePhaseWalkChargingSpeedCurve
+    _phaseWalkPenaltyThreshold: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Haiti/SpiritTunableDB.SpiritTunableDB
+            RowName: ActivePhaseWalk_PenaltyThreshold
+        }
+    }
+    _phaseWalkPenaltyValue: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Haiti/SpiritTunableDB.SpiritTunableDB
+            RowName: ActivePhaseWalk_PenaltyValue
+        }
+    }
+    _activePhaseWalkChargeDuration: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Haiti/SpiritTunableDB.SpiritTunableDB
+                RowName: ActivePhaseWalk_SecondsToCharge
+            }
+        }
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Div
+                ModifierTag: {
+                    TagName: GameplayModifierType.ActionSpeed
+                }
+                CompoundStrategy: EModifierCompoundStrategy::MultWithCompoundNegative
+            }
+        ]
+    }
+    _activePhaseWalkChargingMontage: AnimMontage /Game/Characters/Slashers/Haiti/Montage/Power/AM_HK_Power_Charge_FPV.AM_HK_Power_Charge_FPV
     InteractionID: ActivePhaseWalk
     SlasherCanInteract: True
     AllowNavigation: True

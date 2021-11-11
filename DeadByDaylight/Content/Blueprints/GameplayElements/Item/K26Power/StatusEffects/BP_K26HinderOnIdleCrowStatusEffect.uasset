@@ -1,0 +1,41 @@
+{
+    UberGraphFunction: Function BP_K26HinderOnIdleCrowStatusEffect_C.ExecuteUbergraph_BP_K26HinderOnIdleCrowStatusEffect
+}
+<--- CDO --->
+{
+    UberGraphFrame: None
+    _onCrowAttachStateTag: {
+        TagName: State.HasCrowAttached
+    }
+    _hinderOnIdleLingerTime: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Ion/K26_TunableValue.K26_TunableValue
+                RowName: HinderOnTouchingIdleCrowLingerTime
+            }
+        }
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Add
+                ModifierTag: {
+                    TagName: GameplayModifierType.K26.ModifyHinderOnIdleLingerTimeAdditive
+                }
+                CompoundStrategy: EModifierCompoundStrategy::Add
+            }
+        ]
+    }
+    ModifierData: {
+        Modifiers: [
+            {
+                Type: {
+                    TagName: GameplayModifierType.IncreaseAllMovementSpeed
+                }
+                ModifierValue: -0.15
+            }
+        ]
+    }
+    ShouldDisplay: True
+    _removeOnRemainingLifetimeEnded: False
+    BroadcastStatusView: True
+    StatusViewID: Hindered_StatusView
+}
