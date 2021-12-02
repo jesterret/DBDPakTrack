@@ -1,0 +1,175 @@
+{
+    Timelines: [
+        TimelineTemplate BP_Snowman_C.TML_Appear_Template
+        , 
+        TimelineTemplate BP_Snowman_C.TML_Burst_Template
+    ]
+    SimpleConstructionScript: SimpleConstructionScript BP_Snowman_C.SimpleConstructionScript
+    UberGraphFunction: Function BP_Snowman_C.ExecuteUbergraph_BP_Snowman
+}
+<--- CDO --->
+{
+    UberGraphFrame: None
+    SnowmanMaterialVariants: [
+        MaterialInstanceConstant /Game/Meshes/InteractableObjects/Snowman/Materials/MI_Snowman01.MI_Snowman01
+        , 
+        MaterialInstanceConstant /Game/Meshes/InteractableObjects/Snowman/Materials/MI_Snowman02.MI_Snowman02
+        , 
+        MaterialInstanceConstant /Game/Meshes/InteractableObjects/Snowman/Materials/MI_Snowman03.MI_Snowman03
+        , 
+        MaterialInstanceConstant /Game/Meshes/InteractableObjects/Snowman/Materials/MI_Snowman04.MI_Snowman04
+    ]
+    _timeToRespawn: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Blueprints/GameplayElements/Interactable/Snowman/SnowmanTunableDB.SnowmanTunableDB
+            RowName: SnowmanTimeToRespawn
+        }
+    }
+    _timeToBeDestroyed: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Blueprints/GameplayElements/Interactable/Snowman/SnowmanTunableDB.SnowmanTunableDB
+            RowName: SnowmanDestructionTime
+        }
+    }
+    _snowmanSkeletalMesh: {
+            AnimClass: AnimBlueprintGeneratedClass /Game/Meshes/InteractableObjects/Snowman/Animation/AB_Snowman.AB_Snowman_C
+            SkeletalMesh: SkeletalMesh /Game/Meshes/InteractableObjects/Snowman/Mesh/Snowman_REF_body.Snowman_REF_body
+            bReceivesDecals: False
+            DetailLevelBeforeCastShadows: DM_MAX
+            CanCharacterStepUpOn: ECB_No
+            AttachParent: {
+                }
+            RelativeRotation: { Pitch: 0, Roll: -90, Yaw: 0 }
+        }
+    _snowmanOutlineComponent: {
+            AttachParent: SkeletalMeshComponent Default__BP_Snowman_C.SnowmanSkeletalMesh
+        }
+    _snowmanCapsule: {
+            CapsuleHalfHeight: 100
+            CapsuleRadius: 50
+            DetailLevelBeforeCastShadows: DM_MAX
+            CanCharacterStepUpOn: ECB_No
+            BodyInstance: {
+                ObjectType: ECC_WorldStatic
+                CollisionEnabled: ECollisionEnabled::QueryAndPhysics
+                CollisionProfileName: BlockAll
+                CollisionResponses: {
+                    ResponseArray: [
+                        {
+                            Channel: Interactable
+                            Response: ECR_Block
+                        }
+                        , 
+                        {
+                            Channel: Slasher
+                            Response: ECR_Block
+                        }
+                        , 
+                        {
+                            Channel: Blood
+                            Response: ECR_Block
+                        }
+                        , 
+                        {
+                            Channel: InteractionDetector
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: BlinkBlocker
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Ground
+                            Response: ECR_Ignore
+                        }
+                        , 
+                        {
+                            Channel: Walkable
+                            Response: ECR_Block
+                        }
+                    ]
+                }
+            }
+            AttachParent: SceneComponent Default__BP_Snowman_C.Root
+            RelativeLocation: { X: 0, Y: 0, Z: 100 }
+        }
+    _hideInSnowmanInteraction: {
+            _timeToEnterSnowman: {
+                _dataTableRowHandle: {
+                    DataTable: DataTable /Game/Blueprints/GameplayElements/Interactable/Snowman/SnowmanTunableDB.SnowmanTunableDB
+                    RowName: SnowmanEnterDuration
+                }
+            }
+            _minimumTimeToRunAndExit: {
+                _dataTableRowHandle: {
+                    DataTable: DataTable /Game/Blueprints/GameplayElements/Interactable/Snowman/SnowmanTunableDB.SnowmanTunableDB
+                    RowName: SnowmanMinimumTimeToRunAndExit
+                }
+            }
+            _cameraZoomBack: {
+                _dataTableRowHandle: {
+                    DataTable: DataTable /Game/Blueprints/GameplayElements/Interactable/Snowman/SnowmanTunableDB.SnowmanTunableDB
+                    RowName: SnowmanCameraZoomBack
+                }
+            }
+            _timeToZoomEnter: {
+                _dataTableRowHandle: {
+                    DataTable: DataTable /Game/Blueprints/GameplayElements/Interactable/Snowman/SnowmanTunableDB.SnowmanTunableDB
+                    RowName: SnowmanTimeToZoomEnter
+                }
+            }
+            _timeToZoomExit: {
+                _dataTableRowHandle: {
+                    DataTable: DataTable /Game/Blueprints/GameplayElements/Interactable/Snowman/SnowmanTunableDB.SnowmanTunableDB
+                    RowName: SnowmanTimeToZoomExit
+                }
+            }
+            InteractionID: HideInSnowman
+            StopUpdateMontageOnExit: True
+            SnapStopDistance: 115
+            TestClearPathDuringSnap: False
+            CheckInteractableIsInPlayerView: True
+            CheckInteractableInViewOffset: { X: 0, Y: 0, Z: 100 }
+            CheckInteractableInViewOffsetDistanceToHitPoint: 55
+            IsInterruptibleIfTestClearPathDuringSnapFails: False
+            TestPlayerOrientationOnSnap: False
+            SnapBackPositionType: ESnapBackPositionType::SnapBackToOffsetPositionFromSnap
+            InteractionDescriptionText: Hide Inside
+            InteractionHeightDeltaMax: 150
+            UpdateMontage: {
+                MontageID: SnowmanEnter
+            }
+            _secondaryInteractions: [
+                [ SnowmanExitPrompt
+                 => 
+                {
+                    SecondaryInteractionID: SnowmanExitPrompt
+                    SecondaryInteractionInputType: EInputInteractionType::VE_Run
+                    SecondaryInteractionDescriptionText: Demolish Snowman
+                    ShouldShow: False
+                }
+                ]]
+            _interactor: {
+                    AttachParent: {
+                            SphereRadius: 80
+                            DetailLevelBeforeCastShadows: DM_MAX
+                            CanCharacterStepUpOn: ECB_No
+                            AttachParent: SceneComponent Default__BP_Snowman_C.Root
+                            RelativeLocation: { X: 0, Y: 0, Z: 100 }
+                        }
+                    RelativeLocation: { X: 0, Y: 0, Z: -100 }
+                }
+            _preventingTags: { State.HasTwinAttached, State.K25.IsGrabbedByK25Chains, State.HasCrowAttached }
+            AttachParent: Interactor Default__BP_Snowman_C.SnowmanInteractor
+        }
+    _snowmanInteractor: Interactor Default__BP_Snowman_C.SnowmanInteractor
+    _snowmanInteractionZone: SphereComponent Default__BP_Snowman_C.SnowmanInteractionZone
+    _snowmanAttackableComponent: {
+            _killerProjectilesThatCanDamageSnowman: { Semantics.Projectile.Id.Hatchet, Semantics.Projectile.Id.Harpoon, Semantics.Projectile.Id.ControlledChain }
+        }
+    _transformOptimizer: {
+        }
+    RootComponent: SceneComponent Default__BP_Snowman_C.Root
+}
