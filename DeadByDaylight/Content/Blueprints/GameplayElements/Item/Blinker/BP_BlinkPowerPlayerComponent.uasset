@@ -1,0 +1,106 @@
+{
+}
+<--- CDO --->
+{
+    _maxBlinkCharges: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/TheNurse/NurseTunableDB.NurseTunableDB
+                RowName: MaximumBlinkCharges
+            }
+        }
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Add
+                ModifierTag: {
+                    TagName: GameplayModifierType.ModifyNurseMaximumBlinks
+                }
+                CompoundStrategy: EModifierCompoundStrategy::Add
+            }
+        ]
+    }
+    _rechargeDuration: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/TheNurse/NurseTunableDB.NurseTunableDB
+                RowName: BlinkRechargeTime
+            }
+        }
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Add
+                ModifierTag: {
+                    TagName: GameplayModifierType.ModifyBlinkRechargeTimeAdditive
+                }
+                CompoundStrategy: EModifierCompoundStrategy::Add
+            }
+        ]
+    }
+    _chainBlinkDuration: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/TheNurse/NurseTunableDB.NurseTunableDB
+                RowName: ChainBlinkTimerDuration
+            }
+        }
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Mult
+                ModifierTag: {
+                    TagName: GameplayModifierType.ModifyNurseChainBlinkStateDuration
+                }
+                CompoundStrategy: EModifierCompoundStrategy::AddPlusOne
+            }
+        ]
+    }
+    _allowedInteractionSemancticsDuringChainBlink: { Semantics.Interaction.Killer.GettingStun, Semantics.Interaction.Killer.Blink }
+    _fatigueDuration: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/TheNurse/NurseTunableDB.NurseTunableDB
+                RowName: BlinkBaseFatigue
+            }
+        }
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Mult
+                ModifierTag: {
+                    TagName: GameplayModifierType.ModifyBaseBlinkFatiguePenaltyMultiplicative
+                }
+                CompoundStrategy: EModifierCompoundStrategy::AddPlusOne
+            }
+        ]
+    }
+    _fatigueChainBlinkPenalty: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/TheNurse/NurseTunableDB.NurseTunableDB
+                RowName: ChainBlinkFatiguePenalty
+            }
+        }
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Mult
+                ModifierTag: {
+                    TagName: GameplayModifierType.ModifyChainBlinkFatiguePenaltyMultiplicative
+                }
+                CompoundStrategy: EModifierCompoundStrategy::AddPlusOne
+            }
+        ]
+    }
+    _fatigueAttackPenalty: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/TheNurse/NurseTunableDB.NurseTunableDB
+                RowName: BlinkCooldown_AttackPenalty
+            }
+        }
+    }
+    _fatigueAttackMissPenaltyModifier: {
+        TagName: GameplayModifierType.ModifyBlinkAttackMissFatiguePenaltyMultiplicative
+    }
+    _fatigueSpeedCurve: CurveFloat /Game/Blueprints/GameplayElements/Item/Blinker/BlinkCooldownSpeedCurve.BlinkCooldownSpeedCurve
+    PrimaryComponentTick: {
+        bStartWithTickEnabled: False
+    }
+}
