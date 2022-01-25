@@ -1,0 +1,321 @@
+{
+    Timelines: [
+        TimelineTemplate BP_RedEnvelope_C.TML_EnvelopeMouvement_Template
+        , 
+        TimelineTemplate BP_RedEnvelope_C.TML_Glow_Template
+        , 
+        TimelineTemplate BP_RedEnvelope_C.TML_Dissolve_Template
+        , 
+        TimelineTemplate BP_RedEnvelope_C.TML_OwnerOpacity_Template
+    ]
+    SimpleConstructionScript: SimpleConstructionScript BP_RedEnvelope_C.SimpleConstructionScript
+    UberGraphFunction: Function BP_RedEnvelope_C.ExecuteUbergraph_BP_RedEnvelope
+}
+<--- CDO --->
+{
+    UberGraphFrame: None
+    TML_EnvelopeMouvement_Location_D2BB1FDB40B4E15E4DB585A26896091A: { X: 0, Y: 0, Z: 0 }
+    Initial_Location: { X: 0, Y: 0, Z: 0 }
+    IsOpacityChanging?: True
+    _redEnvelopeInteraction: {
+            InteractionAnimation: EInteractionAnimation::VE_InteractWithGlyph
+            SlasherCanInteract: False
+            SnapPosition: True
+            SnapRotation: True
+            SnapStopDistance: 85
+            CheckInteractableInViewSphereSweepRadius: 15
+            CheckInteractableInViewOffset: { X: 0, Y: 0, Z: 50 }
+            CheckInteractableInViewOffsetDistanceToHitPoint: 15
+            CanInteractWhileCarrying: False
+            _interactor: {
+                    AttachParent: {
+                            BoxExtent: { X: 70, Y: 70, Z: 120 }
+                            DetailLevelBeforeCastShadows: DM_MAX
+                            BodyInstance: {
+                                ObjectType: ECC_GameTraceChannel1
+                                CollisionProfileName: Interactable
+                                CollisionResponses: {
+                                    ResponseArray: [
+                                        {
+                                            Channel: WorldStatic
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: WorldDynamic
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Pawn
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Visibility
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Camera
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: PhysicsBody
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Vehicle
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Destructible
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: EngineTraceChannel2
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: EngineTraceChannel3
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: EngineTraceChannel4
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: EngineTraceChannel5
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: EngineTraceChannel6
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Interactable
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Audio
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Slasher
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Spider
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Traps
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: BlinkBlocker
+                                            Response: ECR_Ignore
+                                        }
+                                        , 
+                                        {
+                                            Channel: Ground
+                                            Response: ECR_Ignore
+                                        }
+                                    ]
+                                }
+                            }
+                            AttachParent: {
+                                }
+                            RelativeLocation: { X: 0, Y: 0, Z: 60 }
+                        }
+                }
+            AttachParent: Interactor Default__BP_RedEnvelope_C.RedEnvelopeInteractor
+            RelativeLocation: { X: 0, Y: 0, Z: -60 }
+        }
+    _redEnvelopeInteractionKiller: {
+            CamperCanInteract: False
+            SnapPosition: True
+            SnapRotation: True
+            SnapStopDistance: 85
+            CanInteractWhileCarrying: False
+            UseCameraMontageMode: False
+            UpdateMontage: {
+                MontageID: Generic_Interaction
+            }
+            _startUpdateMontageDuringEnter: True
+            _interactor: Interactor Default__BP_RedEnvelope_C.RedEnvelopeInteractor
+            AttachParent: Interactor Default__BP_RedEnvelope_C.RedEnvelopeInteractor
+            RelativeLocation: { X: 0, Y: 0, Z: 75 }
+        }
+    _redEnvelopeInteractionChargeable: {
+        }
+    _redEnvelopeInteractionChargeableKiller: {
+        }
+    _redEnvelopeInteractor: Interactor Default__BP_RedEnvelope_C.RedEnvelopeInteractor
+    _redEnvelopeInteractionZone: BoxComponent Default__BP_RedEnvelope_C.RedEnvelopeInteractionZone
+    _outlineComponent: {
+            OutlineName: redenvelope
+            AttachParent: {
+                    StaticMesh: StaticMesh /Game/Meshes/InteractableObjects/Lunar/Models/SM_Lunar_RedEnvelope_01.SM_Lunar_RedEnvelope_01
+                    bUseDefaultCollision: False
+                    OverrideMaterials: [
+                        MaterialInstanceConstant /Game/Meshes/InteractableObjects/Lunar/Materials/MI_Lunar_RedEnvelope_02.MI_Lunar_RedEnvelope_02
+                    ]
+                    bGenerateOverlapEvents: False
+                    DetailLevelBeforeCastShadows: DM_MAX
+                    CanCharacterStepUpOn: ECB_No
+                    BodyInstance: {
+                        ObjectType: ECC_WorldStatic
+                        CollisionEnabled: ECollisionEnabled::NoCollision
+                        CollisionProfileName: NoCollision
+                        CollisionResponses: {
+                            ResponseArray: [
+                                {
+                                    Channel: WorldStatic
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: WorldDynamic
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Pawn
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Visibility
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Camera
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: PhysicsBody
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Vehicle
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Destructible
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: EngineTraceChannel2
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: EngineTraceChannel3
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: EngineTraceChannel4
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: EngineTraceChannel5
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: EngineTraceChannel6
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Interactable
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Audio
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Slasher
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Spider
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Traps
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: InteractionDetector
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: BlinkBlocker
+                                    Response: ECR_Ignore
+                                }
+                                , 
+                                {
+                                    Channel: Ground
+                                    Response: ECR_Ignore
+                                }
+                            ]
+                        }
+                    }
+                    AttachParent: SceneComponent Default__BP_RedEnvelope_C.Root
+                    RelativeLocation: { X: 0, Y: 0, Z: 135 }
+                }
+        }
+    _redEnvelopeMesh: StaticMeshComponent Default__BP_RedEnvelope_C.RedEnvelopeMesh
+    _redEnvelopeInteractionSecondsToCharge: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Blueprints/Events/Lunar2022/RedEnvelopeTunableDB.RedEnvelopeTunableDB
+            RowName: RedEnvelopeInteractionDuration
+        }
+        _defaultValue: 2
+    }
+    _redEnvelopeInteractionSecondsToChargeKiller: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Blueprints/Events/Lunar2022/RedEnvelopeTunableDB.RedEnvelopeTunableDB
+            RowName: RedEnvelopeInteractionDurationKiller
+        }
+        _defaultValue: 2
+    }
+    _auraColorOwner: { R: 0, G: 0.45, B: 1, A: 1 }
+    _auraColorNonOwner: { R: 0.2, G: 0.75, B: 0.95, A: 1 }
+    _transformOptimizer: {
+        }
+    PrimaryActorTick: {
+        TickInterval: 0.1
+    }
+    RootComponent: SceneComponent Default__BP_RedEnvelope_C.Root
+}
