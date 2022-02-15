@@ -3,6 +3,11 @@
     DynamicBindingObjects: [
         ComponentDelegateBinding BP_Camper_Character_C.ComponentDelegateBinding
     ]
+    ComponentTemplates: [
+            {
+                DetailLevelBeforeCastShadows: DM_MAX
+            }
+    ]
     Timelines: [
         TimelineTemplate BP_Camper_Character_C.Hook_Template
         , 
@@ -71,6 +76,18 @@
         TimelineTemplate BP_Camper_Character_C.TML_K25_Power_Template
         , 
         TimelineTemplate BP_Camper_Character_C.TML_BoonVignetteController_Template
+        , 
+        TimelineTemplate BP_Camper_Character_C.TML_StatusVignette_Template
+        , 
+        TimelineTemplate BP_Camper_Character_C.TML_CondemnnedStatusFXIntensity_Template
+        , 
+        TimelineTemplate BP_Camper_Character_C.TML_GlitchScreem_Template
+        , 
+        TimelineTemplate BP_Camper_Character_C.Timeline_0_Template
+        , 
+        TimelineTemplate BP_Camper_Character_C.Timeline_4_Template
+        , 
+        TimelineTemplate BP_Camper_Character_C.TML_TapeOffset_Template
     ]
     SimpleConstructionScript: SimpleConstructionScript BP_Camper_Character_C.SimpleConstructionScript
     InheritableComponentHandler: InheritableComponentHandler BP_Camper_Character_C.InheritableComponentHandler
@@ -115,7 +132,7 @@
         }
         _defaultValue: 0
     }
-    NewVar: True
+    IsCondemnedStatusFull?: True
     Line1_Pop: True
     Line1_Reverse: True
     Line2_Pop: True
@@ -131,6 +148,18 @@
     Line7_Pop: True
     Line7_Reverse: True
     Teleport_WeightedBlendable: {
+        Weight: -1
+        Object: null
+    }
+    K27_WeightedBlendable: {
+        Weight: -1
+        Object: null
+    }
+    K27_GlitchScreen_WeightedBlendable: {
+        Weight: -1
+        Object: null
+    }
+    K27_HoldingTapeScreen_WeightedBlendable: {
         Weight: -1
         Object: null
     }
@@ -778,32 +807,29 @@
             AttachParent: {
                     bEnablePhysicsOnDedicatedServer: False
                     bSkipBoundsUpdateWhenInterpolating: True
+                    bEnableUpdateRateOptimizations: True
                     AnimationTresholdToFrameSkip: [
                         {
-                            Treshold: 0.1
+                            Treshold: 1
                             FrameSkip: 0
                         }
                         , 
                         {
-                            Treshold: 0.075
+                            Treshold: 0.5
                             FrameSkip: 1
                         }
                         , 
                         {
-                            Treshold: 0.05
+                            Treshold: 0.15
                             FrameSkip: 2
                         }
                         , 
                         {
-                            Treshold: 0.025
+                            Treshold: 0.05
                             FrameSkip: 3
                         }
-                        , 
-                        {
-                            Treshold: 0.01
-                            FrameSkip: 4
-                        }
                     ]
+                    bDisplayDebugUpdateRateOptimizations: True
                     DetailLevelBeforeCastShadows: DM_MAX
                     bCastCinematicShadow: True
                     bRenderCustomDepth: True

@@ -1,0 +1,93 @@
+{
+    Timelines: [
+        TimelineTemplate BP_OnryoTelevision_C.TML_StaticNoise_CloseTV_Template
+        , 
+        TimelineTemplate BP_OnryoTelevision_C.TML_StaticNoise_OpenTV_Template
+        , 
+        TimelineTemplate BP_OnryoTelevision_C.TML_WhiteToNoise_Template
+        , 
+        TimelineTemplate BP_OnryoTelevision_C.TML_From_BlueScreen_To_SurvivorTape_Template
+        , 
+        TimelineTemplate BP_OnryoTelevision_C.TML_To KillerTape_Template
+        , 
+        TimelineTemplate BP_OnryoTelevision_C.TML_Back To Static From Survivor_Template
+        , 
+        TimelineTemplate BP_OnryoTelevision_C.TML_From_SurvivorTape_To_KillerTape_Template
+        , 
+        TimelineTemplate BP_OnryoTelevision_C.TML_SwitchToBluescreen_SurvivorTape_Template
+        , 
+        TimelineTemplate BP_OnryoTelevision_C.TML_SwitchToBluescreen_KillerTape_Template
+        , 
+        TimelineTemplate BP_OnryoTelevision_C.Timeline_0_Template
+    ]
+    SimpleConstructionScript: SimpleConstructionScript BP_OnryoTelevision_C.SimpleConstructionScript
+    UberGraphFunction: Function BP_OnryoTelevision_C.ExecuteUbergraph_BP_OnryoTelevision
+}
+<--- CDO --->
+{
+    UberGraphFrame: None
+    _televisionOutlineUpdateStrategy: {
+        }
+    _localPlayerTracker: {
+        }
+    _mapActorComponent: {
+            Category: EMapActorCategory::KillerObject
+        }
+    _autoPowerComponent: {
+            _cooldownStateClass: BlueprintGeneratedClass /Game/Blueprints/GameplayElements/Item/K27Power/BP_OnryoTVInitialCooldownStateComponent.BP_OnryoTVInitialCooldownStateComponent_C
+        }
+    _distanceNearTVWithoutTape: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Kepler/K27_TunableValue.K27_TunableValue
+            RowName: DistanceToPlaySurvivorVideo
+        }
+    }
+    _survivorTurnOffTVDuration: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Kepler/K27_TunableValue.K27_TunableValue
+                RowName: SurvivorTurnOffDuration
+            }
+        }
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Add
+                ModifierTag: {
+                    TagName: GameplayModifierType.Onryo.ModifySurvivorTelevisionTurnOffDuration
+                }
+                CompoundStrategy: EModifierCompoundStrategy::Add
+            }
+        ]
+    }
+    _teleportTurnOffDuration: {
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Kepler/K27_TunableValue.K27_TunableValue
+                RowName: TelevisionTeleportCooldown
+            }
+        }
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Add
+                ModifierTag: {
+                    TagName: GameplayModifierType.Onryo.ModifyTeleportTelevisionTurnOffDuration
+                }
+                CompoundStrategy: EModifierCompoundStrategy::Add
+            }
+        ]
+    }
+    _survivorInsertTapeTurnOffDuration: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Kepler/K27_TunableValue.K27_TunableValue
+            RowName: SurvivorInsertTapeTurnOffDuration
+        }
+    }
+    _shouldRepowerOtherTelevisionsWhenAllTurnedOff: {
+        _dataTableRowHandle: {
+            DataTable: DataTable /Game/Data/Dlc/Kepler/K27_TunableValue.K27_TunableValue
+            RowName: ShouldRepowerTVsWhenTheyAreAllTurnedOff
+        }
+    }
+    _transformOptimizer: {
+        }
+}
