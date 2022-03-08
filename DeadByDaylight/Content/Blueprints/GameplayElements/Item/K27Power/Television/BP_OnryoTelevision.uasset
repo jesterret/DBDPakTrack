@@ -16,8 +16,6 @@
         , 
         TimelineTemplate BP_OnryoTelevision_C.TML_SwitchToBluescreen_SurvivorTape_Template
         , 
-        TimelineTemplate BP_OnryoTelevision_C.TML_SwitchToBluescreen_KillerTape_Template
-        , 
         TimelineTemplate BP_OnryoTelevision_C.Timeline_0_Template
     ]
     SimpleConstructionScript: SimpleConstructionScript BP_OnryoTelevision_C.SimpleConstructionScript
@@ -77,10 +75,21 @@
         ]
     }
     _survivorInsertTapeTurnOffDuration: {
-        _dataTableRowHandle: {
-            DataTable: DataTable /Game/Data/Dlc/Kepler/K27_TunableValue.K27_TunableValue
-            RowName: SurvivorInsertTapeTurnOffDuration
+        _baseValue: {
+            _dataTableRowHandle: {
+                DataTable: DataTable /Game/Data/Dlc/Kepler/K27_TunableValue.K27_TunableValue
+                RowName: SurvivorInsertTapeTurnOffDuration
+            }
         }
+        _statModifiers: [
+            {
+                OperationStrategy: EModifierOperationStrategy::Add
+                ModifierTag: {
+                    TagName: GameplayModifierType.Onryo.ModifySurvivorTelevisionTurnOffDuration
+                }
+                CompoundStrategy: EModifierCompoundStrategy::Add
+            }
+        ]
     }
     _shouldRepowerOtherTelevisionsWhenAllTurnedOff: {
         _dataTableRowHandle: {
